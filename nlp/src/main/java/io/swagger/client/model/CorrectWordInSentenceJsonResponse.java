@@ -30,7 +30,7 @@ import java.util.List;
  * A word in a sentence
  */
 @ApiModel(description = "A word in a sentence")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:25:58.925-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:27:50.949-08:00")
 public class CorrectWordInSentenceJsonResponse {
   @SerializedName("Word")
   private WordPosition word = null;
