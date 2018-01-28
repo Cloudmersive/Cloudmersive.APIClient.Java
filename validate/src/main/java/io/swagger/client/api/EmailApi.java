@@ -58,7 +58,7 @@ public class EmailApi {
 
     /**
      * Build call for emailAddressGetServers
-     * @param email  (required)
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -120,9 +120,9 @@ public class EmailApi {
     }
 
     /**
-     * 
-     * 
-     * @param email  (required)
+     * Partially check whether an email address is valid
+     * Validate an email address by identifying whether its parent domain has email servers defined.  This call is less limited than syntaxOnly but not as comprehensive as address/full.
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @return AddressGetServersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -132,9 +132,9 @@ public class EmailApi {
     }
 
     /**
-     * 
-     * 
-     * @param email  (required)
+     * Partially check whether an email address is valid
+     * Validate an email address by identifying whether its parent domain has email servers defined.  This call is less limited than syntaxOnly but not as comprehensive as address/full.
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @return ApiResponse&lt;AddressGetServersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -145,9 +145,9 @@ public class EmailApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
-     * @param email  (required)
+     * Partially check whether an email address is valid (asynchronously)
+     * Validate an email address by identifying whether its parent domain has email servers defined.  This call is less limited than syntaxOnly but not as comprehensive as address/full.
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -180,7 +180,7 @@ public class EmailApi {
     }
     /**
      * Build call for emailFullValidation
-     * @param email  (required)
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -242,9 +242,9 @@ public class EmailApi {
     }
 
     /**
-     * 
-     * 
-     * @param email  (required)
+     * Fully validate an email address
+     * Performs a full validation of the email address.  Checks for syntactic correctness, identifies the mail server in question if any, and then contacts the email server to validate the existence of the account - without sending any emails.
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @return FullEmailValidationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -254,9 +254,9 @@ public class EmailApi {
     }
 
     /**
-     * 
-     * 
-     * @param email  (required)
+     * Fully validate an email address
+     * Performs a full validation of the email address.  Checks for syntactic correctness, identifies the mail server in question if any, and then contacts the email server to validate the existence of the account - without sending any emails.
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @return ApiResponse&lt;FullEmailValidationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -267,9 +267,9 @@ public class EmailApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
-     * @param email  (required)
+     * Fully validate an email address (asynchronously)
+     * Performs a full validation of the email address.  Checks for syntactic correctness, identifies the mail server in question if any, and then contacts the email server to validate the existence of the account - without sending any emails.
+     * @param email Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -302,7 +302,7 @@ public class EmailApi {
     }
     /**
      * Build call for emailPost
-     * @param value  (required)
+     * @param value Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -364,9 +364,9 @@ public class EmailApi {
     }
 
     /**
-     * 
-     * 
-     * @param value  (required)
+     * Validate email adddress for syntactic correctness only
+     * Validate whether a given email address is syntactically correct via a limited local-only check.  Use the address/full API to do a full validation.
+     * @param value Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @return AddressVerifySyntaxOnlyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -376,9 +376,9 @@ public class EmailApi {
     }
 
     /**
-     * 
-     * 
-     * @param value  (required)
+     * Validate email adddress for syntactic correctness only
+     * Validate whether a given email address is syntactically correct via a limited local-only check.  Use the address/full API to do a full validation.
+     * @param value Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @return ApiResponse&lt;AddressVerifySyntaxOnlyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -389,9 +389,9 @@ public class EmailApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
-     * @param value  (required)
+     * Validate email adddress for syntactic correctness only (asynchronously)
+     * Validate whether a given email address is syntactically correct via a limited local-only check.  Use the address/full API to do a full validation.
+     * @param value Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

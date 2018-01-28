@@ -57,7 +57,7 @@ public class DomainApi {
 
     /**
      * Build call for domainCheck
-     * @param domain  (required)
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -119,9 +119,9 @@ public class DomainApi {
     }
 
     /**
-     * 
-     * 
-     * @param domain  (required)
+     * Validate a domain name
+     * Check whether a domain name is valid or not.  API performs a live validation by contacting DNS services to validate the existence of the domain name.
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @return CheckResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -131,9 +131,9 @@ public class DomainApi {
     }
 
     /**
-     * 
-     * 
-     * @param domain  (required)
+     * Validate a domain name
+     * Check whether a domain name is valid or not.  API performs a live validation by contacting DNS services to validate the existence of the domain name.
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @return ApiResponse&lt;CheckResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -144,9 +144,9 @@ public class DomainApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
-     * @param domain  (required)
+     * Validate a domain name (asynchronously)
+     * Check whether a domain name is valid or not.  API performs a live validation by contacting DNS services to validate the existence of the domain name.
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -179,7 +179,7 @@ public class DomainApi {
     }
     /**
      * Build call for domainPost
-     * @param domain  (required)
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -241,9 +241,9 @@ public class DomainApi {
     }
 
     /**
-     * 
-     * 
-     * @param domain  (required)
+     * Get WHOIS information for a domain
+     * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain&#39;s owners.
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @return WhoisResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -253,9 +253,9 @@ public class DomainApi {
     }
 
     /**
-     * 
-     * 
-     * @param domain  (required)
+     * Get WHOIS information for a domain
+     * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain&#39;s owners.
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @return ApiResponse&lt;WhoisResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -266,9 +266,9 @@ public class DomainApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
-     * @param domain  (required)
+     * Get WHOIS information for a domain (asynchronously)
+     * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain&#39;s owners.
+     * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

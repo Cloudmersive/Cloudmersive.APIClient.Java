@@ -24,9 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * AddressVerifySyntaxOnlyResponse
+ * Syntactic validity of email address
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-08T21:29:35.885-08:00")
+@ApiModel(description = "Syntactic validity of email address")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:13:40.663-08:00")
 public class AddressVerifySyntaxOnlyResponse {
   @SerializedName("ValidAddress")
   private Boolean validAddress = null;
@@ -37,10 +38,10 @@ public class AddressVerifySyntaxOnlyResponse {
   }
 
    /**
-   * Get validAddress
+   * True if the email address is syntactically valid, false if it is not
    * @return validAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the email address is syntactically valid, false if it is not")
   public Boolean isValidAddress() {
     return validAddress;
   }

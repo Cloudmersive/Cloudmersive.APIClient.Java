@@ -25,9 +25,10 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * WhoisResponse
+ * Result of a WHOIS operation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-08T21:29:35.885-08:00")
+@ApiModel(description = "Result of a WHOIS operation")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:13:40.663-08:00")
 public class WhoisResponse {
   @SerializedName("ValidDomain")
   private Boolean validDomain = null;
@@ -47,10 +48,10 @@ public class WhoisResponse {
   }
 
    /**
-   * Get validDomain
+   * True if the domain is valid, false if it is not
    * @return validDomain
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the domain is valid, false if it is not")
   public Boolean isValidDomain() {
     return validDomain;
   }
@@ -65,10 +66,10 @@ public class WhoisResponse {
   }
 
    /**
-   * Get whoisServer
+   * Server used to lookup WHOIS information (may change based on lookup).
    * @return whoisServer
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Server used to lookup WHOIS information (may change based on lookup).")
   public String getWhoisServer() {
     return whoisServer;
   }
@@ -83,10 +84,10 @@ public class WhoisResponse {
   }
 
    /**
-   * Get rawTextRecord
+   * WHOIS raw text record
    * @return rawTextRecord
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "WHOIS raw text record")
   public String getRawTextRecord() {
     return rawTextRecord;
   }
@@ -101,10 +102,10 @@ public class WhoisResponse {
   }
 
    /**
-   * Get createdDt
+   * Creation date for the record
    * @return createdDt
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Creation date for the record")
   public OffsetDateTime getCreatedDt() {
     return createdDt;
   }

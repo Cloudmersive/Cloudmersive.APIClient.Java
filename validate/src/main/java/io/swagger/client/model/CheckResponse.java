@@ -24,9 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CheckResponse
+ * Result of a validation operation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-08T21:29:35.885-08:00")
+@ApiModel(description = "Result of a validation operation")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:13:40.663-08:00")
 public class CheckResponse {
   @SerializedName("ValidDomain")
   private Boolean validDomain = null;
@@ -37,10 +38,10 @@ public class CheckResponse {
   }
 
    /**
-   * Get validDomain
+   * True if the domain name was valid, false if it is not
    * @return validDomain
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the domain name was valid, false if it is not")
   public Boolean isValidDomain() {
     return validDomain;
   }

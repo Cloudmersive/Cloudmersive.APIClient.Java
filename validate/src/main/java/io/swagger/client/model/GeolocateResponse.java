@@ -24,9 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GeolocateResponse
+ * Geolocation result
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-08T21:29:35.885-08:00")
+@ApiModel(description = "Geolocation result")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:13:40.663-08:00")
 public class GeolocateResponse {
   @SerializedName("CountryCode")
   private String countryCode = null;
@@ -61,10 +62,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get countryCode
+   * Two-letter country code of IP address
    * @return countryCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Two-letter country code of IP address")
   public String getCountryCode() {
     return countryCode;
   }
@@ -79,10 +80,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get countryName
+   * Country name of IP address
    * @return countryName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Country name of IP address")
   public String getCountryName() {
     return countryName;
   }
@@ -97,10 +98,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get city
+   * City of IP address
    * @return city
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "City of IP address")
   public String getCity() {
     return city;
   }
@@ -115,10 +116,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get regionCode
+   * State/region code of IP address
    * @return regionCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "State/region code of IP address")
   public String getRegionCode() {
     return regionCode;
   }
@@ -133,10 +134,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get regionName
+   * State/region of IP address
    * @return regionName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "State/region of IP address")
   public String getRegionName() {
     return regionName;
   }
@@ -151,10 +152,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get zipCode
+   * Zip or postal code of IP address
    * @return zipCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Zip or postal code of IP address")
   public String getZipCode() {
     return zipCode;
   }
@@ -169,10 +170,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get timezoneStandardName
+   * Timezone of IP address
    * @return timezoneStandardName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Timezone of IP address")
   public String getTimezoneStandardName() {
     return timezoneStandardName;
   }
@@ -187,10 +188,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get latitude
+   * Latitude of IP address
    * @return latitude
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Latitude of IP address")
   public Double getLatitude() {
     return latitude;
   }
@@ -205,10 +206,10 @@ public class GeolocateResponse {
   }
 
    /**
-   * Get longitude
+   * Longitude of IP address
    * @return longitude
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Longitude of IP address")
   public Double getLongitude() {
     return longitude;
   }

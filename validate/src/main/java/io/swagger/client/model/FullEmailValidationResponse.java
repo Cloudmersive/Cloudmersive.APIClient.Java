@@ -24,9 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FullEmailValidationResponse
+ * Full email addresss validation result
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-08T21:29:35.885-08:00")
+@ApiModel(description = "Full email addresss validation result")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:13:40.663-08:00")
 public class FullEmailValidationResponse {
   @SerializedName("ValidAddress")
   private Boolean validAddress = null;
@@ -40,10 +41,10 @@ public class FullEmailValidationResponse {
   }
 
    /**
-   * Get validAddress
+   * True if the email address is valid, false otherwise
    * @return validAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the email address is valid, false otherwise")
   public Boolean isValidAddress() {
     return validAddress;
   }
@@ -58,10 +59,10 @@ public class FullEmailValidationResponse {
   }
 
    /**
-   * Get mailServerUsedForValidation
+   * Email server connected to for verification
    * @return mailServerUsedForValidation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Email server connected to for verification")
   public String getMailServerUsedForValidation() {
     return mailServerUsedForValidation;
   }
