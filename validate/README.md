@@ -58,10 +58,10 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
+import com.cloudmersive.client.*;
+import com.cloudmersive.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.DomainApi;
+import com.cloudmersive.client.validate.DomainApi;
 
 import java.io.File;
 import java.util.*;
@@ -71,7 +71,7 @@ public class DomainApiExample {
     public static void main(String[] args) {
         
         DomainApi apiInstance = new DomainApi();
-        String domain = "domain_example"; // String | 
+        String domain = "domain_example"; // String | Domain name to check, for example \"cloudmersive.com\"
         try {
             CheckResponse result = apiInstance.domainCheck(domain);
             System.out.println(result);
@@ -90,12 +90,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DomainApi* | [**domainCheck**](docs/DomainApi.md#domainCheck) | **POST** /validate/domain/check | 
-*DomainApi* | [**domainPost**](docs/DomainApi.md#domainPost) | **POST** /validate/domain/whois | 
-*EmailApi* | [**emailAddressGetServers**](docs/EmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | 
-*EmailApi* | [**emailFullValidation**](docs/EmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | 
-*EmailApi* | [**emailPost**](docs/EmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | 
-*IPaddressControllerApi* | [**iPaddressControllerPost**](docs/IPaddressControllerApi.md#iPaddressControllerPost) | **POST** /validate/ip/geolocate | 
+*DomainApi* | [**domainCheck**](docs/DomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
+*DomainApi* | [**domainPost**](docs/DomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+*EmailApi* | [**emailAddressGetServers**](docs/EmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
+*EmailApi* | [**emailFullValidation**](docs/EmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
+*EmailApi* | [**emailPost**](docs/EmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
+*IpAddressApi* | [**iPAddressPost**](docs/IpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
 
 
 ## Documentation for Models
