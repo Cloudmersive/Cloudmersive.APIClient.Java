@@ -20,8 +20,8 @@ Validate an email address by identifying whether its parent domain has email ser
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.EmailApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.validate.EmailApi;
 
 
 EmailApi apiInstance = new EmailApi();
@@ -65,8 +65,8 @@ Performs a full validation of the email address.  Checks for syntactic correctne
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.EmailApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.validate.EmailApi;
 
 
 EmailApi apiInstance = new EmailApi();
@@ -110,8 +110,8 @@ Validate whether a given email address is syntactically correct via a limited lo
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.EmailApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.validate.EmailApi;
 
 
 EmailApi apiInstance = new EmailApi();

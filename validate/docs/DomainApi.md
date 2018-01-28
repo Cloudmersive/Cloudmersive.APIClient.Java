@@ -19,8 +19,8 @@ Check whether a domain name is valid or not.  API performs a live validation by 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DomainApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.validate.DomainApi;
 
 
 DomainApi apiInstance = new DomainApi();
@@ -64,8 +64,8 @@ Validate whether a domain name exists, and also return the full WHOIS record for
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DomainApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.validate.DomainApi;
 
 
 DomainApi apiInstance = new DomainApi();

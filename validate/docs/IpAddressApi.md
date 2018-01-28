@@ -18,8 +18,8 @@ Identify an IP address Country, State/Provence, City, Zip/Postal Code, etc.  Use
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IpAddressApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.validate.IpAddressApi;
 
 
 IpAddressApi apiInstance = new IpAddressApi();
