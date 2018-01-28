@@ -14,7 +14,7 @@
 package com.cloudmersive.client.nlp;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.GetWordsJsonResponse;
+import com.cloudmersive.client.validate.nlp.GetWordsJsonResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

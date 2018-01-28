@@ -27,9 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.CheckJsonResponse;
-import io.swagger.client.model.CheckSentenceJsonResponse;
-import io.swagger.client.model.CorrectJsonResponse;
+import com.cloudmersive.client.validate.nlp.CheckJsonResponse;
+import com.cloudmersive.client.validate.nlp.CheckSentenceJsonResponse;
+import com.cloudmersive.client.validate.nlp.CorrectJsonResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

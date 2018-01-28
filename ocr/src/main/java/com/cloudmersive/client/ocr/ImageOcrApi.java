@@ -28,7 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
-import io.swagger.client.model.ImageToTextResponse;
+import com.cloudmersive.client.validate.ocr.ImageToTextResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

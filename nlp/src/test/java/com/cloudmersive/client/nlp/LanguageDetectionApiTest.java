@@ -14,7 +14,7 @@
 package com.cloudmersive.client.nlp;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.LanguageDetectionResponse;
+import com.cloudmersive.client.validate.nlp.LanguageDetectionResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

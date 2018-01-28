@@ -14,8 +14,8 @@
 package com.cloudmersive.client.nlp;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.PosRequest;
-import io.swagger.client.model.PosResponse;
+import com.cloudmersive.client.validate.nlp.PosRequest;
+import com.cloudmersive.client.validate.nlp.PosResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

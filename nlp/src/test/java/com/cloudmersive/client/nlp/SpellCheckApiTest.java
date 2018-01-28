@@ -14,9 +14,9 @@
 package com.cloudmersive.client.nlp;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.CheckJsonResponse;
-import io.swagger.client.model.CheckSentenceJsonResponse;
-import io.swagger.client.model.CorrectJsonResponse;
+import com.cloudmersive.client.validate.nlp.CheckJsonResponse;
+import com.cloudmersive.client.validate.nlp.CheckSentenceJsonResponse;
+import com.cloudmersive.client.validate.nlp.CorrectJsonResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

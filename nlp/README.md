@@ -58,10 +58,10 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.ApikeyUsageApi;
+import com.cloudmersive.client.*;
+import com.cloudmersive.client.auth.*;
+import com.cloudmersive.client.validate.nlp.*;
+import com.cloudmersive.client.nlp.ApikeyUsageApi;
 
 import java.io.File;
 import java.util.*;

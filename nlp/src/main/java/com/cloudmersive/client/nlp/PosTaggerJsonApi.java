@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.PosRequest;
-import io.swagger.client.model.PosResponse;
+import com.cloudmersive.client.validate.nlp.PosRequest;
+import com.cloudmersive.client.validate.nlp.PosResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
