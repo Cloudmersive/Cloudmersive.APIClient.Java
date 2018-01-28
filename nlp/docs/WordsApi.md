@@ -25,8 +25,8 @@ Retrieves all adjectives in input string
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -70,8 +70,8 @@ Returns all adverb words in the input string
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -115,8 +115,8 @@ Get the component words in an input string, formatted as JSON
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -160,8 +160,8 @@ Segment an input string into its component words
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -205,8 +205,8 @@ Returns all of the nouns in the input string
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -250,8 +250,8 @@ Get all of the verbs in the input string.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -295,8 +295,8 @@ Returns all pronouns in the input string
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();
@@ -340,8 +340,8 @@ Returns all of the proper nouns in a string.  Proper nouns are named entities su
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.WordsApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.WordsApi;
 
 
 WordsApi apiInstance = new WordsApi();

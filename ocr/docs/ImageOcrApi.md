@@ -16,8 +16,8 @@ Converts an uploaded image in common formats such as JPEG, PNG into text via Opt
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ImageOcrApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.ocr.ImageOcrApi;
 
 
 ImageOcrApi apiInstance = new ImageOcrApi();

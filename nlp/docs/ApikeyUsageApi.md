@@ -18,8 +18,8 @@ Use this API to determine how many API calls you have made during this month.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ApikeyUsageApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.ApikeyUsageApi;
 
 
 ApikeyUsageApi apiInstance = new ApikeyUsageApi();

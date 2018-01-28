@@ -18,8 +18,8 @@ Part-of-speech (POS) tag a string and return result as JSON
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PosTaggerJsonApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.PosTaggerJsonApi;
 
 
 PosTaggerJsonApi apiInstance = new PosTaggerJsonApi();

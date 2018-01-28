@@ -18,8 +18,8 @@ Parses the input string into a Penn Treebank syntax tree
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParseStringApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.ParseStringApi;
 
 
 ParseStringApi apiInstance = new ParseStringApi();

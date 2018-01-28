@@ -18,8 +18,8 @@ Perform a part-of-speech (POS) tagging on the input string.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PosTaggerStringApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.PosTaggerStringApi;
 
 
 PosTaggerStringApi apiInstance = new PosTaggerStringApi();

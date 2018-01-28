@@ -18,8 +18,8 @@ Automatically determine which language a text string is written in.  Supports Da
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.LanguageDetectionApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.LanguageDetectionApi;
 
 
 LanguageDetectionApi apiInstance = new LanguageDetectionApi();

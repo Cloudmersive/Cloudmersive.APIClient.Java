@@ -18,8 +18,8 @@ Segment an input string into separate sentences, output result as a string.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SentencesApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SentencesApi;
 
 
 SentencesApi apiInstance = new SentencesApi();

@@ -23,8 +23,8 @@ Spell check a word as JSON
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SpellCheckApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SpellCheckApi;
 
 
 SpellCheckApi apiInstance = new SpellCheckApi();
@@ -68,8 +68,8 @@ Checks whether the sentence is spelled correctly and returns the result as JSON
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SpellCheckApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SpellCheckApi;
 
 
 SpellCheckApi apiInstance = new SpellCheckApi();
@@ -113,8 +113,8 @@ Check if a sentence is spelled correctly
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SpellCheckApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SpellCheckApi;
 
 
 SpellCheckApi apiInstance = new SpellCheckApi();
@@ -158,8 +158,8 @@ Find the spelling corrections for a word
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SpellCheckApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SpellCheckApi;
 
 
 SpellCheckApi apiInstance = new SpellCheckApi();
@@ -203,8 +203,8 @@ Find spelling correction suggestions and return result as JSON
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SpellCheckApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SpellCheckApi;
 
 
 SpellCheckApi apiInstance = new SpellCheckApi();
@@ -248,8 +248,8 @@ Check if a word is spelled correctly
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SpellCheckApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.SpellCheckApi;
 
 
 SpellCheckApi apiInstance = new SpellCheckApi();

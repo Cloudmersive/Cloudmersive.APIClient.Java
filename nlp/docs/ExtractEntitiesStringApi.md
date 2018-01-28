@@ -18,8 +18,8 @@ Extract the named entitites from an input string.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ExtractEntitiesStringApi;
+//import com.cloudmersive.client.ApiException;
+//import com.cloudmersive.client.nlp.ExtractEntitiesStringApi;
 
 
 ExtractEntitiesStringApi apiInstance = new ExtractEntitiesStringApi();
