@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.CheckResponse;
-import io.swagger.client.model.WhoisResponse;
+import com.cloudmersive.client.validate.model.CheckResponse;
+import com.cloudmersive.client.validate.model.WhoisResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

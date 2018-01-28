@@ -14,7 +14,7 @@
 package com.cloudmersive.client.validate;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.GeolocateResponse;
+import com.cloudmersive.client.validate.model.GeolocateResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

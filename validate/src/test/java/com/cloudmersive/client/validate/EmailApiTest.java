@@ -14,9 +14,9 @@
 package com.cloudmersive.client.validate;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.AddressGetServersResponse;
-import io.swagger.client.model.AddressVerifySyntaxOnlyResponse;
-import io.swagger.client.model.FullEmailValidationResponse;
+import com.cloudmersive.client.validate.model.AddressGetServersResponse;
+import com.cloudmersive.client.validate.model.AddressVerifySyntaxOnlyResponse;
+import com.cloudmersive.client.validate.model.FullEmailValidationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

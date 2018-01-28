@@ -14,8 +14,8 @@
 package com.cloudmersive.client.validate;
 
 import com.cloudmersive.client.ApiException;
-import io.swagger.client.model.CheckResponse;
-import io.swagger.client.model.WhoisResponse;
+import com.cloudmersive.client.validate.model.CheckResponse;
+import com.cloudmersive.client.validate.model.WhoisResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

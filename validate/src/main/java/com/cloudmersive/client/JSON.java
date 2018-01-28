@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
-import io.swagger.client.model.*;
+import com.cloudmersive.client.validate.model.*;
 
 import java.io.IOException;
 import java.io.StringReader;

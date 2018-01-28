@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.GeolocateResponse;
+import com.cloudmersive.client.validate.model.GeolocateResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

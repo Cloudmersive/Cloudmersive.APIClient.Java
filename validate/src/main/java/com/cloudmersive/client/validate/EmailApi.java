@@ -27,9 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.AddressGetServersResponse;
-import io.swagger.client.model.AddressVerifySyntaxOnlyResponse;
-import io.swagger.client.model.FullEmailValidationResponse;
+import com.cloudmersive.client.validate.model.AddressGetServersResponse;
+import com.cloudmersive.client.validate.model.AddressVerifySyntaxOnlyResponse;
+import com.cloudmersive.client.validate.model.FullEmailValidationResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

@@ -60,7 +60,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 import com.cloudmersive.client.*;
 import com.cloudmersive.client.auth.*;
-import io.swagger.client.model.*;
+import com.cloudmersive.client.validate.model.*;
 import com.cloudmersive.client.validate.DomainApi;
 
 import java.io.File;

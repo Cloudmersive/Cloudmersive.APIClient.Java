@@ -11,7 +11,7 @@
  */
 
 
-package io.swagger.client.model;
+package com.cloudmersive.client.validate.model;
 
 import java.util.Objects;
 import com.google.gson.TypeAdapter;
@@ -24,30 +24,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Syntactic validity of email address
+ * Result of a validation operation
  */
-@ApiModel(description = "Syntactic validity of email address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:35:42.315-08:00")
-public class AddressVerifySyntaxOnlyResponse {
-  @SerializedName("ValidAddress")
-  private Boolean validAddress = null;
+@ApiModel(description = "Result of a validation operation")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:37:39.505-08:00")
+public class CheckResponse {
+  @SerializedName("ValidDomain")
+  private Boolean validDomain = null;
 
-  public AddressVerifySyntaxOnlyResponse validAddress(Boolean validAddress) {
-    this.validAddress = validAddress;
+  public CheckResponse validDomain(Boolean validDomain) {
+    this.validDomain = validDomain;
     return this;
   }
 
    /**
-   * True if the email address is syntactically valid, false if it is not
-   * @return validAddress
+   * True if the domain name was valid, false if it is not
+   * @return validDomain
   **/
-  @ApiModelProperty(value = "True if the email address is syntactically valid, false if it is not")
-  public Boolean isValidAddress() {
-    return validAddress;
+  @ApiModelProperty(value = "True if the domain name was valid, false if it is not")
+  public Boolean isValidDomain() {
+    return validDomain;
   }
 
-  public void setValidAddress(Boolean validAddress) {
-    this.validAddress = validAddress;
+  public void setValidDomain(Boolean validDomain) {
+    this.validDomain = validDomain;
   }
 
 
@@ -59,22 +59,22 @@ public class AddressVerifySyntaxOnlyResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddressVerifySyntaxOnlyResponse addressVerifySyntaxOnlyResponse = (AddressVerifySyntaxOnlyResponse) o;
-    return Objects.equals(this.validAddress, addressVerifySyntaxOnlyResponse.validAddress);
+    CheckResponse checkResponse = (CheckResponse) o;
+    return Objects.equals(this.validDomain, checkResponse.validDomain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validAddress);
+    return Objects.hash(validDomain);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddressVerifySyntaxOnlyResponse {\n");
+    sb.append("class CheckResponse {\n");
     
-    sb.append("    validAddress: ").append(toIndentedString(validAddress)).append("\n");
+    sb.append("    validDomain: ").append(toIndentedString(validDomain)).append("\n");
     sb.append("}");
     return sb.toString();
   }
