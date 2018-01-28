@@ -18,7 +18,7 @@ import com.cloudmersive.client.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:50:55.645-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-28T11:58:48.773-08:00")
 public class OAuth implements Authentication {
   private String accessToken;
 

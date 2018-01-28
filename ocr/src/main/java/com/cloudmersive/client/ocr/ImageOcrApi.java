@@ -28,7 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
-import com.cloudmersive.client.validate.ocr.ImageToTextResponse;
+import com.cloudmersive.client.ocr.model.ImageToTextResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

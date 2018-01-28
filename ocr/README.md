@@ -60,7 +60,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 import com.cloudmersive.client.*;
 import com.cloudmersive.client.auth.*;
-import com.cloudmersive.client.validate.ocr.*;
+import com.cloudmersive.client.ocr.model.*;
 import com.cloudmersive.client.ocr.ImageOcrApi;
 
 import java.io.File;

@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
-import com.cloudmersive.client.validate.ocr.*;
+import com.cloudmersive.client.ocr.model.*;
 
 import java.io.IOException;
 import java.io.StringReader;

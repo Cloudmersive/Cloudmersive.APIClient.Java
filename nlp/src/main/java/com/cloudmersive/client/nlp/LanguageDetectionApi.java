@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.cloudmersive.client.validate.nlp.LanguageDetectionResponse;
+import com.cloudmersive.client.nlp.model.LanguageDetectionResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

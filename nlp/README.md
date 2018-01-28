@@ -60,7 +60,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 import com.cloudmersive.client.*;
 import com.cloudmersive.client.auth.*;
-import com.cloudmersive.client.validate.nlp.*;
+import com.cloudmersive.client.nlp.model.*;
 import com.cloudmersive.client.nlp.ApikeyUsageApi;
 
 import java.io.File;

@@ -15,7 +15,7 @@ package com.cloudmersive.client.ocr;
 
 import com.cloudmersive.client.ApiException;
 import java.io.File;
-import com.cloudmersive.client.validate.ocr.ImageToTextResponse;
+import com.cloudmersive.client.ocr.model.ImageToTextResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
