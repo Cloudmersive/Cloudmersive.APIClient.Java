@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VirusFound
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-30T22:56:51.611-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-10T22:47:15.945-08:00")
 public class VirusFound {
   @SerializedName("FileName")
   private String fileName = null;
