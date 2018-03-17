@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="faceCropFirst"></a>
 # **faceCropFirst**
-> Object faceCropFirst(imageFile)
+> File faceCropFirst(imageFile)
 
 Crop image to face (square)
 
@@ -27,7 +27,7 @@ Crop an image to the face (rectangular crop).  If there is more than one face pr
 FaceApi apiInstance = new FaceApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.faceCropFirst(imageFile);
+    File result = apiInstance.faceCropFirst(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaceApi#faceCropFirst");
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -52,11 +52,11 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="faceCropFirstRound"></a>
 # **faceCropFirstRound**
-> Object faceCropFirstRound(imageFile)
+> File faceCropFirstRound(imageFile)
 
 Crop image to face (round)
 
@@ -72,7 +72,7 @@ Crop an image to the face (circular/round crop).  If there is more than one face
 FaceApi apiInstance = new FaceApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.faceCropFirstRound(imageFile);
+    File result = apiInstance.faceCropFirstRound(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaceApi#faceCropFirstRound");
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="faceLocate"></a>
 # **faceLocate**

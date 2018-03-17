@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-10T22:47:15.945-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-11T18:11:20.556-07:00")
 public class Pair {
     private String name = "";
     private String value = "";
