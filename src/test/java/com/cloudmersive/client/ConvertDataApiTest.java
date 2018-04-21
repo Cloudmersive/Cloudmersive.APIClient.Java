@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +41,7 @@ public class ConvertDataApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDataCsvToJsonTest() {
+    public void convertDataCsvToJsonTest() throws ApiException {
         File inputFile = null;
         Object response = api.convertDataCsvToJson(inputFile);
 
@@ -56,7 +57,7 @@ public class ConvertDataApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlToJsonTest() {
+    public void convertDataXmlToJsonTest() throws ApiException {
         Object response = api.convertDataXmlToJson();
 
         // TODO: test validations

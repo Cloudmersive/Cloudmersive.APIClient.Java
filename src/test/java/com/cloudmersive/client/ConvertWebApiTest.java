@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.HtmlToPdfRequest;
 import com.cloudmersive.client.model.ScreenshotRequest;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class ConvertWebApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertWebUrlToPdfTest() {
+    public void convertWebUrlToPdfTest() throws ApiException {
         ScreenshotRequest input = null;
         Object response = api.convertWebUrlToPdf(input);
 
@@ -57,7 +58,7 @@ public class ConvertWebApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertWebUrlToPdf_0Test() {
+    public void convertWebUrlToPdf_0Test() throws ApiException {
         HtmlToPdfRequest input = null;
         Object response = api.convertWebUrlToPdf_0(input);
 
@@ -73,7 +74,7 @@ public class ConvertWebApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertWebUrlToScreenshotTest() {
+    public void convertWebUrlToScreenshotTest() throws ApiException {
         ScreenshotRequest input = null;
         Object response = api.convertWebUrlToScreenshot(input);
 

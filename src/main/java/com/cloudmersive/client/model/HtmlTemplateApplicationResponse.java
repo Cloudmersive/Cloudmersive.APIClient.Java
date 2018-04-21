@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response from an HTML template application
  */
 @ApiModel(description = "Response from an HTML template application")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:06:22.628-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:38:10.985-07:00")
 public class HtmlTemplateApplicationResponse {
   @JsonProperty("Successful")
   private Boolean successful = null;

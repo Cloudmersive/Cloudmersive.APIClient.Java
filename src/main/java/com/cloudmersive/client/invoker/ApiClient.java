@@ -50,7 +50,7 @@ import com.cloudmersive.client.invoker.auth.HttpBasicAuth;
 import com.cloudmersive.client.invoker.auth.ApiKeyAuth;
 import com.cloudmersive.client.invoker.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-19T20:06:22.628-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:38:10.985-07:00")
 @Component("com.cloudmersive.client.invoker.ApiClient")
 public class ApiClient {
     public enum CollectionFormat {
