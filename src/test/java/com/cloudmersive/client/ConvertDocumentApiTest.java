@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -41,7 +40,7 @@ public class ConvertDocumentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDocumentAutodetectToPdfTest() throws ApiException {
+    public void convertDocumentAutodetectToPdfTest() {
         File inputFile = null;
         File response = api.convertDocumentAutodetectToPdf(inputFile);
 
@@ -57,7 +56,7 @@ public class ConvertDocumentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDocumentDocxToPdfTest() throws ApiException {
+    public void convertDocumentDocxToPdfTest() {
         File inputFile = null;
         File response = api.convertDocumentDocxToPdf(inputFile);
 
@@ -73,7 +72,7 @@ public class ConvertDocumentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDocumentPptxToPdfTest() throws ApiException {
+    public void convertDocumentPptxToPdfTest() {
         File inputFile = null;
         File response = api.convertDocumentPptxToPdf(inputFile);
 
@@ -89,7 +88,7 @@ public class ConvertDocumentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDocumentXlsxToCsvTest() throws ApiException {
+    public void convertDocumentXlsxToCsvTest() {
         File inputFile = null;
         File response = api.convertDocumentXlsxToCsv(inputFile);
 
@@ -105,7 +104,7 @@ public class ConvertDocumentApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertDocumentXlsxToPdfTest() throws ApiException {
+    public void convertDocumentXlsxToPdfTest() {
         File inputFile = null;
         File response = api.convertDocumentXlsxToPdf(inputFile);
 

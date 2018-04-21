@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -41,7 +40,7 @@ public class ConvertImageApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertImageImageFormatConvertTest() throws ApiException {
+    public void convertImageImageFormatConvertTest() {
         String format1 = null;
         String format2 = null;
         File inputFile = null;

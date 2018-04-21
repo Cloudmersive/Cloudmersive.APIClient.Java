@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.HtmlTemplateApplicationRequest;
 import com.cloudmersive.client.model.HtmlTemplateApplicationResponse;
 import org.junit.Test;
@@ -42,7 +41,7 @@ public class ConvertTemplateApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertTemplateApplyHtmlTemplateTest() throws ApiException {
+    public void convertTemplateApplyHtmlTemplateTest() {
         HtmlTemplateApplicationRequest value = null;
         HtmlTemplateApplicationResponse response = api.convertTemplateApplyHtmlTemplate(value);
 
