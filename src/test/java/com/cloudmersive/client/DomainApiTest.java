@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckResponse;
 import com.cloudmersive.client.model.WhoisResponse;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class DomainApiTest {
      *          if the Api call fails
      */
     @Test
-    public void domainCheckTest() {
+    public void domainCheckTest() throws ApiException {
         String domain = null;
         CheckResponse response = api.domainCheck(domain);
 
@@ -57,7 +58,7 @@ public class DomainApiTest {
      *          if the Api call fails
      */
     @Test
-    public void domainPostTest() {
+    public void domainPostTest() throws ApiException {
         String domain = null;
         WhoisResponse response = api.domainPost(domain);
 

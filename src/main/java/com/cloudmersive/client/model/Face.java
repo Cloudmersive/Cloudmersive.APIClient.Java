@@ -14,28 +14,31 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Location of one face in an image
  */
 @ApiModel(description = "Location of one face in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:56.694-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:36.013-07:00")
 public class Face {
-  @JsonProperty("LeftX")
+  @SerializedName("LeftX")
   private Integer leftX = null;
 
-  @JsonProperty("TopY")
+  @SerializedName("TopY")
   private Integer topY = null;
 
-  @JsonProperty("RightX")
+  @SerializedName("RightX")
   private Integer rightX = null;
 
-  @JsonProperty("BottomY")
+  @SerializedName("BottomY")
   private Integer bottomY = null;
 
   public Face leftX(Integer leftX) {

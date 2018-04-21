@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.LanguageDetectionResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +41,7 @@ public class LanguageDetectionApiTest {
      *          if the Api call fails
      */
     @Test
-    public void languageDetectionPostTest() {
+    public void languageDetectionPostTest() throws ApiException {
         String textToDetect = null;
         LanguageDetectionResponse response = api.languageDetectionPost(textToDetect);
 

@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.BarcodeLookupResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +41,7 @@ public class BarcodeLookupApiTest {
      *          if the Api call fails
      */
     @Test
-    public void barcodeLookupEanLookupTest() {
+    public void barcodeLookupEanLookupTest() throws ApiException {
         String value = null;
         BarcodeLookupResponse response = api.barcodeLookupEanLookup(value);
 

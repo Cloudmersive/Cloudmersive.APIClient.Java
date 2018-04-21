@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckJsonResponse;
 import com.cloudmersive.client.model.CheckSentenceJsonResponse;
 import com.cloudmersive.client.model.CorrectJsonResponse;
@@ -42,7 +43,7 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCheckJsonTest() {
+    public void spellCheckCheckJsonTest() throws ApiException {
         String value = null;
         CheckJsonResponse response = api.spellCheckCheckJson(value);
 
@@ -58,7 +59,7 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCheckSentenceJsonTest() {
+    public void spellCheckCheckSentenceJsonTest() throws ApiException {
         String value = null;
         CheckSentenceJsonResponse response = api.spellCheckCheckSentenceJson(value);
 
@@ -74,7 +75,7 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCheckSentenceStringTest() {
+    public void spellCheckCheckSentenceStringTest() throws ApiException {
         String value = null;
         Boolean response = api.spellCheckCheckSentenceString(value);
 
@@ -90,7 +91,7 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCorrectTest() {
+    public void spellCheckCorrectTest() throws ApiException {
         String value = null;
         String response = api.spellCheckCorrect(value);
 
@@ -106,7 +107,7 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCorrectJsonTest() {
+    public void spellCheckCorrectJsonTest() throws ApiException {
         String value = null;
         CorrectJsonResponse response = api.spellCheckCorrectJson(value);
 
@@ -122,7 +123,7 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckPostTest() {
+    public void spellCheckPostTest() throws ApiException {
         String value = null;
         Boolean response = api.spellCheckPost(value);
 

@@ -15,11 +15,14 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import com.cloudmersive.client.model.Face;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,15 +30,15 @@ import java.util.List;
  * Results of locating faces in an image
  */
 @ApiModel(description = "Results of locating faces in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:56.694-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:36.013-07:00")
 public class FaceLocateResponse {
-  @JsonProperty("Successful")
+  @SerializedName("Successful")
   private Boolean successful = null;
 
-  @JsonProperty("Faces")
+  @SerializedName("Faces")
   private List<Face> faces = null;
 
-  @JsonProperty("FaceCount")
+  @SerializedName("FaceCount")
   private Integer faceCount = null;
 
   public FaceLocateResponse successful(Boolean successful) {

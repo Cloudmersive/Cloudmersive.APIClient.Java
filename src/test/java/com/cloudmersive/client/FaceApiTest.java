@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.FaceLocateResponse;
 import java.io.File;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class FaceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void faceCropFirstTest() {
+    public void faceCropFirstTest() throws ApiException {
         File imageFile = null;
         File response = api.faceCropFirst(imageFile);
 
@@ -57,7 +58,7 @@ public class FaceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void faceCropFirstRoundTest() {
+    public void faceCropFirstRoundTest() throws ApiException {
         File imageFile = null;
         File response = api.faceCropFirstRound(imageFile);
 
@@ -73,7 +74,7 @@ public class FaceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void faceLocateTest() {
+    public void faceLocateTest() throws ApiException {
         File imageFile = null;
         FaceLocateResponse response = api.faceLocate(imageFile);
 

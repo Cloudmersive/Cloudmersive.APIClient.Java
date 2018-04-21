@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -39,7 +40,7 @@ public class PosTaggerStringApiTest {
      *          if the Api call fails
      */
     @Test
-    public void posTaggerStringPostTest() {
+    public void posTaggerStringPostTest() throws ApiException {
         String input = null;
         String response = api.posTaggerStringPost(input);
 

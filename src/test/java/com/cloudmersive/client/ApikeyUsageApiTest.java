@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -39,7 +40,7 @@ public class ApikeyUsageApiTest {
      *          if the Api call fails
      */
     @Test
-    public void apikeyUsageGetTest() {
+    public void apikeyUsageGetTest() throws ApiException {
         String id = null;
         Long response = api.apikeyUsageGet(id);
 

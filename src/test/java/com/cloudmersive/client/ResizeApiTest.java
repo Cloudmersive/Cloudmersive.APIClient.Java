@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +41,7 @@ public class ResizeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void resizePostTest() {
+    public void resizePostTest() throws ApiException {
         Integer maxWidth = null;
         Integer maxHeight = null;
         File imageFile = null;

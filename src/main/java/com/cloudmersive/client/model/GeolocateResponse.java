@@ -14,43 +14,46 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Geolocation result
  */
 @ApiModel(description = "Geolocation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:50.079-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:28.717-07:00")
 public class GeolocateResponse {
-  @JsonProperty("CountryCode")
+  @SerializedName("CountryCode")
   private String countryCode = null;
 
-  @JsonProperty("CountryName")
+  @SerializedName("CountryName")
   private String countryName = null;
 
-  @JsonProperty("City")
+  @SerializedName("City")
   private String city = null;
 
-  @JsonProperty("RegionCode")
+  @SerializedName("RegionCode")
   private String regionCode = null;
 
-  @JsonProperty("RegionName")
+  @SerializedName("RegionName")
   private String regionName = null;
 
-  @JsonProperty("ZipCode")
+  @SerializedName("ZipCode")
   private String zipCode = null;
 
-  @JsonProperty("TimezoneStandardName")
+  @SerializedName("TimezoneStandardName")
   private String timezoneStandardName = null;
 
-  @JsonProperty("Latitude")
+  @SerializedName("Latitude")
   private Double latitude = null;
 
-  @JsonProperty("Longitude")
+  @SerializedName("Longitude")
   private Double longitude = null;
 
   public GeolocateResponse countryCode(String countryCode) {

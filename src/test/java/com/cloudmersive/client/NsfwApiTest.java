@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.NsfwResult;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class NsfwApiTest {
      *          if the Api call fails
      */
     @Test
-    public void nsfwClassifyTest() {
+    public void nsfwClassifyTest() throws ApiException {
         File imageFile = null;
         NsfwResult response = api.nsfwClassify(imageFile);
 

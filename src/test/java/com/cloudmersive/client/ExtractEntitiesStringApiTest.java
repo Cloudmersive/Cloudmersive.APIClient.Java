@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -39,7 +40,7 @@ public class ExtractEntitiesStringApiTest {
      *          if the Api call fails
      */
     @Test
-    public void extractEntitiesStringPostTest() {
+    public void extractEntitiesStringPostTest() throws ApiException {
         String value = null;
         String response = api.extractEntitiesStringPost(value);
 

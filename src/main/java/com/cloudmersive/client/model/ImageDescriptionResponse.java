@@ -15,28 +15,31 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import com.cloudmersive.client.model.RecognitionOutcome;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Result of recognizing an image
  */
 @ApiModel(description = "Result of recognizing an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:56.694-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:36.013-07:00")
 public class ImageDescriptionResponse {
-  @JsonProperty("Successful")
+  @SerializedName("Successful")
   private Boolean successful = null;
 
-  @JsonProperty("Highconfidence")
+  @SerializedName("Highconfidence")
   private Boolean highconfidence = null;
 
-  @JsonProperty("BestOutcome")
+  @SerializedName("BestOutcome")
   private RecognitionOutcome bestOutcome = null;
 
-  @JsonProperty("RunnerUpOutcome")
+  @SerializedName("RunnerUpOutcome")
   private RecognitionOutcome runnerUpOutcome = null;
 
   public ImageDescriptionResponse successful(Boolean successful) {

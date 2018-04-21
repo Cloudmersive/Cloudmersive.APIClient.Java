@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.ImageToTextResponse;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class ImageOcrApiTest {
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPostTest() {
+    public void imageOcrPostTest() throws ApiException {
         File imageFile = null;
         ImageToTextResponse response = api.imageOcrPost(imageFile);
 

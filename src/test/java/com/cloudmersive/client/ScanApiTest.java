@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.VirusScanResult;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class ScanApiTest {
      *          if the Api call fails
      */
     @Test
-    public void scanFileTest() {
+    public void scanFileTest() throws ApiException {
         File inputFile = null;
         VirusScanResult response = api.scanFile(inputFile);
 

@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.PosRequest;
 import com.cloudmersive.client.model.PosResponse;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class PosTaggerJsonApiTest {
      *          if the Api call fails
      */
     @Test
-    public void posTaggerJsonPostTest() {
+    public void posTaggerJsonPostTest() throws ApiException {
         PosRequest request = null;
         PosResponse response = api.posTaggerJsonPost(request);
 

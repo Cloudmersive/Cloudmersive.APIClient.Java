@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class RecognizeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void recognizeDescribeTest() {
+    public void recognizeDescribeTest() throws ApiException {
         File imageFile = null;
         ImageDescriptionResponse response = api.recognizeDescribe(imageFile);
 

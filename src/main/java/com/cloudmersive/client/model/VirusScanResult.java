@@ -15,11 +15,14 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import com.cloudmersive.client.model.VirusFound;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,12 +30,12 @@ import java.util.List;
  * Result of running a virus scan
  */
 @ApiModel(description = "Result of running a virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:12:05.413-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:39.674-07:00")
 public class VirusScanResult {
-  @JsonProperty("CleanResult")
+  @SerializedName("CleanResult")
   private Boolean cleanResult = null;
 
-  @JsonProperty("FoundViruses")
+  @SerializedName("FoundViruses")
   private List<VirusFound> foundViruses = null;
 
   public VirusScanResult cleanResult(Boolean cleanResult) {

@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.GetWordsJsonResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +41,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsAdjectivesTest() {
+    public void wordsAdjectivesTest() throws ApiException {
         String input = null;
         String response = api.wordsAdjectives(input);
 
@@ -56,7 +57,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsAdverbsTest() {
+    public void wordsAdverbsTest() throws ApiException {
         String input = null;
         String response = api.wordsAdverbs(input);
 
@@ -72,7 +73,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsGetWordsJsonTest() {
+    public void wordsGetWordsJsonTest() throws ApiException {
         String input = null;
         GetWordsJsonResponse response = api.wordsGetWordsJson(input);
 
@@ -88,7 +89,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsGetWordsStringTest() {
+    public void wordsGetWordsStringTest() throws ApiException {
         String input = null;
         String response = api.wordsGetWordsString(input);
 
@@ -104,7 +105,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsNounsTest() {
+    public void wordsNounsTest() throws ApiException {
         String input = null;
         String response = api.wordsNouns(input);
 
@@ -120,7 +121,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsPostTest() {
+    public void wordsPostTest() throws ApiException {
         String input = null;
         String response = api.wordsPost(input);
 
@@ -136,7 +137,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsPronounsTest() {
+    public void wordsPronounsTest() throws ApiException {
         String input = null;
         String response = api.wordsPronouns(input);
 
@@ -152,7 +153,7 @@ public class WordsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void wordsProperNounsTest() {
+    public void wordsProperNounsTest() throws ApiException {
         String input = null;
         String response = api.wordsProperNouns(input);
 

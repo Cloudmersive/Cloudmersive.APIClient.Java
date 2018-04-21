@@ -14,29 +14,32 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * Result of a WHOIS operation
  */
 @ApiModel(description = "Result of a WHOIS operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:50.079-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:28.717-07:00")
 public class WhoisResponse {
-  @JsonProperty("ValidDomain")
+  @SerializedName("ValidDomain")
   private Boolean validDomain = null;
 
-  @JsonProperty("WhoisServer")
+  @SerializedName("WhoisServer")
   private String whoisServer = null;
 
-  @JsonProperty("RawTextRecord")
+  @SerializedName("RawTextRecord")
   private String rawTextRecord = null;
 
-  @JsonProperty("CreatedDt")
+  @SerializedName("CreatedDt")
   private OffsetDateTime createdDt = null;
 
   public WhoisResponse validDomain(Boolean validDomain) {

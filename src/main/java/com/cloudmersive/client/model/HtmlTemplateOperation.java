@@ -14,20 +14,24 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * HtmlTemplateOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:12:03.726-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T15:57:37.826-07:00")
 public class HtmlTemplateOperation {
   /**
    * Gets or Sets action
    */
+  @JsonAdapter(ActionEnum.Adapter.class)
   public enum ActionEnum {
     NUMBER_1(1);
 
@@ -37,7 +41,6 @@ public class HtmlTemplateOperation {
       this.value = value;
     }
 
-    @JsonValue
     public Integer getValue() {
       return value;
     }
@@ -47,7 +50,6 @@ public class HtmlTemplateOperation {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static ActionEnum fromValue(String text) {
       for (ActionEnum b : ActionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -56,15 +58,28 @@ public class HtmlTemplateOperation {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        Integer value = jsonReader.nextInt();
+        return ActionEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Action")
+  @SerializedName("Action")
   private ActionEnum action = null;
 
-  @JsonProperty("MatchAgsint")
+  @SerializedName("MatchAgsint")
   private String matchAgsint = null;
 
-  @JsonProperty("ReplaceWith")
+  @SerializedName("ReplaceWith")
   private String replaceWith = null;
 
   public HtmlTemplateOperation action(ActionEnum action) {

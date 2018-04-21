@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -39,7 +40,7 @@ public class GenerateBarcodeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeEAN13Test() {
+    public void generateBarcodeEAN13Test() throws ApiException {
         String value = null;
         api.generateBarcodeEAN13(value);
 
@@ -55,7 +56,7 @@ public class GenerateBarcodeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeEAN8Test() {
+    public void generateBarcodeEAN8Test() throws ApiException {
         String value = null;
         api.generateBarcodeEAN8(value);
 
@@ -71,7 +72,7 @@ public class GenerateBarcodeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeQRCodeTest() {
+    public void generateBarcodeQRCodeTest() throws ApiException {
         String value = null;
         api.generateBarcodeQRCode(value);
 
@@ -87,7 +88,7 @@ public class GenerateBarcodeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeUPCATest() {
+    public void generateBarcodeUPCATest() throws ApiException {
         String value = null;
         api.generateBarcodeUPCA(value);
 
@@ -103,7 +104,7 @@ public class GenerateBarcodeApiTest {
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeUPCETest() {
+    public void generateBarcodeUPCETest() throws ApiException {
         String value = null;
         api.generateBarcodeUPCE(value);
 

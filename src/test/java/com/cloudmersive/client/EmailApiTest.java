@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AddressGetServersResponse;
 import com.cloudmersive.client.model.AddressVerifySyntaxOnlyResponse;
 import com.cloudmersive.client.model.FullEmailValidationResponse;
@@ -42,7 +43,7 @@ public class EmailApiTest {
      *          if the Api call fails
      */
     @Test
-    public void emailAddressGetServersTest() {
+    public void emailAddressGetServersTest() throws ApiException {
         String email = null;
         AddressGetServersResponse response = api.emailAddressGetServers(email);
 
@@ -58,7 +59,7 @@ public class EmailApiTest {
      *          if the Api call fails
      */
     @Test
-    public void emailFullValidationTest() {
+    public void emailFullValidationTest() throws ApiException {
         String email = null;
         FullEmailValidationResponse response = api.emailFullValidation(email);
 
@@ -74,7 +75,7 @@ public class EmailApiTest {
      *          if the Api call fails
      */
     @Test
-    public void emailPostTest() {
+    public void emailPostTest() throws ApiException {
         String value = null;
         AddressVerifySyntaxOnlyResponse response = api.emailPost(value);
 

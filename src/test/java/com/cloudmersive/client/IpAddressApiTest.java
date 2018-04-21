@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.GeolocateResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +41,7 @@ public class IpAddressApiTest {
      *          if the Api call fails
      */
     @Test
-    public void iPAddressPostTest() {
+    public void iPAddressPostTest() throws ApiException {
         String value = null;
         GeolocateResponse response = api.iPAddressPost(value);
 
