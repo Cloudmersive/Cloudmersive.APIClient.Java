@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response from an HTML template application
  */
 @ApiModel(description = "Response from an HTML template application")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:44:55.330-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:56:11.592-07:00")
 public class HtmlTemplateApplicationResponse {
   @JsonProperty("Successful")
   private Boolean successful = null;
@@ -42,7 +42,7 @@ public class HtmlTemplateApplicationResponse {
    * @return successful
   **/
   @ApiModelProperty(value = "")
-  public Boolean getSuccessful() {
+  public Boolean isSuccessful() {
     return successful;
   }
 
@@ -109,6 +109,6 @@ public class HtmlTemplateApplicationResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

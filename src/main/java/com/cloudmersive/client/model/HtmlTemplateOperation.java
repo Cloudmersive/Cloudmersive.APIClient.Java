@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * HtmlTemplateOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:44:55.330-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:56:11.592-07:00")
 public class HtmlTemplateOperation {
   /**
    * Gets or Sets action
@@ -164,6 +164,6 @@ public class HtmlTemplateOperation {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

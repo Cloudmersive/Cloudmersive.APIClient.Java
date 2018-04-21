@@ -24,6 +24,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.threeten.bp.*;
+import com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,7 +55,7 @@ import com.cloudmersive.client.invoker.auth.HttpBasicAuth;
 import com.cloudmersive.client.invoker.auth.ApiKeyAuth;
 import com.cloudmersive.client.invoker.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:44:55.330-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:56:13.232-07:00")
 @Component("com.cloudmersive.client.invoker.ApiClient")
 public class ApiClient {
     public enum CollectionFormat {
@@ -250,6 +255,9 @@ public class ApiClient {
      * @return ApiClient this client
      */
     public ApiClient addDefaultHeader(String name, String value) {
+        if (defaultHeaders.containsKey(name)) {
+            defaultHeaders.remove(name);
+        }
         defaultHeaders.add(name, value);
         return this;
     }
@@ -301,6 +309,12 @@ public class ApiClient {
      */
     public ApiClient setDateFormat(DateFormat dateFormat) {
         this.dateFormat = dateFormat;
+        for(HttpMessageConverter converter:restTemplate.getMessageConverters()){
+            if(converter instanceof AbstractJackson2HttpMessageConverter){
+                ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter)converter).getObjectMapper();
+                mapper.setDateFormat(dateFormat);
+            }
+        }
         return this;
     }
     
@@ -398,6 +412,11 @@ public class ApiClient {
     * @return boolean true if the MediaType represents JSON, false otherwise
     */
     public boolean isJsonMime(String mediaType) {
+        // "* / *" is default to JSON
+        if ("*/*".equals(mediaType)) {
+            return true;
+        }
+
         try {
             return isJsonMime(MediaType.parseMediaType(mediaType));
         } catch (InvalidMediaTypeException e) {
@@ -549,6 +568,16 @@ public class ApiClient {
      */
     protected RestTemplate buildRestTemplate() {
         RestTemplate restTemplate = new RestTemplate();
+        for(HttpMessageConverter converter:restTemplate.getMessageConverters()){
+            if(converter instanceof AbstractJackson2HttpMessageConverter){
+                ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter)converter).getObjectMapper();
+                ThreeTenModule module = new ThreeTenModule();
+                module.addDeserializer(Instant.class, CustomInstantDeserializer.INSTANT);
+                module.addDeserializer(OffsetDateTime.class, CustomInstantDeserializer.OFFSET_DATE_TIME);
+                module.addDeserializer(ZonedDateTime.class, CustomInstantDeserializer.ZONED_DATE_TIME);
+                mapper.registerModule(module);
+            }
+        }
         // This allows us to read the response more than once - Necessary for debugging.
         restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(restTemplate.getRequestFactory()));
         return restTemplate;

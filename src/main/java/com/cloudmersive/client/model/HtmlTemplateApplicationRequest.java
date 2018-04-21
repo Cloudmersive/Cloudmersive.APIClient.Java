@@ -27,7 +27,7 @@ import java.util.List;
  * HTML template application request
  */
 @ApiModel(description = "HTML template application request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:44:55.330-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T00:56:11.592-07:00")
 public class HtmlTemplateApplicationRequest {
   @JsonProperty("HtmlTemplate")
   private String htmlTemplate = null;
@@ -143,6 +143,6 @@ public class HtmlTemplateApplicationRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 
