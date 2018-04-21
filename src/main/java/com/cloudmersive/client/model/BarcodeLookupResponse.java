@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * BarcodeLookupResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:13.710-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:55.201-07:00")
 public class BarcodeLookupResponse {
   @JsonProperty("Successful")
   private Boolean successful = null;

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="convertWebUrlToPdf"></a>
 # **convertWebUrlToPdf**
-> Object convertWebUrlToPdf(input)
+> File convertWebUrlToPdf(input)
 
 Convert a URL to PDF
 
@@ -27,7 +27,7 @@ Fully renders a website and returns a PDF of the full page.  Javascript, HTML5, 
 ConvertWebApi apiInstance = new ConvertWebApi();
 ScreenshotRequest input = new ScreenshotRequest(); // ScreenshotRequest | URL to PDF request parameters
 try {
-    Object result = apiInstance.convertWebUrlToPdf(input);
+    File result = apiInstance.convertWebUrlToPdf(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebUrlToPdf");
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -56,7 +56,7 @@ No authorization required
 
 <a name="convertWebUrlToPdf_0"></a>
 # **convertWebUrlToPdf_0**
-> Object convertWebUrlToPdf_0(input)
+> File convertWebUrlToPdf_0(input)
 
 Convert HTML string to PDF
 
@@ -72,7 +72,7 @@ Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS a
 ConvertWebApi apiInstance = new ConvertWebApi();
 HtmlToPdfRequest input = new HtmlToPdfRequest(); // HtmlToPdfRequest | HTML to PDF request parameters
 try {
-    Object result = apiInstance.convertWebUrlToPdf_0(input);
+    File result = apiInstance.convertWebUrlToPdf_0(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebUrlToPdf_0");
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ No authorization required
 
 <a name="convertWebUrlToScreenshot"></a>
 # **convertWebUrlToScreenshot**
-> Object convertWebUrlToScreenshot(input)
+> File convertWebUrlToScreenshot(input)
 
 Take screenshot of URL
 
@@ -117,7 +117,7 @@ Fully renders a website and returns a PNG screenshot of the full page image.  Ja
 ConvertWebApi apiInstance = new ConvertWebApi();
 ScreenshotRequest input = new ScreenshotRequest(); // ScreenshotRequest | Screenshot request parameters
 try {
-    Object result = apiInstance.convertWebUrlToScreenshot(input);
+    File result = apiInstance.convertWebUrlToScreenshot(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebUrlToScreenshot");
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 

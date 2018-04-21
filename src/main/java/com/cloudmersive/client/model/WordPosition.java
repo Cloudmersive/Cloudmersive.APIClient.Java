@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * WordPosition
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:10.176-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:51.780-07:00")
 public class WordPosition {
   @JsonProperty("Word")
   private String word = null;

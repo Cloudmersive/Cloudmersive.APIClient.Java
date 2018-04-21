@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Details of the screenshot request
  */
 @ApiModel(description = "Details of the screenshot request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:17.302-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:12:03.726-07:00")
 public class ScreenshotRequest {
   @JsonProperty("Url")
   private String url = null;

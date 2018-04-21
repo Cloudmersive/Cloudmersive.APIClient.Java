@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of recognizing an image
  */
 @ApiModel(description = "Result of recognizing an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:15.595-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:56.694-07:00")
 public class ImageDescriptionResponse {
   @JsonProperty("Successful")
   private Boolean successful = null;

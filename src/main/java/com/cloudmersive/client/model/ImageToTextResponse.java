@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response from an OCR to text operation.  Includes the confience rating and converted text result.
  */
 @ApiModel(description = "Response from an OCR to text operation.  Includes the confience rating and converted text result.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:12.259-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:53.743-07:00")
 public class ImageToTextResponse {
   @JsonProperty("MeanConfidenceLevel")
   private Float meanConfidenceLevel = null;

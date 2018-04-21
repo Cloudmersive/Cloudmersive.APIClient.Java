@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Virus positively identified
  */
 @ApiModel(description = "Virus positively identified")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:19.034-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:12:05.413-07:00")
 public class VirusFound {
   @JsonProperty("FileName")
   private String fileName = null;

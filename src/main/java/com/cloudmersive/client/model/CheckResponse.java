@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of a validation operation
  */
 @ApiModel(description = "Result of a validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:08.424-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:50.079-07:00")
 public class CheckResponse {
   @JsonProperty("ValidDomain")
   private Boolean validDomain = null;

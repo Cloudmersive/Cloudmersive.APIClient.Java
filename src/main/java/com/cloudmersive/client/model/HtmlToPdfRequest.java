@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Details of the HTML to PDF request
  */
 @ApiModel(description = "Details of the HTML to PDF request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:17.302-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:12:03.726-07:00")
 public class HtmlToPdfRequest {
   @JsonProperty("Html")
   private String html = null;

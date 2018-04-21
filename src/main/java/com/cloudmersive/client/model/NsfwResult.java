@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of an NSFW classification
  */
 @ApiModel(description = "Result of an NSFW classification")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:15.595-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:56.694-07:00")
 public class NsfwResult {
   @JsonProperty("Successful")
   private Boolean successful = null;

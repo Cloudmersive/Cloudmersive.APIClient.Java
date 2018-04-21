@@ -2,6 +2,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiClient;
 
+import java.io.File;
 import com.cloudmersive.client.model.HtmlToPdfRequest;
 import com.cloudmersive.client.model.ScreenshotRequest;
 
@@ -24,7 +25,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:17.302-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:12:03.726-07:00")
 @Component("com.cloudmersive.client.ConvertWebApi")
 public class ConvertWebApi {
     private ApiClient apiClient;
@@ -51,10 +52,10 @@ public class ConvertWebApi {
      * Fully renders a website and returns a PDF of the full page.  Javascript, HTML5, CSS and other advanced features are all supported.
      * <p><b>200</b> - OK
      * @param input URL to PDF request parameters
-     * @return Object
+     * @return File
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object convertWebUrlToPdf(ScreenshotRequest input) throws RestClientException {
+    public File convertWebUrlToPdf(ScreenshotRequest input) throws RestClientException {
         Object postBody = input;
         
         // verify the required parameter 'input' is set
@@ -79,7 +80,7 @@ public class ConvertWebApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<Object> returnType = new ParameterizedTypeReference<Object>() {};
+        ParameterizedTypeReference<File> returnType = new ParameterizedTypeReference<File>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -87,10 +88,10 @@ public class ConvertWebApi {
      * Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      * <p><b>200</b> - OK
      * @param input HTML to PDF request parameters
-     * @return Object
+     * @return File
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object convertWebUrlToPdf_0(HtmlToPdfRequest input) throws RestClientException {
+    public File convertWebUrlToPdf_0(HtmlToPdfRequest input) throws RestClientException {
         Object postBody = input;
         
         // verify the required parameter 'input' is set
@@ -115,7 +116,7 @@ public class ConvertWebApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<Object> returnType = new ParameterizedTypeReference<Object>() {};
+        ParameterizedTypeReference<File> returnType = new ParameterizedTypeReference<File>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -123,10 +124,10 @@ public class ConvertWebApi {
      * Fully renders a website and returns a PNG screenshot of the full page image.  Javascript, HTML5, CSS and other advanced features are all supported.
      * <p><b>200</b> - OK
      * @param input Screenshot request parameters
-     * @return Object
+     * @return File
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public Object convertWebUrlToScreenshot(ScreenshotRequest input) throws RestClientException {
+    public File convertWebUrlToScreenshot(ScreenshotRequest input) throws RestClientException {
         Object postBody = input;
         
         // verify the required parameter 'input' is set
@@ -151,7 +152,7 @@ public class ConvertWebApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<Object> returnType = new ParameterizedTypeReference<Object>() {};
+        ParameterizedTypeReference<File> returnType = new ParameterizedTypeReference<File>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
 }

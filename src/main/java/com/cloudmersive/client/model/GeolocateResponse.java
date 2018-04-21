@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Geolocation result
  */
 @ApiModel(description = "Geolocation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:08.424-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:50.079-07:00")
 public class GeolocateResponse {
   @JsonProperty("CountryCode")
   private String countryCode = null;

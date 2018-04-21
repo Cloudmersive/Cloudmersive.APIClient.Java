@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Location of one face in an image
  */
 @ApiModel(description = "Location of one face in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:02:15.595-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-21T01:11:56.694-07:00")
 public class Face {
   @JsonProperty("LeftX")
   private Integer leftX = null;
