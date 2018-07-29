@@ -18,9 +18,19 @@ Part-of-speech (POS) tag a string and return result as JSON
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.PosTaggerJsonApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 PosTaggerJsonApi apiInstance = new PosTaggerJsonApi();
 PosRequest request = new PosRequest(); // PosRequest | Input string
@@ -45,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 

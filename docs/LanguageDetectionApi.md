@@ -18,9 +18,19 @@ Automatically determine which language a text string is written in.  Supports Da
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.LanguageDetectionApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 LanguageDetectionApi apiInstance = new LanguageDetectionApi();
 String textToDetect = "textToDetect_example"; // String | Text to detect language of
@@ -45,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 

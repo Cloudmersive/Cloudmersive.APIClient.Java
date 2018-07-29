@@ -18,9 +18,19 @@ Apply operations to fill in an HTML template, generating a final HTML result
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.ConvertTemplateApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 ConvertTemplateApi apiInstance = new ConvertTemplateApi();
 HtmlTemplateApplicationRequest value = new HtmlTemplateApplicationRequest(); // HtmlTemplateApplicationRequest | Operations to apply to template
@@ -45,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 

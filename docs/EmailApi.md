@@ -20,12 +20,22 @@ Validate an email address by identifying whether its parent domain has email ser
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.EmailApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 EmailApi apiInstance = new EmailApi();
-String email = "email_example"; // String | Email address to validate, e.g. \"support@cloudmersive.com\"
+String email = "email_example"; // String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
 try {
     AddressGetServersResponse result = apiInstance.emailAddressGetServers(email);
     System.out.println(result);
@@ -39,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; |
+ **email** | **String**| Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot;.    The input is a string so be sure to enclose it in double-quotes. |
 
 ### Return type
 
@@ -47,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
@@ -65,12 +75,22 @@ Performs a full validation of the email address.  Checks for syntactic correctne
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.EmailApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 EmailApi apiInstance = new EmailApi();
-String email = "email_example"; // String | Email address to validate, e.g. \"support@cloudmersive.com\"
+String email = "email_example"; // String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
 try {
     FullEmailValidationResponse result = apiInstance.emailFullValidation(email);
     System.out.println(result);
@@ -84,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; |
+ **email** | **String**| Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot;.    The input is a string so be sure to enclose it in double-quotes. |
 
 ### Return type
 
@@ -92,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
@@ -110,12 +130,22 @@ Validate whether a given email address is syntactically correct via a limited lo
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.EmailApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 EmailApi apiInstance = new EmailApi();
-String value = "value_example"; // String | Email address to validate, e.g. \"support@cloudmersive.com\"
+String value = "value_example"; // String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
 try {
     AddressVerifySyntaxOnlyResponse result = apiInstance.emailPost(value);
     System.out.println(result);
@@ -129,7 +159,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **value** | **String**| Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot; |
+ **value** | **String**| Email address to validate, e.g. \&quot;support@cloudmersive.com\&quot;.    The input is a string so be sure to enclose it in double-quotes. |
 
 ### Return type
 
@@ -137,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 

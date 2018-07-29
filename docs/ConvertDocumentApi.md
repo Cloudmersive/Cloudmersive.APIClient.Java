@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="convertDocumentAutodetectToPdf"></a>
 # **convertDocumentAutodetectToPdf**
-> File convertDocumentAutodetectToPdf(inputFile)
+> Object convertDocumentAutodetectToPdf(inputFile)
 
 Convert Document to PDF
 
@@ -22,14 +22,24 @@ Automatically detect file type and convert it to PDF.
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.ConvertDocumentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    File result = apiInstance.convertDocumentAutodetectToPdf(inputFile);
+    Object result = apiInstance.convertDocumentAutodetectToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentAutodetectToPdf");
@@ -45,20 +55,20 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**Object**
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentDocxToPdf"></a>
 # **convertDocumentDocxToPdf**
-> File convertDocumentDocxToPdf(inputFile)
+> Object convertDocumentDocxToPdf(inputFile)
 
 Word DOCX to PDF
 
@@ -67,14 +77,24 @@ Convert Office Word Documents (docx) to standard PDF
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.ConvertDocumentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    File result = apiInstance.convertDocumentDocxToPdf(inputFile);
+    Object result = apiInstance.convertDocumentDocxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToPdf");
@@ -90,20 +110,20 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**Object**
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentPptxToPdf"></a>
 # **convertDocumentPptxToPdf**
-> File convertDocumentPptxToPdf(inputFile)
+> Object convertDocumentPptxToPdf(inputFile)
 
 PowerPoint PPTX to PDF
 
@@ -112,14 +132,24 @@ Convert Office PowerPoint Documents (pptx) to standard PDF
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.ConvertDocumentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    File result = apiInstance.convertDocumentPptxToPdf(inputFile);
+    Object result = apiInstance.convertDocumentPptxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentPptxToPdf");
@@ -135,20 +165,20 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**Object**
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentXlsxToCsv"></a>
 # **convertDocumentXlsxToCsv**
-> File convertDocumentXlsxToCsv(inputFile)
+> Object convertDocumentXlsxToCsv(inputFile)
 
 Excel XLSX to CSV
 
@@ -157,14 +187,24 @@ Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) f
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.ConvertDocumentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    File result = apiInstance.convertDocumentXlsxToCsv(inputFile);
+    Object result = apiInstance.convertDocumentXlsxToCsv(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsxToCsv");
@@ -180,20 +220,20 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**Object**
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/csv
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentXlsxToPdf"></a>
 # **convertDocumentXlsxToPdf**
-> File convertDocumentXlsxToPdf(inputFile)
+> Object convertDocumentXlsxToPdf(inputFile)
 
 Excel XLSX to PDF
 
@@ -202,14 +242,24 @@ Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets 
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.ConvertDocumentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    File result = apiInstance.convertDocumentXlsxToPdf(inputFile);
+    Object result = apiInstance.convertDocumentXlsxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsxToPdf");
@@ -225,14 +275,14 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**Object**
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
+ - **Accept**: application/octet-stream
 

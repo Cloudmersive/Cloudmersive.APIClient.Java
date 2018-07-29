@@ -13,21 +13,32 @@ Method | HTTP request | Description
 
 <a name="generateBarcodeEAN13"></a>
 # **generateBarcodeEAN13**
-> generateBarcodeEAN13(value)
+> File generateBarcodeEAN13(value)
 
 Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
 
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.GenerateBarcodeApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | Barcode value to generate from
 try {
-    apiInstance.generateBarcodeEAN13(value);
+    File result = apiInstance.generateBarcodeEAN13(value);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeEAN13");
     e.printStackTrace();
@@ -42,11 +53,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
@@ -55,21 +66,32 @@ No authorization required
 
 <a name="generateBarcodeEAN8"></a>
 # **generateBarcodeEAN8**
-> generateBarcodeEAN8(value)
+> File generateBarcodeEAN8(value)
 
 Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
 
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.GenerateBarcodeApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | Barcode value to generate from
 try {
-    apiInstance.generateBarcodeEAN8(value);
+    File result = apiInstance.generateBarcodeEAN8(value);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeEAN8");
     e.printStackTrace();
@@ -84,11 +106,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
@@ -97,21 +119,32 @@ No authorization required
 
 <a name="generateBarcodeQRCode"></a>
 # **generateBarcodeQRCode**
-> generateBarcodeQRCode(value)
+> File generateBarcodeQRCode(value)
 
 Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
 
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.GenerateBarcodeApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | QR code text to convert into the QR code barcode
 try {
-    apiInstance.generateBarcodeQRCode(value);
+    File result = apiInstance.generateBarcodeQRCode(value);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeQRCode");
     e.printStackTrace();
@@ -126,11 +159,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
@@ -139,21 +172,32 @@ No authorization required
 
 <a name="generateBarcodeUPCA"></a>
 # **generateBarcodeUPCA**
-> generateBarcodeUPCA(value)
+> File generateBarcodeUPCA(value)
 
 Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
 
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.GenerateBarcodeApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | UPC-A barcode value to generate from
 try {
-    apiInstance.generateBarcodeUPCA(value);
+    File result = apiInstance.generateBarcodeUPCA(value);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeUPCA");
     e.printStackTrace();
@@ -168,11 +212,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
@@ -181,21 +225,32 @@ No authorization required
 
 <a name="generateBarcodeUPCE"></a>
 # **generateBarcodeUPCE**
-> generateBarcodeUPCE(value)
+> File generateBarcodeUPCE(value)
 
 Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
 
 ### Example
 ```java
 // Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
 //import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
 //import com.cloudmersive.client.GenerateBarcodeApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
 
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | UPC-E barcode value to generate from
 try {
-    apiInstance.generateBarcodeUPCE(value);
+    File result = apiInstance.generateBarcodeUPCE(value);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeUPCE");
     e.printStackTrace();
@@ -210,11 +265,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
-No authorization required
+[Apikey](../README.md#Apikey)
 
 ### HTTP request headers
 
