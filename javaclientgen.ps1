@@ -11,6 +11,6 @@ Remove-Item –path ./src –recurse
 & java -jar swagger-codegen-cli.jar generate    -i https://api.cloudmersive.com/virus/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version 1.1.6         -o .
 #& pushd cloudmersive-java-api-client
 & gradle clean
-& mvn install -U
+#& mvn install -U
 #& gradle build
 #& popd
