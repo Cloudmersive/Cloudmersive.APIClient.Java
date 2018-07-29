@@ -10,7 +10,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 
@@ -73,7 +72,8 @@ if(hasProperty('target') && target == 'android') {
         archives sourcesJar
     }
 
-} else {
+} else 
+{
 
     apply plugin: 'java'
     apply plugin: 'maven'
