@@ -12,5 +12,5 @@ Remove-Item –path ./src –recurse
 #& pushd cloudmersive-java-api-client
 & gradle clean
 #& mvn install -U
-#& gradle build
+& gradle build
 #& popd
