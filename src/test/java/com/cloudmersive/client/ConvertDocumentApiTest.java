@@ -43,7 +43,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentAutodetectToPdfTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDocumentAutodetectToPdf(inputFile);
+        File response = api.convertDocumentAutodetectToPdf(inputFile);
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentDocxToPdfTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDocumentDocxToPdf(inputFile);
+        File response = api.convertDocumentDocxToPdf(inputFile);
 
         // TODO: test validations
     }
@@ -75,7 +75,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentPptxToPdfTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDocumentPptxToPdf(inputFile);
+        File response = api.convertDocumentPptxToPdf(inputFile);
 
         // TODO: test validations
     }
@@ -91,7 +91,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentXlsxToCsvTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDocumentXlsxToCsv(inputFile);
+        File response = api.convertDocumentXlsxToCsv(inputFile);
 
         // TODO: test validations
     }
@@ -107,7 +107,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentXlsxToPdfTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDocumentXlsxToPdf(inputFile);
+        File response = api.convertDocumentXlsxToPdf(inputFile);
 
         // TODO: test validations
     }

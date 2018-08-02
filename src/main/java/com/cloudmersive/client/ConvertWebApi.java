@@ -370,11 +370,11 @@ public class ConvertWebApi {
      * Convert a URL to PDF
      * Fully renders a website and returns a PDF of the full page.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input URL to PDF request parameters (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertWebUrlToPdf(ScreenshotRequest input) throws ApiException {
-        ApiResponse<Object> resp = convertWebUrlToPdfWithHttpInfo(input);
+    public File convertWebUrlToPdf(ScreenshotRequest input) throws ApiException {
+        ApiResponse<File> resp = convertWebUrlToPdfWithHttpInfo(input);
         return resp.getData();
     }
 
@@ -382,12 +382,12 @@ public class ConvertWebApi {
      * Convert a URL to PDF
      * Fully renders a website and returns a PDF of the full page.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input URL to PDF request parameters (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertWebUrlToPdfWithHttpInfo(ScreenshotRequest input) throws ApiException {
+    public ApiResponse<File> convertWebUrlToPdfWithHttpInfo(ScreenshotRequest input) throws ApiException {
         com.squareup.okhttp.Call call = convertWebUrlToPdfValidateBeforeCall(input, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -399,7 +399,7 @@ public class ConvertWebApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertWebUrlToPdfAsync(ScreenshotRequest input, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertWebUrlToPdfAsync(ScreenshotRequest input, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -421,7 +421,7 @@ public class ConvertWebApi {
         }
 
         com.squareup.okhttp.Call call = convertWebUrlToPdfValidateBeforeCall(input, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -492,11 +492,11 @@ public class ConvertWebApi {
      * Take screenshot of URL
      * Fully renders a website and returns a PNG screenshot of the full page image.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input Screenshot request parameters (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertWebUrlToScreenshot(ScreenshotRequest input) throws ApiException {
-        ApiResponse<Object> resp = convertWebUrlToScreenshotWithHttpInfo(input);
+    public File convertWebUrlToScreenshot(ScreenshotRequest input) throws ApiException {
+        ApiResponse<File> resp = convertWebUrlToScreenshotWithHttpInfo(input);
         return resp.getData();
     }
 
@@ -504,12 +504,12 @@ public class ConvertWebApi {
      * Take screenshot of URL
      * Fully renders a website and returns a PNG screenshot of the full page image.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input Screenshot request parameters (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertWebUrlToScreenshotWithHttpInfo(ScreenshotRequest input) throws ApiException {
+    public ApiResponse<File> convertWebUrlToScreenshotWithHttpInfo(ScreenshotRequest input) throws ApiException {
         com.squareup.okhttp.Call call = convertWebUrlToScreenshotValidateBeforeCall(input, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -521,7 +521,7 @@ public class ConvertWebApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertWebUrlToScreenshotAsync(ScreenshotRequest input, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertWebUrlToScreenshotAsync(ScreenshotRequest input, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -543,7 +543,7 @@ public class ConvertWebApi {
         }
 
         com.squareup.okhttp.Call call = convertWebUrlToScreenshotValidateBeforeCall(input, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

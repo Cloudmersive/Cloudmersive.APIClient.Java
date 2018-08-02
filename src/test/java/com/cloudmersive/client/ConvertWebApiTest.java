@@ -78,7 +78,7 @@ public class ConvertWebApiTest {
     @Test
     public void convertWebUrlToPdfTest() throws ApiException {
         ScreenshotRequest input = null;
-        Object response = api.convertWebUrlToPdf(input);
+        File response = api.convertWebUrlToPdf(input);
 
         // TODO: test validations
     }
@@ -94,7 +94,7 @@ public class ConvertWebApiTest {
     @Test
     public void convertWebUrlToScreenshotTest() throws ApiException {
         ScreenshotRequest input = null;
-        Object response = api.convertWebUrlToScreenshot(input);
+        File response = api.convertWebUrlToScreenshot(input);
 
         // TODO: test validations
     }

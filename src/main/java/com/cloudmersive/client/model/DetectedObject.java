@@ -27,7 +27,7 @@ import java.io.IOException;
  * Single object instance, and associated details, detected in an image
  */
 @ApiModel(description = "Single object instance, and associated details, detected in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-29T16:33:52.158-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T16:07:03.433-07:00")
 public class DetectedObject {
   @SerializedName("ObjectClassName")
   private String objectClassName = null;

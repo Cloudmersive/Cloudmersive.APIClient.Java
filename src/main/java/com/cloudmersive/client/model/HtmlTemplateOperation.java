@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * HtmlTemplateOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-29T16:33:54.407-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T16:07:05.714-07:00")
 public class HtmlTemplateOperation {
   /**
    * Gets or Sets action

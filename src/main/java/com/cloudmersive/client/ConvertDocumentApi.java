@@ -123,11 +123,11 @@ public class ConvertDocumentApi {
      * Convert Document to PDF
      * Automatically detect file type and convert it to PDF.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDocumentAutodetectToPdf(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDocumentAutodetectToPdfWithHttpInfo(inputFile);
+    public File convertDocumentAutodetectToPdf(File inputFile) throws ApiException {
+        ApiResponse<File> resp = convertDocumentAutodetectToPdfWithHttpInfo(inputFile);
         return resp.getData();
     }
 
@@ -135,12 +135,12 @@ public class ConvertDocumentApi {
      * Convert Document to PDF
      * Automatically detect file type and convert it to PDF.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDocumentAutodetectToPdfWithHttpInfo(File inputFile) throws ApiException {
+    public ApiResponse<File> convertDocumentAutodetectToPdfWithHttpInfo(File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDocumentAutodetectToPdfValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -152,7 +152,7 @@ public class ConvertDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentAutodetectToPdfAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentAutodetectToPdfAsync(File inputFile, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,7 +174,7 @@ public class ConvertDocumentApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentAutodetectToPdfValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -247,11 +247,11 @@ public class ConvertDocumentApi {
      * Word DOCX to PDF
      * Convert Office Word Documents (docx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDocumentDocxToPdf(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDocumentDocxToPdfWithHttpInfo(inputFile);
+    public File convertDocumentDocxToPdf(File inputFile) throws ApiException {
+        ApiResponse<File> resp = convertDocumentDocxToPdfWithHttpInfo(inputFile);
         return resp.getData();
     }
 
@@ -259,12 +259,12 @@ public class ConvertDocumentApi {
      * Word DOCX to PDF
      * Convert Office Word Documents (docx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDocumentDocxToPdfWithHttpInfo(File inputFile) throws ApiException {
+    public ApiResponse<File> convertDocumentDocxToPdfWithHttpInfo(File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDocumentDocxToPdfValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -276,7 +276,7 @@ public class ConvertDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentDocxToPdfAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentDocxToPdfAsync(File inputFile, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -298,7 +298,7 @@ public class ConvertDocumentApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentDocxToPdfValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -371,11 +371,11 @@ public class ConvertDocumentApi {
      * PowerPoint PPTX to PDF
      * Convert Office PowerPoint Documents (pptx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDocumentPptxToPdf(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDocumentPptxToPdfWithHttpInfo(inputFile);
+    public File convertDocumentPptxToPdf(File inputFile) throws ApiException {
+        ApiResponse<File> resp = convertDocumentPptxToPdfWithHttpInfo(inputFile);
         return resp.getData();
     }
 
@@ -383,12 +383,12 @@ public class ConvertDocumentApi {
      * PowerPoint PPTX to PDF
      * Convert Office PowerPoint Documents (pptx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDocumentPptxToPdfWithHttpInfo(File inputFile) throws ApiException {
+    public ApiResponse<File> convertDocumentPptxToPdfWithHttpInfo(File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDocumentPptxToPdfValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -400,7 +400,7 @@ public class ConvertDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPptxToPdfAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPptxToPdfAsync(File inputFile, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -422,7 +422,7 @@ public class ConvertDocumentApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentPptxToPdfValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -495,11 +495,11 @@ public class ConvertDocumentApi {
      * Excel XLSX to CSV
      * Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDocumentXlsxToCsv(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDocumentXlsxToCsvWithHttpInfo(inputFile);
+    public File convertDocumentXlsxToCsv(File inputFile) throws ApiException {
+        ApiResponse<File> resp = convertDocumentXlsxToCsvWithHttpInfo(inputFile);
         return resp.getData();
     }
 
@@ -507,12 +507,12 @@ public class ConvertDocumentApi {
      * Excel XLSX to CSV
      * Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDocumentXlsxToCsvWithHttpInfo(File inputFile) throws ApiException {
+    public ApiResponse<File> convertDocumentXlsxToCsvWithHttpInfo(File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -524,7 +524,7 @@ public class ConvertDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentXlsxToCsvAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentXlsxToCsvAsync(File inputFile, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -546,7 +546,7 @@ public class ConvertDocumentApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -619,11 +619,11 @@ public class ConvertDocumentApi {
      * Excel XLSX to PDF
      * Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDocumentXlsxToPdf(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDocumentXlsxToPdfWithHttpInfo(inputFile);
+    public File convertDocumentXlsxToPdf(File inputFile) throws ApiException {
+        ApiResponse<File> resp = convertDocumentXlsxToPdfWithHttpInfo(inputFile);
         return resp.getData();
     }
 
@@ -631,12 +631,12 @@ public class ConvertDocumentApi {
      * Excel XLSX to PDF
      * Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDocumentXlsxToPdfWithHttpInfo(File inputFile) throws ApiException {
+    public ApiResponse<File> convertDocumentXlsxToPdfWithHttpInfo(File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDocumentXlsxToPdfValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -648,7 +648,7 @@ public class ConvertDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentXlsxToPdfAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentXlsxToPdfAsync(File inputFile, final ApiCallback<File> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -670,7 +670,7 @@ public class ConvertDocumentApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentXlsxToPdfValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="convertDocumentAutodetectToPdf"></a>
 # **convertDocumentAutodetectToPdf**
-> Object convertDocumentAutodetectToPdf(inputFile)
+> File convertDocumentAutodetectToPdf(inputFile)
 
 Convert Document to PDF
 
@@ -39,7 +39,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDocumentAutodetectToPdf(inputFile);
+    File result = apiInstance.convertDocumentAutodetectToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentAutodetectToPdf");
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentDocxToPdf"></a>
 # **convertDocumentDocxToPdf**
-> Object convertDocumentDocxToPdf(inputFile)
+> File convertDocumentDocxToPdf(inputFile)
 
 Word DOCX to PDF
 
@@ -94,7 +94,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDocumentDocxToPdf(inputFile);
+    File result = apiInstance.convertDocumentDocxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToPdf");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentPptxToPdf"></a>
 # **convertDocumentPptxToPdf**
-> Object convertDocumentPptxToPdf(inputFile)
+> File convertDocumentPptxToPdf(inputFile)
 
 PowerPoint PPTX to PDF
 
@@ -149,7 +149,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDocumentPptxToPdf(inputFile);
+    File result = apiInstance.convertDocumentPptxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentPptxToPdf");
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentXlsxToCsv"></a>
 # **convertDocumentXlsxToCsv**
-> Object convertDocumentXlsxToCsv(inputFile)
+> File convertDocumentXlsxToCsv(inputFile)
 
 Excel XLSX to CSV
 
@@ -204,7 +204,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDocumentXlsxToCsv(inputFile);
+    File result = apiInstance.convertDocumentXlsxToCsv(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsxToCsv");
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentXlsxToPdf"></a>
 # **convertDocumentXlsxToPdf**
-> Object convertDocumentXlsxToPdf(inputFile)
+> File convertDocumentXlsxToPdf(inputFile)
 
 Excel XLSX to PDF
 
@@ -259,7 +259,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDocumentXlsxToPdf(inputFile);
+    File result = apiInstance.convertDocumentXlsxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsxToPdf");
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
