@@ -4,9 +4,9 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** image/edit/composite/{location} | Composite two images together
-[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** image/edit/draw/rectangle | Draw rectangle onto an image
-[**editDrawText**](EditApi.md#editDrawText) | **POST** image/edit/draw/text | Draw text onto an image
+[**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
+[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
+[**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
 
 
 <a name="editCompositeBasic"></a>

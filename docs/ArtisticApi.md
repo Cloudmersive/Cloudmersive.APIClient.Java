@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**artisticPainting**](ArtisticApi.md#artisticPainting) | **POST** image/artistic/painting/{style} | Transform an image into an artistic painting automatically
+[**artisticPainting**](ArtisticApi.md#artisticPainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 
 
 <a name="artisticPainting"></a>

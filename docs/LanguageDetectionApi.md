@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**languageDetectionPost**](LanguageDetectionApi.md#languageDetectionPost) | **POST** nlp/language/detect | Detect language of text
+[**languageDetectionPost**](LanguageDetectionApi.md#languageDetectionPost) | **POST** /nlp/language/detect | Detect language of text
 
 
 <a name="languageDetectionPost"></a>

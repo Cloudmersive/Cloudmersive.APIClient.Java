@@ -4,9 +4,9 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**recognizeDescribe**](RecognizeApi.md#recognizeDescribe) | **POST** image/recognize/describe | Describe an image in natural language
-[**recognizeDetectObjects**](RecognizeApi.md#recognizeDetectObjects) | **POST** image/recognize/detect-objects | Detect objects, including types and locations, in an image
-[**recognizeDetectPeople**](RecognizeApi.md#recognizeDetectPeople) | **POST** image/recognize/detect-people | Detect people, including locations, in an image
+[**recognizeDescribe**](RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
+[**recognizeDetectObjects**](RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
+[**recognizeDetectPeople**](RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
 
 
 <a name="recognizeDescribe"></a>

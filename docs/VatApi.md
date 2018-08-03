@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vatVatLookup**](VatApi.md#vatVatLookup) | **POST** validate/vat/lookup | Lookup a VAT code
+[**vatVatLookup**](VatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Lookup a VAT code
 
 
 <a name="vatVatLookup"></a>

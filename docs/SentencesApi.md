@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**sentencesPost**](SentencesApi.md#sentencesPost) | **POST** nlp/get/sentences/string | Extract sentences from string
+[**sentencesPost**](SentencesApi.md#sentencesPost) | **POST** /nlp/get/sentences/string | Extract sentences from string
 
 
 <a name="sentencesPost"></a>

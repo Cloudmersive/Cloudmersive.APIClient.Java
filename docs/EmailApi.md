@@ -4,9 +4,9 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**emailAddressGetServers**](EmailApi.md#emailAddressGetServers) | **POST** validate/email/address/servers | Partially check whether an email address is valid
-[**emailFullValidation**](EmailApi.md#emailFullValidation) | **POST** validate/email/address/full | Fully validate an email address
-[**emailPost**](EmailApi.md#emailPost) | **POST** validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
+[**emailAddressGetServers**](EmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
+[**emailFullValidation**](EmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
+[**emailPost**](EmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
 
 
 <a name="emailAddressGetServers"></a>

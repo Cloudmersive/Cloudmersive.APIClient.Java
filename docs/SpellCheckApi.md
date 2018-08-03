@@ -4,12 +4,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**spellCheckCheckJson**](SpellCheckApi.md#spellCheckCheckJson) | **POST** nlp/spellcheck/check/word/json | Spell check word
-[**spellCheckCheckSentenceJson**](SpellCheckApi.md#spellCheckCheckSentenceJson) | **POST** nlp/spellcheck/check/sentence/json | Check if sentence is spelled correctly
-[**spellCheckCheckSentenceString**](SpellCheckApi.md#spellCheckCheckSentenceString) | **POST** nlp/spellcheck/check/sentence/string | Spell check a sentence
-[**spellCheckCorrect**](SpellCheckApi.md#spellCheckCorrect) | **POST** nlp/spellcheck/correct/word/string | Find spelling corrections
-[**spellCheckCorrectJson**](SpellCheckApi.md#spellCheckCorrectJson) | **POST** nlp/spellcheck/correct/word/json | Find spelling corrections
-[**spellCheckPost**](SpellCheckApi.md#spellCheckPost) | **POST** nlp/spellcheck/check/word/string | Spell check a word
+[**spellCheckCheckJson**](SpellCheckApi.md#spellCheckCheckJson) | **POST** /nlp/spellcheck/check/word/json | Spell check word
+[**spellCheckCheckSentenceJson**](SpellCheckApi.md#spellCheckCheckSentenceJson) | **POST** /nlp/spellcheck/check/sentence/json | Check if sentence is spelled correctly
+[**spellCheckCheckSentenceString**](SpellCheckApi.md#spellCheckCheckSentenceString) | **POST** /nlp/spellcheck/check/sentence/string | Spell check a sentence
+[**spellCheckCorrect**](SpellCheckApi.md#spellCheckCorrect) | **POST** /nlp/spellcheck/correct/word/string | Find spelling corrections
+[**spellCheckCorrectJson**](SpellCheckApi.md#spellCheckCorrectJson) | **POST** /nlp/spellcheck/correct/word/json | Find spelling corrections
+[**spellCheckPost**](SpellCheckApi.md#spellCheckPost) | **POST** /nlp/spellcheck/check/word/string | Spell check a word
 
 
 <a name="spellCheckCheckJson"></a>

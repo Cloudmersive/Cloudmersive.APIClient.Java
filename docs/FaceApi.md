@@ -4,10 +4,10 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**faceCropFirst**](FaceApi.md#faceCropFirst) | **POST** image/face/crop/first | Crop image to face (square)
-[**faceCropFirstRound**](FaceApi.md#faceCropFirstRound) | **POST** image/face/crop/first/round | Crop image to face (round)
-[**faceDetectAge**](FaceApi.md#faceDetectAge) | **POST** image/face/detect-age | Detect the age of people in an image
-[**faceLocate**](FaceApi.md#faceLocate) | **POST** image/face/locate | Find faces in an image
+[**faceCropFirst**](FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
+[**faceCropFirstRound**](FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
+[**faceDetectAge**](FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
+[**faceLocate**](FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
 
 
 <a name="faceCropFirst"></a>

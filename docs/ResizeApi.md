@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**resizePost**](ResizeApi.md#resizePost) | **POST** image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image with parameters
+[**resizePost**](ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image with parameters
 
 
 <a name="resizePost"></a>

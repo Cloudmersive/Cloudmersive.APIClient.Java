@@ -4,10 +4,10 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**convertWebHtmlToPdf**](ConvertWebApi.md#convertWebHtmlToPdf) | **POST** convert/web/html/to/pdf | Convert HTML string to PDF
-[**convertWebMdToHtml**](ConvertWebApi.md#convertWebMdToHtml) | **POST** convert/web/md/to/html | Convert Markdown to HTML
-[**convertWebUrlToPdf**](ConvertWebApi.md#convertWebUrlToPdf) | **POST** convert/web/url/to/pdf | Convert a URL to PDF
-[**convertWebUrlToScreenshot**](ConvertWebApi.md#convertWebUrlToScreenshot) | **POST** convert/web/url/to/screenshot | Take screenshot of URL
+[**convertWebHtmlToPdf**](ConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
+[**convertWebMdToHtml**](ConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
+[**convertWebUrlToPdf**](ConvertWebApi.md#convertWebUrlToPdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
+[**convertWebUrlToScreenshot**](ConvertWebApi.md#convertWebUrlToScreenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
 
 
 <a name="convertWebHtmlToPdf"></a>

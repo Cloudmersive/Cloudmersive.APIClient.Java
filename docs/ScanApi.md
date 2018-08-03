@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**scanFile**](ScanApi.md#scanFile) | **POST** virus/scan/file | Scan a file for viruses
+[**scanFile**](ScanApi.md#scanFile) | **POST** /virus/scan/file | Scan a file for viruses
 
 
 <a name="scanFile"></a>
