@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**posTaggerStringPost**](PosTaggerStringApi.md#posTaggerStringPost) | **POST** /nlp/PosTaggerString | Part-of-speech tag a string
+[**posTaggerStringPost**](PosTaggerStringApi.md#posTaggerStringPost) | **POST** nlp/PosTaggerString | Part-of-speech tag a string
 
 
 <a name="posTaggerStringPost"></a>

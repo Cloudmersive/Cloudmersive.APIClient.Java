@@ -4,8 +4,8 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**domainCheck**](DomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
-[**domainPost**](DomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+[**domainCheck**](DomainApi.md#domainCheck) | **POST** validate/domain/check | Validate a domain name
+[**domainPost**](DomainApi.md#domainPost) | **POST** validate/domain/whois | Get WHOIS information for a domain
 
 
 <a name="domainCheck"></a>

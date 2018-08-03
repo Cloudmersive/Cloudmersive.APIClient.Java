@@ -4,8 +4,8 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**convertDataCsvToJson**](ConvertDataApi.md#convertDataCsvToJson) | **POST** /convert/csv/to/json | CSV to JSON conversion
-[**convertDataXmlToJson**](ConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | XML to JSON conversion
+[**convertDataCsvToJson**](ConvertDataApi.md#convertDataCsvToJson) | **POST** convert/csv/to/json | CSV to JSON conversion
+[**convertDataXmlToJson**](ConvertDataApi.md#convertDataXmlToJson) | **POST** convert/xml/to/json | XML to JSON conversion
 
 
 <a name="convertDataCsvToJson"></a>

@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**iPAddressPost**](IpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
+[**iPAddressPost**](IpAddressApi.md#iPAddressPost) | **POST** validate/ip/geolocate | Geolocate an IP address
 
 
 <a name="iPAddressPost"></a>

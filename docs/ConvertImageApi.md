@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**convertImageImageFormatConvert**](ConvertImageApi.md#convertImageImageFormatConvert) | **POST** /convert/image/{format1}/to/{format2} | Image format conversion
+[**convertImageImageFormatConvert**](ConvertImageApi.md#convertImageImageFormatConvert) | **POST** convert/image/{format1}/to/{format2} | Image format conversion
 
 
 <a name="convertImageImageFormatConvert"></a>

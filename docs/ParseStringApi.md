@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**parseStringPost**](ParseStringApi.md#parseStringPost) | **POST** /nlp/ParseString | Parse string to syntax tree
+[**parseStringPost**](ParseStringApi.md#parseStringPost) | **POST** nlp/ParseString | Parse string to syntax tree
 
 
 <a name="parseStringPost"></a>

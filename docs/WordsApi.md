@@ -4,14 +4,14 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**wordsAdjectives**](WordsApi.md#wordsAdjectives) | **POST** /nlp/get/words/adjectives/string | Get adjectives in string
-[**wordsAdverbs**](WordsApi.md#wordsAdverbs) | **POST** /nlp/get/words/adverbs/string | Get adverbs in input string
-[**wordsGetWordsJson**](WordsApi.md#wordsGetWordsJson) | **POST** /nlp/get/words/json | Get words in input string (JSON)
-[**wordsGetWordsString**](WordsApi.md#wordsGetWordsString) | **POST** /nlp/get/words/string | Get words from string
-[**wordsNouns**](WordsApi.md#wordsNouns) | **POST** /nlp/get/words/nouns/string | Get nouns in string
-[**wordsPost**](WordsApi.md#wordsPost) | **POST** /nlp/get/words/verbs/string | Get the verbs in a string
-[**wordsPronouns**](WordsApi.md#wordsPronouns) | **POST** /nlp/get/words/pronouns/string | Returns all pronounts in string
-[**wordsProperNouns**](WordsApi.md#wordsProperNouns) | **POST** /nlp/get/words/properNouns/string | Get proper nouns in a string
+[**wordsAdjectives**](WordsApi.md#wordsAdjectives) | **POST** nlp/get/words/adjectives/string | Get adjectives in string
+[**wordsAdverbs**](WordsApi.md#wordsAdverbs) | **POST** nlp/get/words/adverbs/string | Get adverbs in input string
+[**wordsGetWordsJson**](WordsApi.md#wordsGetWordsJson) | **POST** nlp/get/words/json | Get words in input string (JSON)
+[**wordsGetWordsString**](WordsApi.md#wordsGetWordsString) | **POST** nlp/get/words/string | Get words from string
+[**wordsNouns**](WordsApi.md#wordsNouns) | **POST** nlp/get/words/nouns/string | Get nouns in string
+[**wordsPost**](WordsApi.md#wordsPost) | **POST** nlp/get/words/verbs/string | Get the verbs in a string
+[**wordsPronouns**](WordsApi.md#wordsPronouns) | **POST** nlp/get/words/pronouns/string | Returns all pronounts in string
+[**wordsProperNouns**](WordsApi.md#wordsProperNouns) | **POST** nlp/get/words/properNouns/string | Get proper nouns in a string
 
 
 <a name="wordsAdjectives"></a>
