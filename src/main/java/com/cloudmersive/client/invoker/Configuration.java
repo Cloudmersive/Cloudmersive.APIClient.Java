@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T20:45:22.258-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T20:48:20.187-07:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

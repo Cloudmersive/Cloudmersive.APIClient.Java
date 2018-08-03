@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ProductMatch
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T20:45:15.692-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T20:48:14.357-07:00")
 public class ProductMatch {
   @SerializedName("EAN")
   private String EAN = null;

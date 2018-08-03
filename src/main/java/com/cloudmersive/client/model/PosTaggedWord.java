@@ -27,7 +27,7 @@ import java.io.IOException;
  * Word tagged in a POS tag
  */
 @ApiModel(description = "Word tagged in a POS tag")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T20:45:11.133-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-02T20:48:10.677-07:00")
 public class PosTaggedWord {
   @SerializedName("Word")
   private Object word = null;
