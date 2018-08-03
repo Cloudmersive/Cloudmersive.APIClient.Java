@@ -45,7 +45,7 @@ public class ConvertImageApiTest {
         String format1 = null;
         String format2 = null;
         File inputFile = null;
-        File response = api.convertImageImageFormatConvert(format1, format2, inputFile);
+        byte[] response = api.convertImageImageFormatConvert(format1, format2, inputFile);
 
         // TODO: test validations
     }

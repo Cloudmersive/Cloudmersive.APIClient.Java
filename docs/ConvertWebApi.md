@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 <a name="convertWebUrlToPdf"></a>
 # **convertWebUrlToPdf**
-> File convertWebUrlToPdf(input)
+> byte[] convertWebUrlToPdf(input)
 
 Convert a URL to PDF
 
@@ -148,7 +148,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertWebApi apiInstance = new ConvertWebApi();
 ScreenshotRequest input = new ScreenshotRequest(); // ScreenshotRequest | URL to PDF request parameters
 try {
-    File result = apiInstance.convertWebUrlToPdf(input);
+    byte[] result = apiInstance.convertWebUrlToPdf(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebUrlToPdf");
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 <a name="convertWebUrlToScreenshot"></a>
 # **convertWebUrlToScreenshot**
-> File convertWebUrlToScreenshot(input)
+> byte[] convertWebUrlToScreenshot(input)
 
 Take screenshot of URL
 
@@ -203,7 +203,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertWebApi apiInstance = new ConvertWebApi();
 ScreenshotRequest input = new ScreenshotRequest(); // ScreenshotRequest | Screenshot request parameters
 try {
-    File result = apiInstance.convertWebUrlToScreenshot(input);
+    byte[] result = apiInstance.convertWebUrlToScreenshot(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebUrlToScreenshot");
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
