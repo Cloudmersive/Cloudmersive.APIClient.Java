@@ -1,8 +1,8 @@
 lazy val root = (project in file(".")).
   settings(
     organization := "com.cloudmersive",
-    name := "cloudmersive-java-api-client",
-    version := "1.1.6",
+    name := "swagger-java-client",
+    version := "2.0.3",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

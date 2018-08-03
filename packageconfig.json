@@ -4,7 +4,7 @@
   "apiPackage": "com.cloudmersive.client",
   "invokerPackage": "com.cloudmersive.client.invoker",
   "groupId": "com.cloudmersive",
-  "artifactVersion": "2.0.3",
-  "library": "jersey2"
+  "artifactVersion": "2.0.3"
+  
   
 }  

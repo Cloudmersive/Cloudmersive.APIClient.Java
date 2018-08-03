@@ -1,4 +1,4 @@
-# cloudmersive-java-api-client
+# swagger-java-client
 
 ## Requirements
 
@@ -27,8 +27,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
     <groupId>com.cloudmersive</groupId>
-    <artifactId>cloudmersive-java-api-client</artifactId>
-    <version>1.1.5</version>
+    <artifactId>swagger-java-client</artifactId>
+    <version>2.0.3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.cloudmersive:cloudmersive-java-api-client:1.1.5"
+compile "com.cloudmersive:swagger-java-client:2.0.3"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudmersive-java-api-client-1.1.5.jar
+* target/swagger-java-client-2.0.3.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -69,9 +69,16 @@ import java.util.*;
 public class DomainApiExample {
 
     public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
+        // Configure API key authorization: Apikey
+        ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+        Apikey.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Apikey.setApiKeyPrefix("Token");
+
         DomainApi apiInstance = new DomainApi();
-        String domain = "domain_example"; // String | Domain name to check, for example \"cloudmersive.com\"
+        String domain = "domain_example"; // String | Domain name to check, for example \"cloudmersive.com\".  The input is a string so be sure to enclose it in double-quotes.
         try {
             CheckResponse result = apiInstance.domainCheck(domain);
             System.out.println(result);
@@ -96,6 +103,7 @@ Class | Method | HTTP request | Description
 *EmailApi* | [**emailFullValidation**](docs/EmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
 *EmailApi* | [**emailPost**](docs/EmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
 *IpAddressApi* | [**iPAddressPost**](docs/IpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
+*VatApi* | [**vatVatLookup**](docs/VatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Lookup a VAT code
 
 
 ## Documentation for Models
@@ -105,6 +113,8 @@ Class | Method | HTTP request | Description
  - [CheckResponse](docs/CheckResponse.md)
  - [FullEmailValidationResponse](docs/FullEmailValidationResponse.md)
  - [GeolocateResponse](docs/GeolocateResponse.md)
+ - [VatLookupRequest](docs/VatLookupRequest.md)
+ - [VatLookupResponse](docs/VatLookupResponse.md)
  - [WhoisResponse](docs/WhoisResponse.md)
 
 

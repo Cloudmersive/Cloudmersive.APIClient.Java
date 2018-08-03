@@ -2,26 +2,20 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.cloudmersive'
-version = '1.1.9'
+version = '2.0.3'
 
 buildscript {
     repositories {
-        jcenter {
-        url "http://jcenter.bintray.com/"
-    		}
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-
+        classpath 'com.android.tools.build:gradle:2.3.+'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 
 repositories {
-    jcenter {
-        url "http://jcenter.bintray.com/"
-    }
-    
-    mavenCentral()
+    jcenter()
 }
 
 
@@ -79,8 +73,7 @@ if(hasProperty('target') && target == 'android') {
         archives sourcesJar
     }
 
-} else 
-{
+} else {
 
     apply plugin: 'java'
     apply plugin: 'maven'
@@ -90,7 +83,7 @@ if(hasProperty('target') && target == 'android') {
 
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'cloudmersive-java-api-client'
+            pom.artifactId = 'swagger-java-client'
         }
     }
 
