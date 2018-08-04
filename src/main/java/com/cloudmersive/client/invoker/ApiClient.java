@@ -77,9 +77,7 @@ public class ApiClient {
      * Constructor for ApiClient
      */
     public ApiClient() {
-        httpClient = new OkHttpClient();
-        
-        httpClient.setProtocols(Arrays.asList(Protocol.HTTP_1_1));
+        httpClient = new OkHttpClient();  httpClient.setProtocols(Arrays.asList(Protocol.HTTP_1_1));
 
 
         verifyingSsl = true;

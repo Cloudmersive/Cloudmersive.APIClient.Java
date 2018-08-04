@@ -49,6 +49,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Word DOC (97-2003) to PDF
+     *
+     * Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentDocToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Word DOCX to PDF
      *
      * Convert Office Word Documents (docx) to standard PDF
@@ -65,6 +81,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * PowerPoint PPT (97-2003) to PDF
+     *
+     * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPptToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentPptToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * PowerPoint PPTX to PDF
      *
      * Convert Office PowerPoint Documents (pptx) to standard PDF
@@ -76,6 +108,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPptxToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentPptxToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Excel XLS (97-2003) to PDF
+     *
+     * Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsToPdfTest() throws ApiException {
+        File inputFile = null;
+        Object response = api.convertDocumentXlsToPdf(inputFile);
 
         // TODO: test validations
     }
