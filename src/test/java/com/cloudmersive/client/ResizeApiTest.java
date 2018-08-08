@@ -45,7 +45,7 @@ public class ResizeApiTest {
         Integer maxWidth = null;
         Integer maxHeight = null;
         File imageFile = null;
-        Object response = api.resizePost(maxWidth, maxHeight, imageFile);
+        byte[] response = api.resizePost(maxWidth, maxHeight, imageFile);
 
         // TODO: test validations
     }

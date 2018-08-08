@@ -1,6 +1,6 @@
 /*
- * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * convertapi
+ * Convert API lets you effortlessly convert file formats and types.
  *
  * OpenAPI spec version: v1
  * 
@@ -35,14 +35,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ResizeApi {
+public class MergeDocumentApi {
     private ApiClient apiClient;
 
-    public ResizeApi() {
+    public MergeDocumentApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public ResizeApi(ApiClient apiClient) {
+    public MergeDocumentApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -55,22 +55,19 @@ public class ResizeApi {
     }
 
     /**
-     * Build call for resizePost
-     * @param maxWidth Maximum width of the output image - final image will be as large as possible while less than or equial to this width (required)
-     * @param maxHeight Maximum height of the output image - final image will be as large as possible while less than or equial to this height (required)
-     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * Build call for mergeDocumentDocx
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call resizePostCall(Integer maxWidth, Integer maxHeight, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call mergeDocumentDocxCall(File inputFile1, File inputFile2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/image/resize/preserveAspectRatio/{maxWidth}/{maxHeight}"
-            .replaceAll("\\{" + "maxWidth" + "\\}", apiClient.escapeString(maxWidth.toString()))
-            .replaceAll("\\{" + "maxHeight" + "\\}", apiClient.escapeString(maxHeight.toString()));
+        String localVarPath = "/convert/merge/docx";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -78,11 +75,13 @@ public class ResizeApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (imageFile != null)
-        localVarFormParams.put("imageFile", imageFile);
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -110,69 +109,61 @@ public class ResizeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call resizePostValidateBeforeCall(Integer maxWidth, Integer maxHeight, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call mergeDocumentDocxValidateBeforeCall(File inputFile1, File inputFile2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'maxWidth' is set
-        if (maxWidth == null) {
-            throw new ApiException("Missing the required parameter 'maxWidth' when calling resizePost(Async)");
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling mergeDocumentDocx(Async)");
         }
         
-        // verify the required parameter 'maxHeight' is set
-        if (maxHeight == null) {
-            throw new ApiException("Missing the required parameter 'maxHeight' when calling resizePost(Async)");
-        }
-        
-        // verify the required parameter 'imageFile' is set
-        if (imageFile == null) {
-            throw new ApiException("Missing the required parameter 'imageFile' when calling resizePost(Async)");
+        // verify the required parameter 'inputFile2' is set
+        if (inputFile2 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling mergeDocumentDocx(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = resizePostCall(maxWidth, maxHeight, imageFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = mergeDocumentDocxCall(inputFile1, inputFile2, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Resize an image with parameters
-     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
-     * @param maxWidth Maximum width of the output image - final image will be as large as possible while less than or equial to this width (required)
-     * @param maxHeight Maximum height of the output image - final image will be as large as possible while less than or equial to this height (required)
-     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * Merge Multple Word DOCX Together
+     * Combine multiple Office Word Documents (docx) into one single Office Word documents
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] resizePost(Integer maxWidth, Integer maxHeight, File imageFile) throws ApiException {
-        ApiResponse<byte[]> resp = resizePostWithHttpInfo(maxWidth, maxHeight, imageFile);
+    public byte[] mergeDocumentDocx(File inputFile1, File inputFile2) throws ApiException {
+        ApiResponse<byte[]> resp = mergeDocumentDocxWithHttpInfo(inputFile1, inputFile2);
         return resp.getData();
     }
 
     /**
-     * Resize an image with parameters
-     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
-     * @param maxWidth Maximum width of the output image - final image will be as large as possible while less than or equial to this width (required)
-     * @param maxHeight Maximum height of the output image - final image will be as large as possible while less than or equial to this height (required)
-     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * Merge Multple Word DOCX Together
+     * Combine multiple Office Word Documents (docx) into one single Office Word documents
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> resizePostWithHttpInfo(Integer maxWidth, Integer maxHeight, File imageFile) throws ApiException {
-        com.squareup.okhttp.Call call = resizePostValidateBeforeCall(maxWidth, maxHeight, imageFile, null, null);
+    public ApiResponse<byte[]> mergeDocumentDocxWithHttpInfo(File inputFile1, File inputFile2) throws ApiException {
+        com.squareup.okhttp.Call call = mergeDocumentDocxValidateBeforeCall(inputFile1, inputFile2, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Resize an image with parameters (asynchronously)
-     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
-     * @param maxWidth Maximum width of the output image - final image will be as large as possible while less than or equial to this width (required)
-     * @param maxHeight Maximum height of the output image - final image will be as large as possible while less than or equial to this height (required)
-     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * Merge Multple Word DOCX Together (asynchronously)
+     * Combine multiple Office Word Documents (docx) into one single Office Word documents
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call resizePostAsync(Integer maxWidth, Integer maxHeight, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call mergeDocumentDocxAsync(File inputFile1, File inputFile2, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -193,7 +184,7 @@ public class ResizeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = resizePostValidateBeforeCall(maxWidth, maxHeight, imageFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = mergeDocumentDocxValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

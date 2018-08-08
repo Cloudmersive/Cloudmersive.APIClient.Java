@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="resizePost"></a>
 # **resizePost**
-> Object resizePost(maxWidth, maxHeight, imageFile)
+> byte[] resizePost(maxWidth, maxHeight, imageFile)
 
 Resize an image with parameters
 
@@ -37,7 +37,7 @@ Integer maxWidth = 56; // Integer | Maximum width of the output image - final im
 Integer maxHeight = 56; // Integer | Maximum height of the output image - final image will be as large as possible while less than or equial to this height
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.resizePost(maxWidth, maxHeight, imageFile);
+    byte[] result = apiInstance.resizePost(maxWidth, maxHeight, imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResizeApi#resizePost");
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

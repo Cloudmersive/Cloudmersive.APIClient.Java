@@ -44,7 +44,7 @@ public class ArtisticApiTest {
     public void artisticPaintingTest() throws ApiException {
         String style = null;
         File imageFile = null;
-        Object response = api.artisticPainting(style, imageFile);
+        byte[] response = api.artisticPainting(style, imageFile);
 
         // TODO: test validations
     }

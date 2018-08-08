@@ -125,11 +125,11 @@ public class FaceApi {
      * Crop image to face (square)
      * Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object faceCropFirst(File imageFile) throws ApiException {
-        ApiResponse<Object> resp = faceCropFirstWithHttpInfo(imageFile);
+    public byte[] faceCropFirst(File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = faceCropFirstWithHttpInfo(imageFile);
         return resp.getData();
     }
 
@@ -137,12 +137,12 @@ public class FaceApi {
      * Crop image to face (square)
      * Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> faceCropFirstWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<byte[]> faceCropFirstWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = faceCropFirstValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -154,7 +154,7 @@ public class FaceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call faceCropFirstAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call faceCropFirstAsync(File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,7 +176,7 @@ public class FaceApi {
         }
 
         com.squareup.okhttp.Call call = faceCropFirstValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -249,11 +249,11 @@ public class FaceApi {
      * Crop image to face (round)
      * Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object faceCropFirstRound(File imageFile) throws ApiException {
-        ApiResponse<Object> resp = faceCropFirstRoundWithHttpInfo(imageFile);
+    public byte[] faceCropFirstRound(File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = faceCropFirstRoundWithHttpInfo(imageFile);
         return resp.getData();
     }
 
@@ -261,12 +261,12 @@ public class FaceApi {
      * Crop image to face (round)
      * Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> faceCropFirstRoundWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<byte[]> faceCropFirstRoundWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = faceCropFirstRoundValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -278,7 +278,7 @@ public class FaceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call faceCropFirstRoundAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call faceCropFirstRoundAsync(File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -300,7 +300,7 @@ public class FaceApi {
         }
 
         com.squareup.okhttp.Call call = faceCropFirstRoundValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

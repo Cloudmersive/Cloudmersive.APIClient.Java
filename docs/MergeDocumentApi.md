@@ -1,0 +1,66 @@
+# MergeDocumentApi
+
+All URIs are relative to *https://api.cloudmersive.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**mergeDocumentDocx**](MergeDocumentApi.md#mergeDocumentDocx) | **POST** /convert/merge/docx | Merge Multple Word DOCX Together
+
+
+<a name="mergeDocumentDocx"></a>
+# **mergeDocumentDocx**
+> byte[] mergeDocumentDocx(inputFile1, inputFile2)
+
+Merge Multple Word DOCX Together
+
+Combine multiple Office Word Documents (docx) into one single Office Word documents
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.MergeDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+MergeDocumentApi apiInstance = new MergeDocumentApi();
+File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
+File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on (more than 2 can be supplied).
+try {
+    byte[] result = apiInstance.mergeDocumentDocx(inputFile1, inputFile2);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MergeDocumentApi#mergeDocumentDocx");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **File**| First input file to perform the operation on. |
+ **inputFile2** | **File**| Second input file to perform the operation on (more than 2 can be supplied). |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="artisticPainting"></a>
 # **artisticPainting**
-> Object artisticPainting(style, imageFile)
+> byte[] artisticPainting(style, imageFile)
 
 Transform an image into an artistic painting automatically
 
@@ -36,7 +36,7 @@ ArtisticApi apiInstance = new ArtisticApi();
 String style = "style_example"; // String | The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.artisticPainting(style, imageFile);
+    byte[] result = apiInstance.artisticPainting(style, imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ArtisticApi#artisticPainting");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

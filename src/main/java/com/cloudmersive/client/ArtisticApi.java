@@ -131,11 +131,11 @@ public class ArtisticApi {
      * Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.
      * @param style The style of the painting to apply.  To start, try \&quot;udnie\&quot; a painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;. (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object artisticPainting(String style, File imageFile) throws ApiException {
-        ApiResponse<Object> resp = artisticPaintingWithHttpInfo(style, imageFile);
+    public byte[] artisticPainting(String style, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = artisticPaintingWithHttpInfo(style, imageFile);
         return resp.getData();
     }
 
@@ -144,12 +144,12 @@ public class ArtisticApi {
      * Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.
      * @param style The style of the painting to apply.  To start, try \&quot;udnie\&quot; a painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;. (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> artisticPaintingWithHttpInfo(String style, File imageFile) throws ApiException {
+    public ApiResponse<byte[]> artisticPaintingWithHttpInfo(String style, File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = artisticPaintingValidateBeforeCall(style, imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -162,7 +162,7 @@ public class ArtisticApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call artisticPaintingAsync(String style, File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call artisticPaintingAsync(String style, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -184,7 +184,7 @@ public class ArtisticApi {
         }
 
         com.squareup.okhttp.Call call = artisticPaintingValidateBeforeCall(style, imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

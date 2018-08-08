@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="faceCropFirst"></a>
 # **faceCropFirst**
-> Object faceCropFirst(imageFile)
+> byte[] faceCropFirst(imageFile)
 
 Crop image to face (square)
 
@@ -38,7 +38,7 @@ Apikey.setApiKey("YOUR API KEY");
 FaceApi apiInstance = new FaceApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.faceCropFirst(imageFile);
+    byte[] result = apiInstance.faceCropFirst(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaceApi#faceCropFirst");
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 <a name="faceCropFirstRound"></a>
 # **faceCropFirstRound**
-> Object faceCropFirstRound(imageFile)
+> byte[] faceCropFirstRound(imageFile)
 
 Crop image to face (round)
 
@@ -93,7 +93,7 @@ Apikey.setApiKey("YOUR API KEY");
 FaceApi apiInstance = new FaceApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.faceCropFirstRound(imageFile);
+    byte[] result = apiInstance.faceCropFirstRound(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaceApi#faceCropFirstRound");
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

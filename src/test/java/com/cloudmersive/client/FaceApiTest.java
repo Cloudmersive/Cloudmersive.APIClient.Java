@@ -45,7 +45,7 @@ public class FaceApiTest {
     @Test
     public void faceCropFirstTest() throws ApiException {
         File imageFile = null;
-        Object response = api.faceCropFirst(imageFile);
+        byte[] response = api.faceCropFirst(imageFile);
 
         // TODO: test validations
     }
@@ -61,7 +61,7 @@ public class FaceApiTest {
     @Test
     public void faceCropFirstRoundTest() throws ApiException {
         File imageFile = null;
-        Object response = api.faceCropFirstRound(imageFile);
+        byte[] response = api.faceCropFirstRound(imageFile);
 
         // TODO: test validations
     }
