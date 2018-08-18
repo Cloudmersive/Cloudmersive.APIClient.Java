@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.PdfToPngResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -49,7 +50,39 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Word DOC (97-2003) to PDF
+     * CSV to Excel XLSX
+     *
+     * Convert CSV file to Office Excel XLSX Workbooks file format.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentCsvToXlsxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentCsvToXlsx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Word DOC (97-03) to DOCX
+     *
+     * Convert/upgrade Office Word (97-2003 Format) Documents (doc) to the modern DOCX format
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocToDocxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentDocToDocx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Word DOC (97-03) to PDF
      *
      * Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
      *
@@ -81,7 +114,23 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * PowerPoint PPT (97-2003) to PDF
+     * PDF to PNG Array
+     *
+     * Convert PDF document to PNG array, one image per page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToPngArrayTest() throws ApiException {
+        File inputFile = null;
+        PdfToPngResult response = api.convertDocumentPdfToPngArray(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * PowerPoint PPT (97-03) to PDF
      *
      * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
      *
@@ -92,6 +141,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPptToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentPptToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * PowerPoint PPT (97-03) to PPTX
+     *
+     * Convert/upgrade Office PowerPoint (97-2003) Documents (ppt) to modern PPTX
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPptToPptxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentPptToPptx(inputFile);
 
         // TODO: test validations
     }
@@ -113,7 +178,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Excel XLS (97-2003) to PDF
+     * Excel XLS (97-03) to PDF
      *
      * Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
      *
@@ -124,6 +189,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentXlsToPdfTest() throws ApiException {
         File inputFile = null;
         Object response = api.convertDocumentXlsToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Excel XLS (97-03) to XLSX
+     *
+     * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to modern XLSX format.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsToXlsxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentXlsToXlsx(inputFile);
 
         // TODO: test validations
     }

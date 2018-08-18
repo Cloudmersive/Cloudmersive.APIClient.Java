@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.HtmlMdResult;
+import com.cloudmersive.client.model.HtmlToOfficeRequest;
 import com.cloudmersive.client.model.HtmlToPdfRequest;
 import com.cloudmersive.client.model.ScreenshotRequest;
 import org.junit.Test;
@@ -34,6 +35,22 @@ public class ConvertWebApiTest {
 
     private final ConvertWebApi api = new ConvertWebApi();
 
+    
+    /**
+     * HTML to DOCX
+     *
+     * Convert HTML to Office Word Document (DOCX) format
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertWebHtmlToDocxTest() throws ApiException {
+        HtmlToOfficeRequest inputRequest = null;
+        byte[] response = api.convertWebHtmlToDocx(inputRequest);
+
+        // TODO: test validations
+    }
     
     /**
      * Convert HTML string to PDF

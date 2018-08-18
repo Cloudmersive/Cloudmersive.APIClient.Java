@@ -5,7 +5,7 @@
     <artifactId>cloudmersive-java-api-client</artifactId>
     <packaging>jar</packaging>
     <name>cloudmersive-java-api-client</name>
-    <version>1.1.6</version>
+    <version>1.2.2</version>
     <url>https://github.com/swagger-api/swagger-codegen</url>
     <description>Swagger Java</description>
     <scm>
