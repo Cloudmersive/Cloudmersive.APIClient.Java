@@ -30,7 +30,7 @@ import java.util.List;
  * Result of converting a PDF to a PNG array
  */
 @ApiModel(description = "Result of converting a PDF to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-18T13:06:41.179-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
 public class PdfToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

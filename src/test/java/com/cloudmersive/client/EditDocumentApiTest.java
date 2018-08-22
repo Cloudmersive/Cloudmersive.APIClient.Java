@@ -14,7 +14,24 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.DocxInsertImageRequest;
+import com.cloudmersive.client.model.DocxInsertImageResponse;
+import com.cloudmersive.client.model.DocxSetFooterRequest;
+import com.cloudmersive.client.model.DocxSetFooterResponse;
+import com.cloudmersive.client.model.DocxSetHeaderRequest;
+import com.cloudmersive.client.model.DocxSetHeaderResponse;
 import java.io.File;
+import com.cloudmersive.client.model.FinishEditingRequest;
+import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
+import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
+import com.cloudmersive.client.model.GetDocxStylesRequest;
+import com.cloudmersive.client.model.GetDocxStylesResponse;
+import com.cloudmersive.client.model.GetDocxTablesRequest;
+import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.InsertDocxTablesRequest;
+import com.cloudmersive.client.model.InsertDocxTablesResponse;
+import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
+import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -50,6 +67,102 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get content of a footer from a DOCX
+     *
+     * Returns the footer content from a Word Document (DOCX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetHeadersAndFootersTest() throws ApiException {
+        GetDocxHeadersAndFootersRequest reqConfig = null;
+        GetDocxHeadersAndFootersResponse response = api.editDocumentDocxGetHeadersAndFooters(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get styles from a DOCX
+     *
+     * Returns the styles defined in the Word Document (DOCX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetStylesTest() throws ApiException {
+        GetDocxStylesRequest reqConfig = null;
+        GetDocxStylesResponse response = api.editDocumentDocxGetStyles(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get tables in DOCX
+     *
+     * Returns all the table objects in an Office Word Document (docx)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetTablesTest() throws ApiException {
+        GetDocxTablesRequest reqConfig = null;
+        GetDocxTablesResponse response = api.editDocumentDocxGetTables(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Insert image into a DOCX
+     *
+     * Set the footer in a Word Document (DOCX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxInsertImageTest() throws ApiException {
+        DocxInsertImageRequest reqConfig = null;
+        DocxInsertImageResponse response = api.editDocumentDocxInsertImage(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Insert a new table into a DOCX
+     *
+     * Adds a new table into a DOCX and returns the result
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxInsertTableTest() throws ApiException {
+        InsertDocxTablesRequest reqConfig = null;
+        InsertDocxTablesResponse response = api.editDocumentDocxInsertTable(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove headers and footers from DOCX
+     *
+     * Remove all headers, or footers, or both from a Word Document (DOCX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxRemoveHeadersAndFootersTest() throws ApiException {
+        RemoveDocxHeadersAndFootersRequest reqConfig = null;
+        RemoveDocxHeadersAndFootersResponse response = api.editDocumentDocxRemoveHeadersAndFooters(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Replace string in DOCX
      *
      * Replace all instances of a string in an Office Word Document (docx)
@@ -61,6 +174,54 @@ public class EditDocumentApiTest {
     public void editDocumentDocxReplaceTest() throws ApiException {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentDocxReplace(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set the footer in a DOCX
+     *
+     * Set the footer in a Word Document (DOCX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxSetFooterTest() throws ApiException {
+        DocxSetFooterRequest reqConfig = null;
+        DocxSetFooterResponse response = api.editDocumentDocxSetFooter(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set the header in a DOCX
+     *
+     * Set the header in a Word Document (DOCX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxSetHeaderTest() throws ApiException {
+        DocxSetHeaderRequest reqConfig = null;
+        DocxSetHeaderResponse response = api.editDocumentDocxSetHeader(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Download result from document editing
+     *
+     * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentFinishEditingTest() throws ApiException {
+        FinishEditingRequest reqConfig = null;
+        byte[] response = api.editDocumentFinishEditing(reqConfig);
 
         // TODO: test validations
     }

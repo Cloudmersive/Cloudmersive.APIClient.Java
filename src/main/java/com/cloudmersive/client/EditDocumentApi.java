@@ -27,7 +27,24 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cloudmersive.client.model.DocxInsertImageRequest;
+import com.cloudmersive.client.model.DocxInsertImageResponse;
+import com.cloudmersive.client.model.DocxSetFooterRequest;
+import com.cloudmersive.client.model.DocxSetFooterResponse;
+import com.cloudmersive.client.model.DocxSetHeaderRequest;
+import com.cloudmersive.client.model.DocxSetHeaderResponse;
 import java.io.File;
+import com.cloudmersive.client.model.FinishEditingRequest;
+import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
+import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
+import com.cloudmersive.client.model.GetDocxStylesRequest;
+import com.cloudmersive.client.model.GetDocxStylesResponse;
+import com.cloudmersive.client.model.GetDocxTablesRequest;
+import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.InsertDocxTablesRequest;
+import com.cloudmersive.client.model.InsertDocxTablesResponse;
+import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
+import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 
 import java.lang.reflect.Type;
@@ -180,6 +197,738 @@ public class EditDocumentApi {
         return call;
     }
     /**
+     * Build call for editDocumentDocxGetHeadersAndFooters
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetHeadersAndFootersCall(GetDocxHeadersAndFootersRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-headers-and-footers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetHeadersAndFootersValidateBeforeCall(GetDocxHeadersAndFootersRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxGetHeadersAndFooters(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetHeadersAndFootersCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get content of a footer from a DOCX
+     * Returns the footer content from a Word Document (DOCX) format file
+     * @param reqConfig  (required)
+     * @return GetDocxHeadersAndFootersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetDocxHeadersAndFootersResponse editDocumentDocxGetHeadersAndFooters(GetDocxHeadersAndFootersRequest reqConfig) throws ApiException {
+        ApiResponse<GetDocxHeadersAndFootersResponse> resp = editDocumentDocxGetHeadersAndFootersWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Get content of a footer from a DOCX
+     * Returns the footer content from a Word Document (DOCX) format file
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;GetDocxHeadersAndFootersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetDocxHeadersAndFootersResponse> editDocumentDocxGetHeadersAndFootersWithHttpInfo(GetDocxHeadersAndFootersRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetHeadersAndFootersValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<GetDocxHeadersAndFootersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get content of a footer from a DOCX (asynchronously)
+     * Returns the footer content from a Word Document (DOCX) format file
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetHeadersAndFootersAsync(GetDocxHeadersAndFootersRequest reqConfig, final ApiCallback<GetDocxHeadersAndFootersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetHeadersAndFootersValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetDocxHeadersAndFootersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxGetStyles
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetStylesCall(GetDocxStylesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-styles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetStylesValidateBeforeCall(GetDocxStylesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxGetStyles(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetStylesCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get styles from a DOCX
+     * Returns the styles defined in the Word Document (DOCX) format file
+     * @param reqConfig  (required)
+     * @return GetDocxStylesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetDocxStylesResponse editDocumentDocxGetStyles(GetDocxStylesRequest reqConfig) throws ApiException {
+        ApiResponse<GetDocxStylesResponse> resp = editDocumentDocxGetStylesWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Get styles from a DOCX
+     * Returns the styles defined in the Word Document (DOCX) format file
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;GetDocxStylesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetDocxStylesResponse> editDocumentDocxGetStylesWithHttpInfo(GetDocxStylesRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetStylesValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<GetDocxStylesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get styles from a DOCX (asynchronously)
+     * Returns the styles defined in the Word Document (DOCX) format file
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetStylesAsync(GetDocxStylesRequest reqConfig, final ApiCallback<GetDocxStylesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetStylesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetDocxStylesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxGetTables
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetTablesCall(GetDocxTablesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-tables";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetTablesValidateBeforeCall(GetDocxTablesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxGetTables(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetTablesCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get tables in DOCX
+     * Returns all the table objects in an Office Word Document (docx)
+     * @param reqConfig  (required)
+     * @return GetDocxTablesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetDocxTablesResponse editDocumentDocxGetTables(GetDocxTablesRequest reqConfig) throws ApiException {
+        ApiResponse<GetDocxTablesResponse> resp = editDocumentDocxGetTablesWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Get tables in DOCX
+     * Returns all the table objects in an Office Word Document (docx)
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;GetDocxTablesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetDocxTablesResponse> editDocumentDocxGetTablesWithHttpInfo(GetDocxTablesRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetTablesValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<GetDocxTablesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get tables in DOCX (asynchronously)
+     * Returns all the table objects in an Office Word Document (docx)
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetTablesAsync(GetDocxTablesRequest reqConfig, final ApiCallback<GetDocxTablesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetTablesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetDocxTablesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxInsertImage
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxInsertImageCall(DocxInsertImageRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/insert-image";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxInsertImageValidateBeforeCall(DocxInsertImageRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxInsertImage(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxInsertImageCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert image into a DOCX
+     * Set the footer in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return DocxInsertImageResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocxInsertImageResponse editDocumentDocxInsertImage(DocxInsertImageRequest reqConfig) throws ApiException {
+        ApiResponse<DocxInsertImageResponse> resp = editDocumentDocxInsertImageWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Insert image into a DOCX
+     * Set the footer in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;DocxInsertImageResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocxInsertImageResponse> editDocumentDocxInsertImageWithHttpInfo(DocxInsertImageRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxInsertImageValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<DocxInsertImageResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert image into a DOCX (asynchronously)
+     * Set the footer in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxInsertImageAsync(DocxInsertImageRequest reqConfig, final ApiCallback<DocxInsertImageResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxInsertImageValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocxInsertImageResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxInsertTable
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxInsertTableCall(InsertDocxTablesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/insert-table";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxInsertTableValidateBeforeCall(InsertDocxTablesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxInsertTable(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxInsertTableCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a new table into a DOCX
+     * Adds a new table into a DOCX and returns the result
+     * @param reqConfig  (required)
+     * @return InsertDocxTablesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InsertDocxTablesResponse editDocumentDocxInsertTable(InsertDocxTablesRequest reqConfig) throws ApiException {
+        ApiResponse<InsertDocxTablesResponse> resp = editDocumentDocxInsertTableWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a new table into a DOCX
+     * Adds a new table into a DOCX and returns the result
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;InsertDocxTablesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InsertDocxTablesResponse> editDocumentDocxInsertTableWithHttpInfo(InsertDocxTablesRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxInsertTableValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<InsertDocxTablesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a new table into a DOCX (asynchronously)
+     * Adds a new table into a DOCX and returns the result
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxInsertTableAsync(InsertDocxTablesRequest reqConfig, final ApiCallback<InsertDocxTablesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxInsertTableValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InsertDocxTablesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxRemoveHeadersAndFooters
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxRemoveHeadersAndFootersCall(RemoveDocxHeadersAndFootersRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/remove-headers-and-footers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxRemoveHeadersAndFootersValidateBeforeCall(RemoveDocxHeadersAndFootersRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxRemoveHeadersAndFooters(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxRemoveHeadersAndFootersCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove headers and footers from DOCX
+     * Remove all headers, or footers, or both from a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return RemoveDocxHeadersAndFootersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RemoveDocxHeadersAndFootersResponse editDocumentDocxRemoveHeadersAndFooters(RemoveDocxHeadersAndFootersRequest reqConfig) throws ApiException {
+        ApiResponse<RemoveDocxHeadersAndFootersResponse> resp = editDocumentDocxRemoveHeadersAndFootersWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Remove headers and footers from DOCX
+     * Remove all headers, or footers, or both from a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;RemoveDocxHeadersAndFootersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RemoveDocxHeadersAndFootersResponse> editDocumentDocxRemoveHeadersAndFootersWithHttpInfo(RemoveDocxHeadersAndFootersRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxRemoveHeadersAndFootersValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<RemoveDocxHeadersAndFootersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove headers and footers from DOCX (asynchronously)
+     * Remove all headers, or footers, or both from a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxRemoveHeadersAndFootersAsync(RemoveDocxHeadersAndFootersRequest reqConfig, final ApiCallback<RemoveDocxHeadersAndFootersResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxRemoveHeadersAndFootersValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RemoveDocxHeadersAndFootersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editDocumentDocxReplace
      * @param reqConfig  (required)
      * @param progressListener Progress listener
@@ -297,6 +1046,372 @@ public class EditDocumentApi {
         }
 
         com.squareup.okhttp.Call call = editDocumentDocxReplaceValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxSetFooter
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxSetFooterCall(DocxSetFooterRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/set-footer";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxSetFooterValidateBeforeCall(DocxSetFooterRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxSetFooter(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxSetFooterCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Set the footer in a DOCX
+     * Set the footer in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return DocxSetFooterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocxSetFooterResponse editDocumentDocxSetFooter(DocxSetFooterRequest reqConfig) throws ApiException {
+        ApiResponse<DocxSetFooterResponse> resp = editDocumentDocxSetFooterWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Set the footer in a DOCX
+     * Set the footer in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;DocxSetFooterResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocxSetFooterResponse> editDocumentDocxSetFooterWithHttpInfo(DocxSetFooterRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxSetFooterValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<DocxSetFooterResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set the footer in a DOCX (asynchronously)
+     * Set the footer in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxSetFooterAsync(DocxSetFooterRequest reqConfig, final ApiCallback<DocxSetFooterResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxSetFooterValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocxSetFooterResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxSetHeader
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxSetHeaderCall(DocxSetHeaderRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/set-header";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxSetHeaderValidateBeforeCall(DocxSetHeaderRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxSetHeader(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxSetHeaderCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Set the header in a DOCX
+     * Set the header in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return DocxSetHeaderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocxSetHeaderResponse editDocumentDocxSetHeader(DocxSetHeaderRequest reqConfig) throws ApiException {
+        ApiResponse<DocxSetHeaderResponse> resp = editDocumentDocxSetHeaderWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Set the header in a DOCX
+     * Set the header in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;DocxSetHeaderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocxSetHeaderResponse> editDocumentDocxSetHeaderWithHttpInfo(DocxSetHeaderRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxSetHeaderValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<DocxSetHeaderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set the header in a DOCX (asynchronously)
+     * Set the header in a Word Document (DOCX)
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxSetHeaderAsync(DocxSetHeaderRequest reqConfig, final ApiCallback<DocxSetHeaderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxSetHeaderValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocxSetHeaderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentFinishEditing
+     * @param reqConfig  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentFinishEditingCall(FinishEditingRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/finish-editing";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentFinishEditingValidateBeforeCall(FinishEditingRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentFinishEditing(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentFinishEditingCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Download result from document editing
+     * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
+     * @param reqConfig  (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentFinishEditing(FinishEditingRequest reqConfig) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentFinishEditingWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Download result from document editing
+     * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
+     * @param reqConfig  (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentFinishEditingWithHttpInfo(FinishEditingRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentFinishEditingValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Download result from document editing (asynchronously)
+     * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
+     * @param reqConfig  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentFinishEditingAsync(FinishEditingRequest reqConfig, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentFinishEditingValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
