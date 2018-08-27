@@ -30,10 +30,13 @@ import java.util.List;
  * A content run in a Word Document (DOCX) file
  */
 @ApiModel(description = "A content run in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxRun {
   @SerializedName("RunIndex")
   private Integer runIndex = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("TextItems")
   private List<DocxText> textItems = null;
@@ -69,6 +72,24 @@ public class DocxRun {
 
   public void setRunIndex(Integer runIndex) {
     this.runIndex = runIndex;
+  }
+
+  public DocxRun path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxRun textItems(List<DocxText> textItems) {
@@ -198,6 +219,7 @@ public class DocxRun {
     }
     DocxRun docxRun = (DocxRun) o;
     return Objects.equals(this.runIndex, docxRun.runIndex) &&
+        Objects.equals(this.path, docxRun.path) &&
         Objects.equals(this.textItems, docxRun.textItems) &&
         Objects.equals(this.bold, docxRun.bold) &&
         Objects.equals(this.italic, docxRun.italic) &&
@@ -208,7 +230,7 @@ public class DocxRun {
 
   @Override
   public int hashCode() {
-    return Objects.hash(runIndex, textItems, bold, italic, underline, fontFamily, fontSize);
+    return Objects.hash(runIndex, path, textItems, bold, italic, underline, fontFamily, fontSize);
   }
 
 
@@ -218,6 +240,7 @@ public class DocxRun {
     sb.append("class DocxRun {\n");
     
     sb.append("    runIndex: ").append(toIndentedString(runIndex)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    textItems: ").append(toIndentedString(textItems)).append("\n");
     sb.append("    bold: ").append(toIndentedString(bold)).append("\n");
     sb.append("    italic: ").append(toIndentedString(italic)).append("\n");

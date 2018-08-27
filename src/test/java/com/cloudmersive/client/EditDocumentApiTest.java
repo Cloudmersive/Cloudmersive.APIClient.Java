@@ -16,20 +16,42 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
+import com.cloudmersive.client.model.DocxRemoveObjectRequest;
+import com.cloudmersive.client.model.DocxRemoveObjectResponse;
 import com.cloudmersive.client.model.DocxSetFooterRequest;
 import com.cloudmersive.client.model.DocxSetFooterResponse;
 import com.cloudmersive.client.model.DocxSetHeaderRequest;
 import com.cloudmersive.client.model.DocxSetHeaderResponse;
 import java.io.File;
 import com.cloudmersive.client.model.FinishEditingRequest;
+import com.cloudmersive.client.model.GetDocxBodyRequest;
+import com.cloudmersive.client.model.GetDocxBodyResponse;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
+import com.cloudmersive.client.model.GetDocxImagesRequest;
+import com.cloudmersive.client.model.GetDocxImagesResponse;
+import com.cloudmersive.client.model.GetDocxSectionsRequest;
+import com.cloudmersive.client.model.GetDocxSectionsResponse;
 import com.cloudmersive.client.model.GetDocxStylesRequest;
 import com.cloudmersive.client.model.GetDocxStylesResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.GetXlsxColumnsRequest;
+import com.cloudmersive.client.model.GetXlsxColumnsResponse;
+import com.cloudmersive.client.model.GetXlsxImagesRequest;
+import com.cloudmersive.client.model.GetXlsxImagesResponse;
+import com.cloudmersive.client.model.GetXlsxRowsAndCellsRequest;
+import com.cloudmersive.client.model.GetXlsxRowsAndCellsResponse;
+import com.cloudmersive.client.model.GetXlsxStylesRequest;
+import com.cloudmersive.client.model.GetXlsxStylesResponse;
+import com.cloudmersive.client.model.GetXlsxWorksheetsRequest;
+import com.cloudmersive.client.model.GetXlsxWorksheetsResponse;
+import com.cloudmersive.client.model.InsertDocxInsertParagraphRequest;
+import com.cloudmersive.client.model.InsertDocxInsertParagraphResponse;
 import com.cloudmersive.client.model.InsertDocxTablesRequest;
 import com.cloudmersive.client.model.InsertDocxTablesResponse;
+import com.cloudmersive.client.model.InsertXlsxWorksheetRequest;
+import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.ReplaceStringRequest;
@@ -67,6 +89,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get body from a DOCX
+     *
+     * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxBodyTest() throws ApiException {
+        GetDocxBodyRequest reqConfig = null;
+        GetDocxBodyResponse response = api.editDocumentDocxBody(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get content of a footer from a DOCX
      *
      * Returns the footer content from a Word Document (DOCX) format file
@@ -78,6 +116,38 @@ public class EditDocumentApiTest {
     public void editDocumentDocxGetHeadersAndFootersTest() throws ApiException {
         GetDocxHeadersAndFootersRequest reqConfig = null;
         GetDocxHeadersAndFootersResponse response = api.editDocumentDocxGetHeadersAndFooters(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get images from a DOCX
+     *
+     * Returns the images defined in the Word Document (DOCX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetImagesTest() throws ApiException {
+        GetDocxImagesRequest reqConfig = null;
+        GetDocxImagesResponse response = api.editDocumentDocxGetImages(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get sections from a DOCX
+     *
+     * Returns the sections defined in the Word Document (DOCX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetSectionsTest() throws ApiException {
+        GetDocxSectionsRequest reqConfig = null;
+        GetDocxSectionsResponse response = api.editDocumentDocxGetSections(reqConfig);
 
         // TODO: test validations
     }
@@ -131,6 +201,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Insert a new paragraph into a DOCX
+     *
+     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxInsertParagraphTest() throws ApiException {
+        InsertDocxInsertParagraphRequest reqConfig = null;
+        InsertDocxInsertParagraphResponse response = api.editDocumentDocxInsertParagraph(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Insert a new table into a DOCX
      *
      * Adds a new table into a DOCX and returns the result
@@ -158,6 +244,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxRemoveHeadersAndFootersTest() throws ApiException {
         RemoveDocxHeadersAndFootersRequest reqConfig = null;
         RemoveDocxHeadersAndFootersResponse response = api.editDocumentDocxRemoveHeadersAndFooters(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete any object in a DOCX
+     *
+     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxRemoveObjectTest() throws ApiException {
+        DocxRemoveObjectRequest reqConfig = null;
+        DocxRemoveObjectResponse response = api.editDocumentDocxRemoveObject(reqConfig);
 
         // TODO: test validations
     }
@@ -238,6 +340,102 @@ public class EditDocumentApiTest {
     public void editDocumentPptxReplaceTest() throws ApiException {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentPptxReplace(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get rows and cells from a XLSX worksheet
+     *
+     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetColumnsTest() throws ApiException {
+        GetXlsxColumnsRequest input = null;
+        GetXlsxColumnsResponse response = api.editDocumentXlsxGetColumns(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get images from a XLSX worksheet
+     *
+     * Returns the images defined in the Excel Spreadsheet worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetImagesTest() throws ApiException {
+        GetXlsxImagesRequest input = null;
+        GetXlsxImagesResponse response = api.editDocumentXlsxGetImages(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get rows and cells from a XLSX worksheet
+     *
+     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetRowsAndCellsTest() throws ApiException {
+        GetXlsxRowsAndCellsRequest input = null;
+        GetXlsxRowsAndCellsResponse response = api.editDocumentXlsxGetRowsAndCells(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get styles from a XLSX worksheet
+     *
+     * Returns the style defined in the Excel Spreadsheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetStylesTest() throws ApiException {
+        GetXlsxStylesRequest input = null;
+        GetXlsxStylesResponse response = api.editDocumentXlsxGetStyles(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get worksheets from a XLSX
+     *
+     * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetWorksheetsTest() throws ApiException {
+        GetXlsxWorksheetsRequest input = null;
+        GetXlsxWorksheetsResponse response = api.editDocumentXlsxGetWorksheets(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Insert a new worksheet into an XLSX spreadsheet
+     *
+     * Inserts a new worksheet into an Excel Spreadsheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxInsertWorksheetTest() throws ApiException {
+        InsertXlsxWorksheetRequest input = null;
+        InsertXlsxWorksheetResponse response = api.editDocumentXlsxInsertWorksheet(input);
 
         // TODO: test validations
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Insert Tables request
  */
 @ApiModel(description = "Input to a Insert Tables request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class InsertDocxTablesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -38,6 +38,12 @@ public class InsertDocxTablesRequest {
 
   @SerializedName("TableToInsert")
   private DocxTable tableToInsert = null;
+
+  @SerializedName("InsertPlacement")
+  private String insertPlacement = null;
+
+  @SerializedName("InsertPath")
+  private String insertPath = null;
 
   public InsertDocxTablesRequest inputFileBytes(byte[] inputFileBytes) {
     this.inputFileBytes = inputFileBytes;
@@ -93,6 +99,42 @@ public class InsertDocxTablesRequest {
     this.tableToInsert = tableToInsert;
   }
 
+  public InsertDocxTablesRequest insertPlacement(String insertPlacement) {
+    this.insertPlacement = insertPlacement;
+    return this;
+  }
+
+   /**
+   * Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object)
+   * @return insertPlacement
+  **/
+  @ApiModelProperty(value = "Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object)")
+  public String getInsertPlacement() {
+    return insertPlacement;
+  }
+
+  public void setInsertPlacement(String insertPlacement) {
+    this.insertPlacement = insertPlacement;
+  }
+
+  public InsertDocxTablesRequest insertPath(String insertPath) {
+    this.insertPath = insertPath;
+    return this;
+  }
+
+   /**
+   * Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject
+   * @return insertPath
+  **/
+  @ApiModelProperty(value = "Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject")
+  public String getInsertPath() {
+    return insertPath;
+  }
+
+  public void setInsertPath(String insertPath) {
+    this.insertPath = insertPath;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +147,14 @@ public class InsertDocxTablesRequest {
     InsertDocxTablesRequest insertDocxTablesRequest = (InsertDocxTablesRequest) o;
     return Objects.equals(this.inputFileBytes, insertDocxTablesRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, insertDocxTablesRequest.inputFileUrl) &&
-        Objects.equals(this.tableToInsert, insertDocxTablesRequest.tableToInsert);
+        Objects.equals(this.tableToInsert, insertDocxTablesRequest.tableToInsert) &&
+        Objects.equals(this.insertPlacement, insertDocxTablesRequest.insertPlacement) &&
+        Objects.equals(this.insertPath, insertDocxTablesRequest.insertPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, tableToInsert);
+    return Objects.hash(inputFileBytes, inputFileUrl, tableToInsert, insertPlacement, insertPath);
   }
 
 
@@ -122,6 +166,8 @@ public class InsertDocxTablesRequest {
     sb.append("    inputFileBytes: ").append(toIndentedString(inputFileBytes)).append("\n");
     sb.append("    inputFileUrl: ").append(toIndentedString(inputFileUrl)).append("\n");
     sb.append("    tableToInsert: ").append(toIndentedString(tableToInsert)).append("\n");
+    sb.append("    insertPlacement: ").append(toIndentedString(insertPlacement)).append("\n");
+    sb.append("    insertPath: ").append(toIndentedString(insertPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }

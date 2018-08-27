@@ -30,10 +30,13 @@ import java.util.List;
  * A cell in a Word Document (DOCX) file
  */
 @ApiModel(description = "A cell in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxTableCell {
   @SerializedName("CellIndex")
   private Integer cellIndex = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("Paragraphs")
   private List<DocxParagraph> paragraphs = null;
@@ -69,6 +72,24 @@ public class DocxTableCell {
 
   public void setCellIndex(Integer cellIndex) {
     this.cellIndex = cellIndex;
+  }
+
+  public DocxTableCell path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxTableCell paragraphs(List<DocxParagraph> paragraphs) {
@@ -198,6 +219,7 @@ public class DocxTableCell {
     }
     DocxTableCell docxTableCell = (DocxTableCell) o;
     return Objects.equals(this.cellIndex, docxTableCell.cellIndex) &&
+        Objects.equals(this.path, docxTableCell.path) &&
         Objects.equals(this.paragraphs, docxTableCell.paragraphs) &&
         Objects.equals(this.cellShadingColor, docxTableCell.cellShadingColor) &&
         Objects.equals(this.cellShadingFill, docxTableCell.cellShadingFill) &&
@@ -208,7 +230,7 @@ public class DocxTableCell {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cellIndex, paragraphs, cellShadingColor, cellShadingFill, cellShadingPattern, cellWidthMode, cellWidth);
+    return Objects.hash(cellIndex, path, paragraphs, cellShadingColor, cellShadingFill, cellShadingPattern, cellWidthMode, cellWidth);
   }
 
 
@@ -218,6 +240,7 @@ public class DocxTableCell {
     sb.append("class DocxTableCell {\n");
     
     sb.append("    cellIndex: ").append(toIndentedString(cellIndex)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
     sb.append("    cellShadingColor: ").append(toIndentedString(cellShadingColor)).append("\n");
     sb.append("    cellShadingFill: ").append(toIndentedString(cellShadingFill)).append("\n");

@@ -29,10 +29,13 @@ import java.util.List;
  * Section of a Word Document (DOCX)
  */
 @ApiModel(description = "Section of a Word Document (DOCX)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxSection {
   @SerializedName("StartingPageNumbers")
   private List<Integer> startingPageNumbers = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   public DocxSection startingPageNumbers(List<Integer> startingPageNumbers) {
     this.startingPageNumbers = startingPageNumbers;
@@ -60,6 +63,24 @@ public class DocxSection {
     this.startingPageNumbers = startingPageNumbers;
   }
 
+  public DocxSection path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -70,12 +91,13 @@ public class DocxSection {
       return false;
     }
     DocxSection docxSection = (DocxSection) o;
-    return Objects.equals(this.startingPageNumbers, docxSection.startingPageNumbers);
+    return Objects.equals(this.startingPageNumbers, docxSection.startingPageNumbers) &&
+        Objects.equals(this.path, docxSection.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startingPageNumbers);
+    return Objects.hash(startingPageNumbers, path);
   }
 
 
@@ -85,6 +107,7 @@ public class DocxSection {
     sb.append("class DocxSection {\n");
     
     sb.append("    startingPageNumbers: ").append(toIndentedString(startingPageNumbers)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();
   }

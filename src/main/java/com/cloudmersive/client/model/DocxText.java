@@ -27,10 +27,13 @@ import java.io.IOException;
  * Unit of text content in a Word Document (DOCX) file
  */
 @ApiModel(description = "Unit of text content in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxText {
   @SerializedName("TextIndex")
   private Integer textIndex = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("TextContent")
   private String textContent = null;
@@ -51,6 +54,24 @@ public class DocxText {
 
   public void setTextIndex(Integer textIndex) {
     this.textIndex = textIndex;
+  }
+
+  public DocxText path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxText textContent(String textContent) {
@@ -82,12 +103,13 @@ public class DocxText {
     }
     DocxText docxText = (DocxText) o;
     return Objects.equals(this.textIndex, docxText.textIndex) &&
+        Objects.equals(this.path, docxText.path) &&
         Objects.equals(this.textContent, docxText.textContent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(textIndex, textContent);
+    return Objects.hash(textIndex, path, textContent);
   }
 
 
@@ -97,6 +119,7 @@ public class DocxText {
     sb.append("class DocxText {\n");
     
     sb.append("    textIndex: ").append(toIndentedString(textIndex)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    textContent: ").append(toIndentedString(textContent)).append("\n");
     sb.append("}");
     return sb.toString();

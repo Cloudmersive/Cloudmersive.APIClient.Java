@@ -31,13 +31,34 @@ import java.util.List;
  * Header of a Word Document (DOCX)
  */
 @ApiModel(description = "Header of a Word Document (DOCX)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxHeader {
+  @SerializedName("Path")
+  private String path = null;
+
   @SerializedName("Paragraphs")
   private List<DocxParagraph> paragraphs = null;
 
   @SerializedName("SectionsWithHeader")
   private List<DocxSection> sectionsWithHeader = null;
+
+  public DocxHeader path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
 
   public DocxHeader paragraphs(List<DocxParagraph> paragraphs) {
     this.paragraphs = paragraphs;
@@ -101,13 +122,14 @@ public class DocxHeader {
       return false;
     }
     DocxHeader docxHeader = (DocxHeader) o;
-    return Objects.equals(this.paragraphs, docxHeader.paragraphs) &&
+    return Objects.equals(this.path, docxHeader.path) &&
+        Objects.equals(this.paragraphs, docxHeader.paragraphs) &&
         Objects.equals(this.sectionsWithHeader, docxHeader.sectionsWithHeader);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paragraphs, sectionsWithHeader);
+    return Objects.hash(path, paragraphs, sectionsWithHeader);
   }
 
 
@@ -116,6 +138,7 @@ public class DocxHeader {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocxHeader {\n");
     
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
     sb.append("    sectionsWithHeader: ").append(toIndentedString(sectionsWithHeader)).append("\n");
     sb.append("}");

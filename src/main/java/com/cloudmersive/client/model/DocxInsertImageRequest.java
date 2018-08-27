@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import com.cloudmersive.client.model.DocxImage;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Input to set-footer command
  */
 @ApiModel(description = "Input to set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxInsertImageRequest {
   @SerializedName("InputDocumentFileBytes")
   private byte[] inputDocumentFileBytes = null;
@@ -41,11 +42,14 @@ public class DocxInsertImageRequest {
   @SerializedName("InputImageFileUrl")
   private String inputImageFileUrl = null;
 
-  @SerializedName("ImageWidth")
-  private Long imageWidth = null;
+  @SerializedName("ImageToAdd")
+  private DocxImage imageToAdd = null;
 
-  @SerializedName("ImageHeight")
-  private Long imageHeight = null;
+  @SerializedName("InsertPlacement")
+  private String insertPlacement = null;
+
+  @SerializedName("InsertPath")
+  private String insertPath = null;
 
   public DocxInsertImageRequest inputDocumentFileBytes(byte[] inputDocumentFileBytes) {
     this.inputDocumentFileBytes = inputDocumentFileBytes;
@@ -89,10 +93,10 @@ public class DocxInsertImageRequest {
   }
 
    /**
-   * Optional: Bytes of the input image file to operate on
+   * Optional: Bytes of the input image file to operate on; if you supply this value do not supply InputImageFileUrl or ImageToAdd.
    * @return inputImageFileBytes
   **/
-  @ApiModelProperty(value = "Optional: Bytes of the input image file to operate on")
+  @ApiModelProperty(value = "Optional: Bytes of the input image file to operate on; if you supply this value do not supply InputImageFileUrl or ImageToAdd.")
   public byte[] getInputImageFileBytes() {
     return inputImageFileBytes;
   }
@@ -107,10 +111,10 @@ public class DocxInsertImageRequest {
   }
 
    /**
-   * Optional: URL of an image file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+   * Optional: URL of an image file to operate on as input; if you supply this value do not supply InputImageFileBytes or ImageToAdd.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
    * @return inputImageFileUrl
   **/
-  @ApiModelProperty(value = "Optional: URL of an image file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).")
+  @ApiModelProperty(value = "Optional: URL of an image file to operate on as input; if you supply this value do not supply InputImageFileBytes or ImageToAdd.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).")
   public String getInputImageFileUrl() {
     return inputImageFileUrl;
   }
@@ -119,40 +123,58 @@ public class DocxInsertImageRequest {
     this.inputImageFileUrl = inputImageFileUrl;
   }
 
-  public DocxInsertImageRequest imageWidth(Long imageWidth) {
-    this.imageWidth = imageWidth;
+  public DocxInsertImageRequest imageToAdd(DocxImage imageToAdd) {
+    this.imageToAdd = imageToAdd;
     return this;
   }
 
    /**
-   * Width in points of the image, set to 0 for default
-   * @return imageWidth
+   * Optional: Image to add; if you supply in this object, do not supply InputImageFileBytes or InputImageFileUrl.
+   * @return imageToAdd
   **/
-  @ApiModelProperty(value = "Width in points of the image, set to 0 for default")
-  public Long getImageWidth() {
-    return imageWidth;
+  @ApiModelProperty(value = "Optional: Image to add; if you supply in this object, do not supply InputImageFileBytes or InputImageFileUrl.")
+  public DocxImage getImageToAdd() {
+    return imageToAdd;
   }
 
-  public void setImageWidth(Long imageWidth) {
-    this.imageWidth = imageWidth;
+  public void setImageToAdd(DocxImage imageToAdd) {
+    this.imageToAdd = imageToAdd;
   }
 
-  public DocxInsertImageRequest imageHeight(Long imageHeight) {
-    this.imageHeight = imageHeight;
+  public DocxInsertImageRequest insertPlacement(String insertPlacement) {
+    this.insertPlacement = insertPlacement;
     return this;
   }
 
    /**
-   * Height in point of the image, set to 0 for default
-   * @return imageHeight
+   * Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object)
+   * @return insertPlacement
   **/
-  @ApiModelProperty(value = "Height in point of the image, set to 0 for default")
-  public Long getImageHeight() {
-    return imageHeight;
+  @ApiModelProperty(value = "Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object)")
+  public String getInsertPlacement() {
+    return insertPlacement;
   }
 
-  public void setImageHeight(Long imageHeight) {
-    this.imageHeight = imageHeight;
+  public void setInsertPlacement(String insertPlacement) {
+    this.insertPlacement = insertPlacement;
+  }
+
+  public DocxInsertImageRequest insertPath(String insertPath) {
+    this.insertPath = insertPath;
+    return this;
+  }
+
+   /**
+   * Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject
+   * @return insertPath
+  **/
+  @ApiModelProperty(value = "Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject")
+  public String getInsertPath() {
+    return insertPath;
+  }
+
+  public void setInsertPath(String insertPath) {
+    this.insertPath = insertPath;
   }
 
 
@@ -169,13 +191,14 @@ public class DocxInsertImageRequest {
         Objects.equals(this.inputDocumentFileUrl, docxInsertImageRequest.inputDocumentFileUrl) &&
         Objects.equals(this.inputImageFileBytes, docxInsertImageRequest.inputImageFileBytes) &&
         Objects.equals(this.inputImageFileUrl, docxInsertImageRequest.inputImageFileUrl) &&
-        Objects.equals(this.imageWidth, docxInsertImageRequest.imageWidth) &&
-        Objects.equals(this.imageHeight, docxInsertImageRequest.imageHeight);
+        Objects.equals(this.imageToAdd, docxInsertImageRequest.imageToAdd) &&
+        Objects.equals(this.insertPlacement, docxInsertImageRequest.insertPlacement) &&
+        Objects.equals(this.insertPath, docxInsertImageRequest.insertPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputDocumentFileBytes, inputDocumentFileUrl, inputImageFileBytes, inputImageFileUrl, imageWidth, imageHeight);
+    return Objects.hash(inputDocumentFileBytes, inputDocumentFileUrl, inputImageFileBytes, inputImageFileUrl, imageToAdd, insertPlacement, insertPath);
   }
 
 
@@ -188,8 +211,9 @@ public class DocxInsertImageRequest {
     sb.append("    inputDocumentFileUrl: ").append(toIndentedString(inputDocumentFileUrl)).append("\n");
     sb.append("    inputImageFileBytes: ").append(toIndentedString(inputImageFileBytes)).append("\n");
     sb.append("    inputImageFileUrl: ").append(toIndentedString(inputImageFileUrl)).append("\n");
-    sb.append("    imageWidth: ").append(toIndentedString(imageWidth)).append("\n");
-    sb.append("    imageHeight: ").append(toIndentedString(imageHeight)).append("\n");
+    sb.append("    imageToAdd: ").append(toIndentedString(imageToAdd)).append("\n");
+    sb.append("    insertPlacement: ").append(toIndentedString(insertPlacement)).append("\n");
+    sb.append("    insertPath: ").append(toIndentedString(insertPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }

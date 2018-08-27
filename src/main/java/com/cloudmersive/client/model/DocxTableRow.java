@@ -30,10 +30,13 @@ import java.util.List;
  * A row in a Word Document (DOCX) file
  */
 @ApiModel(description = "A row in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxTableRow {
   @SerializedName("RowIndex")
   private Integer rowIndex = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("RowCells")
   private List<DocxTableCell> rowCells = null;
@@ -54,6 +57,24 @@ public class DocxTableRow {
 
   public void setRowIndex(Integer rowIndex) {
     this.rowIndex = rowIndex;
+  }
+
+  public DocxTableRow path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxTableRow rowCells(List<DocxTableCell> rowCells) {
@@ -93,12 +114,13 @@ public class DocxTableRow {
     }
     DocxTableRow docxTableRow = (DocxTableRow) o;
     return Objects.equals(this.rowIndex, docxTableRow.rowIndex) &&
+        Objects.equals(this.path, docxTableRow.path) &&
         Objects.equals(this.rowCells, docxTableRow.rowCells);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rowIndex, rowCells);
+    return Objects.hash(rowIndex, path, rowCells);
   }
 
 
@@ -108,6 +130,7 @@ public class DocxTableRow {
     sb.append("class DocxTableRow {\n");
     
     sb.append("    rowIndex: ").append(toIndentedString(rowIndex)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    rowCells: ").append(toIndentedString(rowCells)).append("\n");
     sb.append("}");
     return sb.toString();

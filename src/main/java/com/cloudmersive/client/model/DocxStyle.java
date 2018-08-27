@@ -27,10 +27,13 @@ import java.io.IOException;
  * Style in a DOCX Word Document
  */
 @ApiModel(description = "Style in a DOCX Word Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxStyle {
   @SerializedName("StyleID")
   private String styleID = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("Bold")
   private Boolean bold = null;
@@ -63,6 +66,24 @@ public class DocxStyle {
 
   public void setStyleID(String styleID) {
     this.styleID = styleID;
+  }
+
+  public DocxStyle path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxStyle bold(Boolean bold) {
@@ -166,6 +187,7 @@ public class DocxStyle {
     }
     DocxStyle docxStyle = (DocxStyle) o;
     return Objects.equals(this.styleID, docxStyle.styleID) &&
+        Objects.equals(this.path, docxStyle.path) &&
         Objects.equals(this.bold, docxStyle.bold) &&
         Objects.equals(this.italic, docxStyle.italic) &&
         Objects.equals(this.underline, docxStyle.underline) &&
@@ -175,7 +197,7 @@ public class DocxStyle {
 
   @Override
   public int hashCode() {
-    return Objects.hash(styleID, bold, italic, underline, fontSize, fontFamily);
+    return Objects.hash(styleID, path, bold, italic, underline, fontSize, fontFamily);
   }
 
 
@@ -185,6 +207,7 @@ public class DocxStyle {
     sb.append("class DocxStyle {\n");
     
     sb.append("    styleID: ").append(toIndentedString(styleID)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    bold: ").append(toIndentedString(bold)).append("\n");
     sb.append("    italic: ").append(toIndentedString(italic)).append("\n");
     sb.append("    underline: ").append(toIndentedString(underline)).append("\n");

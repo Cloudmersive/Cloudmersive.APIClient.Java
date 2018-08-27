@@ -30,10 +30,13 @@ import java.util.List;
  * A table in a Word Document (DOCX) file
  */
 @ApiModel(description = "A table in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxTable {
   @SerializedName("TableID")
   private String tableID = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("Width")
   private String width = null;
@@ -152,16 +155,34 @@ public class DocxTable {
   }
 
    /**
-   * The ID of the table
+   * The ID of the table; leave blank for new tables
    * @return tableID
   **/
-  @ApiModelProperty(value = "The ID of the table")
+  @ApiModelProperty(value = "The ID of the table; leave blank for new tables")
   public String getTableID() {
     return tableID;
   }
 
   public void setTableID(String tableID) {
     this.tableID = tableID;
+  }
+
+  public DocxTable path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxTable width(String width) {
@@ -849,6 +870,7 @@ public class DocxTable {
     }
     DocxTable docxTable = (DocxTable) o;
     return Objects.equals(this.tableID, docxTable.tableID) &&
+        Objects.equals(this.path, docxTable.path) &&
         Objects.equals(this.width, docxTable.width) &&
         Objects.equals(this.widthType, docxTable.widthType) &&
         Objects.equals(this.tableRows, docxTable.tableRows) &&
@@ -890,7 +912,7 @@ public class DocxTable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tableID, width, widthType, tableRows, topBorderType, topBorderSize, topBorderSpace, topBorderColor, bottomBorderType, bottomBorderSize, bottomBorderSpace, bottomBorderColor, leftBorderType, leftBorderSize, leftBorderSpace, leftBorderColor, rightBorderType, rightBorderSize, rightBorderSpace, rightBorderColor, cellHorizontalBorderType, cellHorizontalBorderSize, cellHorizontalBorderSpace, cellHorizontalBorderColor, cellVerticalBorderType, cellVerticalBorderSize, cellVerticalBorderSpace, cellVerticalBorderColor, startBorderType, startBorderSize, startBorderSpace, startBorderColor, endBorderType, endBorderSize, endBorderSpace, endBorderColor, tableIndentationMode, tableIndentationWidth);
+    return Objects.hash(tableID, path, width, widthType, tableRows, topBorderType, topBorderSize, topBorderSpace, topBorderColor, bottomBorderType, bottomBorderSize, bottomBorderSpace, bottomBorderColor, leftBorderType, leftBorderSize, leftBorderSpace, leftBorderColor, rightBorderType, rightBorderSize, rightBorderSpace, rightBorderColor, cellHorizontalBorderType, cellHorizontalBorderSize, cellHorizontalBorderSpace, cellHorizontalBorderColor, cellVerticalBorderType, cellVerticalBorderSize, cellVerticalBorderSpace, cellVerticalBorderColor, startBorderType, startBorderSize, startBorderSpace, startBorderColor, endBorderType, endBorderSize, endBorderSpace, endBorderColor, tableIndentationMode, tableIndentationWidth);
   }
 
 
@@ -900,6 +922,7 @@ public class DocxTable {
     sb.append("class DocxTable {\n");
     
     sb.append("    tableID: ").append(toIndentedString(tableID)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    widthType: ").append(toIndentedString(widthType)).append("\n");
     sb.append("    tableRows: ").append(toIndentedString(tableRows)).append("\n");

@@ -30,10 +30,13 @@ import java.util.List;
  * A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML
  */
 @ApiModel(description = "A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxParagraph {
   @SerializedName("ParagraphIndex")
   private Integer paragraphIndex = null;
+
+  @SerializedName("Path")
+  private String path = null;
 
   @SerializedName("ContentRuns")
   private List<DocxRun> contentRuns = null;
@@ -57,6 +60,24 @@ public class DocxParagraph {
 
   public void setParagraphIndex(Integer paragraphIndex) {
     this.paragraphIndex = paragraphIndex;
+  }
+
+  public DocxParagraph path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public DocxParagraph contentRuns(List<DocxRun> contentRuns) {
@@ -114,13 +135,14 @@ public class DocxParagraph {
     }
     DocxParagraph docxParagraph = (DocxParagraph) o;
     return Objects.equals(this.paragraphIndex, docxParagraph.paragraphIndex) &&
+        Objects.equals(this.path, docxParagraph.path) &&
         Objects.equals(this.contentRuns, docxParagraph.contentRuns) &&
         Objects.equals(this.styleID, docxParagraph.styleID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paragraphIndex, contentRuns, styleID);
+    return Objects.hash(paragraphIndex, path, contentRuns, styleID);
   }
 
 
@@ -130,6 +152,7 @@ public class DocxParagraph {
     sb.append("class DocxParagraph {\n");
     
     sb.append("    paragraphIndex: ").append(toIndentedString(paragraphIndex)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    contentRuns: ").append(toIndentedString(contentRuns)).append("\n");
     sb.append("    styleID: ").append(toIndentedString(styleID)).append("\n");
     sb.append("}");

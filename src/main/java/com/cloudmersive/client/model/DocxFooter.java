@@ -31,13 +31,34 @@ import java.util.List;
  * Footer in a Word Document (DOCX)
  */
 @ApiModel(description = "Footer in a Word Document (DOCX)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-21T20:51:15.104-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-26T23:21:52.550-07:00")
 public class DocxFooter {
+  @SerializedName("Path")
+  private String path = null;
+
   @SerializedName("Paragraphs")
   private List<DocxParagraph> paragraphs = null;
 
   @SerializedName("SectionsWithFooter")
   private List<DocxSection> sectionsWithFooter = null;
+
+  public DocxFooter path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * The Path of the location of this object; leave blank for new tables
+   * @return path
+  **/
+  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
 
   public DocxFooter paragraphs(List<DocxParagraph> paragraphs) {
     this.paragraphs = paragraphs;
@@ -101,13 +122,14 @@ public class DocxFooter {
       return false;
     }
     DocxFooter docxFooter = (DocxFooter) o;
-    return Objects.equals(this.paragraphs, docxFooter.paragraphs) &&
+    return Objects.equals(this.path, docxFooter.path) &&
+        Objects.equals(this.paragraphs, docxFooter.paragraphs) &&
         Objects.equals(this.sectionsWithFooter, docxFooter.sectionsWithFooter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paragraphs, sectionsWithFooter);
+    return Objects.hash(path, paragraphs, sectionsWithFooter);
   }
 
 
@@ -116,6 +138,7 @@ public class DocxFooter {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocxFooter {\n");
     
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
     sb.append("    sectionsWithFooter: ").append(toIndentedString(sectionsWithFooter)).append("\n");
     sb.append("}");
