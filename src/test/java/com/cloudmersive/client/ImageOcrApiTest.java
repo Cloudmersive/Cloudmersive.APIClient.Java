@@ -44,7 +44,8 @@ public class ImageOcrApiTest {
     @Test
     public void imageOcrPostTest() throws ApiException {
         File imageFile = null;
-        ImageToTextResponse response = api.imageOcrPost(imageFile);
+        String language = null;
+        ImageToTextResponse response = api.imageOcrPost(imageFile, language);
 
         // TODO: test validations
     }
