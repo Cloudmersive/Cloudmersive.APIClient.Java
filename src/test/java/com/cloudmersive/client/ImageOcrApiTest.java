@@ -34,9 +34,26 @@ public class ImageOcrApiTest {
 
     
     /**
-     * Converts an uploaded image in common formats such as JPEG, PNG into text via Optical Character Recognition.
+     * Convert a photo of a document into text
      *
-     * 
+     * Converts an uploaded photo of a document in common formats such as JPEG, PNG into text via Optical Character Recognition.  This API is intended to be run on photos of documents, e.g. taken with a smartphone and supports cases where other content, such as a desk, are in the frame and the camera is crooked.  If you want to OCR a scanned image, use the image/toText API call instead as it is designed for scanned images.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrPhotoToTextTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        ImageToTextResponse response = api.imageOcrPhotoToText(imageFile, language);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert a scanned image into text
+     *
+     * Converts an uploaded image in common formats such as JPEG, PNG into text via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -45,7 +62,8 @@ public class ImageOcrApiTest {
     public void imageOcrPostTest() throws ApiException {
         File imageFile = null;
         String language = null;
-        ImageToTextResponse response = api.imageOcrPost(imageFile, language);
+        String preprocessing = null;
+        ImageToTextResponse response = api.imageOcrPost(imageFile, language, preprocessing);
 
         // TODO: test validations
     }

@@ -45,7 +45,8 @@ public class PdfOcrApiTest {
     public void pdfOcrPostTest() throws ApiException {
         File imageFile = null;
         String language = null;
-        PdfToTextResponse response = api.pdfOcrPost(imageFile, language);
+        String preprocessing = null;
+        PdfToTextResponse response = api.pdfOcrPost(imageFile, language, preprocessing);
 
         // TODO: test validations
     }

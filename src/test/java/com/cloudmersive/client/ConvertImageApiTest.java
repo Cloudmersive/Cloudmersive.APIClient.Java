@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.GetImageInfoResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -33,6 +34,22 @@ public class ConvertImageApiTest {
 
     
     /**
+     * Get information about an image
+     *
+     * Get details from an image such as size, format and MIME type, compression, EXIF data such as location, DPI, unique colors, transparency information, and more
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertImageGetImageInfoTest() throws ApiException {
+        File inputFile = null;
+        GetImageInfoResult response = api.convertImageGetImageInfo(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Image format conversion
      *
      * Convert between over 100 file formats, including key formats such as Photoshop (PSD), PNG, JPG, GIF, NEF, and BMP.
@@ -46,6 +63,23 @@ public class ConvertImageApiTest {
         String format2 = null;
         File inputFile = null;
         byte[] response = api.convertImageImageFormatConvert(format1, format2, inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Change image DPI
+     *
+     * Resize an image to have a different DPI
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertImageImageSetDPITest() throws ApiException {
+        Integer dpi = null;
+        File inputFile = null;
+        byte[] response = api.convertImageImageSetDPI(dpi, inputFile);
 
         // TODO: test validations
     }

@@ -17,6 +17,7 @@ import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
 import com.cloudmersive.client.model.ObjectDetectionResult;
+import com.cloudmersive.client.model.VehicleLicensePlateDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -51,6 +52,23 @@ public class RecognizeApiTest {
     }
     
     /**
+     * Detect and unskew a photo of a document
+     *
+     * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void recognizeDetectAndUnskewDocumentTest() throws ApiException {
+        File imageFile = null;
+        String postProcessingEffect = null;
+        byte[] response = api.recognizeDetectAndUnskewDocument(imageFile, postProcessingEffect);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Detect objects, including types and locations, in an image
      *
      * Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
@@ -78,6 +96,22 @@ public class RecognizeApiTest {
     public void recognizeDetectPeopleTest() throws ApiException {
         File imageFile = null;
         ObjectDetectionResult response = api.recognizeDetectPeople(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Detect vehicle license plates in an image
+     *
+     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void recognizeDetectVehicleLicensePlatesTest() throws ApiException {
+        File imageFile = null;
+        VehicleLicensePlateDetectionResult response = api.recognizeDetectVehicleLicensePlates(imageFile);
 
         // TODO: test validations
     }
