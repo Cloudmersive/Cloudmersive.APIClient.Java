@@ -15,7 +15,9 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.ImageToLinesWithLocationResult;
 import com.cloudmersive.client.model.ImageToTextResponse;
+import com.cloudmersive.client.model.ImageToWordsWithLocationResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,6 +34,40 @@ public class ImageOcrApiTest {
 
     private final ImageOcrApi api = new ImageOcrApi();
 
+    
+    /**
+     * Convert a scanned image into words with location
+     *
+     * Converts an uploaded image in common formats such as JPEG, PNG into lines/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrImageLinesWithLocationTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        ImageToLinesWithLocationResult response = api.imageOcrImageLinesWithLocation(imageFile, language);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert a scanned image into words with location
+     *
+     * Converts an uploaded image in common formats such as JPEG, PNG into words/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrImageWordsWithLocationTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        ImageToWordsWithLocationResult response = api.imageOcrImageWordsWithLocation(imageFile, language);
+
+        // TODO: test validations
+    }
     
     /**
      * Convert a photo of a document into text

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **imageDataContentType** | **String** | Read-only; image data MIME content-type |  [optional]
 **imageInternalFileName** | **String** | Read-only; internal file name/path for the image |  [optional]
 **imageContentsURL** | **String** | URL to the image contents; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the contents. |  [optional]
-**inline** | **Boolean** | True if the image is inline with the text; false if it is floating |  [optional]
+**inlineWithText** | **Boolean** | True if the image is inline with the text; false if it is floating |  [optional]
 
 
 

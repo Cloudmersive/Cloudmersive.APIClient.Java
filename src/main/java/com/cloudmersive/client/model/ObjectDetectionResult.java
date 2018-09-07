@@ -30,7 +30,7 @@ import java.util.List;
  * Result of detecting objects in an image
  */
 @ApiModel(description = "Result of detecting objects in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-02T20:35:21.660-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-06T22:31:36.535-07:00")
 public class ObjectDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

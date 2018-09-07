@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * DocxImage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-02T20:35:24.364-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-06T22:31:39.955-07:00")
 public class DocxImage {
   @SerializedName("Path")
   private String path = null;
@@ -64,8 +64,8 @@ public class DocxImage {
   @SerializedName("ImageContentsURL")
   private String imageContentsURL = null;
 
-  @SerializedName("Inline")
-  private Boolean inline = null;
+  @SerializedName("InlineWithText")
+  private Boolean inlineWithText = null;
 
   public DocxImage path(String path) {
     this.path = path;
@@ -283,22 +283,22 @@ public class DocxImage {
     this.imageContentsURL = imageContentsURL;
   }
 
-  public DocxImage inline(Boolean inline) {
-    this.inline = inline;
+  public DocxImage inlineWithText(Boolean inlineWithText) {
+    this.inlineWithText = inlineWithText;
     return this;
   }
 
    /**
    * True if the image is inline with the text; false if it is floating
-   * @return inline
+   * @return inlineWithText
   **/
   @ApiModelProperty(value = "True if the image is inline with the text; false if it is floating")
-  public Boolean isInline() {
-    return inline;
+  public Boolean isInlineWithText() {
+    return inlineWithText;
   }
 
-  public void setInline(Boolean inline) {
-    this.inline = inline;
+  public void setInlineWithText(Boolean inlineWithText) {
+    this.inlineWithText = inlineWithText;
   }
 
 
@@ -323,12 +323,12 @@ public class DocxImage {
         Objects.equals(this.imageDataContentType, docxImage.imageDataContentType) &&
         Objects.equals(this.imageInternalFileName, docxImage.imageInternalFileName) &&
         Objects.equals(this.imageContentsURL, docxImage.imageContentsURL) &&
-        Objects.equals(this.inline, docxImage.inline);
+        Objects.equals(this.inlineWithText, docxImage.inlineWithText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, imageName, imageId, imageDescription, imageWidth, imageHeight, xoffset, yoffset, imageDataEmbedId, imageDataContentType, imageInternalFileName, imageContentsURL, inline);
+    return Objects.hash(path, imageName, imageId, imageDescription, imageWidth, imageHeight, xoffset, yoffset, imageDataEmbedId, imageDataContentType, imageInternalFileName, imageContentsURL, inlineWithText);
   }
 
 
@@ -349,7 +349,7 @@ public class DocxImage {
     sb.append("    imageDataContentType: ").append(toIndentedString(imageDataContentType)).append("\n");
     sb.append("    imageInternalFileName: ").append(toIndentedString(imageInternalFileName)).append("\n");
     sb.append("    imageContentsURL: ").append(toIndentedString(imageContentsURL)).append("\n");
-    sb.append("    inline: ").append(toIndentedString(inline)).append("\n");
+    sb.append("    inlineWithText: ").append(toIndentedString(inlineWithText)).append("\n");
     sb.append("}");
     return sb.toString();
   }
