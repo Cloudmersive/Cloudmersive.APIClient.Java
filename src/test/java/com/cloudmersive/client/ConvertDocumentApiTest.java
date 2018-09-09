@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import java.io.File;
 import com.cloudmersive.client.model.PdfToPngResult;
 import org.junit.Test;
@@ -32,6 +33,22 @@ public class ConvertDocumentApiTest {
 
     private final ConvertDocumentApi api = new ConvertDocumentApi();
 
+    
+    /**
+     * Get document type information
+     *
+     * Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectGetInfoTest() throws ApiException {
+        File inputFile = null;
+        AutodetectGetInfoResult response = api.convertDocumentAutodetectGetInfo(inputFile);
+
+        // TODO: test validations
+    }
     
     /**
      * Convert Document to PDF

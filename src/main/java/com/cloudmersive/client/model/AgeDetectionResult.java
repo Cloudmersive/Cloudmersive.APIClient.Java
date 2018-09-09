@@ -30,7 +30,7 @@ import java.util.List;
  * Result from classifying the Age of people in an image
  */
 @ApiModel(description = "Result from classifying the Age of people in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-06T22:31:36.535-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-08T20:54:19.244-07:00")
 public class AgeDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

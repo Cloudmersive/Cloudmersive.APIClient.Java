@@ -47,7 +47,8 @@ public class ImageOcrApiTest {
     public void imageOcrImageLinesWithLocationTest() throws ApiException {
         File imageFile = null;
         String language = null;
-        ImageToLinesWithLocationResult response = api.imageOcrImageLinesWithLocation(imageFile, language);
+        String preprocessing = null;
+        ImageToLinesWithLocationResult response = api.imageOcrImageLinesWithLocation(imageFile, language, preprocessing);
 
         // TODO: test validations
     }
@@ -64,7 +65,8 @@ public class ImageOcrApiTest {
     public void imageOcrImageWordsWithLocationTest() throws ApiException {
         File imageFile = null;
         String language = null;
-        ImageToWordsWithLocationResult response = api.imageOcrImageWordsWithLocation(imageFile, language);
+        String preprocessing = null;
+        ImageToWordsWithLocationResult response = api.imageOcrImageWordsWithLocation(imageFile, language, preprocessing);
 
         // TODO: test validations
     }
