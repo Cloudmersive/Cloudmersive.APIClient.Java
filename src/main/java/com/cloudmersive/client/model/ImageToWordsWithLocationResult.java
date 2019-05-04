@@ -30,7 +30,7 @@ import java.util.List;
  * Result of an image to words-with-location OCR operation
  */
 @ApiModel(description = "Result of an image to words-with-location OCR operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-09T19:23:34.572-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-04T14:15:02.251-07:00")
 public class ImageToWordsWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -70,10 +70,10 @@ public class ImageToWordsWithLocationResult {
   }
 
    /**
-   * Get words
+   * Word elements in the image
    * @return words
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Word elements in the image")
   public List<OcrWordElement> getWords() {
     return words;
   }

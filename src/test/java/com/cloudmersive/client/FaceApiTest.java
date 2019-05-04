@@ -15,7 +15,9 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AgeDetectionResult;
+import com.cloudmersive.client.model.FaceCompareResponse;
 import com.cloudmersive.client.model.FaceLocateResponse;
+import com.cloudmersive.client.model.FaceLocateWithLandmarksResponse;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -33,6 +35,23 @@ public class FaceApiTest {
 
     private final FaceApi api = new FaceApi();
 
+    
+    /**
+     * Compare and match faces
+     *
+     * Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void faceCompareTest() throws ApiException {
+        File inputImage = null;
+        File matchFace = null;
+        FaceCompareResponse response = api.faceCompare(inputImage, matchFace);
+
+        // TODO: test validations
+    }
     
     /**
      * Crop image to face (square)
@@ -94,6 +113,22 @@ public class FaceApiTest {
     public void faceLocateTest() throws ApiException {
         File imageFile = null;
         FaceLocateResponse response = api.faceLocate(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     *
+     * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void faceLocateWithLandmarksTest() throws ApiException {
+        File imageFile = null;
+        FaceLocateWithLandmarksResponse response = api.faceLocateWithLandmarks(imageFile);
 
         // TODO: test validations
     }

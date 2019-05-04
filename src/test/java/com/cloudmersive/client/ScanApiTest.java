@@ -16,6 +16,8 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.VirusScanResult;
+import com.cloudmersive.client.model.WebsiteScanRequest;
+import com.cloudmersive.client.model.WebsiteScanResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,6 +47,22 @@ public class ScanApiTest {
     public void scanFileTest() throws ApiException {
         File inputFile = null;
         VirusScanResult response = api.scanFile(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Scan a website for malicious content including viruses and threats (including Phishing)
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scanWebsiteTest() throws ApiException {
+        WebsiteScanRequest input = null;
+        WebsiteScanResult response = api.scanWebsite(input);
 
         // TODO: test validations
     }

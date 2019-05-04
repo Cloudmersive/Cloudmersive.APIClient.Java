@@ -15,7 +15,9 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.PdfToLinesWithLocationResult;
 import com.cloudmersive.client.model.PdfToTextResponse;
+import com.cloudmersive.client.model.PdfToWordsWithLocationResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,6 +34,42 @@ public class PdfOcrApiTest {
 
     private final PdfOcrApi api = new PdfOcrApi();
 
+    
+    /**
+     * Convert a PDF into text lines with location
+     *
+     * Converts a PDF into lines/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void pdfOcrPdfToLinesWithLocationTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        String preprocessing = null;
+        PdfToLinesWithLocationResult response = api.pdfOcrPdfToLinesWithLocation(imageFile, language, preprocessing);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert a PDF into words with location
+     *
+     * Converts a PDF into words/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void pdfOcrPdfToWordsWithLocationTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        String preprocessing = null;
+        PdfToWordsWithLocationResult response = api.pdfOcrPdfToWordsWithLocation(imageFile, language, preprocessing);
+
+        // TODO: test validations
+    }
     
     /**
      * Converts an uploaded image in common formats such as JPEG, PNG into text via Optical Character Recognition.
