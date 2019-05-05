@@ -27,13 +27,19 @@ import java.io.IOException;
  * Details of the screenshot request
  */
 @ApiModel(description = "Details of the screenshot request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-04T14:15:09.785-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-05T13:26:55.077-07:00")
 public class ScreenshotRequest {
   @SerializedName("Url")
   private String url = null;
 
   @SerializedName("ExtraLoadingWait")
   private Integer extraLoadingWait = null;
+
+  @SerializedName("ScreenshotWidth")
+  private Integer screenshotWidth = null;
+
+  @SerializedName("ScreenshotHeight")
+  private Integer screenshotHeight = null;
 
   public ScreenshotRequest url(String url) {
     this.url = url;
@@ -71,6 +77,42 @@ public class ScreenshotRequest {
     this.extraLoadingWait = extraLoadingWait;
   }
 
+  public ScreenshotRequest screenshotWidth(Integer screenshotWidth) {
+    this.screenshotWidth = screenshotWidth;
+    return this;
+  }
+
+   /**
+   * Get screenshotWidth
+   * @return screenshotWidth
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getScreenshotWidth() {
+    return screenshotWidth;
+  }
+
+  public void setScreenshotWidth(Integer screenshotWidth) {
+    this.screenshotWidth = screenshotWidth;
+  }
+
+  public ScreenshotRequest screenshotHeight(Integer screenshotHeight) {
+    this.screenshotHeight = screenshotHeight;
+    return this;
+  }
+
+   /**
+   * Get screenshotHeight
+   * @return screenshotHeight
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getScreenshotHeight() {
+    return screenshotHeight;
+  }
+
+  public void setScreenshotHeight(Integer screenshotHeight) {
+    this.screenshotHeight = screenshotHeight;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +124,14 @@ public class ScreenshotRequest {
     }
     ScreenshotRequest screenshotRequest = (ScreenshotRequest) o;
     return Objects.equals(this.url, screenshotRequest.url) &&
-        Objects.equals(this.extraLoadingWait, screenshotRequest.extraLoadingWait);
+        Objects.equals(this.extraLoadingWait, screenshotRequest.extraLoadingWait) &&
+        Objects.equals(this.screenshotWidth, screenshotRequest.screenshotWidth) &&
+        Objects.equals(this.screenshotHeight, screenshotRequest.screenshotHeight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, extraLoadingWait);
+    return Objects.hash(url, extraLoadingWait, screenshotWidth, screenshotHeight);
   }
 
 
@@ -98,6 +142,8 @@ public class ScreenshotRequest {
     
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    extraLoadingWait: ").append(toIndentedString(extraLoadingWait)).append("\n");
+    sb.append("    screenshotWidth: ").append(toIndentedString(screenshotWidth)).append("\n");
+    sb.append("    screenshotHeight: ").append(toIndentedString(screenshotHeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }
