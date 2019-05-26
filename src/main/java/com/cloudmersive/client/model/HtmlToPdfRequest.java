@@ -27,7 +27,7 @@ import java.io.IOException;
  * Details of the HTML to PDF request
  */
 @ApiModel(description = "Details of the HTML to PDF request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-21T21:41:54.651-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-26T13:48:37.157-07:00")
 public class HtmlToPdfRequest {
   @SerializedName("Html")
   private String html = null;

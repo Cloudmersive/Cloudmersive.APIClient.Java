@@ -27,7 +27,7 @@ import java.io.IOException;
  * Full email addresss validation result
  */
 @ApiModel(description = "Full email addresss validation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-21T21:41:38.616-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-26T13:48:20.226-07:00")
 public class FullEmailValidationResponse {
   @SerializedName("ValidAddress")
   private Boolean validAddress = null;

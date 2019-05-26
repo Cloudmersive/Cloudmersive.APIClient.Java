@@ -49,6 +49,38 @@ public class ConvertDataApiTest {
     }
     
     /**
+     * Excel (97-2003) XLS to JSON conversion
+     *
+     * Convert an Excel (97-2003) XLS file to a JSON object array
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXlsToJsonTest() throws ApiException {
+        File inputFile = null;
+        Object response = api.convertDataXlsToJson(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Excel XLSX to JSON conversion
+     *
+     * Convert an Excel XLSX file to a JSON object array
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXlsxToJsonTest() throws ApiException {
+        File inputFile = null;
+        Object response = api.convertDataXlsxToJson(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * XML to JSON conversion
      *
      * Convert an XML string or file into JSON
