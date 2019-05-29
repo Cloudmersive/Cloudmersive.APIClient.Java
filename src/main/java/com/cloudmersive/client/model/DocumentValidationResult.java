@@ -30,7 +30,7 @@ import java.util.List;
  * Document validation result
  */
 @ApiModel(description = "Document validation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-28T21:29:58.415-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:42.095-07:00")
 public class DocumentValidationResult {
   @SerializedName("DocumentIsValid")
   private Boolean documentIsValid = null;

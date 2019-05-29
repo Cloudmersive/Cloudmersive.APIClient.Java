@@ -27,7 +27,7 @@ import java.io.IOException;
  * Cell in an Excel Spreadsheet worksheet
  */
 @ApiModel(description = "Cell in an Excel Spreadsheet worksheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-28T21:29:58.415-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:42.095-07:00")
 public class XlsxSpreadsheetCell {
   @SerializedName("Path")
   private String path = null;

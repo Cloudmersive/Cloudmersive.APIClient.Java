@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Response from an OCR to text operation.  Includes the confience rating and converted text result.
+ * Response from an OCR to text operation.  Includes the confidence rating and converted text result.
  */
-@ApiModel(description = "Response from an OCR to text operation.  Includes the confience rating and converted text result.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-28T21:29:48.633-07:00")
+@ApiModel(description = "Response from an OCR to text operation.  Includes the confidence rating and converted text result.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:33.556-07:00")
 public class PdfToTextResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
