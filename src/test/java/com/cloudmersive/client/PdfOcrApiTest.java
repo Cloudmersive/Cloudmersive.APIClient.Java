@@ -72,7 +72,7 @@ public class PdfOcrApiTest {
     }
     
     /**
-     * Converts an uploaded PDF file in common formats such as JPEG, PNG into text via Optical Character Recognition.
+     * Converts an uploaded PDF file into text via Optical Character Recognition.
      *
      * 
      *

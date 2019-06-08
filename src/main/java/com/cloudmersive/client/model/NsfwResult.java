@@ -27,7 +27,7 @@ import java.io.IOException;
  * Result of an NSFW classification
  */
 @ApiModel(description = "Result of an NSFW classification")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:38.673-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T02:01:45.769Z")
 public class NsfwResult {
   @SerializedName("Successful")
   private Boolean successful = null;

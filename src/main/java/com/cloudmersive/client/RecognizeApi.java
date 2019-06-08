@@ -28,8 +28,10 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.FineTextDetectionResult;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
 import com.cloudmersive.client.model.ObjectDetectionResult;
+import com.cloudmersive.client.model.TextDetectionResult;
 import com.cloudmersive.client.model.VehicleLicensePlateDetectionResult;
 
 import java.lang.reflect.Type;
@@ -556,6 +558,243 @@ public class RecognizeApi {
 
         com.squareup.okhttp.Call call = recognizeDetectPeopleValidateBeforeCall(imageFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ObjectDetectionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for recognizeDetectTextFine
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call recognizeDetectTextFineCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/recognize/detect-text/fine";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call recognizeDetectTextFineValidateBeforeCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling recognizeDetectTextFine(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = recognizeDetectTextFineCall(imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Detect fine text in a photo of a document
+     * Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return FineTextDetectionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FineTextDetectionResult recognizeDetectTextFine(File imageFile) throws ApiException {
+        ApiResponse<FineTextDetectionResult> resp = recognizeDetectTextFineWithHttpInfo(imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Detect fine text in a photo of a document
+     * Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;FineTextDetectionResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FineTextDetectionResult> recognizeDetectTextFineWithHttpInfo(File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = recognizeDetectTextFineValidateBeforeCall(imageFile, null, null);
+        Type localVarReturnType = new TypeToken<FineTextDetectionResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Detect fine text in a photo of a document (asynchronously)
+     * Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call recognizeDetectTextFineAsync(File imageFile, final ApiCallback<FineTextDetectionResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = recognizeDetectTextFineValidateBeforeCall(imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FineTextDetectionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for recognizeDetectTextLarge
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call recognizeDetectTextLargeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/recognize/detect-text/large";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call recognizeDetectTextLargeValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = recognizeDetectTextLargeCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Detect large text in a photo
+     * Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+     * @return TextDetectionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TextDetectionResult recognizeDetectTextLarge() throws ApiException {
+        ApiResponse<TextDetectionResult> resp = recognizeDetectTextLargeWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Detect large text in a photo
+     * Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+     * @return ApiResponse&lt;TextDetectionResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TextDetectionResult> recognizeDetectTextLargeWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = recognizeDetectTextLargeValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<TextDetectionResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Detect large text in a photo (asynchronously)
+     * Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call recognizeDetectTextLargeAsync(final ApiCallback<TextDetectionResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = recognizeDetectTextLargeValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TextDetectionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

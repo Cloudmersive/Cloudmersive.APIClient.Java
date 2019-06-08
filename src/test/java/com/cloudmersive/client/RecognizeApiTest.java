@@ -15,8 +15,10 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.FineTextDetectionResult;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
 import com.cloudmersive.client.model.ObjectDetectionResult;
+import com.cloudmersive.client.model.TextDetectionResult;
 import com.cloudmersive.client.model.VehicleLicensePlateDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -96,6 +98,37 @@ public class RecognizeApiTest {
     public void recognizeDetectPeopleTest() throws ApiException {
         File imageFile = null;
         ObjectDetectionResult response = api.recognizeDetectPeople(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Detect fine text in a photo of a document
+     *
+     * Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void recognizeDetectTextFineTest() throws ApiException {
+        File imageFile = null;
+        FineTextDetectionResult response = api.recognizeDetectTextFine(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Detect large text in a photo
+     *
+     * Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void recognizeDetectTextLargeTest() throws ApiException {
+        TextDetectionResult response = api.recognizeDetectTextLarge();
 
         // TODO: test validations
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
  * Alternate file format possibility
  */
 @ApiModel(description = "Alternate file format possibility")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:42.095-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T02:01:56.203Z")
 public class AlternateFileFormatCandidate {
   @SerializedName("Probability")
   private Double probability = null;

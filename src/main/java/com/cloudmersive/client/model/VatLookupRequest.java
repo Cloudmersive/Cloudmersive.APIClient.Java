@@ -27,7 +27,7 @@ import java.io.IOException;
  * Input to a VAT lookup request
  */
 @ApiModel(description = "Input to a VAT lookup request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:27.360-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T02:01:12.092Z")
 public class VatLookupRequest {
   @SerializedName("VatCode")
   private String vatCode = null;

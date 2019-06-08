@@ -30,7 +30,7 @@ import java.util.List;
  * Result of spell checking a sentence
  */
 @ApiModel(description = "Result of spell checking a sentence")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-29T14:05:30.634-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T02:01:22.259Z")
 public class CheckSentenceJsonResponse {
   @SerializedName("IncorrectCount")
   private Integer incorrectCount = null;
