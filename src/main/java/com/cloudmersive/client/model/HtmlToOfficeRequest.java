@@ -27,7 +27,7 @@ import java.io.IOException;
  * Details of the HTML to Office request
  */
 @ApiModel(description = "Details of the HTML to Office request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T02:01:56.203Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T15:40:41.107-07:00")
 public class HtmlToOfficeRequest {
   @SerializedName("Html")
   private String html = null;
