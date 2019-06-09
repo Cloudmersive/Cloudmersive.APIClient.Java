@@ -14,7 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.cloudmersive.client.model.OcrLineElement;
+import com.cloudmersive.client.model.OcrPhotoTextElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,18 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Result of an image to lines-with-location OCR operation
+ * Result of an photo to words-with-location OCR operation
  */
-@ApiModel(description = "Result of an image to lines-with-location OCR operation")
+@ApiModel(description = "Result of an photo to words-with-location OCR operation")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-09T14:02:14.089-07:00")
-public class ImageToLinesWithLocationResult {
+public class PhotoToWordsWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("Lines")
-  private List<OcrLineElement> lines = null;
+  @SerializedName("TextElements")
+  private List<OcrPhotoTextElement> textElements = null;
 
-  public ImageToLinesWithLocationResult successful(Boolean successful) {
+  public PhotoToWordsWithLocationResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -56,30 +56,30 @@ public class ImageToLinesWithLocationResult {
     this.successful = successful;
   }
 
-  public ImageToLinesWithLocationResult lines(List<OcrLineElement> lines) {
-    this.lines = lines;
+  public PhotoToWordsWithLocationResult textElements(List<OcrPhotoTextElement> textElements) {
+    this.textElements = textElements;
     return this;
   }
 
-  public ImageToLinesWithLocationResult addLinesItem(OcrLineElement linesItem) {
-    if (this.lines == null) {
-      this.lines = new ArrayList<OcrLineElement>();
+  public PhotoToWordsWithLocationResult addTextElementsItem(OcrPhotoTextElement textElementsItem) {
+    if (this.textElements == null) {
+      this.textElements = new ArrayList<OcrPhotoTextElement>();
     }
-    this.lines.add(linesItem);
+    this.textElements.add(textElementsItem);
     return this;
   }
 
    /**
-   * Words in the image
-   * @return lines
+   * Word elements in the image
+   * @return textElements
   **/
-  @ApiModelProperty(value = "Words in the image")
-  public List<OcrLineElement> getLines() {
-    return lines;
+  @ApiModelProperty(value = "Word elements in the image")
+  public List<OcrPhotoTextElement> getTextElements() {
+    return textElements;
   }
 
-  public void setLines(List<OcrLineElement> lines) {
-    this.lines = lines;
+  public void setTextElements(List<OcrPhotoTextElement> textElements) {
+    this.textElements = textElements;
   }
 
 
@@ -91,24 +91,24 @@ public class ImageToLinesWithLocationResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ImageToLinesWithLocationResult imageToLinesWithLocationResult = (ImageToLinesWithLocationResult) o;
-    return Objects.equals(this.successful, imageToLinesWithLocationResult.successful) &&
-        Objects.equals(this.lines, imageToLinesWithLocationResult.lines);
+    PhotoToWordsWithLocationResult photoToWordsWithLocationResult = (PhotoToWordsWithLocationResult) o;
+    return Objects.equals(this.successful, photoToWordsWithLocationResult.successful) &&
+        Objects.equals(this.textElements, photoToWordsWithLocationResult.textElements);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, lines);
+    return Objects.hash(successful, textElements);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ImageToLinesWithLocationResult {\n");
+    sb.append("class PhotoToWordsWithLocationResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    lines: ").append(toIndentedString(lines)).append("\n");
+    sb.append("    textElements: ").append(toIndentedString(textElements)).append("\n");
     sb.append("}");
     return sb.toString();
   }

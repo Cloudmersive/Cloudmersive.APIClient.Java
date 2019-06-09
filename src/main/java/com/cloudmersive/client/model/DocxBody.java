@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * DocxBody
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-08T15:40:41.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-09T14:02:33.116-07:00")
 public class DocxBody {
   @SerializedName("Path")
   private String path = null;
