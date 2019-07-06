@@ -1,6 +1,6 @@
 /*
  * virusapi
- * Virus API lets you scan files and content for viruses and identify security issues with content.
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -245,8 +245,8 @@ public class ScanApi {
     }
 
     /**
-     * Scan a website for malicious content including viruses and threats (including Phishing)
-     * 
+     * Scan a website for malicious content and threats
+     * Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
      * @param input  (required)
      * @return WebsiteScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -257,8 +257,8 @@ public class ScanApi {
     }
 
     /**
-     * Scan a website for malicious content including viruses and threats (including Phishing)
-     * 
+     * Scan a website for malicious content and threats
+     * Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
      * @param input  (required)
      * @return ApiResponse&lt;WebsiteScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -270,8 +270,8 @@ public class ScanApi {
     }
 
     /**
-     * Scan a website for malicious content including viruses and threats (including Phishing) (asynchronously)
-     * 
+     * Scan a website for malicious content and threats (asynchronously)
+     * Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
      * @param input  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

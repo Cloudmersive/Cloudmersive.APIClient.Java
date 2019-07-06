@@ -16,6 +16,7 @@ NONE | &quot;None&quot;
 MALWARE | &quot;Malware&quot;
 PHISHING | &quot;Phishing&quot;
 FORCEDDOWNLOAD | &quot;ForcedDownload&quot;
+UNABLETOCONNECT | &quot;UnableToConnect&quot;
 
 
 

@@ -47,7 +47,7 @@ public class EditApiTest {
         String location = null;
         File baseImage = null;
         File layeredImage = null;
-        Object response = api.editCompositeBasic(location, baseImage, layeredImage);
+        byte[] response = api.editCompositeBasic(location, baseImage, layeredImage);
 
         // TODO: test validations
     }
@@ -63,7 +63,7 @@ public class EditApiTest {
     @Test
     public void editDrawRectangleTest() throws ApiException {
         DrawRectangleRequest request = null;
-        Object response = api.editDrawRectangle(request);
+        byte[] response = api.editDrawRectangle(request);
 
         // TODO: test validations
     }
@@ -79,7 +79,7 @@ public class EditApiTest {
     @Test
     public void editDrawTextTest() throws ApiException {
         DrawTextRequest request = null;
-        Object response = api.editDrawText(request);
+        byte[] response = api.editDrawText(request);
 
         // TODO: test validations
     }

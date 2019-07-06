@@ -142,11 +142,11 @@ public class EditApi {
      * @param location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
      * @param baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param layeredImage Image to layer on top of the base image. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object editCompositeBasic(String location, File baseImage, File layeredImage) throws ApiException {
-        ApiResponse<Object> resp = editCompositeBasicWithHttpInfo(location, baseImage, layeredImage);
+    public byte[] editCompositeBasic(String location, File baseImage, File layeredImage) throws ApiException {
+        ApiResponse<byte[]> resp = editCompositeBasicWithHttpInfo(location, baseImage, layeredImage);
         return resp.getData();
     }
 
@@ -156,12 +156,12 @@ public class EditApi {
      * @param location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
      * @param baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param layeredImage Image to layer on top of the base image. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> editCompositeBasicWithHttpInfo(String location, File baseImage, File layeredImage) throws ApiException {
+    public ApiResponse<byte[]> editCompositeBasicWithHttpInfo(String location, File baseImage, File layeredImage) throws ApiException {
         com.squareup.okhttp.Call call = editCompositeBasicValidateBeforeCall(location, baseImage, layeredImage, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -175,7 +175,7 @@ public class EditApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editCompositeBasicAsync(String location, File baseImage, File layeredImage, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call editCompositeBasicAsync(String location, File baseImage, File layeredImage, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -197,7 +197,7 @@ public class EditApi {
         }
 
         com.squareup.okhttp.Call call = editCompositeBasicValidateBeforeCall(location, baseImage, layeredImage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -268,11 +268,11 @@ public class EditApi {
      * Draw rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
      * @param request  (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object editDrawRectangle(DrawRectangleRequest request) throws ApiException {
-        ApiResponse<Object> resp = editDrawRectangleWithHttpInfo(request);
+    public byte[] editDrawRectangle(DrawRectangleRequest request) throws ApiException {
+        ApiResponse<byte[]> resp = editDrawRectangleWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -280,12 +280,12 @@ public class EditApi {
      * Draw rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
      * @param request  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> editDrawRectangleWithHttpInfo(DrawRectangleRequest request) throws ApiException {
+    public ApiResponse<byte[]> editDrawRectangleWithHttpInfo(DrawRectangleRequest request) throws ApiException {
         com.squareup.okhttp.Call call = editDrawRectangleValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -297,7 +297,7 @@ public class EditApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editDrawRectangleAsync(DrawRectangleRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call editDrawRectangleAsync(DrawRectangleRequest request, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -319,7 +319,7 @@ public class EditApi {
         }
 
         com.squareup.okhttp.Call call = editDrawRectangleValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -390,11 +390,11 @@ public class EditApi {
      * Draw text onto an image
      * Draw one or more pieces of text, with customized visuals, onto an image
      * @param request  (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object editDrawText(DrawTextRequest request) throws ApiException {
-        ApiResponse<Object> resp = editDrawTextWithHttpInfo(request);
+    public byte[] editDrawText(DrawTextRequest request) throws ApiException {
+        ApiResponse<byte[]> resp = editDrawTextWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -402,12 +402,12 @@ public class EditApi {
      * Draw text onto an image
      * Draw one or more pieces of text, with customized visuals, onto an image
      * @param request  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> editDrawTextWithHttpInfo(DrawTextRequest request) throws ApiException {
+    public ApiResponse<byte[]> editDrawTextWithHttpInfo(DrawTextRequest request) throws ApiException {
         com.squareup.okhttp.Call call = editDrawTextValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -419,7 +419,7 @@ public class EditApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editDrawTextAsync(DrawTextRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call editDrawTextAsync(DrawTextRequest request, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -441,7 +441,7 @@ public class EditApi {
         }
 
         com.squareup.okhttp.Call call = editDrawTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

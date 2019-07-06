@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.GetPageAngleResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -31,6 +32,54 @@ public class PreprocessingApiTest {
 
     private final PreprocessingApi api = new PreprocessingApi();
 
+    
+    /**
+     * Convert an image of text into a binarized (light and dark) view
+     *
+     * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void preprocessingBinarizeTest() throws ApiException {
+        File imageFile = null;
+        Object response = api.preprocessingBinarize(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert an image of text into a binary (light and dark) view with ML
+     *
+     * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void preprocessingBinarizeAdvancedTest() throws ApiException {
+        File imageFile = null;
+        Object response = api.preprocessingBinarizeAdvanced(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the angle of the page / document / receipt
+     *
+     * Analyzes a photo or image of a document and identifies the rotation angle of the page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void preprocessingGetPageAngleTest() throws ApiException {
+        File imageFile = null;
+        GetPageAngleResult response = api.preprocessingGetPageAngle(imageFile);
+
+        // TODO: test validations
+    }
     
     /**
      * Detect and unrotate a document image

@@ -1,6 +1,6 @@
 /*
- * convertapi
- * Convert API lets you effortlessly convert file formats and types.
+ * ocrapi
+ * The powerful Optical Character Recognition (OCR) APIs let you convert scanned images of pages into recognized text.
  *
  * OpenAPI spec version: v1
  * 
@@ -14,7 +14,6 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.cloudmersive.client.model.DocxImage;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,31 +22,29 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Result of running a Get-Images command
+ * Result of performing a get-page-angle operation
  */
-@ApiModel(description = "Result of running a Get-Images command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-06T11:03:12.569-07:00")
-public class GetDocxImagesResponse {
+@ApiModel(description = "Result of performing a get-page-angle operation")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-06T11:03:03.768-07:00")
+public class GetPageAngleResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("Images")
-  private List<DocxImage> images = null;
+  @SerializedName("Angle")
+  private Double angle = null;
 
-  public GetDocxImagesResponse successful(Boolean successful) {
+  public GetPageAngleResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
 
    /**
-   * True if successful, false otherwise
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "True if successful, false otherwise")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -56,30 +53,22 @@ public class GetDocxImagesResponse {
     this.successful = successful;
   }
 
-  public GetDocxImagesResponse images(List<DocxImage> images) {
-    this.images = images;
-    return this;
-  }
-
-  public GetDocxImagesResponse addImagesItem(DocxImage imagesItem) {
-    if (this.images == null) {
-      this.images = new ArrayList<DocxImage>();
-    }
-    this.images.add(imagesItem);
+  public GetPageAngleResult angle(Double angle) {
+    this.angle = angle;
     return this;
   }
 
    /**
-   * Images in the DOCX document
-   * @return images
+   * Angle of the page in radians; 0 represents perfectly horizontal
+   * @return angle
   **/
-  @ApiModelProperty(value = "Images in the DOCX document")
-  public List<DocxImage> getImages() {
-    return images;
+  @ApiModelProperty(value = "Angle of the page in radians; 0 represents perfectly horizontal")
+  public Double getAngle() {
+    return angle;
   }
 
-  public void setImages(List<DocxImage> images) {
-    this.images = images;
+  public void setAngle(Double angle) {
+    this.angle = angle;
   }
 
 
@@ -91,24 +80,24 @@ public class GetDocxImagesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDocxImagesResponse getDocxImagesResponse = (GetDocxImagesResponse) o;
-    return Objects.equals(this.successful, getDocxImagesResponse.successful) &&
-        Objects.equals(this.images, getDocxImagesResponse.images);
+    GetPageAngleResult getPageAngleResult = (GetPageAngleResult) o;
+    return Objects.equals(this.successful, getPageAngleResult.successful) &&
+        Objects.equals(this.angle, getPageAngleResult.angle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, images);
+    return Objects.hash(successful, angle);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDocxImagesResponse {\n");
+    sb.append("class GetPageAngleResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    images: ").append(toIndentedString(images)).append("\n");
+    sb.append("    angle: ").append(toIndentedString(angle)).append("\n");
     sb.append("}");
     return sb.toString();
   }

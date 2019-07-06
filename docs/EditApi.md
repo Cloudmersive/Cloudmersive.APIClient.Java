@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="editCompositeBasic"></a>
 # **editCompositeBasic**
-> Object editCompositeBasic(location, baseImage, layeredImage)
+> byte[] editCompositeBasic(location, baseImage, layeredImage)
 
 Composite two images together
 
@@ -39,7 +39,7 @@ String location = "location_example"; // String | Location to composite the laye
 File baseImage = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 File layeredImage = new File("/path/to/file.txt"); // File | Image to layer on top of the base image.
 try {
-    Object result = apiInstance.editCompositeBasic(location, baseImage, layeredImage);
+    byte[] result = apiInstance.editCompositeBasic(location, baseImage, layeredImage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditApi#editCompositeBasic");
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 <a name="editDrawRectangle"></a>
 # **editDrawRectangle**
-> Object editDrawRectangle(request)
+> byte[] editDrawRectangle(request)
 
 Draw rectangle onto an image
 
@@ -96,7 +96,7 @@ Apikey.setApiKey("YOUR API KEY");
 EditApi apiInstance = new EditApi();
 DrawRectangleRequest request = new DrawRectangleRequest(); // DrawRectangleRequest | 
 try {
-    Object result = apiInstance.editDrawRectangle(request);
+    byte[] result = apiInstance.editDrawRectangle(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditApi#editDrawRectangle");
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 <a name="editDrawText"></a>
 # **editDrawText**
-> Object editDrawText(request)
+> byte[] editDrawText(request)
 
 Draw text onto an image
 
@@ -151,7 +151,7 @@ Apikey.setApiKey("YOUR API KEY");
 EditApi apiInstance = new EditApi();
 DrawTextRequest request = new DrawTextRequest(); // DrawTextRequest | 
 try {
-    Object result = apiInstance.editDrawText(request);
+    byte[] result = apiInstance.editDrawText(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditApi#editDrawText");
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

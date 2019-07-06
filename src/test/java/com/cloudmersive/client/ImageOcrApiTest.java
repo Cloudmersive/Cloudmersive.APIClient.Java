@@ -18,6 +18,7 @@ import java.io.File;
 import com.cloudmersive.client.model.ImageToLinesWithLocationResult;
 import com.cloudmersive.client.model.ImageToTextResponse;
 import com.cloudmersive.client.model.ImageToWordsWithLocationResult;
+import com.cloudmersive.client.model.PhotoToWordsWithLocationResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -84,6 +85,24 @@ public class ImageOcrApiTest {
         File imageFile = null;
         String language = null;
         ImageToTextResponse response = api.imageOcrPhotoToText(imageFile, language);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert a photo of a document or receipt into words with location
+     *
+     * Converts a photo of a document or receipt in common formats such as JPEG, PNG into words/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on photographs of documents.  If you want to OCR scanned documents (e.g. taken with a scanner), be sure to use the image/toText API instead, as it is designed for that use case.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrPhotoWordsWithLocationTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        String preprocessing = null;
+        PhotoToWordsWithLocationResult response = api.imageOcrPhotoWordsWithLocation(imageFile, language, preprocessing);
 
         // TODO: test validations
     }

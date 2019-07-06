@@ -27,7 +27,7 @@ import java.io.IOException;
  * Full email addresss validation result
  */
 @ApiModel(description = "Full email addresss validation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-09T14:02:03.298-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-06T11:02:56.391-07:00")
 public class FullEmailValidationResponse {
   @SerializedName("ValidAddress")
   private Boolean validAddress = null;
@@ -49,6 +49,12 @@ public class FullEmailValidationResponse {
 
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("IsFreeEmailProvider")
+  private Boolean isFreeEmailProvider = null;
+
+  @SerializedName("IsDisposable")
+  private Boolean isDisposable = null;
 
   public FullEmailValidationResponse validAddress(Boolean validAddress) {
     this.validAddress = validAddress;
@@ -176,6 +182,42 @@ public class FullEmailValidationResponse {
     this.domain = domain;
   }
 
+  public FullEmailValidationResponse isFreeEmailProvider(Boolean isFreeEmailProvider) {
+    this.isFreeEmailProvider = isFreeEmailProvider;
+    return this;
+  }
+
+   /**
+   * True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.
+   * @return isFreeEmailProvider
+  **/
+  @ApiModelProperty(value = "True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.")
+  public Boolean isIsFreeEmailProvider() {
+    return isFreeEmailProvider;
+  }
+
+  public void setIsFreeEmailProvider(Boolean isFreeEmailProvider) {
+    this.isFreeEmailProvider = isFreeEmailProvider;
+  }
+
+  public FullEmailValidationResponse isDisposable(Boolean isDisposable) {
+    this.isDisposable = isDisposable;
+    return this;
+  }
+
+   /**
+   * True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.
+   * @return isDisposable
+  **/
+  @ApiModelProperty(value = "True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.")
+  public Boolean isIsDisposable() {
+    return isDisposable;
+  }
+
+  public void setIsDisposable(Boolean isDisposable) {
+    this.isDisposable = isDisposable;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +234,14 @@ public class FullEmailValidationResponse {
         Objects.equals(this.validDomain, fullEmailValidationResponse.validDomain) &&
         Objects.equals(this.validSMTP, fullEmailValidationResponse.validSMTP) &&
         Objects.equals(this.isCatchallDomain, fullEmailValidationResponse.isCatchallDomain) &&
-        Objects.equals(this.domain, fullEmailValidationResponse.domain);
+        Objects.equals(this.domain, fullEmailValidationResponse.domain) &&
+        Objects.equals(this.isFreeEmailProvider, fullEmailValidationResponse.isFreeEmailProvider) &&
+        Objects.equals(this.isDisposable, fullEmailValidationResponse.isDisposable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validAddress, mailServerUsedForValidation, validSyntax, validDomain, validSMTP, isCatchallDomain, domain);
+    return Objects.hash(validAddress, mailServerUsedForValidation, validSyntax, validDomain, validSMTP, isCatchallDomain, domain, isFreeEmailProvider, isDisposable);
   }
 
 
@@ -213,6 +257,8 @@ public class FullEmailValidationResponse {
     sb.append("    validSMTP: ").append(toIndentedString(validSMTP)).append("\n");
     sb.append("    isCatchallDomain: ").append(toIndentedString(isCatchallDomain)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    isFreeEmailProvider: ").append(toIndentedString(isFreeEmailProvider)).append("\n");
+    sb.append("    isDisposable: ").append(toIndentedString(isDisposable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

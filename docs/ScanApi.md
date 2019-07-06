@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**scanFile**](ScanApi.md#scanFile) | **POST** /virus/scan/file | Scan a file for viruses
-[**scanWebsite**](ScanApi.md#scanWebsite) | **POST** /virus/scan/website | Scan a website for malicious content including viruses and threats (including Phishing)
+[**scanWebsite**](ScanApi.md#scanWebsite) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 
 
 <a name="scanFile"></a>
@@ -65,7 +65,9 @@ Name | Type | Description  | Notes
 # **scanWebsite**
 > WebsiteScanResult scanWebsite(input)
 
-Scan a website for malicious content including viruses and threats (including Phishing)
+Scan a website for malicious content and threats
+
+Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
 
 ### Example
 ```java

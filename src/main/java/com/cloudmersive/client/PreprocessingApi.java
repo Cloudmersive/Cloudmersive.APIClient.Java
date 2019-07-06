@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.GetPageAngleResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -120,8 +121,8 @@ public class PreprocessingApi {
     }
 
     /**
-     * Convert an image of text into a binary (light and dark) view
-     * Perform an advanced adaptive, machine learning-based binarization algorithm on the input image to prepare it for further OCR operations.
+     * Convert an image of text into a binarized (light and dark) view
+     * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -132,8 +133,8 @@ public class PreprocessingApi {
     }
 
     /**
-     * Convert an image of text into a binary (light and dark) view
-     * Perform an advanced adaptive, machine learning-based binarization algorithm on the input image to prepare it for further OCR operations.
+     * Convert an image of text into a binarized (light and dark) view
+     * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -145,8 +146,8 @@ public class PreprocessingApi {
     }
 
     /**
-     * Convert an image of text into a binary (light and dark) view (asynchronously)
-     * Perform an advanced adaptive, machine learning-based binarization algorithm on the input image to prepare it for further OCR operations.
+     * Convert an image of text into a binarized (light and dark) view (asynchronously)
+     * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -175,6 +176,254 @@ public class PreprocessingApi {
 
         com.squareup.okhttp.Call call = preprocessingBinarizeValidateBeforeCall(imageFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for preprocessingBinarizeAdvanced
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call preprocessingBinarizeAdvancedCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/ocr/preprocessing/image/binarize/advanced";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call preprocessingBinarizeAdvancedValidateBeforeCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling preprocessingBinarizeAdvanced(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = preprocessingBinarizeAdvancedCall(imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert an image of text into a binary (light and dark) view with ML
+     * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object preprocessingBinarizeAdvanced(File imageFile) throws ApiException {
+        ApiResponse<Object> resp = preprocessingBinarizeAdvancedWithHttpInfo(imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert an image of text into a binary (light and dark) view with ML
+     * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> preprocessingBinarizeAdvancedWithHttpInfo(File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = preprocessingBinarizeAdvancedValidateBeforeCall(imageFile, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert an image of text into a binary (light and dark) view with ML (asynchronously)
+     * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call preprocessingBinarizeAdvancedAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = preprocessingBinarizeAdvancedValidateBeforeCall(imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for preprocessingGetPageAngle
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call preprocessingGetPageAngleCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/ocr/preprocessing/image/get-page-angle";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call preprocessingGetPageAngleValidateBeforeCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling preprocessingGetPageAngle(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = preprocessingGetPageAngleCall(imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the angle of the page / document / receipt
+     * Analyzes a photo or image of a document and identifies the rotation angle of the page.
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return GetPageAngleResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetPageAngleResult preprocessingGetPageAngle(File imageFile) throws ApiException {
+        ApiResponse<GetPageAngleResult> resp = preprocessingGetPageAngleWithHttpInfo(imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Get the angle of the page / document / receipt
+     * Analyzes a photo or image of a document and identifies the rotation angle of the page.
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;GetPageAngleResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetPageAngleResult> preprocessingGetPageAngleWithHttpInfo(File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = preprocessingGetPageAngleValidateBeforeCall(imageFile, null, null);
+        Type localVarReturnType = new TypeToken<GetPageAngleResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the angle of the page / document / receipt (asynchronously)
+     * Analyzes a photo or image of a document and identifies the rotation angle of the page.
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call preprocessingGetPageAngleAsync(File imageFile, final ApiCallback<GetPageAngleResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = preprocessingGetPageAngleValidateBeforeCall(imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetPageAngleResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
