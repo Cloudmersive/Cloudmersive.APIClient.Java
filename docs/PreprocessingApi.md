@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="preprocessingBinarize"></a>
 # **preprocessingBinarize**
-> Object preprocessingBinarize(imageFile)
+> byte[] preprocessingBinarize(imageFile)
 
 Convert an image of text into a binarized (light and dark) view
 
@@ -39,7 +39,7 @@ Apikey.setApiKey("YOUR API KEY");
 PreprocessingApi apiInstance = new PreprocessingApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.preprocessingBinarize(imageFile);
+    byte[] result = apiInstance.preprocessingBinarize(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PreprocessingApi#preprocessingBinarize");
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="preprocessingBinarizeAdvanced"></a>
 # **preprocessingBinarizeAdvanced**
-> Object preprocessingBinarizeAdvanced(imageFile)
+> byte[] preprocessingBinarizeAdvanced(imageFile)
 
 Convert an image of text into a binary (light and dark) view with ML
 
@@ -94,7 +94,7 @@ Apikey.setApiKey("YOUR API KEY");
 PreprocessingApi apiInstance = new PreprocessingApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.preprocessingBinarizeAdvanced(imageFile);
+    byte[] result = apiInstance.preprocessingBinarizeAdvanced(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PreprocessingApi#preprocessingBinarizeAdvanced");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 <a name="preprocessingUnrotate"></a>
 # **preprocessingUnrotate**
-> Object preprocessingUnrotate(imageFile)
+> byte[] preprocessingUnrotate(imageFile)
 
 Detect and unrotate a document image
 
@@ -204,7 +204,7 @@ Apikey.setApiKey("YOUR API KEY");
 PreprocessingApi apiInstance = new PreprocessingApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.preprocessingUnrotate(imageFile);
+    byte[] result = apiInstance.preprocessingUnrotate(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PreprocessingApi#preprocessingUnrotate");
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 <a name="preprocessingUnskew"></a>
 # **preprocessingUnskew**
-> Object preprocessingUnskew(imageFile)
+> byte[] preprocessingUnskew(imageFile)
 
 Detect and unskew a photo of a document
 
@@ -259,7 +259,7 @@ Apikey.setApiKey("YOUR API KEY");
 PreprocessingApi apiInstance = new PreprocessingApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.preprocessingUnskew(imageFile);
+    byte[] result = apiInstance.preprocessingUnskew(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PreprocessingApi#preprocessingUnskew");
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

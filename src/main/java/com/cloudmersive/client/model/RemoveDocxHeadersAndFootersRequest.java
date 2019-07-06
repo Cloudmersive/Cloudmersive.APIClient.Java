@@ -27,7 +27,7 @@ import java.io.IOException;
  * Input to a Remove Headers and Footers request
  */
 @ApiModel(description = "Input to a Remove Headers and Footers request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-06T11:03:12.569-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-06T12:16:34.831-07:00")
 public class RemoveDocxHeadersAndFootersRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

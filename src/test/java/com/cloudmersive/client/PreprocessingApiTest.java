@@ -44,7 +44,7 @@ public class PreprocessingApiTest {
     @Test
     public void preprocessingBinarizeTest() throws ApiException {
         File imageFile = null;
-        Object response = api.preprocessingBinarize(imageFile);
+        byte[] response = api.preprocessingBinarize(imageFile);
 
         // TODO: test validations
     }
@@ -60,7 +60,7 @@ public class PreprocessingApiTest {
     @Test
     public void preprocessingBinarizeAdvancedTest() throws ApiException {
         File imageFile = null;
-        Object response = api.preprocessingBinarizeAdvanced(imageFile);
+        byte[] response = api.preprocessingBinarizeAdvanced(imageFile);
 
         // TODO: test validations
     }
@@ -92,7 +92,7 @@ public class PreprocessingApiTest {
     @Test
     public void preprocessingUnrotateTest() throws ApiException {
         File imageFile = null;
-        Object response = api.preprocessingUnrotate(imageFile);
+        byte[] response = api.preprocessingUnrotate(imageFile);
 
         // TODO: test validations
     }
@@ -108,7 +108,7 @@ public class PreprocessingApiTest {
     @Test
     public void preprocessingUnskewTest() throws ApiException {
         File imageFile = null;
-        Object response = api.preprocessingUnskew(imageFile);
+        byte[] response = api.preprocessingUnskew(imageFile);
 
         // TODO: test validations
     }

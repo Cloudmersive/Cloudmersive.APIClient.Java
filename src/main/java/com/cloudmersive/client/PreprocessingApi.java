@@ -124,11 +124,11 @@ public class PreprocessingApi {
      * Convert an image of text into a binarized (light and dark) view
      * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object preprocessingBinarize(File imageFile) throws ApiException {
-        ApiResponse<Object> resp = preprocessingBinarizeWithHttpInfo(imageFile);
+    public byte[] preprocessingBinarize(File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = preprocessingBinarizeWithHttpInfo(imageFile);
         return resp.getData();
     }
 
@@ -136,12 +136,12 @@ public class PreprocessingApi {
      * Convert an image of text into a binarized (light and dark) view
      * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> preprocessingBinarizeWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<byte[]> preprocessingBinarizeWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = preprocessingBinarizeValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -153,7 +153,7 @@ public class PreprocessingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call preprocessingBinarizeAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call preprocessingBinarizeAsync(File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -175,7 +175,7 @@ public class PreprocessingApi {
         }
 
         com.squareup.okhttp.Call call = preprocessingBinarizeValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -248,11 +248,11 @@ public class PreprocessingApi {
      * Convert an image of text into a binary (light and dark) view with ML
      * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object preprocessingBinarizeAdvanced(File imageFile) throws ApiException {
-        ApiResponse<Object> resp = preprocessingBinarizeAdvancedWithHttpInfo(imageFile);
+    public byte[] preprocessingBinarizeAdvanced(File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = preprocessingBinarizeAdvancedWithHttpInfo(imageFile);
         return resp.getData();
     }
 
@@ -260,12 +260,12 @@ public class PreprocessingApi {
      * Convert an image of text into a binary (light and dark) view with ML
      * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> preprocessingBinarizeAdvancedWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<byte[]> preprocessingBinarizeAdvancedWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = preprocessingBinarizeAdvancedValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -277,7 +277,7 @@ public class PreprocessingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call preprocessingBinarizeAdvancedAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call preprocessingBinarizeAdvancedAsync(File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -299,7 +299,7 @@ public class PreprocessingApi {
         }
 
         com.squareup.okhttp.Call call = preprocessingBinarizeAdvancedValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -496,11 +496,11 @@ public class PreprocessingApi {
      * Detect and unrotate a document image
      * Detect and unrotate an image of a document (e.g. that was scanned at an angle).  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object preprocessingUnrotate(File imageFile) throws ApiException {
-        ApiResponse<Object> resp = preprocessingUnrotateWithHttpInfo(imageFile);
+    public byte[] preprocessingUnrotate(File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = preprocessingUnrotateWithHttpInfo(imageFile);
         return resp.getData();
     }
 
@@ -508,12 +508,12 @@ public class PreprocessingApi {
      * Detect and unrotate a document image
      * Detect and unrotate an image of a document (e.g. that was scanned at an angle).  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> preprocessingUnrotateWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<byte[]> preprocessingUnrotateWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = preprocessingUnrotateValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -525,7 +525,7 @@ public class PreprocessingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call preprocessingUnrotateAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call preprocessingUnrotateAsync(File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -547,7 +547,7 @@ public class PreprocessingApi {
         }
 
         com.squareup.okhttp.Call call = preprocessingUnrotateValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -620,11 +620,11 @@ public class PreprocessingApi {
      * Detect and unskew a photo of a document
      * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object preprocessingUnskew(File imageFile) throws ApiException {
-        ApiResponse<Object> resp = preprocessingUnskewWithHttpInfo(imageFile);
+    public byte[] preprocessingUnskew(File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = preprocessingUnskewWithHttpInfo(imageFile);
         return resp.getData();
     }
 
@@ -632,12 +632,12 @@ public class PreprocessingApi {
      * Detect and unskew a photo of a document
      * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> preprocessingUnskewWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<byte[]> preprocessingUnskewWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = preprocessingUnskewValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -649,7 +649,7 @@ public class PreprocessingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call preprocessingUnskewAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call preprocessingUnskewAsync(File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -671,7 +671,7 @@ public class PreprocessingApi {
         }
 
         com.squareup.okhttp.Call call = preprocessingUnskewValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
