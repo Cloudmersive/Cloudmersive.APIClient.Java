@@ -53,6 +53,23 @@ public class EditApiTest {
     }
     
     /**
+     * Adaptively adjust the contrast of the image to be more appealing and easy to see
+     *
+     * Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editContrastAdaptiveTest() throws ApiException {
+        Double gamma = null;
+        File imageFile = null;
+        byte[] response = api.editContrastAdaptive(gamma, imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Draw rectangle onto an image
      *
      * Draw one or more rectangles, with customized visuals, onto an image

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a set-header command
  */
 @ApiModel(description = "Input to a set-header command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-06T12:16:34.831-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-09T17:25:20.795-07:00")
 public class DocxSetHeaderRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
