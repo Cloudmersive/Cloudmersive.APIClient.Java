@@ -35,6 +35,22 @@ public class EditApiTest {
 
     
     /**
+     * Normalizes image rotation and removes EXIF rotation data
+     *
+     * Automatically orients the input image based on EXIF information and then removes the EXIF information.  EXIF is an additional set of information stored in some images taken with cell phone cameras based on the orientation of the camera.  By normalizing rotation and removing EXIF data these images become much easier to process.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editAutoOrientTest() throws ApiException {
+        File imageFile = null;
+        byte[] response = api.editAutoOrient(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Composite two images together
      *
      * Composites two input images together; a layered image onto a base image.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.
