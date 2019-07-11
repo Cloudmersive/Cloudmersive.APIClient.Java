@@ -24,51 +24,51 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Specific recognition outcome
+ * One point in a polygon
  */
-@ApiModel(description = "Specific recognition outcome")
+@ApiModel(description = "One point in a polygon")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-11T12:18:57.831-07:00")
-public class RecognitionOutcome {
-  @SerializedName("ConfidenceScore")
-  private Double confidenceScore = null;
+public class PolygonPoint {
+  @SerializedName("X")
+  private Double X = null;
 
-  @SerializedName("Description")
-  private String description = null;
+  @SerializedName("Y")
+  private Double Y = null;
 
-  public RecognitionOutcome confidenceScore(Double confidenceScore) {
-    this.confidenceScore = confidenceScore;
+  public PolygonPoint X(Double X) {
+    this.X = X;
     return this;
   }
 
    /**
-   * Scores closer to 1 are better than scores closer to 0
-   * @return confidenceScore
+   * X location in pixels of this point in the polygon
+   * @return X
   **/
-  @ApiModelProperty(value = "Scores closer to 1 are better than scores closer to 0")
-  public Double getConfidenceScore() {
-    return confidenceScore;
+  @ApiModelProperty(value = "X location in pixels of this point in the polygon")
+  public Double getX() {
+    return X;
   }
 
-  public void setConfidenceScore(Double confidenceScore) {
-    this.confidenceScore = confidenceScore;
+  public void setX(Double X) {
+    this.X = X;
   }
 
-  public RecognitionOutcome description(String description) {
-    this.description = description;
+  public PolygonPoint Y(Double Y) {
+    this.Y = Y;
     return this;
   }
 
    /**
-   * English language description of the image
-   * @return description
+   * Y location in pixels of this point in the polygon
+   * @return Y
   **/
-  @ApiModelProperty(value = "English language description of the image")
-  public String getDescription() {
-    return description;
+  @ApiModelProperty(value = "Y location in pixels of this point in the polygon")
+  public Double getY() {
+    return Y;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setY(Double Y) {
+    this.Y = Y;
   }
 
 
@@ -80,24 +80,24 @@ public class RecognitionOutcome {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecognitionOutcome recognitionOutcome = (RecognitionOutcome) o;
-    return Objects.equals(this.confidenceScore, recognitionOutcome.confidenceScore) &&
-        Objects.equals(this.description, recognitionOutcome.description);
+    PolygonPoint polygonPoint = (PolygonPoint) o;
+    return Objects.equals(this.X, polygonPoint.X) &&
+        Objects.equals(this.Y, polygonPoint.Y);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(confidenceScore, description);
+    return Objects.hash(X, Y);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecognitionOutcome {\n");
+    sb.append("class PolygonPoint {\n");
     
-    sb.append("    confidenceScore: ").append(toIndentedString(confidenceScore)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    X: ").append(toIndentedString(X)).append("\n");
+    sb.append("    Y: ").append(toIndentedString(Y)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.DrawPolygonRequest;
 import com.cloudmersive.client.model.DrawRectangleRequest;
 import com.cloudmersive.client.model.DrawTextRequest;
 import java.io.File;
@@ -86,6 +87,22 @@ public class EditApiTest {
     }
     
     /**
+     * Draw polygon onto an image
+     *
+     * Draw one or more polygons, with customized visuals, onto an image
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDrawPolygonTest() throws ApiException {
+        DrawPolygonRequest request = null;
+        Object response = api.editDrawPolygon(request);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Draw rectangle onto an image
      *
      * Draw one or more rectangles, with customized visuals, onto an image
@@ -113,6 +130,22 @@ public class EditApiTest {
     public void editDrawTextTest() throws ApiException {
         DrawTextRequest request = null;
         byte[] response = api.editDrawText(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Rotate an image any number of degrees
+     *
+     * Rotates an image by an arbitrary number of degrees
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editRotateTest() throws ApiException {
+        Double degrees = null;
+        Object response = api.editRotate(degrees);
 
         // TODO: test validations
     }

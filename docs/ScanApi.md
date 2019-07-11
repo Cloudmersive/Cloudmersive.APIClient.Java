@@ -14,6 +14,8 @@ Method | HTTP request | Description
 
 Scan a file for viruses
 
+Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+
 ### Example
 ```java
 // Import classes:
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 
 Scan a website for malicious content and threats
 
-Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
+Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
 
 ### Example
 ```java

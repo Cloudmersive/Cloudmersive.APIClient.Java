@@ -14,7 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.cloudmersive.client.model.DrawTextInstance;
+import com.cloudmersive.client.model.DrawPolygonInstance;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,30 +27,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Request to draw one or more pieces of text onto an image
+ * Request to draw one or more polygons on a base image
  */
-@ApiModel(description = "Request to draw one or more pieces of text onto an image")
+@ApiModel(description = "Request to draw one or more polygons on a base image")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-11T12:18:57.831-07:00")
-public class DrawTextRequest {
+public class DrawPolygonRequest {
   @SerializedName("BaseImageBytes")
   private byte[] baseImageBytes = null;
 
   @SerializedName("BaseImageUrl")
   private String baseImageUrl = null;
 
-  @SerializedName("TextToDraw")
-  private List<DrawTextInstance> textToDraw = null;
+  @SerializedName("PolygonsToDraw")
+  private List<DrawPolygonInstance> polygonsToDraw = null;
 
-  public DrawTextRequest baseImageBytes(byte[] baseImageBytes) {
+  public DrawPolygonRequest baseImageBytes(byte[] baseImageBytes) {
     this.baseImageBytes = baseImageBytes;
     return this;
   }
 
    /**
-   * Image to draw text on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL
+   * Image to draw polygons on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL
    * @return baseImageBytes
   **/
-  @ApiModelProperty(value = "Image to draw text on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL")
+  @ApiModelProperty(value = "Image to draw polygons on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL")
   public byte[] getBaseImageBytes() {
     return baseImageBytes;
   }
@@ -59,16 +59,16 @@ public class DrawTextRequest {
     this.baseImageBytes = baseImageBytes;
   }
 
-  public DrawTextRequest baseImageUrl(String baseImageUrl) {
+  public DrawPolygonRequest baseImageUrl(String baseImageUrl) {
     this.baseImageUrl = baseImageUrl;
     return this;
   }
 
    /**
-   * Image to draw text on, as an HTTP or HTTPS fully-qualified URL
+   * Image to draw polygons on, as an HTTP or HTTPS fully-qualified URL
    * @return baseImageUrl
   **/
-  @ApiModelProperty(value = "Image to draw text on, as an HTTP or HTTPS fully-qualified URL")
+  @ApiModelProperty(value = "Image to draw polygons on, as an HTTP or HTTPS fully-qualified URL")
   public String getBaseImageUrl() {
     return baseImageUrl;
   }
@@ -77,30 +77,30 @@ public class DrawTextRequest {
     this.baseImageUrl = baseImageUrl;
   }
 
-  public DrawTextRequest textToDraw(List<DrawTextInstance> textToDraw) {
-    this.textToDraw = textToDraw;
+  public DrawPolygonRequest polygonsToDraw(List<DrawPolygonInstance> polygonsToDraw) {
+    this.polygonsToDraw = polygonsToDraw;
     return this;
   }
 
-  public DrawTextRequest addTextToDrawItem(DrawTextInstance textToDrawItem) {
-    if (this.textToDraw == null) {
-      this.textToDraw = new ArrayList<DrawTextInstance>();
+  public DrawPolygonRequest addPolygonsToDrawItem(DrawPolygonInstance polygonsToDrawItem) {
+    if (this.polygonsToDraw == null) {
+      this.polygonsToDraw = new ArrayList<DrawPolygonInstance>();
     }
-    this.textToDraw.add(textToDrawItem);
+    this.polygonsToDraw.add(polygonsToDrawItem);
     return this;
   }
 
    /**
-   * One or more pieces of text to draw onto the image
-   * @return textToDraw
+   * Polygons to draw on the image.  Polygons are drawn in index order.
+   * @return polygonsToDraw
   **/
-  @ApiModelProperty(value = "One or more pieces of text to draw onto the image")
-  public List<DrawTextInstance> getTextToDraw() {
-    return textToDraw;
+  @ApiModelProperty(value = "Polygons to draw on the image.  Polygons are drawn in index order.")
+  public List<DrawPolygonInstance> getPolygonsToDraw() {
+    return polygonsToDraw;
   }
 
-  public void setTextToDraw(List<DrawTextInstance> textToDraw) {
-    this.textToDraw = textToDraw;
+  public void setPolygonsToDraw(List<DrawPolygonInstance> polygonsToDraw) {
+    this.polygonsToDraw = polygonsToDraw;
   }
 
 
@@ -112,26 +112,26 @@ public class DrawTextRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DrawTextRequest drawTextRequest = (DrawTextRequest) o;
-    return Objects.equals(this.baseImageBytes, drawTextRequest.baseImageBytes) &&
-        Objects.equals(this.baseImageUrl, drawTextRequest.baseImageUrl) &&
-        Objects.equals(this.textToDraw, drawTextRequest.textToDraw);
+    DrawPolygonRequest drawPolygonRequest = (DrawPolygonRequest) o;
+    return Objects.equals(this.baseImageBytes, drawPolygonRequest.baseImageBytes) &&
+        Objects.equals(this.baseImageUrl, drawPolygonRequest.baseImageUrl) &&
+        Objects.equals(this.polygonsToDraw, drawPolygonRequest.polygonsToDraw);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseImageBytes, baseImageUrl, textToDraw);
+    return Objects.hash(baseImageBytes, baseImageUrl, polygonsToDraw);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DrawTextRequest {\n");
+    sb.append("class DrawPolygonRequest {\n");
     
     sb.append("    baseImageBytes: ").append(toIndentedString(baseImageBytes)).append("\n");
     sb.append("    baseImageUrl: ").append(toIndentedString(baseImageUrl)).append("\n");
-    sb.append("    textToDraw: ").append(toIndentedString(textToDraw)).append("\n");
+    sb.append("    polygonsToDraw: ").append(toIndentedString(polygonsToDraw)).append("\n");
     sb.append("}");
     return sb.toString();
   }
