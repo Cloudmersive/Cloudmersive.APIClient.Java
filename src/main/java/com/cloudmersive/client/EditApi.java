@@ -524,39 +524,39 @@ public class EditApi {
     }
 
     /**
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      * Draw one or more polygons, with customized visuals, onto an image
      * @param request  (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object editDrawPolygon(DrawPolygonRequest request) throws ApiException {
-        ApiResponse<Object> resp = editDrawPolygonWithHttpInfo(request);
+    public byte[] editDrawPolygon(DrawPolygonRequest request) throws ApiException {
+        ApiResponse<byte[]> resp = editDrawPolygonWithHttpInfo(request);
         return resp.getData();
     }
 
     /**
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      * Draw one or more polygons, with customized visuals, onto an image
      * @param request  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> editDrawPolygonWithHttpInfo(DrawPolygonRequest request) throws ApiException {
+    public ApiResponse<byte[]> editDrawPolygonWithHttpInfo(DrawPolygonRequest request) throws ApiException {
         com.squareup.okhttp.Call call = editDrawPolygonValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Draw polygon onto an image (asynchronously)
+     * Draw a polygon onto an image (asynchronously)
      * Draw one or more polygons, with customized visuals, onto an image
      * @param request  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editDrawPolygonAsync(DrawPolygonRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call editDrawPolygonAsync(DrawPolygonRequest request, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -578,7 +578,7 @@ public class EditApi {
         }
 
         com.squareup.okhttp.Call call = editDrawPolygonValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -646,7 +646,7 @@ public class EditApi {
     }
 
     /**
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
      * @param request  (required)
      * @return byte[]
@@ -658,7 +658,7 @@ public class EditApi {
     }
 
     /**
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
      * @param request  (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -671,7 +671,7 @@ public class EditApi {
     }
 
     /**
-     * Draw rectangle onto an image (asynchronously)
+     * Draw a rectangle onto an image (asynchronously)
      * Draw one or more rectangles, with customized visuals, onto an image
      * @param request  (required)
      * @param callback The callback to be executed when the API call finishes
@@ -829,12 +829,13 @@ public class EditApi {
     /**
      * Build call for editRotate
      * @param degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editRotateCall(Double degrees, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editRotateCall(Double degrees, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -847,6 +848,8 @@ public class EditApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
 
         final String[] localVarAccepts = {
             "application/octet-stream"
@@ -855,7 +858,7 @@ public class EditApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -877,15 +880,20 @@ public class EditApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editRotateValidateBeforeCall(Double degrees, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editRotateValidateBeforeCall(Double degrees, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'degrees' is set
         if (degrees == null) {
             throw new ApiException("Missing the required parameter 'degrees' when calling editRotate(Async)");
         }
         
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling editRotate(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = editRotateCall(degrees, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editRotateCall(degrees, imageFile, progressListener, progressRequestListener);
         return call;
 
     }
@@ -894,11 +902,12 @@ public class EditApi {
      * Rotate an image any number of degrees
      * Rotates an image by an arbitrary number of degrees
      * @param degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
-     * @return Object
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object editRotate(Double degrees) throws ApiException {
-        ApiResponse<Object> resp = editRotateWithHttpInfo(degrees);
+    public byte[] editRotate(Double degrees, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = editRotateWithHttpInfo(degrees, imageFile);
         return resp.getData();
     }
 
@@ -906,12 +915,13 @@ public class EditApi {
      * Rotate an image any number of degrees
      * Rotates an image by an arbitrary number of degrees
      * @param degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> editRotateWithHttpInfo(Double degrees) throws ApiException {
-        com.squareup.okhttp.Call call = editRotateValidateBeforeCall(degrees, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+    public ApiResponse<byte[]> editRotateWithHttpInfo(Double degrees, File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = editRotateValidateBeforeCall(degrees, imageFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -919,11 +929,12 @@ public class EditApi {
      * Rotate an image any number of degrees (asynchronously)
      * Rotates an image by an arbitrary number of degrees
      * @param degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editRotateAsync(Double degrees, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call editRotateAsync(Double degrees, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -944,8 +955,8 @@ public class EditApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editRotateValidateBeforeCall(degrees, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        com.squareup.okhttp.Call call = editRotateValidateBeforeCall(degrees, imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

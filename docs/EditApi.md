@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
-[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
-[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
+[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
+[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
@@ -186,9 +186,9 @@ Name | Type | Description  | Notes
 
 <a name="editDrawPolygon"></a>
 # **editDrawPolygon**
-> Object editDrawPolygon(request)
+> byte[] editDrawPolygon(request)
 
-Draw polygon onto an image
+Draw a polygon onto an image
 
 Draw one or more polygons, with customized visuals, onto an image
 
@@ -212,7 +212,7 @@ Apikey.setApiKey("YOUR API KEY");
 EditApi apiInstance = new EditApi();
 DrawPolygonRequest request = new DrawPolygonRequest(); // DrawPolygonRequest | 
 try {
-    Object result = apiInstance.editDrawPolygon(request);
+    byte[] result = apiInstance.editDrawPolygon(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditApi#editDrawPolygon");
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 # **editDrawRectangle**
 > byte[] editDrawRectangle(request)
 
-Draw rectangle onto an image
+Draw a rectangle onto an image
 
 Draw one or more rectangles, with customized visuals, onto an image
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 <a name="editRotate"></a>
 # **editRotate**
-> Object editRotate(degrees)
+> byte[] editRotate(degrees, imageFile)
 
 Rotate an image any number of degrees
 
@@ -376,8 +376,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditApi apiInstance = new EditApi();
 Double degrees = 3.4D; // Double | Degrees to rotate the image; values range from 0.0 to 360.0.
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.editRotate(degrees);
+    byte[] result = apiInstance.editRotate(degrees, imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditApi#editRotate");
@@ -390,10 +391,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **degrees** | **Double**| Degrees to rotate the image; values range from 0.0 to 360.0. |
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -401,6 +403,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 

@@ -87,7 +87,7 @@ public class EditApiTest {
     }
     
     /**
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      *
      * Draw one or more polygons, with customized visuals, onto an image
      *
@@ -97,13 +97,13 @@ public class EditApiTest {
     @Test
     public void editDrawPolygonTest() throws ApiException {
         DrawPolygonRequest request = null;
-        Object response = api.editDrawPolygon(request);
+        byte[] response = api.editDrawPolygon(request);
 
         // TODO: test validations
     }
     
     /**
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      *
      * Draw one or more rectangles, with customized visuals, onto an image
      *
@@ -145,7 +145,8 @@ public class EditApiTest {
     @Test
     public void editRotateTest() throws ApiException {
         Double degrees = null;
-        Object response = api.editRotate(degrees);
+        File imageFile = null;
+        byte[] response = api.editRotate(degrees, imageFile);
 
         // TODO: test validations
     }
