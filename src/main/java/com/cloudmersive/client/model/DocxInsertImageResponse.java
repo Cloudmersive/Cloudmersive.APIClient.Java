@@ -27,7 +27,7 @@ import java.io.IOException;
  * Result of running a set-footer command
  */
 @ApiModel(description = "Result of running a set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-11T13:01:03.468-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-11T19:17:42.313-07:00")
 public class DocxInsertImageResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

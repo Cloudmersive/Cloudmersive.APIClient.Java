@@ -102,7 +102,8 @@ public class ImageOcrApiTest {
         File imageFile = null;
         String language = null;
         String preprocessing = null;
-        PhotoToWordsWithLocationResult response = api.imageOcrPhotoWordsWithLocation(imageFile, language, preprocessing);
+        String diagnostics = null;
+        PhotoToWordsWithLocationResult response = api.imageOcrPhotoWordsWithLocation(imageFile, language, preprocessing, diagnostics);
 
         // TODO: test validations
     }
