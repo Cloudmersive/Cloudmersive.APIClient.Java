@@ -25,16 +25,19 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * Result of recognizing a receipt, to extract the key information from the receipt
+ * Result of recognizing a business card, to extract the key information from the business card
  */
-@ApiModel(description = "Result of recognizing a receipt, to extract the key information from the receipt")
+@ApiModel(description = "Result of recognizing a business card, to extract the key information from the business card")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-21T10:25:09.606-07:00")
-public class ReceiptRecognitionResult {
+public class BusinessCardRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("Timestamp")
-  private OffsetDateTime timestamp = null;
+  @SerializedName("PersonName")
+  private String personName = null;
+
+  @SerializedName("PersonTitle")
+  private String personTitle = null;
 
   @SerializedName("BusinessName")
   private String businessName = null;
@@ -45,10 +48,13 @@ public class ReceiptRecognitionResult {
   @SerializedName("PhoneNumber")
   private String phoneNumber = null;
 
-  @SerializedName("ReceiptTotal")
-  private Double receiptTotal = null;
+  @SerializedName("EmailAddress")
+  private String emailAddress = null;
 
-  public ReceiptRecognitionResult successful(Boolean successful) {
+  @SerializedName("Timestamp")
+  private OffsetDateTime timestamp = null;
+
+  public BusinessCardRecognitionResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -66,25 +72,43 @@ public class ReceiptRecognitionResult {
     this.successful = successful;
   }
 
-  public ReceiptRecognitionResult timestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
+  public BusinessCardRecognitionResult personName(String personName) {
+    this.personName = personName;
     return this;
   }
 
    /**
-   * Get timestamp
-   * @return timestamp
+   * Get personName
+   * @return personName
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
+  public String getPersonName() {
+    return personName;
   }
 
-  public void setTimestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
+  public void setPersonName(String personName) {
+    this.personName = personName;
   }
 
-  public ReceiptRecognitionResult businessName(String businessName) {
+  public BusinessCardRecognitionResult personTitle(String personTitle) {
+    this.personTitle = personTitle;
+    return this;
+  }
+
+   /**
+   * Get personTitle
+   * @return personTitle
+  **/
+  @ApiModelProperty(value = "")
+  public String getPersonTitle() {
+    return personTitle;
+  }
+
+  public void setPersonTitle(String personTitle) {
+    this.personTitle = personTitle;
+  }
+
+  public BusinessCardRecognitionResult businessName(String businessName) {
     this.businessName = businessName;
     return this;
   }
@@ -102,7 +126,7 @@ public class ReceiptRecognitionResult {
     this.businessName = businessName;
   }
 
-  public ReceiptRecognitionResult addressString(String addressString) {
+  public BusinessCardRecognitionResult addressString(String addressString) {
     this.addressString = addressString;
     return this;
   }
@@ -120,7 +144,7 @@ public class ReceiptRecognitionResult {
     this.addressString = addressString;
   }
 
-  public ReceiptRecognitionResult phoneNumber(String phoneNumber) {
+  public BusinessCardRecognitionResult phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -138,22 +162,40 @@ public class ReceiptRecognitionResult {
     this.phoneNumber = phoneNumber;
   }
 
-  public ReceiptRecognitionResult receiptTotal(Double receiptTotal) {
-    this.receiptTotal = receiptTotal;
+  public BusinessCardRecognitionResult emailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
     return this;
   }
 
    /**
-   * Get receiptTotal
-   * @return receiptTotal
+   * Get emailAddress
+   * @return emailAddress
   **/
   @ApiModelProperty(value = "")
-  public Double getReceiptTotal() {
-    return receiptTotal;
+  public String getEmailAddress() {
+    return emailAddress;
   }
 
-  public void setReceiptTotal(Double receiptTotal) {
-    this.receiptTotal = receiptTotal;
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public BusinessCardRecognitionResult timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+   /**
+   * Get timestamp
+   * @return timestamp
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
   }
 
 
@@ -165,32 +207,36 @@ public class ReceiptRecognitionResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReceiptRecognitionResult receiptRecognitionResult = (ReceiptRecognitionResult) o;
-    return Objects.equals(this.successful, receiptRecognitionResult.successful) &&
-        Objects.equals(this.timestamp, receiptRecognitionResult.timestamp) &&
-        Objects.equals(this.businessName, receiptRecognitionResult.businessName) &&
-        Objects.equals(this.addressString, receiptRecognitionResult.addressString) &&
-        Objects.equals(this.phoneNumber, receiptRecognitionResult.phoneNumber) &&
-        Objects.equals(this.receiptTotal, receiptRecognitionResult.receiptTotal);
+    BusinessCardRecognitionResult businessCardRecognitionResult = (BusinessCardRecognitionResult) o;
+    return Objects.equals(this.successful, businessCardRecognitionResult.successful) &&
+        Objects.equals(this.personName, businessCardRecognitionResult.personName) &&
+        Objects.equals(this.personTitle, businessCardRecognitionResult.personTitle) &&
+        Objects.equals(this.businessName, businessCardRecognitionResult.businessName) &&
+        Objects.equals(this.addressString, businessCardRecognitionResult.addressString) &&
+        Objects.equals(this.phoneNumber, businessCardRecognitionResult.phoneNumber) &&
+        Objects.equals(this.emailAddress, businessCardRecognitionResult.emailAddress) &&
+        Objects.equals(this.timestamp, businessCardRecognitionResult.timestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, timestamp, businessName, addressString, phoneNumber, receiptTotal);
+    return Objects.hash(successful, personName, personTitle, businessName, addressString, phoneNumber, emailAddress, timestamp);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReceiptRecognitionResult {\n");
+    sb.append("class BusinessCardRecognitionResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    personName: ").append(toIndentedString(personName)).append("\n");
+    sb.append("    personTitle: ").append(toIndentedString(personTitle)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    addressString: ").append(toIndentedString(addressString)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    receiptTotal: ").append(toIndentedString(receiptTotal)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("}");
     return sb.toString();
   }
