@@ -61,7 +61,9 @@ public class ReceiptsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call receiptsPhotoToCSVCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
@@ -105,6 +107,7 @@ public class ReceiptsApi {
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call receiptsPhotoToCSVValidateBeforeCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -125,7 +128,9 @@ public class ReceiptsApi {
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public Object receiptsPhotoToCSV(File imageFile) throws ApiException {
         ApiResponse<Object> resp = receiptsPhotoToCSVWithHttpInfo(imageFile);
         return resp.getData();
@@ -137,7 +142,9 @@ public class ReceiptsApi {
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Object> receiptsPhotoToCSVWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = receiptsPhotoToCSVValidateBeforeCall(imageFile, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -151,7 +158,9 @@ public class ReceiptsApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call receiptsPhotoToCSVAsync(File imageFile, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;

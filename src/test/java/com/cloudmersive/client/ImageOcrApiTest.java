@@ -19,6 +19,7 @@ import com.cloudmersive.client.model.ImageToLinesWithLocationResult;
 import com.cloudmersive.client.model.ImageToTextResponse;
 import com.cloudmersive.client.model.ImageToWordsWithLocationResult;
 import com.cloudmersive.client.model.PhotoToWordsWithLocationResult;
+import com.cloudmersive.client.model.ReceiptRecognitionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -68,6 +69,23 @@ public class ImageOcrApiTest {
         String language = null;
         String preprocessing = null;
         ImageToWordsWithLocationResult response = api.imageOcrImageWordsWithLocation(imageFile, language, preprocessing);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Recognize a photo of a receipt, extract key business information
+     *
+     * Analyzes a photograph of a receipt as input, and outputs key business information such as the name of the business, the address of the business, the phone number of the business, the total of the receipt, the date of the receipt, and more.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrPhotoRecognizeReceiptTest() throws ApiException {
+        File imageFile = null;
+        String language = null;
+        ReceiptRecognitionResult response = api.imageOcrPhotoRecognizeReceipt(imageFile, language);
 
         // TODO: test validations
     }
