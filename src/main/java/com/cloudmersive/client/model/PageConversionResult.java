@@ -14,7 +14,6 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.cloudmersive.client.model.DocxBody;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,51 +24,51 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Result of running a Get-Body command
+ * Converted page as an image
  */
-@ApiModel(description = "Result of running a Get-Body command")
+@ApiModel(description = "Converted page as an image")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-01T20:54:29.428-07:00")
-public class GetDocxBodyResponse {
-  @SerializedName("Successful")
-  private Boolean successful = null;
+public class PageConversionResult {
+  @SerializedName("Filename")
+  private String filename = null;
 
-  @SerializedName("Body")
-  private DocxBody body = null;
+  @SerializedName("FileBytes")
+  private byte[] fileBytes = null;
 
-  public GetDocxBodyResponse successful(Boolean successful) {
-    this.successful = successful;
+  public PageConversionResult filename(String filename) {
+    this.filename = filename;
     return this;
   }
 
    /**
-   * True if successful, false otherwise
-   * @return successful
+   * Get filename
+   * @return filename
   **/
-  @ApiModelProperty(value = "True if successful, false otherwise")
-  public Boolean isSuccessful() {
-    return successful;
+  @ApiModelProperty(value = "")
+  public String getFilename() {
+    return filename;
   }
 
-  public void setSuccessful(Boolean successful) {
-    this.successful = successful;
+  public void setFilename(String filename) {
+    this.filename = filename;
   }
 
-  public GetDocxBodyResponse body(DocxBody body) {
-    this.body = body;
+  public PageConversionResult fileBytes(byte[] fileBytes) {
+    this.fileBytes = fileBytes;
     return this;
   }
 
    /**
-   * Body in the DOCX document
-   * @return body
+   * Get fileBytes
+   * @return fileBytes
   **/
-  @ApiModelProperty(value = "Body in the DOCX document")
-  public DocxBody getBody() {
-    return body;
+  @ApiModelProperty(value = "")
+  public byte[] getFileBytes() {
+    return fileBytes;
   }
 
-  public void setBody(DocxBody body) {
-    this.body = body;
+  public void setFileBytes(byte[] fileBytes) {
+    this.fileBytes = fileBytes;
   }
 
 
@@ -81,24 +80,24 @@ public class GetDocxBodyResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDocxBodyResponse getDocxBodyResponse = (GetDocxBodyResponse) o;
-    return Objects.equals(this.successful, getDocxBodyResponse.successful) &&
-        Objects.equals(this.body, getDocxBodyResponse.body);
+    PageConversionResult pageConversionResult = (PageConversionResult) o;
+    return Objects.equals(this.filename, pageConversionResult.filename) &&
+        Objects.equals(this.fileBytes, pageConversionResult.fileBytes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, body);
+    return Objects.hash(filename, fileBytes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDocxBodyResponse {\n");
+    sb.append("class PageConversionResult {\n");
     
-    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    fileBytes: ").append(toIndentedString(fileBytes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

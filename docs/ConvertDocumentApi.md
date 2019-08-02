@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentXlsToPdf"></a>
 # **convertDocumentXlsToPdf**
-> Object convertDocumentXlsToPdf(inputFile)
+> byte[] convertDocumentXlsToPdf(inputFile)
 
 Excel XLS (97-03) to PDF
 
@@ -598,7 +598,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDocumentXlsToPdf(inputFile);
+    byte[] result = apiInstance.convertDocumentXlsToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsToPdf");
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

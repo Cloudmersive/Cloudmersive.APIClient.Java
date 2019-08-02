@@ -205,7 +205,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentXlsToPdfTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDocumentXlsToPdf(inputFile);
+        byte[] response = api.convertDocumentXlsToPdf(inputFile);
 
         // TODO: test validations
     }

@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="convertWebHtmlToPdf"></a>
 # **convertWebHtmlToPdf**
-> Object convertWebHtmlToPdf(input)
+> byte[] convertWebHtmlToPdf(input)
 
 Convert HTML string to PDF
 
@@ -94,7 +94,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertWebApi apiInstance = new ConvertWebApi();
 HtmlToPdfRequest input = new HtmlToPdfRequest(); // HtmlToPdfRequest | HTML to PDF request parameters
 try {
-    Object result = apiInstance.convertWebHtmlToPdf(input);
+    byte[] result = apiInstance.convertWebHtmlToPdf(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebHtmlToPdf");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

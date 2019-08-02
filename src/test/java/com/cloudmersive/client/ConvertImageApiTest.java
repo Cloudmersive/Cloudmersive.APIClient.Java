@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.GetImageInfoResult;
+import com.cloudmersive.client.model.MultipageImageFormatConversionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -80,6 +81,24 @@ public class ConvertImageApiTest {
         Integer dpi = null;
         File inputFile = null;
         byte[] response = api.convertImageImageSetDPI(dpi, inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Multi-page format conversion
+     *
+     * Convert between over 100 file formats, including support for Multiple-Page formats (e.g. PDFs, TIFFs, etc. with multiple pages).
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertImageMultipageImageFormatConvertTest() throws ApiException {
+        String format1 = null;
+        String format2 = null;
+        File inputFile = null;
+        MultipageImageFormatConversionResult response = api.convertImageMultipageImageFormatConvert(format1, format2, inputFile);
 
         // TODO: test validations
     }

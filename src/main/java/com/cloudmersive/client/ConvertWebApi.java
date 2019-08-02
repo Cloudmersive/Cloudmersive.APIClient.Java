@@ -247,11 +247,11 @@ public class ConvertWebApi {
      * Convert HTML string to PDF
      * Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input HTML to PDF request parameters (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertWebHtmlToPdf(HtmlToPdfRequest input) throws ApiException {
-        ApiResponse<Object> resp = convertWebHtmlToPdfWithHttpInfo(input);
+    public byte[] convertWebHtmlToPdf(HtmlToPdfRequest input) throws ApiException {
+        ApiResponse<byte[]> resp = convertWebHtmlToPdfWithHttpInfo(input);
         return resp.getData();
     }
 
@@ -259,12 +259,12 @@ public class ConvertWebApi {
      * Convert HTML string to PDF
      * Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input HTML to PDF request parameters (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertWebHtmlToPdfWithHttpInfo(HtmlToPdfRequest input) throws ApiException {
+    public ApiResponse<byte[]> convertWebHtmlToPdfWithHttpInfo(HtmlToPdfRequest input) throws ApiException {
         com.squareup.okhttp.Call call = convertWebHtmlToPdfValidateBeforeCall(input, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -276,7 +276,7 @@ public class ConvertWebApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertWebHtmlToPdfAsync(HtmlToPdfRequest input, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertWebHtmlToPdfAsync(HtmlToPdfRequest input, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -298,7 +298,7 @@ public class ConvertWebApi {
         }
 
         com.squareup.okhttp.Call call = convertWebHtmlToPdfValidateBeforeCall(input, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

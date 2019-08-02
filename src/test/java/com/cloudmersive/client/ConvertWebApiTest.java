@@ -63,7 +63,7 @@ public class ConvertWebApiTest {
     @Test
     public void convertWebHtmlToPdfTest() throws ApiException {
         HtmlToPdfRequest input = null;
-        Object response = api.convertWebHtmlToPdf(input);
+        byte[] response = api.convertWebHtmlToPdf(input);
 
         // TODO: test validations
     }
