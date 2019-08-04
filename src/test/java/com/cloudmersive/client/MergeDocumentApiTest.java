@@ -50,6 +50,23 @@ public class MergeDocumentApiTest {
     }
     
     /**
+     * Merge Multple PDF Files Together
+     *
+     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPdfTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        byte[] response = api.mergeDocumentPdf(inputFile1, inputFile2);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Merge Multple PowerPoint PPTX Together
      *
      * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation

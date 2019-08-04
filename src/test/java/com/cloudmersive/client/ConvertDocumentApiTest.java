@@ -131,6 +131,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * PDF to Word DOCX
+     *
+     * Convert standard PDF to Office Word Documents (docx).    Converts a PDF at high fidelity into Word format, where it can be easily edited and processed.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToDocxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentPdfToDocx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * PDF to PNG Array
      *
      * Convert PDF document to PNG array, one image per page.
@@ -142,6 +158,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPdfToPngArrayTest() throws ApiException {
         File inputFile = null;
         PdfToPngResult response = api.convertDocumentPdfToPngArray(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * PDF to PowerPoint PPTX
+     *
+     * Convert standard PDF to Office PowerPoint Presentation (pptx).  Converts a PDF file at high fidelity into PowerPoint format, where it can be easily edited and processed.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToPptxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentPdfToPptx(inputFile);
 
         // TODO: test validations
     }

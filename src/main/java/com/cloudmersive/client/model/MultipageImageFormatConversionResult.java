@@ -30,7 +30,7 @@ import java.util.List;
  * Result of converting a multi-page image into individual pages with a different format
  */
 @ApiModel(description = "Result of converting a multi-page image into individual pages with a different format")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-01T20:54:29.428-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-03T19:22:55.113-07:00")
 public class MultipageImageFormatConversionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

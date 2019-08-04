@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VatLookupResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-01T20:54:16.242-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-03T19:22:40.197-07:00")
 public class VatLookupResponse {
   @SerializedName("CountryCode")
   private String countryCode = null;

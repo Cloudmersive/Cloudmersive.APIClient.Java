@@ -31,7 +31,7 @@ import java.util.List;
  * Footer in a Word Document (DOCX)
  */
 @ApiModel(description = "Footer in a Word Document (DOCX)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-01T20:54:29.428-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-03T19:22:55.113-07:00")
 public class DocxFooter {
   @SerializedName("Path")
   private String path = null;
