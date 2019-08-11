@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import com.cloudmersive.client.model.ReceiptLineItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,13 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * Result of recognizing a receipt, to extract the key information from the receipt
  */
 @ApiModel(description = "Result of recognizing a receipt, to extract the key information from the receipt")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-03T19:22:46.452-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-11T00:02:34.908-07:00")
 public class ReceiptRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -44,6 +47,9 @@ public class ReceiptRecognitionResult {
 
   @SerializedName("PhoneNumber")
   private String phoneNumber = null;
+
+  @SerializedName("ReceiptItems")
+  private List<ReceiptLineItem> receiptItems = null;
 
   @SerializedName("ReceiptTotal")
   private Double receiptTotal = null;
@@ -138,6 +144,32 @@ public class ReceiptRecognitionResult {
     this.phoneNumber = phoneNumber;
   }
 
+  public ReceiptRecognitionResult receiptItems(List<ReceiptLineItem> receiptItems) {
+    this.receiptItems = receiptItems;
+    return this;
+  }
+
+  public ReceiptRecognitionResult addReceiptItemsItem(ReceiptLineItem receiptItemsItem) {
+    if (this.receiptItems == null) {
+      this.receiptItems = new ArrayList<ReceiptLineItem>();
+    }
+    this.receiptItems.add(receiptItemsItem);
+    return this;
+  }
+
+   /**
+   * Get receiptItems
+   * @return receiptItems
+  **/
+  @ApiModelProperty(value = "")
+  public List<ReceiptLineItem> getReceiptItems() {
+    return receiptItems;
+  }
+
+  public void setReceiptItems(List<ReceiptLineItem> receiptItems) {
+    this.receiptItems = receiptItems;
+  }
+
   public ReceiptRecognitionResult receiptTotal(Double receiptTotal) {
     this.receiptTotal = receiptTotal;
     return this;
@@ -171,12 +203,13 @@ public class ReceiptRecognitionResult {
         Objects.equals(this.businessName, receiptRecognitionResult.businessName) &&
         Objects.equals(this.addressString, receiptRecognitionResult.addressString) &&
         Objects.equals(this.phoneNumber, receiptRecognitionResult.phoneNumber) &&
+        Objects.equals(this.receiptItems, receiptRecognitionResult.receiptItems) &&
         Objects.equals(this.receiptTotal, receiptRecognitionResult.receiptTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, timestamp, businessName, addressString, phoneNumber, receiptTotal);
+    return Objects.hash(successful, timestamp, businessName, addressString, phoneNumber, receiptItems, receiptTotal);
   }
 
 
@@ -190,6 +223,7 @@ public class ReceiptRecognitionResult {
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    addressString: ").append(toIndentedString(addressString)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    receiptItems: ").append(toIndentedString(receiptItems)).append("\n");
     sb.append("    receiptTotal: ").append(toIndentedString(receiptTotal)).append("\n");
     sb.append("}");
     return sb.toString();

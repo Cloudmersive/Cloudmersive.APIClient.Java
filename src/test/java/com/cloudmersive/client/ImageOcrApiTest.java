@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.BusinessCardRecognitionResult;
 import java.io.File;
+import com.cloudmersive.client.model.FormRecognitionResult;
 import com.cloudmersive.client.model.ImageToLinesWithLocationResult;
 import com.cloudmersive.client.model.ImageToTextResponse;
 import com.cloudmersive.client.model.ImageToWordsWithLocationResult;
@@ -86,6 +87,24 @@ public class ImageOcrApiTest {
     public void imageOcrPhotoRecognizeBusinessCardTest() throws ApiException {
         File imageFile = null;
         BusinessCardRecognitionResult response = api.imageOcrPhotoRecognizeBusinessCard(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Recognize a photo of a form, extract key fields and business information
+     *
+     * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrPhotoRecognizeFormTest() throws ApiException {
+        File imageFile = null;
+        String formTemplateDefinition = null;
+        String language = null;
+        FormRecognitionResult response = api.imageOcrPhotoRecognizeForm(imageFile, formTemplateDefinition, language);
 
         // TODO: test validations
     }

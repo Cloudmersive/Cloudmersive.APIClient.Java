@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AutodetectGetInfoResult;
+import com.cloudmersive.client.model.AutodetectToPngResult;
 import java.io.File;
 import com.cloudmersive.client.model.PdfToPngResult;
 import org.junit.Test;
@@ -37,7 +38,7 @@ public class ConvertDocumentApiTest {
     /**
      * Get document type information
      *
-     * Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.
+     * Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.  Even if no file extension is present, the auto-detect system will reliably analyze the contents of the file and identify its file type.  Supports over 100 image file formats, Office document file formats, PDF, and more.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -53,7 +54,7 @@ public class ConvertDocumentApiTest {
     /**
      * Convert Document to PDF
      *
-     * Automatically detect file type and convert it to PDF.
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -62,6 +63,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentAutodetectToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentAutodetectToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Document to PNG array
+     *
+     * Automatically detect file type and convert it to an array of PNG images.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectToPngArrayTest() throws ApiException {
+        File inputFile = null;
+        AutodetectToPngResult response = api.convertDocumentAutodetectToPngArray(inputFile);
 
         // TODO: test validations
     }

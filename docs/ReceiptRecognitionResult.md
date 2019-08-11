@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **businessName** | **String** |  |  [optional]
 **addressString** | **String** |  |  [optional]
 **phoneNumber** | **String** |  |  [optional]
+**receiptItems** | [**List&lt;ReceiptLineItem&gt;**](ReceiptLineItem.md) |  |  [optional]
 **receiptTotal** | **Double** |  |  [optional]
 
 
