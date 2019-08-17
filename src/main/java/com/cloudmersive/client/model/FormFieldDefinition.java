@@ -27,7 +27,7 @@ import java.io.IOException;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-11T00:02:34.908-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-17T14:08:32.326-07:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -41,8 +41,14 @@ public class FormFieldDefinition {
   @SerializedName("DataType")
   private String dataType = null;
 
-  @SerializedName("DigitCount")
-  private Integer digitCount = null;
+  @SerializedName("TargetDigitCount")
+  private Integer targetDigitCount = null;
+
+  @SerializedName("MinimumCharacterCount")
+  private Integer minimumCharacterCount = null;
+
+  @SerializedName("AllowNumericDigits")
+  private Boolean allowNumericDigits = null;
 
   @SerializedName("VerticalAlignmentType")
   private String verticalAlignmentType = null;
@@ -128,22 +134,58 @@ public class FormFieldDefinition {
     this.dataType = dataType;
   }
 
-  public FormFieldDefinition digitCount(Integer digitCount) {
-    this.digitCount = digitCount;
+  public FormFieldDefinition targetDigitCount(Integer targetDigitCount) {
+    this.targetDigitCount = targetDigitCount;
     return this;
   }
 
    /**
-   * Get digitCount
-   * @return digitCount
+   * Get targetDigitCount
+   * @return targetDigitCount
   **/
   @ApiModelProperty(value = "")
-  public Integer getDigitCount() {
-    return digitCount;
+  public Integer getTargetDigitCount() {
+    return targetDigitCount;
   }
 
-  public void setDigitCount(Integer digitCount) {
-    this.digitCount = digitCount;
+  public void setTargetDigitCount(Integer targetDigitCount) {
+    this.targetDigitCount = targetDigitCount;
+  }
+
+  public FormFieldDefinition minimumCharacterCount(Integer minimumCharacterCount) {
+    this.minimumCharacterCount = minimumCharacterCount;
+    return this;
+  }
+
+   /**
+   * Get minimumCharacterCount
+   * @return minimumCharacterCount
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getMinimumCharacterCount() {
+    return minimumCharacterCount;
+  }
+
+  public void setMinimumCharacterCount(Integer minimumCharacterCount) {
+    this.minimumCharacterCount = minimumCharacterCount;
+  }
+
+  public FormFieldDefinition allowNumericDigits(Boolean allowNumericDigits) {
+    this.allowNumericDigits = allowNumericDigits;
+    return this;
+  }
+
+   /**
+   * Get allowNumericDigits
+   * @return allowNumericDigits
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAllowNumericDigits() {
+    return allowNumericDigits;
+  }
+
+  public void setAllowNumericDigits(Boolean allowNumericDigits) {
+    this.allowNumericDigits = allowNumericDigits;
   }
 
   public FormFieldDefinition verticalAlignmentType(String verticalAlignmentType) {
@@ -232,7 +274,9 @@ public class FormFieldDefinition {
         Objects.equals(this.leftAnchor, formFieldDefinition.leftAnchor) &&
         Objects.equals(this.topAnchor, formFieldDefinition.topAnchor) &&
         Objects.equals(this.dataType, formFieldDefinition.dataType) &&
-        Objects.equals(this.digitCount, formFieldDefinition.digitCount) &&
+        Objects.equals(this.targetDigitCount, formFieldDefinition.targetDigitCount) &&
+        Objects.equals(this.minimumCharacterCount, formFieldDefinition.minimumCharacterCount) &&
+        Objects.equals(this.allowNumericDigits, formFieldDefinition.allowNumericDigits) &&
         Objects.equals(this.verticalAlignmentType, formFieldDefinition.verticalAlignmentType) &&
         Objects.equals(this.horizontalAlignmentType, formFieldDefinition.horizontalAlignmentType) &&
         Objects.equals(this.targetFieldWidthRelative, formFieldDefinition.targetFieldWidthRelative) &&
@@ -241,7 +285,7 @@ public class FormFieldDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldID, leftAnchor, topAnchor, dataType, digitCount, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative);
+    return Objects.hash(fieldID, leftAnchor, topAnchor, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative);
   }
 
 
@@ -254,7 +298,9 @@ public class FormFieldDefinition {
     sb.append("    leftAnchor: ").append(toIndentedString(leftAnchor)).append("\n");
     sb.append("    topAnchor: ").append(toIndentedString(topAnchor)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
-    sb.append("    digitCount: ").append(toIndentedString(digitCount)).append("\n");
+    sb.append("    targetDigitCount: ").append(toIndentedString(targetDigitCount)).append("\n");
+    sb.append("    minimumCharacterCount: ").append(toIndentedString(minimumCharacterCount)).append("\n");
+    sb.append("    allowNumericDigits: ").append(toIndentedString(allowNumericDigits)).append("\n");
     sb.append("    verticalAlignmentType: ").append(toIndentedString(verticalAlignmentType)).append("\n");
     sb.append("    horizontalAlignmentType: ").append(toIndentedString(horizontalAlignmentType)).append("\n");
     sb.append("    targetFieldWidthRelative: ").append(toIndentedString(targetFieldWidthRelative)).append("\n");

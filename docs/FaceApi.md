@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**faceCropFirst**](FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
 [**faceCropFirstRound**](FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
 [**faceDetectAge**](FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
+[**faceDetectGender**](FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 [**faceLocate**](FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
 [**faceLocateWithLandmarks**](FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 
@@ -224,6 +225,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgeDetectionResult**](AgeDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="faceDetectGender"></a>
+# **faceDetectGender**
+> GenderDetectionResult faceDetectGender(imageFile)
+
+Detect the gender of people in an image
+
+Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.FaceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+FaceApi apiInstance = new FaceApi();
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+try {
+    GenderDetectionResult result = apiInstance.faceDetectGender(imageFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FaceApi#faceDetectGender");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+[**GenderDetectionResult**](GenderDetectionResult.md)
 
 ### Authorization
 

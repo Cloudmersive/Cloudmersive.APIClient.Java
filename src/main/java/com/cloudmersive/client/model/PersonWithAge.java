@@ -28,7 +28,7 @@ import java.io.IOException;
  * A person identified in an image age classification operation
  */
 @ApiModel(description = "A person identified in an image age classification operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-11T00:02:40.385-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-17T14:08:41.687-07:00")
 public class PersonWithAge {
   @SerializedName("FaceLocation")
   private Face faceLocation = null;
@@ -38,6 +38,9 @@ public class PersonWithAge {
 
   @SerializedName("AgeClass")
   private String ageClass = null;
+
+  @SerializedName("Age")
+  private Double age = null;
 
   public PersonWithAge faceLocation(Face faceLocation) {
     this.faceLocation = faceLocation;
@@ -93,6 +96,24 @@ public class PersonWithAge {
     this.ageClass = ageClass;
   }
 
+  public PersonWithAge age(Double age) {
+    this.age = age;
+    return this;
+  }
+
+   /**
+   * Get age
+   * @return age
+  **/
+  @ApiModelProperty(value = "")
+  public Double getAge() {
+    return age;
+  }
+
+  public void setAge(Double age) {
+    this.age = age;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class PersonWithAge {
     PersonWithAge personWithAge = (PersonWithAge) o;
     return Objects.equals(this.faceLocation, personWithAge.faceLocation) &&
         Objects.equals(this.ageClassificationConfidence, personWithAge.ageClassificationConfidence) &&
-        Objects.equals(this.ageClass, personWithAge.ageClass);
+        Objects.equals(this.ageClass, personWithAge.ageClass) &&
+        Objects.equals(this.age, personWithAge.age);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(faceLocation, ageClassificationConfidence, ageClass);
+    return Objects.hash(faceLocation, ageClassificationConfidence, ageClass, age);
   }
 
 
@@ -122,6 +144,7 @@ public class PersonWithAge {
     sb.append("    faceLocation: ").append(toIndentedString(faceLocation)).append("\n");
     sb.append("    ageClassificationConfidence: ").append(toIndentedString(ageClassificationConfidence)).append("\n");
     sb.append("    ageClass: ").append(toIndentedString(ageClass)).append("\n");
+    sb.append("    age: ").append(toIndentedString(age)).append("\n");
     sb.append("}");
     return sb.toString();
   }

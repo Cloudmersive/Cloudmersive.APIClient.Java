@@ -19,6 +19,7 @@ import com.cloudmersive.client.model.FaceCompareResponse;
 import com.cloudmersive.client.model.FaceLocateResponse;
 import com.cloudmersive.client.model.FaceLocateWithLandmarksResponse;
 import java.io.File;
+import com.cloudmersive.client.model.GenderDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -97,6 +98,22 @@ public class FaceApiTest {
     public void faceDetectAgeTest() throws ApiException {
         File imageFile = null;
         AgeDetectionResult response = api.faceDetectAge(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Detect the gender of people in an image
+     *
+     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void faceDetectGenderTest() throws ApiException {
+        File imageFile = null;
+        GenderDetectionResult response = api.faceDetectGender(imageFile);
 
         // TODO: test validations
     }

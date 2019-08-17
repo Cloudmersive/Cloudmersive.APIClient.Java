@@ -14,7 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
-import com.cloudmersive.client.model.PersonWithAge;
+import com.cloudmersive.client.model.PersonWithGender;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,21 +27,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Result from classifying the Age of people in an image
+ * Result from classifying the Gender of people in an image
  */
-@ApiModel(description = "Result from classifying the Age of people in an image")
+@ApiModel(description = "Result from classifying the Gender of people in an image")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-17T14:08:41.687-07:00")
-public class AgeDetectionResult {
+public class GenderDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("PeopleWithAge")
-  private List<PersonWithAge> peopleWithAge = null;
+  @SerializedName("PersonWithGender")
+  private List<PersonWithGender> personWithGender = null;
 
   @SerializedName("PeopleIdentified")
   private Integer peopleIdentified = null;
 
-  public AgeDetectionResult successful(Boolean successful) {
+  public GenderDetectionResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -59,42 +59,42 @@ public class AgeDetectionResult {
     this.successful = successful;
   }
 
-  public AgeDetectionResult peopleWithAge(List<PersonWithAge> peopleWithAge) {
-    this.peopleWithAge = peopleWithAge;
+  public GenderDetectionResult personWithGender(List<PersonWithGender> personWithGender) {
+    this.personWithGender = personWithGender;
     return this;
   }
 
-  public AgeDetectionResult addPeopleWithAgeItem(PersonWithAge peopleWithAgeItem) {
-    if (this.peopleWithAge == null) {
-      this.peopleWithAge = new ArrayList<PersonWithAge>();
+  public GenderDetectionResult addPersonWithGenderItem(PersonWithGender personWithGenderItem) {
+    if (this.personWithGender == null) {
+      this.personWithGender = new ArrayList<PersonWithGender>();
     }
-    this.peopleWithAge.add(peopleWithAgeItem);
+    this.personWithGender.add(personWithGenderItem);
     return this;
   }
 
    /**
-   * People in the image annotated with age information
-   * @return peopleWithAge
+   * People in the image annotated with gender information
+   * @return personWithGender
   **/
-  @ApiModelProperty(value = "People in the image annotated with age information")
-  public List<PersonWithAge> getPeopleWithAge() {
-    return peopleWithAge;
+  @ApiModelProperty(value = "People in the image annotated with gender information")
+  public List<PersonWithGender> getPersonWithGender() {
+    return personWithGender;
   }
 
-  public void setPeopleWithAge(List<PersonWithAge> peopleWithAge) {
-    this.peopleWithAge = peopleWithAge;
+  public void setPersonWithGender(List<PersonWithGender> personWithGender) {
+    this.personWithGender = personWithGender;
   }
 
-  public AgeDetectionResult peopleIdentified(Integer peopleIdentified) {
+  public GenderDetectionResult peopleIdentified(Integer peopleIdentified) {
     this.peopleIdentified = peopleIdentified;
     return this;
   }
 
    /**
-   * Number of people identified in the image with an age
+   * Number of people identified in the image with a gender
    * @return peopleIdentified
   **/
-  @ApiModelProperty(value = "Number of people identified in the image with an age")
+  @ApiModelProperty(value = "Number of people identified in the image with a gender")
   public Integer getPeopleIdentified() {
     return peopleIdentified;
   }
@@ -112,25 +112,25 @@ public class AgeDetectionResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AgeDetectionResult ageDetectionResult = (AgeDetectionResult) o;
-    return Objects.equals(this.successful, ageDetectionResult.successful) &&
-        Objects.equals(this.peopleWithAge, ageDetectionResult.peopleWithAge) &&
-        Objects.equals(this.peopleIdentified, ageDetectionResult.peopleIdentified);
+    GenderDetectionResult genderDetectionResult = (GenderDetectionResult) o;
+    return Objects.equals(this.successful, genderDetectionResult.successful) &&
+        Objects.equals(this.personWithGender, genderDetectionResult.personWithGender) &&
+        Objects.equals(this.peopleIdentified, genderDetectionResult.peopleIdentified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, peopleWithAge, peopleIdentified);
+    return Objects.hash(successful, personWithGender, peopleIdentified);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AgeDetectionResult {\n");
+    sb.append("class GenderDetectionResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    peopleWithAge: ").append(toIndentedString(peopleWithAge)).append("\n");
+    sb.append("    personWithGender: ").append(toIndentedString(personWithGender)).append("\n");
     sb.append("    peopleIdentified: ").append(toIndentedString(peopleIdentified)).append("\n");
     sb.append("}");
     return sb.toString();

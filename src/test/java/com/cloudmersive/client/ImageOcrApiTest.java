@@ -103,8 +103,9 @@ public class ImageOcrApiTest {
     public void imageOcrPhotoRecognizeFormTest() throws ApiException {
         File imageFile = null;
         String formTemplateDefinition = null;
+        String recognitionMode = null;
         String language = null;
-        FormRecognitionResult response = api.imageOcrPhotoRecognizeForm(imageFile, formTemplateDefinition, language);
+        FormRecognitionResult response = api.imageOcrPhotoRecognizeForm(imageFile, formTemplateDefinition, recognitionMode, language);
 
         // TODO: test validations
     }
