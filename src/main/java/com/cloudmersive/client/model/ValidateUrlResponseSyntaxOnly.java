@@ -24,30 +24,51 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Request to validate a first name
+ * Result of validating a URL
  */
-@ApiModel(description = "Request to validate a first name")
+@ApiModel(description = "Result of validating a URL")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:33.841-07:00")
-public class FirstNameValidationRequest {
-  @SerializedName("FirstName")
-  private String firstName = null;
+public class ValidateUrlResponseSyntaxOnly {
+  @SerializedName("ValidURL")
+  private Boolean validURL = null;
 
-  public FirstNameValidationRequest firstName(String firstName) {
-    this.firstName = firstName;
+  @SerializedName("WellFormedURL")
+  private String wellFormedURL = null;
+
+  public ValidateUrlResponseSyntaxOnly validURL(Boolean validURL) {
+    this.validURL = validURL;
     return this;
   }
 
    /**
-   * First name to process
-   * @return firstName
+   * True if the URL is valid, false otherwise
+   * @return validURL
   **/
-  @ApiModelProperty(value = "First name to process")
-  public String getFirstName() {
-    return firstName;
+  @ApiModelProperty(value = "True if the URL is valid, false otherwise")
+  public Boolean isValidURL() {
+    return validURL;
   }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
+  public void setValidURL(Boolean validURL) {
+    this.validURL = validURL;
+  }
+
+  public ValidateUrlResponseSyntaxOnly wellFormedURL(String wellFormedURL) {
+    this.wellFormedURL = wellFormedURL;
+    return this;
+  }
+
+   /**
+   * Well-formed version of the URL
+   * @return wellFormedURL
+  **/
+  @ApiModelProperty(value = "Well-formed version of the URL")
+  public String getWellFormedURL() {
+    return wellFormedURL;
+  }
+
+  public void setWellFormedURL(String wellFormedURL) {
+    this.wellFormedURL = wellFormedURL;
   }
 
 
@@ -59,22 +80,24 @@ public class FirstNameValidationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FirstNameValidationRequest firstNameValidationRequest = (FirstNameValidationRequest) o;
-    return Objects.equals(this.firstName, firstNameValidationRequest.firstName);
+    ValidateUrlResponseSyntaxOnly validateUrlResponseSyntaxOnly = (ValidateUrlResponseSyntaxOnly) o;
+    return Objects.equals(this.validURL, validateUrlResponseSyntaxOnly.validURL) &&
+        Objects.equals(this.wellFormedURL, validateUrlResponseSyntaxOnly.wellFormedURL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName);
+    return Objects.hash(validURL, wellFormedURL);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FirstNameValidationRequest {\n");
+    sb.append("class ValidateUrlResponseSyntaxOnly {\n");
     
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    validURL: ").append(toIndentedString(validURL)).append("\n");
+    sb.append("    wellFormedURL: ").append(toIndentedString(wellFormedURL)).append("\n");
     sb.append("}");
     return sb.toString();
   }

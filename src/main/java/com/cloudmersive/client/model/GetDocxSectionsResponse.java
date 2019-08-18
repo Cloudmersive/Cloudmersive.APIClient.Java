@@ -30,7 +30,7 @@ import java.util.List;
  * Result of running a Get-Sections command
  */
 @ApiModel(description = "Result of running a Get-Sections command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-17T20:29:44.969-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:51.323-07:00")
 public class GetDocxSectionsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

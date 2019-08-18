@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](DomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 [**domainPost**](DomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+[**domainUrlSyntaxOnly**](DomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
 
 <a name="domainCheck"></a>
@@ -108,6 +109,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhoisResponse**](WhoisResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainUrlSyntaxOnly"></a>
+# **domainUrlSyntaxOnly**
+> ValidateUrlResponseSyntaxOnly domainUrlSyntaxOnly(request)
+
+Validate a URL syntactically
+
+Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+ValidateUrlRequestSyntaxOnly request = new ValidateUrlRequestSyntaxOnly(); // ValidateUrlRequestSyntaxOnly | 
+try {
+    ValidateUrlResponseSyntaxOnly result = apiInstance.domainUrlSyntaxOnly(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainUrlSyntaxOnly");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)|  |
+
+### Return type
+
+[**ValidateUrlResponseSyntaxOnly**](ValidateUrlResponseSyntaxOnly.md)
 
 ### Authorization
 

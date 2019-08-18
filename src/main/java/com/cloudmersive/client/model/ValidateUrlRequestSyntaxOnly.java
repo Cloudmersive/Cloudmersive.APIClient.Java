@@ -1,6 +1,6 @@
 /*
- * convertapi
- * Convert API lets you effortlessly convert file formats and types.
+ * validateapi
+ * The validation APIs help you validate data. Check if an E-mail address is real. Check if a domain is real. Check up on an IP address, and even where it is located. All this and much more is available in the validation API.
  *
  * OpenAPI spec version: v1
  * 
@@ -24,45 +24,24 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * A single converted page
+ * Request to determine if a URL is valid
  */
-@ApiModel(description = "A single converted page")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:51.323-07:00")
-public class ConvertedPngPage {
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
+@ApiModel(description = "Request to determine if a URL is valid")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:33.841-07:00")
+public class ValidateUrlRequestSyntaxOnly {
   @SerializedName("URL")
   private String URL = null;
 
-  public ConvertedPngPage pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Page number of the converted page, starting with 1
-   * @return pageNumber
-  **/
-  @ApiModelProperty(value = "Page number of the converted page, starting with 1")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public ConvertedPngPage URL(String URL) {
+  public ValidateUrlRequestSyntaxOnly URL(String URL) {
     this.URL = URL;
     return this;
   }
 
    /**
-   * URL to the PNG file of this page; file is stored in an in-memory cache and will be deleted
+   * Get URL
    * @return URL
   **/
-  @ApiModelProperty(value = "URL to the PNG file of this page; file is stored in an in-memory cache and will be deleted")
+  @ApiModelProperty(value = "")
   public String getURL() {
     return URL;
   }
@@ -80,23 +59,21 @@ public class ConvertedPngPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConvertedPngPage convertedPngPage = (ConvertedPngPage) o;
-    return Objects.equals(this.pageNumber, convertedPngPage.pageNumber) &&
-        Objects.equals(this.URL, convertedPngPage.URL);
+    ValidateUrlRequestSyntaxOnly validateUrlRequestSyntaxOnly = (ValidateUrlRequestSyntaxOnly) o;
+    return Objects.equals(this.URL, validateUrlRequestSyntaxOnly.URL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, URL);
+    return Objects.hash(URL);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConvertedPngPage {\n");
+    sb.append("class ValidateUrlRequestSyntaxOnly {\n");
     
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    URL: ").append(toIndentedString(URL)).append("\n");
     sb.append("}");
     return sb.toString();

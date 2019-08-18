@@ -30,7 +30,7 @@ import java.util.List;
  * Result of converting an autodetected input to a PNG array
  */
 @ApiModel(description = "Result of converting an autodetected input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-17T20:29:44.969-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:51.323-07:00")
 public class AutodetectToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;
