@@ -29,7 +29,7 @@ import java.util.List;
  * Result of a partial email address validation
  */
 @ApiModel(description = "Result of a partial email address validation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:33.841-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:31.843-07:00")
 public class AddressGetServersResponse {
   @SerializedName("Success")
   private Boolean success = null;

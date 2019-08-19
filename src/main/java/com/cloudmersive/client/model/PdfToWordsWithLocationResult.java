@@ -30,7 +30,7 @@ import java.util.List;
  * Response from an OCR to words with location operation.  Includes the confience rating and converted text result, along with the locations of the words in the pages.
  */
 @ApiModel(description = "Response from an OCR to words with location operation.  Includes the confience rating and converted text result, along with the locations of the words in the pages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:42.058-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
 public class PdfToWordsWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of recognizing a receipt, to extract the key information from the receipt
  */
 @ApiModel(description = "Result of recognizing a receipt, to extract the key information from the receipt")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:42.058-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
 public class ReceiptRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -41,6 +41,9 @@ public class ReceiptRecognitionResult {
 
   @SerializedName("BusinessName")
   private String businessName = null;
+
+  @SerializedName("BusinessWebsite")
+  private String businessWebsite = null;
 
   @SerializedName("AddressString")
   private String addressString = null;
@@ -106,6 +109,24 @@ public class ReceiptRecognitionResult {
 
   public void setBusinessName(String businessName) {
     this.businessName = businessName;
+  }
+
+  public ReceiptRecognitionResult businessWebsite(String businessWebsite) {
+    this.businessWebsite = businessWebsite;
+    return this;
+  }
+
+   /**
+   * Get businessWebsite
+   * @return businessWebsite
+  **/
+  @ApiModelProperty(value = "")
+  public String getBusinessWebsite() {
+    return businessWebsite;
+  }
+
+  public void setBusinessWebsite(String businessWebsite) {
+    this.businessWebsite = businessWebsite;
   }
 
   public ReceiptRecognitionResult addressString(String addressString) {
@@ -201,6 +222,7 @@ public class ReceiptRecognitionResult {
     return Objects.equals(this.successful, receiptRecognitionResult.successful) &&
         Objects.equals(this.timestamp, receiptRecognitionResult.timestamp) &&
         Objects.equals(this.businessName, receiptRecognitionResult.businessName) &&
+        Objects.equals(this.businessWebsite, receiptRecognitionResult.businessWebsite) &&
         Objects.equals(this.addressString, receiptRecognitionResult.addressString) &&
         Objects.equals(this.phoneNumber, receiptRecognitionResult.phoneNumber) &&
         Objects.equals(this.receiptItems, receiptRecognitionResult.receiptItems) &&
@@ -209,7 +231,7 @@ public class ReceiptRecognitionResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, timestamp, businessName, addressString, phoneNumber, receiptItems, receiptTotal);
+    return Objects.hash(successful, timestamp, businessName, businessWebsite, addressString, phoneNumber, receiptItems, receiptTotal);
   }
 
 
@@ -221,6 +243,7 @@ public class ReceiptRecognitionResult {
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessWebsite: ").append(toIndentedString(businessWebsite)).append("\n");
     sb.append("    addressString: ").append(toIndentedString(addressString)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    receiptItems: ").append(toIndentedString(receiptItems)).append("\n");

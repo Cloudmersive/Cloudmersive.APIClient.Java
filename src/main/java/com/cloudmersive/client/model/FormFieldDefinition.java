@@ -22,12 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:42.058-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -37,6 +39,9 @@ public class FormFieldDefinition {
 
   @SerializedName("TopAnchor")
   private String topAnchor = null;
+
+  @SerializedName("AnchorMode")
+  private String anchorMode = null;
 
   @SerializedName("DataType")
   private String dataType = null;
@@ -61,6 +66,9 @@ public class FormFieldDefinition {
 
   @SerializedName("TargetFieldHeight_Relative")
   private Double targetFieldHeightRelative = null;
+
+  @SerializedName("Ignore")
+  private List<String> ignore = null;
 
   public FormFieldDefinition fieldID(String fieldID) {
     this.fieldID = fieldID;
@@ -114,6 +122,24 @@ public class FormFieldDefinition {
 
   public void setTopAnchor(String topAnchor) {
     this.topAnchor = topAnchor;
+  }
+
+  public FormFieldDefinition anchorMode(String anchorMode) {
+    this.anchorMode = anchorMode;
+    return this;
+  }
+
+   /**
+   * Get anchorMode
+   * @return anchorMode
+  **/
+  @ApiModelProperty(value = "")
+  public String getAnchorMode() {
+    return anchorMode;
+  }
+
+  public void setAnchorMode(String anchorMode) {
+    this.anchorMode = anchorMode;
   }
 
   public FormFieldDefinition dataType(String dataType) {
@@ -260,6 +286,32 @@ public class FormFieldDefinition {
     this.targetFieldHeightRelative = targetFieldHeightRelative;
   }
 
+  public FormFieldDefinition ignore(List<String> ignore) {
+    this.ignore = ignore;
+    return this;
+  }
+
+  public FormFieldDefinition addIgnoreItem(String ignoreItem) {
+    if (this.ignore == null) {
+      this.ignore = new ArrayList<String>();
+    }
+    this.ignore.add(ignoreItem);
+    return this;
+  }
+
+   /**
+   * Get ignore
+   * @return ignore
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getIgnore() {
+    return ignore;
+  }
+
+  public void setIgnore(List<String> ignore) {
+    this.ignore = ignore;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -273,6 +325,7 @@ public class FormFieldDefinition {
     return Objects.equals(this.fieldID, formFieldDefinition.fieldID) &&
         Objects.equals(this.leftAnchor, formFieldDefinition.leftAnchor) &&
         Objects.equals(this.topAnchor, formFieldDefinition.topAnchor) &&
+        Objects.equals(this.anchorMode, formFieldDefinition.anchorMode) &&
         Objects.equals(this.dataType, formFieldDefinition.dataType) &&
         Objects.equals(this.targetDigitCount, formFieldDefinition.targetDigitCount) &&
         Objects.equals(this.minimumCharacterCount, formFieldDefinition.minimumCharacterCount) &&
@@ -280,12 +333,13 @@ public class FormFieldDefinition {
         Objects.equals(this.verticalAlignmentType, formFieldDefinition.verticalAlignmentType) &&
         Objects.equals(this.horizontalAlignmentType, formFieldDefinition.horizontalAlignmentType) &&
         Objects.equals(this.targetFieldWidthRelative, formFieldDefinition.targetFieldWidthRelative) &&
-        Objects.equals(this.targetFieldHeightRelative, formFieldDefinition.targetFieldHeightRelative);
+        Objects.equals(this.targetFieldHeightRelative, formFieldDefinition.targetFieldHeightRelative) &&
+        Objects.equals(this.ignore, formFieldDefinition.ignore);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldID, leftAnchor, topAnchor, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative);
+    return Objects.hash(fieldID, leftAnchor, topAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, ignore);
   }
 
 
@@ -297,6 +351,7 @@ public class FormFieldDefinition {
     sb.append("    fieldID: ").append(toIndentedString(fieldID)).append("\n");
     sb.append("    leftAnchor: ").append(toIndentedString(leftAnchor)).append("\n");
     sb.append("    topAnchor: ").append(toIndentedString(topAnchor)).append("\n");
+    sb.append("    anchorMode: ").append(toIndentedString(anchorMode)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    targetDigitCount: ").append(toIndentedString(targetDigitCount)).append("\n");
     sb.append("    minimumCharacterCount: ").append(toIndentedString(minimumCharacterCount)).append("\n");
@@ -305,6 +360,7 @@ public class FormFieldDefinition {
     sb.append("    horizontalAlignmentType: ").append(toIndentedString(horizontalAlignmentType)).append("\n");
     sb.append("    targetFieldWidthRelative: ").append(toIndentedString(targetFieldWidthRelative)).append("\n");
     sb.append("    targetFieldHeightRelative: ").append(toIndentedString(targetFieldHeightRelative)).append("\n");
+    sb.append("    ignore: ").append(toIndentedString(ignore)).append("\n");
     sb.append("}");
     return sb.toString();
   }

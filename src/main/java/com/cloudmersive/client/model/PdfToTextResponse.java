@@ -30,7 +30,7 @@ import java.util.List;
  * Response from an OCR to text operation.  Includes the confidence rating and converted text result.
  */
 @ApiModel(description = "Response from an OCR to text operation.  Includes the confidence rating and converted text result.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:42.058-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
 public class PdfToTextResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

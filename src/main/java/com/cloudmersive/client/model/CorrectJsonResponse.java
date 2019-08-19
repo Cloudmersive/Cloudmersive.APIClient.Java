@@ -29,7 +29,7 @@ import java.util.List;
  * Spelling correction check result
  */
 @ApiModel(description = "Spelling correction check result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T16:31:38.705-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:35.526-07:00")
 public class CorrectJsonResponse {
   @SerializedName("Correct")
   private Boolean correct = null;
