@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.DocxHeader;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Input to a set-header command
  */
 @ApiModel(description = "Input to a set-header command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class DocxSetHeaderRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -103,14 +104,14 @@ public class DocxSetHeaderRequest {
       return false;
     }
     DocxSetHeaderRequest docxSetHeaderRequest = (DocxSetHeaderRequest) o;
-    return Objects.equals(this.inputFileBytes, docxSetHeaderRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, docxSetHeaderRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, docxSetHeaderRequest.inputFileUrl) &&
         Objects.equals(this.headerToApply, docxSetHeaderRequest.headerToApply);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, headerToApply);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, headerToApply);
   }
 
 

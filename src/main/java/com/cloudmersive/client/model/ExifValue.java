@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * EXIF tag and value
  */
 @ApiModel(description = "EXIF tag and value")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class ExifValue {
   @SerializedName("Tag")
   private String tag = null;
@@ -44,10 +45,10 @@ public class ExifValue {
   }
 
    /**
-   * Get tag
+   * Tag name for the EXIF value
    * @return tag
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Tag name for the EXIF value")
   public String getTag() {
     return tag;
   }
@@ -62,10 +63,10 @@ public class ExifValue {
   }
 
    /**
-   * Get dataType
+   * Date type of the EXIF value
    * @return dataType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Date type of the EXIF value")
   public String getDataType() {
     return dataType;
   }
@@ -80,10 +81,10 @@ public class ExifValue {
   }
 
    /**
-   * Get dataValue
+   * Value, formatted as a string of the EXIF value
    * @return dataValue
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value, formatted as a string of the EXIF value")
   public String getDataValue() {
     return dataValue;
   }

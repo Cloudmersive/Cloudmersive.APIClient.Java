@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,9 +25,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ProductMatch
+ * Matching product for the input barcode
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:41.578-07:00")
+@ApiModel(description = "Matching product for the input barcode")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:34.711-07:00")
 public class ProductMatch {
   @SerializedName("EAN")
   private String EAN = null;
@@ -40,10 +42,10 @@ public class ProductMatch {
   }
 
    /**
-   * Get EAN
+   * EAN code for the product
    * @return EAN
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "EAN code for the product")
   public String getEAN() {
     return EAN;
   }
@@ -58,10 +60,10 @@ public class ProductMatch {
   }
 
    /**
-   * Get title
+   * Title of the product
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Title of the product")
   public String getTitle() {
     return title;
   }

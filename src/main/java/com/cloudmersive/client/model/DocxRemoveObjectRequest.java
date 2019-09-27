@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Input to a Insert Paragraph request
  */
 @ApiModel(description = "Input to a Insert Paragraph request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class DocxRemoveObjectRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -102,14 +103,14 @@ public class DocxRemoveObjectRequest {
       return false;
     }
     DocxRemoveObjectRequest docxRemoveObjectRequest = (DocxRemoveObjectRequest) o;
-    return Objects.equals(this.inputFileBytes, docxRemoveObjectRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, docxRemoveObjectRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, docxRemoveObjectRequest.inputFileUrl) &&
         Objects.equals(this.pathToObjectToRemove, docxRemoveObjectRequest.pathToObjectToRemove);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, pathToObjectToRemove);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, pathToObjectToRemove);
   }
 
 

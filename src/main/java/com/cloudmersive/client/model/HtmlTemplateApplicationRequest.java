@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.HtmlTemplateOperation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +31,7 @@ import java.util.List;
  * HTML template application request
  */
 @ApiModel(description = "HTML template application request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class HtmlTemplateApplicationRequest {
   @SerializedName("HtmlTemplate")
   private String htmlTemplate = null;
@@ -47,10 +48,10 @@ public class HtmlTemplateApplicationRequest {
   }
 
    /**
-   * Get htmlTemplate
+   * HTML template input as a string
    * @return htmlTemplate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "HTML template input as a string")
   public String getHtmlTemplate() {
     return htmlTemplate;
   }
@@ -65,10 +66,10 @@ public class HtmlTemplateApplicationRequest {
   }
 
    /**
-   * Get htmlTemplateUrl
+   * URL to HTML template input
    * @return htmlTemplateUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "URL to HTML template input")
   public String getHtmlTemplateUrl() {
     return htmlTemplateUrl;
   }
@@ -91,10 +92,10 @@ public class HtmlTemplateApplicationRequest {
   }
 
    /**
-   * Get operations
+   * Operations to apply to this template
    * @return operations
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Operations to apply to this template")
   public List<HtmlTemplateOperation> getOperations() {
     return operations;
   }

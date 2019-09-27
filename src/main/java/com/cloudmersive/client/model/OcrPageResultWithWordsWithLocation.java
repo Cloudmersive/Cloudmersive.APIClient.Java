@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.OcrWordElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,34 +31,16 @@ import java.util.List;
  * OCR results of a page, including words of text and their location
  */
 @ApiModel(description = "OCR results of a page, including words of text and their location")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class OcrPageResultWithWordsWithLocation {
-  @SerializedName("Successful")
-  private Boolean successful = null;
-
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
+  @SerializedName("Successful")
+  private Boolean successful = null;
+
   @SerializedName("Words")
   private List<OcrWordElement> words = null;
-
-  public OcrPageResultWithWordsWithLocation successful(Boolean successful) {
-    this.successful = successful;
-    return this;
-  }
-
-   /**
-   * Get successful
-   * @return successful
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isSuccessful() {
-    return successful;
-  }
-
-  public void setSuccessful(Boolean successful) {
-    this.successful = successful;
-  }
 
   public OcrPageResultWithWordsWithLocation pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -75,6 +58,24 @@ public class OcrPageResultWithWordsWithLocation {
 
   public void setPageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
+  }
+
+  public OcrPageResultWithWordsWithLocation successful(Boolean successful) {
+    this.successful = successful;
+    return this;
+  }
+
+   /**
+   * True if successful, false otherwise
+   * @return successful
+  **/
+  @ApiModelProperty(value = "True if successful, false otherwise")
+  public Boolean isSuccessful() {
+    return successful;
+  }
+
+  public void setSuccessful(Boolean successful) {
+    this.successful = successful;
   }
 
   public OcrPageResultWithWordsWithLocation words(List<OcrWordElement> words) {
@@ -113,14 +114,14 @@ public class OcrPageResultWithWordsWithLocation {
       return false;
     }
     OcrPageResultWithWordsWithLocation ocrPageResultWithWordsWithLocation = (OcrPageResultWithWordsWithLocation) o;
-    return Objects.equals(this.successful, ocrPageResultWithWordsWithLocation.successful) &&
-        Objects.equals(this.pageNumber, ocrPageResultWithWordsWithLocation.pageNumber) &&
+    return Objects.equals(this.pageNumber, ocrPageResultWithWordsWithLocation.pageNumber) &&
+        Objects.equals(this.successful, ocrPageResultWithWordsWithLocation.successful) &&
         Objects.equals(this.words, ocrPageResultWithWordsWithLocation.words);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, pageNumber, words);
+    return Objects.hash(pageNumber, successful, words);
   }
 
 
@@ -129,8 +130,8 @@ public class OcrPageResultWithWordsWithLocation {
     StringBuilder sb = new StringBuilder();
     sb.append("class OcrPageResultWithWordsWithLocation {\n");
     
-    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    words: ").append(toIndentedString(words)).append("\n");
     sb.append("}");
     return sb.toString();

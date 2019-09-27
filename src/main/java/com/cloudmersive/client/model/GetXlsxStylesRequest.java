@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Worksheets request
  */
 @ApiModel(description = "Input to a Get Worksheets request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class GetXlsxStylesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -81,13 +82,13 @@ public class GetXlsxStylesRequest {
       return false;
     }
     GetXlsxStylesRequest getXlsxStylesRequest = (GetXlsxStylesRequest) o;
-    return Objects.equals(this.inputFileBytes, getXlsxStylesRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, getXlsxStylesRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, getXlsxStylesRequest.inputFileUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl);
   }
 
 

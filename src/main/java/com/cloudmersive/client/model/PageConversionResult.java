@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Converted page as an image
  */
 @ApiModel(description = "Converted page as an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class PageConversionResult {
   @SerializedName("Filename")
   private String filename = null;
@@ -41,10 +42,10 @@ public class PageConversionResult {
   }
 
    /**
-   * Get filename
+   * File name of the image in the converted file format
    * @return filename
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "File name of the image in the converted file format")
   public String getFilename() {
     return filename;
   }
@@ -59,10 +60,10 @@ public class PageConversionResult {
   }
 
    /**
-   * Get fileBytes
+   * File bytes (contents) of the image in converted file format
    * @return fileBytes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "File bytes (contents) of the image in converted file format")
   public byte[] getFileBytes() {
     return fileBytes;
   }
@@ -82,12 +83,12 @@ public class PageConversionResult {
     }
     PageConversionResult pageConversionResult = (PageConversionResult) o;
     return Objects.equals(this.filename, pageConversionResult.filename) &&
-        Objects.equals(this.fileBytes, pageConversionResult.fileBytes);
+        Arrays.equals(this.fileBytes, pageConversionResult.fileBytes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filename, fileBytes);
+    return Objects.hash(filename, Arrays.hashCode(fileBytes));
   }
 
 

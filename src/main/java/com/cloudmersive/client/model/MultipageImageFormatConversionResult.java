@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.PageConversionResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +31,7 @@ import java.util.List;
  * Result of converting a multi-page image into individual pages with a different format
  */
 @ApiModel(description = "Result of converting a multi-page image into individual pages with a different format")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class MultipageImageFormatConversionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -47,10 +48,10 @@ public class MultipageImageFormatConversionResult {
   }
 
    /**
-   * Get successful
+   * True if successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -65,10 +66,10 @@ public class MultipageImageFormatConversionResult {
   }
 
    /**
-   * Get pageCount
+   * The number of pages in the converted output
    * @return pageCount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of pages in the converted output")
   public Integer getPageCount() {
     return pageCount;
   }
@@ -91,10 +92,10 @@ public class MultipageImageFormatConversionResult {
   }
 
    /**
-   * Get pages
+   * Converted page results
    * @return pages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Converted page results")
   public List<PageConversionResult> getPages() {
     return pages;
   }

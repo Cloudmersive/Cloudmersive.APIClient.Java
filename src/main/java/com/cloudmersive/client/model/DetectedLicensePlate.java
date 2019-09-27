@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,8 +28,14 @@ import java.io.IOException;
  * License plate found in the image
  */
 @ApiModel(description = "License plate found in the image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:44.143-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:38.139-07:00")
 public class DetectedLicensePlate {
+  @SerializedName("LicensePlateText_BestMatch")
+  private String licensePlateTextBestMatch = null;
+
+  @SerializedName("LicensePlateText_RunnerUp")
+  private String licensePlateTextRunnerUp = null;
+
   @SerializedName("LocationX")
   private Integer locationX = null;
 
@@ -41,86 +48,8 @@ public class DetectedLicensePlate {
   @SerializedName("Height")
   private Integer height = null;
 
-  @SerializedName("LicensePlateText_BestMatch")
-  private String licensePlateTextBestMatch = null;
-
-  @SerializedName("LicensePlateText_RunnerUp")
-  private String licensePlateTextRunnerUp = null;
-
   @SerializedName("LicensePlateRecognitionConfidenceLevel")
   private Double licensePlateRecognitionConfidenceLevel = null;
-
-  public DetectedLicensePlate locationX(Integer locationX) {
-    this.locationX = locationX;
-    return this;
-  }
-
-   /**
-   * Get locationX
-   * @return locationX
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getLocationX() {
-    return locationX;
-  }
-
-  public void setLocationX(Integer locationX) {
-    this.locationX = locationX;
-  }
-
-  public DetectedLicensePlate locationY(Integer locationY) {
-    this.locationY = locationY;
-    return this;
-  }
-
-   /**
-   * Get locationY
-   * @return locationY
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getLocationY() {
-    return locationY;
-  }
-
-  public void setLocationY(Integer locationY) {
-    this.locationY = locationY;
-  }
-
-  public DetectedLicensePlate width(Integer width) {
-    this.width = width;
-    return this;
-  }
-
-   /**
-   * Get width
-   * @return width
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getWidth() {
-    return width;
-  }
-
-  public void setWidth(Integer width) {
-    this.width = width;
-  }
-
-  public DetectedLicensePlate height(Integer height) {
-    this.height = height;
-    return this;
-  }
-
-   /**
-   * Get height
-   * @return height
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getHeight() {
-    return height;
-  }
-
-  public void setHeight(Integer height) {
-    this.height = height;
-  }
 
   public DetectedLicensePlate licensePlateTextBestMatch(String licensePlateTextBestMatch) {
     this.licensePlateTextBestMatch = licensePlateTextBestMatch;
@@ -158,6 +87,78 @@ public class DetectedLicensePlate {
     this.licensePlateTextRunnerUp = licensePlateTextRunnerUp;
   }
 
+  public DetectedLicensePlate locationX(Integer locationX) {
+    this.locationX = locationX;
+    return this;
+  }
+
+   /**
+   * X location of the left edge of the license plate, starting from the left edge of the photo (X &#x3D; 0)
+   * @return locationX
+  **/
+  @ApiModelProperty(value = "X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)")
+  public Integer getLocationX() {
+    return locationX;
+  }
+
+  public void setLocationX(Integer locationX) {
+    this.locationX = locationX;
+  }
+
+  public DetectedLicensePlate locationY(Integer locationY) {
+    this.locationY = locationY;
+    return this;
+  }
+
+   /**
+   * Y location of the top edge of the license plate, starting from the top edge of the photo (Y &#x3D; 0)
+   * @return locationY
+  **/
+  @ApiModelProperty(value = "Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)")
+  public Integer getLocationY() {
+    return locationY;
+  }
+
+  public void setLocationY(Integer locationY) {
+    this.locationY = locationY;
+  }
+
+  public DetectedLicensePlate width(Integer width) {
+    this.width = width;
+    return this;
+  }
+
+   /**
+   * Width of the license plate&#39;s location in pixels
+   * @return width
+  **/
+  @ApiModelProperty(value = "Width of the license plate's location in pixels")
+  public Integer getWidth() {
+    return width;
+  }
+
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public DetectedLicensePlate height(Integer height) {
+    this.height = height;
+    return this;
+  }
+
+   /**
+   * Height of the license plate&#39;s location in pixels
+   * @return height
+  **/
+  @ApiModelProperty(value = "Height of the license plate's location in pixels")
+  public Integer getHeight() {
+    return height;
+  }
+
+  public void setHeight(Integer height) {
+    this.height = height;
+  }
+
   public DetectedLicensePlate licensePlateRecognitionConfidenceLevel(Double licensePlateRecognitionConfidenceLevel) {
     this.licensePlateRecognitionConfidenceLevel = licensePlateRecognitionConfidenceLevel;
     return this;
@@ -186,18 +187,18 @@ public class DetectedLicensePlate {
       return false;
     }
     DetectedLicensePlate detectedLicensePlate = (DetectedLicensePlate) o;
-    return Objects.equals(this.locationX, detectedLicensePlate.locationX) &&
+    return Objects.equals(this.licensePlateTextBestMatch, detectedLicensePlate.licensePlateTextBestMatch) &&
+        Objects.equals(this.licensePlateTextRunnerUp, detectedLicensePlate.licensePlateTextRunnerUp) &&
+        Objects.equals(this.locationX, detectedLicensePlate.locationX) &&
         Objects.equals(this.locationY, detectedLicensePlate.locationY) &&
         Objects.equals(this.width, detectedLicensePlate.width) &&
         Objects.equals(this.height, detectedLicensePlate.height) &&
-        Objects.equals(this.licensePlateTextBestMatch, detectedLicensePlate.licensePlateTextBestMatch) &&
-        Objects.equals(this.licensePlateTextRunnerUp, detectedLicensePlate.licensePlateTextRunnerUp) &&
         Objects.equals(this.licensePlateRecognitionConfidenceLevel, detectedLicensePlate.licensePlateRecognitionConfidenceLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationX, locationY, width, height, licensePlateTextBestMatch, licensePlateTextRunnerUp, licensePlateRecognitionConfidenceLevel);
+    return Objects.hash(licensePlateTextBestMatch, licensePlateTextRunnerUp, locationX, locationY, width, height, licensePlateRecognitionConfidenceLevel);
   }
 
 
@@ -206,12 +207,12 @@ public class DetectedLicensePlate {
     StringBuilder sb = new StringBuilder();
     sb.append("class DetectedLicensePlate {\n");
     
+    sb.append("    licensePlateTextBestMatch: ").append(toIndentedString(licensePlateTextBestMatch)).append("\n");
+    sb.append("    licensePlateTextRunnerUp: ").append(toIndentedString(licensePlateTextRunnerUp)).append("\n");
     sb.append("    locationX: ").append(toIndentedString(locationX)).append("\n");
     sb.append("    locationY: ").append(toIndentedString(locationY)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    licensePlateTextBestMatch: ").append(toIndentedString(licensePlateTextBestMatch)).append("\n");
-    sb.append("    licensePlateTextRunnerUp: ").append(toIndentedString(licensePlateTextRunnerUp)).append("\n");
     sb.append("    licensePlateRecognitionConfidenceLevel: ").append(toIndentedString(licensePlateRecognitionConfidenceLevel)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -14,7 +14,9 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.FieldResult;
+import com.cloudmersive.client.model.TableResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +32,7 @@ import java.util.List;
  * The result of extracting form field values
  */
 @ApiModel(description = "The result of extracting form field values")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class FormRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -38,16 +40,19 @@ public class FormRecognitionResult {
   @SerializedName("FieldValueExtractionResult")
   private List<FieldResult> fieldValueExtractionResult = null;
 
+  @SerializedName("TableValueExtractionResults")
+  private List<TableResult> tableValueExtractionResults = null;
+
   public FormRecognitionResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
 
    /**
-   * Get successful
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -70,16 +75,42 @@ public class FormRecognitionResult {
   }
 
    /**
-   * Get fieldValueExtractionResult
+   * Result of form field OCR data extraction
    * @return fieldValueExtractionResult
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Result of form field OCR data extraction")
   public List<FieldResult> getFieldValueExtractionResult() {
     return fieldValueExtractionResult;
   }
 
   public void setFieldValueExtractionResult(List<FieldResult> fieldValueExtractionResult) {
     this.fieldValueExtractionResult = fieldValueExtractionResult;
+  }
+
+  public FormRecognitionResult tableValueExtractionResults(List<TableResult> tableValueExtractionResults) {
+    this.tableValueExtractionResults = tableValueExtractionResults;
+    return this;
+  }
+
+  public FormRecognitionResult addTableValueExtractionResultsItem(TableResult tableValueExtractionResultsItem) {
+    if (this.tableValueExtractionResults == null) {
+      this.tableValueExtractionResults = new ArrayList<TableResult>();
+    }
+    this.tableValueExtractionResults.add(tableValueExtractionResultsItem);
+    return this;
+  }
+
+   /**
+   * Result of form table OCR data extraction
+   * @return tableValueExtractionResults
+  **/
+  @ApiModelProperty(value = "Result of form table OCR data extraction")
+  public List<TableResult> getTableValueExtractionResults() {
+    return tableValueExtractionResults;
+  }
+
+  public void setTableValueExtractionResults(List<TableResult> tableValueExtractionResults) {
+    this.tableValueExtractionResults = tableValueExtractionResults;
   }
 
 
@@ -93,12 +124,13 @@ public class FormRecognitionResult {
     }
     FormRecognitionResult formRecognitionResult = (FormRecognitionResult) o;
     return Objects.equals(this.successful, formRecognitionResult.successful) &&
-        Objects.equals(this.fieldValueExtractionResult, formRecognitionResult.fieldValueExtractionResult);
+        Objects.equals(this.fieldValueExtractionResult, formRecognitionResult.fieldValueExtractionResult) &&
+        Objects.equals(this.tableValueExtractionResults, formRecognitionResult.tableValueExtractionResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, fieldValueExtractionResult);
+    return Objects.hash(successful, fieldValueExtractionResult, tableValueExtractionResults);
   }
 
 
@@ -109,6 +141,7 @@ public class FormRecognitionResult {
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    fieldValueExtractionResult: ").append(toIndentedString(fieldValueExtractionResult)).append("\n");
+    sb.append("    tableValueExtractionResults: ").append(toIndentedString(tableValueExtractionResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

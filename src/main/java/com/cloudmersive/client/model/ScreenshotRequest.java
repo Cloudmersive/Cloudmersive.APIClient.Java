@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Details of the screenshot request
  */
 @ApiModel(description = "Details of the screenshot request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class ScreenshotRequest {
   @SerializedName("Url")
   private String url = null;
@@ -47,10 +48,10 @@ public class ScreenshotRequest {
   }
 
    /**
-   * Get url
+   * URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.
    * @return url
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.")
   public String getUrl() {
     return url;
   }
@@ -65,10 +66,10 @@ public class ScreenshotRequest {
   }
 
    /**
-   * Get extraLoadingWait
+   * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)
    * @return extraLoadingWait
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)")
   public Integer getExtraLoadingWait() {
     return extraLoadingWait;
   }
@@ -83,10 +84,10 @@ public class ScreenshotRequest {
   }
 
    /**
-   * Get screenshotWidth
+   * Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
    * @return screenshotWidth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot")
   public Integer getScreenshotWidth() {
     return screenshotWidth;
   }
@@ -101,10 +102,10 @@ public class ScreenshotRequest {
   }
 
    /**
-   * Get screenshotHeight
+   * Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
    * @return screenshotHeight
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot")
   public Integer getScreenshotHeight() {
     return screenshotHeight;
   }

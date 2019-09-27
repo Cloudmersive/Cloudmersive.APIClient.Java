@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Receipt line item, comprised of a product or item and a price (if available)
  */
 @ApiModel(description = "Receipt line item, comprised of a product or item and a price (if available)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class ReceiptLineItem {
   @SerializedName("ItemDescription")
   private String itemDescription = null;
@@ -41,10 +42,10 @@ public class ReceiptLineItem {
   }
 
    /**
-   * Get itemDescription
+   * Description of the item
    * @return itemDescription
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Description of the item")
   public String getItemDescription() {
     return itemDescription;
   }
@@ -59,10 +60,10 @@ public class ReceiptLineItem {
   }
 
    /**
-   * Get itemPrice
+   * Price of the item if available
    * @return itemPrice
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Price of the item if available")
   public Double getItemPrice() {
     return itemPrice;
   }

@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import java.util.List;
  * Result of a partial email address validation
  */
 @ApiModel(description = "Result of a partial email address validation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:31.843-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:21.707-07:00")
 public class AddressGetServersResponse {
   @SerializedName("Success")
   private Boolean success = null;
@@ -43,10 +44,10 @@ public class AddressGetServersResponse {
   }
 
    /**
-   * Get success
+   * True if partial address validation was successufl, false otherwise
    * @return success
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if partial address validation was successufl, false otherwise")
   public Boolean isSuccess() {
     return success;
   }
@@ -69,10 +70,10 @@ public class AddressGetServersResponse {
   }
 
    /**
-   * Get servers
+   * Email servers for this email address
    * @return servers
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Email servers for this email address")
   public List<String> getServers() {
     return servers;
   }

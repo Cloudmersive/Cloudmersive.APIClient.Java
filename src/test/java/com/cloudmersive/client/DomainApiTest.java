@@ -15,7 +15,9 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckResponse;
+import com.cloudmersive.client.model.ValidateUrlRequestFull;
 import com.cloudmersive.client.model.ValidateUrlRequestSyntaxOnly;
+import com.cloudmersive.client.model.ValidateUrlResponseFull;
 import com.cloudmersive.client.model.ValidateUrlResponseSyntaxOnly;
 import com.cloudmersive.client.model.WhoisResponse;
 import org.junit.Test;
@@ -63,6 +65,22 @@ public class DomainApiTest {
     public void domainPostTest() throws ApiException {
         String domain = null;
         WhoisResponse response = api.domainPost(domain);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a URL fully
+     *
+     * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainUrlFullTest() throws ApiException {
+        ValidateUrlRequestFull request = null;
+        ValidateUrlResponseFull response = api.domainUrlFull(request);
 
         // TODO: test validations
     }

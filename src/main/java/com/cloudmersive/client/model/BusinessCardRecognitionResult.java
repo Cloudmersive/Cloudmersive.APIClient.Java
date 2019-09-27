@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of recognizing a business card, to extract the key information from the business card
  */
 @ApiModel(description = "Result of recognizing a business card, to extract the key information from the business card")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class BusinessCardRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -60,10 +61,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get successful
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -78,10 +79,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get personName
+   * The name of the person printed on the business card (if included on the business card)
    * @return personName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the person printed on the business card (if included on the business card)")
   public String getPersonName() {
     return personName;
   }
@@ -96,10 +97,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get personTitle
+   * The title of the person printed on the business card (if included on the business card)
    * @return personTitle
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The title of the person printed on the business card (if included on the business card)")
   public String getPersonTitle() {
     return personTitle;
   }
@@ -114,10 +115,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get businessName
+   * The name of the business printed on the business card (if included on the business card)
    * @return businessName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the business printed on the business card (if included on the business card)")
   public String getBusinessName() {
     return businessName;
   }
@@ -132,10 +133,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get addressString
+   * The address printed on the business card (if included on the business card)
    * @return addressString
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address printed on the business card (if included on the business card)")
   public String getAddressString() {
     return addressString;
   }
@@ -150,10 +151,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get phoneNumber
+   * The phone number printed on the business card (if included on the business card)
    * @return phoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The phone number printed on the business card (if included on the business card)")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -168,10 +169,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get emailAddress
+   * The email address printed on the business card (if included on the business card)
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The email address printed on the business card (if included on the business card)")
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -186,10 +187,10 @@ public class BusinessCardRecognitionResult {
   }
 
    /**
-   * Get timestamp
+   * The date and time printed on the business card (if included on the business card)
    * @return timestamp
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time printed on the business card (if included on the business card)")
   public OffsetDateTime getTimestamp() {
     return timestamp;
   }

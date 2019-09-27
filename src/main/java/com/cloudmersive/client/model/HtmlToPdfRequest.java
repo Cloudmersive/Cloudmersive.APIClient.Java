@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Details of the HTML to PDF request
  */
 @ApiModel(description = "Details of the HTML to PDF request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class HtmlToPdfRequest {
   @SerializedName("Html")
   private String html = null;
@@ -41,10 +42,10 @@ public class HtmlToPdfRequest {
   }
 
    /**
-   * Get html
+   * HTML to render to PDF
    * @return html
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "HTML to render to PDF")
   public String getHtml() {
     return html;
   }
@@ -59,10 +60,10 @@ public class HtmlToPdfRequest {
   }
 
    /**
-   * Get extraLoadingWait
+   * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.
    * @return extraLoadingWait
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.")
   public Integer getExtraLoadingWait() {
     return extraLoadingWait;
   }

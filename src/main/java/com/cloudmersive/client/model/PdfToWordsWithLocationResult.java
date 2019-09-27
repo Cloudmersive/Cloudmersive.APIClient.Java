@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.OcrPageResultWithWordsWithLocation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +31,7 @@ import java.util.List;
  * Response from an OCR to words with location operation.  Includes the confience rating and converted text result, along with the locations of the words in the pages.
  */
 @ApiModel(description = "Response from an OCR to words with location operation.  Includes the confience rating and converted text result, along with the locations of the words in the pages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class PdfToWordsWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -44,10 +45,10 @@ public class PdfToWordsWithLocationResult {
   }
 
    /**
-   * Get successful
+   * True if successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -70,10 +71,10 @@ public class PdfToWordsWithLocationResult {
   }
 
    /**
-   * Get ocrPages
+   * OCR page results
    * @return ocrPages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "OCR page results")
   public List<OcrPageResultWithWordsWithLocation> getOcrPages() {
     return ocrPages;
   }

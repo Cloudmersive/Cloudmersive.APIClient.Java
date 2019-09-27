@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.FormFieldDefinition;
 import com.cloudmersive.client.model.OcrPhotoTextElement;
 import com.google.gson.TypeAdapter;
@@ -31,7 +32,7 @@ import java.util.List;
  * A pairing target field and actual value read from form
  */
 @ApiModel(description = "A pairing target field and actual value read from form")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class FieldResult {
   @SerializedName("TargetField")
   private FormFieldDefinition targetField = null;
@@ -45,10 +46,10 @@ public class FieldResult {
   }
 
    /**
-   * Get targetField
+   * Target field to extract from the form
    * @return targetField
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Target field to extract from the form")
   public FormFieldDefinition getTargetField() {
     return targetField;
   }
@@ -71,10 +72,10 @@ public class FieldResult {
   }
 
    /**
-   * Get fieldValues
+   * Result field value(s) extracted
    * @return fieldValues
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Result field value(s) extracted")
   public List<OcrPhotoTextElement> getFieldValues() {
     return fieldValues;
   }

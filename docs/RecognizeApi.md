@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 <a name="recognizeDetectTextLarge"></a>
 # **recognizeDetectTextLarge**
-> TextDetectionResult recognizeDetectTextLarge()
+> TextDetectionResult recognizeDetectTextLarge(imageFile)
 
 Detect large text in a photo
 
@@ -316,8 +316,9 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 RecognizeApi apiInstance = new RecognizeApi();
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    TextDetectionResult result = apiInstance.recognizeDetectTextLarge();
+    TextDetectionResult result = apiInstance.recognizeDetectTextLarge(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecognizeApi#recognizeDetectTextLarge");
@@ -326,7 +327,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
@@ -338,7 +342,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="recognizeDetectVehicleLicensePlates"></a>

@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.ReceiptLineItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of recognizing a receipt, to extract the key information from the receipt
  */
 @ApiModel(description = "Result of recognizing a receipt, to extract the key information from the receipt")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class ReceiptRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -63,10 +64,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get successful
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -81,10 +82,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get timestamp
+   * The date and time printed on the receipt (if included on the receipt)
    * @return timestamp
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time printed on the receipt (if included on the receipt)")
   public OffsetDateTime getTimestamp() {
     return timestamp;
   }
@@ -99,10 +100,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get businessName
+   * The name of the business printed on the receipt (if included on the receipt)
    * @return businessName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the business printed on the receipt (if included on the receipt)")
   public String getBusinessName() {
     return businessName;
   }
@@ -117,10 +118,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get businessWebsite
+   * The website URL of the business printed on the receipt (if included on the receipt)
    * @return businessWebsite
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The website URL of the business printed on the receipt (if included on the receipt)")
   public String getBusinessWebsite() {
     return businessWebsite;
   }
@@ -135,10 +136,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get addressString
+   * The address of the business printed on the receipt (if included on the receipt)
    * @return addressString
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address of the business printed on the receipt (if included on the receipt)")
   public String getAddressString() {
     return addressString;
   }
@@ -153,10 +154,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get phoneNumber
+   * The phone number printed on the receipt (if included on the receipt)
    * @return phoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The phone number printed on the receipt (if included on the receipt)")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -179,10 +180,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get receiptItems
+   * The individual line items comprising the order; does not include total (see ReceiptTotal)
    * @return receiptItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The individual line items comprising the order; does not include total (see ReceiptTotal)")
   public List<ReceiptLineItem> getReceiptItems() {
     return receiptItems;
   }
@@ -197,10 +198,10 @@ public class ReceiptRecognitionResult {
   }
 
    /**
-   * Get receiptTotal
+   * The total monetary value of the receipt (if included on the receipt)
    * @return receiptTotal
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total monetary value of the receipt (if included on the receipt)")
   public Double getReceiptTotal() {
     return receiptTotal;
   }

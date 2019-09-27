@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.ProductMatch;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -27,9 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BarcodeLookupResponse
+ * Result of performing a barcode lookup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:41.578-07:00")
+@ApiModel(description = "Result of performing a barcode lookup")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:34.711-07:00")
 public class BarcodeLookupResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -43,10 +45,10 @@ public class BarcodeLookupResponse {
   }
 
    /**
-   * Get successful
+   * True if operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -69,10 +71,10 @@ public class BarcodeLookupResponse {
   }
 
    /**
-   * Get matches
+   * Resulting product matches for the input barcode
    * @return matches
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Resulting product matches for the input barcode")
   public List<ProductMatch> getMatches() {
     return matches;
   }

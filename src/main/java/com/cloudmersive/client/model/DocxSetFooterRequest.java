@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.DocxFooter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Input to set-footer command
  */
 @ApiModel(description = "Input to set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class DocxSetFooterRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -103,14 +104,14 @@ public class DocxSetFooterRequest {
       return false;
     }
     DocxSetFooterRequest docxSetFooterRequest = (DocxSetFooterRequest) o;
-    return Objects.equals(this.inputFileBytes, docxSetFooterRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, docxSetFooterRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, docxSetFooterRequest.inputFileUrl) &&
         Objects.equals(this.footerToApply, docxSetFooterRequest.footerToApply);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, footerToApply);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, footerToApply);
   }
 
 

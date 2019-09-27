@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.DocxParagraph;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Input to a Insert Paragraph request
  */
 @ApiModel(description = "Input to a Insert Paragraph request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class InsertDocxInsertParagraphRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -145,7 +146,7 @@ public class InsertDocxInsertParagraphRequest {
       return false;
     }
     InsertDocxInsertParagraphRequest insertDocxInsertParagraphRequest = (InsertDocxInsertParagraphRequest) o;
-    return Objects.equals(this.inputFileBytes, insertDocxInsertParagraphRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, insertDocxInsertParagraphRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, insertDocxInsertParagraphRequest.inputFileUrl) &&
         Objects.equals(this.paragraphToInsert, insertDocxInsertParagraphRequest.paragraphToInsert) &&
         Objects.equals(this.insertPlacement, insertDocxInsertParagraphRequest.insertPlacement) &&
@@ -154,7 +155,7 @@ public class InsertDocxInsertParagraphRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, paragraphToInsert, insertPlacement, insertPath);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, paragraphToInsert, insertPlacement, insertPath);
   }
 
 

@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.FacePoint;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,8 +31,20 @@ import java.util.List;
  * Location of one face in an image
  */
 @ApiModel(description = "Location of one face in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:44.143-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:38.139-07:00")
 public class FaceWithLandmarks {
+  @SerializedName("LeftX")
+  private Integer leftX = null;
+
+  @SerializedName("TopY")
+  private Integer topY = null;
+
+  @SerializedName("RightX")
+  private Integer rightX = null;
+
+  @SerializedName("BottomY")
+  private Integer bottomY = null;
+
   @SerializedName("LeftEyebrow")
   private List<FacePoint> leftEyebrow = null;
 
@@ -58,252 +71,6 @@ public class FaceWithLandmarks {
 
   @SerializedName("LipsOuterOutline")
   private List<FacePoint> lipsOuterOutline = null;
-
-  @SerializedName("LeftX")
-  private Integer leftX = null;
-
-  @SerializedName("TopY")
-  private Integer topY = null;
-
-  @SerializedName("RightX")
-  private Integer rightX = null;
-
-  @SerializedName("BottomY")
-  private Integer bottomY = null;
-
-  public FaceWithLandmarks leftEyebrow(List<FacePoint> leftEyebrow) {
-    this.leftEyebrow = leftEyebrow;
-    return this;
-  }
-
-  public FaceWithLandmarks addLeftEyebrowItem(FacePoint leftEyebrowItem) {
-    if (this.leftEyebrow == null) {
-      this.leftEyebrow = new ArrayList<FacePoint>();
-    }
-    this.leftEyebrow.add(leftEyebrowItem);
-    return this;
-  }
-
-   /**
-   * Get leftEyebrow
-   * @return leftEyebrow
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getLeftEyebrow() {
-    return leftEyebrow;
-  }
-
-  public void setLeftEyebrow(List<FacePoint> leftEyebrow) {
-    this.leftEyebrow = leftEyebrow;
-  }
-
-  public FaceWithLandmarks rightEyebrow(List<FacePoint> rightEyebrow) {
-    this.rightEyebrow = rightEyebrow;
-    return this;
-  }
-
-  public FaceWithLandmarks addRightEyebrowItem(FacePoint rightEyebrowItem) {
-    if (this.rightEyebrow == null) {
-      this.rightEyebrow = new ArrayList<FacePoint>();
-    }
-    this.rightEyebrow.add(rightEyebrowItem);
-    return this;
-  }
-
-   /**
-   * Get rightEyebrow
-   * @return rightEyebrow
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getRightEyebrow() {
-    return rightEyebrow;
-  }
-
-  public void setRightEyebrow(List<FacePoint> rightEyebrow) {
-    this.rightEyebrow = rightEyebrow;
-  }
-
-  public FaceWithLandmarks leftEye(List<FacePoint> leftEye) {
-    this.leftEye = leftEye;
-    return this;
-  }
-
-  public FaceWithLandmarks addLeftEyeItem(FacePoint leftEyeItem) {
-    if (this.leftEye == null) {
-      this.leftEye = new ArrayList<FacePoint>();
-    }
-    this.leftEye.add(leftEyeItem);
-    return this;
-  }
-
-   /**
-   * Get leftEye
-   * @return leftEye
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getLeftEye() {
-    return leftEye;
-  }
-
-  public void setLeftEye(List<FacePoint> leftEye) {
-    this.leftEye = leftEye;
-  }
-
-  public FaceWithLandmarks rightEye(List<FacePoint> rightEye) {
-    this.rightEye = rightEye;
-    return this;
-  }
-
-  public FaceWithLandmarks addRightEyeItem(FacePoint rightEyeItem) {
-    if (this.rightEye == null) {
-      this.rightEye = new ArrayList<FacePoint>();
-    }
-    this.rightEye.add(rightEyeItem);
-    return this;
-  }
-
-   /**
-   * Get rightEye
-   * @return rightEye
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getRightEye() {
-    return rightEye;
-  }
-
-  public void setRightEye(List<FacePoint> rightEye) {
-    this.rightEye = rightEye;
-  }
-
-  public FaceWithLandmarks bottomAndSidesOfFace(List<FacePoint> bottomAndSidesOfFace) {
-    this.bottomAndSidesOfFace = bottomAndSidesOfFace;
-    return this;
-  }
-
-  public FaceWithLandmarks addBottomAndSidesOfFaceItem(FacePoint bottomAndSidesOfFaceItem) {
-    if (this.bottomAndSidesOfFace == null) {
-      this.bottomAndSidesOfFace = new ArrayList<FacePoint>();
-    }
-    this.bottomAndSidesOfFace.add(bottomAndSidesOfFaceItem);
-    return this;
-  }
-
-   /**
-   * Get bottomAndSidesOfFace
-   * @return bottomAndSidesOfFace
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getBottomAndSidesOfFace() {
-    return bottomAndSidesOfFace;
-  }
-
-  public void setBottomAndSidesOfFace(List<FacePoint> bottomAndSidesOfFace) {
-    this.bottomAndSidesOfFace = bottomAndSidesOfFace;
-  }
-
-  public FaceWithLandmarks noseBridge(List<FacePoint> noseBridge) {
-    this.noseBridge = noseBridge;
-    return this;
-  }
-
-  public FaceWithLandmarks addNoseBridgeItem(FacePoint noseBridgeItem) {
-    if (this.noseBridge == null) {
-      this.noseBridge = new ArrayList<FacePoint>();
-    }
-    this.noseBridge.add(noseBridgeItem);
-    return this;
-  }
-
-   /**
-   * Get noseBridge
-   * @return noseBridge
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getNoseBridge() {
-    return noseBridge;
-  }
-
-  public void setNoseBridge(List<FacePoint> noseBridge) {
-    this.noseBridge = noseBridge;
-  }
-
-  public FaceWithLandmarks noseBottom(List<FacePoint> noseBottom) {
-    this.noseBottom = noseBottom;
-    return this;
-  }
-
-  public FaceWithLandmarks addNoseBottomItem(FacePoint noseBottomItem) {
-    if (this.noseBottom == null) {
-      this.noseBottom = new ArrayList<FacePoint>();
-    }
-    this.noseBottom.add(noseBottomItem);
-    return this;
-  }
-
-   /**
-   * Get noseBottom
-   * @return noseBottom
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getNoseBottom() {
-    return noseBottom;
-  }
-
-  public void setNoseBottom(List<FacePoint> noseBottom) {
-    this.noseBottom = noseBottom;
-  }
-
-  public FaceWithLandmarks lipsInnerOutline(List<FacePoint> lipsInnerOutline) {
-    this.lipsInnerOutline = lipsInnerOutline;
-    return this;
-  }
-
-  public FaceWithLandmarks addLipsInnerOutlineItem(FacePoint lipsInnerOutlineItem) {
-    if (this.lipsInnerOutline == null) {
-      this.lipsInnerOutline = new ArrayList<FacePoint>();
-    }
-    this.lipsInnerOutline.add(lipsInnerOutlineItem);
-    return this;
-  }
-
-   /**
-   * Get lipsInnerOutline
-   * @return lipsInnerOutline
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getLipsInnerOutline() {
-    return lipsInnerOutline;
-  }
-
-  public void setLipsInnerOutline(List<FacePoint> lipsInnerOutline) {
-    this.lipsInnerOutline = lipsInnerOutline;
-  }
-
-  public FaceWithLandmarks lipsOuterOutline(List<FacePoint> lipsOuterOutline) {
-    this.lipsOuterOutline = lipsOuterOutline;
-    return this;
-  }
-
-  public FaceWithLandmarks addLipsOuterOutlineItem(FacePoint lipsOuterOutlineItem) {
-    if (this.lipsOuterOutline == null) {
-      this.lipsOuterOutline = new ArrayList<FacePoint>();
-    }
-    this.lipsOuterOutline.add(lipsOuterOutlineItem);
-    return this;
-  }
-
-   /**
-   * Get lipsOuterOutline
-   * @return lipsOuterOutline
-  **/
-  @ApiModelProperty(value = "")
-  public List<FacePoint> getLipsOuterOutline() {
-    return lipsOuterOutline;
-  }
-
-  public void setLipsOuterOutline(List<FacePoint> lipsOuterOutline) {
-    this.lipsOuterOutline = lipsOuterOutline;
-  }
 
   public FaceWithLandmarks leftX(Integer leftX) {
     this.leftX = leftX;
@@ -377,6 +144,240 @@ public class FaceWithLandmarks {
     this.bottomY = bottomY;
   }
 
+  public FaceWithLandmarks leftEyebrow(List<FacePoint> leftEyebrow) {
+    this.leftEyebrow = leftEyebrow;
+    return this;
+  }
+
+  public FaceWithLandmarks addLeftEyebrowItem(FacePoint leftEyebrowItem) {
+    if (this.leftEyebrow == null) {
+      this.leftEyebrow = new ArrayList<FacePoint>();
+    }
+    this.leftEyebrow.add(leftEyebrowItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)
+   * @return leftEyebrow
+  **/
+  @ApiModelProperty(value = "Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)")
+  public List<FacePoint> getLeftEyebrow() {
+    return leftEyebrow;
+  }
+
+  public void setLeftEyebrow(List<FacePoint> leftEyebrow) {
+    this.leftEyebrow = leftEyebrow;
+  }
+
+  public FaceWithLandmarks rightEyebrow(List<FacePoint> rightEyebrow) {
+    this.rightEyebrow = rightEyebrow;
+    return this;
+  }
+
+  public FaceWithLandmarks addRightEyebrowItem(FacePoint rightEyebrowItem) {
+    if (this.rightEyebrow == null) {
+      this.rightEyebrow = new ArrayList<FacePoint>();
+    }
+    this.rightEyebrow.add(rightEyebrowItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)
+   * @return rightEyebrow
+  **/
+  @ApiModelProperty(value = "Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)")
+  public List<FacePoint> getRightEyebrow() {
+    return rightEyebrow;
+  }
+
+  public void setRightEyebrow(List<FacePoint> rightEyebrow) {
+    this.rightEyebrow = rightEyebrow;
+  }
+
+  public FaceWithLandmarks leftEye(List<FacePoint> leftEye) {
+    this.leftEye = leftEye;
+    return this;
+  }
+
+  public FaceWithLandmarks addLeftEyeItem(FacePoint leftEyeItem) {
+    if (this.leftEye == null) {
+      this.leftEye = new ArrayList<FacePoint>();
+    }
+    this.leftEye.add(leftEyeItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the left eye (the eye closest to the left side of the picture)
+   * @return leftEye
+  **/
+  @ApiModelProperty(value = "Point locations of the left eye (the eye closest to the left side of the picture)")
+  public List<FacePoint> getLeftEye() {
+    return leftEye;
+  }
+
+  public void setLeftEye(List<FacePoint> leftEye) {
+    this.leftEye = leftEye;
+  }
+
+  public FaceWithLandmarks rightEye(List<FacePoint> rightEye) {
+    this.rightEye = rightEye;
+    return this;
+  }
+
+  public FaceWithLandmarks addRightEyeItem(FacePoint rightEyeItem) {
+    if (this.rightEye == null) {
+      this.rightEye = new ArrayList<FacePoint>();
+    }
+    this.rightEye.add(rightEyeItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the right eye (the eye closest to the right side of the picture)
+   * @return rightEye
+  **/
+  @ApiModelProperty(value = "Point locations of the right eye (the eye closest to the right side of the picture)")
+  public List<FacePoint> getRightEye() {
+    return rightEye;
+  }
+
+  public void setRightEye(List<FacePoint> rightEye) {
+    this.rightEye = rightEye;
+  }
+
+  public FaceWithLandmarks bottomAndSidesOfFace(List<FacePoint> bottomAndSidesOfFace) {
+    this.bottomAndSidesOfFace = bottomAndSidesOfFace;
+    return this;
+  }
+
+  public FaceWithLandmarks addBottomAndSidesOfFaceItem(FacePoint bottomAndSidesOfFaceItem) {
+    if (this.bottomAndSidesOfFace == null) {
+      this.bottomAndSidesOfFace = new ArrayList<FacePoint>();
+    }
+    this.bottomAndSidesOfFace.add(bottomAndSidesOfFaceItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the bottom and sides of the face (cheeks and chin)
+   * @return bottomAndSidesOfFace
+  **/
+  @ApiModelProperty(value = "Point locations of the bottom and sides of the face (cheeks and chin)")
+  public List<FacePoint> getBottomAndSidesOfFace() {
+    return bottomAndSidesOfFace;
+  }
+
+  public void setBottomAndSidesOfFace(List<FacePoint> bottomAndSidesOfFace) {
+    this.bottomAndSidesOfFace = bottomAndSidesOfFace;
+  }
+
+  public FaceWithLandmarks noseBridge(List<FacePoint> noseBridge) {
+    this.noseBridge = noseBridge;
+    return this;
+  }
+
+  public FaceWithLandmarks addNoseBridgeItem(FacePoint noseBridgeItem) {
+    if (this.noseBridge == null) {
+      this.noseBridge = new ArrayList<FacePoint>();
+    }
+    this.noseBridge.add(noseBridgeItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the nose bridge (the vertical portion of the nose)
+   * @return noseBridge
+  **/
+  @ApiModelProperty(value = "Point locations of the nose bridge (the vertical portion of the nose)")
+  public List<FacePoint> getNoseBridge() {
+    return noseBridge;
+  }
+
+  public void setNoseBridge(List<FacePoint> noseBridge) {
+    this.noseBridge = noseBridge;
+  }
+
+  public FaceWithLandmarks noseBottom(List<FacePoint> noseBottom) {
+    this.noseBottom = noseBottom;
+    return this;
+  }
+
+  public FaceWithLandmarks addNoseBottomItem(FacePoint noseBottomItem) {
+    if (this.noseBottom == null) {
+      this.noseBottom = new ArrayList<FacePoint>();
+    }
+    this.noseBottom.add(noseBottomItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the bottom (nostrils) of the nose
+   * @return noseBottom
+  **/
+  @ApiModelProperty(value = "Point locations of the bottom (nostrils) of the nose")
+  public List<FacePoint> getNoseBottom() {
+    return noseBottom;
+  }
+
+  public void setNoseBottom(List<FacePoint> noseBottom) {
+    this.noseBottom = noseBottom;
+  }
+
+  public FaceWithLandmarks lipsInnerOutline(List<FacePoint> lipsInnerOutline) {
+    this.lipsInnerOutline = lipsInnerOutline;
+    return this;
+  }
+
+  public FaceWithLandmarks addLipsInnerOutlineItem(FacePoint lipsInnerOutlineItem) {
+    if (this.lipsInnerOutline == null) {
+      this.lipsInnerOutline = new ArrayList<FacePoint>();
+    }
+    this.lipsInnerOutline.add(lipsInnerOutlineItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the inner outline of the lips
+   * @return lipsInnerOutline
+  **/
+  @ApiModelProperty(value = "Point locations of the inner outline of the lips")
+  public List<FacePoint> getLipsInnerOutline() {
+    return lipsInnerOutline;
+  }
+
+  public void setLipsInnerOutline(List<FacePoint> lipsInnerOutline) {
+    this.lipsInnerOutline = lipsInnerOutline;
+  }
+
+  public FaceWithLandmarks lipsOuterOutline(List<FacePoint> lipsOuterOutline) {
+    this.lipsOuterOutline = lipsOuterOutline;
+    return this;
+  }
+
+  public FaceWithLandmarks addLipsOuterOutlineItem(FacePoint lipsOuterOutlineItem) {
+    if (this.lipsOuterOutline == null) {
+      this.lipsOuterOutline = new ArrayList<FacePoint>();
+    }
+    this.lipsOuterOutline.add(lipsOuterOutlineItem);
+    return this;
+  }
+
+   /**
+   * Point locations of the outer outline of the lips
+   * @return lipsOuterOutline
+  **/
+  @ApiModelProperty(value = "Point locations of the outer outline of the lips")
+  public List<FacePoint> getLipsOuterOutline() {
+    return lipsOuterOutline;
+  }
+
+  public void setLipsOuterOutline(List<FacePoint> lipsOuterOutline) {
+    this.lipsOuterOutline = lipsOuterOutline;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -387,7 +388,11 @@ public class FaceWithLandmarks {
       return false;
     }
     FaceWithLandmarks faceWithLandmarks = (FaceWithLandmarks) o;
-    return Objects.equals(this.leftEyebrow, faceWithLandmarks.leftEyebrow) &&
+    return Objects.equals(this.leftX, faceWithLandmarks.leftX) &&
+        Objects.equals(this.topY, faceWithLandmarks.topY) &&
+        Objects.equals(this.rightX, faceWithLandmarks.rightX) &&
+        Objects.equals(this.bottomY, faceWithLandmarks.bottomY) &&
+        Objects.equals(this.leftEyebrow, faceWithLandmarks.leftEyebrow) &&
         Objects.equals(this.rightEyebrow, faceWithLandmarks.rightEyebrow) &&
         Objects.equals(this.leftEye, faceWithLandmarks.leftEye) &&
         Objects.equals(this.rightEye, faceWithLandmarks.rightEye) &&
@@ -395,16 +400,12 @@ public class FaceWithLandmarks {
         Objects.equals(this.noseBridge, faceWithLandmarks.noseBridge) &&
         Objects.equals(this.noseBottom, faceWithLandmarks.noseBottom) &&
         Objects.equals(this.lipsInnerOutline, faceWithLandmarks.lipsInnerOutline) &&
-        Objects.equals(this.lipsOuterOutline, faceWithLandmarks.lipsOuterOutline) &&
-        Objects.equals(this.leftX, faceWithLandmarks.leftX) &&
-        Objects.equals(this.topY, faceWithLandmarks.topY) &&
-        Objects.equals(this.rightX, faceWithLandmarks.rightX) &&
-        Objects.equals(this.bottomY, faceWithLandmarks.bottomY);
+        Objects.equals(this.lipsOuterOutline, faceWithLandmarks.lipsOuterOutline);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(leftEyebrow, rightEyebrow, leftEye, rightEye, bottomAndSidesOfFace, noseBridge, noseBottom, lipsInnerOutline, lipsOuterOutline, leftX, topY, rightX, bottomY);
+    return Objects.hash(leftX, topY, rightX, bottomY, leftEyebrow, rightEyebrow, leftEye, rightEye, bottomAndSidesOfFace, noseBridge, noseBottom, lipsInnerOutline, lipsOuterOutline);
   }
 
 
@@ -413,6 +414,10 @@ public class FaceWithLandmarks {
     StringBuilder sb = new StringBuilder();
     sb.append("class FaceWithLandmarks {\n");
     
+    sb.append("    leftX: ").append(toIndentedString(leftX)).append("\n");
+    sb.append("    topY: ").append(toIndentedString(topY)).append("\n");
+    sb.append("    rightX: ").append(toIndentedString(rightX)).append("\n");
+    sb.append("    bottomY: ").append(toIndentedString(bottomY)).append("\n");
     sb.append("    leftEyebrow: ").append(toIndentedString(leftEyebrow)).append("\n");
     sb.append("    rightEyebrow: ").append(toIndentedString(rightEyebrow)).append("\n");
     sb.append("    leftEye: ").append(toIndentedString(leftEye)).append("\n");
@@ -422,10 +427,6 @@ public class FaceWithLandmarks {
     sb.append("    noseBottom: ").append(toIndentedString(noseBottom)).append("\n");
     sb.append("    lipsInnerOutline: ").append(toIndentedString(lipsInnerOutline)).append("\n");
     sb.append("    lipsOuterOutline: ").append(toIndentedString(lipsOuterOutline)).append("\n");
-    sb.append("    leftX: ").append(toIndentedString(leftX)).append("\n");
-    sb.append("    topY: ").append(toIndentedString(topY)).append("\n");
-    sb.append("    rightX: ").append(toIndentedString(rightX)).append("\n");
-    sb.append("    bottomY: ").append(toIndentedString(bottomY)).append("\n");
     sb.append("}");
     return sb.toString();
   }

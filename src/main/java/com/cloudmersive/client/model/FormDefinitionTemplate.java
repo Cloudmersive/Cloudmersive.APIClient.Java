@@ -14,7 +14,9 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.FormFieldDefinition;
+import com.cloudmersive.client.model.FormTableDefinition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,10 +32,13 @@ import java.util.List;
  * Definition of a form template; use a form template definition to recognize the fields in a form with Cloudmersive OCR
  */
 @ApiModel(description = "Definition of a form template; use a form template definition to recognize the fields in a form with Cloudmersive OCR")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class FormDefinitionTemplate {
   @SerializedName("FieldDefinitions")
   private List<FormFieldDefinition> fieldDefinitions = null;
+
+  @SerializedName("TableDefinitions")
+  private List<FormTableDefinition> tableDefinitions = null;
 
   public FormDefinitionTemplate fieldDefinitions(List<FormFieldDefinition> fieldDefinitions) {
     this.fieldDefinitions = fieldDefinitions;
@@ -49,16 +54,42 @@ public class FormDefinitionTemplate {
   }
 
    /**
-   * Get fieldDefinitions
+   * Field definitions in the template; a field is comprised of a key/value pair
    * @return fieldDefinitions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Field definitions in the template; a field is comprised of a key/value pair")
   public List<FormFieldDefinition> getFieldDefinitions() {
     return fieldDefinitions;
   }
 
   public void setFieldDefinitions(List<FormFieldDefinition> fieldDefinitions) {
     this.fieldDefinitions = fieldDefinitions;
+  }
+
+  public FormDefinitionTemplate tableDefinitions(List<FormTableDefinition> tableDefinitions) {
+    this.tableDefinitions = tableDefinitions;
+    return this;
+  }
+
+  public FormDefinitionTemplate addTableDefinitionsItem(FormTableDefinition tableDefinitionsItem) {
+    if (this.tableDefinitions == null) {
+      this.tableDefinitions = new ArrayList<FormTableDefinition>();
+    }
+    this.tableDefinitions.add(tableDefinitionsItem);
+    return this;
+  }
+
+   /**
+   * Table definitions in the template; a table is comprised of columns and rows and exists in a 2-dimensional layout; a common example of a table would be an invoice
+   * @return tableDefinitions
+  **/
+  @ApiModelProperty(value = "Table definitions in the template; a table is comprised of columns and rows and exists in a 2-dimensional layout; a common example of a table would be an invoice")
+  public List<FormTableDefinition> getTableDefinitions() {
+    return tableDefinitions;
+  }
+
+  public void setTableDefinitions(List<FormTableDefinition> tableDefinitions) {
+    this.tableDefinitions = tableDefinitions;
   }
 
 
@@ -71,12 +102,13 @@ public class FormDefinitionTemplate {
       return false;
     }
     FormDefinitionTemplate formDefinitionTemplate = (FormDefinitionTemplate) o;
-    return Objects.equals(this.fieldDefinitions, formDefinitionTemplate.fieldDefinitions);
+    return Objects.equals(this.fieldDefinitions, formDefinitionTemplate.fieldDefinitions) &&
+        Objects.equals(this.tableDefinitions, formDefinitionTemplate.tableDefinitions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldDefinitions);
+    return Objects.hash(fieldDefinitions, tableDefinitions);
   }
 
 
@@ -86,6 +118,7 @@ public class FormDefinitionTemplate {
     sb.append("class FormDefinitionTemplate {\n");
     
     sb.append("    fieldDefinitions: ").append(toIndentedString(fieldDefinitions)).append("\n");
+    sb.append("    tableDefinitions: ").append(toIndentedString(tableDefinitions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

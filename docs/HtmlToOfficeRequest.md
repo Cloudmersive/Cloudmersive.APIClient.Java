@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**html** | **String** |  |  [optional]
+**html** | **String** | HTML to render to Office format |  [optional]
 
 
 

@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,10 +27,10 @@ import java.io.IOException;
 /**
  * HtmlTemplateOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class HtmlTemplateOperation {
   /**
-   * Gets or Sets action
+   * Operation action to take; possible values are \&quot;Replace\&quot;
    */
   @JsonAdapter(ActionEnum.Adapter.class)
   public enum ActionEnum {
@@ -88,10 +89,10 @@ public class HtmlTemplateOperation {
   }
 
    /**
-   * Get action
+   * Operation action to take; possible values are \&quot;Replace\&quot;
    * @return action
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Operation action to take; possible values are \"Replace\"")
   public ActionEnum getAction() {
     return action;
   }
@@ -106,10 +107,10 @@ public class HtmlTemplateOperation {
   }
 
    /**
-   * Get matchAgsint
+   * For Replace operations, the string to match against (to be replaced with ReplaceWith string)
    * @return matchAgsint
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "For Replace operations, the string to match against (to be replaced with ReplaceWith string)")
   public String getMatchAgsint() {
     return matchAgsint;
   }
@@ -124,10 +125,10 @@ public class HtmlTemplateOperation {
   }
 
    /**
-   * Get replaceWith
+   * For Replace operations, the string to Replace the original string with
    * @return replaceWith
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "For Replace operations, the string to Replace the original string with")
   public String getReplaceWith() {
     return replaceWith;
   }

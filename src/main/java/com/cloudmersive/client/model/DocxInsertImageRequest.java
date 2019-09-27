@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.DocxImage;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Input to set-footer command
  */
 @ApiModel(description = "Input to set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class DocxInsertImageRequest {
   @SerializedName("InputDocumentFileBytes")
   private byte[] inputDocumentFileBytes = null;
@@ -187,9 +188,9 @@ public class DocxInsertImageRequest {
       return false;
     }
     DocxInsertImageRequest docxInsertImageRequest = (DocxInsertImageRequest) o;
-    return Objects.equals(this.inputDocumentFileBytes, docxInsertImageRequest.inputDocumentFileBytes) &&
+    return Arrays.equals(this.inputDocumentFileBytes, docxInsertImageRequest.inputDocumentFileBytes) &&
         Objects.equals(this.inputDocumentFileUrl, docxInsertImageRequest.inputDocumentFileUrl) &&
-        Objects.equals(this.inputImageFileBytes, docxInsertImageRequest.inputImageFileBytes) &&
+        Arrays.equals(this.inputImageFileBytes, docxInsertImageRequest.inputImageFileBytes) &&
         Objects.equals(this.inputImageFileUrl, docxInsertImageRequest.inputImageFileUrl) &&
         Objects.equals(this.imageToAdd, docxInsertImageRequest.imageToAdd) &&
         Objects.equals(this.insertPlacement, docxInsertImageRequest.insertPlacement) &&
@@ -198,7 +199,7 @@ public class DocxInsertImageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputDocumentFileBytes, inputDocumentFileUrl, inputImageFileBytes, inputImageFileUrl, imageToAdd, insertPlacement, insertPath);
+    return Objects.hash(Arrays.hashCode(inputDocumentFileBytes), inputDocumentFileUrl, Arrays.hashCode(inputImageFileBytes), inputImageFileUrl, imageToAdd, insertPlacement, insertPath);
   }
 
 

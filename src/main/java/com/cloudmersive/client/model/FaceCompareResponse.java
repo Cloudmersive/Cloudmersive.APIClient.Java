@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.FaceMatch;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,11 +31,8 @@ import java.util.List;
  * Results of comparing/matching faces in an image
  */
 @ApiModel(description = "Results of comparing/matching faces in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:44.143-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:38.139-07:00")
 public class FaceCompareResponse {
-  @SerializedName("ErrorDetails")
-  private String errorDetails = null;
-
   @SerializedName("Successful")
   private Boolean successful = null;
 
@@ -44,23 +42,8 @@ public class FaceCompareResponse {
   @SerializedName("FaceCount")
   private Integer faceCount = null;
 
-  public FaceCompareResponse errorDetails(String errorDetails) {
-    this.errorDetails = errorDetails;
-    return this;
-  }
-
-   /**
-   * Get errorDetails
-   * @return errorDetails
-  **/
-  @ApiModelProperty(value = "")
-  public String getErrorDetails() {
-    return errorDetails;
-  }
-
-  public void setErrorDetails(String errorDetails) {
-    this.errorDetails = errorDetails;
-  }
+  @SerializedName("ErrorDetails")
+  private String errorDetails = null;
 
   public FaceCompareResponse successful(Boolean successful) {
     this.successful = successful;
@@ -124,6 +107,24 @@ public class FaceCompareResponse {
     this.faceCount = faceCount;
   }
 
+  public FaceCompareResponse errorDetails(String errorDetails) {
+    this.errorDetails = errorDetails;
+    return this;
+  }
+
+   /**
+   * Details of any errors that occurred
+   * @return errorDetails
+  **/
+  @ApiModelProperty(value = "Details of any errors that occurred")
+  public String getErrorDetails() {
+    return errorDetails;
+  }
+
+  public void setErrorDetails(String errorDetails) {
+    this.errorDetails = errorDetails;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -134,15 +135,15 @@ public class FaceCompareResponse {
       return false;
     }
     FaceCompareResponse faceCompareResponse = (FaceCompareResponse) o;
-    return Objects.equals(this.errorDetails, faceCompareResponse.errorDetails) &&
-        Objects.equals(this.successful, faceCompareResponse.successful) &&
+    return Objects.equals(this.successful, faceCompareResponse.successful) &&
         Objects.equals(this.faces, faceCompareResponse.faces) &&
-        Objects.equals(this.faceCount, faceCompareResponse.faceCount);
+        Objects.equals(this.faceCount, faceCompareResponse.faceCount) &&
+        Objects.equals(this.errorDetails, faceCompareResponse.errorDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorDetails, successful, faces, faceCount);
+    return Objects.hash(successful, faces, faceCount, errorDetails);
   }
 
 
@@ -151,10 +152,10 @@ public class FaceCompareResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class FaceCompareResponse {\n");
     
-    sb.append("    errorDetails: ").append(toIndentedString(errorDetails)).append("\n");
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    faces: ").append(toIndentedString(faces)).append("\n");
     sb.append("    faceCount: ").append(toIndentedString(faceCount)).append("\n");
+    sb.append("    errorDetails: ").append(toIndentedString(errorDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

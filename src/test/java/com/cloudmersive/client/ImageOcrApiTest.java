@@ -102,7 +102,7 @@ public class ImageOcrApiTest {
     @Test
     public void imageOcrPhotoRecognizeFormTest() throws ApiException {
         File imageFile = null;
-        String formTemplateDefinition = null;
+        Object formTemplateDefinition = null;
         String recognitionMode = null;
         String language = null;
         FormRecognitionResult response = api.imageOcrPhotoRecognizeForm(imageFile, formTemplateDefinition, recognitionMode, language);
@@ -121,10 +121,8 @@ public class ImageOcrApiTest {
     @Test
     public void imageOcrPhotoRecognizeReceiptTest() throws ApiException {
         File imageFile = null;
-        String formTemplateDefinition = null;
-        String recognitionMode = null;
         String language = null;
-        ReceiptRecognitionResult response = api.imageOcrPhotoRecognizeReceipt(imageFile, formTemplateDefinition, recognitionMode, language);
+        ReceiptRecognitionResult response = api.imageOcrPhotoRecognizeReceipt(imageFile, language);
 
         // TODO: test validations
     }

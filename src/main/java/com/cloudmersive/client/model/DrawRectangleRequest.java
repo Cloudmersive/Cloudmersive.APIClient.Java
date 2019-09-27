@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.DrawRectangleInstance;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +31,7 @@ import java.util.List;
  * Request to draw one or more rectangles on a base image
  */
 @ApiModel(description = "Request to draw one or more rectangles on a base image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:44.143-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:38.139-07:00")
 public class DrawRectangleRequest {
   @SerializedName("BaseImageBytes")
   private byte[] baseImageBytes = null;
@@ -113,14 +114,14 @@ public class DrawRectangleRequest {
       return false;
     }
     DrawRectangleRequest drawRectangleRequest = (DrawRectangleRequest) o;
-    return Objects.equals(this.baseImageBytes, drawRectangleRequest.baseImageBytes) &&
+    return Arrays.equals(this.baseImageBytes, drawRectangleRequest.baseImageBytes) &&
         Objects.equals(this.baseImageUrl, drawRectangleRequest.baseImageUrl) &&
         Objects.equals(this.rectanglesToDraw, drawRectangleRequest.rectanglesToDraw);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseImageBytes, baseImageUrl, rectanglesToDraw);
+    return Objects.hash(Arrays.hashCode(baseImageBytes), baseImageUrl, rectanglesToDraw);
   }
 
 

@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Input to a VAT lookup request
  */
 @ApiModel(description = "Input to a VAT lookup request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:31.843-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:21.707-07:00")
 public class VatLookupRequest {
   @SerializedName("VatCode")
   private String vatCode = null;
@@ -38,10 +39,10 @@ public class VatLookupRequest {
   }
 
    /**
-   * Get vatCode
+   * VAT code to lookup; example \&quot;CZ25123891\&quot;
    * @return vatCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "VAT code to lookup; example \"CZ25123891\"")
   public String getVatCode() {
     return vatCode;
   }

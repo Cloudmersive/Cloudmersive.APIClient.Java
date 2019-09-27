@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.DocxTable;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Input to a Insert Tables request
  */
 @ApiModel(description = "Input to a Insert Tables request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class InsertDocxTablesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -145,7 +146,7 @@ public class InsertDocxTablesRequest {
       return false;
     }
     InsertDocxTablesRequest insertDocxTablesRequest = (InsertDocxTablesRequest) o;
-    return Objects.equals(this.inputFileBytes, insertDocxTablesRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, insertDocxTablesRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, insertDocxTablesRequest.inputFileUrl) &&
         Objects.equals(this.tableToInsert, insertDocxTablesRequest.tableToInsert) &&
         Objects.equals(this.insertPlacement, insertDocxTablesRequest.insertPlacement) &&
@@ -154,7 +155,7 @@ public class InsertDocxTablesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, tableToInsert, insertPlacement, insertPath);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, tableToInsert, insertPlacement, insertPath);
   }
 
 

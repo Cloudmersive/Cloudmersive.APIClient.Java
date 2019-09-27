@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.OcrPhotoTextElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,7 +31,7 @@ import java.util.List;
  * Result of an photo to words-with-location OCR operation
  */
 @ApiModel(description = "Result of an photo to words-with-location OCR operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class PhotoToWordsWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -47,10 +48,10 @@ public class PhotoToWordsWithLocationResult {
   }
 
    /**
-   * Get successful
+   * True if successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -115,12 +116,12 @@ public class PhotoToWordsWithLocationResult {
     PhotoToWordsWithLocationResult photoToWordsWithLocationResult = (PhotoToWordsWithLocationResult) o;
     return Objects.equals(this.successful, photoToWordsWithLocationResult.successful) &&
         Objects.equals(this.textElements, photoToWordsWithLocationResult.textElements) &&
-        Objects.equals(this.diagnosticImage, photoToWordsWithLocationResult.diagnosticImage);
+        Arrays.equals(this.diagnosticImage, photoToWordsWithLocationResult.diagnosticImage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, textElements, diagnosticImage);
+    return Objects.hash(successful, textElements, Arrays.hashCode(diagnosticImage));
   }
 
 

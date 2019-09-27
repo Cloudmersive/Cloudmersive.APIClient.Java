@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Response from an HTML template application
  */
 @ApiModel(description = "Response from an HTML template application")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class HtmlTemplateApplicationResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -41,10 +42,10 @@ public class HtmlTemplateApplicationResponse {
   }
 
    /**
-   * Get successful
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -59,10 +60,10 @@ public class HtmlTemplateApplicationResponse {
   }
 
    /**
-   * Get finalHtml
+   * Final HTML result of all operations on input
    * @return finalHtml
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Final HTML result of all operations on input")
   public String getFinalHtml() {
     return finalHtml;
   }

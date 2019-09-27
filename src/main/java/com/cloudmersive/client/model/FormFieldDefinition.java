@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import java.util.List;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:38.635-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:30.686-07:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -76,10 +77,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get fieldID
+   * The identifier of the field; use this to identify which field is being referenced
    * @return fieldID
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The identifier of the field; use this to identify which field is being referenced")
   public String getFieldID() {
     return fieldID;
   }
@@ -94,10 +95,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get leftAnchor
+   * Optional - the left-hand anchor of the field
    * @return leftAnchor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - the left-hand anchor of the field")
   public String getLeftAnchor() {
     return leftAnchor;
   }
@@ -112,10 +113,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get topAnchor
+   * Optional - the top anchor of the field
    * @return topAnchor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - the top anchor of the field")
   public String getTopAnchor() {
     return topAnchor;
   }
@@ -130,10 +131,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get anchorMode
+   * Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match).  Default is Partial.
    * @return anchorMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match).  Default is Partial.")
   public String getAnchorMode() {
     return anchorMode;
   }
@@ -148,10 +149,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get dataType
+   * The data type of the field; possible values are INTEGER (Integer value), STRING (Arbitrary string value, spaces are permitted), DATE (Date in a structured format), DECIMAL (Decimal number), ALPHANUMERIC (Continuous alphanumeric string with no spaces), STRINGNOWHITESPACE (A string that contains no whitespace characters), SERIALNUMBER (A serial-number style string that contains letters and numbers, and certain symbols; must contain at least one number), ALPHAONLY (Alphabet characters only, no numbers or symbols or whitespace)
    * @return dataType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The data type of the field; possible values are INTEGER (Integer value), STRING (Arbitrary string value, spaces are permitted), DATE (Date in a structured format), DECIMAL (Decimal number), ALPHANUMERIC (Continuous alphanumeric string with no spaces), STRINGNOWHITESPACE (A string that contains no whitespace characters), SERIALNUMBER (A serial-number style string that contains letters and numbers, and certain symbols; must contain at least one number), ALPHAONLY (Alphabet characters only, no numbers or symbols or whitespace)")
   public String getDataType() {
     return dataType;
   }
@@ -166,10 +167,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get targetDigitCount
+   * Optional - the target number of digits in the field; useful for fixed-length fields
    * @return targetDigitCount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - the target number of digits in the field; useful for fixed-length fields")
   public Integer getTargetDigitCount() {
     return targetDigitCount;
   }
@@ -184,10 +185,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get minimumCharacterCount
+   * Optional - the target number of digits in the field; useful for fixed-length fields
    * @return minimumCharacterCount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - the target number of digits in the field; useful for fixed-length fields")
   public Integer getMinimumCharacterCount() {
     return minimumCharacterCount;
   }
@@ -202,10 +203,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get allowNumericDigits
+   * Optional - set to false to block values that contain numeric digits, set to true to allow numeric digits
    * @return allowNumericDigits
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - set to false to block values that contain numeric digits, set to true to allow numeric digits")
   public Boolean isAllowNumericDigits() {
     return allowNumericDigits;
   }
@@ -220,10 +221,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get verticalAlignmentType
+   * Vertical alignment of target value area relative to the field anchor; Possible values are VCenter, Top, Bottom
    * @return verticalAlignmentType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Vertical alignment of target value area relative to the field anchor; Possible values are VCenter, Top, Bottom")
   public String getVerticalAlignmentType() {
     return verticalAlignmentType;
   }
@@ -238,10 +239,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get horizontalAlignmentType
+   * Horizontal alignment of target value area relative to the field anchor; Possible values are Left, Right
    * @return horizontalAlignmentType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Horizontal alignment of target value area relative to the field anchor; Possible values are Left, Right")
   public String getHorizontalAlignmentType() {
     return horizontalAlignmentType;
   }
@@ -256,10 +257,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get targetFieldWidthRelative
+   * Optional - scale factor for target field width - relative to width of field title; a value of 1.0 indicates the target value area has the same width as the field value as occurring in the image; a value of 2.0 would indicate that the target value area has 2 times the width of the field value as occurring in the image.
    * @return targetFieldWidthRelative
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - scale factor for target field width - relative to width of field title; a value of 1.0 indicates the target value area has the same width as the field value as occurring in the image; a value of 2.0 would indicate that the target value area has 2 times the width of the field value as occurring in the image.")
   public Double getTargetFieldWidthRelative() {
     return targetFieldWidthRelative;
   }
@@ -274,10 +275,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get targetFieldHeightRelative
+   * Optional - scale factor for target field height - relative to height of field title
    * @return targetFieldHeightRelative
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - scale factor for target field height - relative to height of field title")
   public Double getTargetFieldHeightRelative() {
     return targetFieldHeightRelative;
   }
@@ -300,10 +301,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Get ignore
+   * Optional - Ignore any result items that contain a partial or complete match with these text strings
    * @return ignore
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Optional - Ignore any result items that contain a partial or complete match with these text strings")
   public List<String> getIgnore() {
     return ignore;
   }

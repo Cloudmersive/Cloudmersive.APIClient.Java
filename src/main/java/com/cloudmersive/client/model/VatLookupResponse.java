@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * VatLookupResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:31.843-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:21.707-07:00")
 public class VatLookupResponse {
   @SerializedName("CountryCode")
   private String countryCode = null;
@@ -49,10 +50,10 @@ public class VatLookupResponse {
   }
 
    /**
-   * Get countryCode
+   * Two-letter country code
    * @return countryCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Two-letter country code")
   public String getCountryCode() {
     return countryCode;
   }
@@ -67,10 +68,10 @@ public class VatLookupResponse {
   }
 
    /**
-   * Get vatNumber
+   * VAT number
    * @return vatNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "VAT number")
   public String getVatNumber() {
     return vatNumber;
   }
@@ -85,10 +86,10 @@ public class VatLookupResponse {
   }
 
    /**
-   * Get isValid
+   * True if the VAT code is valid, false otherwise
    * @return isValid
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the VAT code is valid, false otherwise")
   public Boolean isIsValid() {
     return isValid;
   }
@@ -103,10 +104,10 @@ public class VatLookupResponse {
   }
 
    /**
-   * Get businessName
+   * Name of the business
    * @return businessName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the business")
   public String getBusinessName() {
     return businessName;
   }
@@ -121,10 +122,10 @@ public class VatLookupResponse {
   }
 
    /**
-   * Get businessAddress
+   * Business address
    * @return businessAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Business address")
   public String getBusinessAddress() {
     return businessAddress;
   }

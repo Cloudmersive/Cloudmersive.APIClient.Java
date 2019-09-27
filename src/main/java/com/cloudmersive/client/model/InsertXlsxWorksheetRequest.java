@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.cloudmersive.client.model.XlsxWorksheet;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Input to a Get Worksheets request
  */
 @ApiModel(description = "Input to a Get Worksheets request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class InsertXlsxWorksheetRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -103,14 +104,14 @@ public class InsertXlsxWorksheetRequest {
       return false;
     }
     InsertXlsxWorksheetRequest insertXlsxWorksheetRequest = (InsertXlsxWorksheetRequest) o;
-    return Objects.equals(this.inputFileBytes, insertXlsxWorksheetRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, insertXlsxWorksheetRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, insertXlsxWorksheetRequest.inputFileUrl) &&
         Objects.equals(this.worksheetToInsert, insertXlsxWorksheetRequest.worksheetToInsert);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, worksheetToInsert);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, worksheetToInsert);
   }
 
 

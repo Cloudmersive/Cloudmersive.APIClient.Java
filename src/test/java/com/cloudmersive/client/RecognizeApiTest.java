@@ -128,7 +128,8 @@ public class RecognizeApiTest {
      */
     @Test
     public void recognizeDetectTextLargeTest() throws ApiException {
-        TextDetectionResult response = api.recognizeDetectTextLarge();
+        File imageFile = null;
+        TextDetectionResult response = api.recognizeDetectTextLarge(imageFile);
 
         // TODO: test validations
     }

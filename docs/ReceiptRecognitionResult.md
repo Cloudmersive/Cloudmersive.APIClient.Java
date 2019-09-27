@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**successful** | **Boolean** |  |  [optional]
-**timestamp** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**businessName** | **String** |  |  [optional]
-**businessWebsite** | **String** |  |  [optional]
-**addressString** | **String** |  |  [optional]
-**phoneNumber** | **String** |  |  [optional]
-**receiptItems** | [**List&lt;ReceiptLineItem&gt;**](ReceiptLineItem.md) |  |  [optional]
-**receiptTotal** | **Double** |  |  [optional]
+**successful** | **Boolean** | True if the operation was successful, false otherwise |  [optional]
+**timestamp** | [**OffsetDateTime**](OffsetDateTime.md) | The date and time printed on the receipt (if included on the receipt) |  [optional]
+**businessName** | **String** | The name of the business printed on the receipt (if included on the receipt) |  [optional]
+**businessWebsite** | **String** | The website URL of the business printed on the receipt (if included on the receipt) |  [optional]
+**addressString** | **String** | The address of the business printed on the receipt (if included on the receipt) |  [optional]
+**phoneNumber** | **String** | The phone number printed on the receipt (if included on the receipt) |  [optional]
+**receiptItems** | [**List&lt;ReceiptLineItem&gt;**](ReceiptLineItem.md) | The individual line items comprising the order; does not include total (see ReceiptTotal) |  [optional]
+**receiptTotal** | **Double** | The total monetary value of the receipt (if included on the receipt) |  [optional]
 
 
 

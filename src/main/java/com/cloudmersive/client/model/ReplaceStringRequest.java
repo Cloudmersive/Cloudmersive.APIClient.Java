@@ -14,6 +14,7 @@
 package com.cloudmersive.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Input to a string replacement request
  */
 @ApiModel(description = "Input to a string replacement request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-18T23:02:48.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:43.065-07:00")
 public class ReplaceStringRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -144,7 +145,7 @@ public class ReplaceStringRequest {
       return false;
     }
     ReplaceStringRequest replaceStringRequest = (ReplaceStringRequest) o;
-    return Objects.equals(this.inputFileBytes, replaceStringRequest.inputFileBytes) &&
+    return Arrays.equals(this.inputFileBytes, replaceStringRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, replaceStringRequest.inputFileUrl) &&
         Objects.equals(this.matchString, replaceStringRequest.matchString) &&
         Objects.equals(this.replaceString, replaceStringRequest.replaceString) &&
@@ -153,7 +154,7 @@ public class ReplaceStringRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputFileBytes, inputFileUrl, matchString, replaceString, matchCase);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, matchString, replaceString, matchCase);
   }
 
 
