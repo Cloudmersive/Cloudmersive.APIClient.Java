@@ -25,27 +25,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Result of running a set-header command
+ * Text conversion result from converting a document to Plain Text (TXT) format
  */
-@ApiModel(description = "Result of running a set-header command")
+@ApiModel(description = "Text conversion result from converting a document to Plain Text (TXT) format")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T11:38:27.003-07:00")
-public class DocxSetHeaderResponse {
+public class TextConversionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("EditedDocumentURL")
-  private String editedDocumentURL = null;
+  @SerializedName("TextResult")
+  private String textResult = null;
 
-  public DocxSetHeaderResponse successful(Boolean successful) {
+  public TextConversionResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
 
    /**
-   * True if successful, false otherwise
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "True if successful, false otherwise")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -54,22 +54,22 @@ public class DocxSetHeaderResponse {
     this.successful = successful;
   }
 
-  public DocxSetHeaderResponse editedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public TextConversionResult textResult(String textResult) {
+    this.textResult = textResult;
     return this;
   }
 
    /**
-   * URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
-   * @return editedDocumentURL
+   * Plain Text (TXT) format conversion result of the input document.  The text result is returned as a string.
+   * @return textResult
   **/
-  @ApiModelProperty(value = "URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.")
-  public String getEditedDocumentURL() {
-    return editedDocumentURL;
+  @ApiModelProperty(value = "Plain Text (TXT) format conversion result of the input document.  The text result is returned as a string.")
+  public String getTextResult() {
+    return textResult;
   }
 
-  public void setEditedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public void setTextResult(String textResult) {
+    this.textResult = textResult;
   }
 
 
@@ -81,24 +81,24 @@ public class DocxSetHeaderResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocxSetHeaderResponse docxSetHeaderResponse = (DocxSetHeaderResponse) o;
-    return Objects.equals(this.successful, docxSetHeaderResponse.successful) &&
-        Objects.equals(this.editedDocumentURL, docxSetHeaderResponse.editedDocumentURL);
+    TextConversionResult textConversionResult = (TextConversionResult) o;
+    return Objects.equals(this.successful, textConversionResult.successful) &&
+        Objects.equals(this.textResult, textConversionResult.textResult);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, editedDocumentURL);
+    return Objects.hash(successful, textResult);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocxSetHeaderResponse {\n");
+    sb.append("class TextConversionResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    editedDocumentURL: ").append(toIndentedString(editedDocumentURL)).append("\n");
+    sb.append("    textResult: ").append(toIndentedString(textResult)).append("\n");
     sb.append("}");
     return sb.toString();
   }

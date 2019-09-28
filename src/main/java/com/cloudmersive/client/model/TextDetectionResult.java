@@ -31,7 +31,7 @@ import java.util.List;
  * Result of an operation to detect text in a photo
  */
 @ApiModel(description = "Result of an operation to detect text in a photo")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T18:41:38.139-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T11:38:20.863-07:00")
 public class TextDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

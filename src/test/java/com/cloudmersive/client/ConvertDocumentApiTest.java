@@ -18,6 +18,7 @@ import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
 import java.io.File;
 import com.cloudmersive.client.model.PdfToPngResult;
+import com.cloudmersive.client.model.TextConversionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -84,6 +85,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Document to Text
+     *
+     * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentAutodetectToTxt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * CSV to Excel XLSX
      *
      * Convert CSV file to Office Excel XLSX Workbooks file format.
@@ -143,6 +160,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentDocxToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentDocxToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Word DOCX to Text
+     *
+     * Convert Office Word Documents (docx) to text
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentDocxToTxt(inputFile);
 
         // TODO: test validations
     }
@@ -228,6 +261,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * PDF to Text
+     *
+     * PDF document to text
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentPdfToTxt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * PowerPoint PPT (97-03) to PDF
      *
      * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
@@ -271,6 +320,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPptxToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentPptxToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * PowerPoint PPTX to Text
+     *
+     * Convert Office PowerPoint Documents (pptx) to standard Text
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPptxToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentPptxToTxt(inputFile);
 
         // TODO: test validations
     }
@@ -335,6 +400,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentXlsxToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentXlsxToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Excel XLSX to Text
+     *
+     * Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsxToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentXlsxToTxt(inputFile);
 
         // TODO: test validations
     }
