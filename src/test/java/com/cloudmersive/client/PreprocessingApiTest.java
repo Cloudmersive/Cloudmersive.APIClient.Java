@@ -98,6 +98,22 @@ public class PreprocessingApiTest {
     }
     
     /**
+     * Detect and unrotate a document image (advanced)
+     *
+     * Detect and unrotate an image of a document (e.g. that was scanned at an angle) using deep learning.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void preprocessingUnrotateAdvancedTest() throws ApiException {
+        File imageFile = null;
+        byte[] response = api.preprocessingUnrotateAdvanced(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Detect and unskew a photo of a document
      *
      * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.

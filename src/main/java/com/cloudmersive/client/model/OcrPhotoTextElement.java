@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.Point;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +24,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A single text in an OCR document
  */
 @ApiModel(description = "A single text in an OCR document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T11:38:13.251-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T20:02:53.401-07:00")
 public class OcrPhotoTextElement {
   @SerializedName("Text")
   private String text = null;
@@ -44,6 +47,9 @@ public class OcrPhotoTextElement {
 
   @SerializedName("Height")
   private Integer height = null;
+
+  @SerializedName("BoundingPoints")
+  private List<Point> boundingPoints = null;
 
   @SerializedName("ConfidenceLevel")
   private Double confidenceLevel = null;
@@ -138,6 +144,32 @@ public class OcrPhotoTextElement {
     this.height = height;
   }
 
+  public OcrPhotoTextElement boundingPoints(List<Point> boundingPoints) {
+    this.boundingPoints = boundingPoints;
+    return this;
+  }
+
+  public OcrPhotoTextElement addBoundingPointsItem(Point boundingPointsItem) {
+    if (this.boundingPoints == null) {
+      this.boundingPoints = new ArrayList<Point>();
+    }
+    this.boundingPoints.add(boundingPointsItem);
+    return this;
+  }
+
+   /**
+   * Points that form the bounding polygon around the text
+   * @return boundingPoints
+  **/
+  @ApiModelProperty(value = "Points that form the bounding polygon around the text")
+  public List<Point> getBoundingPoints() {
+    return boundingPoints;
+  }
+
+  public void setBoundingPoints(List<Point> boundingPoints) {
+    this.boundingPoints = boundingPoints;
+  }
+
   public OcrPhotoTextElement confidenceLevel(Double confidenceLevel) {
     this.confidenceLevel = confidenceLevel;
     return this;
@@ -171,12 +203,13 @@ public class OcrPhotoTextElement {
         Objects.equals(this.ytop, ocrPhotoTextElement.ytop) &&
         Objects.equals(this.width, ocrPhotoTextElement.width) &&
         Objects.equals(this.height, ocrPhotoTextElement.height) &&
+        Objects.equals(this.boundingPoints, ocrPhotoTextElement.boundingPoints) &&
         Objects.equals(this.confidenceLevel, ocrPhotoTextElement.confidenceLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, xleft, ytop, width, height, confidenceLevel);
+    return Objects.hash(text, xleft, ytop, width, height, boundingPoints, confidenceLevel);
   }
 
 
@@ -190,6 +223,7 @@ public class OcrPhotoTextElement {
     sb.append("    ytop: ").append(toIndentedString(ytop)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    boundingPoints: ").append(toIndentedString(boundingPoints)).append("\n");
     sb.append("    confidenceLevel: ").append(toIndentedString(confidenceLevel)).append("\n");
     sb.append("}");
     return sb.toString();

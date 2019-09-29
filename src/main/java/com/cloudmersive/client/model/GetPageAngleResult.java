@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a get-page-angle operation
  */
 @ApiModel(description = "Result of performing a get-page-angle operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T11:38:13.251-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T20:02:53.401-07:00")
 public class GetPageAngleResult {
   @SerializedName("Successful")
   private Boolean successful = null;

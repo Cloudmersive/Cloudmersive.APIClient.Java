@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**preprocessingBinarizeAdvanced**](PreprocessingApi.md#preprocessingBinarizeAdvanced) | **POST** /ocr/preprocessing/image/binarize/advanced | Convert an image of text into a binary (light and dark) view with ML
 [**preprocessingGetPageAngle**](PreprocessingApi.md#preprocessingGetPageAngle) | **POST** /ocr/preprocessing/image/get-page-angle | Get the angle of the page / document / receipt
 [**preprocessingUnrotate**](PreprocessingApi.md#preprocessingUnrotate) | **POST** /ocr/preprocessing/image/unrotate | Detect and unrotate a document image
+[**preprocessingUnrotateAdvanced**](PreprocessingApi.md#preprocessingUnrotateAdvanced) | **POST** /ocr/preprocessing/image/unrotate/advanced | Detect and unrotate a document image (advanced)
 [**preprocessingUnskew**](PreprocessingApi.md#preprocessingUnskew) | **POST** /ocr/preprocessing/image/unskew | Detect and unskew a photo of a document
 
 
@@ -208,6 +209,61 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PreprocessingApi#preprocessingUnrotate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageFile** | **File**| Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="preprocessingUnrotateAdvanced"></a>
+# **preprocessingUnrotateAdvanced**
+> byte[] preprocessingUnrotateAdvanced(imageFile)
+
+Detect and unrotate a document image (advanced)
+
+Detect and unrotate an image of a document (e.g. that was scanned at an angle) using deep learning.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.PreprocessingApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+PreprocessingApi apiInstance = new PreprocessingApi();
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported.
+try {
+    byte[] result = apiInstance.preprocessingUnrotateAdvanced(imageFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PreprocessingApi#preprocessingUnrotateAdvanced");
     e.printStackTrace();
 }
 ```

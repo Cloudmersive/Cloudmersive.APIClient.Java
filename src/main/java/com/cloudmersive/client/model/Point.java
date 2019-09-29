@@ -15,7 +15,6 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudmersive.client.model.TableCellResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,42 +23,53 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * One row of data in the resulting table
+ * Point location in 2D in an image, where 0, 0 represents the top/left corner of the image
  */
-@ApiModel(description = "One row of data in the resulting table")
+@ApiModel(description = "Point location in 2D in an image, where 0, 0 represents the top/left corner of the image")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T20:02:53.401-07:00")
-public class TableRowResult {
-  @SerializedName("TableRowCellsResult")
-  private List<TableCellResult> tableRowCellsResult = null;
+public class Point {
+  @SerializedName("X")
+  private Integer X = null;
 
-  public TableRowResult tableRowCellsResult(List<TableCellResult> tableRowCellsResult) {
-    this.tableRowCellsResult = tableRowCellsResult;
-    return this;
-  }
+  @SerializedName("Y")
+  private Integer Y = null;
 
-  public TableRowResult addTableRowCellsResultItem(TableCellResult tableRowCellsResultItem) {
-    if (this.tableRowCellsResult == null) {
-      this.tableRowCellsResult = new ArrayList<TableCellResult>();
-    }
-    this.tableRowCellsResult.add(tableRowCellsResultItem);
+  public Point X(Integer X) {
+    this.X = X;
     return this;
   }
 
    /**
-   * Table cells in this row result
-   * @return tableRowCellsResult
+   * X location in 2D in the image, where 0 represents the left edge of the image
+   * @return X
   **/
-  @ApiModelProperty(value = "Table cells in this row result")
-  public List<TableCellResult> getTableRowCellsResult() {
-    return tableRowCellsResult;
+  @ApiModelProperty(value = "X location in 2D in the image, where 0 represents the left edge of the image")
+  public Integer getX() {
+    return X;
   }
 
-  public void setTableRowCellsResult(List<TableCellResult> tableRowCellsResult) {
-    this.tableRowCellsResult = tableRowCellsResult;
+  public void setX(Integer X) {
+    this.X = X;
+  }
+
+  public Point Y(Integer Y) {
+    this.Y = Y;
+    return this;
+  }
+
+   /**
+   * Y location in 2D in the image, where 0 represents the top edge of the image
+   * @return Y
+  **/
+  @ApiModelProperty(value = "Y location in 2D in the image, where 0 represents the top edge of the image")
+  public Integer getY() {
+    return Y;
+  }
+
+  public void setY(Integer Y) {
+    this.Y = Y;
   }
 
 
@@ -71,22 +81,24 @@ public class TableRowResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TableRowResult tableRowResult = (TableRowResult) o;
-    return Objects.equals(this.tableRowCellsResult, tableRowResult.tableRowCellsResult);
+    Point point = (Point) o;
+    return Objects.equals(this.X, point.X) &&
+        Objects.equals(this.Y, point.Y);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tableRowCellsResult);
+    return Objects.hash(X, Y);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TableRowResult {\n");
+    sb.append("class Point {\n");
     
-    sb.append("    tableRowCellsResult: ").append(toIndentedString(tableRowCellsResult)).append("\n");
+    sb.append("    X: ").append(toIndentedString(X)).append("\n");
+    sb.append("    Y: ").append(toIndentedString(Y)).append("\n");
     sb.append("}");
     return sb.toString();
   }
