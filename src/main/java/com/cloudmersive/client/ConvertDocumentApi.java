@@ -82,7 +82,7 @@ public class ConvertDocumentApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/octet-stream"
+            "application/json", "text/json", "application/xml", "text/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2415,6 +2415,130 @@ public class ConvertDocumentApi {
         return call;
     }
     /**
+     * Build call for convertDocumentXlsToCsv
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentXlsToCsvCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xls/to/csv";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentXlsToCsvValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentXlsToCsv(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentXlsToCsvCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Excel XLS (97-03) to CSV
+     * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] convertDocumentXlsToCsv(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = convertDocumentXlsToCsvWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Excel XLS (97-03) to CSV
+     * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> convertDocumentXlsToCsvWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentXlsToCsvValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Excel XLS (97-03) to CSV (asynchronously)
+     * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentXlsToCsvAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentXlsToCsvValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for convertDocumentXlsToPdf
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -2729,7 +2853,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to CSV
-     * Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2741,7 +2865,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to CSV
-     * Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2754,7 +2878,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to CSV (asynchronously)
-     * Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2853,7 +2977,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to PDF
-     * Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
+     * Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2865,7 +2989,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to PDF
-     * Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
+     * Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2878,7 +3002,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to PDF (asynchronously)
-     * Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
+     * Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2977,7 +3101,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to Text
-     * Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+     * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return TextConversionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2989,7 +3113,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to Text
-     * Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+     * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;TextConversionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3002,7 +3126,7 @@ public class ConvertDocumentApi {
 
     /**
      * Excel XLSX to Text (asynchronously)
-     * Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+     * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

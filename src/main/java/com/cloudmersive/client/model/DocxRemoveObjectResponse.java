@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running an Remove-Object command
  */
 @ApiModel(description = "Result of running an Remove-Object command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-28T20:03:08.714-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-05T13:44:38.701-07:00")
 public class DocxRemoveObjectResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

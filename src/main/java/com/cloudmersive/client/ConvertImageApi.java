@@ -208,7 +208,7 @@ public class ConvertImageApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -350,7 +350,7 @@ public class ConvertImageApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);

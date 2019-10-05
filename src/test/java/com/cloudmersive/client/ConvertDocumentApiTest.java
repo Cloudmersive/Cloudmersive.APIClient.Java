@@ -341,6 +341,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Excel XLS (97-03) to CSV
+     *
+     * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsToCsvTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentXlsToCsv(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Excel XLS (97-03) to PDF
      *
      * Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
@@ -375,7 +391,7 @@ public class ConvertDocumentApiTest {
     /**
      * Excel XLSX to CSV
      *
-     * Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -391,7 +407,7 @@ public class ConvertDocumentApiTest {
     /**
      * Excel XLSX to PDF
      *
-     * Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
+     * Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -407,7 +423,7 @@ public class ConvertDocumentApiTest {
     /**
      * Excel XLSX to Text
      *
-     * Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+     * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      *
      * @throws ApiException
      *          if the Api call fails
