@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a set-footer command
  */
 @ApiModel(description = "Result of running a set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-05T13:44:38.701-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-05T22:52:00.728-07:00")
 public class DocxSetFooterResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
