@@ -35,6 +35,8 @@ import com.cloudmersive.client.model.GetGenderRequest;
 import com.cloudmersive.client.model.GetGenderResponse;
 import com.cloudmersive.client.model.LastNameValidationRequest;
 import com.cloudmersive.client.model.LastNameValidationResponse;
+import com.cloudmersive.client.model.ValidateIdentifierRequest;
+import com.cloudmersive.client.model.ValidateIdentifierResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -180,6 +182,128 @@ public class NameApi {
 
         com.squareup.okhttp.Call call = nameGetGenderValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetGenderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for nameIdentifier
+     * @param input Identifier validation request information (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call nameIdentifierCall(ValidateIdentifierRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/name/identifier";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call nameIdentifierValidateBeforeCall(ValidateIdentifierRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling nameIdentifier(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = nameIdentifierCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate a code identifier
+     * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be \&quot;helloWorld\&quot; but not \&quot;hello*World\&quot;.
+     * @param input Identifier validation request information (required)
+     * @return ValidateIdentifierResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ValidateIdentifierResponse nameIdentifier(ValidateIdentifierRequest input) throws ApiException {
+        ApiResponse<ValidateIdentifierResponse> resp = nameIdentifierWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Validate a code identifier
+     * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be \&quot;helloWorld\&quot; but not \&quot;hello*World\&quot;.
+     * @param input Identifier validation request information (required)
+     * @return ApiResponse&lt;ValidateIdentifierResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ValidateIdentifierResponse> nameIdentifierWithHttpInfo(ValidateIdentifierRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = nameIdentifierValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<ValidateIdentifierResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate a code identifier (asynchronously)
+     * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be \&quot;helloWorld\&quot; but not \&quot;hello*World\&quot;.
+     * @param input Identifier validation request information (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call nameIdentifierAsync(ValidateIdentifierRequest input, final ApiCallback<ValidateIdentifierResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = nameIdentifierValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ValidateIdentifierResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

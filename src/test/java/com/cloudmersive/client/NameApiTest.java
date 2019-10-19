@@ -22,6 +22,8 @@ import com.cloudmersive.client.model.GetGenderRequest;
 import com.cloudmersive.client.model.GetGenderResponse;
 import com.cloudmersive.client.model.LastNameValidationRequest;
 import com.cloudmersive.client.model.LastNameValidationResponse;
+import com.cloudmersive.client.model.ValidateIdentifierRequest;
+import com.cloudmersive.client.model.ValidateIdentifierResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -51,6 +53,22 @@ public class NameApiTest {
     public void nameGetGenderTest() throws ApiException {
         GetGenderRequest input = null;
         GetGenderResponse response = api.nameGetGender(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a code identifier
+     *
+     * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be \&quot;helloWorld\&quot; but not \&quot;hello*World\&quot;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void nameIdentifierTest() throws ApiException {
+        ValidateIdentifierRequest input = null;
+        ValidateIdentifierResponse response = api.nameIdentifier(input);
 
         // TODO: test validations
     }

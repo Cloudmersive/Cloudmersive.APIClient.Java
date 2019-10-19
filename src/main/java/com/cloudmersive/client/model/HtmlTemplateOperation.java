@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * HtmlTemplateOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-13T22:51:56.064-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:22:12.582-07:00")
 public class HtmlTemplateOperation {
   /**
    * Operation action to take; possible values are \&quot;Replace\&quot;

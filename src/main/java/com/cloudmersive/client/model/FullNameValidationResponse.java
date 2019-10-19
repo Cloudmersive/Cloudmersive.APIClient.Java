@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of a full name validation operation
  */
 @ApiModel(description = "Result of a full name validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-13T22:51:39.160-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:21:48.649-07:00")
 public class FullNameValidationResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

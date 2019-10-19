@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
  */
 @ApiModel(description = "A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-13T22:51:56.064-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:22:12.582-07:00")
 public class WorksheetResult {
   @SerializedName("WorksheetNumber")
   private Integer worksheetNumber = null;
