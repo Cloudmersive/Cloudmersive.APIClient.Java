@@ -31,7 +31,7 @@ import java.util.List;
  * Part of speech tag result
  */
 @ApiModel(description = "Part of speech tag result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:21:54.998-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T12:17:26.204-07:00")
 public class PosResponse {
   @SerializedName("TaggedSentences")
   private List<PosSentence> taggedSentences = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * One point in a polygon
  */
 @ApiModel(description = "One point in a polygon")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:22:08.012-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T12:17:48.471-07:00")
 public class PolygonPoint {
   @SerializedName("X")
   private Double X = null;

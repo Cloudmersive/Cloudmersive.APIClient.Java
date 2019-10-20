@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to validate a first name
  */
 @ApiModel(description = "Request to validate a first name")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:21:48.649-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T12:17:20.141-07:00")
 public class FirstNameValidationRequest {
   @SerializedName("FirstName")
   private String firstName = null;

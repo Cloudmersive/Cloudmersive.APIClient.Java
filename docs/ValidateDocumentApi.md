@@ -5,8 +5,11 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**validateDocumentDocxValidation**](ValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
+[**validateDocumentJsonValidation**](ValidateDocumentApi.md#validateDocumentJsonValidation) | **POST** /convert/validate/json | Validate a JSON file
+[**validateDocumentPdfValidation**](ValidateDocumentApi.md#validateDocumentPdfValidation) | **POST** /convert/validate/pdf | Validate a PDF document file
 [**validateDocumentPptxValidation**](ValidateDocumentApi.md#validateDocumentPptxValidation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 [**validateDocumentXlsxValidation**](ValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
+[**validateDocumentXmlValidation**](ValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
 
 
 <a name="validateDocumentDocxValidation"></a>
@@ -41,6 +44,116 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ValidateDocumentApi#validateDocumentDocxValidation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="validateDocumentJsonValidation"></a>
+# **validateDocumentJsonValidation**
+> DocumentValidationResult validateDocumentJsonValidation(inputFile)
+
+Validate a JSON file
+
+Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ValidateDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ValidateDocumentApi apiInstance = new ValidateDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    DocumentValidationResult result = apiInstance.validateDocumentJsonValidation(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ValidateDocumentApi#validateDocumentJsonValidation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="validateDocumentPdfValidation"></a>
+# **validateDocumentPdfValidation**
+> DocumentValidationResult validateDocumentPdfValidation(inputFile)
+
+Validate a PDF document file
+
+Validate a PDF document; if the document is not valid, identifies the errors in the document
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ValidateDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ValidateDocumentApi apiInstance = new ValidateDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    DocumentValidationResult result = apiInstance.validateDocumentPdfValidation(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ValidateDocumentApi#validateDocumentPdfValidation");
     e.printStackTrace();
 }
 ```
@@ -151,6 +264,61 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ValidateDocumentApi#validateDocumentXlsxValidation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="validateDocumentXmlValidation"></a>
+# **validateDocumentXmlValidation**
+> DocumentValidationResult validateDocumentXmlValidation(inputFile)
+
+Validate an XML file
+
+Validate an XML document file; if the document is not valid, identifies the errors in the document
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ValidateDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ValidateDocumentApi apiInstance = new ValidateDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    DocumentValidationResult result = apiInstance.validateDocumentXmlValidation(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ValidateDocumentApi#validateDocumentXmlValidation");
     e.printStackTrace();
 }
 ```

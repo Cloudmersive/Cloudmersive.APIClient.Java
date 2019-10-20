@@ -30,7 +30,7 @@ import java.util.List;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:22:00.448-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T12:17:31.929-07:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;

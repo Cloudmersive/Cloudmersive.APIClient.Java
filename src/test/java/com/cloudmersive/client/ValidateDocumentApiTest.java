@@ -50,6 +50,38 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a JSON file
+     *
+     * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentJsonValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentJsonValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a PDF document file
+     *
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentPdfValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentPdfValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a PowerPoint presentation (PPTX)
      *
      * Validate a PowerPoint presentation (PPTX); if the document is not valid, identifies the errors in the document
@@ -77,6 +109,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentXlsxValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXlsxValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate an XML file
+     *
+     * Validate an XML document file; if the document is not valid, identifies the errors in the document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentXmlValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentXmlValidation(inputFile);
 
         // TODO: test validations
     }

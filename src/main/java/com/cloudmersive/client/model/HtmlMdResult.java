@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result from converting a Markdown file to HTML
  */
 @ApiModel(description = "Result from converting a Markdown file to HTML")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-19T15:22:12.582-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T12:17:58.862-07:00")
 public class HtmlMdResult {
   @SerializedName("Successful")
   private Boolean successful = null;

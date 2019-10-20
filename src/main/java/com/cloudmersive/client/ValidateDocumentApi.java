@@ -180,6 +180,254 @@ public class ValidateDocumentApi {
         return call;
     }
     /**
+     * Build call for validateDocumentJsonValidation
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call validateDocumentJsonValidationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/validate/json";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call validateDocumentJsonValidationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling validateDocumentJsonValidation(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = validateDocumentJsonValidationCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate a JSON file
+     * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return DocumentValidationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentValidationResult validateDocumentJsonValidation(File inputFile) throws ApiException {
+        ApiResponse<DocumentValidationResult> resp = validateDocumentJsonValidationWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Validate a JSON file
+     * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;DocumentValidationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentValidationResult> validateDocumentJsonValidationWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = validateDocumentJsonValidationValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate a JSON file (asynchronously)
+     * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call validateDocumentJsonValidationAsync(File inputFile, final ApiCallback<DocumentValidationResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = validateDocumentJsonValidationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for validateDocumentPdfValidation
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call validateDocumentPdfValidationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/validate/pdf";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call validateDocumentPdfValidationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling validateDocumentPdfValidation(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = validateDocumentPdfValidationCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate a PDF document file
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return DocumentValidationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentValidationResult validateDocumentPdfValidation(File inputFile) throws ApiException {
+        ApiResponse<DocumentValidationResult> resp = validateDocumentPdfValidationWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Validate a PDF document file
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;DocumentValidationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentValidationResult> validateDocumentPdfValidationWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = validateDocumentPdfValidationValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate a PDF document file (asynchronously)
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call validateDocumentPdfValidationAsync(File inputFile, final ApiCallback<DocumentValidationResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = validateDocumentPdfValidationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for validateDocumentPptxValidation
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -423,6 +671,130 @@ public class ValidateDocumentApi {
         }
 
         com.squareup.okhttp.Call call = validateDocumentXlsxValidationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for validateDocumentXmlValidation
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call validateDocumentXmlValidationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/validate/xml";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call validateDocumentXmlValidationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling validateDocumentXmlValidation(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = validateDocumentXmlValidationCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate an XML file
+     * Validate an XML document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return DocumentValidationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentValidationResult validateDocumentXmlValidation(File inputFile) throws ApiException {
+        ApiResponse<DocumentValidationResult> resp = validateDocumentXmlValidationWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Validate an XML file
+     * Validate an XML document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;DocumentValidationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentValidationResult> validateDocumentXmlValidationWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = validateDocumentXmlValidationValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate an XML file (asynchronously)
+     * Validate an XML document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call validateDocumentXmlValidationAsync(File inputFile, final ApiCallback<DocumentValidationResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = validateDocumentXmlValidationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DocumentValidationResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
