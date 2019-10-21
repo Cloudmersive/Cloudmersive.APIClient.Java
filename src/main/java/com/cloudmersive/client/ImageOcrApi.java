@@ -606,6 +606,154 @@ public class ImageOcrApi {
         return call;
     }
     /**
+     * Build call for imageOcrPhotoRecognizeFormAdvanced
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param bucketID Bucket ID of the Configuration Bucket storing the form templates (optional)
+     * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
+     * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
+     * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedCall(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/ocr/photo/recognize/form/advanced";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (bucketID != null)
+        localVarHeaderParams.put("bucketID", apiClient.parameterToString(bucketID));
+        if (bucketSecretKey != null)
+        localVarHeaderParams.put("bucketSecretKey", apiClient.parameterToString(bucketSecretKey));
+        if (recognitionMode != null)
+        localVarHeaderParams.put("recognitionMode", apiClient.parameterToString(recognitionMode));
+        if (preprocessing != null)
+        localVarHeaderParams.put("preprocessing", apiClient.parameterToString(preprocessing));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling imageOcrPhotoRecognizeFormAdvanced(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Recognize a photo of a form, extract key fields using stored templates
+     * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.  Uses template definitions stored in Cloudmersive Configuration; to configure stored templates in a configuration bucket, log into Cloudmersive Management Portal and navigate to Settings &amp;gt; API Configuration &amp;gt; Create Bucket
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param bucketID Bucket ID of the Configuration Bucket storing the form templates (optional)
+     * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
+     * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
+     * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @return FormRecognitionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FormRecognitionResult imageOcrPhotoRecognizeFormAdvanced(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing) throws ApiException {
+        ApiResponse<FormRecognitionResult> resp = imageOcrPhotoRecognizeFormAdvancedWithHttpInfo(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing);
+        return resp.getData();
+    }
+
+    /**
+     * Recognize a photo of a form, extract key fields using stored templates
+     * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.  Uses template definitions stored in Cloudmersive Configuration; to configure stored templates in a configuration bucket, log into Cloudmersive Management Portal and navigate to Settings &amp;gt; API Configuration &amp;gt; Create Bucket
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param bucketID Bucket ID of the Configuration Bucket storing the form templates (optional)
+     * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
+     * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
+     * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @return ApiResponse&lt;FormRecognitionResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FormRecognitionResult> imageOcrPhotoRecognizeFormAdvancedWithHttpInfo(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing) throws ApiException {
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, null, null);
+        Type localVarReturnType = new TypeToken<FormRecognitionResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Recognize a photo of a form, extract key fields using stored templates (asynchronously)
+     * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.  Uses template definitions stored in Cloudmersive Configuration; to configure stored templates in a configuration bucket, log into Cloudmersive Management Portal and navigate to Settings &amp;gt; API Configuration &amp;gt; Create Bucket
+     * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param bucketID Bucket ID of the Configuration Bucket storing the form templates (optional)
+     * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
+     * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
+     * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedAsync(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, final ApiCallback<FormRecognitionResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FormRecognitionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for imageOcrPhotoRecognizeReceipt
      * @param imageFile Image file to perform OCR on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)

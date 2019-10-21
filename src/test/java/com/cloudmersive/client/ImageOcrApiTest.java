@@ -112,6 +112,26 @@ public class ImageOcrApiTest {
     }
     
     /**
+     * Recognize a photo of a form, extract key fields using stored templates
+     *
+     * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.  Uses template definitions stored in Cloudmersive Configuration; to configure stored templates in a configuration bucket, log into Cloudmersive Management Portal and navigate to Settings &amp;gt; API Configuration &amp;gt; Create Bucket
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void imageOcrPhotoRecognizeFormAdvancedTest() throws ApiException {
+        File imageFile = null;
+        String bucketID = null;
+        String bucketSecretKey = null;
+        String recognitionMode = null;
+        String preprocessing = null;
+        FormRecognitionResult response = api.imageOcrPhotoRecognizeFormAdvanced(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Recognize a photo of a receipt, extract key business information
      *
      * Analyzes a photograph of a receipt as input, and outputs key business information such as the name of the business, the address of the business, the phone number of the business, the total of the receipt, the date of the receipt, and more.
