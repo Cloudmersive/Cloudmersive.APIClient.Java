@@ -28,7 +28,7 @@ import java.io.IOException;
  * Validation error found in document
  */
 @ApiModel(description = "Validation error found in document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T19:53:19.332-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-23T15:22:19.798-07:00")
 public class DocumentValidationError {
   @SerializedName("Description")
   private String description = null;

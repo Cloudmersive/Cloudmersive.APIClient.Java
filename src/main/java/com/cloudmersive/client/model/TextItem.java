@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual instance of text occuring in an image; one piece of text
  */
 @ApiModel(description = "Individual instance of text occuring in an image; one piece of text")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T19:53:15.829-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-23T15:22:14.333-07:00")
 public class TextItem {
   @SerializedName("LeftX")
   private Integer leftX = null;

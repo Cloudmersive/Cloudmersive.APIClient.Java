@@ -31,7 +31,7 @@ import java.util.List;
  * Result from classifying the Gender of people in an image
  */
 @ApiModel(description = "Result from classifying the Gender of people in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T19:53:15.829-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-23T15:22:14.333-07:00")
 public class GenderDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

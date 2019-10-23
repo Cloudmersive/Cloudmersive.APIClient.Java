@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of recognizing a receipt, to extract the key information from the receipt
  */
 @ApiModel(description = "Result of recognizing a receipt, to extract the key information from the receipt")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T19:53:10.142-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-23T15:22:04.869-07:00")
 public class ReceiptRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

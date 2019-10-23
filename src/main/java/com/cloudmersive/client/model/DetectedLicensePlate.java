@@ -28,7 +28,7 @@ import java.io.IOException;
  * License plate found in the image
  */
 @ApiModel(description = "License plate found in the image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-20T19:53:15.829-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-23T15:22:14.333-07:00")
 public class DetectedLicensePlate {
   @SerializedName("LicensePlateText_BestMatch")
   private String licensePlateTextBestMatch = null;
