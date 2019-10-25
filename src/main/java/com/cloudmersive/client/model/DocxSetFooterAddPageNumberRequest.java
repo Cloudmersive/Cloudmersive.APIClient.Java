@@ -25,18 +25,39 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Input to a Get Sections request
+ * Input to set-footer/add-page-number command
  */
-@ApiModel(description = "Input to a Get Sections request")
+@ApiModel(description = "Input to set-footer/add-page-number command")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-24T18:05:34.674-07:00")
-public class GetDocxSectionsRequest {
+public class DocxSetFooterAddPageNumberRequest {
+  @SerializedName("PrependText")
+  private String prependText = null;
+
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
 
   @SerializedName("InputFileUrl")
   private String inputFileUrl = null;
 
-  public GetDocxSectionsRequest inputFileBytes(byte[] inputFileBytes) {
+  public DocxSetFooterAddPageNumberRequest prependText(String prependText) {
+    this.prependText = prependText;
+    return this;
+  }
+
+   /**
+   * Get prependText
+   * @return prependText
+  **/
+  @ApiModelProperty(value = "")
+  public String getPrependText() {
+    return prependText;
+  }
+
+  public void setPrependText(String prependText) {
+    this.prependText = prependText;
+  }
+
+  public DocxSetFooterAddPageNumberRequest inputFileBytes(byte[] inputFileBytes) {
     this.inputFileBytes = inputFileBytes;
     return this;
   }
@@ -54,7 +75,7 @@ public class GetDocxSectionsRequest {
     this.inputFileBytes = inputFileBytes;
   }
 
-  public GetDocxSectionsRequest inputFileUrl(String inputFileUrl) {
+  public DocxSetFooterAddPageNumberRequest inputFileUrl(String inputFileUrl) {
     this.inputFileUrl = inputFileUrl;
     return this;
   }
@@ -81,22 +102,24 @@ public class GetDocxSectionsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDocxSectionsRequest getDocxSectionsRequest = (GetDocxSectionsRequest) o;
-    return Arrays.equals(this.inputFileBytes, getDocxSectionsRequest.inputFileBytes) &&
-        Objects.equals(this.inputFileUrl, getDocxSectionsRequest.inputFileUrl);
+    DocxSetFooterAddPageNumberRequest docxSetFooterAddPageNumberRequest = (DocxSetFooterAddPageNumberRequest) o;
+    return Objects.equals(this.prependText, docxSetFooterAddPageNumberRequest.prependText) &&
+        Arrays.equals(this.inputFileBytes, docxSetFooterAddPageNumberRequest.inputFileBytes) &&
+        Objects.equals(this.inputFileUrl, docxSetFooterAddPageNumberRequest.inputFileUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl);
+    return Objects.hash(prependText, Arrays.hashCode(inputFileBytes), inputFileUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDocxSectionsRequest {\n");
+    sb.append("class DocxSetFooterAddPageNumberRequest {\n");
     
+    sb.append("    prependText: ").append(toIndentedString(prependText)).append("\n");
     sb.append("    inputFileBytes: ").append(toIndentedString(inputFileBytes)).append("\n");
     sb.append("    inputFileUrl: ").append(toIndentedString(inputFileUrl)).append("\n");
     sb.append("}");

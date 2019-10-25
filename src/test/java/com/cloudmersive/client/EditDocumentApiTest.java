@@ -18,6 +18,7 @@ import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
 import com.cloudmersive.client.model.DocxRemoveObjectRequest;
 import com.cloudmersive.client.model.DocxRemoveObjectResponse;
+import com.cloudmersive.client.model.DocxSetFooterAddPageNumberRequest;
 import com.cloudmersive.client.model.DocxSetFooterRequest;
 import com.cloudmersive.client.model.DocxSetFooterResponse;
 import com.cloudmersive.client.model.DocxSetHeaderRequest;
@@ -292,6 +293,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxSetFooterTest() throws ApiException {
         DocxSetFooterRequest reqConfig = null;
         DocxSetFooterResponse response = api.editDocumentDocxSetFooter(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Add page number to footer in a DOCX
+     *
+     * Set the footer in a Word Document (DOCX) to contain a page number
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxSetFooterAddPageNumberTest() throws ApiException {
+        DocxSetFooterAddPageNumberRequest reqConfig = null;
+        DocxSetFooterResponse response = api.editDocumentDocxSetFooterAddPageNumber(reqConfig);
 
         // TODO: test validations
     }
