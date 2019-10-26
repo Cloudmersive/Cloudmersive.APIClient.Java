@@ -399,7 +399,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentXlsxToCsvTest() throws ApiException {
         File inputFile = null;
-        byte[] response = api.convertDocumentXlsxToCsv(inputFile);
+        String outputEncoding = null;
+        byte[] response = api.convertDocumentXlsxToCsv(inputFile, outputEncoding);
 
         // TODO: test validations
     }

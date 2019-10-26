@@ -26,12 +26,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Result of an autodetect/get-info operation
  */
 @ApiModel(description = "Result of an autodetect/get-info operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-24T18:05:34.674-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-26T13:02:16.775-07:00")
 public class AutodetectGetInfoResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -41,6 +42,15 @@ public class AutodetectGetInfoResult {
 
   @SerializedName("DetectedMimeType")
   private String detectedMimeType = null;
+
+  @SerializedName("PageCount")
+  private Long pageCount = null;
+
+  @SerializedName("Author")
+  private String author = null;
+
+  @SerializedName("DateModified")
+  private OffsetDateTime dateModified = null;
 
   @SerializedName("AlternateFileTypeCandidates")
   private List<AlternateFileFormatCandidate> alternateFileTypeCandidates = null;
@@ -99,6 +109,60 @@ public class AutodetectGetInfoResult {
     this.detectedMimeType = detectedMimeType;
   }
 
+  public AutodetectGetInfoResult pageCount(Long pageCount) {
+    this.pageCount = pageCount;
+    return this;
+  }
+
+   /**
+   * Number of pages in a page-based document; for presentations, this is the number of slides and for a spreadsheet this is the number of worksheets.  Contains 0 when the page count cannot be determined, or if the concept of page count does not apply (e.g. for an image)
+   * @return pageCount
+  **/
+  @ApiModelProperty(value = "Number of pages in a page-based document; for presentations, this is the number of slides and for a spreadsheet this is the number of worksheets.  Contains 0 when the page count cannot be determined, or if the concept of page count does not apply (e.g. for an image)")
+  public Long getPageCount() {
+    return pageCount;
+  }
+
+  public void setPageCount(Long pageCount) {
+    this.pageCount = pageCount;
+  }
+
+  public AutodetectGetInfoResult author(String author) {
+    this.author = author;
+    return this;
+  }
+
+   /**
+   * User name of the creator/author of the document, if available, null if not available
+   * @return author
+  **/
+  @ApiModelProperty(value = "User name of the creator/author of the document, if available, null if not available")
+  public String getAuthor() {
+    return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
+
+  public AutodetectGetInfoResult dateModified(OffsetDateTime dateModified) {
+    this.dateModified = dateModified;
+    return this;
+  }
+
+   /**
+   * The timestamp that the document was last modified, if available, null if not available
+   * @return dateModified
+  **/
+  @ApiModelProperty(value = "The timestamp that the document was last modified, if available, null if not available")
+  public OffsetDateTime getDateModified() {
+    return dateModified;
+  }
+
+  public void setDateModified(OffsetDateTime dateModified) {
+    this.dateModified = dateModified;
+  }
+
   public AutodetectGetInfoResult alternateFileTypeCandidates(List<AlternateFileFormatCandidate> alternateFileTypeCandidates) {
     this.alternateFileTypeCandidates = alternateFileTypeCandidates;
     return this;
@@ -138,12 +202,15 @@ public class AutodetectGetInfoResult {
     return Objects.equals(this.successful, autodetectGetInfoResult.successful) &&
         Objects.equals(this.detectedFileExtension, autodetectGetInfoResult.detectedFileExtension) &&
         Objects.equals(this.detectedMimeType, autodetectGetInfoResult.detectedMimeType) &&
+        Objects.equals(this.pageCount, autodetectGetInfoResult.pageCount) &&
+        Objects.equals(this.author, autodetectGetInfoResult.author) &&
+        Objects.equals(this.dateModified, autodetectGetInfoResult.dateModified) &&
         Objects.equals(this.alternateFileTypeCandidates, autodetectGetInfoResult.alternateFileTypeCandidates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, detectedFileExtension, detectedMimeType, alternateFileTypeCandidates);
+    return Objects.hash(successful, detectedFileExtension, detectedMimeType, pageCount, author, dateModified, alternateFileTypeCandidates);
   }
 
 
@@ -155,6 +222,9 @@ public class AutodetectGetInfoResult {
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    detectedFileExtension: ").append(toIndentedString(detectedFileExtension)).append("\n");
     sb.append("    detectedMimeType: ").append(toIndentedString(detectedMimeType)).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
+    sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("    dateModified: ").append(toIndentedString(dateModified)).append("\n");
     sb.append("    alternateFileTypeCandidates: ").append(toIndentedString(alternateFileTypeCandidates)).append("\n");
     sb.append("}");
     return sb.toString();

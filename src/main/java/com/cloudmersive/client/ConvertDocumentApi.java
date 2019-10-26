@@ -2789,12 +2789,13 @@ public class ConvertDocumentApi {
     /**
      * Build call for convertDocumentXlsxToCsv
      * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentXlsxToCsvCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentXlsxToCsvCall(File inputFile, String outputEncoding, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2804,6 +2805,8 @@ public class ConvertDocumentApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (outputEncoding != null)
+        localVarHeaderParams.put("outputEncoding", apiClient.parameterToString(outputEncoding));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -2838,7 +2841,7 @@ public class ConvertDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentXlsxToCsvValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentXlsxToCsvValidateBeforeCall(File inputFile, String outputEncoding, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -2846,7 +2849,7 @@ public class ConvertDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvCall(inputFile, outputEncoding, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2855,11 +2858,12 @@ public class ConvertDocumentApi {
      * Excel XLSX to CSV
      * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] convertDocumentXlsxToCsv(File inputFile) throws ApiException {
-        ApiResponse<byte[]> resp = convertDocumentXlsxToCsvWithHttpInfo(inputFile);
+    public byte[] convertDocumentXlsxToCsv(File inputFile, String outputEncoding) throws ApiException {
+        ApiResponse<byte[]> resp = convertDocumentXlsxToCsvWithHttpInfo(inputFile, outputEncoding);
         return resp.getData();
     }
 
@@ -2867,11 +2871,12 @@ public class ConvertDocumentApi {
      * Excel XLSX to CSV
      * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> convertDocumentXlsxToCsvWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<byte[]> convertDocumentXlsxToCsvWithHttpInfo(File inputFile, String outputEncoding) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, outputEncoding, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2880,11 +2885,12 @@ public class ConvertDocumentApi {
      * Excel XLSX to CSV (asynchronously)
      * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentXlsxToCsvAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentXlsxToCsvAsync(File inputFile, String outputEncoding, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2905,7 +2911,7 @@ public class ConvertDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, outputEncoding, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

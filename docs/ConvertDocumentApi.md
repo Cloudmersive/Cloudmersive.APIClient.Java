@@ -1243,7 +1243,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentXlsxToCsv"></a>
 # **convertDocumentXlsxToCsv**
-> byte[] convertDocumentXlsxToCsv(inputFile)
+> byte[] convertDocumentXlsxToCsv(inputFile, outputEncoding)
 
 Excel XLSX to CSV
 
@@ -1268,8 +1268,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+String outputEncoding = "outputEncoding_example"; // String | Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32.
 try {
-    byte[] result = apiInstance.convertDocumentXlsxToCsv(inputFile);
+    byte[] result = apiInstance.convertDocumentXlsxToCsv(inputFile, outputEncoding);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsxToCsv");
@@ -1282,6 +1283,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
+ **outputEncoding** | **String**| Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. | [optional]
 
 ### Return type
 

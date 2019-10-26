@@ -67,6 +67,23 @@ public class MergeDocumentApiTest {
     }
     
     /**
+     * Merge Multple PNG Files Together
+     *
+     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPngTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        byte[] response = api.mergeDocumentPng(inputFile1, inputFile2);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Merge Multple PowerPoint PPTX Together
      *
      * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation

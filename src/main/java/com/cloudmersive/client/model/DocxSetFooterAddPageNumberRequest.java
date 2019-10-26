@@ -28,34 +28,16 @@ import java.io.IOException;
  * Input to set-footer/add-page-number command
  */
 @ApiModel(description = "Input to set-footer/add-page-number command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-24T18:05:34.674-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-26T13:02:16.775-07:00")
 public class DocxSetFooterAddPageNumberRequest {
-  @SerializedName("PrependText")
-  private String prependText = null;
-
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
 
   @SerializedName("InputFileUrl")
   private String inputFileUrl = null;
 
-  public DocxSetFooterAddPageNumberRequest prependText(String prependText) {
-    this.prependText = prependText;
-    return this;
-  }
-
-   /**
-   * Get prependText
-   * @return prependText
-  **/
-  @ApiModelProperty(value = "")
-  public String getPrependText() {
-    return prependText;
-  }
-
-  public void setPrependText(String prependText) {
-    this.prependText = prependText;
-  }
+  @SerializedName("PrependText")
+  private String prependText = null;
 
   public DocxSetFooterAddPageNumberRequest inputFileBytes(byte[] inputFileBytes) {
     this.inputFileBytes = inputFileBytes;
@@ -93,6 +75,24 @@ public class DocxSetFooterAddPageNumberRequest {
     this.inputFileUrl = inputFileUrl;
   }
 
+  public DocxSetFooterAddPageNumberRequest prependText(String prependText) {
+    this.prependText = prependText;
+    return this;
+  }
+
+   /**
+   * Optional: extra text to add before the page number, for example if you want to show \&quot;Page 1\&quot; then you can set PrependText to \&quot;Page\&quot;
+   * @return prependText
+  **/
+  @ApiModelProperty(value = "Optional: extra text to add before the page number, for example if you want to show \"Page 1\" then you can set PrependText to \"Page\"")
+  public String getPrependText() {
+    return prependText;
+  }
+
+  public void setPrependText(String prependText) {
+    this.prependText = prependText;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,14 +103,14 @@ public class DocxSetFooterAddPageNumberRequest {
       return false;
     }
     DocxSetFooterAddPageNumberRequest docxSetFooterAddPageNumberRequest = (DocxSetFooterAddPageNumberRequest) o;
-    return Objects.equals(this.prependText, docxSetFooterAddPageNumberRequest.prependText) &&
-        Arrays.equals(this.inputFileBytes, docxSetFooterAddPageNumberRequest.inputFileBytes) &&
-        Objects.equals(this.inputFileUrl, docxSetFooterAddPageNumberRequest.inputFileUrl);
+    return Arrays.equals(this.inputFileBytes, docxSetFooterAddPageNumberRequest.inputFileBytes) &&
+        Objects.equals(this.inputFileUrl, docxSetFooterAddPageNumberRequest.inputFileUrl) &&
+        Objects.equals(this.prependText, docxSetFooterAddPageNumberRequest.prependText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(prependText, Arrays.hashCode(inputFileBytes), inputFileUrl);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, prependText);
   }
 
 
@@ -119,9 +119,9 @@ public class DocxSetFooterAddPageNumberRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocxSetFooterAddPageNumberRequest {\n");
     
-    sb.append("    prependText: ").append(toIndentedString(prependText)).append("\n");
     sb.append("    inputFileBytes: ").append(toIndentedString(inputFileBytes)).append("\n");
     sb.append("    inputFileUrl: ").append(toIndentedString(inputFileUrl)).append("\n");
+    sb.append("    prependText: ").append(toIndentedString(prependText)).append("\n");
     sb.append("}");
     return sb.toString();
   }
