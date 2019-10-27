@@ -245,6 +245,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * PDF to Single PNG image
+     *
+     * Convert PDF document to a single tall PNG image, by stacking/concatenating the images vertically into a single \&quot;tall\&quot; image
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToPngSingleTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentPdfToPngSingle(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * PDF to PowerPoint PPTX
      *
      * Convert standard PDF to Office PowerPoint Presentation (pptx).  Converts a PDF file at high fidelity into PowerPoint format, where it can be easily edited and processed.
