@@ -30,7 +30,7 @@ import java.util.List;
  * Section of a Word Document (DOCX)
  */
 @ApiModel(description = "Section of a Word Document (DOCX)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-27T14:02:29.801-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-27T16:37:28.662-07:00")
 public class DocxSection {
   @SerializedName("StartingPageNumbers")
   private List<Integer> startingPageNumbers = null;

@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of recognizing a receipt, to extract the key information from the receipt
  */
 @ApiModel(description = "Result of recognizing a receipt, to extract the key information from the receipt")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-27T14:02:19.907-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-27T16:37:11.292-07:00")
 public class ReceiptRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -54,6 +54,9 @@ public class ReceiptRecognitionResult {
 
   @SerializedName("ReceiptItems")
   private List<ReceiptLineItem> receiptItems = null;
+
+  @SerializedName("ReceiptSubTotal")
+  private Double receiptSubTotal = null;
 
   @SerializedName("ReceiptTotal")
   private Double receiptTotal = null;
@@ -192,6 +195,24 @@ public class ReceiptRecognitionResult {
     this.receiptItems = receiptItems;
   }
 
+  public ReceiptRecognitionResult receiptSubTotal(Double receiptSubTotal) {
+    this.receiptSubTotal = receiptSubTotal;
+    return this;
+  }
+
+   /**
+   * Optional; if available, the monetary value of the receipt subtotal - typically not including specialized line items such as Tax. If this value is not available, it will be 0.
+   * @return receiptSubTotal
+  **/
+  @ApiModelProperty(value = "Optional; if available, the monetary value of the receipt subtotal - typically not including specialized line items such as Tax. If this value is not available, it will be 0.")
+  public Double getReceiptSubTotal() {
+    return receiptSubTotal;
+  }
+
+  public void setReceiptSubTotal(Double receiptSubTotal) {
+    this.receiptSubTotal = receiptSubTotal;
+  }
+
   public ReceiptRecognitionResult receiptTotal(Double receiptTotal) {
     this.receiptTotal = receiptTotal;
     return this;
@@ -227,12 +248,13 @@ public class ReceiptRecognitionResult {
         Objects.equals(this.addressString, receiptRecognitionResult.addressString) &&
         Objects.equals(this.phoneNumber, receiptRecognitionResult.phoneNumber) &&
         Objects.equals(this.receiptItems, receiptRecognitionResult.receiptItems) &&
+        Objects.equals(this.receiptSubTotal, receiptRecognitionResult.receiptSubTotal) &&
         Objects.equals(this.receiptTotal, receiptRecognitionResult.receiptTotal);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, timestamp, businessName, businessWebsite, addressString, phoneNumber, receiptItems, receiptTotal);
+    return Objects.hash(successful, timestamp, businessName, businessWebsite, addressString, phoneNumber, receiptItems, receiptSubTotal, receiptTotal);
   }
 
 
@@ -248,6 +270,7 @@ public class ReceiptRecognitionResult {
     sb.append("    addressString: ").append(toIndentedString(addressString)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    receiptItems: ").append(toIndentedString(receiptItems)).append("\n");
+    sb.append("    receiptSubTotal: ").append(toIndentedString(receiptSubTotal)).append("\n");
     sb.append("    receiptTotal: ").append(toIndentedString(receiptTotal)).append("\n");
     sb.append("}");
     return sb.toString();
