@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.AutodetectDocumentValidationResult;
 import com.cloudmersive.client.model.DocumentValidationResult;
 import java.io.File;
 import org.junit.Test;
@@ -34,6 +35,22 @@ public class ValidateDocumentApiTest {
 
     
     /**
+     * Autodetect content type and validate
+     *
+     * Automatically detect the type of content, verify and validate that the content is indeed fully valid at depth, and then report the validation result.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentAutodetectValidationTest() throws ApiException {
+        File inputFile = null;
+        AutodetectDocumentValidationResult response = api.validateDocumentAutodetectValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Word document (DOCX)
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
@@ -45,6 +62,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentDocxValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentDocxValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate if a file is executable
+     *
+     * Validate if an input file is a binary executable file; if the document is not valid
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentExecutableValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentExecutableValidation(inputFile);
 
         // TODO: test validations
     }

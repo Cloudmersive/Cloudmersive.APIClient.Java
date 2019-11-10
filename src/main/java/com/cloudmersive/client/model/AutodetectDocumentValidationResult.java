@@ -32,7 +32,10 @@ import java.util.List;
  */
 @ApiModel(description = "Document validation result")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-10T00:40:29.062-08:00")
-public class DocumentValidationResult {
+public class AutodetectDocumentValidationResult {
+  @SerializedName("FileFormatExtension")
+  private String fileFormatExtension = null;
+
   @SerializedName("DocumentIsValid")
   private Boolean documentIsValid = null;
 
@@ -45,7 +48,25 @@ public class DocumentValidationResult {
   @SerializedName("ErrorsAndWarnings")
   private List<DocumentValidationError> errorsAndWarnings = null;
 
-  public DocumentValidationResult documentIsValid(Boolean documentIsValid) {
+  public AutodetectDocumentValidationResult fileFormatExtension(String fileFormatExtension) {
+    this.fileFormatExtension = fileFormatExtension;
+    return this;
+  }
+
+   /**
+   * Get fileFormatExtension
+   * @return fileFormatExtension
+  **/
+  @ApiModelProperty(value = "")
+  public String getFileFormatExtension() {
+    return fileFormatExtension;
+  }
+
+  public void setFileFormatExtension(String fileFormatExtension) {
+    this.fileFormatExtension = fileFormatExtension;
+  }
+
+  public AutodetectDocumentValidationResult documentIsValid(Boolean documentIsValid) {
     this.documentIsValid = documentIsValid;
     return this;
   }
@@ -63,7 +84,7 @@ public class DocumentValidationResult {
     this.documentIsValid = documentIsValid;
   }
 
-  public DocumentValidationResult errorCount(Integer errorCount) {
+  public AutodetectDocumentValidationResult errorCount(Integer errorCount) {
     this.errorCount = errorCount;
     return this;
   }
@@ -81,7 +102,7 @@ public class DocumentValidationResult {
     this.errorCount = errorCount;
   }
 
-  public DocumentValidationResult warningCount(Integer warningCount) {
+  public AutodetectDocumentValidationResult warningCount(Integer warningCount) {
     this.warningCount = warningCount;
     return this;
   }
@@ -99,12 +120,12 @@ public class DocumentValidationResult {
     this.warningCount = warningCount;
   }
 
-  public DocumentValidationResult errorsAndWarnings(List<DocumentValidationError> errorsAndWarnings) {
+  public AutodetectDocumentValidationResult errorsAndWarnings(List<DocumentValidationError> errorsAndWarnings) {
     this.errorsAndWarnings = errorsAndWarnings;
     return this;
   }
 
-  public DocumentValidationResult addErrorsAndWarningsItem(DocumentValidationError errorsAndWarningsItem) {
+  public AutodetectDocumentValidationResult addErrorsAndWarningsItem(DocumentValidationError errorsAndWarningsItem) {
     if (this.errorsAndWarnings == null) {
       this.errorsAndWarnings = new ArrayList<DocumentValidationError>();
     }
@@ -134,24 +155,26 @@ public class DocumentValidationResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentValidationResult documentValidationResult = (DocumentValidationResult) o;
-    return Objects.equals(this.documentIsValid, documentValidationResult.documentIsValid) &&
-        Objects.equals(this.errorCount, documentValidationResult.errorCount) &&
-        Objects.equals(this.warningCount, documentValidationResult.warningCount) &&
-        Objects.equals(this.errorsAndWarnings, documentValidationResult.errorsAndWarnings);
+    AutodetectDocumentValidationResult autodetectDocumentValidationResult = (AutodetectDocumentValidationResult) o;
+    return Objects.equals(this.fileFormatExtension, autodetectDocumentValidationResult.fileFormatExtension) &&
+        Objects.equals(this.documentIsValid, autodetectDocumentValidationResult.documentIsValid) &&
+        Objects.equals(this.errorCount, autodetectDocumentValidationResult.errorCount) &&
+        Objects.equals(this.warningCount, autodetectDocumentValidationResult.warningCount) &&
+        Objects.equals(this.errorsAndWarnings, autodetectDocumentValidationResult.errorsAndWarnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentIsValid, errorCount, warningCount, errorsAndWarnings);
+    return Objects.hash(fileFormatExtension, documentIsValid, errorCount, warningCount, errorsAndWarnings);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentValidationResult {\n");
+    sb.append("class AutodetectDocumentValidationResult {\n");
     
+    sb.append("    fileFormatExtension: ").append(toIndentedString(fileFormatExtension)).append("\n");
     sb.append("    documentIsValid: ").append(toIndentedString(documentIsValid)).append("\n");
     sb.append("    errorCount: ").append(toIndentedString(errorCount)).append("\n");
     sb.append("    warningCount: ").append(toIndentedString(warningCount)).append("\n");
