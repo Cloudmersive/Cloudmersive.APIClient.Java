@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a website scan
  */
 @ApiModel(description = "Result of running a website scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-10T00:40:35.973-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:09:20.239-08:00")
 public class WebsiteScanResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;

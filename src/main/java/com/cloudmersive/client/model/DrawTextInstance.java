@@ -28,7 +28,7 @@ import java.io.IOException;
  * Text instance to draw on an image
  */
 @ApiModel(description = "Text instance to draw on an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-10T00:40:24.318-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:09:08.464-08:00")
 public class DrawTextInstance {
   @SerializedName("Text")
   private String text = null;

@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.VirusScanAdvancedResult;
 import com.cloudmersive.client.model.VirusScanResult;
 import com.cloudmersive.client.model.WebsiteScanRequest;
 import com.cloudmersive.client.model.WebsiteScanResult;
@@ -38,7 +39,7 @@ public class ScanApiTest {
     /**
      * Scan a file for viruses
      *
-     * Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+     * Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -47,6 +48,26 @@ public class ScanApiTest {
     public void scanFileTest() throws ApiException {
         File inputFile = null;
         VirusScanResult response = api.scanFile(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Advanced Scan a file for viruses
+     *
+     * Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scanFileAdvancedTest() throws ApiException {
+        File inputFile = null;
+        Boolean allowExecutables = null;
+        Boolean allowInvalidFiles = null;
+        Boolean allowScripts = null;
+        String restrictFileTypes = null;
+        VirusScanAdvancedResult response = api.scanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, restrictFileTypes);
 
         // TODO: test validations
     }

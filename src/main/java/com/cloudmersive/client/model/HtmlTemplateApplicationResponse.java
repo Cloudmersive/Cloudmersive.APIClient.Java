@@ -28,7 +28,7 @@ import java.io.IOException;
  * Response from an HTML template application
  */
 @ApiModel(description = "Response from an HTML template application")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-10T00:40:29.062-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:09:13.349-08:00")
 public class HtmlTemplateApplicationResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

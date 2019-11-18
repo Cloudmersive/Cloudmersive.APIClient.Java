@@ -28,7 +28,7 @@ import java.io.IOException;
  * Identifier validation request, including the input identifier as well as various identifier rules
  */
 @ApiModel(description = "Identifier validation request, including the input identifier as well as various identifier rules")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-10T00:40:05.266-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:08:51.788-08:00")
 public class ValidateIdentifierRequest {
   @SerializedName("Input")
   private String input = null;

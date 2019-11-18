@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a barcode lookup
  */
 @ApiModel(description = "Result of performing a barcode lookup")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-10T00:40:20.661-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:09:05.575-08:00")
 public class BarcodeLookupResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
