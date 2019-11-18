@@ -463,13 +463,14 @@ public class ImageOcrApi {
      * @param formTemplateDefinition Form field definitions (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @param language Optional, language of the input document, default is English (ENG).  Possible values are ENG (English), ARA (Arabic), ZHO (Chinese - Simplified), ZHO-HANT (Chinese - Traditional), ASM (Assamese), AFR (Afrikaans), AMH (Amharic), AZE (Azerbaijani), AZE-CYRL (Azerbaijani - Cyrillic), BEL (Belarusian), BEN (Bengali), BOD (Tibetan), BOS (Bosnian), BUL (Bulgarian), CAT (Catalan; Valencian), CEB (Cebuano), CES (Czech), CHR (Cherokee), CYM (Welsh), DAN (Danish), DEU (German), DZO (Dzongkha), ELL (Greek), ENM (Archaic/Middle English), EPO (Esperanto), EST (Estonian), EUS (Basque), FAS (Persian), FIN (Finnish), FRA (French), FRK (Frankish), FRM (Middle-French), GLE (Irish), GLG (Galician), GRC (Ancient Greek), HAT (Hatian), HEB (Hebrew), HIN (Hindi), HRV (Croatian), HUN (Hungarian), IKU (Inuktitut), IND (Indonesian), ISL (Icelandic), ITA (Italian), ITA-OLD (Old - Italian), JAV (Javanese), JPN (Japanese), KAN (Kannada), KAT (Georgian), KAT-OLD (Old-Georgian), KAZ (Kazakh), KHM (Central Khmer), KIR (Kirghiz), KOR (Korean), KUR (Kurdish), LAO (Lao), LAT (Latin), LAV (Latvian), LIT (Lithuanian), MAL (Malayalam), MAR (Marathi), MKD (Macedonian), MLT (Maltese), MSA (Malay), MYA (Burmese), NEP (Nepali), NLD (Dutch), NOR (Norwegian), ORI (Oriya), PAN (Panjabi), POL (Polish), POR (Portuguese), PUS (Pushto), RON (Romanian), RUS (Russian), SAN (Sanskrit), SIN (Sinhala), SLK (Slovak), SLV (Slovenian), SPA (Spanish), SPA-OLD (Old Spanish), SQI (Albanian), SRP (Serbian), SRP-LAT (Latin Serbian), SWA (Swahili), SWE (Swedish), SYR (Syriac), TAM (Tamil), TEL (Telugu), TGK (Tajik), TGL (Tagalog), THA (Thai), TIR (Tigrinya), TUR (Turkish), UIG (Uighur), UKR (Ukrainian), URD (Urdu), UZB (Uzbek), UZB-CYR (Cyrillic Uzbek), VIE (Vietnamese), YID (Yiddish) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormCall(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String language, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormCall(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String diagnostics, String language, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -485,6 +486,8 @@ public class ImageOcrApi {
         localVarHeaderParams.put("recognitionMode", apiClient.parameterToString(recognitionMode));
         if (preprocessing != null)
         localVarHeaderParams.put("preprocessing", apiClient.parameterToString(preprocessing));
+        if (diagnostics != null)
+        localVarHeaderParams.put("diagnostics", apiClient.parameterToString(diagnostics));
         if (language != null)
         localVarHeaderParams.put("language", apiClient.parameterToString(language));
 
@@ -521,7 +524,7 @@ public class ImageOcrApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call imageOcrPhotoRecognizeFormValidateBeforeCall(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String language, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call imageOcrPhotoRecognizeFormValidateBeforeCall(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String diagnostics, String language, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'imageFile' is set
         if (imageFile == null) {
@@ -529,7 +532,7 @@ public class ImageOcrApi {
         }
         
 
-        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormCall(imageFile, formTemplateDefinition, recognitionMode, preprocessing, language, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormCall(imageFile, formTemplateDefinition, recognitionMode, preprocessing, diagnostics, language, progressListener, progressRequestListener);
         return call;
 
     }
@@ -541,12 +544,13 @@ public class ImageOcrApi {
      * @param formTemplateDefinition Form field definitions (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @param language Optional, language of the input document, default is English (ENG).  Possible values are ENG (English), ARA (Arabic), ZHO (Chinese - Simplified), ZHO-HANT (Chinese - Traditional), ASM (Assamese), AFR (Afrikaans), AMH (Amharic), AZE (Azerbaijani), AZE-CYRL (Azerbaijani - Cyrillic), BEL (Belarusian), BEN (Bengali), BOD (Tibetan), BOS (Bosnian), BUL (Bulgarian), CAT (Catalan; Valencian), CEB (Cebuano), CES (Czech), CHR (Cherokee), CYM (Welsh), DAN (Danish), DEU (German), DZO (Dzongkha), ELL (Greek), ENM (Archaic/Middle English), EPO (Esperanto), EST (Estonian), EUS (Basque), FAS (Persian), FIN (Finnish), FRA (French), FRK (Frankish), FRM (Middle-French), GLE (Irish), GLG (Galician), GRC (Ancient Greek), HAT (Hatian), HEB (Hebrew), HIN (Hindi), HRV (Croatian), HUN (Hungarian), IKU (Inuktitut), IND (Indonesian), ISL (Icelandic), ITA (Italian), ITA-OLD (Old - Italian), JAV (Javanese), JPN (Japanese), KAN (Kannada), KAT (Georgian), KAT-OLD (Old-Georgian), KAZ (Kazakh), KHM (Central Khmer), KIR (Kirghiz), KOR (Korean), KUR (Kurdish), LAO (Lao), LAT (Latin), LAV (Latvian), LIT (Lithuanian), MAL (Malayalam), MAR (Marathi), MKD (Macedonian), MLT (Maltese), MSA (Malay), MYA (Burmese), NEP (Nepali), NLD (Dutch), NOR (Norwegian), ORI (Oriya), PAN (Panjabi), POL (Polish), POR (Portuguese), PUS (Pushto), RON (Romanian), RUS (Russian), SAN (Sanskrit), SIN (Sinhala), SLK (Slovak), SLV (Slovenian), SPA (Spanish), SPA-OLD (Old Spanish), SQI (Albanian), SRP (Serbian), SRP-LAT (Latin Serbian), SWA (Swahili), SWE (Swedish), SYR (Syriac), TAM (Tamil), TEL (Telugu), TGK (Tajik), TGL (Tagalog), THA (Thai), TIR (Tigrinya), TUR (Turkish), UIG (Uighur), UKR (Ukrainian), URD (Urdu), UZB (Uzbek), UZB-CYR (Cyrillic Uzbek), VIE (Vietnamese), YID (Yiddish) (optional)
      * @return FormRecognitionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormRecognitionResult imageOcrPhotoRecognizeForm(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String language) throws ApiException {
-        ApiResponse<FormRecognitionResult> resp = imageOcrPhotoRecognizeFormWithHttpInfo(imageFile, formTemplateDefinition, recognitionMode, preprocessing, language);
+    public FormRecognitionResult imageOcrPhotoRecognizeForm(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String diagnostics, String language) throws ApiException {
+        ApiResponse<FormRecognitionResult> resp = imageOcrPhotoRecognizeFormWithHttpInfo(imageFile, formTemplateDefinition, recognitionMode, preprocessing, diagnostics, language);
         return resp.getData();
     }
 
@@ -557,12 +561,13 @@ public class ImageOcrApi {
      * @param formTemplateDefinition Form field definitions (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @param language Optional, language of the input document, default is English (ENG).  Possible values are ENG (English), ARA (Arabic), ZHO (Chinese - Simplified), ZHO-HANT (Chinese - Traditional), ASM (Assamese), AFR (Afrikaans), AMH (Amharic), AZE (Azerbaijani), AZE-CYRL (Azerbaijani - Cyrillic), BEL (Belarusian), BEN (Bengali), BOD (Tibetan), BOS (Bosnian), BUL (Bulgarian), CAT (Catalan; Valencian), CEB (Cebuano), CES (Czech), CHR (Cherokee), CYM (Welsh), DAN (Danish), DEU (German), DZO (Dzongkha), ELL (Greek), ENM (Archaic/Middle English), EPO (Esperanto), EST (Estonian), EUS (Basque), FAS (Persian), FIN (Finnish), FRA (French), FRK (Frankish), FRM (Middle-French), GLE (Irish), GLG (Galician), GRC (Ancient Greek), HAT (Hatian), HEB (Hebrew), HIN (Hindi), HRV (Croatian), HUN (Hungarian), IKU (Inuktitut), IND (Indonesian), ISL (Icelandic), ITA (Italian), ITA-OLD (Old - Italian), JAV (Javanese), JPN (Japanese), KAN (Kannada), KAT (Georgian), KAT-OLD (Old-Georgian), KAZ (Kazakh), KHM (Central Khmer), KIR (Kirghiz), KOR (Korean), KUR (Kurdish), LAO (Lao), LAT (Latin), LAV (Latvian), LIT (Lithuanian), MAL (Malayalam), MAR (Marathi), MKD (Macedonian), MLT (Maltese), MSA (Malay), MYA (Burmese), NEP (Nepali), NLD (Dutch), NOR (Norwegian), ORI (Oriya), PAN (Panjabi), POL (Polish), POR (Portuguese), PUS (Pushto), RON (Romanian), RUS (Russian), SAN (Sanskrit), SIN (Sinhala), SLK (Slovak), SLV (Slovenian), SPA (Spanish), SPA-OLD (Old Spanish), SQI (Albanian), SRP (Serbian), SRP-LAT (Latin Serbian), SWA (Swahili), SWE (Swedish), SYR (Syriac), TAM (Tamil), TEL (Telugu), TGK (Tajik), TGL (Tagalog), THA (Thai), TIR (Tigrinya), TUR (Turkish), UIG (Uighur), UKR (Ukrainian), URD (Urdu), UZB (Uzbek), UZB-CYR (Cyrillic Uzbek), VIE (Vietnamese), YID (Yiddish) (optional)
      * @return ApiResponse&lt;FormRecognitionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FormRecognitionResult> imageOcrPhotoRecognizeFormWithHttpInfo(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String language) throws ApiException {
-        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormValidateBeforeCall(imageFile, formTemplateDefinition, recognitionMode, preprocessing, language, null, null);
+    public ApiResponse<FormRecognitionResult> imageOcrPhotoRecognizeFormWithHttpInfo(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String diagnostics, String language) throws ApiException {
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormValidateBeforeCall(imageFile, formTemplateDefinition, recognitionMode, preprocessing, diagnostics, language, null, null);
         Type localVarReturnType = new TypeToken<FormRecognitionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -574,12 +579,13 @@ public class ImageOcrApi {
      * @param formTemplateDefinition Form field definitions (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @param language Optional, language of the input document, default is English (ENG).  Possible values are ENG (English), ARA (Arabic), ZHO (Chinese - Simplified), ZHO-HANT (Chinese - Traditional), ASM (Assamese), AFR (Afrikaans), AMH (Amharic), AZE (Azerbaijani), AZE-CYRL (Azerbaijani - Cyrillic), BEL (Belarusian), BEN (Bengali), BOD (Tibetan), BOS (Bosnian), BUL (Bulgarian), CAT (Catalan; Valencian), CEB (Cebuano), CES (Czech), CHR (Cherokee), CYM (Welsh), DAN (Danish), DEU (German), DZO (Dzongkha), ELL (Greek), ENM (Archaic/Middle English), EPO (Esperanto), EST (Estonian), EUS (Basque), FAS (Persian), FIN (Finnish), FRA (French), FRK (Frankish), FRM (Middle-French), GLE (Irish), GLG (Galician), GRC (Ancient Greek), HAT (Hatian), HEB (Hebrew), HIN (Hindi), HRV (Croatian), HUN (Hungarian), IKU (Inuktitut), IND (Indonesian), ISL (Icelandic), ITA (Italian), ITA-OLD (Old - Italian), JAV (Javanese), JPN (Japanese), KAN (Kannada), KAT (Georgian), KAT-OLD (Old-Georgian), KAZ (Kazakh), KHM (Central Khmer), KIR (Kirghiz), KOR (Korean), KUR (Kurdish), LAO (Lao), LAT (Latin), LAV (Latvian), LIT (Lithuanian), MAL (Malayalam), MAR (Marathi), MKD (Macedonian), MLT (Maltese), MSA (Malay), MYA (Burmese), NEP (Nepali), NLD (Dutch), NOR (Norwegian), ORI (Oriya), PAN (Panjabi), POL (Polish), POR (Portuguese), PUS (Pushto), RON (Romanian), RUS (Russian), SAN (Sanskrit), SIN (Sinhala), SLK (Slovak), SLV (Slovenian), SPA (Spanish), SPA-OLD (Old Spanish), SQI (Albanian), SRP (Serbian), SRP-LAT (Latin Serbian), SWA (Swahili), SWE (Swedish), SYR (Syriac), TAM (Tamil), TEL (Telugu), TGK (Tajik), TGL (Tagalog), THA (Thai), TIR (Tigrinya), TUR (Turkish), UIG (Uighur), UKR (Ukrainian), URD (Urdu), UZB (Uzbek), UZB-CYR (Cyrillic Uzbek), VIE (Vietnamese), YID (Yiddish) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAsync(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String language, final ApiCallback<FormRecognitionResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAsync(File imageFile, Object formTemplateDefinition, String recognitionMode, String preprocessing, String diagnostics, String language, final ApiCallback<FormRecognitionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -600,7 +606,7 @@ public class ImageOcrApi {
             };
         }
 
-        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormValidateBeforeCall(imageFile, formTemplateDefinition, recognitionMode, preprocessing, language, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormValidateBeforeCall(imageFile, formTemplateDefinition, recognitionMode, preprocessing, diagnostics, language, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FormRecognitionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -612,12 +618,13 @@ public class ImageOcrApi {
      * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedCall(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedCall(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, String diagnostics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -635,6 +642,8 @@ public class ImageOcrApi {
         localVarHeaderParams.put("recognitionMode", apiClient.parameterToString(recognitionMode));
         if (preprocessing != null)
         localVarHeaderParams.put("preprocessing", apiClient.parameterToString(preprocessing));
+        if (diagnostics != null)
+        localVarHeaderParams.put("diagnostics", apiClient.parameterToString(diagnostics));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (imageFile != null)
@@ -669,7 +678,7 @@ public class ImageOcrApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, String diagnostics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'imageFile' is set
         if (imageFile == null) {
@@ -677,7 +686,7 @@ public class ImageOcrApi {
         }
         
 
-        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, diagnostics, progressListener, progressRequestListener);
         return call;
 
     }
@@ -690,11 +699,12 @@ public class ImageOcrApi {
      * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @return FormRecognitionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormRecognitionResult imageOcrPhotoRecognizeFormAdvanced(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing) throws ApiException {
-        ApiResponse<FormRecognitionResult> resp = imageOcrPhotoRecognizeFormAdvancedWithHttpInfo(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing);
+    public FormRecognitionResult imageOcrPhotoRecognizeFormAdvanced(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, String diagnostics) throws ApiException {
+        ApiResponse<FormRecognitionResult> resp = imageOcrPhotoRecognizeFormAdvancedWithHttpInfo(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, diagnostics);
         return resp.getData();
     }
 
@@ -706,11 +716,12 @@ public class ImageOcrApi {
      * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @return ApiResponse&lt;FormRecognitionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FormRecognitionResult> imageOcrPhotoRecognizeFormAdvancedWithHttpInfo(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing) throws ApiException {
-        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, null, null);
+    public ApiResponse<FormRecognitionResult> imageOcrPhotoRecognizeFormAdvancedWithHttpInfo(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, String diagnostics) throws ApiException {
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, diagnostics, null, null);
         Type localVarReturnType = new TypeToken<FormRecognitionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -723,11 +734,12 @@ public class ImageOcrApi {
      * @param bucketSecretKey Bucket Secret Key of the Configuration Bucket storing the form templates (optional)
      * @param recognitionMode Optional, enable advanced recognition mode by specifying &#39;Advanced&#39;, enable handwriting recognition by specifying &#39;EnableHandwriting&#39;.  Default is disabled. (optional)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
+     * @param diagnostics Optional, diagnostics mode, default is &#39;false&#39;.  Possible values are &#39;true&#39; (will set DiagnosticImage to a diagnostic PNG image in the result), and &#39;false&#39; (no diagnostics are enabled; this is recommended for best performance). (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedAsync(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, final ApiCallback<FormRecognitionResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call imageOcrPhotoRecognizeFormAdvancedAsync(File imageFile, String bucketID, String bucketSecretKey, String recognitionMode, String preprocessing, String diagnostics, final ApiCallback<FormRecognitionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -748,7 +760,7 @@ public class ImageOcrApi {
             };
         }
 
-        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = imageOcrPhotoRecognizeFormAdvancedValidateBeforeCall(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, diagnostics, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FormRecognitionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

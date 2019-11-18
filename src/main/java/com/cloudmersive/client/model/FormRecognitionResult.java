@@ -32,7 +32,7 @@ import java.util.List;
  * The result of extracting form field values
  */
 @ApiModel(description = "The result of extracting form field values")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:09:00.436-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T22:31:25.059-08:00")
 public class FormRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -42,6 +42,9 @@ public class FormRecognitionResult {
 
   @SerializedName("TableValueExtractionResults")
   private List<TableResult> tableValueExtractionResults = null;
+
+  @SerializedName("Diagnostics")
+  private List<String> diagnostics = null;
 
   public FormRecognitionResult successful(Boolean successful) {
     this.successful = successful;
@@ -113,6 +116,32 @@ public class FormRecognitionResult {
     this.tableValueExtractionResults = tableValueExtractionResults;
   }
 
+  public FormRecognitionResult diagnostics(List<String> diagnostics) {
+    this.diagnostics = diagnostics;
+    return this;
+  }
+
+  public FormRecognitionResult addDiagnosticsItem(String diagnosticsItem) {
+    if (this.diagnostics == null) {
+      this.diagnostics = new ArrayList<String>();
+    }
+    this.diagnostics.add(diagnosticsItem);
+    return this;
+  }
+
+   /**
+   * Diagnostic images - default is null, enable diagnostics&#x3D;true to populate this parameter with one image per field
+   * @return diagnostics
+  **/
+  @ApiModelProperty(value = "Diagnostic images - default is null, enable diagnostics=true to populate this parameter with one image per field")
+  public List<String> getDiagnostics() {
+    return diagnostics;
+  }
+
+  public void setDiagnostics(List<String> diagnostics) {
+    this.diagnostics = diagnostics;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -125,12 +154,13 @@ public class FormRecognitionResult {
     FormRecognitionResult formRecognitionResult = (FormRecognitionResult) o;
     return Objects.equals(this.successful, formRecognitionResult.successful) &&
         Objects.equals(this.fieldValueExtractionResult, formRecognitionResult.fieldValueExtractionResult) &&
-        Objects.equals(this.tableValueExtractionResults, formRecognitionResult.tableValueExtractionResults);
+        Objects.equals(this.tableValueExtractionResults, formRecognitionResult.tableValueExtractionResults) &&
+        Objects.equals(this.diagnostics, formRecognitionResult.diagnostics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, fieldValueExtractionResult, tableValueExtractionResults);
+    return Objects.hash(successful, fieldValueExtractionResult, tableValueExtractionResults, diagnostics);
   }
 
 
@@ -142,6 +172,7 @@ public class FormRecognitionResult {
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    fieldValueExtractionResult: ").append(toIndentedString(fieldValueExtractionResult)).append("\n");
     sb.append("    tableValueExtractionResults: ").append(toIndentedString(tableValueExtractionResults)).append("\n");
+    sb.append("    diagnostics: ").append(toIndentedString(diagnostics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

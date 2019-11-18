@@ -30,7 +30,7 @@ import java.util.List;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T17:09:00.436-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-17T22:31:25.059-08:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -67,6 +67,12 @@ public class FormFieldDefinition {
 
   @SerializedName("TargetFieldHeight_Relative")
   private Double targetFieldHeightRelative = null;
+
+  @SerializedName("TargetFieldHorizontalAdjustment")
+  private Double targetFieldHorizontalAdjustment = null;
+
+  @SerializedName("TargetFieldVerticalAdjustment")
+  private Double targetFieldVerticalAdjustment = null;
 
   @SerializedName("Ignore")
   private List<String> ignore = null;
@@ -131,10 +137,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match).  Default is Partial.
+   * Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match) and Horizontal (anchor must be laid out horizontally).  Default is Partial.
    * @return anchorMode
   **/
-  @ApiModelProperty(value = "Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match).  Default is Partial.")
+  @ApiModelProperty(value = "Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match) and Horizontal (anchor must be laid out horizontally).  Default is Partial.")
   public String getAnchorMode() {
     return anchorMode;
   }
@@ -287,6 +293,42 @@ public class FormFieldDefinition {
     this.targetFieldHeightRelative = targetFieldHeightRelative;
   }
 
+  public FormFieldDefinition targetFieldHorizontalAdjustment(Double targetFieldHorizontalAdjustment) {
+    this.targetFieldHorizontalAdjustment = targetFieldHorizontalAdjustment;
+    return this;
+  }
+
+   /**
+   * Optional - horizontal adjestment in relative width of the field
+   * @return targetFieldHorizontalAdjustment
+  **/
+  @ApiModelProperty(value = "Optional - horizontal adjestment in relative width of the field")
+  public Double getTargetFieldHorizontalAdjustment() {
+    return targetFieldHorizontalAdjustment;
+  }
+
+  public void setTargetFieldHorizontalAdjustment(Double targetFieldHorizontalAdjustment) {
+    this.targetFieldHorizontalAdjustment = targetFieldHorizontalAdjustment;
+  }
+
+  public FormFieldDefinition targetFieldVerticalAdjustment(Double targetFieldVerticalAdjustment) {
+    this.targetFieldVerticalAdjustment = targetFieldVerticalAdjustment;
+    return this;
+  }
+
+   /**
+   * Optional - vertical adjestment in relative height of the field
+   * @return targetFieldVerticalAdjustment
+  **/
+  @ApiModelProperty(value = "Optional - vertical adjestment in relative height of the field")
+  public Double getTargetFieldVerticalAdjustment() {
+    return targetFieldVerticalAdjustment;
+  }
+
+  public void setTargetFieldVerticalAdjustment(Double targetFieldVerticalAdjustment) {
+    this.targetFieldVerticalAdjustment = targetFieldVerticalAdjustment;
+  }
+
   public FormFieldDefinition ignore(List<String> ignore) {
     this.ignore = ignore;
     return this;
@@ -335,12 +377,14 @@ public class FormFieldDefinition {
         Objects.equals(this.horizontalAlignmentType, formFieldDefinition.horizontalAlignmentType) &&
         Objects.equals(this.targetFieldWidthRelative, formFieldDefinition.targetFieldWidthRelative) &&
         Objects.equals(this.targetFieldHeightRelative, formFieldDefinition.targetFieldHeightRelative) &&
+        Objects.equals(this.targetFieldHorizontalAdjustment, formFieldDefinition.targetFieldHorizontalAdjustment) &&
+        Objects.equals(this.targetFieldVerticalAdjustment, formFieldDefinition.targetFieldVerticalAdjustment) &&
         Objects.equals(this.ignore, formFieldDefinition.ignore);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldID, leftAnchor, topAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, ignore);
+    return Objects.hash(fieldID, leftAnchor, topAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, targetFieldHorizontalAdjustment, targetFieldVerticalAdjustment, ignore);
   }
 
 
@@ -361,6 +405,8 @@ public class FormFieldDefinition {
     sb.append("    horizontalAlignmentType: ").append(toIndentedString(horizontalAlignmentType)).append("\n");
     sb.append("    targetFieldWidthRelative: ").append(toIndentedString(targetFieldWidthRelative)).append("\n");
     sb.append("    targetFieldHeightRelative: ").append(toIndentedString(targetFieldHeightRelative)).append("\n");
+    sb.append("    targetFieldHorizontalAdjustment: ").append(toIndentedString(targetFieldHorizontalAdjustment)).append("\n");
+    sb.append("    targetFieldVerticalAdjustment: ").append(toIndentedString(targetFieldVerticalAdjustment)).append("\n");
     sb.append("    ignore: ").append(toIndentedString(ignore)).append("\n");
     sb.append("}");
     return sb.toString();

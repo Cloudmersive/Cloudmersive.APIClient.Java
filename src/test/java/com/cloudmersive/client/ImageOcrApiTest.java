@@ -105,8 +105,9 @@ public class ImageOcrApiTest {
         Object formTemplateDefinition = null;
         String recognitionMode = null;
         String preprocessing = null;
+        String diagnostics = null;
         String language = null;
-        FormRecognitionResult response = api.imageOcrPhotoRecognizeForm(imageFile, formTemplateDefinition, recognitionMode, preprocessing, language);
+        FormRecognitionResult response = api.imageOcrPhotoRecognizeForm(imageFile, formTemplateDefinition, recognitionMode, preprocessing, diagnostics, language);
 
         // TODO: test validations
     }
@@ -126,7 +127,8 @@ public class ImageOcrApiTest {
         String bucketSecretKey = null;
         String recognitionMode = null;
         String preprocessing = null;
-        FormRecognitionResult response = api.imageOcrPhotoRecognizeFormAdvanced(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing);
+        String diagnostics = null;
+        FormRecognitionResult response = api.imageOcrPhotoRecognizeFormAdvanced(imageFile, bucketID, bucketSecretKey, recognitionMode, preprocessing, diagnostics);
 
         // TODO: test validations
     }
