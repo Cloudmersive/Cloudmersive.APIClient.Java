@@ -52,6 +52,22 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Rasterize a PDF to an image-based PDF
+     *
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfRasterizeTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editPdfRasterize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Encrypt, password-protect and set restricted permissions on a PDF
      *
      * Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).

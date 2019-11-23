@@ -293,6 +293,31 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * PNG Array to PDF
+     *
+     * Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPngArrayToPdfTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.convertDocumentPngArrayToPdf(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
      * PowerPoint PPT (97-03) to PDF
      *
      * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF

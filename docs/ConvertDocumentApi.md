@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**convertDocumentPdfToPngSingle**](ConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | PDF to Single PNG image
 [**convertDocumentPdfToPptx**](ConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | PDF to PowerPoint PPTX
 [**convertDocumentPdfToTxt**](ConvertDocumentApi.md#convertDocumentPdfToTxt) | **POST** /convert/pdf/to/txt | PDF to Text
+[**convertDocumentPngArrayToPdf**](ConvertDocumentApi.md#convertDocumentPngArrayToPdf) | **POST** /convert/png/to/pdf | PNG Array to PDF
 [**convertDocumentPptToPdf**](ConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | PowerPoint PPT (97-03) to PDF
 [**convertDocumentPptToPptx**](ConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | PowerPoint PPT (97-03) to PPTX
 [**convertDocumentPptxToPdf**](ConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | PowerPoint PPTX to PDF
@@ -902,6 +903,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextConversionResult**](TextConversionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="convertDocumentPngArrayToPdf"></a>
+# **convertDocumentPngArrayToPdf**
+> byte[] convertDocumentPngArrayToPdf(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+PNG Array to PDF
+
+Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDocumentApi apiInstance = new ConvertDocumentApi();
+File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
+File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on.
+File inputFile3 = new File("/path/to/file.txt"); // File | Third input file to perform the operation on.
+File inputFile4 = new File("/path/to/file.txt"); // File | Fourth input file to perform the operation on.
+File inputFile5 = new File("/path/to/file.txt"); // File | Fifth input file to perform the operation on.
+File inputFile6 = new File("/path/to/file.txt"); // File | Sixth input file to perform the operation on.
+File inputFile7 = new File("/path/to/file.txt"); // File | Seventh input file to perform the operation on.
+File inputFile8 = new File("/path/to/file.txt"); // File | Eighth input file to perform the operation on.
+File inputFile9 = new File("/path/to/file.txt"); // File | Ninth input file to perform the operation on.
+File inputFile10 = new File("/path/to/file.txt"); // File | Tenth input file to perform the operation on.
+try {
+    byte[] result = apiInstance.convertDocumentPngArrayToPdf(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDocumentApi#convertDocumentPngArrayToPdf");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **File**| First input file to perform the operation on. |
+ **inputFile2** | **File**| Second input file to perform the operation on. |
+ **inputFile3** | **File**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **File**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **File**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **File**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **File**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **File**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **File**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **File**| Tenth input file to perform the operation on. | [optional]
+
+### Return type
+
+**byte[]**
 
 ### Authorization
 

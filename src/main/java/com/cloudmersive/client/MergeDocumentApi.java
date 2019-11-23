@@ -128,8 +128,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple Word DOCX Together
-     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * Merge Two Word DOCX Together
+     * Combine two Office Word Documents (docx) into one single Office Word document
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return byte[]
@@ -141,8 +141,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple Word DOCX Together
-     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * Merge Two Word DOCX Together
+     * Combine two Office Word Documents (docx) into one single Office Word document
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -155,8 +155,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple Word DOCX Together (asynchronously)
-     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * Merge Two Word DOCX Together (asynchronously)
+     * Combine two Office Word Documents (docx) into one single Office Word document
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @param callback The callback to be executed when the API call finishes
@@ -185,6 +185,189 @@ public class MergeDocumentApi {
         }
 
         com.squareup.okhttp.Call call = mergeDocumentDocxValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for mergeDocumentDocxMulti
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentDocxMultiCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/merge/docx/multi";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+        if (inputFile3 != null)
+        localVarFormParams.put("inputFile3", inputFile3);
+        if (inputFile4 != null)
+        localVarFormParams.put("inputFile4", inputFile4);
+        if (inputFile5 != null)
+        localVarFormParams.put("inputFile5", inputFile5);
+        if (inputFile6 != null)
+        localVarFormParams.put("inputFile6", inputFile6);
+        if (inputFile7 != null)
+        localVarFormParams.put("inputFile7", inputFile7);
+        if (inputFile8 != null)
+        localVarFormParams.put("inputFile8", inputFile8);
+        if (inputFile9 != null)
+        localVarFormParams.put("inputFile9", inputFile9);
+        if (inputFile10 != null)
+        localVarFormParams.put("inputFile10", inputFile10);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeDocumentDocxMultiValidateBeforeCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling mergeDocumentDocxMulti(Async)");
+        }
+        
+        // verify the required parameter 'inputFile2' is set
+        if (inputFile2 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling mergeDocumentDocxMulti(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = mergeDocumentDocxMultiCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Merge Multple Word DOCX Together
+     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] mergeDocumentDocxMulti(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        ApiResponse<byte[]> resp = mergeDocumentDocxMultiWithHttpInfo(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+        return resp.getData();
+    }
+
+    /**
+     * Merge Multple Word DOCX Together
+     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> mergeDocumentDocxMultiWithHttpInfo(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        com.squareup.okhttp.Call call = mergeDocumentDocxMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Merge Multple Word DOCX Together (asynchronously)
+     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentDocxMultiAsync(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeDocumentDocxMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -263,8 +446,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple PDF Files Together
-     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * Merge Two PDF Files Together
+     * Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return byte[]
@@ -276,8 +459,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple PDF Files Together
-     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * Merge Two PDF Files Together
+     * Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -290,8 +473,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple PDF Files Together (asynchronously)
-     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * Merge Two PDF Files Together (asynchronously)
+     * Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @param callback The callback to be executed when the API call finishes
@@ -320,6 +503,189 @@ public class MergeDocumentApi {
         }
 
         com.squareup.okhttp.Call call = mergeDocumentPdfValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for mergeDocumentPdfMulti
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentPdfMultiCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/merge/pdf/multi";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+        if (inputFile3 != null)
+        localVarFormParams.put("inputFile3", inputFile3);
+        if (inputFile4 != null)
+        localVarFormParams.put("inputFile4", inputFile4);
+        if (inputFile5 != null)
+        localVarFormParams.put("inputFile5", inputFile5);
+        if (inputFile6 != null)
+        localVarFormParams.put("inputFile6", inputFile6);
+        if (inputFile7 != null)
+        localVarFormParams.put("inputFile7", inputFile7);
+        if (inputFile8 != null)
+        localVarFormParams.put("inputFile8", inputFile8);
+        if (inputFile9 != null)
+        localVarFormParams.put("inputFile9", inputFile9);
+        if (inputFile10 != null)
+        localVarFormParams.put("inputFile10", inputFile10);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeDocumentPdfMultiValidateBeforeCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling mergeDocumentPdfMulti(Async)");
+        }
+        
+        // verify the required parameter 'inputFile2' is set
+        if (inputFile2 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling mergeDocumentPdfMulti(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = mergeDocumentPdfMultiCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Merge Multple PDF Files Together
+     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] mergeDocumentPdfMulti(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        ApiResponse<byte[]> resp = mergeDocumentPdfMultiWithHttpInfo(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+        return resp.getData();
+    }
+
+    /**
+     * Merge Multple PDF Files Together
+     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> mergeDocumentPdfMultiWithHttpInfo(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        com.squareup.okhttp.Call call = mergeDocumentPdfMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Merge Multple PDF Files Together (asynchronously)
+     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentPdfMultiAsync(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeDocumentPdfMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -533,8 +899,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple PowerPoint PPTX Together
-     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * Merge Two PowerPoint PPTX Together
+     * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return byte[]
@@ -546,8 +912,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple PowerPoint PPTX Together
-     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * Merge Two PowerPoint PPTX Together
+     * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -560,8 +926,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple PowerPoint PPTX Together (asynchronously)
-     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * Merge Two PowerPoint PPTX Together (asynchronously)
+     * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @param callback The callback to be executed when the API call finishes
@@ -590,6 +956,189 @@ public class MergeDocumentApi {
         }
 
         com.squareup.okhttp.Call call = mergeDocumentPptxValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for mergeDocumentPptxMulti
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentPptxMultiCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/merge/pptx/multi";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+        if (inputFile3 != null)
+        localVarFormParams.put("inputFile3", inputFile3);
+        if (inputFile4 != null)
+        localVarFormParams.put("inputFile4", inputFile4);
+        if (inputFile5 != null)
+        localVarFormParams.put("inputFile5", inputFile5);
+        if (inputFile6 != null)
+        localVarFormParams.put("inputFile6", inputFile6);
+        if (inputFile7 != null)
+        localVarFormParams.put("inputFile7", inputFile7);
+        if (inputFile8 != null)
+        localVarFormParams.put("inputFile8", inputFile8);
+        if (inputFile9 != null)
+        localVarFormParams.put("inputFile9", inputFile9);
+        if (inputFile10 != null)
+        localVarFormParams.put("inputFile10", inputFile10);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeDocumentPptxMultiValidateBeforeCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling mergeDocumentPptxMulti(Async)");
+        }
+        
+        // verify the required parameter 'inputFile2' is set
+        if (inputFile2 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling mergeDocumentPptxMulti(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = mergeDocumentPptxMultiCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Merge Multple PowerPoint PPTX Together
+     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] mergeDocumentPptxMulti(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        ApiResponse<byte[]> resp = mergeDocumentPptxMultiWithHttpInfo(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+        return resp.getData();
+    }
+
+    /**
+     * Merge Multple PowerPoint PPTX Together
+     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> mergeDocumentPptxMultiWithHttpInfo(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        com.squareup.okhttp.Call call = mergeDocumentPptxMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Merge Multple PowerPoint PPTX Together (asynchronously)
+     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentPptxMultiAsync(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeDocumentPptxMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -668,8 +1217,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple Excel XLSX Together
-     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * Merge Two Excel XLSX Together
+     * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return byte[]
@@ -681,8 +1230,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple Excel XLSX Together
-     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * Merge Two Excel XLSX Together
+     * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -695,8 +1244,8 @@ public class MergeDocumentApi {
     }
 
     /**
-     * Merge Multple Excel XLSX Together (asynchronously)
-     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * Merge Two Excel XLSX Together (asynchronously)
+     * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @param callback The callback to be executed when the API call finishes
@@ -725,6 +1274,189 @@ public class MergeDocumentApi {
         }
 
         com.squareup.okhttp.Call call = mergeDocumentXlsxValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for mergeDocumentXlsxMulti
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentXlsxMultiCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/merge/xlsx/multi";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+        if (inputFile3 != null)
+        localVarFormParams.put("inputFile3", inputFile3);
+        if (inputFile4 != null)
+        localVarFormParams.put("inputFile4", inputFile4);
+        if (inputFile5 != null)
+        localVarFormParams.put("inputFile5", inputFile5);
+        if (inputFile6 != null)
+        localVarFormParams.put("inputFile6", inputFile6);
+        if (inputFile7 != null)
+        localVarFormParams.put("inputFile7", inputFile7);
+        if (inputFile8 != null)
+        localVarFormParams.put("inputFile8", inputFile8);
+        if (inputFile9 != null)
+        localVarFormParams.put("inputFile9", inputFile9);
+        if (inputFile10 != null)
+        localVarFormParams.put("inputFile10", inputFile10);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call mergeDocumentXlsxMultiValidateBeforeCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling mergeDocumentXlsxMulti(Async)");
+        }
+        
+        // verify the required parameter 'inputFile2' is set
+        if (inputFile2 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling mergeDocumentXlsxMulti(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = mergeDocumentXlsxMultiCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Merge Multple Excel XLSX Together
+     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] mergeDocumentXlsxMulti(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        ApiResponse<byte[]> resp = mergeDocumentXlsxMultiWithHttpInfo(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+        return resp.getData();
+    }
+
+    /**
+     * Merge Multple Excel XLSX Together
+     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> mergeDocumentXlsxMultiWithHttpInfo(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        com.squareup.okhttp.Call call = mergeDocumentXlsxMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Merge Multple Excel XLSX Together (asynchronously)
+     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call mergeDocumentXlsxMultiAsync(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = mergeDocumentXlsxMultiValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

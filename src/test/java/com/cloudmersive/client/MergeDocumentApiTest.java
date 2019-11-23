@@ -33,9 +33,9 @@ public class MergeDocumentApiTest {
 
     
     /**
-     * Merge Multple Word DOCX Together
+     * Merge Two Word DOCX Together
      *
-     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     * Combine two Office Word Documents (docx) into one single Office Word document
      *
      * @throws ApiException
      *          if the Api call fails
@@ -50,9 +50,34 @@ public class MergeDocumentApiTest {
     }
     
     /**
-     * Merge Multple PDF Files Together
+     * Merge Multple Word DOCX Together
      *
-     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     * Combine multiple Office Word Documents (docx) into one single Office Word document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentDocxMultiTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.mergeDocumentDocxMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Two PDF Files Together
+     *
+     * Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      *
      * @throws ApiException
      *          if the Api call fails
@@ -62,6 +87,31 @@ public class MergeDocumentApiTest {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentPdf(inputFile1, inputFile2);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple PDF Files Together
+     *
+     * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPdfMultiTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.mergeDocumentPdfMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
 
         // TODO: test validations
     }
@@ -84,9 +134,9 @@ public class MergeDocumentApiTest {
     }
     
     /**
-     * Merge Multple PowerPoint PPTX Together
+     * Merge Two PowerPoint PPTX Together
      *
-     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      *
      * @throws ApiException
      *          if the Api call fails
@@ -101,9 +151,34 @@ public class MergeDocumentApiTest {
     }
     
     /**
-     * Merge Multple Excel XLSX Together
+     * Merge Multple PowerPoint PPTX Together
      *
-     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPptxMultiTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.mergeDocumentPptxMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Two Excel XLSX Together
+     *
+     * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
      *
      * @throws ApiException
      *          if the Api call fails
@@ -113,6 +188,31 @@ public class MergeDocumentApiTest {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentXlsx(inputFile1, inputFile2);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple Excel XLSX Together
+     *
+     * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentXlsxMultiTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.mergeDocumentXlsxMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
 
         // TODO: test validations
     }
