@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**recognizeDetectTextFine**](RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 [**recognizeDetectTextLarge**](RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognizeDetectVehicleLicensePlates**](RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
+[**recognizeFindSymbol**](RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
 
 
 <a name="recognizeDescribe"></a>
@@ -390,6 +391,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VehicleLicensePlateDetectionResult**](VehicleLicensePlateDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="recognizeFindSymbol"></a>
+# **recognizeFindSymbol**
+> FindSymbolResult recognizeFindSymbol(inputImage, targetImage)
+
+Find the location of a symbol in an image
+
+Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.RecognizeApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+RecognizeApi apiInstance = new RecognizeApi();
+File inputImage = new File("/path/to/file.txt"); // File | Image file to search through for the target image.
+File targetImage = new File("/path/to/file.txt"); // File | Image to find in the input image.
+try {
+    FindSymbolResult result = apiInstance.recognizeFindSymbol(inputImage, targetImage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecognizeApi#recognizeFindSymbol");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputImage** | **File**| Image file to search through for the target image. |
+ **targetImage** | **File**| Image to find in the input image. |
+
+### Return type
+
+[**FindSymbolResult**](FindSymbolResult.md)
 
 ### Authorization
 

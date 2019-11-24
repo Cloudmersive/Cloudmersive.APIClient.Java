@@ -7,9 +7,11 @@ Method | HTTP request | Description
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**editCropRectangle**](EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
+[**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -184,6 +186,69 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: image/png
 
+<a name="editCropRectangle"></a>
+# **editCropRectangle**
+> byte[] editCropRectangle(left, top, width, height, imageFile)
+
+Crop an image to a rectangular area
+
+Crop an image to a target rectangular area
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditApi apiInstance = new EditApi();
+Integer left = 56; // Integer | The left edge of the rectangular crop area in pixels (X).
+Integer top = 56; // Integer | The top edge of the rectangular crop area in pixels (Y).
+Integer width = 56; // Integer | The width of the rectangular crop area in pixels.
+Integer height = 56; // Integer | The height of the rectangular crop area in pixels.
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+try {
+    byte[] result = apiInstance.editCropRectangle(left, top, width, height, imageFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditApi#editCropRectangle");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **Integer**| The left edge of the rectangular crop area in pixels (X). |
+ **top** | **Integer**| The top edge of the rectangular crop area in pixels (Y). |
+ **width** | **Integer**| The width of the rectangular crop area in pixels. |
+ **height** | **Integer**| The height of the rectangular crop area in pixels. |
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
 <a name="editDrawPolygon"></a>
 # **editDrawPolygon**
 > byte[] editDrawPolygon(request)
@@ -348,6 +413,69 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: image/png
+
+<a name="editDropShadow"></a>
+# **editDropShadow**
+> byte[] editDropShadow(x, y, sigma, opacity, imageFile)
+
+Add a customizeable drop shadow to an image
+
+Add a customizeable drop shadow to the image
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditApi apiInstance = new EditApi();
+Integer x = 56; // Integer | Horizontal (X) offset of the drop shadow
+Integer y = 56; // Integer | Vertical (Y) offset of the drop shadow
+Integer sigma = 56; // Integer | Sigma (blur distance) of the drop shadow
+Integer opacity = 56; // Integer | Opacity of the drop shadow; 0 is 0% and 100 is 100%
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+try {
+    byte[] result = apiInstance.editDropShadow(x, y, sigma, opacity, imageFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditApi#editDropShadow");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x** | **Integer**| Horizontal (X) offset of the drop shadow |
+ **y** | **Integer**| Vertical (Y) offset of the drop shadow |
+ **sigma** | **Integer**| Sigma (blur distance) of the drop shadow |
+ **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 <a name="editRotate"></a>
 # **editRotate**

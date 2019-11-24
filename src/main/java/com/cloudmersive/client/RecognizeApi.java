@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.FindSymbolResult;
 import com.cloudmersive.client.model.FineTextDetectionResult;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
 import com.cloudmersive.client.model.ObjectDetectionResult;
@@ -930,6 +931,141 @@ public class RecognizeApi {
 
         com.squareup.okhttp.Call call = recognizeDetectVehicleLicensePlatesValidateBeforeCall(imageFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VehicleLicensePlateDetectionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for recognizeFindSymbol
+     * @param inputImage Image file to search through for the target image. (required)
+     * @param targetImage Image to find in the input image. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call recognizeFindSymbolCall(File inputImage, File targetImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/recognize/find/symbol";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputImage != null)
+        localVarFormParams.put("inputImage", inputImage);
+        if (targetImage != null)
+        localVarFormParams.put("targetImage", targetImage);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call recognizeFindSymbolValidateBeforeCall(File inputImage, File targetImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputImage' is set
+        if (inputImage == null) {
+            throw new ApiException("Missing the required parameter 'inputImage' when calling recognizeFindSymbol(Async)");
+        }
+        
+        // verify the required parameter 'targetImage' is set
+        if (targetImage == null) {
+            throw new ApiException("Missing the required parameter 'targetImage' when calling recognizeFindSymbol(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = recognizeFindSymbolCall(inputImage, targetImage, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Find the location of a symbol in an image
+     * Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+     * @param inputImage Image file to search through for the target image. (required)
+     * @param targetImage Image to find in the input image. (required)
+     * @return FindSymbolResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FindSymbolResult recognizeFindSymbol(File inputImage, File targetImage) throws ApiException {
+        ApiResponse<FindSymbolResult> resp = recognizeFindSymbolWithHttpInfo(inputImage, targetImage);
+        return resp.getData();
+    }
+
+    /**
+     * Find the location of a symbol in an image
+     * Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+     * @param inputImage Image file to search through for the target image. (required)
+     * @param targetImage Image to find in the input image. (required)
+     * @return ApiResponse&lt;FindSymbolResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FindSymbolResult> recognizeFindSymbolWithHttpInfo(File inputImage, File targetImage) throws ApiException {
+        com.squareup.okhttp.Call call = recognizeFindSymbolValidateBeforeCall(inputImage, targetImage, null, null);
+        Type localVarReturnType = new TypeToken<FindSymbolResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Find the location of a symbol in an image (asynchronously)
+     * Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+     * @param inputImage Image file to search through for the target image. (required)
+     * @param targetImage Image to find in the input image. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call recognizeFindSymbolAsync(File inputImage, File targetImage, final ApiCallback<FindSymbolResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = recognizeFindSymbolValidateBeforeCall(inputImage, targetImage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FindSymbolResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

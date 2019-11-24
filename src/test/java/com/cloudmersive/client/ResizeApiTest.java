@@ -33,7 +33,7 @@ public class ResizeApiTest {
 
     
     /**
-     * Resize an image with parameters
+     * Resize an image while preserving aspect ratio
      *
      * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
      *
@@ -46,6 +46,24 @@ public class ResizeApiTest {
         Integer maxHeight = null;
         File imageFile = null;
         byte[] response = api.resizePost(maxWidth, maxHeight, imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Resize an image
+     *
+     * Resize an image to a specific width and specific height
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resizeResizeSimpleTest() throws ApiException {
+        Integer width = null;
+        Integer height = null;
+        File imageFile = null;
+        byte[] response = api.resizeResizeSimple(width, height, imageFile);
 
         // TODO: test validations
     }

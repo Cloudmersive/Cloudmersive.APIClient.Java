@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.FindSymbolResult;
 import com.cloudmersive.client.model.FineTextDetectionResult;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
 import com.cloudmersive.client.model.ObjectDetectionResult;
@@ -146,6 +147,23 @@ public class RecognizeApiTest {
     public void recognizeDetectVehicleLicensePlatesTest() throws ApiException {
         File imageFile = null;
         VehicleLicensePlateDetectionResult response = api.recognizeDetectVehicleLicensePlates(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Find the location of a symbol in an image
+     *
+     * Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void recognizeFindSymbolTest() throws ApiException {
+        File inputImage = null;
+        File targetImage = null;
+        FindSymbolResult response = api.recognizeFindSymbol(inputImage, targetImage);
 
         // TODO: test validations
     }

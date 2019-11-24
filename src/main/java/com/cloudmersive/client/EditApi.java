@@ -461,6 +461,170 @@ public class EditApi {
         return call;
     }
     /**
+     * Build call for editCropRectangle
+     * @param left The left edge of the rectangular crop area in pixels (X). (required)
+     * @param top The top edge of the rectangular crop area in pixels (Y). (required)
+     * @param width The width of the rectangular crop area in pixels. (required)
+     * @param height The height of the rectangular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editCropRectangleCall(Integer left, Integer top, Integer width, Integer height, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/edit/crop/rectangle/{left}/{top}/{width}/{height}"
+            .replaceAll("\\{" + "left" + "\\}", apiClient.escapeString(left.toString()))
+            .replaceAll("\\{" + "top" + "\\}", apiClient.escapeString(top.toString()))
+            .replaceAll("\\{" + "width" + "\\}", apiClient.escapeString(width.toString()))
+            .replaceAll("\\{" + "height" + "\\}", apiClient.escapeString(height.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editCropRectangleValidateBeforeCall(Integer left, Integer top, Integer width, Integer height, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'left' is set
+        if (left == null) {
+            throw new ApiException("Missing the required parameter 'left' when calling editCropRectangle(Async)");
+        }
+        
+        // verify the required parameter 'top' is set
+        if (top == null) {
+            throw new ApiException("Missing the required parameter 'top' when calling editCropRectangle(Async)");
+        }
+        
+        // verify the required parameter 'width' is set
+        if (width == null) {
+            throw new ApiException("Missing the required parameter 'width' when calling editCropRectangle(Async)");
+        }
+        
+        // verify the required parameter 'height' is set
+        if (height == null) {
+            throw new ApiException("Missing the required parameter 'height' when calling editCropRectangle(Async)");
+        }
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling editCropRectangle(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editCropRectangleCall(left, top, width, height, imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Crop an image to a rectangular area
+     * Crop an image to a target rectangular area
+     * @param left The left edge of the rectangular crop area in pixels (X). (required)
+     * @param top The top edge of the rectangular crop area in pixels (Y). (required)
+     * @param width The width of the rectangular crop area in pixels. (required)
+     * @param height The height of the rectangular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editCropRectangle(Integer left, Integer top, Integer width, Integer height, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = editCropRectangleWithHttpInfo(left, top, width, height, imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Crop an image to a rectangular area
+     * Crop an image to a target rectangular area
+     * @param left The left edge of the rectangular crop area in pixels (X). (required)
+     * @param top The top edge of the rectangular crop area in pixels (Y). (required)
+     * @param width The width of the rectangular crop area in pixels. (required)
+     * @param height The height of the rectangular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editCropRectangleWithHttpInfo(Integer left, Integer top, Integer width, Integer height, File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = editCropRectangleValidateBeforeCall(left, top, width, height, imageFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Crop an image to a rectangular area (asynchronously)
+     * Crop an image to a target rectangular area
+     * @param left The left edge of the rectangular crop area in pixels (X). (required)
+     * @param top The top edge of the rectangular crop area in pixels (Y). (required)
+     * @param width The width of the rectangular crop area in pixels. (required)
+     * @param height The height of the rectangular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editCropRectangleAsync(Integer left, Integer top, Integer width, Integer height, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editCropRectangleValidateBeforeCall(left, top, width, height, imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editDrawPolygon
      * @param request  (required)
      * @param progressListener Progress listener
@@ -822,6 +986,170 @@ public class EditApi {
         }
 
         com.squareup.okhttp.Call call = editDrawTextValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDropShadow
+     * @param x Horizontal (X) offset of the drop shadow (required)
+     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param sigma Sigma (blur distance) of the drop shadow (required)
+     * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDropShadowCall(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity}"
+            .replaceAll("\\{" + "x" + "\\}", apiClient.escapeString(x.toString()))
+            .replaceAll("\\{" + "y" + "\\}", apiClient.escapeString(y.toString()))
+            .replaceAll("\\{" + "sigma" + "\\}", apiClient.escapeString(sigma.toString()))
+            .replaceAll("\\{" + "opacity" + "\\}", apiClient.escapeString(opacity.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDropShadowValidateBeforeCall(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'x' is set
+        if (x == null) {
+            throw new ApiException("Missing the required parameter 'x' when calling editDropShadow(Async)");
+        }
+        
+        // verify the required parameter 'y' is set
+        if (y == null) {
+            throw new ApiException("Missing the required parameter 'y' when calling editDropShadow(Async)");
+        }
+        
+        // verify the required parameter 'sigma' is set
+        if (sigma == null) {
+            throw new ApiException("Missing the required parameter 'sigma' when calling editDropShadow(Async)");
+        }
+        
+        // verify the required parameter 'opacity' is set
+        if (opacity == null) {
+            throw new ApiException("Missing the required parameter 'opacity' when calling editDropShadow(Async)");
+        }
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling editDropShadow(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDropShadowCall(x, y, sigma, opacity, imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Add a customizeable drop shadow to an image
+     * Add a customizeable drop shadow to the image
+     * @param x Horizontal (X) offset of the drop shadow (required)
+     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param sigma Sigma (blur distance) of the drop shadow (required)
+     * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDropShadow(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = editDropShadowWithHttpInfo(x, y, sigma, opacity, imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Add a customizeable drop shadow to an image
+     * Add a customizeable drop shadow to the image
+     * @param x Horizontal (X) offset of the drop shadow (required)
+     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param sigma Sigma (blur distance) of the drop shadow (required)
+     * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDropShadowWithHttpInfo(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDropShadowValidateBeforeCall(x, y, sigma, opacity, imageFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Add a customizeable drop shadow to an image (asynchronously)
+     * Add a customizeable drop shadow to the image
+     * @param x Horizontal (X) offset of the drop shadow (required)
+     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param sigma Sigma (blur distance) of the drop shadow (required)
+     * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDropShadowAsync(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDropShadowValidateBeforeCall(x, y, sigma, opacity, imageFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

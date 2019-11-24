@@ -31,7 +31,7 @@ import java.util.List;
  * Polygon instance to draw on an image
  */
 @ApiModel(description = "Polygon instance to draw on an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-22T20:28:29.353-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-23T16:20:52.658-08:00")
 public class DrawPolygonInstance {
   @SerializedName("BorderColor")
   private String borderColor = null;

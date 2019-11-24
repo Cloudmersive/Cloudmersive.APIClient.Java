@@ -87,6 +87,26 @@ public class EditApiTest {
     }
     
     /**
+     * Crop an image to a rectangular area
+     *
+     * Crop an image to a target rectangular area
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editCropRectangleTest() throws ApiException {
+        Integer left = null;
+        Integer top = null;
+        Integer width = null;
+        Integer height = null;
+        File imageFile = null;
+        byte[] response = api.editCropRectangle(left, top, width, height, imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Draw a polygon onto an image
      *
      * Draw one or more polygons, with customized visuals, onto an image
@@ -130,6 +150,26 @@ public class EditApiTest {
     public void editDrawTextTest() throws ApiException {
         DrawTextRequest request = null;
         byte[] response = api.editDrawText(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Add a customizeable drop shadow to an image
+     *
+     * Add a customizeable drop shadow to the image
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDropShadowTest() throws ApiException {
+        Integer x = null;
+        Integer y = null;
+        Integer sigma = null;
+        Integer opacity = null;
+        File imageFile = null;
+        byte[] response = api.editDropShadow(x, y, sigma, opacity, imageFile);
 
         // TODO: test validations
     }

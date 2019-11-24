@@ -29,7 +29,7 @@ import java.io.IOException;
  * Result of recognizing an image
  */
 @ApiModel(description = "Result of recognizing an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-22T20:28:29.353-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-23T16:20:52.658-08:00")
 public class ImageDescriptionResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
