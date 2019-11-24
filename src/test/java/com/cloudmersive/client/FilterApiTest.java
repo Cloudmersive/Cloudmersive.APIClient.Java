@@ -147,7 +147,8 @@ public class FilterApiTest {
     @Test
     public void filterPosterizeTest() throws ApiException {
         Integer levels = null;
-        Object response = api.filterPosterize(levels);
+        File imageFile = null;
+        byte[] response = api.filterPosterize(levels, imageFile);
 
         // TODO: test validations
     }

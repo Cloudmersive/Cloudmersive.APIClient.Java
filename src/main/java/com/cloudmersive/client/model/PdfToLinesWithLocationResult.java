@@ -31,7 +31,7 @@ import java.util.List;
  * Response from an OCR to lines with location operation.  Includes the confience rating and converted text result, along with the locations of the lines in the pages.
  */
 @ApiModel(description = "Response from an OCR to lines with location operation.  Includes the confience rating and converted text result, along with the locations of the lines in the pages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-23T16:45:40.722-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-24T12:25:16.816-08:00")
 public class PdfToLinesWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;

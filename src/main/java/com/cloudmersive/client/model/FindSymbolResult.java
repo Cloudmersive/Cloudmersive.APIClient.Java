@@ -28,10 +28,13 @@ import java.io.IOException;
  * Result of a find symbol operation on an input image
  */
 @ApiModel(description = "Result of a find symbol operation on an input image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-23T16:45:46.962-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-24T12:25:30.259-08:00")
 public class FindSymbolResult {
   @SerializedName("Successful")
   private Boolean successful = null;
+
+  @SerializedName("MatchScore")
+  private Double matchScore = null;
 
   @SerializedName("XLeft")
   private Integer xleft = null;
@@ -61,6 +64,24 @@ public class FindSymbolResult {
 
   public void setSuccessful(Boolean successful) {
     this.successful = successful;
+  }
+
+  public FindSymbolResult matchScore(Double matchScore) {
+    this.matchScore = matchScore;
+    return this;
+  }
+
+   /**
+   * Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good
+   * @return matchScore
+  **/
+  @ApiModelProperty(value = "Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good")
+  public Double getMatchScore() {
+    return matchScore;
+  }
+
+  public void setMatchScore(Double matchScore) {
+    this.matchScore = matchScore;
   }
 
   public FindSymbolResult xleft(Integer xleft) {
@@ -146,6 +167,7 @@ public class FindSymbolResult {
     }
     FindSymbolResult findSymbolResult = (FindSymbolResult) o;
     return Objects.equals(this.successful, findSymbolResult.successful) &&
+        Objects.equals(this.matchScore, findSymbolResult.matchScore) &&
         Objects.equals(this.xleft, findSymbolResult.xleft) &&
         Objects.equals(this.ytop, findSymbolResult.ytop) &&
         Objects.equals(this.width, findSymbolResult.width) &&
@@ -154,7 +176,7 @@ public class FindSymbolResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, xleft, ytop, width, height);
+    return Objects.hash(successful, matchScore, xleft, ytop, width, height);
   }
 
 
@@ -164,6 +186,7 @@ public class FindSymbolResult {
     sb.append("class FindSymbolResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
+    sb.append("    matchScore: ").append(toIndentedString(matchScore)).append("\n");
     sb.append("    xleft: ").append(toIndentedString(xleft)).append("\n");
     sb.append("    ytop: ").append(toIndentedString(ytop)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");

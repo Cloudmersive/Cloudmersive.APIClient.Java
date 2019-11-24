@@ -881,12 +881,13 @@ public class FilterApi {
     /**
      * Build call for filterPosterize
      * @param levels Number of unique colors to retain in the output image (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call filterPosterizeCall(Integer levels, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call filterPosterizeCall(Integer levels, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -900,6 +901,8 @@ public class FilterApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
 
         final String[] localVarAccepts = {
             "application/octet-stream"
@@ -908,7 +911,7 @@ public class FilterApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -930,15 +933,20 @@ public class FilterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call filterPosterizeValidateBeforeCall(Integer levels, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call filterPosterizeValidateBeforeCall(Integer levels, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'levels' is set
         if (levels == null) {
             throw new ApiException("Missing the required parameter 'levels' when calling filterPosterize(Async)");
         }
         
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling filterPosterize(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = filterPosterizeCall(levels, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = filterPosterizeCall(levels, imageFile, progressListener, progressRequestListener);
         return call;
 
     }
@@ -947,11 +955,12 @@ public class FilterApi {
      * Posterize the image by reducing distinct colors
      * Reduce the unique number of colors in the image to the specified level
      * @param levels Number of unique colors to retain in the output image (required)
-     * @return Object
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object filterPosterize(Integer levels) throws ApiException {
-        ApiResponse<Object> resp = filterPosterizeWithHttpInfo(levels);
+    public byte[] filterPosterize(Integer levels, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = filterPosterizeWithHttpInfo(levels, imageFile);
         return resp.getData();
     }
 
@@ -959,12 +968,13 @@ public class FilterApi {
      * Posterize the image by reducing distinct colors
      * Reduce the unique number of colors in the image to the specified level
      * @param levels Number of unique colors to retain in the output image (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> filterPosterizeWithHttpInfo(Integer levels) throws ApiException {
-        com.squareup.okhttp.Call call = filterPosterizeValidateBeforeCall(levels, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+    public ApiResponse<byte[]> filterPosterizeWithHttpInfo(Integer levels, File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = filterPosterizeValidateBeforeCall(levels, imageFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -972,11 +982,12 @@ public class FilterApi {
      * Posterize the image by reducing distinct colors (asynchronously)
      * Reduce the unique number of colors in the image to the specified level
      * @param levels Number of unique colors to retain in the output image (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call filterPosterizeAsync(Integer levels, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call filterPosterizeAsync(Integer levels, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -997,8 +1008,8 @@ public class FilterApi {
             };
         }
 
-        com.squareup.okhttp.Call call = filterPosterizeValidateBeforeCall(levels, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        com.squareup.okhttp.Call call = filterPosterizeValidateBeforeCall(levels, imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DocxTemplateOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-23T16:45:51.321-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-24T12:25:35.816-08:00")
 public class DocxTemplateOperation {
   /**
    * Operation action to take; possible values are \&quot;Replace\&quot;

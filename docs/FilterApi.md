@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 <a name="filterPosterize"></a>
 # **filterPosterize**
-> Object filterPosterize(levels)
+> byte[] filterPosterize(levels, imageFile)
 
 Posterize the image by reducing distinct colors
 
@@ -387,8 +387,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 FilterApi apiInstance = new FilterApi();
 Integer levels = 56; // Integer | Number of unique colors to retain in the output image
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    Object result = apiInstance.filterPosterize(levels);
+    byte[] result = apiInstance.filterPosterize(levels, imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilterApi#filterPosterize");
@@ -401,10 +402,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **levels** | **Integer**| Number of unique colors to retain in the output image |
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -412,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 <a name="filterSwirl"></a>
