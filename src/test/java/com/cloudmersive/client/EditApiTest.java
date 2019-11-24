@@ -164,12 +164,12 @@ public class EditApiTest {
      */
     @Test
     public void editDropShadowTest() throws ApiException {
-        Integer x = null;
-        Integer y = null;
+        Integer X = null;
+        Integer Y = null;
         Integer sigma = null;
         Integer opacity = null;
         File imageFile = null;
-        byte[] response = api.editDropShadow(x, y, sigma, opacity, imageFile);
+        byte[] response = api.editDropShadow(X, Y, sigma, opacity, imageFile);
 
         // TODO: test validations
     }

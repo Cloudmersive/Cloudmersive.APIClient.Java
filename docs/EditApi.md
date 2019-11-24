@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
-[**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+[**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 <a name="editDropShadow"></a>
 # **editDropShadow**
-> byte[] editDropShadow(x, y, sigma, opacity, imageFile)
+> byte[] editDropShadow(X, Y, sigma, opacity, imageFile)
 
 Add a customizeable drop shadow to an image
 
@@ -440,13 +440,13 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditApi apiInstance = new EditApi();
-Integer x = 56; // Integer | Horizontal (X) offset of the drop shadow
-Integer y = 56; // Integer | Vertical (Y) offset of the drop shadow
+Integer X = 56; // Integer | 
+Integer Y = 56; // Integer | 
 Integer sigma = 56; // Integer | Sigma (blur distance) of the drop shadow
 Integer opacity = 56; // Integer | Opacity of the drop shadow; 0 is 0% and 100 is 100%
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    byte[] result = apiInstance.editDropShadow(x, y, sigma, opacity, imageFile);
+    byte[] result = apiInstance.editDropShadow(X, Y, sigma, opacity, imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditApi#editDropShadow");
@@ -458,8 +458,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x** | **Integer**| Horizontal (X) offset of the drop shadow |
- **y** | **Integer**| Vertical (Y) offset of the drop shadow |
+ **X** | **Integer**|  |
+ **Y** | **Integer**|  |
  **sigma** | **Integer**| Sigma (blur distance) of the drop shadow |
  **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |

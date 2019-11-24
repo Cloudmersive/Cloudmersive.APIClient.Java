@@ -992,8 +992,8 @@ public class EditApi {
     }
     /**
      * Build call for editDropShadow
-     * @param x Horizontal (X) offset of the drop shadow (required)
-     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param X  (required)
+     * @param Y  (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -1002,13 +1002,13 @@ public class EditApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editDropShadowCall(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editDropShadowCall(Integer X, Integer Y, Integer sigma, Integer opacity, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity}"
-            .replaceAll("\\{" + "x" + "\\}", apiClient.escapeString(x.toString()))
-            .replaceAll("\\{" + "y" + "\\}", apiClient.escapeString(y.toString()))
+        String localVarPath = "/image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity}"
+            .replaceAll("\\{" + "X" + "\\}", apiClient.escapeString(X.toString()))
+            .replaceAll("\\{" + "Y" + "\\}", apiClient.escapeString(Y.toString()))
             .replaceAll("\\{" + "sigma" + "\\}", apiClient.escapeString(sigma.toString()))
             .replaceAll("\\{" + "opacity" + "\\}", apiClient.escapeString(opacity.toString()));
 
@@ -1050,16 +1050,16 @@ public class EditApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editDropShadowValidateBeforeCall(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editDropShadowValidateBeforeCall(Integer X, Integer Y, Integer sigma, Integer opacity, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'x' is set
-        if (x == null) {
-            throw new ApiException("Missing the required parameter 'x' when calling editDropShadow(Async)");
+        // verify the required parameter 'X' is set
+        if (X == null) {
+            throw new ApiException("Missing the required parameter 'X' when calling editDropShadow(Async)");
         }
         
-        // verify the required parameter 'y' is set
-        if (y == null) {
-            throw new ApiException("Missing the required parameter 'y' when calling editDropShadow(Async)");
+        // verify the required parameter 'Y' is set
+        if (Y == null) {
+            throw new ApiException("Missing the required parameter 'Y' when calling editDropShadow(Async)");
         }
         
         // verify the required parameter 'sigma' is set
@@ -1078,7 +1078,7 @@ public class EditApi {
         }
         
 
-        com.squareup.okhttp.Call call = editDropShadowCall(x, y, sigma, opacity, imageFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editDropShadowCall(X, Y, sigma, opacity, imageFile, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1086,32 +1086,32 @@ public class EditApi {
     /**
      * Add a customizeable drop shadow to an image
      * Add a customizeable drop shadow to the image
-     * @param x Horizontal (X) offset of the drop shadow (required)
-     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param X  (required)
+     * @param Y  (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editDropShadow(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile) throws ApiException {
-        ApiResponse<byte[]> resp = editDropShadowWithHttpInfo(x, y, sigma, opacity, imageFile);
+    public byte[] editDropShadow(Integer X, Integer Y, Integer sigma, Integer opacity, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = editDropShadowWithHttpInfo(X, Y, sigma, opacity, imageFile);
         return resp.getData();
     }
 
     /**
      * Add a customizeable drop shadow to an image
      * Add a customizeable drop shadow to the image
-     * @param x Horizontal (X) offset of the drop shadow (required)
-     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param X  (required)
+     * @param Y  (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editDropShadowWithHttpInfo(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile) throws ApiException {
-        com.squareup.okhttp.Call call = editDropShadowValidateBeforeCall(x, y, sigma, opacity, imageFile, null, null);
+    public ApiResponse<byte[]> editDropShadowWithHttpInfo(Integer X, Integer Y, Integer sigma, Integer opacity, File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDropShadowValidateBeforeCall(X, Y, sigma, opacity, imageFile, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1119,8 +1119,8 @@ public class EditApi {
     /**
      * Add a customizeable drop shadow to an image (asynchronously)
      * Add a customizeable drop shadow to the image
-     * @param x Horizontal (X) offset of the drop shadow (required)
-     * @param y Vertical (Y) offset of the drop shadow (required)
+     * @param X  (required)
+     * @param Y  (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -1128,7 +1128,7 @@ public class EditApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editDropShadowAsync(Integer x, Integer y, Integer sigma, Integer opacity, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editDropShadowAsync(Integer X, Integer Y, Integer sigma, Integer opacity, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1149,7 +1149,7 @@ public class EditApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editDropShadowValidateBeforeCall(x, y, sigma, opacity, imageFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editDropShadowValidateBeforeCall(X, Y, sigma, opacity, imageFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
