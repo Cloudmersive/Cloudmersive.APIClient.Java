@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import java.math.BigDecimal;
 import java.io.File;
+import com.cloudmersive.client.model.PdfFormFields;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,6 +48,22 @@ public class EditPdfApiTest {
         String userPassword = null;
         String ownerPassword = null;
         byte[] response = api.editPdfEncrypt(inputFile, userPassword, ownerPassword);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets PDF Form fields and values
+     *
+     * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfGetFormFieldsTest() throws ApiException {
+        File inputFile = null;
+        PdfFormFields response = api.editPdfGetFormFields(inputFile);
 
         // TODO: test validations
     }

@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DominantColorResult;
 import java.io.File;
+import com.cloudmersive.client.model.ImageMetadata;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,6 +46,22 @@ public class InfoApiTest {
     public void infoGetDominantColorTest() throws ApiException {
         File imageFile = null;
         DominantColorResult response = api.infoGetDominantColor(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Returns the image metadata, including EXIF and resolution
+     *
+     * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void infoGetMetadataTest() throws ApiException {
+        File imageFile = null;
+        ImageMetadata response = api.infoGetMetadata(imageFile);
 
         // TODO: test validations
     }
