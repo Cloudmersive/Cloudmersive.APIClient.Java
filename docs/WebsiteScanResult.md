@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cleanResult** | **Boolean** | True if the scan contained no threats, false otherwise |  [optional]
 **websiteThreatType** | [**WebsiteThreatTypeEnum**](#WebsiteThreatTypeEnum) | Type of threat returned; can be None, Malware, ForcedDownload or Phishing |  [optional]
+**foundViruses** | [**List&lt;VirusFound&gt;**](VirusFound.md) | Array of viruses found, if any |  [optional]
 
 
 <a name="WebsiteThreatTypeEnum"></a>

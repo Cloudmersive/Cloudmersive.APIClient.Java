@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.VirusFound;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +24,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Result of running a website scan
  */
 @ApiModel(description = "Result of running a website scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-24T16:59:30.741-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-25T21:45:36.633-08:00")
 public class WebsiteScanResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -89,6 +92,9 @@ public class WebsiteScanResult {
   @SerializedName("WebsiteThreatType")
   private WebsiteThreatTypeEnum websiteThreatType = null;
 
+  @SerializedName("FoundViruses")
+  private List<VirusFound> foundViruses = null;
+
   public WebsiteScanResult cleanResult(Boolean cleanResult) {
     this.cleanResult = cleanResult;
     return this;
@@ -125,6 +131,32 @@ public class WebsiteScanResult {
     this.websiteThreatType = websiteThreatType;
   }
 
+  public WebsiteScanResult foundViruses(List<VirusFound> foundViruses) {
+    this.foundViruses = foundViruses;
+    return this;
+  }
+
+  public WebsiteScanResult addFoundVirusesItem(VirusFound foundVirusesItem) {
+    if (this.foundViruses == null) {
+      this.foundViruses = new ArrayList<VirusFound>();
+    }
+    this.foundViruses.add(foundVirusesItem);
+    return this;
+  }
+
+   /**
+   * Array of viruses found, if any
+   * @return foundViruses
+  **/
+  @ApiModelProperty(value = "Array of viruses found, if any")
+  public List<VirusFound> getFoundViruses() {
+    return foundViruses;
+  }
+
+  public void setFoundViruses(List<VirusFound> foundViruses) {
+    this.foundViruses = foundViruses;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,12 +168,13 @@ public class WebsiteScanResult {
     }
     WebsiteScanResult websiteScanResult = (WebsiteScanResult) o;
     return Objects.equals(this.cleanResult, websiteScanResult.cleanResult) &&
-        Objects.equals(this.websiteThreatType, websiteScanResult.websiteThreatType);
+        Objects.equals(this.websiteThreatType, websiteScanResult.websiteThreatType) &&
+        Objects.equals(this.foundViruses, websiteScanResult.foundViruses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, websiteThreatType);
+    return Objects.hash(cleanResult, websiteThreatType, foundViruses);
   }
 
 
@@ -152,6 +185,7 @@ public class WebsiteScanResult {
     
     sb.append("    cleanResult: ").append(toIndentedString(cleanResult)).append("\n");
     sb.append("    websiteThreatType: ").append(toIndentedString(websiteThreatType)).append("\n");
+    sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("}");
     return sb.toString();
   }
