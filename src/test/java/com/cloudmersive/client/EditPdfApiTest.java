@@ -17,6 +17,9 @@ import com.cloudmersive.client.invoker.ApiException;
 import java.math.BigDecimal;
 import java.io.File;
 import com.cloudmersive.client.model.PdfFormFields;
+import com.cloudmersive.client.model.PdfMetadata;
+import com.cloudmersive.client.model.SetPdfFormFieldsRequest;
+import com.cloudmersive.client.model.SetPdfMetadataRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -69,6 +72,22 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Get PDF document metadata
+     *
+     * Returns the metadata from the PDF document, including Title, Author, etc.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfGetMetadataTest() throws ApiException {
+        File inputFile = null;
+        PdfMetadata response = api.editPdfGetMetadata(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Rasterize a PDF to an image-based PDF
      *
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -80,6 +99,38 @@ public class EditPdfApiTest {
     public void editPdfRasterizeTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.editPdfRasterize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Sets ands fills PDF Form field values
+     *
+     * Fill in the form fields in a PDF form with specific values.  Use form/get-fields to enumerate the available fields and their data types in an input form.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfSetFormFieldsTest() throws ApiException {
+        SetPdfFormFieldsRequest fieldValues = null;
+        byte[] response = api.editPdfSetFormFields(fieldValues);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Sets PDF document metadata
+     *
+     * Sets (writes) metadata into the input PDF document, including Title, Author, etc.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfSetMetadataTest() throws ApiException {
+        SetPdfMetadataRequest request = null;
+        Object response = api.editPdfSetMetadata(request);
 
         // TODO: test validations
     }

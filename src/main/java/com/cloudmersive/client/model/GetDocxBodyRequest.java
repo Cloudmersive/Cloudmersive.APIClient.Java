@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Body request
  */
 @ApiModel(description = "Input to a Get Body request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-25T21:45:30.686-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-26T22:01:33.635-08:00")
 public class GetDocxBodyRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
 
 import java.lang.reflect.Type;
@@ -56,6 +57,136 @@ public class SplitDocumentApi {
     }
 
     /**
+     * Build call for splitDocumentPdfByPage
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentPdfByPageCall(File inputFile, Boolean returnDocumentContents, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/split/pdf";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (returnDocumentContents != null)
+        localVarHeaderParams.put("returnDocumentContents", apiClient.parameterToString(returnDocumentContents));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call splitDocumentPdfByPageValidateBeforeCall(File inputFile, Boolean returnDocumentContents, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling splitDocumentPdfByPage(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = splitDocumentPdfByPageCall(inputFile, returnDocumentContents, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Split a PDF file into separate PDF files, one per page
+     * Split an input PDF file into separate pages, comprised of one PDF file per page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false. (optional)
+     * @return SplitPdfResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SplitPdfResult splitDocumentPdfByPage(File inputFile, Boolean returnDocumentContents) throws ApiException {
+        ApiResponse<SplitPdfResult> resp = splitDocumentPdfByPageWithHttpInfo(inputFile, returnDocumentContents);
+        return resp.getData();
+    }
+
+    /**
+     * Split a PDF file into separate PDF files, one per page
+     * Split an input PDF file into separate pages, comprised of one PDF file per page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false. (optional)
+     * @return ApiResponse&lt;SplitPdfResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SplitPdfResult> splitDocumentPdfByPageWithHttpInfo(File inputFile, Boolean returnDocumentContents) throws ApiException {
+        com.squareup.okhttp.Call call = splitDocumentPdfByPageValidateBeforeCall(inputFile, returnDocumentContents, null, null);
+        Type localVarReturnType = new TypeToken<SplitPdfResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Split a PDF file into separate PDF files, one per page (asynchronously)
+     * Split an input PDF file into separate pages, comprised of one PDF file per page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentPdfByPageAsync(File inputFile, Boolean returnDocumentContents, final ApiCallback<SplitPdfResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = splitDocumentPdfByPageValidateBeforeCall(inputFile, returnDocumentContents, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SplitPdfResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for splitDocumentXlsx
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -79,7 +210,7 @@ public class SplitDocumentApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/octet-stream"
+            "application/json", "text/json", "application/xml", "text/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);

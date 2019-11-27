@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -32,6 +33,23 @@ public class SplitDocumentApiTest {
 
     private final SplitDocumentApi api = new SplitDocumentApi();
 
+    
+    /**
+     * Split a PDF file into separate PDF files, one per page
+     *
+     * Split an input PDF file into separate pages, comprised of one PDF file per page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentPdfByPageTest() throws ApiException {
+        File inputFile = null;
+        Boolean returnDocumentContents = null;
+        SplitPdfResult response = api.splitDocumentPdfByPage(inputFile, returnDocumentContents);
+
+        // TODO: test validations
+    }
     
     /**
      * Split a single Excel XLSX into Separate Worksheets
