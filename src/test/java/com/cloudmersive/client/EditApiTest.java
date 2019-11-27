@@ -175,6 +175,22 @@ public class EditApiTest {
     }
     
     /**
+     * Remove transparency from the image
+     *
+     * Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editRemoveTransparencyTest() throws ApiException {
+        File imageFile = null;
+        byte[] response = api.editRemoveTransparency(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Rotate an image any number of degrees
      *
      * Rotates an image by an arbitrary number of degrees

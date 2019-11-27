@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to scan a website for malicious content
  */
 @ApiModel(description = "Request to scan a website for malicious content")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-26T22:01:40.972-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-27T14:14:22.268-08:00")
 public class WebsiteScanRequest {
   @SerializedName("Url")
   private String url = null;

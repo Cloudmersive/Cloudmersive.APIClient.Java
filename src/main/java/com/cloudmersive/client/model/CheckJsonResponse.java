@@ -28,7 +28,7 @@ import java.io.IOException;
  * Spell check result
  */
 @ApiModel(description = "Spell check result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-26T22:01:16.580-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-27T14:13:55.463-08:00")
 public class CheckJsonResponse {
   @SerializedName("Correct")
   private Boolean correct = null;

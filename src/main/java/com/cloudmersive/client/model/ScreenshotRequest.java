@@ -28,7 +28,7 @@ import java.io.IOException;
  * Details of the screenshot request
  */
 @ApiModel(description = "Details of the screenshot request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-26T22:01:33.635-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-27T14:14:14.269-08:00")
 public class ScreenshotRequest {
   @SerializedName("Url")
   private String url = null;

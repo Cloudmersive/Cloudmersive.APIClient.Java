@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
 [**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+[**editRemoveTransparency**](EditApi.md#editRemoveTransparency) | **POST** /image/edit/remove-transparency | Remove transparency from the image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -462,6 +463,61 @@ Name | Type | Description  | Notes
  **Y** | **Integer**|  |
  **sigma** | **Integer**| Sigma (blur distance) of the drop shadow |
  **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="editRemoveTransparency"></a>
+# **editRemoveTransparency**
+> byte[] editRemoveTransparency(imageFile)
+
+Remove transparency from the image
+
+Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditApi apiInstance = new EditApi();
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+try {
+    byte[] result = apiInstance.editRemoveTransparency(imageFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditApi#editRemoveTransparency");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type

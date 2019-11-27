@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single word in an OCR document
  */
 @ApiModel(description = "A single word in an OCR document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-26T22:01:21.135-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-27T14:14:00.696-08:00")
 public class OcrWordElement {
   @SerializedName("WordText")
   private String wordText = null;
