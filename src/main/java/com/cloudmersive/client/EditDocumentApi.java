@@ -221,7 +221,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxBody
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -283,9 +283,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get body from a DOCX
+     * Get body from a Word DOCX document
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return GetDocxBodyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -295,9 +295,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get body from a DOCX
+     * Get body from a Word DOCX document
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;GetDocxBodyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -308,9 +308,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get body from a DOCX (asynchronously)
+     * Get body from a Word DOCX document (asynchronously)
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -343,7 +343,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxGetHeadersAndFooters
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -405,9 +405,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get content of a footer from a DOCX
+     * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return GetDocxHeadersAndFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -417,9 +417,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get content of a footer from a DOCX
+     * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;GetDocxHeadersAndFootersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -430,9 +430,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get content of a footer from a DOCX (asynchronously)
+     * Get content of a footer from a Word DOCX document (asynchronously)
      * Returns the footer content from a Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -465,7 +465,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxGetImages
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -527,9 +527,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get images from a DOCX
+     * Get images from a Word DOCX document
      * Returns the images defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return GetDocxImagesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -539,9 +539,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get images from a DOCX
+     * Get images from a Word DOCX document
      * Returns the images defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;GetDocxImagesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -552,9 +552,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get images from a DOCX (asynchronously)
+     * Get images from a Word DOCX document (asynchronously)
      * Returns the images defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -587,7 +587,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxGetSections
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -649,9 +649,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get sections from a DOCX
+     * Get sections from a Word DOCX document
      * Returns the sections defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return GetDocxSectionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -661,9 +661,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get sections from a DOCX
+     * Get sections from a Word DOCX document
      * Returns the sections defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;GetDocxSectionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -674,9 +674,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get sections from a DOCX (asynchronously)
+     * Get sections from a Word DOCX document (asynchronously)
      * Returns the sections defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -709,7 +709,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxGetStyles
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -771,9 +771,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get styles from a DOCX
+     * Get styles from a Word DOCX document
      * Returns the styles defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return GetDocxStylesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -783,9 +783,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get styles from a DOCX
+     * Get styles from a Word DOCX document
      * Returns the styles defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;GetDocxStylesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -796,9 +796,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get styles from a DOCX (asynchronously)
+     * Get styles from a Word DOCX document (asynchronously)
      * Returns the styles defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -831,7 +831,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxGetTables
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -893,9 +893,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get tables in DOCX
+     * Get tables in Word DOCX document
      * Returns all the table objects in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return GetDocxTablesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -905,9 +905,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get tables in DOCX
+     * Get tables in Word DOCX document
      * Returns all the table objects in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;GetDocxTablesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -918,9 +918,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get tables in DOCX (asynchronously)
+     * Get tables in Word DOCX document (asynchronously)
      * Returns all the table objects in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -953,7 +953,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxInsertImage
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1015,9 +1015,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert image into a DOCX
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Insert image into a Word DOCX document
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return DocxInsertImageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1027,9 +1027,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert image into a DOCX
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Insert image into a Word DOCX document
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;DocxInsertImageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1040,9 +1040,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert image into a DOCX (asynchronously)
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Insert image into a Word DOCX document (asynchronously)
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1075,7 +1075,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxInsertParagraph
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1137,9 +1137,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new paragraph into a DOCX
-     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
-     * @param reqConfig  (required)
+     * Insert a new paragraph into a Word DOCX document
+     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return InsertDocxInsertParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1149,9 +1149,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new paragraph into a DOCX
-     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
-     * @param reqConfig  (required)
+     * Insert a new paragraph into a Word DOCX document
+     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;InsertDocxInsertParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1162,9 +1162,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new paragraph into a DOCX (asynchronously)
-     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
-     * @param reqConfig  (required)
+     * Insert a new paragraph into a Word DOCX document (asynchronously)
+     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1197,7 +1197,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxInsertTable
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1259,9 +1259,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new table into a DOCX
-     * Adds a new table into a DOCX and returns the result
-     * @param reqConfig  (required)
+     * Insert a new table into a Word DOCX document
+     * Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return InsertDocxTablesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1271,9 +1271,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new table into a DOCX
-     * Adds a new table into a DOCX and returns the result
-     * @param reqConfig  (required)
+     * Insert a new table into a Word DOCX document
+     * Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;InsertDocxTablesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1284,9 +1284,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new table into a DOCX (asynchronously)
-     * Adds a new table into a DOCX and returns the result
-     * @param reqConfig  (required)
+     * Insert a new table into a Word DOCX document (asynchronously)
+     * Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1319,7 +1319,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxRemoveHeadersAndFooters
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1381,9 +1381,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Remove headers and footers from DOCX
-     * Remove all headers, or footers, or both from a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Remove headers and footers from Word DOCX document
+     * Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return RemoveDocxHeadersAndFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1393,9 +1393,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Remove headers and footers from DOCX
-     * Remove all headers, or footers, or both from a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Remove headers and footers from Word DOCX document
+     * Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;RemoveDocxHeadersAndFootersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1406,9 +1406,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Remove headers and footers from DOCX (asynchronously)
-     * Remove all headers, or footers, or both from a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Remove headers and footers from Word DOCX document (asynchronously)
+     * Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1441,7 +1441,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxRemoveObject
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1503,9 +1503,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Delete any object in a DOCX
-     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
-     * @param reqConfig  (required)
+     * Delete any object in a Word DOCX document
+     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return DocxRemoveObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1515,9 +1515,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Delete any object in a DOCX
-     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
-     * @param reqConfig  (required)
+     * Delete any object in a Word DOCX document
+     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;DocxRemoveObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1528,9 +1528,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Delete any object in a DOCX (asynchronously)
-     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
-     * @param reqConfig  (required)
+     * Delete any object in a Word DOCX document (asynchronously)
+     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1563,7 +1563,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxReplace
-     * @param reqConfig  (required)
+     * @param reqConfig Document string replacement configuration input (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1625,9 +1625,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Replace string in DOCX
+     * Replace string in Word DOCX document
      * Replace all instances of a string in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document string replacement configuration input (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1637,9 +1637,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Replace string in DOCX
+     * Replace string in Word DOCX document
      * Replace all instances of a string in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document string replacement configuration input (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1650,9 +1650,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Replace string in DOCX (asynchronously)
+     * Replace string in Word DOCX document (asynchronously)
      * Replace all instances of a string in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document string replacement configuration input (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1685,7 +1685,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxSetFooter
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1747,9 +1747,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Set the footer in a DOCX
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the footer in a Word DOCX document
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return DocxSetFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1759,9 +1759,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Set the footer in a DOCX
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the footer in a Word DOCX document
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;DocxSetFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1772,9 +1772,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Set the footer in a DOCX (asynchronously)
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the footer in a Word DOCX document (asynchronously)
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1807,7 +1807,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxSetFooterAddPageNumber
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1869,9 +1869,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Add page number to footer in a DOCX
-     * Set the footer in a Word Document (DOCX) to contain a page number
-     * @param reqConfig  (required)
+     * Add page number to footer in a Word DOCX document
+     * Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return DocxSetFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1881,9 +1881,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Add page number to footer in a DOCX
-     * Set the footer in a Word Document (DOCX) to contain a page number
-     * @param reqConfig  (required)
+     * Add page number to footer in a Word DOCX document
+     * Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;DocxSetFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1894,9 +1894,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Add page number to footer in a DOCX (asynchronously)
-     * Set the footer in a Word Document (DOCX) to contain a page number
-     * @param reqConfig  (required)
+     * Add page number to footer in a Word DOCX document (asynchronously)
+     * Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1929,7 +1929,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentDocxSetHeader
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1991,9 +1991,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Set the header in a DOCX
-     * Set the header in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the header in a Word DOCX document
+     * Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return DocxSetHeaderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2003,9 +2003,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Set the header in a DOCX
-     * Set the header in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the header in a Word DOCX document
+     * Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;DocxSetHeaderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2016,9 +2016,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Set the header in a DOCX (asynchronously)
-     * Set the header in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the header in a Word DOCX document (asynchronously)
+     * Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2051,7 +2051,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentFinishEditing
-     * @param reqConfig  (required)
+     * @param reqConfig Cloudmersive Document URL to complete editing on (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2115,7 +2115,7 @@ public class EditDocumentApi {
     /**
      * Download result from document editing
      * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
-     * @param reqConfig  (required)
+     * @param reqConfig Cloudmersive Document URL to complete editing on (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2127,7 +2127,7 @@ public class EditDocumentApi {
     /**
      * Download result from document editing
      * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
-     * @param reqConfig  (required)
+     * @param reqConfig Cloudmersive Document URL to complete editing on (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2140,7 +2140,7 @@ public class EditDocumentApi {
     /**
      * Download result from document editing (asynchronously)
      * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
-     * @param reqConfig  (required)
+     * @param reqConfig Cloudmersive Document URL to complete editing on (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2173,7 +2173,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentPptxReplace
-     * @param reqConfig  (required)
+     * @param reqConfig Replacement document configuration input (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2235,9 +2235,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Replace string in PPTX
+     * Replace string in PowerPoint PPTX presentation
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
-     * @param reqConfig  (required)
+     * @param reqConfig Replacement document configuration input (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2247,9 +2247,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Replace string in PPTX
+     * Replace string in PowerPoint PPTX presentation
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
-     * @param reqConfig  (required)
+     * @param reqConfig Replacement document configuration input (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2260,9 +2260,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Replace string in PPTX (asynchronously)
+     * Replace string in PowerPoint PPTX presentation (asynchronously)
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
-     * @param reqConfig  (required)
+     * @param reqConfig Replacement document configuration input (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2295,7 +2295,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentXlsxGetColumns
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2357,9 +2357,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return GetXlsxColumnsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2369,9 +2369,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxColumnsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2382,9 +2382,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a XLSX worksheet (asynchronously)
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet (asynchronously)
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2417,7 +2417,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentXlsxGetImages
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2479,9 +2479,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get images from a XLSX worksheet
+     * Get images from a Excel XLSX spreadsheet, worksheet
      * Returns the images defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return GetXlsxImagesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2491,9 +2491,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get images from a XLSX worksheet
+     * Get images from a Excel XLSX spreadsheet, worksheet
      * Returns the images defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxImagesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2504,9 +2504,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get images from a XLSX worksheet (asynchronously)
+     * Get images from a Excel XLSX spreadsheet, worksheet (asynchronously)
      * Returns the images defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2539,7 +2539,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentXlsxGetRowsAndCells
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2601,9 +2601,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Word XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return GetXlsxRowsAndCellsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2613,9 +2613,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Word XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxRowsAndCellsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2626,9 +2626,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a XLSX worksheet (asynchronously)
+     * Get rows and cells from a Word XLSX spreadsheet, worksheet (asynchronously)
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2661,7 +2661,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentXlsxGetStyles
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2723,9 +2723,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get styles from a XLSX worksheet
+     * Get styles from a Excel XLSX spreadsheet, worksheet
      * Returns the style defined in the Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return GetXlsxStylesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2735,9 +2735,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get styles from a XLSX worksheet
+     * Get styles from a Excel XLSX spreadsheet, worksheet
      * Returns the style defined in the Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxStylesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2748,9 +2748,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get styles from a XLSX worksheet (asynchronously)
+     * Get styles from a Excel XLSX spreadsheet, worksheet (asynchronously)
      * Returns the style defined in the Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2783,7 +2783,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentXlsxGetWorksheets
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2845,9 +2845,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get worksheets from a XLSX
+     * Get worksheets from a Excel XLSX spreadsheet
      * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return GetXlsxWorksheetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2857,9 +2857,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get worksheets from a XLSX
+     * Get worksheets from a Excel XLSX spreadsheet
      * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxWorksheetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2870,9 +2870,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get worksheets from a XLSX (asynchronously)
+     * Get worksheets from a Excel XLSX spreadsheet (asynchronously)
      * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2905,7 +2905,7 @@ public class EditDocumentApi {
     }
     /**
      * Build call for editDocumentXlsxInsertWorksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2967,9 +2967,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new worksheet into an XLSX spreadsheet
+     * Insert a new worksheet into an Excel XLSX spreadsheet
      * Inserts a new worksheet into an Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return InsertXlsxWorksheetResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2979,9 +2979,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new worksheet into an XLSX spreadsheet
+     * Insert a new worksheet into an Excel XLSX spreadsheet
      * Inserts a new worksheet into an Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return ApiResponse&lt;InsertXlsxWorksheetResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2992,9 +2992,9 @@ public class EditDocumentApi {
     }
 
     /**
-     * Insert a new worksheet into an XLSX spreadsheet (asynchronously)
+     * Insert a new worksheet into an Excel XLSX spreadsheet (asynchronously)
      * Inserts a new worksheet into an Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

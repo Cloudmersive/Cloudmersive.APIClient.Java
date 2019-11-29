@@ -30,7 +30,7 @@ import java.util.List;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-27T14:14:00.696-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-28T19:31:08.023-08:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -40,6 +40,9 @@ public class FormFieldDefinition {
 
   @SerializedName("TopAnchor")
   private String topAnchor = null;
+
+  @SerializedName("BottomAnchor")
+  private String bottomAnchor = null;
 
   @SerializedName("AnchorMode")
   private String anchorMode = null;
@@ -129,6 +132,24 @@ public class FormFieldDefinition {
 
   public void setTopAnchor(String topAnchor) {
     this.topAnchor = topAnchor;
+  }
+
+  public FormFieldDefinition bottomAnchor(String bottomAnchor) {
+    this.bottomAnchor = bottomAnchor;
+    return this;
+  }
+
+   /**
+   * Optional - the bottom anchor of the field
+   * @return bottomAnchor
+  **/
+  @ApiModelProperty(value = "Optional - the bottom anchor of the field")
+  public String getBottomAnchor() {
+    return bottomAnchor;
+  }
+
+  public void setBottomAnchor(String bottomAnchor) {
+    this.bottomAnchor = bottomAnchor;
   }
 
   public FormFieldDefinition anchorMode(String anchorMode) {
@@ -368,6 +389,7 @@ public class FormFieldDefinition {
     return Objects.equals(this.fieldID, formFieldDefinition.fieldID) &&
         Objects.equals(this.leftAnchor, formFieldDefinition.leftAnchor) &&
         Objects.equals(this.topAnchor, formFieldDefinition.topAnchor) &&
+        Objects.equals(this.bottomAnchor, formFieldDefinition.bottomAnchor) &&
         Objects.equals(this.anchorMode, formFieldDefinition.anchorMode) &&
         Objects.equals(this.dataType, formFieldDefinition.dataType) &&
         Objects.equals(this.targetDigitCount, formFieldDefinition.targetDigitCount) &&
@@ -384,7 +406,7 @@ public class FormFieldDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldID, leftAnchor, topAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, targetFieldHorizontalAdjustment, targetFieldVerticalAdjustment, ignore);
+    return Objects.hash(fieldID, leftAnchor, topAnchor, bottomAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, targetFieldHorizontalAdjustment, targetFieldVerticalAdjustment, ignore);
   }
 
 
@@ -396,6 +418,7 @@ public class FormFieldDefinition {
     sb.append("    fieldID: ").append(toIndentedString(fieldID)).append("\n");
     sb.append("    leftAnchor: ").append(toIndentedString(leftAnchor)).append("\n");
     sb.append("    topAnchor: ").append(toIndentedString(topAnchor)).append("\n");
+    sb.append("    bottomAnchor: ").append(toIndentedString(bottomAnchor)).append("\n");
     sb.append("    anchorMode: ").append(toIndentedString(anchorMode)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    targetDigitCount: ").append(toIndentedString(targetDigitCount)).append("\n");

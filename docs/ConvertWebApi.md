@@ -4,8 +4,9 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**convertWebHtmlToDocx**](ConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | HTML to DOCX
+[**convertWebHtmlToDocx**](ConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to DOCX
 [**convertWebHtmlToPdf**](ConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
+[**convertWebHtmlToPng**](ConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG
 [**convertWebMdToHtml**](ConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
 [**convertWebUrlToPdf**](ConvertWebApi.md#convertWebUrlToPdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
 [**convertWebUrlToScreenshot**](ConvertWebApi.md#convertWebUrlToScreenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
@@ -15,7 +16,7 @@ Method | HTTP request | Description
 # **convertWebHtmlToDocx**
 > byte[] convertWebHtmlToDocx(inputRequest)
 
-HTML to DOCX
+Convert HTML to DOCX
 
 Convert HTML to Office Word Document (DOCX) format
 
@@ -37,7 +38,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 ConvertWebApi apiInstance = new ConvertWebApi();
-HtmlToOfficeRequest inputRequest = new HtmlToOfficeRequest(); // HtmlToOfficeRequest | 
+HtmlToOfficeRequest inputRequest = new HtmlToOfficeRequest(); // HtmlToOfficeRequest | HTL input to convert to DOCX
 try {
     byte[] result = apiInstance.convertWebHtmlToDocx(inputRequest);
     System.out.println(result);
@@ -51,7 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputRequest** | [**HtmlToOfficeRequest**](HtmlToOfficeRequest.md)|  |
+ **inputRequest** | [**HtmlToOfficeRequest**](HtmlToOfficeRequest.md)| HTL input to convert to DOCX |
 
 ### Return type
 
@@ -119,7 +120,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
+
+<a name="convertWebHtmlToPng"></a>
+# **convertWebHtmlToPng**
+> Object convertWebHtmlToPng(input)
+
+Convert HTML string to PNG
+
+Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertWebApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertWebApi apiInstance = new ConvertWebApi();
+HtmlToPngRequest input = new HtmlToPngRequest(); // HtmlToPngRequest | HTML to PNG request parameters
+try {
+    Object result = apiInstance.convertWebHtmlToPng(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertWebApi#convertWebHtmlToPng");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**HtmlToPngRequest**](HtmlToPngRequest.md)| HTML to PNG request parameters |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/octet-stream
 
 <a name="convertWebMdToHtml"></a>
 # **convertWebMdToHtml**
@@ -229,7 +285,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 <a name="convertWebUrlToScreenshot"></a>
 # **convertWebUrlToScreenshot**
@@ -284,5 +340,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 

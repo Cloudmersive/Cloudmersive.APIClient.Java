@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a Get-Worksheets command
  */
 @ApiModel(description = "Result of running a Get-Worksheets command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-27T14:14:14.269-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-28T19:31:22.255-08:00")
 public class GetXlsxWorksheetsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

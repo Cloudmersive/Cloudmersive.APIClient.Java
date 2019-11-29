@@ -25,13 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Details of the screenshot request
+ * Details of the HTML to PNG request
  */
-@ApiModel(description = "Details of the screenshot request")
+@ApiModel(description = "Details of the HTML to PNG request")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-28T19:31:22.255-08:00")
-public class ScreenshotRequest {
-  @SerializedName("Url")
-  private String url = null;
+public class HtmlToPngRequest {
+  @SerializedName("Html")
+  private String html = null;
 
   @SerializedName("ExtraLoadingWait")
   private Integer extraLoadingWait = null;
@@ -42,34 +42,34 @@ public class ScreenshotRequest {
   @SerializedName("ScreenshotHeight")
   private Integer screenshotHeight = null;
 
-  public ScreenshotRequest url(String url) {
-    this.url = url;
+  public HtmlToPngRequest html(String html) {
+    this.html = html;
     return this;
   }
 
    /**
-   * URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.
-   * @return url
+   * HTML to render to PNG (screenshot)
+   * @return html
   **/
-  @ApiModelProperty(value = "URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.")
-  public String getUrl() {
-    return url;
+  @ApiModelProperty(value = "HTML to render to PNG (screenshot)")
+  public String getHtml() {
+    return html;
   }
 
-  public void setUrl(String url) {
-    this.url = url;
+  public void setHtml(String html) {
+    this.html = html;
   }
 
-  public ScreenshotRequest extraLoadingWait(Integer extraLoadingWait) {
+  public HtmlToPngRequest extraLoadingWait(Integer extraLoadingWait) {
     this.extraLoadingWait = extraLoadingWait;
     return this;
   }
 
    /**
-   * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)
+   * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.
    * @return extraLoadingWait
   **/
-  @ApiModelProperty(value = "Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)")
+  @ApiModelProperty(value = "Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.")
   public Integer getExtraLoadingWait() {
     return extraLoadingWait;
   }
@@ -78,7 +78,7 @@ public class ScreenshotRequest {
     this.extraLoadingWait = extraLoadingWait;
   }
 
-  public ScreenshotRequest screenshotWidth(Integer screenshotWidth) {
+  public HtmlToPngRequest screenshotWidth(Integer screenshotWidth) {
     this.screenshotWidth = screenshotWidth;
     return this;
   }
@@ -96,7 +96,7 @@ public class ScreenshotRequest {
     this.screenshotWidth = screenshotWidth;
   }
 
-  public ScreenshotRequest screenshotHeight(Integer screenshotHeight) {
+  public HtmlToPngRequest screenshotHeight(Integer screenshotHeight) {
     this.screenshotHeight = screenshotHeight;
     return this;
   }
@@ -123,25 +123,25 @@ public class ScreenshotRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScreenshotRequest screenshotRequest = (ScreenshotRequest) o;
-    return Objects.equals(this.url, screenshotRequest.url) &&
-        Objects.equals(this.extraLoadingWait, screenshotRequest.extraLoadingWait) &&
-        Objects.equals(this.screenshotWidth, screenshotRequest.screenshotWidth) &&
-        Objects.equals(this.screenshotHeight, screenshotRequest.screenshotHeight);
+    HtmlToPngRequest htmlToPngRequest = (HtmlToPngRequest) o;
+    return Objects.equals(this.html, htmlToPngRequest.html) &&
+        Objects.equals(this.extraLoadingWait, htmlToPngRequest.extraLoadingWait) &&
+        Objects.equals(this.screenshotWidth, htmlToPngRequest.screenshotWidth) &&
+        Objects.equals(this.screenshotHeight, htmlToPngRequest.screenshotHeight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, extraLoadingWait, screenshotWidth, screenshotHeight);
+    return Objects.hash(html, extraLoadingWait, screenshotWidth, screenshotHeight);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScreenshotRequest {\n");
+    sb.append("class HtmlToPngRequest {\n");
     
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("    extraLoadingWait: ").append(toIndentedString(extraLoadingWait)).append("\n");
     sb.append("    screenshotWidth: ").append(toIndentedString(screenshotWidth)).append("\n");
     sb.append("    screenshotHeight: ").append(toIndentedString(screenshotHeight)).append("\n");

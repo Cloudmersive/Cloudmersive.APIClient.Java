@@ -4,15 +4,76 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**editPdfDeletePages**](EditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**editPdfEncrypt**](EditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**editPdfGetFormFields**](EditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**editPdfGetMetadata**](EditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
+[**editPdfInsertPages**](EditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 [**editPdfRasterize**](EditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**editPdfSetFormFields**](EditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
 [**editPdfSetMetadata**](EditPdfApi.md#editPdfSetMetadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 [**editPdfSetPermissions**](EditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**editPdfWatermarkText**](EditPdfApi.md#editPdfWatermarkText) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
 
+
+<a name="editPdfDeletePages"></a>
+# **editPdfDeletePages**
+> byte[] editPdfDeletePages(inputFile, pageStart, pageEnd)
+
+Remove / delete pages from a PDF document
+
+Remove one or more pages from a PDF document
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditPdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditPdfApi apiInstance = new EditPdfApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+Integer pageStart = 56; // Integer | Page number (1 based) to start deleting pages from (inclusive).
+Integer pageEnd = 56; // Integer | Page number (1 based) to stop deleting pages from (inclusive).
+try {
+    byte[] result = apiInstance.editPdfDeletePages(inputFile, pageStart, pageEnd);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditPdfApi#editPdfDeletePages");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+ **pageStart** | **Integer**| Page number (1 based) to start deleting pages from (inclusive). |
+ **pageEnd** | **Integer**| Page number (1 based) to stop deleting pages from (inclusive). |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 <a name="editPdfEncrypt"></a>
 # **editPdfEncrypt**
@@ -183,6 +244,69 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
+<a name="editPdfInsertPages"></a>
+# **editPdfInsertPages**
+> byte[] editPdfInsertPages(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation)
+
+Insert / copy pages from one PDF document into another
+
+Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditPdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditPdfApi apiInstance = new EditPdfApi();
+File sourceFile = new File("/path/to/file.txt"); // File | Source PDF file to copy pages from.
+File destinationFile = new File("/path/to/file.txt"); // File | Destination PDF file to copy pages into.
+Integer pageStartSource = 56; // Integer | Page number (1 based) to start copying pages from (inclusive) in the Source file.
+Integer pageEndSource = 56; // Integer | Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+Integer pageInsertBeforeDesitnation = 56; // Integer | Page number (1 based) to insert the pages before in the Destination file.
+try {
+    byte[] result = apiInstance.editPdfInsertPages(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditPdfApi#editPdfInsertPages");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sourceFile** | **File**| Source PDF file to copy pages from. |
+ **destinationFile** | **File**| Destination PDF file to copy pages into. |
+ **pageStartSource** | **Integer**| Page number (1 based) to start copying pages from (inclusive) in the Source file. |
+ **pageEndSource** | **Integer**| Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. |
+ **pageInsertBeforeDesitnation** | **Integer**| Page number (1 based) to insert the pages before in the Destination file. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
 <a name="editPdfRasterize"></a>
 # **editPdfRasterize**
 > byte[] editPdfRasterize(inputFile)
@@ -295,7 +419,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfSetMetadata"></a>
 # **editPdfSetMetadata**
-> Object editPdfSetMetadata(request)
+> byte[] editPdfSetMetadata(request)
 
 Sets PDF document metadata
 
@@ -321,7 +445,7 @@ Apikey.setApiKey("YOUR API KEY");
 EditPdfApi apiInstance = new EditPdfApi();
 SetPdfMetadataRequest request = new SetPdfMetadataRequest(); // SetPdfMetadataRequest | 
 try {
-    Object result = apiInstance.editPdfSetMetadata(request);
+    byte[] result = apiInstance.editPdfSetMetadata(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditPdfApi#editPdfSetMetadata");
@@ -337,7 +461,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

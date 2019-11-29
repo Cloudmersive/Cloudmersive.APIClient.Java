@@ -305,7 +305,7 @@ public class DomainApi {
     }
     /**
      * Build call for domainUrlFull
-     * @param request  (required)
+     * @param request Input URL request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -369,7 +369,7 @@ public class DomainApi {
     /**
      * Validate a URL fully
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
-     * @param request  (required)
+     * @param request Input URL request (required)
      * @return ValidateUrlResponseFull
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -381,7 +381,7 @@ public class DomainApi {
     /**
      * Validate a URL fully
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
-     * @param request  (required)
+     * @param request Input URL request (required)
      * @return ApiResponse&lt;ValidateUrlResponseFull&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -394,7 +394,7 @@ public class DomainApi {
     /**
      * Validate a URL fully (asynchronously)
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
-     * @param request  (required)
+     * @param request Input URL request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -427,7 +427,7 @@ public class DomainApi {
     }
     /**
      * Build call for domainUrlSyntaxOnly
-     * @param request  (required)
+     * @param request Input URL information (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -491,7 +491,7 @@ public class DomainApi {
     /**
      * Validate a URL syntactically
      * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
-     * @param request  (required)
+     * @param request Input URL information (required)
      * @return ValidateUrlResponseSyntaxOnly
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -503,7 +503,7 @@ public class DomainApi {
     /**
      * Validate a URL syntactically
      * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
-     * @param request  (required)
+     * @param request Input URL information (required)
      * @return ApiResponse&lt;ValidateUrlResponseSyntaxOnly&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -516,7 +516,7 @@ public class DomainApi {
     /**
      * Validate a URL syntactically (asynchronously)
      * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
-     * @param request  (required)
+     * @param request Input URL information (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

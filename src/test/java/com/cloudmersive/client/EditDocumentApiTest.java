@@ -90,7 +90,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get body from a DOCX
+     * Get body from a Word DOCX document
      *
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
      *
@@ -106,7 +106,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get content of a footer from a DOCX
+     * Get content of a footer from a Word DOCX document
      *
      * Returns the footer content from a Word Document (DOCX) format file
      *
@@ -122,7 +122,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get images from a DOCX
+     * Get images from a Word DOCX document
      *
      * Returns the images defined in the Word Document (DOCX) format file
      *
@@ -138,7 +138,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get sections from a DOCX
+     * Get sections from a Word DOCX document
      *
      * Returns the sections defined in the Word Document (DOCX) format file
      *
@@ -154,7 +154,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get styles from a DOCX
+     * Get styles from a Word DOCX document
      *
      * Returns the styles defined in the Word Document (DOCX) format file
      *
@@ -170,7 +170,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get tables in DOCX
+     * Get tables in Word DOCX document
      *
      * Returns all the table objects in an Office Word Document (docx)
      *
@@ -186,9 +186,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Insert image into a DOCX
+     * Insert image into a Word DOCX document
      *
-     * Set the footer in a Word Document (DOCX)
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -202,9 +202,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Insert a new paragraph into a DOCX
+     * Insert a new paragraph into a Word DOCX document
      *
-     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
+     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -218,9 +218,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Insert a new table into a DOCX
+     * Insert a new table into a Word DOCX document
      *
-     * Adds a new table into a DOCX and returns the result
+     * Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -234,9 +234,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Remove headers and footers from DOCX
+     * Remove headers and footers from Word DOCX document
      *
-     * Remove all headers, or footers, or both from a Word Document (DOCX)
+     * Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -250,9 +250,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Delete any object in a DOCX
+     * Delete any object in a Word DOCX document
      *
-     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
+     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -266,7 +266,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Replace string in DOCX
+     * Replace string in Word DOCX document
      *
      * Replace all instances of a string in an Office Word Document (docx)
      *
@@ -282,9 +282,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Set the footer in a DOCX
+     * Set the footer in a Word DOCX document
      *
-     * Set the footer in a Word Document (DOCX)
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -298,9 +298,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Add page number to footer in a DOCX
+     * Add page number to footer in a Word DOCX document
      *
-     * Set the footer in a Word Document (DOCX) to contain a page number
+     * Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -314,9 +314,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Set the header in a DOCX
+     * Set the header in a Word DOCX document
      *
-     * Set the header in a Word Document (DOCX)
+     * Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -346,7 +346,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Replace string in PPTX
+     * Replace string in PowerPoint PPTX presentation
      *
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      *
@@ -362,7 +362,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      *
@@ -378,7 +378,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get images from a XLSX worksheet
+     * Get images from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the images defined in the Excel Spreadsheet worksheet
      *
@@ -394,7 +394,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Word XLSX spreadsheet, worksheet
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      *
@@ -410,7 +410,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get styles from a XLSX worksheet
+     * Get styles from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the style defined in the Excel Spreadsheet
      *
@@ -426,7 +426,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get worksheets from a XLSX
+     * Get worksheets from a Excel XLSX spreadsheet
      *
      * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
      *
@@ -442,7 +442,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Insert a new worksheet into an XLSX spreadsheet
+     * Insert a new worksheet into an Excel XLSX spreadsheet
      *
      * Inserts a new worksheet into an Excel Spreadsheet
      *

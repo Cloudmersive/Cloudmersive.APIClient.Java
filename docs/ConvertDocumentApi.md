@@ -8,29 +8,29 @@ Method | HTTP request | Description
 [**convertDocumentAutodetectToPdf**](ConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
 [**convertDocumentAutodetectToPngArray**](ConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
 [**convertDocumentAutodetectToTxt**](ConvertDocumentApi.md#convertDocumentAutodetectToTxt) | **POST** /convert/autodetect/to/txt | Convert Document to Text
-[**convertDocumentCsvToXlsx**](ConvertDocumentApi.md#convertDocumentCsvToXlsx) | **POST** /convert/csv/to/xlsx | CSV to Excel XLSX
-[**convertDocumentDocToDocx**](ConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Word DOC (97-03) to DOCX
-[**convertDocumentDocToPdf**](ConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Word DOC (97-03) to PDF
-[**convertDocumentDocxToPdf**](ConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Word DOCX to PDF
-[**convertDocumentDocxToTxt**](ConvertDocumentApi.md#convertDocumentDocxToTxt) | **POST** /convert/docx/to/txt | Word DOCX to Text
-[**convertDocumentHtmlToPdf**](ConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | HTML to PDF
-[**convertDocumentHtmlToPng**](ConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | HTML to PNG array
-[**convertDocumentPdfToDocx**](ConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | PDF to Word DOCX
-[**convertDocumentPdfToPngArray**](ConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | PDF to PNG Array
-[**convertDocumentPdfToPngSingle**](ConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | PDF to Single PNG image
-[**convertDocumentPdfToPptx**](ConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | PDF to PowerPoint PPTX
-[**convertDocumentPdfToTxt**](ConvertDocumentApi.md#convertDocumentPdfToTxt) | **POST** /convert/pdf/to/txt | PDF to Text
-[**convertDocumentPngArrayToPdf**](ConvertDocumentApi.md#convertDocumentPngArrayToPdf) | **POST** /convert/png/to/pdf | PNG Array to PDF
-[**convertDocumentPptToPdf**](ConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | PowerPoint PPT (97-03) to PDF
-[**convertDocumentPptToPptx**](ConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | PowerPoint PPT (97-03) to PPTX
-[**convertDocumentPptxToPdf**](ConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | PowerPoint PPTX to PDF
-[**convertDocumentPptxToTxt**](ConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | PowerPoint PPTX to Text
-[**convertDocumentXlsToCsv**](ConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Excel XLS (97-03) to CSV
-[**convertDocumentXlsToPdf**](ConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Excel XLS (97-03) to PDF
-[**convertDocumentXlsToXlsx**](ConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Excel XLS (97-03) to XLSX
-[**convertDocumentXlsxToCsv**](ConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Excel XLSX to CSV
-[**convertDocumentXlsxToPdf**](ConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Excel XLSX to PDF
-[**convertDocumentXlsxToTxt**](ConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Excel XLSX to Text
+[**convertDocumentCsvToXlsx**](ConvertDocumentApi.md#convertDocumentCsvToXlsx) | **POST** /convert/csv/to/xlsx | Convert CSV to Excel XLSX Spreadsheet
+[**convertDocumentDocToDocx**](ConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
+[**convertDocumentDocToPdf**](ConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
+[**convertDocumentDocxToPdf**](ConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
+[**convertDocumentDocxToTxt**](ConvertDocumentApi.md#convertDocumentDocxToTxt) | **POST** /convert/docx/to/txt | Convert Word DOCX Document to Text
+[**convertDocumentHtmlToPdf**](ConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML to PDF Document
+[**convertDocumentHtmlToPng**](ConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML to PNG image array
+[**convertDocumentPdfToDocx**](ConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
+[**convertDocumentPdfToPngArray**](ConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
+[**convertDocumentPdfToPngSingle**](ConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
+[**convertDocumentPdfToPptx**](ConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
+[**convertDocumentPdfToTxt**](ConvertDocumentApi.md#convertDocumentPdfToTxt) | **POST** /convert/pdf/to/txt | Convert PDF Document to Text
+[**convertDocumentPngArrayToPdf**](ConvertDocumentApi.md#convertDocumentPngArrayToPdf) | **POST** /convert/png/to/pdf | Convert PNG Array to PDF
+[**convertDocumentPptToPdf**](ConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | Convert PowerPoint PPT (97-03) Presentation to PDF
+[**convertDocumentPptToPptx**](ConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
+[**convertDocumentPptxToPdf**](ConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
+[**convertDocumentPptxToTxt**](ConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | Convert PowerPoint PPTX Presentation to Text
+[**convertDocumentXlsToCsv**](ConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
+[**convertDocumentXlsToPdf**](ConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
+[**convertDocumentXlsToXlsx**](ConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
+[**convertDocumentXlsxToCsv**](ConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV
+[**convertDocumentXlsxToPdf**](ConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
+[**convertDocumentXlsxToTxt**](ConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text
 
 
 <a name="convertDocumentAutodetectGetInfo"></a>
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="convertDocumentAutodetectToTxt"></a>
 # **convertDocumentAutodetectToTxt**
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 # **convertDocumentCsvToXlsx**
 > byte[] convertDocumentCsvToXlsx(inputFile)
 
-CSV to Excel XLSX
+Convert CSV to Excel XLSX Spreadsheet
 
 Convert CSV file to Office Excel XLSX Workbooks file format.
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 # **convertDocumentDocToDocx**
 > byte[] convertDocumentDocToDocx(inputFile)
 
-Word DOC (97-03) to DOCX
+Convert Word DOC (97-03) Document to DOCX
 
 Convert/upgrade Office Word (97-2003 Format) Documents (doc) to the modern DOCX format
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 # **convertDocumentDocToPdf**
 > byte[] convertDocumentDocToPdf(inputFile)
 
-Word DOC (97-03) to PDF
+Convert Word DOC (97-03) Document to PDF
 
 Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 # **convertDocumentDocxToPdf**
 > byte[] convertDocumentDocxToPdf(inputFile)
 
-Word DOCX to PDF
+Convert Word DOCX Document to PDF
 
 Convert Office Word Documents (docx) to standard PDF
 
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 # **convertDocumentDocxToTxt**
 > TextConversionResult convertDocumentDocxToTxt(inputFile)
 
-Word DOCX to Text
+Convert Word DOCX Document to Text
 
 Convert Office Word Documents (docx) to text
 
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 # **convertDocumentHtmlToPdf**
 > byte[] convertDocumentHtmlToPdf(inputFile)
 
-HTML to PDF
+Convert HTML to PDF Document
 
 Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 # **convertDocumentHtmlToPng**
 > PdfToPngResult convertDocumentHtmlToPng(inputFile)
 
-HTML to PNG array
+Convert HTML to PNG image array
 
 Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
 
@@ -636,13 +636,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="convertDocumentPdfToDocx"></a>
 # **convertDocumentPdfToDocx**
 > byte[] convertDocumentPdfToDocx(inputFile)
 
-PDF to Word DOCX
+Convert PDF to Word DOCX Document
 
 Convert standard PDF to Office Word Documents (docx).    Converts a PDF at high fidelity into Word format, where it can be easily edited and processed.
 
@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPdfToPngArray**
 > PdfToPngResult convertDocumentPdfToPngArray(inputFile)
 
-PDF to PNG Array
+Convert PDF to PNG Image Array
 
 Convert PDF document to PNG array, one image per page.
 
@@ -746,13 +746,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="convertDocumentPdfToPngSingle"></a>
 # **convertDocumentPdfToPngSingle**
 > byte[] convertDocumentPdfToPngSingle(inputFile)
 
-PDF to Single PNG image
+Convert PDF to Single PNG image
 
 Convert PDF document to a single tall PNG image, by stacking/concatenating the images vertically into a single \&quot;tall\&quot; image
 
@@ -807,7 +807,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPdfToPptx**
 > byte[] convertDocumentPdfToPptx(inputFile)
 
-PDF to PowerPoint PPTX
+Convert PDF to PowerPoint PPTX Presentation
 
 Convert standard PDF to Office PowerPoint Presentation (pptx).  Converts a PDF file at high fidelity into PowerPoint format, where it can be easily edited and processed.
 
@@ -862,7 +862,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPdfToTxt**
 > TextConversionResult convertDocumentPdfToTxt(inputFile)
 
-PDF to Text
+Convert PDF Document to Text
 
 PDF document to text
 
@@ -911,13 +911,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="convertDocumentPngArrayToPdf"></a>
 # **convertDocumentPngArrayToPdf**
 > byte[] convertDocumentPngArrayToPdf(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
 
-PNG Array to PDF
+Convert PNG Array to PDF
 
 Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
 
@@ -990,7 +990,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPptToPdf**
 > byte[] convertDocumentPptToPdf(inputFile)
 
-PowerPoint PPT (97-03) to PDF
+Convert PowerPoint PPT (97-03) Presentation to PDF
 
 Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
 
@@ -1045,7 +1045,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPptToPptx**
 > byte[] convertDocumentPptToPptx(inputFile)
 
-PowerPoint PPT (97-03) to PPTX
+Convert PowerPoint PPT (97-03) Presentation to PPTX
 
 Convert/upgrade Office PowerPoint (97-2003) Documents (ppt) to modern PPTX
 
@@ -1100,7 +1100,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPptxToPdf**
 > byte[] convertDocumentPptxToPdf(inputFile)
 
-PowerPoint PPTX to PDF
+Convert PowerPoint PPTX Presentation to PDF
 
 Convert Office PowerPoint Documents (pptx) to standard PDF
 
@@ -1155,7 +1155,7 @@ Name | Type | Description  | Notes
 # **convertDocumentPptxToTxt**
 > TextConversionResult convertDocumentPptxToTxt(inputFile)
 
-PowerPoint PPTX to Text
+Convert PowerPoint PPTX Presentation to Text
 
 Convert Office PowerPoint Documents (pptx) to standard Text
 
@@ -1210,7 +1210,7 @@ Name | Type | Description  | Notes
 # **convertDocumentXlsToCsv**
 > byte[] convertDocumentXlsToCsv(inputFile)
 
-Excel XLS (97-03) to CSV
+Convert Excel XLS (97-03) Spreadsheet to CSV
 
 Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
 
@@ -1265,7 +1265,7 @@ Name | Type | Description  | Notes
 # **convertDocumentXlsToPdf**
 > byte[] convertDocumentXlsToPdf(inputFile)
 
-Excel XLS (97-03) to PDF
+Convert Excel XLS (97-03) Spreadsheet to PDF
 
 Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
 
@@ -1320,7 +1320,7 @@ Name | Type | Description  | Notes
 # **convertDocumentXlsToXlsx**
 > byte[] convertDocumentXlsToXlsx(inputFile)
 
-Excel XLS (97-03) to XLSX
+Convert Excel XLS (97-03) Spreadsheet to XLSX
 
 Convert/upgrade Office Excel (97-2003) Workbooks (xls) to modern XLSX format.
 
@@ -1375,7 +1375,7 @@ Name | Type | Description  | Notes
 # **convertDocumentXlsxToCsv**
 > byte[] convertDocumentXlsxToCsv(inputFile, outputEncoding)
 
-Excel XLSX to CSV
+Convert Excel XLSX Spreadsheet to CSV
 
 Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
 
@@ -1432,7 +1432,7 @@ Name | Type | Description  | Notes
 # **convertDocumentXlsxToPdf**
 > byte[] convertDocumentXlsxToPdf(inputFile)
 
-Excel XLSX to PDF
+Convert Excel XLSX Spreadsheet to PDF
 
 Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
 
@@ -1487,7 +1487,7 @@ Name | Type | Description  | Notes
 # **convertDocumentXlsxToTxt**
 > TextConversionResult convertDocumentXlsxToTxt(inputFile)
 
-Excel XLSX to Text
+Convert Excel XLSX Spreadsheet to Text
 
 Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
 

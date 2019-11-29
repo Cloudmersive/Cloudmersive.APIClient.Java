@@ -4,17 +4,17 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**convertDataCsvToJson**](ConvertDataApi.md#convertDataCsvToJson) | **POST** /convert/csv/to/json | CSV to JSON conversion
-[**convertDataXlsToJson**](ConvertDataApi.md#convertDataXlsToJson) | **POST** /convert/xls/to/json | Excel (97-2003) XLS to JSON conversion
-[**convertDataXlsxToJson**](ConvertDataApi.md#convertDataXlsxToJson) | **POST** /convert/xlsx/to/json | Excel XLSX to JSON conversion
-[**convertDataXmlToJson**](ConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | XML to JSON conversion
+[**convertDataCsvToJson**](ConvertDataApi.md#convertDataCsvToJson) | **POST** /convert/csv/to/json | Convert CSV to JSON conversion
+[**convertDataXlsToJson**](ConvertDataApi.md#convertDataXlsToJson) | **POST** /convert/xls/to/json | Convert Excel (97-2003) XLS to JSON conversion
+[**convertDataXlsxToJson**](ConvertDataApi.md#convertDataXlsxToJson) | **POST** /convert/xlsx/to/json | Convert Excel XLSX to JSON conversion
+[**convertDataXmlToJson**](ConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | Convert XML to JSON conversion
 
 
 <a name="convertDataCsvToJson"></a>
 # **convertDataCsvToJson**
 > Object convertDataCsvToJson(inputFile)
 
-CSV to JSON conversion
+Convert CSV to JSON conversion
 
 Convert a CSV file to a JSON object array
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 # **convertDataXlsToJson**
 > Object convertDataXlsToJson(inputFile)
 
-Excel (97-2003) XLS to JSON conversion
+Convert Excel (97-2003) XLS to JSON conversion
 
 Convert an Excel (97-2003) XLS file to a JSON object array
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 # **convertDataXlsxToJson**
 > Object convertDataXlsxToJson(inputFile)
 
-Excel XLSX to JSON conversion
+Convert Excel XLSX to JSON conversion
 
 Convert an Excel XLSX file to a JSON object array
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **convertDataXmlToJson**
 > Object convertDataXmlToJson(inputFile)
 
-XML to JSON conversion
+Convert XML to JSON conversion
 
 Convert an XML string or file into JSON
 

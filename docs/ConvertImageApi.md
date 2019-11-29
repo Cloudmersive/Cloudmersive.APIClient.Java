@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**convertImageGetImageInfo**](ConvertImageApi.md#convertImageGetImageInfo) | **POST** /convert/image/get-info | Get information about an image
 [**convertImageImageFormatConvert**](ConvertImageApi.md#convertImageImageFormatConvert) | **POST** /convert/image/{format1}/to/{format2} | Image format conversion
 [**convertImageImageSetDPI**](ConvertImageApi.md#convertImageImageSetDPI) | **POST** /convert/image/set-dpi/{dpi} | Change image DPI
-[**convertImageMultipageImageFormatConvert**](ConvertImageApi.md#convertImageMultipageImageFormatConvert) | **POST** /convert/image-multipage/{format1}/to/{format2} | Multi-page format conversion
+[**convertImageMultipageImageFormatConvert**](ConvertImageApi.md#convertImageMultipageImageFormatConvert) | **POST** /convert/image-multipage/{format1}/to/{format2} | Multi-page image format conversion
 
 
 <a name="convertImageGetImageInfo"></a>
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 # **convertImageMultipageImageFormatConvert**
 > MultipageImageFormatConversionResult convertImageMultipageImageFormatConvert(format1, format2, inputFile)
 
-Multi-page format conversion
+Multi-page image format conversion
 
 Convert between over 100 file formats, including support for Multiple-Page formats (e.g. PDFs, TIFFs, etc. with multiple pages).
 

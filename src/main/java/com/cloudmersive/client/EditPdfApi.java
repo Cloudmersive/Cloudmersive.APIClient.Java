@@ -60,6 +60,152 @@ public class EditPdfApi {
     }
 
     /**
+     * Build call for editPdfDeletePages
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfDeletePagesCall(File inputFile, Integer pageStart, Integer pageEnd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/pages/delete";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (pageStart != null)
+        localVarHeaderParams.put("pageStart", apiClient.parameterToString(pageStart));
+        if (pageEnd != null)
+        localVarHeaderParams.put("pageEnd", apiClient.parameterToString(pageEnd));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfDeletePagesValidateBeforeCall(File inputFile, Integer pageStart, Integer pageEnd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfDeletePages(Async)");
+        }
+        
+        // verify the required parameter 'pageStart' is set
+        if (pageStart == null) {
+            throw new ApiException("Missing the required parameter 'pageStart' when calling editPdfDeletePages(Async)");
+        }
+        
+        // verify the required parameter 'pageEnd' is set
+        if (pageEnd == null) {
+            throw new ApiException("Missing the required parameter 'pageEnd' when calling editPdfDeletePages(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfDeletePagesCall(inputFile, pageStart, pageEnd, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove / delete pages from a PDF document
+     * Remove one or more pages from a PDF document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfDeletePages(File inputFile, Integer pageStart, Integer pageEnd) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfDeletePagesWithHttpInfo(inputFile, pageStart, pageEnd);
+        return resp.getData();
+    }
+
+    /**
+     * Remove / delete pages from a PDF document
+     * Remove one or more pages from a PDF document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfDeletePagesWithHttpInfo(File inputFile, Integer pageStart, Integer pageEnd) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfDeletePagesValidateBeforeCall(inputFile, pageStart, pageEnd, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove / delete pages from a PDF document (asynchronously)
+     * Remove one or more pages from a PDF document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfDeletePagesAsync(File inputFile, Integer pageStart, Integer pageEnd, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfDeletePagesValidateBeforeCall(inputFile, pageStart, pageEnd, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfEncrypt
      * @param inputFile Input file to perform the operation on. (required)
      * @param userPassword Password of a user (reader) of the PDF file (optional)
@@ -444,6 +590,174 @@ public class EditPdfApi {
         return call;
     }
     /**
+     * Build call for editPdfInsertPages
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfInsertPagesCall(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/pages/insert";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (pageStartSource != null)
+        localVarHeaderParams.put("pageStartSource", apiClient.parameterToString(pageStartSource));
+        if (pageEndSource != null)
+        localVarHeaderParams.put("pageEndSource", apiClient.parameterToString(pageEndSource));
+        if (pageInsertBeforeDesitnation != null)
+        localVarHeaderParams.put("pageInsertBeforeDesitnation", apiClient.parameterToString(pageInsertBeforeDesitnation));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (sourceFile != null)
+        localVarFormParams.put("sourceFile", sourceFile);
+        if (destinationFile != null)
+        localVarFormParams.put("destinationFile", destinationFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfInsertPagesValidateBeforeCall(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'sourceFile' is set
+        if (sourceFile == null) {
+            throw new ApiException("Missing the required parameter 'sourceFile' when calling editPdfInsertPages(Async)");
+        }
+        
+        // verify the required parameter 'destinationFile' is set
+        if (destinationFile == null) {
+            throw new ApiException("Missing the required parameter 'destinationFile' when calling editPdfInsertPages(Async)");
+        }
+        
+        // verify the required parameter 'pageStartSource' is set
+        if (pageStartSource == null) {
+            throw new ApiException("Missing the required parameter 'pageStartSource' when calling editPdfInsertPages(Async)");
+        }
+        
+        // verify the required parameter 'pageEndSource' is set
+        if (pageEndSource == null) {
+            throw new ApiException("Missing the required parameter 'pageEndSource' when calling editPdfInsertPages(Async)");
+        }
+        
+        // verify the required parameter 'pageInsertBeforeDesitnation' is set
+        if (pageInsertBeforeDesitnation == null) {
+            throw new ApiException("Missing the required parameter 'pageInsertBeforeDesitnation' when calling editPdfInsertPages(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfInsertPagesCall(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert / copy pages from one PDF document into another
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfInsertPages(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfInsertPagesWithHttpInfo(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation);
+        return resp.getData();
+    }
+
+    /**
+     * Insert / copy pages from one PDF document into another
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfInsertPagesWithHttpInfo(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfInsertPagesValidateBeforeCall(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert / copy pages from one PDF document into another (asynchronously)
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfInsertPagesAsync(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfInsertPagesValidateBeforeCall(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfRasterize
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -756,11 +1070,11 @@ public class EditPdfApi {
      * Sets PDF document metadata
      * Sets (writes) metadata into the input PDF document, including Title, Author, etc.
      * @param request  (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object editPdfSetMetadata(SetPdfMetadataRequest request) throws ApiException {
-        ApiResponse<Object> resp = editPdfSetMetadataWithHttpInfo(request);
+    public byte[] editPdfSetMetadata(SetPdfMetadataRequest request) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfSetMetadataWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -768,12 +1082,12 @@ public class EditPdfApi {
      * Sets PDF document metadata
      * Sets (writes) metadata into the input PDF document, including Title, Author, etc.
      * @param request  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> editPdfSetMetadataWithHttpInfo(SetPdfMetadataRequest request) throws ApiException {
+    public ApiResponse<byte[]> editPdfSetMetadataWithHttpInfo(SetPdfMetadataRequest request) throws ApiException {
         com.squareup.okhttp.Call call = editPdfSetMetadataValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -785,7 +1099,7 @@ public class EditPdfApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editPdfSetMetadataAsync(SetPdfMetadataRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call editPdfSetMetadataAsync(SetPdfMetadataRequest request, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -807,7 +1121,7 @@ public class EditPdfApi {
         }
 
         com.squareup.okhttp.Call call = editPdfSetMetadataValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

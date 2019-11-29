@@ -38,6 +38,24 @@ public class EditPdfApiTest {
 
     
     /**
+     * Remove / delete pages from a PDF document
+     *
+     * Remove one or more pages from a PDF document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfDeletePagesTest() throws ApiException {
+        File inputFile = null;
+        Integer pageStart = null;
+        Integer pageEnd = null;
+        byte[] response = api.editPdfDeletePages(inputFile, pageStart, pageEnd);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Encrypt and password-protect a PDF
      *
      * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
@@ -88,6 +106,26 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Insert / copy pages from one PDF document into another
+     *
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfInsertPagesTest() throws ApiException {
+        File sourceFile = null;
+        File destinationFile = null;
+        Integer pageStartSource = null;
+        Integer pageEndSource = null;
+        Integer pageInsertBeforeDesitnation = null;
+        byte[] response = api.editPdfInsertPages(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Rasterize a PDF to an image-based PDF
      *
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -130,7 +168,7 @@ public class EditPdfApiTest {
     @Test
     public void editPdfSetMetadataTest() throws ApiException {
         SetPdfMetadataRequest request = null;
-        Object response = api.editPdfSetMetadata(request);
+        byte[] response = api.editPdfSetMetadata(request);
 
         // TODO: test validations
     }

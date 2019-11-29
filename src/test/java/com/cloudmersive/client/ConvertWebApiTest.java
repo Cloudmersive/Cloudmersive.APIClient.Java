@@ -18,6 +18,7 @@ import java.io.File;
 import com.cloudmersive.client.model.HtmlMdResult;
 import com.cloudmersive.client.model.HtmlToOfficeRequest;
 import com.cloudmersive.client.model.HtmlToPdfRequest;
+import com.cloudmersive.client.model.HtmlToPngRequest;
 import com.cloudmersive.client.model.ScreenshotRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -37,7 +38,7 @@ public class ConvertWebApiTest {
 
     
     /**
-     * HTML to DOCX
+     * Convert HTML to DOCX
      *
      * Convert HTML to Office Word Document (DOCX) format
      *
@@ -64,6 +65,22 @@ public class ConvertWebApiTest {
     public void convertWebHtmlToPdfTest() throws ApiException {
         HtmlToPdfRequest input = null;
         byte[] response = api.convertWebHtmlToPdf(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert HTML string to PNG
+     *
+     * Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertWebHtmlToPngTest() throws ApiException {
+        HtmlToPngRequest input = null;
+        Object response = api.convertWebHtmlToPng(input);
 
         // TODO: test validations
     }

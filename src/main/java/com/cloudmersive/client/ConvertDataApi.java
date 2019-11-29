@@ -120,7 +120,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * CSV to JSON conversion
+     * Convert CSV to JSON conversion
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -132,7 +132,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * CSV to JSON conversion
+     * Convert CSV to JSON conversion
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;Object&gt;
@@ -145,7 +145,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * CSV to JSON conversion (asynchronously)
+     * Convert CSV to JSON conversion (asynchronously)
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -244,7 +244,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * Excel (97-2003) XLS to JSON conversion
+     * Convert Excel (97-2003) XLS to JSON conversion
      * Convert an Excel (97-2003) XLS file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -256,7 +256,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * Excel (97-2003) XLS to JSON conversion
+     * Convert Excel (97-2003) XLS to JSON conversion
      * Convert an Excel (97-2003) XLS file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;Object&gt;
@@ -269,7 +269,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * Excel (97-2003) XLS to JSON conversion (asynchronously)
+     * Convert Excel (97-2003) XLS to JSON conversion (asynchronously)
      * Convert an Excel (97-2003) XLS file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -368,7 +368,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * Excel XLSX to JSON conversion
+     * Convert Excel XLSX to JSON conversion
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -380,7 +380,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * Excel XLSX to JSON conversion
+     * Convert Excel XLSX to JSON conversion
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;Object&gt;
@@ -393,7 +393,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * Excel XLSX to JSON conversion (asynchronously)
+     * Convert Excel XLSX to JSON conversion (asynchronously)
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -492,7 +492,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * XML to JSON conversion
+     * Convert XML to JSON conversion
      * Convert an XML string or file into JSON
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -504,7 +504,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * XML to JSON conversion
+     * Convert XML to JSON conversion
      * Convert an XML string or file into JSON
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;Object&gt;
@@ -517,7 +517,7 @@ public class ConvertDataApi {
     }
 
     /**
-     * XML to JSON conversion (asynchronously)
+     * Convert XML to JSON conversion (asynchronously)
      * Convert an XML string or file into JSON
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes

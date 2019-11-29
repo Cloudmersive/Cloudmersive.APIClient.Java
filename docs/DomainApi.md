@@ -146,7 +146,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 DomainApi apiInstance = new DomainApi();
-ValidateUrlRequestFull request = new ValidateUrlRequestFull(); // ValidateUrlRequestFull | 
+ValidateUrlRequestFull request = new ValidateUrlRequestFull(); // ValidateUrlRequestFull | Input URL request
 try {
     ValidateUrlResponseFull result = apiInstance.domainUrlFull(request);
     System.out.println(result);
@@ -160,7 +160,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ValidateUrlRequestFull**](ValidateUrlRequestFull.md)|  |
+ **request** | [**ValidateUrlRequestFull**](ValidateUrlRequestFull.md)| Input URL request |
 
 ### Return type
 
@@ -201,7 +201,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 DomainApi apiInstance = new DomainApi();
-ValidateUrlRequestSyntaxOnly request = new ValidateUrlRequestSyntaxOnly(); // ValidateUrlRequestSyntaxOnly | 
+ValidateUrlRequestSyntaxOnly request = new ValidateUrlRequestSyntaxOnly(); // ValidateUrlRequestSyntaxOnly | Input URL information
 try {
     ValidateUrlResponseSyntaxOnly result = apiInstance.domainUrlSyntaxOnly(request);
     System.out.println(result);
@@ -215,7 +215,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)|  |
+ **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)| Input URL information |
 
 ### Return type
 

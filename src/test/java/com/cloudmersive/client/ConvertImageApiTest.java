@@ -86,7 +86,7 @@ public class ConvertImageApiTest {
     }
     
     /**
-     * Multi-page format conversion
+     * Multi-page image format conversion
      *
      * Convert between over 100 file formats, including support for Multiple-Page formats (e.g. PDFs, TIFFs, etc. with multiple pages).
      *
