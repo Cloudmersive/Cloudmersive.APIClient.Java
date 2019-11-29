@@ -38,6 +38,23 @@ public class EditPdfApiTest {
 
     
     /**
+     * Decrypt and password-protect a PDF
+     *
+     * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfDecryptTest() throws ApiException {
+        String password = null;
+        File inputFile = null;
+        byte[] response = api.editPdfDecrypt(password, inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Remove / delete pages from a PDF document
      *
      * Remove one or more pages from a PDF document
@@ -68,7 +85,8 @@ public class EditPdfApiTest {
         File inputFile = null;
         String userPassword = null;
         String ownerPassword = null;
-        byte[] response = api.editPdfEncrypt(inputFile, userPassword, ownerPassword);
+        String encryptionKeyLength = null;
+        byte[] response = api.editPdfEncrypt(inputFile, userPassword, ownerPassword, encryptionKeyLength);
 
         // TODO: test validations
     }
@@ -184,8 +202,9 @@ public class EditPdfApiTest {
     @Test
     public void editPdfSetPermissionsTest() throws ApiException {
         String ownerPassword = null;
-        File inputFile = null;
         String userPassword = null;
+        File inputFile = null;
+        String encryptionKeyLength = null;
         Boolean allowPrinting = null;
         Boolean allowDocumentAssembly = null;
         Boolean allowContentExtraction = null;
@@ -193,7 +212,7 @@ public class EditPdfApiTest {
         Boolean allowEditing = null;
         Boolean allowAnnotations = null;
         Boolean allowDegradedPrinting = null;
-        byte[] response = api.editPdfSetPermissions(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting);
+        byte[] response = api.editPdfSetPermissions(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting);
 
         // TODO: test validations
     }

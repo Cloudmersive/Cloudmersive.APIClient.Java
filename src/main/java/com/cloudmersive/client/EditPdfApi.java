@@ -60,6 +60,141 @@ public class EditPdfApi {
     }
 
     /**
+     * Build call for editPdfDecrypt
+     * @param password Valid password for the PDF file (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfDecryptCall(String password, File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/decrypt";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (password != null)
+        localVarHeaderParams.put("password", apiClient.parameterToString(password));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfDecryptValidateBeforeCall(String password, File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'password' is set
+        if (password == null) {
+            throw new ApiException("Missing the required parameter 'password' when calling editPdfDecrypt(Async)");
+        }
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfDecrypt(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfDecryptCall(password, inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Decrypt and password-protect a PDF
+     * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+     * @param password Valid password for the PDF file (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfDecrypt(String password, File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfDecryptWithHttpInfo(password, inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Decrypt and password-protect a PDF
+     * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+     * @param password Valid password for the PDF file (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfDecryptWithHttpInfo(String password, File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfDecryptValidateBeforeCall(password, inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Decrypt and password-protect a PDF (asynchronously)
+     * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+     * @param password Valid password for the PDF file (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfDecryptAsync(String password, File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfDecryptValidateBeforeCall(password, inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfDeletePages
      * @param inputFile Input file to perform the operation on. (required)
      * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
@@ -210,12 +345,13 @@ public class EditPdfApi {
      * @param inputFile Input file to perform the operation on. (required)
      * @param userPassword Password of a user (reader) of the PDF file (optional)
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editPdfEncryptCall(File inputFile, String userPassword, String ownerPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editPdfEncryptCall(File inputFile, String userPassword, String ownerPassword, String encryptionKeyLength, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -229,6 +365,8 @@ public class EditPdfApi {
         localVarHeaderParams.put("userPassword", apiClient.parameterToString(userPassword));
         if (ownerPassword != null)
         localVarHeaderParams.put("ownerPassword", apiClient.parameterToString(ownerPassword));
+        if (encryptionKeyLength != null)
+        localVarHeaderParams.put("encryptionKeyLength", apiClient.parameterToString(encryptionKeyLength));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -263,7 +401,7 @@ public class EditPdfApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editPdfEncryptValidateBeforeCall(File inputFile, String userPassword, String ownerPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editPdfEncryptValidateBeforeCall(File inputFile, String userPassword, String ownerPassword, String encryptionKeyLength, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -271,7 +409,7 @@ public class EditPdfApi {
         }
         
 
-        com.squareup.okhttp.Call call = editPdfEncryptCall(inputFile, userPassword, ownerPassword, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfEncryptCall(inputFile, userPassword, ownerPassword, encryptionKeyLength, progressListener, progressRequestListener);
         return call;
 
     }
@@ -282,11 +420,12 @@ public class EditPdfApi {
      * @param inputFile Input file to perform the operation on. (required)
      * @param userPassword Password of a user (reader) of the PDF file (optional)
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editPdfEncrypt(File inputFile, String userPassword, String ownerPassword) throws ApiException {
-        ApiResponse<byte[]> resp = editPdfEncryptWithHttpInfo(inputFile, userPassword, ownerPassword);
+    public byte[] editPdfEncrypt(File inputFile, String userPassword, String ownerPassword, String encryptionKeyLength) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfEncryptWithHttpInfo(inputFile, userPassword, ownerPassword, encryptionKeyLength);
         return resp.getData();
     }
 
@@ -296,11 +435,12 @@ public class EditPdfApi {
      * @param inputFile Input file to perform the operation on. (required)
      * @param userPassword Password of a user (reader) of the PDF file (optional)
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editPdfEncryptWithHttpInfo(File inputFile, String userPassword, String ownerPassword) throws ApiException {
-        com.squareup.okhttp.Call call = editPdfEncryptValidateBeforeCall(inputFile, userPassword, ownerPassword, null, null);
+    public ApiResponse<byte[]> editPdfEncryptWithHttpInfo(File inputFile, String userPassword, String ownerPassword, String encryptionKeyLength) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfEncryptValidateBeforeCall(inputFile, userPassword, ownerPassword, encryptionKeyLength, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -311,11 +451,12 @@ public class EditPdfApi {
      * @param inputFile Input file to perform the operation on. (required)
      * @param userPassword Password of a user (reader) of the PDF file (optional)
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editPdfEncryptAsync(File inputFile, String userPassword, String ownerPassword, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editPdfEncryptAsync(File inputFile, String userPassword, String ownerPassword, String encryptionKeyLength, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -336,7 +477,7 @@ public class EditPdfApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editPdfEncryptValidateBeforeCall(inputFile, userPassword, ownerPassword, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfEncryptValidateBeforeCall(inputFile, userPassword, ownerPassword, encryptionKeyLength, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1128,8 +1269,9 @@ public class EditPdfApi {
     /**
      * Build call for editPdfSetPermissions
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (required) (required)
+     * @param userPassword Password of a user (reader) of the PDF file (optional) (required)
      * @param inputFile Input file to perform the operation on. (required)
-     * @param userPassword Password of a user (reader) of the PDF file (optional) (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @param allowPrinting Set to false to disable printing through DRM.  Default is true. (optional)
      * @param allowDocumentAssembly Set to false to disable document assembly through DRM.  Default is true. (optional)
      * @param allowContentExtraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. (optional)
@@ -1142,7 +1284,7 @@ public class EditPdfApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editPdfSetPermissionsCall(String ownerPassword, File inputFile, String userPassword, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editPdfSetPermissionsCall(String ownerPassword, String userPassword, File inputFile, String encryptionKeyLength, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1156,6 +1298,8 @@ public class EditPdfApi {
         localVarHeaderParams.put("ownerPassword", apiClient.parameterToString(ownerPassword));
         if (userPassword != null)
         localVarHeaderParams.put("userPassword", apiClient.parameterToString(userPassword));
+        if (encryptionKeyLength != null)
+        localVarHeaderParams.put("encryptionKeyLength", apiClient.parameterToString(encryptionKeyLength));
         if (allowPrinting != null)
         localVarHeaderParams.put("allowPrinting", apiClient.parameterToString(allowPrinting));
         if (allowDocumentAssembly != null)
@@ -1204,11 +1348,16 @@ public class EditPdfApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editPdfSetPermissionsValidateBeforeCall(String ownerPassword, File inputFile, String userPassword, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editPdfSetPermissionsValidateBeforeCall(String ownerPassword, String userPassword, File inputFile, String encryptionKeyLength, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ownerPassword' is set
         if (ownerPassword == null) {
             throw new ApiException("Missing the required parameter 'ownerPassword' when calling editPdfSetPermissions(Async)");
+        }
+        
+        // verify the required parameter 'userPassword' is set
+        if (userPassword == null) {
+            throw new ApiException("Missing the required parameter 'userPassword' when calling editPdfSetPermissions(Async)");
         }
         
         // verify the required parameter 'inputFile' is set
@@ -1217,7 +1366,7 @@ public class EditPdfApi {
         }
         
 
-        com.squareup.okhttp.Call call = editPdfSetPermissionsCall(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfSetPermissionsCall(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1226,8 +1375,9 @@ public class EditPdfApi {
      * Encrypt, password-protect and set restricted permissions on a PDF
      * Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (required) (required)
+     * @param userPassword Password of a user (reader) of the PDF file (optional) (required)
      * @param inputFile Input file to perform the operation on. (required)
-     * @param userPassword Password of a user (reader) of the PDF file (optional) (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @param allowPrinting Set to false to disable printing through DRM.  Default is true. (optional)
      * @param allowDocumentAssembly Set to false to disable document assembly through DRM.  Default is true. (optional)
      * @param allowContentExtraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. (optional)
@@ -1238,8 +1388,8 @@ public class EditPdfApi {
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editPdfSetPermissions(String ownerPassword, File inputFile, String userPassword, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting) throws ApiException {
-        ApiResponse<byte[]> resp = editPdfSetPermissionsWithHttpInfo(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting);
+    public byte[] editPdfSetPermissions(String ownerPassword, String userPassword, File inputFile, String encryptionKeyLength, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfSetPermissionsWithHttpInfo(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting);
         return resp.getData();
     }
 
@@ -1247,8 +1397,9 @@ public class EditPdfApi {
      * Encrypt, password-protect and set restricted permissions on a PDF
      * Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (required) (required)
+     * @param userPassword Password of a user (reader) of the PDF file (optional) (required)
      * @param inputFile Input file to perform the operation on. (required)
-     * @param userPassword Password of a user (reader) of the PDF file (optional) (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @param allowPrinting Set to false to disable printing through DRM.  Default is true. (optional)
      * @param allowDocumentAssembly Set to false to disable document assembly through DRM.  Default is true. (optional)
      * @param allowContentExtraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. (optional)
@@ -1259,8 +1410,8 @@ public class EditPdfApi {
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editPdfSetPermissionsWithHttpInfo(String ownerPassword, File inputFile, String userPassword, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting) throws ApiException {
-        com.squareup.okhttp.Call call = editPdfSetPermissionsValidateBeforeCall(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting, null, null);
+    public ApiResponse<byte[]> editPdfSetPermissionsWithHttpInfo(String ownerPassword, String userPassword, File inputFile, String encryptionKeyLength, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfSetPermissionsValidateBeforeCall(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1269,8 +1420,9 @@ public class EditPdfApi {
      * Encrypt, password-protect and set restricted permissions on a PDF (asynchronously)
      * Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (required) (required)
+     * @param userPassword Password of a user (reader) of the PDF file (optional) (required)
      * @param inputFile Input file to perform the operation on. (required)
-     * @param userPassword Password of a user (reader) of the PDF file (optional) (optional)
+     * @param encryptionKeyLength Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. (optional)
      * @param allowPrinting Set to false to disable printing through DRM.  Default is true. (optional)
      * @param allowDocumentAssembly Set to false to disable document assembly through DRM.  Default is true. (optional)
      * @param allowContentExtraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. (optional)
@@ -1282,7 +1434,7 @@ public class EditPdfApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editPdfSetPermissionsAsync(String ownerPassword, File inputFile, String userPassword, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editPdfSetPermissionsAsync(String ownerPassword, String userPassword, File inputFile, String encryptionKeyLength, Boolean allowPrinting, Boolean allowDocumentAssembly, Boolean allowContentExtraction, Boolean allowFormFilling, Boolean allowEditing, Boolean allowAnnotations, Boolean allowDegradedPrinting, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1303,7 +1455,7 @@ public class EditPdfApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editPdfSetPermissionsValidateBeforeCall(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfSetPermissionsValidateBeforeCall(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

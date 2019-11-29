@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**editPdfDecrypt**](EditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 [**editPdfDeletePages**](EditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**editPdfEncrypt**](EditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**editPdfGetFormFields**](EditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
@@ -15,6 +16,63 @@ Method | HTTP request | Description
 [**editPdfSetPermissions**](EditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**editPdfWatermarkText**](EditPdfApi.md#editPdfWatermarkText) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
 
+
+<a name="editPdfDecrypt"></a>
+# **editPdfDecrypt**
+> byte[] editPdfDecrypt(password, inputFile)
+
+Decrypt and password-protect a PDF
+
+Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditPdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditPdfApi apiInstance = new EditPdfApi();
+String password = "password_example"; // String | Valid password for the PDF file
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.editPdfDecrypt(password, inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditPdfApi#editPdfDecrypt");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Valid password for the PDF file |
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 <a name="editPdfDeletePages"></a>
 # **editPdfDeletePages**
@@ -77,7 +135,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfEncrypt"></a>
 # **editPdfEncrypt**
-> byte[] editPdfEncrypt(inputFile, userPassword, ownerPassword)
+> byte[] editPdfEncrypt(inputFile, userPassword, ownerPassword, encryptionKeyLength)
 
 Encrypt and password-protect a PDF
 
@@ -104,8 +162,9 @@ EditPdfApi apiInstance = new EditPdfApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 String userPassword = "userPassword_example"; // String | Password of a user (reader) of the PDF file
 String ownerPassword = "ownerPassword_example"; // String | Password of a owner (creator/editor) of the PDF file
+String encryptionKeyLength = "encryptionKeyLength_example"; // String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
 try {
-    byte[] result = apiInstance.editPdfEncrypt(inputFile, userPassword, ownerPassword);
+    byte[] result = apiInstance.editPdfEncrypt(inputFile, userPassword, ownerPassword, encryptionKeyLength);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditPdfApi#editPdfEncrypt");
@@ -120,6 +179,7 @@ Name | Type | Description  | Notes
  **inputFile** | **File**| Input file to perform the operation on. |
  **userPassword** | **String**| Password of a user (reader) of the PDF file | [optional]
  **ownerPassword** | **String**| Password of a owner (creator/editor) of the PDF file | [optional]
+ **encryptionKeyLength** | **String**| Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. | [optional]
 
 ### Return type
 
@@ -474,7 +534,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfSetPermissions"></a>
 # **editPdfSetPermissions**
-> byte[] editPdfSetPermissions(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting)
+> byte[] editPdfSetPermissions(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting)
 
 Encrypt, password-protect and set restricted permissions on a PDF
 
@@ -499,8 +559,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditPdfApi apiInstance = new EditPdfApi();
 String ownerPassword = "ownerPassword_example"; // String | Password of a owner (creator/editor) of the PDF file (required)
-File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 String userPassword = "userPassword_example"; // String | Password of a user (reader) of the PDF file (optional)
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+String encryptionKeyLength = "encryptionKeyLength_example"; // String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
 Boolean allowPrinting = true; // Boolean | Set to false to disable printing through DRM.  Default is true.
 Boolean allowDocumentAssembly = true; // Boolean | Set to false to disable document assembly through DRM.  Default is true.
 Boolean allowContentExtraction = true; // Boolean | Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true.
@@ -509,7 +570,7 @@ Boolean allowEditing = true; // Boolean | Set to false to disable editing in the
 Boolean allowAnnotations = true; // Boolean | Set to false to disable annotations and editing of annotations in the PDF through DRM.  Default is true.
 Boolean allowDegradedPrinting = true; // Boolean | Set to false to disable degraded printing of the PDF through DRM.  Default is true.
 try {
-    byte[] result = apiInstance.editPdfSetPermissions(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting);
+    byte[] result = apiInstance.editPdfSetPermissions(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditPdfApi#editPdfSetPermissions");
@@ -522,8 +583,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ownerPassword** | **String**| Password of a owner (creator/editor) of the PDF file (required) |
+ **userPassword** | **String**| Password of a user (reader) of the PDF file (optional) |
  **inputFile** | **File**| Input file to perform the operation on. |
- **userPassword** | **String**| Password of a user (reader) of the PDF file (optional) | [optional]
+ **encryptionKeyLength** | **String**| Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. | [optional]
  **allowPrinting** | **Boolean**| Set to false to disable printing through DRM.  Default is true. | [optional]
  **allowDocumentAssembly** | **Boolean**| Set to false to disable document assembly through DRM.  Default is true. | [optional]
  **allowContentExtraction** | **Boolean**| Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. | [optional]

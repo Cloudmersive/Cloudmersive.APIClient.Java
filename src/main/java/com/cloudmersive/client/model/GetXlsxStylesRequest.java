@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Worksheets request
  */
 @ApiModel(description = "Input to a Get Worksheets request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-28T19:31:22.255-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-29T15:05:21.672-08:00")
 public class GetXlsxStylesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

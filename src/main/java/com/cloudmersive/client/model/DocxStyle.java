@@ -28,7 +28,7 @@ import java.io.IOException;
  * Style in a DOCX Word Document
  */
 @ApiModel(description = "Style in a DOCX Word Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-28T19:31:22.255-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-29T15:05:21.672-08:00")
 public class DocxStyle {
   @SerializedName("StyleID")
   private String styleID = null;
