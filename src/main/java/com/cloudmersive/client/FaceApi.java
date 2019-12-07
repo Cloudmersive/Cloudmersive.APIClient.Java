@@ -756,7 +756,7 @@ public class FaceApi {
     }
 
     /**
-     * Find faces in an image
+     * Detect and find faces in an image
      * Locate the positions of all faces in an image
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return FaceLocateResponse
@@ -768,7 +768,7 @@ public class FaceApi {
     }
 
     /**
-     * Find faces in an image
+     * Detect and find faces in an image
      * Locate the positions of all faces in an image
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;FaceLocateResponse&gt;
@@ -781,7 +781,7 @@ public class FaceApi {
     }
 
     /**
-     * Find faces in an image (asynchronously)
+     * Detect and find faces in an image (asynchronously)
      * Locate the positions of all faces in an image
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -880,7 +880,7 @@ public class FaceApi {
     }
 
     /**
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return FaceLocateWithLandmarksResponse
@@ -892,7 +892,7 @@ public class FaceApi {
     }
 
     /**
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;FaceLocateWithLandmarksResponse&gt;
@@ -905,7 +905,7 @@ public class FaceApi {
     }
 
     /**
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image (asynchronously)
+     * Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image (asynchronously)
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes

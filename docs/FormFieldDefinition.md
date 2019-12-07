@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldID** | **String** | The identifier of the field; use this to identify which field is being referenced |  [optional]
+**fieldID** | **String** | The identifier of the field; use this to identify which field is being referenced.  Set to SkipField if you do not wish to return the value of this field in the result. |  [optional]
 **leftAnchor** | **String** | Optional - the left-hand anchor of the field |  [optional]
 **topAnchor** | **String** | Optional - the top anchor of the field |  [optional]
 **bottomAnchor** | **String** | Optional - the bottom anchor of the field |  [optional]

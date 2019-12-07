@@ -30,7 +30,7 @@ import java.util.List;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-29T15:05:06.493-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-07T10:35:11.009-08:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -86,10 +86,10 @@ public class FormFieldDefinition {
   }
 
    /**
-   * The identifier of the field; use this to identify which field is being referenced
+   * The identifier of the field; use this to identify which field is being referenced.  Set to SkipField if you do not wish to return the value of this field in the result.
    * @return fieldID
   **/
-  @ApiModelProperty(value = "The identifier of the field; use this to identify which field is being referenced")
+  @ApiModelProperty(value = "The identifier of the field; use this to identify which field is being referenced.  Set to SkipField if you do not wish to return the value of this field in the result.")
   public String getFieldID() {
     return fieldID;
   }

@@ -123,7 +123,7 @@ public class ConvertWebApi {
     }
 
     /**
-     * Convert HTML to DOCX
+     * Convert HTML to Word DOCX Document
      * Convert HTML to Office Word Document (DOCX) format
      * @param inputRequest HTL input to convert to DOCX (required)
      * @return byte[]
@@ -135,7 +135,7 @@ public class ConvertWebApi {
     }
 
     /**
-     * Convert HTML to DOCX
+     * Convert HTML to Word DOCX Document
      * Convert HTML to Office Word Document (DOCX) format
      * @param inputRequest HTL input to convert to DOCX (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -148,7 +148,7 @@ public class ConvertWebApi {
     }
 
     /**
-     * Convert HTML to DOCX (asynchronously)
+     * Convert HTML to Word DOCX Document (asynchronously)
      * Convert HTML to Office Word Document (DOCX) format
      * @param inputRequest HTL input to convert to DOCX (required)
      * @param callback The callback to be executed when the API call finishes

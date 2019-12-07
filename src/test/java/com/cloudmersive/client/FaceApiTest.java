@@ -119,7 +119,7 @@ public class FaceApiTest {
     }
     
     /**
-     * Find faces in an image
+     * Detect and find faces in an image
      *
      * Locate the positions of all faces in an image
      *
@@ -135,7 +135,7 @@ public class FaceApiTest {
     }
     
     /**
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
      *
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      *

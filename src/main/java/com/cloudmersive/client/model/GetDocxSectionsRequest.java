@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Sections request
  */
 @ApiModel(description = "Input to a Get Sections request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-29T15:05:21.672-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-07T10:35:25.628-08:00")
 public class GetDocxSectionsRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

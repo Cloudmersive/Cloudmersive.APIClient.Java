@@ -82,7 +82,7 @@ public class ResizeApi {
         localVarFormParams.put("imageFile", imageFile);
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -200,8 +200,8 @@ public class ResizeApi {
     }
     /**
      * Build call for resizeResizeSimple
-     * @param width  (required)
-     * @param height  (required)
+     * @param width Width of the output image - final image will be exactly this width (required)
+     * @param height Height of the output image - final image will be exactly this height (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -226,7 +226,7 @@ public class ResizeApi {
         localVarFormParams.put("imageFile", imageFile);
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -280,8 +280,8 @@ public class ResizeApi {
     /**
      * Resize an image
      * Resize an image to a specific width and specific height
-     * @param width  (required)
-     * @param height  (required)
+     * @param width Width of the output image - final image will be exactly this width (required)
+     * @param height Height of the output image - final image will be exactly this height (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -294,8 +294,8 @@ public class ResizeApi {
     /**
      * Resize an image
      * Resize an image to a specific width and specific height
-     * @param width  (required)
-     * @param height  (required)
+     * @param width Width of the output image - final image will be exactly this width (required)
+     * @param height Height of the output image - final image will be exactly this height (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -309,8 +309,8 @@ public class ResizeApi {
     /**
      * Resize an image (asynchronously)
      * Resize an image to a specific width and specific height
-     * @param width  (required)
-     * @param height  (required)
+     * @param width Width of the output image - final image will be exactly this width (required)
+     * @param height Height of the output image - final image will be exactly this height (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

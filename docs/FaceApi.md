@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**faceCropFirstRound**](FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
 [**faceDetectAge**](FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
 [**faceDetectGender**](FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
-[**faceLocate**](FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
-[**faceLocateWithLandmarks**](FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+[**faceLocate**](FaceApi.md#faceLocate) | **POST** /image/face/locate | Detect and find faces in an image
+[**faceLocateWithLandmarks**](FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 
 
 <a name="faceCompare"></a>
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 # **faceLocate**
 > FaceLocateResponse faceLocate(imageFile)
 
-Find faces in an image
+Detect and find faces in an image
 
 Locate the positions of all faces in an image
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 # **faceLocateWithLandmarks**
 > FaceLocateWithLandmarksResponse faceLocateWithLandmarks(imageFile)
 
-Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 
 Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
 

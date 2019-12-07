@@ -31,11 +31,8 @@ import java.util.List;
  * Results of locating faces in an image
  */
 @ApiModel(description = "Results of locating faces in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-29T15:05:14.914-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-07T10:35:20.002-08:00")
 public class FaceLocateResponse {
-  @SerializedName("ErrorDetails")
-  private String errorDetails = null;
-
   @SerializedName("Successful")
   private Boolean successful = null;
 
@@ -45,23 +42,8 @@ public class FaceLocateResponse {
   @SerializedName("FaceCount")
   private Integer faceCount = null;
 
-  public FaceLocateResponse errorDetails(String errorDetails) {
-    this.errorDetails = errorDetails;
-    return this;
-  }
-
-   /**
-   * Get errorDetails
-   * @return errorDetails
-  **/
-  @ApiModelProperty(value = "")
-  public String getErrorDetails() {
-    return errorDetails;
-  }
-
-  public void setErrorDetails(String errorDetails) {
-    this.errorDetails = errorDetails;
-  }
+  @SerializedName("ErrorDetails")
+  private String errorDetails = null;
 
   public FaceLocateResponse successful(Boolean successful) {
     this.successful = successful;
@@ -125,6 +107,24 @@ public class FaceLocateResponse {
     this.faceCount = faceCount;
   }
 
+  public FaceLocateResponse errorDetails(String errorDetails) {
+    this.errorDetails = errorDetails;
+    return this;
+  }
+
+   /**
+   * Details of any errors that occurred
+   * @return errorDetails
+  **/
+  @ApiModelProperty(value = "Details of any errors that occurred")
+  public String getErrorDetails() {
+    return errorDetails;
+  }
+
+  public void setErrorDetails(String errorDetails) {
+    this.errorDetails = errorDetails;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -135,15 +135,15 @@ public class FaceLocateResponse {
       return false;
     }
     FaceLocateResponse faceLocateResponse = (FaceLocateResponse) o;
-    return Objects.equals(this.errorDetails, faceLocateResponse.errorDetails) &&
-        Objects.equals(this.successful, faceLocateResponse.successful) &&
+    return Objects.equals(this.successful, faceLocateResponse.successful) &&
         Objects.equals(this.faces, faceLocateResponse.faces) &&
-        Objects.equals(this.faceCount, faceLocateResponse.faceCount);
+        Objects.equals(this.faceCount, faceLocateResponse.faceCount) &&
+        Objects.equals(this.errorDetails, faceLocateResponse.errorDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorDetails, successful, faces, faceCount);
+    return Objects.hash(successful, faces, faceCount, errorDetails);
   }
 
 
@@ -152,10 +152,10 @@ public class FaceLocateResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class FaceLocateResponse {\n");
     
-    sb.append("    errorDetails: ").append(toIndentedString(errorDetails)).append("\n");
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    faces: ").append(toIndentedString(faces)).append("\n");
     sb.append("    faceCount: ").append(toIndentedString(faceCount)).append("\n");
+    sb.append("    errorDetails: ").append(toIndentedString(errorDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

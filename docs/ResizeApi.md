@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="resizeResizeSimple"></a>
 # **resizeResizeSimple**
@@ -93,8 +93,8 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 ResizeApi apiInstance = new ResizeApi();
-Integer width = 56; // Integer | 
-Integer height = 56; // Integer | 
+Integer width = 56; // Integer | Width of the output image - final image will be exactly this width
+Integer height = 56; // Integer | Height of the output image - final image will be exactly this height
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
     byte[] result = apiInstance.resizeResizeSimple(width, height, imageFile);
@@ -109,8 +109,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **width** | **Integer**|  |
- **height** | **Integer**|  |
+ **width** | **Integer**| Width of the output image - final image will be exactly this width |
+ **height** | **Integer**| Height of the output image - final image will be exactly this height |
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
@@ -124,5 +124,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 

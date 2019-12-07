@@ -210,7 +210,7 @@ public class EditApi {
         localVarFormParams.put("layeredImage", layeredImage);
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -352,7 +352,7 @@ public class EditApi {
         localVarFormParams.put("imageFile", imageFile);
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -646,7 +646,7 @@ public class EditApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -768,7 +768,7 @@ public class EditApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -890,7 +890,7 @@ public class EditApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "image/png"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -992,8 +992,8 @@ public class EditApi {
     }
     /**
      * Build call for editDropShadow
-     * @param X  (required)
-     * @param Y  (required)
+     * @param X Horizontal (X) offset of the drop shadow (required)
+     * @param Y Vertical (Y) offset of the drop shadow (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -1086,8 +1086,8 @@ public class EditApi {
     /**
      * Add a customizeable drop shadow to an image
      * Add a customizeable drop shadow to the image
-     * @param X  (required)
-     * @param Y  (required)
+     * @param X Horizontal (X) offset of the drop shadow (required)
+     * @param Y Vertical (Y) offset of the drop shadow (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -1102,8 +1102,8 @@ public class EditApi {
     /**
      * Add a customizeable drop shadow to an image
      * Add a customizeable drop shadow to the image
-     * @param X  (required)
-     * @param Y  (required)
+     * @param X Horizontal (X) offset of the drop shadow (required)
+     * @param Y Vertical (Y) offset of the drop shadow (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -1119,8 +1119,8 @@ public class EditApi {
     /**
      * Add a customizeable drop shadow to an image (asynchronously)
      * Add a customizeable drop shadow to the image
-     * @param X  (required)
-     * @param Y  (required)
+     * @param X Horizontal (X) offset of the drop shadow (required)
+     * @param Y Vertical (Y) offset of the drop shadow (required)
      * @param sigma Sigma (blur distance) of the drop shadow (required)
      * @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)

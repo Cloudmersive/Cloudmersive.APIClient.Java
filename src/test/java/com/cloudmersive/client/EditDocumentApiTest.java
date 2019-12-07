@@ -31,6 +31,8 @@ import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.GetDocxImagesRequest;
 import com.cloudmersive.client.model.GetDocxImagesResponse;
+import com.cloudmersive.client.model.GetDocxPagesRequest;
+import com.cloudmersive.client.model.GetDocxPagesResponse;
 import com.cloudmersive.client.model.GetDocxSectionsRequest;
 import com.cloudmersive.client.model.GetDocxSectionsResponse;
 import com.cloudmersive.client.model.GetDocxStylesRequest;
@@ -49,12 +51,15 @@ import com.cloudmersive.client.model.GetXlsxWorksheetsRequest;
 import com.cloudmersive.client.model.GetXlsxWorksheetsResponse;
 import com.cloudmersive.client.model.InsertDocxInsertParagraphRequest;
 import com.cloudmersive.client.model.InsertDocxInsertParagraphResponse;
+import com.cloudmersive.client.model.InsertDocxTableRowRequest;
+import com.cloudmersive.client.model.InsertDocxTableRowResponse;
 import com.cloudmersive.client.model.InsertDocxTablesRequest;
 import com.cloudmersive.client.model.InsertDocxTablesResponse;
 import com.cloudmersive.client.model.InsertXlsxWorksheetRequest;
 import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
+import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -101,6 +106,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxBodyTest() throws ApiException {
         GetDocxBodyRequest reqConfig = null;
         GetDocxBodyResponse response = api.editDocumentDocxBody(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete, remove pages from a Word DOCX document
+     *
+     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxDeletePagesTest() throws ApiException {
+        RemoveDocxPagesRequest reqConfig = null;
+        byte[] response = api.editDocumentDocxDeletePages(reqConfig);
 
         // TODO: test validations
     }
@@ -229,6 +250,38 @@ public class EditDocumentApiTest {
     public void editDocumentDocxInsertTableTest() throws ApiException {
         InsertDocxTablesRequest reqConfig = null;
         InsertDocxTablesResponse response = api.editDocumentDocxInsertTable(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Insert a new row into an existing table in a Word DOCX document
+     *
+     * Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxInsertTableRowTest() throws ApiException {
+        InsertDocxTableRowRequest reqConfig = null;
+        InsertDocxTableRowResponse response = api.editDocumentDocxInsertTableRow(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get pages and content from a Word DOCX document
+     *
+     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxPagesTest() throws ApiException {
+        GetDocxPagesRequest reqConfig = null;
+        GetDocxPagesResponse response = api.editDocumentDocxPages(reqConfig);
 
         // TODO: test validations
     }

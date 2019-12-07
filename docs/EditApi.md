@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editContrastAdaptive"></a>
 # **editContrastAdaptive**
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editCropRectangle"></a>
 # **editCropRectangle**
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editDrawRectangle"></a>
 # **editDrawRectangle**
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editDrawText"></a>
 # **editDrawText**
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editDropShadow"></a>
 # **editDropShadow**
@@ -441,8 +441,8 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditApi apiInstance = new EditApi();
-Integer X = 56; // Integer | 
-Integer Y = 56; // Integer | 
+Integer X = 56; // Integer | Horizontal (X) offset of the drop shadow
+Integer Y = 56; // Integer | Vertical (Y) offset of the drop shadow
 Integer sigma = 56; // Integer | Sigma (blur distance) of the drop shadow
 Integer opacity = 56; // Integer | Opacity of the drop shadow; 0 is 0% and 100 is 100%
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -459,8 +459,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **X** | **Integer**|  |
- **Y** | **Integer**|  |
+ **X** | **Integer**| Horizontal (X) offset of the drop shadow |
+ **Y** | **Integer**| Vertical (Y) offset of the drop shadow |
  **sigma** | **Integer**| Sigma (blur distance) of the drop shadow |
  **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |

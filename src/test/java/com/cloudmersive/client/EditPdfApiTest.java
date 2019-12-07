@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.io.File;
 import com.cloudmersive.client.model.PdfFormFields;
 import com.cloudmersive.client.model.PdfMetadata;
+import com.cloudmersive.client.model.PdfTextByPageResult;
 import com.cloudmersive.client.model.SetPdfFormFieldsRequest;
 import com.cloudmersive.client.model.SetPdfMetadataRequest;
 import org.junit.Test;
@@ -119,6 +120,22 @@ public class EditPdfApiTest {
     public void editPdfGetMetadataTest() throws ApiException {
         File inputFile = null;
         PdfMetadata response = api.editPdfGetMetadata(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get text in a PDF document by page
+     *
+     * Gets the text in a PDF by page
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfGetPdfTextByPagesTest() throws ApiException {
+        File inputFile = null;
+        PdfTextByPageResult response = api.editPdfGetPdfTextByPages(inputFile);
 
         // TODO: test validations
     }
