@@ -34,7 +34,7 @@ public class NsfwApiTest {
 
     
     /**
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      *
      * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
      *

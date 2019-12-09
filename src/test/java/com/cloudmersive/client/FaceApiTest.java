@@ -55,7 +55,7 @@ public class FaceApiTest {
     }
     
     /**
-     * Crop image to face (square)
+     * Crop image to face with square crop
      *
      * Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
      *
@@ -71,7 +71,7 @@ public class FaceApiTest {
     }
     
     /**
-     * Crop image to face (round)
+     * Crop image to face with round crop
      *
      * Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
      *
@@ -135,7 +135,7 @@ public class FaceApiTest {
     }
     
     /**
-     * Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and landmarks eyes and nose and mouth in image
      *
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      *

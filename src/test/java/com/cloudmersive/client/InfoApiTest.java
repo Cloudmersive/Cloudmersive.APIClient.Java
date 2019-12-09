@@ -51,7 +51,7 @@ public class InfoApiTest {
     }
     
     /**
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      *
      * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
      *

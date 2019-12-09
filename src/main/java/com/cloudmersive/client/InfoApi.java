@@ -246,7 +246,7 @@ public class InfoApi {
     }
 
     /**
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ImageMetadata
@@ -258,7 +258,7 @@ public class InfoApi {
     }
 
     /**
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;ImageMetadata&gt;
@@ -271,7 +271,7 @@ public class InfoApi {
     }
 
     /**
-     * Returns the image metadata, including EXIF and resolution (asynchronously)
+     * Returns the image metadata including EXIF and resolution (asynchronously)
      * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes

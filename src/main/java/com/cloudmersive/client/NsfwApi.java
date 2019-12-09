@@ -121,7 +121,7 @@ public class NsfwApi {
     }
 
     /**
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return NsfwResult
@@ -133,7 +133,7 @@ public class NsfwApi {
     }
 
     /**
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;NsfwResult&gt;
@@ -146,7 +146,7 @@ public class NsfwApi {
     }
 
     /**
-     * Not safe for work (NSFW) racy content classification (asynchronously)
+     * Not safe for work NSFW racy content classification (asynchronously)
      * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes

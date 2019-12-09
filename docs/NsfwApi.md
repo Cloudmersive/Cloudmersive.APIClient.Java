@@ -4,14 +4,14 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**nsfwClassify**](NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
+[**nsfwClassify**](NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work NSFW racy content classification
 
 
 <a name="nsfwClassify"></a>
 # **nsfwClassify**
 > NsfwResult nsfwClassify(imageFile)
 
-Not safe for work (NSFW) racy content classification
+Not safe for work NSFW racy content classification
 
 Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
 

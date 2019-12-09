@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**recognizeDescribe**](RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 [**recognizeDetectAndUnskewDocument**](RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-[**recognizeDetectObjects**](RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-[**recognizeDetectPeople**](RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+[**recognizeDetectObjects**](RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
+[**recognizeDetectPeople**](RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 [**recognizeDetectTextFine**](RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 [**recognizeDetectTextLarge**](RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognizeDetectVehicleLicensePlates**](RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 # **recognizeDetectObjects**
 > ObjectDetectionResult recognizeDetectObjects(imageFile)
 
-Detect objects, including types and locations, in an image
+Detect objects including types and locations in an image
 
 Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 # **recognizeDetectPeople**
 > ObjectDetectionResult recognizeDetectPeople(imageFile)
 
-Detect people, including locations, in an image
+Detect people including locations in an image
 
 Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
 

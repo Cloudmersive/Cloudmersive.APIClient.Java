@@ -244,7 +244,7 @@ public class FilterApi {
     }
 
     /**
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      * Remove point noise / despeckle the input image
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return byte[]
@@ -256,7 +256,7 @@ public class FilterApi {
     }
 
     /**
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      * Remove point noise / despeckle the input image
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -269,7 +269,7 @@ public class FilterApi {
     }
 
     /**
-     * Despeckle (remove point noise) from the image (asynchronously)
+     * Despeckle to remove point noise from the image (asynchronously)
      * Remove point noise / despeckle the input image
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes

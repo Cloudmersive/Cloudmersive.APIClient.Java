@@ -49,7 +49,7 @@ public class FilterApiTest {
     }
     
     /**
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      *
      * Remove point noise / despeckle the input image
      *

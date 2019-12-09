@@ -5,12 +5,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**faceCompare**](FaceApi.md#faceCompare) | **POST** /image/face/compare-and-match | Compare and match faces
-[**faceCropFirst**](FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
-[**faceCropFirstRound**](FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
+[**faceCropFirst**](FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face with square crop
+[**faceCropFirstRound**](FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face with round crop
 [**faceDetectAge**](FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
 [**faceDetectGender**](FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 [**faceLocate**](FaceApi.md#faceLocate) | **POST** /image/face/locate | Detect and find faces in an image
-[**faceLocateWithLandmarks**](FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+[**faceLocateWithLandmarks**](FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Detect and find faces and landmarks eyes and nose and mouth in image
 
 
 <a name="faceCompare"></a>
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 # **faceCropFirst**
 > byte[] faceCropFirst(imageFile)
 
-Crop image to face (square)
+Crop image to face with square crop
 
 Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 # **faceCropFirstRound**
 > byte[] faceCropFirstRound(imageFile)
 
-Crop image to face (round)
+Crop image to face with round crop
 
 Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 # **faceLocateWithLandmarks**
 > FaceLocateWithLandmarksResponse faceLocateWithLandmarks(imageFile)
 
-Detect and find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+Detect and find faces and landmarks eyes and nose and mouth in image
 
 Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
 

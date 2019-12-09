@@ -32,7 +32,7 @@ import java.util.List;
  * The result of extracting form field values
  */
 @ApiModel(description = "The result of extracting form field values")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-07T10:35:11.009-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-08T16:29:58.670-08:00")
 public class FormRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -45,6 +45,9 @@ public class FormRecognitionResult {
 
   @SerializedName("Diagnostics")
   private List<String> diagnostics = null;
+
+  @SerializedName("BestMatchFormSettingName")
+  private String bestMatchFormSettingName = null;
 
   public FormRecognitionResult successful(Boolean successful) {
     this.successful = successful;
@@ -142,6 +145,24 @@ public class FormRecognitionResult {
     this.diagnostics = diagnostics;
   }
 
+  public FormRecognitionResult bestMatchFormSettingName(String bestMatchFormSettingName) {
+    this.bestMatchFormSettingName = bestMatchFormSettingName;
+    return this;
+  }
+
+   /**
+   * Optional; populated when using photo/recognize/form/advanced with the Setting Name of the best-matching highest-relevance form
+   * @return bestMatchFormSettingName
+  **/
+  @ApiModelProperty(value = "Optional; populated when using photo/recognize/form/advanced with the Setting Name of the best-matching highest-relevance form")
+  public String getBestMatchFormSettingName() {
+    return bestMatchFormSettingName;
+  }
+
+  public void setBestMatchFormSettingName(String bestMatchFormSettingName) {
+    this.bestMatchFormSettingName = bestMatchFormSettingName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -155,12 +176,13 @@ public class FormRecognitionResult {
     return Objects.equals(this.successful, formRecognitionResult.successful) &&
         Objects.equals(this.fieldValueExtractionResult, formRecognitionResult.fieldValueExtractionResult) &&
         Objects.equals(this.tableValueExtractionResults, formRecognitionResult.tableValueExtractionResults) &&
-        Objects.equals(this.diagnostics, formRecognitionResult.diagnostics);
+        Objects.equals(this.diagnostics, formRecognitionResult.diagnostics) &&
+        Objects.equals(this.bestMatchFormSettingName, formRecognitionResult.bestMatchFormSettingName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, fieldValueExtractionResult, tableValueExtractionResults, diagnostics);
+    return Objects.hash(successful, fieldValueExtractionResult, tableValueExtractionResults, diagnostics, bestMatchFormSettingName);
   }
 
 
@@ -173,6 +195,7 @@ public class FormRecognitionResult {
     sb.append("    fieldValueExtractionResult: ").append(toIndentedString(fieldValueExtractionResult)).append("\n");
     sb.append("    tableValueExtractionResults: ").append(toIndentedString(tableValueExtractionResults)).append("\n");
     sb.append("    diagnostics: ").append(toIndentedString(diagnostics)).append("\n");
+    sb.append("    bestMatchFormSettingName: ").append(toIndentedString(bestMatchFormSettingName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
