@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Update Table Row request
  */
 @ApiModel(description = "Input to a Update Table Row request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T07:57:23.302-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
 public class UpdateDocxTableRowRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -40,8 +40,8 @@ public class UpdateDocxTableRowRequest {
   @SerializedName("RowToUpdate")
   private DocxTableRow rowToUpdate = null;
 
-  @SerializedName("TableRowRowIndex")
-  private Integer tableRowRowIndex = null;
+  @SerializedName("TableRowIndex")
+  private Integer tableRowIndex = null;
 
   @SerializedName("ExistingTablePath")
   private String existingTablePath = null;
@@ -100,22 +100,22 @@ public class UpdateDocxTableRowRequest {
     this.rowToUpdate = rowToUpdate;
   }
 
-  public UpdateDocxTableRowRequest tableRowRowIndex(Integer tableRowRowIndex) {
-    this.tableRowRowIndex = tableRowRowIndex;
+  public UpdateDocxTableRowRequest tableRowIndex(Integer tableRowIndex) {
+    this.tableRowIndex = tableRowIndex;
     return this;
   }
 
    /**
    * 0-based index of the Table Row to update
-   * @return tableRowRowIndex
+   * @return tableRowIndex
   **/
   @ApiModelProperty(value = "0-based index of the Table Row to update")
-  public Integer getTableRowRowIndex() {
-    return tableRowRowIndex;
+  public Integer getTableRowIndex() {
+    return tableRowIndex;
   }
 
-  public void setTableRowRowIndex(Integer tableRowRowIndex) {
-    this.tableRowRowIndex = tableRowRowIndex;
+  public void setTableRowIndex(Integer tableRowIndex) {
+    this.tableRowIndex = tableRowIndex;
   }
 
   public UpdateDocxTableRowRequest existingTablePath(String existingTablePath) {
@@ -149,13 +149,13 @@ public class UpdateDocxTableRowRequest {
     return Arrays.equals(this.inputFileBytes, updateDocxTableRowRequest.inputFileBytes) &&
         Objects.equals(this.inputFileUrl, updateDocxTableRowRequest.inputFileUrl) &&
         Objects.equals(this.rowToUpdate, updateDocxTableRowRequest.rowToUpdate) &&
-        Objects.equals(this.tableRowRowIndex, updateDocxTableRowRequest.tableRowRowIndex) &&
+        Objects.equals(this.tableRowIndex, updateDocxTableRowRequest.tableRowIndex) &&
         Objects.equals(this.existingTablePath, updateDocxTableRowRequest.existingTablePath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, rowToUpdate, tableRowRowIndex, existingTablePath);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, rowToUpdate, tableRowIndex, existingTablePath);
   }
 
 
@@ -167,7 +167,7 @@ public class UpdateDocxTableRowRequest {
     sb.append("    inputFileBytes: ").append(toIndentedString(inputFileBytes)).append("\n");
     sb.append("    inputFileUrl: ").append(toIndentedString(inputFileUrl)).append("\n");
     sb.append("    rowToUpdate: ").append(toIndentedString(rowToUpdate)).append("\n");
-    sb.append("    tableRowRowIndex: ").append(toIndentedString(tableRowRowIndex)).append("\n");
+    sb.append("    tableRowIndex: ").append(toIndentedString(tableRowIndex)).append("\n");
     sb.append("    existingTablePath: ").append(toIndentedString(existingTablePath)).append("\n");
     sb.append("}");
     return sb.toString();

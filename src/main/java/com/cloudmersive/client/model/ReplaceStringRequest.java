@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a string replacement request
  */
 @ApiModel(description = "Input to a string replacement request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T07:57:23.302-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
 public class ReplaceStringRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

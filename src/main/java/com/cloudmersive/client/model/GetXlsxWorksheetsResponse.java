@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a Get-Worksheets command
  */
 @ApiModel(description = "Result of running a Get-Worksheets command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T07:57:23.302-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
 public class GetXlsxWorksheetsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -71,10 +71,10 @@ public class GetXlsxWorksheetsResponse {
   }
 
    /**
-   * Styles in the DOCX document
+   * Worksheets in the Excel XLSX spreadsheet
    * @return worksheets
   **/
-  @ApiModelProperty(value = "Styles in the DOCX document")
+  @ApiModelProperty(value = "Worksheets in the Excel XLSX spreadsheet")
   public List<XlsxWorksheet> getWorksheets() {
     return worksheets;
   }

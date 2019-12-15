@@ -14,6 +14,10 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.CreateBlankDocxRequest;
+import com.cloudmersive.client.model.CreateBlankDocxResponse;
+import com.cloudmersive.client.model.CreateBlankSpreadsheetRequest;
+import com.cloudmersive.client.model.CreateBlankSpreadsheetResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
@@ -67,6 +71,8 @@ import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
+import com.cloudmersive.client.model.UpdateDocxTableCellRequest;
+import com.cloudmersive.client.model.UpdateDocxTableCellResponse;
 import com.cloudmersive.client.model.UpdateDocxTableRowRequest;
 import com.cloudmersive.client.model.UpdateDocxTableRowResponse;
 import org.junit.Test;
@@ -114,6 +120,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxBodyTest() throws ApiException {
         GetDocxBodyRequest reqConfig = null;
         GetDocxBodyResponse response = api.editDocumentDocxBody(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a blank Word DOCX document
+     *
+     * Returns a blank Word DOCX Document format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxCreateBlankDocumentTest() throws ApiException {
+        CreateBlankDocxRequest input = null;
+        CreateBlankDocxResponse response = api.editDocumentDocxCreateBlankDocument(input);
 
         // TODO: test validations
     }
@@ -439,6 +461,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Update, set contents of a table cell in an existing table in a Word DOCX document
+     *
+     * Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxUpdateTableCellTest() throws ApiException {
+        UpdateDocxTableCellRequest reqConfig = null;
+        UpdateDocxTableCellResponse response = api.editDocumentDocxUpdateTableCell(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Update, set contents of a table row in an existing table in a Word DOCX document
      *
      * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
@@ -482,6 +520,22 @@ public class EditDocumentApiTest {
     public void editDocumentPptxReplaceTest() throws ApiException {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentPptxReplace(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a blank Excel XLSX spreadsheet
+     *
+     * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxCreateBlankSpreadsheetTest() throws ApiException {
+        CreateBlankSpreadsheetRequest input = null;
+        CreateBlankSpreadsheetResponse response = api.editDocumentXlsxCreateBlankSpreadsheet(input);
 
         // TODO: test validations
     }

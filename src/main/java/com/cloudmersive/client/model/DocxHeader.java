@@ -32,7 +32,7 @@ import java.util.List;
  * Header of a Word Document (DOCX)
  */
 @ApiModel(description = "Header of a Word Document (DOCX)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T07:57:23.302-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
 public class DocxHeader {
   @SerializedName("Path")
   private String path = null;
