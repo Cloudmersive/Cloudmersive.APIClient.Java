@@ -276,7 +276,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditApi apiInstance = new EditApi();
-DrawPolygonRequest request = new DrawPolygonRequest(); // DrawPolygonRequest | 
+DrawPolygonRequest request = new DrawPolygonRequest(); // DrawPolygonRequest | Polygon drawing request parameters
 try {
     byte[] result = apiInstance.editDrawPolygon(request);
     System.out.println(result);
@@ -290,7 +290,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)|  |
+ **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)| Polygon drawing request parameters |
 
 ### Return type
 
@@ -331,7 +331,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditApi apiInstance = new EditApi();
-DrawRectangleRequest request = new DrawRectangleRequest(); // DrawRectangleRequest | 
+DrawRectangleRequest request = new DrawRectangleRequest(); // DrawRectangleRequest | Draw rectangle parameters
 try {
     byte[] result = apiInstance.editDrawRectangle(request);
     System.out.println(result);
@@ -345,7 +345,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)|  |
+ **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)| Draw rectangle parameters |
 
 ### Return type
 
@@ -386,7 +386,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditApi apiInstance = new EditApi();
-DrawTextRequest request = new DrawTextRequest(); // DrawTextRequest | 
+DrawTextRequest request = new DrawTextRequest(); // DrawTextRequest | Draw text parameters
 try {
     byte[] result = apiInstance.editDrawText(request);
     System.out.println(result);
@@ -400,7 +400,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawTextRequest**](DrawTextRequest.md)|  |
+ **request** | [**DrawTextRequest**](DrawTextRequest.md)| Draw text parameters |
 
 ### Return type
 

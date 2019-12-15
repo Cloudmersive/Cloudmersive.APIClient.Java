@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **creator** | **String** | Creator of the document |  [optional]
 **dateModified** | [**OffsetDateTime**](OffsetDateTime.md) | The timestamp that the document was last modified, if available, null if not available |  [optional]
 **dateCreated** | [**OffsetDateTime**](OffsetDateTime.md) | The timestamp that the document was created, if available, null if not available |  [optional]
+**pageCount** | **Integer** | The number of pages in the document |  [optional]
 
 
 

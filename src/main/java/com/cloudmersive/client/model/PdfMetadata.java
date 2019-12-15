@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of an autodetect/get-info operation
  */
 @ApiModel(description = "Result of an autodetect/get-info operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-08T16:30:19.751-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T07:57:23.302-08:00")
 public class PdfMetadata {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -54,6 +54,9 @@ public class PdfMetadata {
 
   @SerializedName("DateCreated")
   private OffsetDateTime dateCreated = null;
+
+  @SerializedName("PageCount")
+  private Integer pageCount = null;
 
   public PdfMetadata successful(Boolean successful) {
     this.successful = successful;
@@ -199,6 +202,24 @@ public class PdfMetadata {
     this.dateCreated = dateCreated;
   }
 
+  public PdfMetadata pageCount(Integer pageCount) {
+    this.pageCount = pageCount;
+    return this;
+  }
+
+   /**
+   * The number of pages in the document
+   * @return pageCount
+  **/
+  @ApiModelProperty(value = "The number of pages in the document")
+  public Integer getPageCount() {
+    return pageCount;
+  }
+
+  public void setPageCount(Integer pageCount) {
+    this.pageCount = pageCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -216,12 +237,13 @@ public class PdfMetadata {
         Objects.equals(this.author, pdfMetadata.author) &&
         Objects.equals(this.creator, pdfMetadata.creator) &&
         Objects.equals(this.dateModified, pdfMetadata.dateModified) &&
-        Objects.equals(this.dateCreated, pdfMetadata.dateCreated);
+        Objects.equals(this.dateCreated, pdfMetadata.dateCreated) &&
+        Objects.equals(this.pageCount, pdfMetadata.pageCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, title, keywords, subject, author, creator, dateModified, dateCreated);
+    return Objects.hash(successful, title, keywords, subject, author, creator, dateModified, dateCreated, pageCount);
   }
 
 
@@ -238,6 +260,7 @@ public class PdfMetadata {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    dateModified: ").append(toIndentedString(dateModified)).append("\n");
     sb.append("    dateCreated: ").append(toIndentedString(dateCreated)).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

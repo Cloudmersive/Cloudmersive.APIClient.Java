@@ -14,6 +14,8 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
+import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
 import com.cloudmersive.client.model.DocxRemoveObjectRequest;
@@ -37,6 +39,10 @@ import com.cloudmersive.client.model.GetDocxSectionsRequest;
 import com.cloudmersive.client.model.GetDocxSectionsResponse;
 import com.cloudmersive.client.model.GetDocxStylesRequest;
 import com.cloudmersive.client.model.GetDocxStylesResponse;
+import com.cloudmersive.client.model.GetDocxTableByIndexRequest;
+import com.cloudmersive.client.model.GetDocxTableByIndexResponse;
+import com.cloudmersive.client.model.GetDocxTableRowRequest;
+import com.cloudmersive.client.model.GetDocxTableRowResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
 import com.cloudmersive.client.model.GetXlsxColumnsRequest;
@@ -61,6 +67,8 @@ import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
+import com.cloudmersive.client.model.UpdateDocxTableRowRequest;
+import com.cloudmersive.client.model.UpdateDocxTableRowResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -122,6 +130,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxDeletePagesTest() throws ApiException {
         RemoveDocxPagesRequest reqConfig = null;
         byte[] response = api.editDocumentDocxDeletePages(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Deletes a table row in an existing table in a Word DOCX document
+     *
+     * Deletes an existing table row in a Word DOCX Document and returns the result.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxDeleteTableRowTest() throws ApiException {
+        DeleteDocxTableRowRequest reqConfig = null;
+        DeleteDocxTableRowResponse response = api.editDocumentDocxDeleteTableRow(reqConfig);
 
         // TODO: test validations
     }
@@ -191,7 +215,39 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get tables in Word DOCX document
+     * Get a specific table by index in a Word DOCX document
+     *
+     * Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetTableByIndexTest() throws ApiException {
+        GetDocxTableByIndexRequest reqConfig = null;
+        GetDocxTableByIndexResponse response = api.editDocumentDocxGetTableByIndex(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets the contents of an existing table row in an existing table in a Word DOCX document
+     *
+     * Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetTableRowTest() throws ApiException {
+        GetDocxTableRowRequest reqConfig = null;
+        GetDocxTableRowResponse response = api.editDocumentDocxGetTableRow(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get all tables in Word DOCX document
      *
      * Returns all the table objects in an Office Word Document (docx)
      *
@@ -378,6 +434,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxSetHeaderTest() throws ApiException {
         DocxSetHeaderRequest reqConfig = null;
         DocxSetHeaderResponse response = api.editDocumentDocxSetHeader(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update, set contents of a table row in an existing table in a Word DOCX document
+     *
+     * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxUpdateTableRowTest() throws ApiException {
+        UpdateDocxTableRowRequest reqConfig = null;
+        UpdateDocxTableRowResponse response = api.editDocumentDocxUpdateTableRow(reqConfig);
 
         // TODO: test validations
     }

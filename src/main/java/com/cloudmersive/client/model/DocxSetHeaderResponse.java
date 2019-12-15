@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a set-header command
  */
 @ApiModel(description = "Result of running a set-header command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-08T16:30:19.751-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T07:57:23.302-08:00")
 public class DocxSetHeaderResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

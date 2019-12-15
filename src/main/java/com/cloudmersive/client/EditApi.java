@@ -626,7 +626,7 @@ public class EditApi {
     }
     /**
      * Build call for editDrawPolygon
-     * @param request  (required)
+     * @param request Polygon drawing request parameters (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -690,7 +690,7 @@ public class EditApi {
     /**
      * Draw a polygon onto an image
      * Draw one or more polygons, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Polygon drawing request parameters (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -702,7 +702,7 @@ public class EditApi {
     /**
      * Draw a polygon onto an image
      * Draw one or more polygons, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Polygon drawing request parameters (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -715,7 +715,7 @@ public class EditApi {
     /**
      * Draw a polygon onto an image (asynchronously)
      * Draw one or more polygons, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Polygon drawing request parameters (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -748,7 +748,7 @@ public class EditApi {
     }
     /**
      * Build call for editDrawRectangle
-     * @param request  (required)
+     * @param request Draw rectangle parameters (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -812,7 +812,7 @@ public class EditApi {
     /**
      * Draw a rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Draw rectangle parameters (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -824,7 +824,7 @@ public class EditApi {
     /**
      * Draw a rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Draw rectangle parameters (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -837,7 +837,7 @@ public class EditApi {
     /**
      * Draw a rectangle onto an image (asynchronously)
      * Draw one or more rectangles, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Draw rectangle parameters (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -870,7 +870,7 @@ public class EditApi {
     }
     /**
      * Build call for editDrawText
-     * @param request  (required)
+     * @param request Draw text parameters (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -934,7 +934,7 @@ public class EditApi {
     /**
      * Draw text onto an image
      * Draw one or more pieces of text, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Draw text parameters (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -946,7 +946,7 @@ public class EditApi {
     /**
      * Draw text onto an image
      * Draw one or more pieces of text, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Draw text parameters (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -959,7 +959,7 @@ public class EditApi {
     /**
      * Draw text onto an image (asynchronously)
      * Draw one or more pieces of text, with customized visuals, onto an image
-     * @param request  (required)
+     * @param request Draw text parameters (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
