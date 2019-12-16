@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.XlsxSpreadsheetCell;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,18 +26,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Result of creating a blank Word document
+ * Result of running a Get-Cell command
  */
-@ApiModel(description = "Result of creating a blank Word document")
+@ApiModel(description = "Result of running a Get-Cell command")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
-public class CreateBlankDocxResponse {
+public class GetXlsxCellResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("EditedDocumentURL")
-  private String editedDocumentURL = null;
+  @SerializedName("Cell")
+  private XlsxSpreadsheetCell cell = null;
 
-  public CreateBlankDocxResponse successful(Boolean successful) {
+  public GetXlsxCellResponse successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -54,22 +55,22 @@ public class CreateBlankDocxResponse {
     this.successful = successful;
   }
 
-  public CreateBlankDocxResponse editedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public GetXlsxCellResponse cell(XlsxSpreadsheetCell cell) {
+    this.cell = cell;
     return this;
   }
 
    /**
-   * URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
-   * @return editedDocumentURL
+   * Requested Cell in the Excel XLSX document
+   * @return cell
   **/
-  @ApiModelProperty(value = "URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.")
-  public String getEditedDocumentURL() {
-    return editedDocumentURL;
+  @ApiModelProperty(value = "Requested Cell in the Excel XLSX document")
+  public XlsxSpreadsheetCell getCell() {
+    return cell;
   }
 
-  public void setEditedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public void setCell(XlsxSpreadsheetCell cell) {
+    this.cell = cell;
   }
 
 
@@ -81,24 +82,24 @@ public class CreateBlankDocxResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBlankDocxResponse createBlankDocxResponse = (CreateBlankDocxResponse) o;
-    return Objects.equals(this.successful, createBlankDocxResponse.successful) &&
-        Objects.equals(this.editedDocumentURL, createBlankDocxResponse.editedDocumentURL);
+    GetXlsxCellResponse getXlsxCellResponse = (GetXlsxCellResponse) o;
+    return Objects.equals(this.successful, getXlsxCellResponse.successful) &&
+        Objects.equals(this.cell, getXlsxCellResponse.cell);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, editedDocumentURL);
+    return Objects.hash(successful, cell);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBlankDocxResponse {\n");
+    sb.append("class GetXlsxCellResponse {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    editedDocumentURL: ").append(toIndentedString(editedDocumentURL)).append("\n");
+    sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("}");
     return sb.toString();
   }

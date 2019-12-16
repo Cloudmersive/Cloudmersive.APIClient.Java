@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to set-footer command
  */
 @ApiModel(description = "Input to set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
 public class DocxInsertImageRequest {
   @SerializedName("InputDocumentFileBytes")
   private byte[] inputDocumentFileBytes = null;
@@ -51,6 +51,12 @@ public class DocxInsertImageRequest {
 
   @SerializedName("InsertPath")
   private String insertPath = null;
+
+  @SerializedName("WidthInEMUs")
+  private Long widthInEMUs = null;
+
+  @SerializedName("HeightInEMUs")
+  private Long heightInEMUs = null;
 
   public DocxInsertImageRequest inputDocumentFileBytes(byte[] inputDocumentFileBytes) {
     this.inputDocumentFileBytes = inputDocumentFileBytes;
@@ -178,6 +184,42 @@ public class DocxInsertImageRequest {
     this.insertPath = insertPath;
   }
 
+  public DocxInsertImageRequest widthInEMUs(Long widthInEMUs) {
+    this.widthInEMUs = widthInEMUs;
+    return this;
+  }
+
+   /**
+   * Optional: The width of the image in EMUs
+   * @return widthInEMUs
+  **/
+  @ApiModelProperty(value = "Optional: The width of the image in EMUs")
+  public Long getWidthInEMUs() {
+    return widthInEMUs;
+  }
+
+  public void setWidthInEMUs(Long widthInEMUs) {
+    this.widthInEMUs = widthInEMUs;
+  }
+
+  public DocxInsertImageRequest heightInEMUs(Long heightInEMUs) {
+    this.heightInEMUs = heightInEMUs;
+    return this;
+  }
+
+   /**
+   * Optional: The height of the image in EMUs
+   * @return heightInEMUs
+  **/
+  @ApiModelProperty(value = "Optional: The height of the image in EMUs")
+  public Long getHeightInEMUs() {
+    return heightInEMUs;
+  }
+
+  public void setHeightInEMUs(Long heightInEMUs) {
+    this.heightInEMUs = heightInEMUs;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -194,12 +236,14 @@ public class DocxInsertImageRequest {
         Objects.equals(this.inputImageFileUrl, docxInsertImageRequest.inputImageFileUrl) &&
         Objects.equals(this.imageToAdd, docxInsertImageRequest.imageToAdd) &&
         Objects.equals(this.insertPlacement, docxInsertImageRequest.insertPlacement) &&
-        Objects.equals(this.insertPath, docxInsertImageRequest.insertPath);
+        Objects.equals(this.insertPath, docxInsertImageRequest.insertPath) &&
+        Objects.equals(this.widthInEMUs, docxInsertImageRequest.widthInEMUs) &&
+        Objects.equals(this.heightInEMUs, docxInsertImageRequest.heightInEMUs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(inputDocumentFileBytes), inputDocumentFileUrl, Arrays.hashCode(inputImageFileBytes), inputImageFileUrl, imageToAdd, insertPlacement, insertPath);
+    return Objects.hash(Arrays.hashCode(inputDocumentFileBytes), inputDocumentFileUrl, Arrays.hashCode(inputImageFileBytes), inputImageFileUrl, imageToAdd, insertPlacement, insertPath, widthInEMUs, heightInEMUs);
   }
 
 
@@ -215,6 +259,8 @@ public class DocxInsertImageRequest {
     sb.append("    imageToAdd: ").append(toIndentedString(imageToAdd)).append("\n");
     sb.append("    insertPlacement: ").append(toIndentedString(insertPlacement)).append("\n");
     sb.append("    insertPath: ").append(toIndentedString(insertPath)).append("\n");
+    sb.append("    widthInEMUs: ").append(toIndentedString(widthInEMUs)).append("\n");
+    sb.append("    heightInEMUs: ").append(toIndentedString(heightInEMUs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

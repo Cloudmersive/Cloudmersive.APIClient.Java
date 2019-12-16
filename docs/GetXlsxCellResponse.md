@@ -1,11 +1,11 @@
 
-# GetXlsxColumnsResponse
+# GetXlsxCellResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **successful** | **Boolean** | True if successful, false otherwise |  [optional]
-**columns** | [**List&lt;XlsxSpreadsheetColumn&gt;**](XlsxSpreadsheetColumn.md) | Spreadsheet Columns in the XLSX document |  [optional]
+**cell** | [**XlsxSpreadsheetCell**](XlsxSpreadsheetCell.md) | Requested Cell in the Excel XLSX document |  [optional]
 
 
 

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a Get-Columns command
  */
 @ApiModel(description = "Result of running a Get-Columns command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
 public class GetXlsxColumnsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -71,10 +71,10 @@ public class GetXlsxColumnsResponse {
   }
 
    /**
-   * Spreadsheet Columns in the DOCX document
+   * Spreadsheet Columns in the XLSX document
    * @return columns
   **/
-  @ApiModelProperty(value = "Spreadsheet Columns in the DOCX document")
+  @ApiModelProperty(value = "Spreadsheet Columns in the XLSX document")
   public List<XlsxSpreadsheetColumn> getColumns() {
     return columns;
   }

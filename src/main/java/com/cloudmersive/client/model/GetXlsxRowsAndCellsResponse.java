@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a Get-Worksheets command
  */
 @ApiModel(description = "Result of running a Get-Worksheets command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
 public class GetXlsxRowsAndCellsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -71,10 +71,10 @@ public class GetXlsxRowsAndCellsResponse {
   }
 
    /**
-   * Spreadsheet Rows in the DOCX document
+   * Spreadsheet Rows in the Excel XLSX document
    * @return rows
   **/
-  @ApiModelProperty(value = "Spreadsheet Rows in the DOCX document")
+  @ApiModelProperty(value = "Spreadsheet Rows in the Excel XLSX document")
   public List<XlsxSpreadsheetRow> getRows() {
     return rows;
   }

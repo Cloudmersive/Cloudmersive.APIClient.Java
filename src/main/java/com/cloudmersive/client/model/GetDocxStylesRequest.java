@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Tables request
  */
 @ApiModel(description = "Input to a Get Tables request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
 public class GetDocxStylesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

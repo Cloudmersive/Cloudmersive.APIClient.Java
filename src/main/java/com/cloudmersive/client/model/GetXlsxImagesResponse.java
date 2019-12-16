@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a Get-Images command
  */
 @ApiModel(description = "Result of running a Get-Images command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T14:48:35.535-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
 public class GetXlsxImagesResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -71,10 +71,10 @@ public class GetXlsxImagesResponse {
   }
 
    /**
-   * Spreadsheet Columns in the DOCX document
+   * Spreadsheet Images in the XLSX document
    * @return images
   **/
-  @ApiModelProperty(value = "Spreadsheet Columns in the DOCX document")
+  @ApiModelProperty(value = "Spreadsheet Images in the XLSX document")
   public List<XlsxImage> getImages() {
     return images;
   }

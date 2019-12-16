@@ -49,6 +49,8 @@ import com.cloudmersive.client.model.GetDocxTableRowRequest;
 import com.cloudmersive.client.model.GetDocxTableRowResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.GetXlsxCellRequest;
+import com.cloudmersive.client.model.GetXlsxCellResponse;
 import com.cloudmersive.client.model.GetXlsxColumnsRequest;
 import com.cloudmersive.client.model.GetXlsxColumnsResponse;
 import com.cloudmersive.client.model.GetXlsxImagesRequest;
@@ -541,6 +543,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by index
+     *
+     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetCellByIndexTest() throws ApiException {
+        GetXlsxCellRequest input = null;
+        GetXlsxCellResponse response = api.editDocumentXlsxGetCellByIndex(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
@@ -573,7 +591,7 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get rows and cells from a Word XLSX spreadsheet, worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      *

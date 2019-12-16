@@ -49,6 +49,22 @@ public class ConvertDataApiTest {
     }
     
     /**
+     * Convert JSON to XML conversion
+     *
+     * Convert a JSON object into XML
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataJsonToXmlTest() throws ApiException {
+        Object jsonObject = null;
+        Object response = api.convertDataJsonToXml(jsonObject);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Excel (97-2003) XLS to JSON conversion
      *
      * Convert an Excel (97-2003) XLS file to a JSON object array

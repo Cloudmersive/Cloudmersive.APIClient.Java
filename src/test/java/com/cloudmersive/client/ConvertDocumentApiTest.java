@@ -229,6 +229,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert PDF to Word DOCX Document based on rasterized version of the PDF
+     *
+     * Convert standard PDF to Office Word Documents (docx), but first rasterize the PDF.    Converts a PDF at high fidelity into Word format.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToDocxRasterizeTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentPdfToDocxRasterize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert PDF to PNG Image Array
      *
      * Convert PDF document to PNG array, one image per page.

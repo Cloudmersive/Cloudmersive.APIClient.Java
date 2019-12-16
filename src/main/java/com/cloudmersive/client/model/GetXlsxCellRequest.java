@@ -15,7 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudmersive.client.model.DocxFooter;
+import com.cloudmersive.client.model.XlsxWorksheet;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,21 +26,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Input to set-footer command
+ * Input to a Get Cell request
  */
-@ApiModel(description = "Input to set-footer command")
+@ApiModel(description = "Input to a Get Cell request")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
-public class DocxSetFooterRequest {
+public class GetXlsxCellRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
 
   @SerializedName("InputFileUrl")
   private String inputFileUrl = null;
 
-  @SerializedName("FooterToApply")
-  private DocxFooter footerToApply = null;
+  @SerializedName("WorksheetToQuery")
+  private XlsxWorksheet worksheetToQuery = null;
 
-  public DocxSetFooterRequest inputFileBytes(byte[] inputFileBytes) {
+  @SerializedName("RowIndex")
+  private Integer rowIndex = null;
+
+  @SerializedName("CellIndex")
+  private Integer cellIndex = null;
+
+  public GetXlsxCellRequest inputFileBytes(byte[] inputFileBytes) {
     this.inputFileBytes = inputFileBytes;
     return this;
   }
@@ -58,7 +64,7 @@ public class DocxSetFooterRequest {
     this.inputFileBytes = inputFileBytes;
   }
 
-  public DocxSetFooterRequest inputFileUrl(String inputFileUrl) {
+  public GetXlsxCellRequest inputFileUrl(String inputFileUrl) {
     this.inputFileUrl = inputFileUrl;
     return this;
   }
@@ -76,22 +82,58 @@ public class DocxSetFooterRequest {
     this.inputFileUrl = inputFileUrl;
   }
 
-  public DocxSetFooterRequest footerToApply(DocxFooter footerToApply) {
-    this.footerToApply = footerToApply;
+  public GetXlsxCellRequest worksheetToQuery(XlsxWorksheet worksheetToQuery) {
+    this.worksheetToQuery = worksheetToQuery;
     return this;
   }
 
    /**
-   * Footer to apply
-   * @return footerToApply
+   * Optional; Worksheet (tab) within the spreadsheet to get the rows and cells of; leave blank to default to the first worksheet
+   * @return worksheetToQuery
   **/
-  @ApiModelProperty(value = "Footer to apply")
-  public DocxFooter getFooterToApply() {
-    return footerToApply;
+  @ApiModelProperty(value = "Optional; Worksheet (tab) within the spreadsheet to get the rows and cells of; leave blank to default to the first worksheet")
+  public XlsxWorksheet getWorksheetToQuery() {
+    return worksheetToQuery;
   }
 
-  public void setFooterToApply(DocxFooter footerToApply) {
-    this.footerToApply = footerToApply;
+  public void setWorksheetToQuery(XlsxWorksheet worksheetToQuery) {
+    this.worksheetToQuery = worksheetToQuery;
+  }
+
+  public GetXlsxCellRequest rowIndex(Integer rowIndex) {
+    this.rowIndex = rowIndex;
+    return this;
+  }
+
+   /**
+   * 0-based index of the row, 0, 1, 2, ... to retrieve
+   * @return rowIndex
+  **/
+  @ApiModelProperty(value = "0-based index of the row, 0, 1, 2, ... to retrieve")
+  public Integer getRowIndex() {
+    return rowIndex;
+  }
+
+  public void setRowIndex(Integer rowIndex) {
+    this.rowIndex = rowIndex;
+  }
+
+  public GetXlsxCellRequest cellIndex(Integer cellIndex) {
+    this.cellIndex = cellIndex;
+    return this;
+  }
+
+   /**
+   * 0-based index of the cell, 0, 1, 2, ... in the row to retrieve
+   * @return cellIndex
+  **/
+  @ApiModelProperty(value = "0-based index of the cell, 0, 1, 2, ... in the row to retrieve")
+  public Integer getCellIndex() {
+    return cellIndex;
+  }
+
+  public void setCellIndex(Integer cellIndex) {
+    this.cellIndex = cellIndex;
   }
 
 
@@ -103,26 +145,30 @@ public class DocxSetFooterRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocxSetFooterRequest docxSetFooterRequest = (DocxSetFooterRequest) o;
-    return Arrays.equals(this.inputFileBytes, docxSetFooterRequest.inputFileBytes) &&
-        Objects.equals(this.inputFileUrl, docxSetFooterRequest.inputFileUrl) &&
-        Objects.equals(this.footerToApply, docxSetFooterRequest.footerToApply);
+    GetXlsxCellRequest getXlsxCellRequest = (GetXlsxCellRequest) o;
+    return Arrays.equals(this.inputFileBytes, getXlsxCellRequest.inputFileBytes) &&
+        Objects.equals(this.inputFileUrl, getXlsxCellRequest.inputFileUrl) &&
+        Objects.equals(this.worksheetToQuery, getXlsxCellRequest.worksheetToQuery) &&
+        Objects.equals(this.rowIndex, getXlsxCellRequest.rowIndex) &&
+        Objects.equals(this.cellIndex, getXlsxCellRequest.cellIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, footerToApply);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, worksheetToQuery, rowIndex, cellIndex);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocxSetFooterRequest {\n");
+    sb.append("class GetXlsxCellRequest {\n");
     
     sb.append("    inputFileBytes: ").append(toIndentedString(inputFileBytes)).append("\n");
     sb.append("    inputFileUrl: ").append(toIndentedString(inputFileUrl)).append("\n");
-    sb.append("    footerToApply: ").append(toIndentedString(footerToApply)).append("\n");
+    sb.append("    worksheetToQuery: ").append(toIndentedString(worksheetToQuery)).append("\n");
+    sb.append("    rowIndex: ").append(toIndentedString(rowIndex)).append("\n");
+    sb.append("    cellIndex: ").append(toIndentedString(cellIndex)).append("\n");
     sb.append("}");
     return sb.toString();
   }
