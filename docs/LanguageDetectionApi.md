@@ -4,12 +4,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**languageDetectionPost**](LanguageDetectionApi.md#languageDetectionPost) | **POST** /nlp/language/detect | Detect language of text
+[**languageDetectionGetLanguage**](LanguageDetectionApi.md#languageDetectionGetLanguage) | **POST** /nlp-v2/language/detect | Detect language of text
 
 
-<a name="languageDetectionPost"></a>
-# **languageDetectionPost**
-> LanguageDetectionResponse languageDetectionPost(textToDetect)
+<a name="languageDetectionGetLanguage"></a>
+# **languageDetectionGetLanguage**
+> LanguageDetectionResponse languageDetectionGetLanguage(input)
 
 Detect language of text
 
@@ -33,12 +33,12 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 LanguageDetectionApi apiInstance = new LanguageDetectionApi();
-String textToDetect = "textToDetect_example"; // String | Text to detect language of
+LanguageDetectionRequest input = new LanguageDetectionRequest(); // LanguageDetectionRequest | 
 try {
-    LanguageDetectionResponse result = apiInstance.languageDetectionPost(textToDetect);
+    LanguageDetectionResponse result = apiInstance.languageDetectionGetLanguage(input);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LanguageDetectionApi#languageDetectionPost");
+    System.err.println("Exception when calling LanguageDetectionApi#languageDetectionGetLanguage");
     e.printStackTrace();
 }
 ```
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **textToDetect** | **String**| Text to detect language of |
+ **input** | [**LanguageDetectionRequest**](LanguageDetectionRequest.md)|  |
 
 ### Return type
 

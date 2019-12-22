@@ -1,6 +1,6 @@
 /*
- * nlpapi
- * The powerful Natural Language Processing APIs let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
+ * nlpapiv2
+ * The powerful Natural Language Processing APIs (v2) let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
  *
  * OpenAPI spec version: v1
  * 
@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cloudmersive.client.model.LanguageDetectionRequest;
 import com.cloudmersive.client.model.LanguageDetectionResponse;
 
 import java.lang.reflect.Type;
@@ -55,18 +56,18 @@ public class LanguageDetectionApi {
     }
 
     /**
-     * Build call for languageDetectionPost
-     * @param textToDetect Text to detect language of (required)
+     * Build call for languageDetectionGetLanguage
+     * @param input  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call languageDetectionPostCall(String textToDetect, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = textToDetect;
+    public com.squareup.okhttp.Call languageDetectionGetLanguageCall(LanguageDetectionRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
 
         // create path and map variables
-        String localVarPath = "/nlp/language/detect";
+        String localVarPath = "/nlp-v2/language/detect";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -104,15 +105,15 @@ public class LanguageDetectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call languageDetectionPostValidateBeforeCall(String textToDetect, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call languageDetectionGetLanguageValidateBeforeCall(LanguageDetectionRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'textToDetect' is set
-        if (textToDetect == null) {
-            throw new ApiException("Missing the required parameter 'textToDetect' when calling languageDetectionPost(Async)");
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling languageDetectionGetLanguage(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = languageDetectionPostCall(textToDetect, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = languageDetectionGetLanguageCall(input, progressListener, progressRequestListener);
         return call;
 
     }
@@ -120,24 +121,24 @@ public class LanguageDetectionApi {
     /**
      * Detect language of text
      * Automatically determine which language a text string is written in.  Supports Danish (DAN), German (DEU), English (ENG), French (FRA), Italian (ITA), Japanese (JPN), Korean (KOR), Dutch (NLD), Norwegian (NOR), Portuguese (POR), Russian (RUS), Spanish (SPA), Swedish (SWE), Chinese (ZHO).
-     * @param textToDetect Text to detect language of (required)
+     * @param input  (required)
      * @return LanguageDetectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LanguageDetectionResponse languageDetectionPost(String textToDetect) throws ApiException {
-        ApiResponse<LanguageDetectionResponse> resp = languageDetectionPostWithHttpInfo(textToDetect);
+    public LanguageDetectionResponse languageDetectionGetLanguage(LanguageDetectionRequest input) throws ApiException {
+        ApiResponse<LanguageDetectionResponse> resp = languageDetectionGetLanguageWithHttpInfo(input);
         return resp.getData();
     }
 
     /**
      * Detect language of text
      * Automatically determine which language a text string is written in.  Supports Danish (DAN), German (DEU), English (ENG), French (FRA), Italian (ITA), Japanese (JPN), Korean (KOR), Dutch (NLD), Norwegian (NOR), Portuguese (POR), Russian (RUS), Spanish (SPA), Swedish (SWE), Chinese (ZHO).
-     * @param textToDetect Text to detect language of (required)
+     * @param input  (required)
      * @return ApiResponse&lt;LanguageDetectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LanguageDetectionResponse> languageDetectionPostWithHttpInfo(String textToDetect) throws ApiException {
-        com.squareup.okhttp.Call call = languageDetectionPostValidateBeforeCall(textToDetect, null, null);
+    public ApiResponse<LanguageDetectionResponse> languageDetectionGetLanguageWithHttpInfo(LanguageDetectionRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = languageDetectionGetLanguageValidateBeforeCall(input, null, null);
         Type localVarReturnType = new TypeToken<LanguageDetectionResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -145,12 +146,12 @@ public class LanguageDetectionApi {
     /**
      * Detect language of text (asynchronously)
      * Automatically determine which language a text string is written in.  Supports Danish (DAN), German (DEU), English (ENG), French (FRA), Italian (ITA), Japanese (JPN), Korean (KOR), Dutch (NLD), Norwegian (NOR), Portuguese (POR), Russian (RUS), Spanish (SPA), Swedish (SWE), Chinese (ZHO).
-     * @param textToDetect Text to detect language of (required)
+     * @param input  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call languageDetectionPostAsync(String textToDetect, final ApiCallback<LanguageDetectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call languageDetectionGetLanguageAsync(LanguageDetectionRequest input, final ApiCallback<LanguageDetectionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -171,7 +172,7 @@ public class LanguageDetectionApi {
             };
         }
 
-        com.squareup.okhttp.Call call = languageDetectionPostValidateBeforeCall(textToDetect, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = languageDetectionGetLanguageValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LanguageDetectionResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

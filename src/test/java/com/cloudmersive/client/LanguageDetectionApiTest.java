@@ -1,6 +1,6 @@
 /*
- * nlpapi
- * The powerful Natural Language Processing APIs let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
+ * nlpapiv2
+ * The powerful Natural Language Processing APIs (v2) let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
  *
  * OpenAPI spec version: v1
  * 
@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.LanguageDetectionRequest;
 import com.cloudmersive.client.model.LanguageDetectionResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -41,9 +42,9 @@ public class LanguageDetectionApiTest {
      *          if the Api call fails
      */
     @Test
-    public void languageDetectionPostTest() throws ApiException {
-        String textToDetect = null;
-        LanguageDetectionResponse response = api.languageDetectionPost(textToDetect);
+    public void languageDetectionGetLanguageTest() throws ApiException {
+        LanguageDetectionRequest input = null;
+        LanguageDetectionResponse response = api.languageDetectionGetLanguage(input);
 
         // TODO: test validations
     }

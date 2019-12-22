@@ -1,6 +1,6 @@
 /*
- * nlpapi
- * The powerful Natural Language Processing APIs let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
+ * nlpapiv2
+ * The powerful Natural Language Processing APIs (v2) let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
  *
  * OpenAPI spec version: v1
  * 
@@ -27,9 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.cloudmersive.client.model.CheckJsonResponse;
-import com.cloudmersive.client.model.CheckSentenceJsonResponse;
-import com.cloudmersive.client.model.CorrectJsonResponse;
+import com.cloudmersive.client.model.CheckSentenceRequest;
+import com.cloudmersive.client.model.CheckSentenceResponse;
+import com.cloudmersive.client.model.CheckWordRequest;
+import com.cloudmersive.client.model.CheckWordResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -37,14 +38,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SpellCheckApi {
+public class SpellcheckApi {
     private ApiClient apiClient;
 
-    public SpellCheckApi() {
+    public SpellcheckApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public SpellCheckApi(ApiClient apiClient) {
+    public SpellcheckApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -57,18 +58,18 @@ public class SpellCheckApi {
     }
 
     /**
-     * Build call for spellCheckCheckJson
+     * Build call for spellcheckCheckSentence
      * @param value Input sentence (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call spellCheckCheckJsonCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call spellcheckCheckSentenceCall(CheckSentenceRequest value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
-        String localVarPath = "/nlp/spellcheck/check/word/json";
+        String localVarPath = "/nlp-v2/spellcheck/check/sentence";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -106,137 +107,15 @@ public class SpellCheckApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spellCheckCheckJsonValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call spellcheckCheckSentenceValidateBeforeCall(CheckSentenceRequest value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling spellCheckCheckJson(Async)");
+            throw new ApiException("Missing the required parameter 'value' when calling spellcheckCheckSentence(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = spellCheckCheckJsonCall(value, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Spell check word
-     * Spell check a word as JSON
-     * @param value Input sentence (required)
-     * @return CheckJsonResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CheckJsonResponse spellCheckCheckJson(String value) throws ApiException {
-        ApiResponse<CheckJsonResponse> resp = spellCheckCheckJsonWithHttpInfo(value);
-        return resp.getData();
-    }
-
-    /**
-     * Spell check word
-     * Spell check a word as JSON
-     * @param value Input sentence (required)
-     * @return ApiResponse&lt;CheckJsonResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CheckJsonResponse> spellCheckCheckJsonWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = spellCheckCheckJsonValidateBeforeCall(value, null, null);
-        Type localVarReturnType = new TypeToken<CheckJsonResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Spell check word (asynchronously)
-     * Spell check a word as JSON
-     * @param value Input sentence (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckCheckJsonAsync(String value, final ApiCallback<CheckJsonResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = spellCheckCheckJsonValidateBeforeCall(value, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CheckJsonResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for spellCheckCheckSentenceJson
-     * @param value Input sentence (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckCheckSentenceJsonCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = value;
-
-        // create path and map variables
-        String localVarPath = "/nlp/spellcheck/check/sentence/json";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spellCheckCheckSentenceJsonValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'value' is set
-        if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling spellCheckCheckSentenceJson(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = spellCheckCheckSentenceJsonCall(value, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = spellcheckCheckSentenceCall(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -245,11 +124,11 @@ public class SpellCheckApi {
      * Check if sentence is spelled correctly
      * Checks whether the sentence is spelled correctly and returns the result as JSON
      * @param value Input sentence (required)
-     * @return CheckSentenceJsonResponse
+     * @return CheckSentenceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CheckSentenceJsonResponse spellCheckCheckSentenceJson(String value) throws ApiException {
-        ApiResponse<CheckSentenceJsonResponse> resp = spellCheckCheckSentenceJsonWithHttpInfo(value);
+    public CheckSentenceResponse spellcheckCheckSentence(CheckSentenceRequest value) throws ApiException {
+        ApiResponse<CheckSentenceResponse> resp = spellcheckCheckSentenceWithHttpInfo(value);
         return resp.getData();
     }
 
@@ -257,12 +136,12 @@ public class SpellCheckApi {
      * Check if sentence is spelled correctly
      * Checks whether the sentence is spelled correctly and returns the result as JSON
      * @param value Input sentence (required)
-     * @return ApiResponse&lt;CheckSentenceJsonResponse&gt;
+     * @return ApiResponse&lt;CheckSentenceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CheckSentenceJsonResponse> spellCheckCheckSentenceJsonWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = spellCheckCheckSentenceJsonValidateBeforeCall(value, null, null);
-        Type localVarReturnType = new TypeToken<CheckSentenceJsonResponse>(){}.getType();
+    public ApiResponse<CheckSentenceResponse> spellcheckCheckSentenceWithHttpInfo(CheckSentenceRequest value) throws ApiException {
+        com.squareup.okhttp.Call call = spellcheckCheckSentenceValidateBeforeCall(value, null, null);
+        Type localVarReturnType = new TypeToken<CheckSentenceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -274,7 +153,7 @@ public class SpellCheckApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call spellCheckCheckSentenceJsonAsync(String value, final ApiCallback<CheckSentenceJsonResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call spellcheckCheckSentenceAsync(CheckSentenceRequest value, final ApiCallback<CheckSentenceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -295,268 +174,24 @@ public class SpellCheckApi {
             };
         }
 
-        com.squareup.okhttp.Call call = spellCheckCheckSentenceJsonValidateBeforeCall(value, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CheckSentenceJsonResponse>(){}.getType();
+        com.squareup.okhttp.Call call = spellcheckCheckSentenceValidateBeforeCall(value, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckSentenceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for spellCheckCheckSentenceString
-     * @param value Input sentence word (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckCheckSentenceStringCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = value;
-
-        // create path and map variables
-        String localVarPath = "/nlp/spellcheck/check/sentence/string";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spellCheckCheckSentenceStringValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'value' is set
-        if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling spellCheckCheckSentenceString(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = spellCheckCheckSentenceStringCall(value, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Spell check a sentence
-     * Check if a sentence is spelled correctly
-     * @param value Input sentence word (required)
-     * @return Boolean
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Boolean spellCheckCheckSentenceString(String value) throws ApiException {
-        ApiResponse<Boolean> resp = spellCheckCheckSentenceStringWithHttpInfo(value);
-        return resp.getData();
-    }
-
-    /**
-     * Spell check a sentence
-     * Check if a sentence is spelled correctly
-     * @param value Input sentence word (required)
-     * @return ApiResponse&lt;Boolean&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Boolean> spellCheckCheckSentenceStringWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = spellCheckCheckSentenceStringValidateBeforeCall(value, null, null);
-        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Spell check a sentence (asynchronously)
-     * Check if a sentence is spelled correctly
-     * @param value Input sentence word (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckCheckSentenceStringAsync(String value, final ApiCallback<Boolean> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = spellCheckCheckSentenceStringValidateBeforeCall(value, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for spellCheckCorrect
-     * @param value Input word (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckCorrectCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = value;
-
-        // create path and map variables
-        String localVarPath = "/nlp/spellcheck/correct/word/string";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spellCheckCorrectValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'value' is set
-        if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling spellCheckCorrect(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = spellCheckCorrectCall(value, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Find spelling corrections
-     * Find the spelling corrections for a word
-     * @param value Input word (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String spellCheckCorrect(String value) throws ApiException {
-        ApiResponse<String> resp = spellCheckCorrectWithHttpInfo(value);
-        return resp.getData();
-    }
-
-    /**
-     * Find spelling corrections
-     * Find the spelling corrections for a word
-     * @param value Input word (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> spellCheckCorrectWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = spellCheckCorrectValidateBeforeCall(value, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Find spelling corrections (asynchronously)
-     * Find the spelling corrections for a word
-     * @param value Input word (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckCorrectAsync(String value, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = spellCheckCorrectValidateBeforeCall(value, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for spellCheckCorrectJson
+     * Build call for spellcheckCorrectJson
      * @param value Input string (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call spellCheckCorrectJsonCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call spellcheckCorrectJsonCall(CheckWordRequest value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
-        String localVarPath = "/nlp/spellcheck/correct/word/json";
+        String localVarPath = "/nlp-v2/spellcheck/check/word";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -594,15 +229,15 @@ public class SpellCheckApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spellCheckCorrectJsonValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call spellcheckCorrectJsonValidateBeforeCall(CheckWordRequest value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling spellCheckCorrectJson(Async)");
+            throw new ApiException("Missing the required parameter 'value' when calling spellcheckCorrectJson(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = spellCheckCorrectJsonCall(value, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = spellcheckCorrectJsonCall(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -611,11 +246,11 @@ public class SpellCheckApi {
      * Find spelling corrections
      * Find spelling correction suggestions and return result as JSON
      * @param value Input string (required)
-     * @return CorrectJsonResponse
+     * @return CheckWordResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CorrectJsonResponse spellCheckCorrectJson(String value) throws ApiException {
-        ApiResponse<CorrectJsonResponse> resp = spellCheckCorrectJsonWithHttpInfo(value);
+    public CheckWordResponse spellcheckCorrectJson(CheckWordRequest value) throws ApiException {
+        ApiResponse<CheckWordResponse> resp = spellcheckCorrectJsonWithHttpInfo(value);
         return resp.getData();
     }
 
@@ -623,12 +258,12 @@ public class SpellCheckApi {
      * Find spelling corrections
      * Find spelling correction suggestions and return result as JSON
      * @param value Input string (required)
-     * @return ApiResponse&lt;CorrectJsonResponse&gt;
+     * @return ApiResponse&lt;CheckWordResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CorrectJsonResponse> spellCheckCorrectJsonWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = spellCheckCorrectJsonValidateBeforeCall(value, null, null);
-        Type localVarReturnType = new TypeToken<CorrectJsonResponse>(){}.getType();
+    public ApiResponse<CheckWordResponse> spellcheckCorrectJsonWithHttpInfo(CheckWordRequest value) throws ApiException {
+        com.squareup.okhttp.Call call = spellcheckCorrectJsonValidateBeforeCall(value, null, null);
+        Type localVarReturnType = new TypeToken<CheckWordResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -640,7 +275,7 @@ public class SpellCheckApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call spellCheckCorrectJsonAsync(String value, final ApiCallback<CorrectJsonResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call spellcheckCorrectJsonAsync(CheckWordRequest value, final ApiCallback<CheckWordResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -661,130 +296,8 @@ public class SpellCheckApi {
             };
         }
 
-        com.squareup.okhttp.Call call = spellCheckCorrectJsonValidateBeforeCall(value, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CorrectJsonResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for spellCheckPost
-     * @param value Input string word (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckPostCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = value;
-
-        // create path and map variables
-        String localVarPath = "/nlp/spellcheck/check/word/string";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spellCheckPostValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'value' is set
-        if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling spellCheckPost(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = spellCheckPostCall(value, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Spell check a word
-     * Check if a word is spelled correctly
-     * @param value Input string word (required)
-     * @return Boolean
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Boolean spellCheckPost(String value) throws ApiException {
-        ApiResponse<Boolean> resp = spellCheckPostWithHttpInfo(value);
-        return resp.getData();
-    }
-
-    /**
-     * Spell check a word
-     * Check if a word is spelled correctly
-     * @param value Input string word (required)
-     * @return ApiResponse&lt;Boolean&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Boolean> spellCheckPostWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = spellCheckPostValidateBeforeCall(value, null, null);
-        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Spell check a word (asynchronously)
-     * Check if a word is spelled correctly
-     * @param value Input string word (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call spellCheckPostAsync(String value, final ApiCallback<Boolean> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = spellCheckPostValidateBeforeCall(value, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
+        com.squareup.okhttp.Call call = spellcheckCorrectJsonValidateBeforeCall(value, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CheckWordResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

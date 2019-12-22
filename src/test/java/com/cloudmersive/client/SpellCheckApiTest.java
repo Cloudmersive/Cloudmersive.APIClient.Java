@@ -1,6 +1,6 @@
 /*
- * nlpapi
- * The powerful Natural Language Processing APIs let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
+ * nlpapiv2
+ * The powerful Natural Language Processing APIs (v2) let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
  *
  * OpenAPI spec version: v1
  * 
@@ -14,9 +14,10 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
-import com.cloudmersive.client.model.CheckJsonResponse;
-import com.cloudmersive.client.model.CheckSentenceJsonResponse;
-import com.cloudmersive.client.model.CorrectJsonResponse;
+import com.cloudmersive.client.model.CheckSentenceRequest;
+import com.cloudmersive.client.model.CheckSentenceResponse;
+import com.cloudmersive.client.model.CheckWordRequest;
+import com.cloudmersive.client.model.CheckWordResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -26,29 +27,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for SpellCheckApi
+ * API tests for SpellcheckApi
  */
 @Ignore
-public class SpellCheckApiTest {
+public class SpellcheckApiTest {
 
-    private final SpellCheckApi api = new SpellCheckApi();
+    private final SpellcheckApi api = new SpellcheckApi();
 
-    
-    /**
-     * Spell check word
-     *
-     * Spell check a word as JSON
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void spellCheckCheckJsonTest() throws ApiException {
-        String value = null;
-        CheckJsonResponse response = api.spellCheckCheckJson(value);
-
-        // TODO: test validations
-    }
     
     /**
      * Check if sentence is spelled correctly
@@ -59,41 +44,9 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCheckSentenceJsonTest() throws ApiException {
-        String value = null;
-        CheckSentenceJsonResponse response = api.spellCheckCheckSentenceJson(value);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Spell check a sentence
-     *
-     * Check if a sentence is spelled correctly
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void spellCheckCheckSentenceStringTest() throws ApiException {
-        String value = null;
-        Boolean response = api.spellCheckCheckSentenceString(value);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Find spelling corrections
-     *
-     * Find the spelling corrections for a word
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void spellCheckCorrectTest() throws ApiException {
-        String value = null;
-        String response = api.spellCheckCorrect(value);
+    public void spellcheckCheckSentenceTest() throws ApiException {
+        CheckSentenceRequest value = null;
+        CheckSentenceResponse response = api.spellcheckCheckSentence(value);
 
         // TODO: test validations
     }
@@ -107,25 +60,9 @@ public class SpellCheckApiTest {
      *          if the Api call fails
      */
     @Test
-    public void spellCheckCorrectJsonTest() throws ApiException {
-        String value = null;
-        CorrectJsonResponse response = api.spellCheckCorrectJson(value);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Spell check a word
-     *
-     * Check if a word is spelled correctly
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void spellCheckPostTest() throws ApiException {
-        String value = null;
-        Boolean response = api.spellCheckPost(value);
+    public void spellcheckCorrectJsonTest() throws ApiException {
+        CheckWordRequest value = null;
+        CheckWordResponse response = api.spellcheckCorrectJson(value);
 
         // TODO: test validations
     }

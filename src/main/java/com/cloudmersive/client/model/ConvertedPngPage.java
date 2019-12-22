@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single converted page
  */
 @ApiModel(description = "A single converted page")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T11:10:33.366-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T15:37:22.451-08:00")
 public class ConvertedPngPage {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
