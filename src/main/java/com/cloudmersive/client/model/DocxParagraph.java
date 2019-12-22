@@ -31,7 +31,7 @@ import java.util.List;
  * A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML
  */
 @ApiModel(description = "A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:45.329-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T11:10:33.366-08:00")
 public class DocxParagraph {
   @SerializedName("ParagraphIndex")
   private Integer paragraphIndex = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an identifier validation operation
  */
 @ApiModel(description = "Result of performing an identifier validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-15T21:15:17.670-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T11:10:05.181-08:00")
 public class ValidateIdentifierResponse {
   @SerializedName("ValidIdentifier")
   private Boolean validIdentifier = null;

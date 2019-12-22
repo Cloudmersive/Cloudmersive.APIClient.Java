@@ -496,7 +496,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Document to Text
+     * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @return TextConversionResult
@@ -508,7 +508,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Document to Text
+     * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;TextConversionResult&gt;
@@ -521,7 +521,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Document to Text (asynchronously)
+     * Convert Document to Text (txt) (asynchronously)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1116,7 +1116,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Word DOCX Document to Text
+     * Convert Word DOCX Document to Text (txt)
      * Convert Office Word Documents (docx) to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return TextConversionResult
@@ -1128,7 +1128,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Word DOCX Document to Text
+     * Convert Word DOCX Document to Text (txt)
      * Convert Office Word Documents (docx) to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;TextConversionResult&gt;
@@ -1141,7 +1141,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Word DOCX Document to Text (asynchronously)
+     * Convert Word DOCX Document to Text (txt) (asynchronously)
      * Convert Office Word Documents (docx) to text
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1240,7 +1240,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert HTML to PDF Document
+     * Convert HTML document file to PDF Document
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return byte[]
@@ -1252,7 +1252,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert HTML to PDF Document
+     * Convert HTML document file to PDF Document
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -1265,7 +1265,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert HTML to PDF Document (asynchronously)
+     * Convert HTML document file to PDF Document (asynchronously)
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1364,7 +1364,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert HTML to PNG image array
+     * Convert HTML document file to PNG image array
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return PdfToPngResult
@@ -1376,7 +1376,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert HTML to PNG image array
+     * Convert HTML document file to PNG image array
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;PdfToPngResult&gt;
@@ -1389,7 +1389,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert HTML to PNG image array (asynchronously)
+     * Convert HTML document file to PNG image array (asynchronously)
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1419,6 +1419,130 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentHtmlToPngValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PdfToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentHtmlToTxt
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentHtmlToTxtCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/html/to/txt";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentHtmlToTxtValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentHtmlToTxt(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentHtmlToTxtCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * HTML Document file to Text (txt)
+     * HTML document to text
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return TextConversionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TextConversionResult convertDocumentHtmlToTxt(File inputFile) throws ApiException {
+        ApiResponse<TextConversionResult> resp = convertDocumentHtmlToTxtWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * HTML Document file to Text (txt)
+     * HTML document to text
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;TextConversionResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TextConversionResult> convertDocumentHtmlToTxtWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentHtmlToTxtValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * HTML Document file to Text (txt) (asynchronously)
+     * HTML document to text
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentHtmlToTxtAsync(File inputFile, final ApiCallback<TextConversionResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentHtmlToTxtValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2108,7 +2232,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert PDF Document to Text
+     * Convert PDF Document to Text (txt)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return TextConversionResult
@@ -2120,7 +2244,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert PDF Document to Text
+     * Convert PDF Document to Text (txt)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;TextConversionResult&gt;
@@ -2133,7 +2257,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert PDF Document to Text (asynchronously)
+     * Convert PDF Document to Text (txt) (asynchronously)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -2787,7 +2911,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert PowerPoint PPTX Presentation to Text
+     * Convert PowerPoint PPTX Presentation to Text (txt)
      * Convert Office PowerPoint Documents (pptx) to standard Text
      * @param inputFile Input file to perform the operation on. (required)
      * @return TextConversionResult
@@ -2799,7 +2923,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert PowerPoint PPTX Presentation to Text
+     * Convert PowerPoint PPTX Presentation to Text (txt)
      * Convert Office PowerPoint Documents (pptx) to standard Text
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;TextConversionResult&gt;
@@ -2812,7 +2936,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert PowerPoint PPTX Presentation to Text (asynchronously)
+     * Convert PowerPoint PPTX Presentation to Text (txt) (asynchronously)
      * Convert Office PowerPoint Documents (pptx) to standard Text
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -3537,7 +3661,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to Text
+     * Convert Excel XLSX Spreadsheet to Text (txt)
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return TextConversionResult
@@ -3549,7 +3673,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to Text
+     * Convert Excel XLSX Spreadsheet to Text (txt)
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;TextConversionResult&gt;
@@ -3562,7 +3686,7 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to Text (asynchronously)
+     * Convert Excel XLSX Spreadsheet to Text (txt) (asynchronously)
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes

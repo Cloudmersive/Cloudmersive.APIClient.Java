@@ -85,7 +85,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Document to Text
+     * Convert Document to Text (txt)
      *
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
      *
@@ -165,7 +165,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Word DOCX Document to Text
+     * Convert Word DOCX Document to Text (txt)
      *
      * Convert Office Word Documents (docx) to text
      *
@@ -181,7 +181,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert HTML to PDF Document
+     * Convert HTML document file to PDF Document
      *
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      *
@@ -197,7 +197,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert HTML to PNG image array
+     * Convert HTML document file to PNG image array
      *
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      *
@@ -208,6 +208,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentHtmlToPngTest() throws ApiException {
         File inputFile = null;
         PdfToPngResult response = api.convertDocumentHtmlToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * HTML Document file to Text (txt)
+     *
+     * HTML document to text
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentHtmlToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentHtmlToTxt(inputFile);
 
         // TODO: test validations
     }
@@ -293,7 +309,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert PDF Document to Text
+     * Convert PDF Document to Text (txt)
      *
      * PDF document to text
      *
@@ -382,7 +398,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert PowerPoint PPTX Presentation to Text
+     * Convert PowerPoint PPTX Presentation to Text (txt)
      *
      * Convert Office PowerPoint Documents (pptx) to standard Text
      *
@@ -479,7 +495,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Excel XLSX Spreadsheet to Text
+     * Convert Excel XLSX Spreadsheet to Text (txt)
      *
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      *

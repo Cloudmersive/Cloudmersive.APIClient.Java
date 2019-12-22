@@ -19,7 +19,11 @@ import com.cloudmersive.client.model.HtmlMdResult;
 import com.cloudmersive.client.model.HtmlToOfficeRequest;
 import com.cloudmersive.client.model.HtmlToPdfRequest;
 import com.cloudmersive.client.model.HtmlToPngRequest;
+import com.cloudmersive.client.model.HtmlToTextRequest;
+import com.cloudmersive.client.model.HtmlToTextResponse;
 import com.cloudmersive.client.model.ScreenshotRequest;
+import com.cloudmersive.client.model.UrlToTextRequest;
+import com.cloudmersive.client.model.UrlToTextResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -70,7 +74,7 @@ public class ConvertWebApiTest {
     }
     
     /**
-     * Convert HTML string to PNG
+     * Convert HTML string to PNG screenshot
      *
      * Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      *
@@ -81,6 +85,38 @@ public class ConvertWebApiTest {
     public void convertWebHtmlToPngTest() throws ApiException {
         HtmlToPngRequest input = null;
         Object response = api.convertWebHtmlToPng(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert website URL page to text (txt)
+     *
+     * Converts a website URL page into text (txt); extracts text from HTML
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertWebHtmlToTxtTest() throws ApiException {
+        UrlToTextRequest input = null;
+        UrlToTextResponse response = api.convertWebHtmlToTxt(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert HTML string to text (txt)
+     *
+     * Converts an HTML string input into text (txt); extracts text from HTML
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertWebHtmlToTxt_0Test() throws ApiException {
+        HtmlToTextRequest input = null;
+        HtmlToTextResponse response = api.convertWebHtmlToTxt_0(input);
 
         // TODO: test validations
     }
