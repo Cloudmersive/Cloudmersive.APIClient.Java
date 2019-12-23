@@ -30,7 +30,7 @@ import java.util.List;
  * Definition of a form field for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form field for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T16:33:54.068-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T18:37:39.027-08:00")
 public class FormFieldDefinition {
   @SerializedName("FieldID")
   private String fieldID = null;
@@ -79,6 +79,9 @@ public class FormFieldDefinition {
 
   @SerializedName("Ignore")
   private List<String> ignore = null;
+
+  @SerializedName("Options")
+  private String options = null;
 
   public FormFieldDefinition fieldID(String fieldID) {
     this.fieldID = fieldID;
@@ -376,6 +379,24 @@ public class FormFieldDefinition {
     this.ignore = ignore;
   }
 
+  public FormFieldDefinition options(String options) {
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Optional - additional options that can be set for this field definition, separated by commas.  Possible values are AllowMultiMatch (allow the same anchor to be matched to multiple fields)
+   * @return options
+  **/
+  @ApiModelProperty(value = "Optional - additional options that can be set for this field definition, separated by commas.  Possible values are AllowMultiMatch (allow the same anchor to be matched to multiple fields)")
+  public String getOptions() {
+    return options;
+  }
+
+  public void setOptions(String options) {
+    this.options = options;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -401,12 +422,13 @@ public class FormFieldDefinition {
         Objects.equals(this.targetFieldHeightRelative, formFieldDefinition.targetFieldHeightRelative) &&
         Objects.equals(this.targetFieldHorizontalAdjustment, formFieldDefinition.targetFieldHorizontalAdjustment) &&
         Objects.equals(this.targetFieldVerticalAdjustment, formFieldDefinition.targetFieldVerticalAdjustment) &&
-        Objects.equals(this.ignore, formFieldDefinition.ignore);
+        Objects.equals(this.ignore, formFieldDefinition.ignore) &&
+        Objects.equals(this.options, formFieldDefinition.options);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldID, leftAnchor, topAnchor, bottomAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, targetFieldHorizontalAdjustment, targetFieldVerticalAdjustment, ignore);
+    return Objects.hash(fieldID, leftAnchor, topAnchor, bottomAnchor, anchorMode, dataType, targetDigitCount, minimumCharacterCount, allowNumericDigits, verticalAlignmentType, horizontalAlignmentType, targetFieldWidthRelative, targetFieldHeightRelative, targetFieldHorizontalAdjustment, targetFieldVerticalAdjustment, ignore, options);
   }
 
 
@@ -431,6 +453,7 @@ public class FormFieldDefinition {
     sb.append("    targetFieldHorizontalAdjustment: ").append(toIndentedString(targetFieldHorizontalAdjustment)).append("\n");
     sb.append("    targetFieldVerticalAdjustment: ").append(toIndentedString(targetFieldVerticalAdjustment)).append("\n");
     sb.append("    ignore: ").append(toIndentedString(ignore)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
     return sb.toString();
   }
