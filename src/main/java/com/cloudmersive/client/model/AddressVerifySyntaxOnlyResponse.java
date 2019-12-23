@@ -28,10 +28,19 @@ import java.io.IOException;
  * Syntactic validity of email address
  */
 @ApiModel(description = "Syntactic validity of email address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T18:37:16.387-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:09:46.746-08:00")
 public class AddressVerifySyntaxOnlyResponse {
   @SerializedName("ValidAddress")
   private Boolean validAddress = null;
+
+  @SerializedName("Domain")
+  private String domain = null;
+
+  @SerializedName("IsFreeEmailProvider")
+  private Boolean isFreeEmailProvider = null;
+
+  @SerializedName("IsDisposable")
+  private Boolean isDisposable = null;
 
   public AddressVerifySyntaxOnlyResponse validAddress(Boolean validAddress) {
     this.validAddress = validAddress;
@@ -51,6 +60,60 @@ public class AddressVerifySyntaxOnlyResponse {
     this.validAddress = validAddress;
   }
 
+  public AddressVerifySyntaxOnlyResponse domain(String domain) {
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * Domain name of the email address
+   * @return domain
+  **/
+  @ApiModelProperty(value = "Domain name of the email address")
+  public String getDomain() {
+    return domain;
+  }
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
+  public AddressVerifySyntaxOnlyResponse isFreeEmailProvider(Boolean isFreeEmailProvider) {
+    this.isFreeEmailProvider = isFreeEmailProvider;
+    return this;
+  }
+
+   /**
+   * True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.
+   * @return isFreeEmailProvider
+  **/
+  @ApiModelProperty(value = "True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.")
+  public Boolean isIsFreeEmailProvider() {
+    return isFreeEmailProvider;
+  }
+
+  public void setIsFreeEmailProvider(Boolean isFreeEmailProvider) {
+    this.isFreeEmailProvider = isFreeEmailProvider;
+  }
+
+  public AddressVerifySyntaxOnlyResponse isDisposable(Boolean isDisposable) {
+    this.isDisposable = isDisposable;
+    return this;
+  }
+
+   /**
+   * True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.
+   * @return isDisposable
+  **/
+  @ApiModelProperty(value = "True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.")
+  public Boolean isIsDisposable() {
+    return isDisposable;
+  }
+
+  public void setIsDisposable(Boolean isDisposable) {
+    this.isDisposable = isDisposable;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +124,15 @@ public class AddressVerifySyntaxOnlyResponse {
       return false;
     }
     AddressVerifySyntaxOnlyResponse addressVerifySyntaxOnlyResponse = (AddressVerifySyntaxOnlyResponse) o;
-    return Objects.equals(this.validAddress, addressVerifySyntaxOnlyResponse.validAddress);
+    return Objects.equals(this.validAddress, addressVerifySyntaxOnlyResponse.validAddress) &&
+        Objects.equals(this.domain, addressVerifySyntaxOnlyResponse.domain) &&
+        Objects.equals(this.isFreeEmailProvider, addressVerifySyntaxOnlyResponse.isFreeEmailProvider) &&
+        Objects.equals(this.isDisposable, addressVerifySyntaxOnlyResponse.isDisposable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validAddress);
+    return Objects.hash(validAddress, domain, isFreeEmailProvider, isDisposable);
   }
 
 
@@ -76,6 +142,9 @@ public class AddressVerifySyntaxOnlyResponse {
     sb.append("class AddressVerifySyntaxOnlyResponse {\n");
     
     sb.append("    validAddress: ").append(toIndentedString(validAddress)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    isFreeEmailProvider: ").append(toIndentedString(isFreeEmailProvider)).append("\n");
+    sb.append("    isDisposable: ").append(toIndentedString(isDisposable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

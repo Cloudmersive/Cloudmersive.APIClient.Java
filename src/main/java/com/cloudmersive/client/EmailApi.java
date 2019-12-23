@@ -84,7 +84,7 @@ public class EmailApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "text/xml", "text/plain", "text/javascript", "application/json", "text/json", "application/xml", "application/x-www-form-urlencoded"
+            "text/javascript", "application/json", "text/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -206,7 +206,7 @@ public class EmailApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "text/xml", "text/plain", "text/javascript", "application/json", "text/json", "application/xml", "application/x-www-form-urlencoded"
+            "text/javascript", "application/json", "text/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -328,7 +328,7 @@ public class EmailApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "text/xml", "text/plain", "text/javascript", "application/json", "text/json", "application/xml", "application/x-www-form-urlencoded"
+            "text/javascript", "application/json", "text/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

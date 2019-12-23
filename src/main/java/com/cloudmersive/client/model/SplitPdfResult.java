@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a PDF file split operation
  */
 @ApiModel(description = "Result of performing a PDF file split operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T18:38:03.671-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:10:27.540-08:00")
 public class SplitPdfResult {
   @SerializedName("Successful")
   private Boolean successful = null;
