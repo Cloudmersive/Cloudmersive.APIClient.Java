@@ -31,7 +31,7 @@ import java.util.List;
  * Result of detecting vehicle license plates in an image
  */
 @ApiModel(description = "Result of detecting vehicle license plates in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T16:31:24.480-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T16:34:08.455-08:00")
 public class VehicleLicensePlateDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
