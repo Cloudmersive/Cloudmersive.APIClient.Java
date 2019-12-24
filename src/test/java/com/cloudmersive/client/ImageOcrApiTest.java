@@ -163,8 +163,9 @@ public class ImageOcrApiTest {
     @Test
     public void imageOcrPhotoToTextTest() throws ApiException {
         File imageFile = null;
+        String recognitionMode = null;
         String language = null;
-        ImageToTextResponse response = api.imageOcrPhotoToText(imageFile, language);
+        ImageToTextResponse response = api.imageOcrPhotoToText(imageFile, recognitionMode, language);
 
         // TODO: test validations
     }
@@ -180,10 +181,11 @@ public class ImageOcrApiTest {
     @Test
     public void imageOcrPhotoWordsWithLocationTest() throws ApiException {
         File imageFile = null;
+        String recognitionMode = null;
         String language = null;
         String preprocessing = null;
         String diagnostics = null;
-        PhotoToWordsWithLocationResult response = api.imageOcrPhotoWordsWithLocation(imageFile, language, preprocessing, diagnostics);
+        PhotoToWordsWithLocationResult response = api.imageOcrPhotoWordsWithLocation(imageFile, recognitionMode, language, preprocessing, diagnostics);
 
         // TODO: test validations
     }
@@ -199,9 +201,10 @@ public class ImageOcrApiTest {
     @Test
     public void imageOcrPostTest() throws ApiException {
         File imageFile = null;
+        String recognitionMode = null;
         String language = null;
         String preprocessing = null;
-        ImageToTextResponse response = api.imageOcrPost(imageFile, language, preprocessing);
+        ImageToTextResponse response = api.imageOcrPost(imageFile, recognitionMode, language, preprocessing);
 
         // TODO: test validations
     }

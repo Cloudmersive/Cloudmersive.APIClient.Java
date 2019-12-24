@@ -29,7 +29,7 @@ import java.io.IOException;
  * A person identified in an image gender classification operation
  */
 @ApiModel(description = "A person identified in an image gender classification operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T16:15:04.286-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T23:41:09.759-08:00")
 public class PersonWithGender {
   @SerializedName("FaceLocation")
   private Face faceLocation = null;
