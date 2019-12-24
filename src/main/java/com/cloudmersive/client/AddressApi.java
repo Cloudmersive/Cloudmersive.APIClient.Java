@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
+import com.cloudmersive.client.model.ValidateCountryRequest;
+import com.cloudmersive.client.model.ValidateCountryResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -55,6 +57,128 @@ public class AddressApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for addressCountry
+     * @param input Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addressCountryCall(ValidateCountryRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/address/country";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addressCountryValidateBeforeCall(ValidateCountryRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling addressCountry(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addressCountryCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate and normalize country information, return ISO 3166-1 country codes and country name
+     * Validates and normalizes country information, and returns key information about a country.
+     * @param input Input request (required)
+     * @return ValidateCountryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ValidateCountryResponse addressCountry(ValidateCountryRequest input) throws ApiException {
+        ApiResponse<ValidateCountryResponse> resp = addressCountryWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Validate and normalize country information, return ISO 3166-1 country codes and country name
+     * Validates and normalizes country information, and returns key information about a country.
+     * @param input Input request (required)
+     * @return ApiResponse&lt;ValidateCountryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ValidateCountryResponse> addressCountryWithHttpInfo(ValidateCountryRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = addressCountryValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<ValidateCountryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate and normalize country information, return ISO 3166-1 country codes and country name (asynchronously)
+     * Validates and normalizes country information, and returns key information about a country.
+     * @param input Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addressCountryAsync(ValidateCountryRequest input, final ApiCallback<ValidateCountryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addressCountryValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ValidateCountryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for addressParseString
      * @param input Input parse request (required)

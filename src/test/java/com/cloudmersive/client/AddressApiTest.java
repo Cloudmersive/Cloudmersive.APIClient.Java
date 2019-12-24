@@ -16,6 +16,8 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
+import com.cloudmersive.client.model.ValidateCountryRequest;
+import com.cloudmersive.client.model.ValidateCountryResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,6 +34,22 @@ public class AddressApiTest {
 
     private final AddressApi api = new AddressApi();
 
+    
+    /**
+     * Validate and normalize country information, return ISO 3166-1 country codes and country name
+     *
+     * Validates and normalizes country information, and returns key information about a country.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressCountryTest() throws ApiException {
+        ValidateCountryRequest input = null;
+        ValidateCountryResponse response = api.addressCountry(input);
+
+        // TODO: test validations
+    }
     
     /**
      * Parse an unstructured input text string into an international, formatted address

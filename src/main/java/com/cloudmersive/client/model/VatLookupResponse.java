@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * VatLookupResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:09:46.746-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T16:14:27.228-08:00")
 public class VatLookupResponse {
   @SerializedName("CountryCode")
   private String countryCode = null;
@@ -43,6 +43,27 @@ public class VatLookupResponse {
 
   @SerializedName("BusinessAddress")
   private String businessAddress = null;
+
+  @SerializedName("BusinessBuilding")
+  private String businessBuilding = null;
+
+  @SerializedName("BusinessStreetNumber")
+  private String businessStreetNumber = null;
+
+  @SerializedName("BusinessStreet")
+  private String businessStreet = null;
+
+  @SerializedName("BusinessCity")
+  private String businessCity = null;
+
+  @SerializedName("BusinessStateOrProvince")
+  private String businessStateOrProvince = null;
+
+  @SerializedName("BusinessPostalCode")
+  private String businessPostalCode = null;
+
+  @SerializedName("BusinessCountry")
+  private String businessCountry = null;
 
   public VatLookupResponse countryCode(String countryCode) {
     this.countryCode = countryCode;
@@ -122,16 +143,142 @@ public class VatLookupResponse {
   }
 
    /**
-   * Business address
+   * Business address as a single string
    * @return businessAddress
   **/
-  @ApiModelProperty(value = "Business address")
+  @ApiModelProperty(value = "Business address as a single string")
   public String getBusinessAddress() {
     return businessAddress;
   }
 
   public void setBusinessAddress(String businessAddress) {
     this.businessAddress = businessAddress;
+  }
+
+  public VatLookupResponse businessBuilding(String businessBuilding) {
+    this.businessBuilding = businessBuilding;
+    return this;
+  }
+
+   /**
+   * For the business address, the name of the building, house or structure if applicable, such as \&quot;Cloudmersive Building 2\&quot;.  This will often by null.
+   * @return businessBuilding
+  **/
+  @ApiModelProperty(value = "For the business address, the name of the building, house or structure if applicable, such as \"Cloudmersive Building 2\".  This will often by null.")
+  public String getBusinessBuilding() {
+    return businessBuilding;
+  }
+
+  public void setBusinessBuilding(String businessBuilding) {
+    this.businessBuilding = businessBuilding;
+  }
+
+  public VatLookupResponse businessStreetNumber(String businessStreetNumber) {
+    this.businessStreetNumber = businessStreetNumber;
+    return this;
+  }
+
+   /**
+   * For the business address, the street number or house number of the address.  For example, in the address \&quot;1600 Pennsylvania Avenue NW\&quot; the street number would be \&quot;1600\&quot;.  This value will typically be populated for most addresses.
+   * @return businessStreetNumber
+  **/
+  @ApiModelProperty(value = "For the business address, the street number or house number of the address.  For example, in the address \"1600 Pennsylvania Avenue NW\" the street number would be \"1600\".  This value will typically be populated for most addresses.")
+  public String getBusinessStreetNumber() {
+    return businessStreetNumber;
+  }
+
+  public void setBusinessStreetNumber(String businessStreetNumber) {
+    this.businessStreetNumber = businessStreetNumber;
+  }
+
+  public VatLookupResponse businessStreet(String businessStreet) {
+    this.businessStreet = businessStreet;
+    return this;
+  }
+
+   /**
+   * For the business address, the name of the street or road of the address.  For example, in the address \&quot;1600 Pennsylvania Avenue NW\&quot; the street number would be \&quot;Pennsylvania Avenue NW\&quot;.
+   * @return businessStreet
+  **/
+  @ApiModelProperty(value = "For the business address, the name of the street or road of the address.  For example, in the address \"1600 Pennsylvania Avenue NW\" the street number would be \"Pennsylvania Avenue NW\".")
+  public String getBusinessStreet() {
+    return businessStreet;
+  }
+
+  public void setBusinessStreet(String businessStreet) {
+    this.businessStreet = businessStreet;
+  }
+
+  public VatLookupResponse businessCity(String businessCity) {
+    this.businessCity = businessCity;
+    return this;
+  }
+
+   /**
+   * For the business address, the city of the address.
+   * @return businessCity
+  **/
+  @ApiModelProperty(value = "For the business address, the city of the address.")
+  public String getBusinessCity() {
+    return businessCity;
+  }
+
+  public void setBusinessCity(String businessCity) {
+    this.businessCity = businessCity;
+  }
+
+  public VatLookupResponse businessStateOrProvince(String businessStateOrProvince) {
+    this.businessStateOrProvince = businessStateOrProvince;
+    return this;
+  }
+
+   /**
+   * For the business address, the state or province of the address.
+   * @return businessStateOrProvince
+  **/
+  @ApiModelProperty(value = "For the business address, the state or province of the address.")
+  public String getBusinessStateOrProvince() {
+    return businessStateOrProvince;
+  }
+
+  public void setBusinessStateOrProvince(String businessStateOrProvince) {
+    this.businessStateOrProvince = businessStateOrProvince;
+  }
+
+  public VatLookupResponse businessPostalCode(String businessPostalCode) {
+    this.businessPostalCode = businessPostalCode;
+    return this;
+  }
+
+   /**
+   * For the business address, the postal code or zip code of the address.
+   * @return businessPostalCode
+  **/
+  @ApiModelProperty(value = "For the business address, the postal code or zip code of the address.")
+  public String getBusinessPostalCode() {
+    return businessPostalCode;
+  }
+
+  public void setBusinessPostalCode(String businessPostalCode) {
+    this.businessPostalCode = businessPostalCode;
+  }
+
+  public VatLookupResponse businessCountry(String businessCountry) {
+    this.businessCountry = businessCountry;
+    return this;
+  }
+
+   /**
+   * For the business address, country of the address, if present in the address.  If not included in the address it will be null.
+   * @return businessCountry
+  **/
+  @ApiModelProperty(value = "For the business address, country of the address, if present in the address.  If not included in the address it will be null.")
+  public String getBusinessCountry() {
+    return businessCountry;
+  }
+
+  public void setBusinessCountry(String businessCountry) {
+    this.businessCountry = businessCountry;
   }
 
 
@@ -148,12 +295,19 @@ public class VatLookupResponse {
         Objects.equals(this.vatNumber, vatLookupResponse.vatNumber) &&
         Objects.equals(this.isValid, vatLookupResponse.isValid) &&
         Objects.equals(this.businessName, vatLookupResponse.businessName) &&
-        Objects.equals(this.businessAddress, vatLookupResponse.businessAddress);
+        Objects.equals(this.businessAddress, vatLookupResponse.businessAddress) &&
+        Objects.equals(this.businessBuilding, vatLookupResponse.businessBuilding) &&
+        Objects.equals(this.businessStreetNumber, vatLookupResponse.businessStreetNumber) &&
+        Objects.equals(this.businessStreet, vatLookupResponse.businessStreet) &&
+        Objects.equals(this.businessCity, vatLookupResponse.businessCity) &&
+        Objects.equals(this.businessStateOrProvince, vatLookupResponse.businessStateOrProvince) &&
+        Objects.equals(this.businessPostalCode, vatLookupResponse.businessPostalCode) &&
+        Objects.equals(this.businessCountry, vatLookupResponse.businessCountry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, vatNumber, isValid, businessName, businessAddress);
+    return Objects.hash(countryCode, vatNumber, isValid, businessName, businessAddress, businessBuilding, businessStreetNumber, businessStreet, businessCity, businessStateOrProvince, businessPostalCode, businessCountry);
   }
 
 
@@ -167,6 +321,13 @@ public class VatLookupResponse {
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    businessAddress: ").append(toIndentedString(businessAddress)).append("\n");
+    sb.append("    businessBuilding: ").append(toIndentedString(businessBuilding)).append("\n");
+    sb.append("    businessStreetNumber: ").append(toIndentedString(businessStreetNumber)).append("\n");
+    sb.append("    businessStreet: ").append(toIndentedString(businessStreet)).append("\n");
+    sb.append("    businessCity: ").append(toIndentedString(businessCity)).append("\n");
+    sb.append("    businessStateOrProvince: ").append(toIndentedString(businessStateOrProvince)).append("\n");
+    sb.append("    businessPostalCode: ").append(toIndentedString(businessPostalCode)).append("\n");
+    sb.append("    businessCountry: ").append(toIndentedString(businessCountry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

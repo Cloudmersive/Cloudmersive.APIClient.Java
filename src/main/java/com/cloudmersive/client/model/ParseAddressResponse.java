@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of parsing an address into its component parts
  */
 @ApiModel(description = "Result of parsing an address into its component parts")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:09:46.746-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T16:14:27.228-08:00")
 public class ParseAddressResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -51,8 +51,11 @@ public class ParseAddressResponse {
   @SerializedName("PostalCode")
   private String postalCode = null;
 
-  @SerializedName("Country")
-  private String country = null;
+  @SerializedName("CountryFullName")
+  private String countryFullName = null;
+
+  @SerializedName("ISOTwoLetterCode")
+  private String isOTwoLetterCode = null;
 
   public ParseAddressResponse successful(Boolean successful) {
     this.successful = successful;
@@ -180,22 +183,40 @@ public class ParseAddressResponse {
     this.postalCode = postalCode;
   }
 
-  public ParseAddressResponse country(String country) {
-    this.country = country;
+  public ParseAddressResponse countryFullName(String countryFullName) {
+    this.countryFullName = countryFullName;
     return this;
   }
 
    /**
    * Country of the address, if present in the address.  If not included in the address it will be null.
-   * @return country
+   * @return countryFullName
   **/
   @ApiModelProperty(value = "Country of the address, if present in the address.  If not included in the address it will be null.")
-  public String getCountry() {
-    return country;
+  public String getCountryFullName() {
+    return countryFullName;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setCountryFullName(String countryFullName) {
+    this.countryFullName = countryFullName;
+  }
+
+  public ParseAddressResponse isOTwoLetterCode(String isOTwoLetterCode) {
+    this.isOTwoLetterCode = isOTwoLetterCode;
+    return this;
+  }
+
+   /**
+   * Two-letter ISO 3166-1 country code
+   * @return isOTwoLetterCode
+  **/
+  @ApiModelProperty(value = "Two-letter ISO 3166-1 country code")
+  public String getIsOTwoLetterCode() {
+    return isOTwoLetterCode;
+  }
+
+  public void setIsOTwoLetterCode(String isOTwoLetterCode) {
+    this.isOTwoLetterCode = isOTwoLetterCode;
   }
 
 
@@ -215,12 +236,13 @@ public class ParseAddressResponse {
         Objects.equals(this.city, parseAddressResponse.city) &&
         Objects.equals(this.stateOrProvince, parseAddressResponse.stateOrProvince) &&
         Objects.equals(this.postalCode, parseAddressResponse.postalCode) &&
-        Objects.equals(this.country, parseAddressResponse.country);
+        Objects.equals(this.countryFullName, parseAddressResponse.countryFullName) &&
+        Objects.equals(this.isOTwoLetterCode, parseAddressResponse.isOTwoLetterCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, building, streetNumber, street, city, stateOrProvince, postalCode, country);
+    return Objects.hash(successful, building, streetNumber, street, city, stateOrProvince, postalCode, countryFullName, isOTwoLetterCode);
   }
 
 
@@ -236,7 +258,8 @@ public class ParseAddressResponse {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    countryFullName: ").append(toIndentedString(countryFullName)).append("\n");
+    sb.append("    isOTwoLetterCode: ").append(toIndentedString(isOTwoLetterCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

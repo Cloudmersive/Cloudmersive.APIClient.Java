@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Create Blank Spreadsheet request
  */
 @ApiModel(description = "Input to a Create Blank Spreadsheet request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:10:27.540-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T16:15:13.480-08:00")
 public class CreateBlankSpreadsheetRequest {
   @SerializedName("WorksheetName")
   private String worksheetName = null;

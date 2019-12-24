@@ -28,10 +28,16 @@ import java.io.IOException;
  * Input lead contact; fill in known fields to extend them with matched field values
  */
 @ApiModel(description = "Input lead contact; fill in known fields to extend them with matched field values")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:09:46.746-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T16:14:27.228-08:00")
 public class LeadEnrichmentRequest {
   @SerializedName("ContactBusinessEmail")
   private String contactBusinessEmail = null;
+
+  @SerializedName("ContactFirstName")
+  private String contactFirstName = null;
+
+  @SerializedName("ContactLastName")
+  private String contactLastName = null;
 
   @SerializedName("CompanyName")
   private String companyName = null;
@@ -57,6 +63,12 @@ public class LeadEnrichmentRequest {
   @SerializedName("CompanyCountry")
   private String companyCountry = null;
 
+  @SerializedName("CompanyCountryCode")
+  private String companyCountryCode = null;
+
+  @SerializedName("CompanyTelephone")
+  private String companyTelephone = null;
+
   @SerializedName("CompanyVATNumber")
   private String companyVATNumber = null;
 
@@ -76,6 +88,42 @@ public class LeadEnrichmentRequest {
 
   public void setContactBusinessEmail(String contactBusinessEmail) {
     this.contactBusinessEmail = contactBusinessEmail;
+  }
+
+  public LeadEnrichmentRequest contactFirstName(String contactFirstName) {
+    this.contactFirstName = contactFirstName;
+    return this;
+  }
+
+   /**
+   * The person&#39;s first name for the lead
+   * @return contactFirstName
+  **/
+  @ApiModelProperty(value = "The person's first name for the lead")
+  public String getContactFirstName() {
+    return contactFirstName;
+  }
+
+  public void setContactFirstName(String contactFirstName) {
+    this.contactFirstName = contactFirstName;
+  }
+
+  public LeadEnrichmentRequest contactLastName(String contactLastName) {
+    this.contactLastName = contactLastName;
+    return this;
+  }
+
+   /**
+   * The person&#39;s last name for the lead
+   * @return contactLastName
+  **/
+  @ApiModelProperty(value = "The person's last name for the lead")
+  public String getContactLastName() {
+    return contactLastName;
+  }
+
+  public void setContactLastName(String contactLastName) {
+    this.contactLastName = contactLastName;
   }
 
   public LeadEnrichmentRequest companyName(String companyName) {
@@ -222,6 +270,42 @@ public class LeadEnrichmentRequest {
     this.companyCountry = companyCountry;
   }
 
+  public LeadEnrichmentRequest companyCountryCode(String companyCountryCode) {
+    this.companyCountryCode = companyCountryCode;
+    return this;
+  }
+
+   /**
+   * Country Code (2-letter ISO 3166-1) of the address of the company for the lead
+   * @return companyCountryCode
+  **/
+  @ApiModelProperty(value = "Country Code (2-letter ISO 3166-1) of the address of the company for the lead")
+  public String getCompanyCountryCode() {
+    return companyCountryCode;
+  }
+
+  public void setCompanyCountryCode(String companyCountryCode) {
+    this.companyCountryCode = companyCountryCode;
+  }
+
+  public LeadEnrichmentRequest companyTelephone(String companyTelephone) {
+    this.companyTelephone = companyTelephone;
+    return this;
+  }
+
+   /**
+   * Telephone of the company office for the lead
+   * @return companyTelephone
+  **/
+  @ApiModelProperty(value = "Telephone of the company office for the lead")
+  public String getCompanyTelephone() {
+    return companyTelephone;
+  }
+
+  public void setCompanyTelephone(String companyTelephone) {
+    this.companyTelephone = companyTelephone;
+  }
+
   public LeadEnrichmentRequest companyVATNumber(String companyVATNumber) {
     this.companyVATNumber = companyVATNumber;
     return this;
@@ -251,6 +335,8 @@ public class LeadEnrichmentRequest {
     }
     LeadEnrichmentRequest leadEnrichmentRequest = (LeadEnrichmentRequest) o;
     return Objects.equals(this.contactBusinessEmail, leadEnrichmentRequest.contactBusinessEmail) &&
+        Objects.equals(this.contactFirstName, leadEnrichmentRequest.contactFirstName) &&
+        Objects.equals(this.contactLastName, leadEnrichmentRequest.contactLastName) &&
         Objects.equals(this.companyName, leadEnrichmentRequest.companyName) &&
         Objects.equals(this.companyDomainName, leadEnrichmentRequest.companyDomainName) &&
         Objects.equals(this.companyHouseNumber, leadEnrichmentRequest.companyHouseNumber) &&
@@ -259,12 +345,14 @@ public class LeadEnrichmentRequest {
         Objects.equals(this.companyStateOrProvince, leadEnrichmentRequest.companyStateOrProvince) &&
         Objects.equals(this.companyPostalCode, leadEnrichmentRequest.companyPostalCode) &&
         Objects.equals(this.companyCountry, leadEnrichmentRequest.companyCountry) &&
+        Objects.equals(this.companyCountryCode, leadEnrichmentRequest.companyCountryCode) &&
+        Objects.equals(this.companyTelephone, leadEnrichmentRequest.companyTelephone) &&
         Objects.equals(this.companyVATNumber, leadEnrichmentRequest.companyVATNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactBusinessEmail, companyName, companyDomainName, companyHouseNumber, companyStreet, companyCity, companyStateOrProvince, companyPostalCode, companyCountry, companyVATNumber);
+    return Objects.hash(contactBusinessEmail, contactFirstName, contactLastName, companyName, companyDomainName, companyHouseNumber, companyStreet, companyCity, companyStateOrProvince, companyPostalCode, companyCountry, companyCountryCode, companyTelephone, companyVATNumber);
   }
 
 
@@ -274,6 +362,8 @@ public class LeadEnrichmentRequest {
     sb.append("class LeadEnrichmentRequest {\n");
     
     sb.append("    contactBusinessEmail: ").append(toIndentedString(contactBusinessEmail)).append("\n");
+    sb.append("    contactFirstName: ").append(toIndentedString(contactFirstName)).append("\n");
+    sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    companyDomainName: ").append(toIndentedString(companyDomainName)).append("\n");
     sb.append("    companyHouseNumber: ").append(toIndentedString(companyHouseNumber)).append("\n");
@@ -282,6 +372,8 @@ public class LeadEnrichmentRequest {
     sb.append("    companyStateOrProvince: ").append(toIndentedString(companyStateOrProvince)).append("\n");
     sb.append("    companyPostalCode: ").append(toIndentedString(companyPostalCode)).append("\n");
     sb.append("    companyCountry: ").append(toIndentedString(companyCountry)).append("\n");
+    sb.append("    companyCountryCode: ").append(toIndentedString(companyCountryCode)).append("\n");
+    sb.append("    companyTelephone: ").append(toIndentedString(companyTelephone)).append("\n");
     sb.append("    companyVATNumber: ").append(toIndentedString(companyVATNumber)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -28,13 +28,25 @@ import java.io.IOException;
  * Result of the lead enrichment process
  */
 @ApiModel(description = "Result of the lead enrichment process")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-22T23:09:46.746-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T16:14:27.228-08:00")
 public class LeadEnrichmentResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
 
+  @SerializedName("LeadType")
+  private String leadType = null;
+
   @SerializedName("ContactBusinessEmail")
   private String contactBusinessEmail = null;
+
+  @SerializedName("ContactFirstName")
+  private String contactFirstName = null;
+
+  @SerializedName("ContactLastName")
+  private String contactLastName = null;
+
+  @SerializedName("ContactGender")
+  private String contactGender = null;
 
   @SerializedName("CompanyName")
   private String companyName = null;
@@ -60,6 +72,12 @@ public class LeadEnrichmentResponse {
   @SerializedName("CompanyCountry")
   private String companyCountry = null;
 
+  @SerializedName("CompanyCountryCode")
+  private String companyCountryCode = null;
+
+  @SerializedName("CompanyTelephone")
+  private String companyTelephone = null;
+
   @SerializedName("CompanyVATNumber")
   private String companyVATNumber = null;
 
@@ -84,6 +102,24 @@ public class LeadEnrichmentResponse {
     this.successful = successful;
   }
 
+  public LeadEnrichmentResponse leadType(String leadType) {
+    this.leadType = leadType;
+    return this;
+  }
+
+   /**
+   * The type of the lead; possible types are Junk (a single individual using a disposable/throwaway email address); Individual (a single individual, typically a consumer, not purchasing on behalf of a business); SmallBusiness (a small business, typically with fewer than 100 employees); MediumBusiness (a medium business, larger than 100 employees but fewer than 1000 employees); Enterprise (a large business with greater than 1000 employees); Business (a business customer of unknown size)
+   * @return leadType
+  **/
+  @ApiModelProperty(value = "The type of the lead; possible types are Junk (a single individual using a disposable/throwaway email address); Individual (a single individual, typically a consumer, not purchasing on behalf of a business); SmallBusiness (a small business, typically with fewer than 100 employees); MediumBusiness (a medium business, larger than 100 employees but fewer than 1000 employees); Enterprise (a large business with greater than 1000 employees); Business (a business customer of unknown size)")
+  public String getLeadType() {
+    return leadType;
+  }
+
+  public void setLeadType(String leadType) {
+    this.leadType = leadType;
+  }
+
   public LeadEnrichmentResponse contactBusinessEmail(String contactBusinessEmail) {
     this.contactBusinessEmail = contactBusinessEmail;
     return this;
@@ -100,6 +136,60 @@ public class LeadEnrichmentResponse {
 
   public void setContactBusinessEmail(String contactBusinessEmail) {
     this.contactBusinessEmail = contactBusinessEmail;
+  }
+
+  public LeadEnrichmentResponse contactFirstName(String contactFirstName) {
+    this.contactFirstName = contactFirstName;
+    return this;
+  }
+
+   /**
+   * The person&#39;s first name for the lead
+   * @return contactFirstName
+  **/
+  @ApiModelProperty(value = "The person's first name for the lead")
+  public String getContactFirstName() {
+    return contactFirstName;
+  }
+
+  public void setContactFirstName(String contactFirstName) {
+    this.contactFirstName = contactFirstName;
+  }
+
+  public LeadEnrichmentResponse contactLastName(String contactLastName) {
+    this.contactLastName = contactLastName;
+    return this;
+  }
+
+   /**
+   * The person&#39;s last name for the lead
+   * @return contactLastName
+  **/
+  @ApiModelProperty(value = "The person's last name for the lead")
+  public String getContactLastName() {
+    return contactLastName;
+  }
+
+  public void setContactLastName(String contactLastName) {
+    this.contactLastName = contactLastName;
+  }
+
+  public LeadEnrichmentResponse contactGender(String contactGender) {
+    this.contactGender = contactGender;
+    return this;
+  }
+
+   /**
+   * Gender for contact name; possible values are Male, Female, and Neutral (can be applied to Male or Female).  Requires ContactFirstName.
+   * @return contactGender
+  **/
+  @ApiModelProperty(value = "Gender for contact name; possible values are Male, Female, and Neutral (can be applied to Male or Female).  Requires ContactFirstName.")
+  public String getContactGender() {
+    return contactGender;
+  }
+
+  public void setContactGender(String contactGender) {
+    this.contactGender = contactGender;
   }
 
   public LeadEnrichmentResponse companyName(String companyName) {
@@ -234,16 +324,52 @@ public class LeadEnrichmentResponse {
   }
 
    /**
-   * Country of the address of the company for the lead
+   * Country Name of the address of the company for the lead
    * @return companyCountry
   **/
-  @ApiModelProperty(value = "Country of the address of the company for the lead")
+  @ApiModelProperty(value = "Country Name of the address of the company for the lead")
   public String getCompanyCountry() {
     return companyCountry;
   }
 
   public void setCompanyCountry(String companyCountry) {
     this.companyCountry = companyCountry;
+  }
+
+  public LeadEnrichmentResponse companyCountryCode(String companyCountryCode) {
+    this.companyCountryCode = companyCountryCode;
+    return this;
+  }
+
+   /**
+   * Country Code (2-letter ISO 3166-1) of the address of the company for the lead
+   * @return companyCountryCode
+  **/
+  @ApiModelProperty(value = "Country Code (2-letter ISO 3166-1) of the address of the company for the lead")
+  public String getCompanyCountryCode() {
+    return companyCountryCode;
+  }
+
+  public void setCompanyCountryCode(String companyCountryCode) {
+    this.companyCountryCode = companyCountryCode;
+  }
+
+  public LeadEnrichmentResponse companyTelephone(String companyTelephone) {
+    this.companyTelephone = companyTelephone;
+    return this;
+  }
+
+   /**
+   * Telephone of the company office for the lead
+   * @return companyTelephone
+  **/
+  @ApiModelProperty(value = "Telephone of the company office for the lead")
+  public String getCompanyTelephone() {
+    return companyTelephone;
+  }
+
+  public void setCompanyTelephone(String companyTelephone) {
+    this.companyTelephone = companyTelephone;
   }
 
   public LeadEnrichmentResponse companyVATNumber(String companyVATNumber) {
@@ -293,7 +419,11 @@ public class LeadEnrichmentResponse {
     }
     LeadEnrichmentResponse leadEnrichmentResponse = (LeadEnrichmentResponse) o;
     return Objects.equals(this.successful, leadEnrichmentResponse.successful) &&
+        Objects.equals(this.leadType, leadEnrichmentResponse.leadType) &&
         Objects.equals(this.contactBusinessEmail, leadEnrichmentResponse.contactBusinessEmail) &&
+        Objects.equals(this.contactFirstName, leadEnrichmentResponse.contactFirstName) &&
+        Objects.equals(this.contactLastName, leadEnrichmentResponse.contactLastName) &&
+        Objects.equals(this.contactGender, leadEnrichmentResponse.contactGender) &&
         Objects.equals(this.companyName, leadEnrichmentResponse.companyName) &&
         Objects.equals(this.companyDomainName, leadEnrichmentResponse.companyDomainName) &&
         Objects.equals(this.companyHouseNumber, leadEnrichmentResponse.companyHouseNumber) &&
@@ -302,13 +432,15 @@ public class LeadEnrichmentResponse {
         Objects.equals(this.companyStateOrProvince, leadEnrichmentResponse.companyStateOrProvince) &&
         Objects.equals(this.companyPostalCode, leadEnrichmentResponse.companyPostalCode) &&
         Objects.equals(this.companyCountry, leadEnrichmentResponse.companyCountry) &&
+        Objects.equals(this.companyCountryCode, leadEnrichmentResponse.companyCountryCode) &&
+        Objects.equals(this.companyTelephone, leadEnrichmentResponse.companyTelephone) &&
         Objects.equals(this.companyVATNumber, leadEnrichmentResponse.companyVATNumber) &&
         Objects.equals(this.employeeCount, leadEnrichmentResponse.employeeCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, contactBusinessEmail, companyName, companyDomainName, companyHouseNumber, companyStreet, companyCity, companyStateOrProvince, companyPostalCode, companyCountry, companyVATNumber, employeeCount);
+    return Objects.hash(successful, leadType, contactBusinessEmail, contactFirstName, contactLastName, contactGender, companyName, companyDomainName, companyHouseNumber, companyStreet, companyCity, companyStateOrProvince, companyPostalCode, companyCountry, companyCountryCode, companyTelephone, companyVATNumber, employeeCount);
   }
 
 
@@ -318,7 +450,11 @@ public class LeadEnrichmentResponse {
     sb.append("class LeadEnrichmentResponse {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
+    sb.append("    leadType: ").append(toIndentedString(leadType)).append("\n");
     sb.append("    contactBusinessEmail: ").append(toIndentedString(contactBusinessEmail)).append("\n");
+    sb.append("    contactFirstName: ").append(toIndentedString(contactFirstName)).append("\n");
+    sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
+    sb.append("    contactGender: ").append(toIndentedString(contactGender)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    companyDomainName: ").append(toIndentedString(companyDomainName)).append("\n");
     sb.append("    companyHouseNumber: ").append(toIndentedString(companyHouseNumber)).append("\n");
@@ -327,6 +463,8 @@ public class LeadEnrichmentResponse {
     sb.append("    companyStateOrProvince: ").append(toIndentedString(companyStateOrProvince)).append("\n");
     sb.append("    companyPostalCode: ").append(toIndentedString(companyPostalCode)).append("\n");
     sb.append("    companyCountry: ").append(toIndentedString(companyCountry)).append("\n");
+    sb.append("    companyCountryCode: ").append(toIndentedString(companyCountryCode)).append("\n");
+    sb.append("    companyTelephone: ").append(toIndentedString(companyTelephone)).append("\n");
     sb.append("    companyVATNumber: ").append(toIndentedString(companyVATNumber)).append("\n");
     sb.append("    employeeCount: ").append(toIndentedString(employeeCount)).append("\n");
     sb.append("}");
