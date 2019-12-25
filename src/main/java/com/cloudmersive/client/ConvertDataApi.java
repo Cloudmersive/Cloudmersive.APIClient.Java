@@ -28,6 +28,13 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.XmlAddAttributeWithXPathResult;
+import com.cloudmersive.client.model.XmlAddChildWithXPathResult;
+import com.cloudmersive.client.model.XmlFIlterWithXPathResult;
+import com.cloudmersive.client.model.XmlRemoveAllChildrenWithXPathResult;
+import com.cloudmersive.client.model.XmlRemoveWithXPathResult;
+import com.cloudmersive.client.model.XmlReplaceWithXPathResult;
+import com.cloudmersive.client.model.XmlSetValueWithXPathResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -245,11 +252,11 @@ public class ConvertDataApi {
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
      * @param jsonObject  (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDataJsonToXml(Object jsonObject) throws ApiException {
-        ApiResponse<Object> resp = convertDataJsonToXmlWithHttpInfo(jsonObject);
+    public byte[] convertDataJsonToXml(Object jsonObject) throws ApiException {
+        ApiResponse<byte[]> resp = convertDataJsonToXmlWithHttpInfo(jsonObject);
         return resp.getData();
     }
 
@@ -257,12 +264,12 @@ public class ConvertDataApi {
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
      * @param jsonObject  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDataJsonToXmlWithHttpInfo(Object jsonObject) throws ApiException {
+    public ApiResponse<byte[]> convertDataJsonToXmlWithHttpInfo(Object jsonObject) throws ApiException {
         com.squareup.okhttp.Call call = convertDataJsonToXmlValidateBeforeCall(jsonObject, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -274,7 +281,7 @@ public class ConvertDataApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDataJsonToXmlAsync(Object jsonObject, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDataJsonToXmlAsync(Object jsonObject, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -296,7 +303,7 @@ public class ConvertDataApi {
         }
 
         com.squareup.okhttp.Call call = convertDataJsonToXmlValidateBeforeCall(jsonObject, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -549,6 +556,1006 @@ public class ConvertDataApi {
         return call;
     }
     /**
+     * Build call for convertDataXmlEditAddAttributeWithXPath
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlAttributeName Name of the XML attribute to add (required)
+     * @param xmlAttributeValue Value of the XML attribute to add (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditAddAttributeWithXPathCall(File inputFile, String xpathExpression, String xmlAttributeName, String xmlAttributeValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/edit/xpath/add-attribute";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+        if (xmlAttributeName != null)
+        localVarHeaderParams.put("XmlAttributeName", apiClient.parameterToString(xmlAttributeName));
+        if (xmlAttributeValue != null)
+        localVarHeaderParams.put("XmlAttributeValue", apiClient.parameterToString(xmlAttributeValue));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlEditAddAttributeWithXPathValidateBeforeCall(File inputFile, String xpathExpression, String xmlAttributeName, String xmlAttributeValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlEditAddAttributeWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlEditAddAttributeWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xmlAttributeName' is set
+        if (xmlAttributeName == null) {
+            throw new ApiException("Missing the required parameter 'xmlAttributeName' when calling convertDataXmlEditAddAttributeWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xmlAttributeValue' is set
+        if (xmlAttributeValue == null) {
+            throw new ApiException("Missing the required parameter 'xmlAttributeValue' when calling convertDataXmlEditAddAttributeWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlEditAddAttributeWithXPathCall(inputFile, xpathExpression, xmlAttributeName, xmlAttributeValue, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds an attribute to all XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlAttributeName Name of the XML attribute to add (required)
+     * @param xmlAttributeValue Value of the XML attribute to add (required)
+     * @return XmlAddAttributeWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlAddAttributeWithXPathResult convertDataXmlEditAddAttributeWithXPath(File inputFile, String xpathExpression, String xmlAttributeName, String xmlAttributeValue) throws ApiException {
+        ApiResponse<XmlAddAttributeWithXPathResult> resp = convertDataXmlEditAddAttributeWithXPathWithHttpInfo(inputFile, xpathExpression, xmlAttributeName, xmlAttributeValue);
+        return resp.getData();
+    }
+
+    /**
+     * Adds an attribute to all XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlAttributeName Name of the XML attribute to add (required)
+     * @param xmlAttributeValue Value of the XML attribute to add (required)
+     * @return ApiResponse&lt;XmlAddAttributeWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlAddAttributeWithXPathResult> convertDataXmlEditAddAttributeWithXPathWithHttpInfo(File inputFile, String xpathExpression, String xmlAttributeName, String xmlAttributeValue) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlEditAddAttributeWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlAttributeName, xmlAttributeValue, null, null);
+        Type localVarReturnType = new TypeToken<XmlAddAttributeWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds an attribute to all XML nodes matching XPath expression (asynchronously)
+     * Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlAttributeName Name of the XML attribute to add (required)
+     * @param xmlAttributeValue Value of the XML attribute to add (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditAddAttributeWithXPathAsync(File inputFile, String xpathExpression, String xmlAttributeName, String xmlAttributeValue, final ApiCallback<XmlAddAttributeWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlEditAddAttributeWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlAttributeName, xmlAttributeValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlAddAttributeWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlEditAddChildWithXPath
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeToAdd XML Node to add as a child (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditAddChildWithXPathCall(File inputFile, String xpathExpression, String xmlNodeToAdd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/edit/xpath/add-child";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+        if (xmlNodeToAdd != null)
+        localVarHeaderParams.put("XmlNodeToAdd", apiClient.parameterToString(xmlNodeToAdd));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlEditAddChildWithXPathValidateBeforeCall(File inputFile, String xpathExpression, String xmlNodeToAdd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlEditAddChildWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlEditAddChildWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xmlNodeToAdd' is set
+        if (xmlNodeToAdd == null) {
+            throw new ApiException("Missing the required parameter 'xmlNodeToAdd' when calling convertDataXmlEditAddChildWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlEditAddChildWithXPathCall(inputFile, xpathExpression, xmlNodeToAdd, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds an XML node as a child to XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeToAdd XML Node to add as a child (required)
+     * @return XmlAddChildWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlAddChildWithXPathResult convertDataXmlEditAddChildWithXPath(File inputFile, String xpathExpression, String xmlNodeToAdd) throws ApiException {
+        ApiResponse<XmlAddChildWithXPathResult> resp = convertDataXmlEditAddChildWithXPathWithHttpInfo(inputFile, xpathExpression, xmlNodeToAdd);
+        return resp.getData();
+    }
+
+    /**
+     * Adds an XML node as a child to XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeToAdd XML Node to add as a child (required)
+     * @return ApiResponse&lt;XmlAddChildWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlAddChildWithXPathResult> convertDataXmlEditAddChildWithXPathWithHttpInfo(File inputFile, String xpathExpression, String xmlNodeToAdd) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlEditAddChildWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlNodeToAdd, null, null);
+        Type localVarReturnType = new TypeToken<XmlAddChildWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds an XML node as a child to XML nodes matching XPath expression (asynchronously)
+     * Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeToAdd XML Node to add as a child (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditAddChildWithXPathAsync(File inputFile, String xpathExpression, String xmlNodeToAdd, final ApiCallback<XmlAddChildWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlEditAddChildWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlNodeToAdd, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlAddChildWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlEditRemoveAllChildNodesWithXPath
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditRemoveAllChildNodesWithXPathCall(File inputFile, String xpathExpression, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/edit/xpath/remove-all-children";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlEditRemoveAllChildNodesWithXPathValidateBeforeCall(File inputFile, String xpathExpression, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlEditRemoveAllChildNodesWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlEditRemoveAllChildNodesWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlEditRemoveAllChildNodesWithXPathCall(inputFile, xpathExpression, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+     * Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @return XmlRemoveAllChildrenWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlRemoveAllChildrenWithXPathResult convertDataXmlEditRemoveAllChildNodesWithXPath(File inputFile, String xpathExpression) throws ApiException {
+        ApiResponse<XmlRemoveAllChildrenWithXPathResult> resp = convertDataXmlEditRemoveAllChildNodesWithXPathWithHttpInfo(inputFile, xpathExpression);
+        return resp.getData();
+    }
+
+    /**
+     * Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+     * Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @return ApiResponse&lt;XmlRemoveAllChildrenWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlRemoveAllChildrenWithXPathResult> convertDataXmlEditRemoveAllChildNodesWithXPathWithHttpInfo(File inputFile, String xpathExpression) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlEditRemoveAllChildNodesWithXPathValidateBeforeCall(inputFile, xpathExpression, null, null);
+        Type localVarReturnType = new TypeToken<XmlRemoveAllChildrenWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes (asynchronously)
+     * Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditRemoveAllChildNodesWithXPathAsync(File inputFile, String xpathExpression, final ApiCallback<XmlRemoveAllChildrenWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlEditRemoveAllChildNodesWithXPathValidateBeforeCall(inputFile, xpathExpression, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlRemoveAllChildrenWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlEditReplaceWithXPath
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeReplacement XML Node replacement content (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditReplaceWithXPathCall(File inputFile, String xpathExpression, String xmlNodeReplacement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/edit/xpath/replace";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+        if (xmlNodeReplacement != null)
+        localVarHeaderParams.put("XmlNodeReplacement", apiClient.parameterToString(xmlNodeReplacement));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlEditReplaceWithXPathValidateBeforeCall(File inputFile, String xpathExpression, String xmlNodeReplacement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlEditReplaceWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlEditReplaceWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xmlNodeReplacement' is set
+        if (xmlNodeReplacement == null) {
+            throw new ApiException("Missing the required parameter 'xmlNodeReplacement' when calling convertDataXmlEditReplaceWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlEditReplaceWithXPathCall(inputFile, xpathExpression, xmlNodeReplacement, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replaces XML nodes matching XPath expression with new node
+     * Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeReplacement XML Node replacement content (required)
+     * @return XmlReplaceWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlReplaceWithXPathResult convertDataXmlEditReplaceWithXPath(File inputFile, String xpathExpression, String xmlNodeReplacement) throws ApiException {
+        ApiResponse<XmlReplaceWithXPathResult> resp = convertDataXmlEditReplaceWithXPathWithHttpInfo(inputFile, xpathExpression, xmlNodeReplacement);
+        return resp.getData();
+    }
+
+    /**
+     * Replaces XML nodes matching XPath expression with new node
+     * Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeReplacement XML Node replacement content (required)
+     * @return ApiResponse&lt;XmlReplaceWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlReplaceWithXPathResult> convertDataXmlEditReplaceWithXPathWithHttpInfo(File inputFile, String xpathExpression, String xmlNodeReplacement) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlEditReplaceWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlNodeReplacement, null, null);
+        Type localVarReturnType = new TypeToken<XmlReplaceWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replaces XML nodes matching XPath expression with new node (asynchronously)
+     * Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeReplacement XML Node replacement content (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditReplaceWithXPathAsync(File inputFile, String xpathExpression, String xmlNodeReplacement, final ApiCallback<XmlReplaceWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlEditReplaceWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlNodeReplacement, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlReplaceWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlEditSetValueWithXPath
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlValue XML Value to set into the matching XML nodes (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditSetValueWithXPathCall(File inputFile, String xpathExpression, String xmlValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/edit/xpath/set-value";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+        if (xmlValue != null)
+        localVarHeaderParams.put("XmlValue", apiClient.parameterToString(xmlValue));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlEditSetValueWithXPathValidateBeforeCall(File inputFile, String xpathExpression, String xmlValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlEditSetValueWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlEditSetValueWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'xmlValue' is set
+        if (xmlValue == null) {
+            throw new ApiException("Missing the required parameter 'xmlValue' when calling convertDataXmlEditSetValueWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlEditSetValueWithXPathCall(inputFile, xpathExpression, xmlValue, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Sets the value contents of XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlValue XML Value to set into the matching XML nodes (required)
+     * @return XmlSetValueWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlSetValueWithXPathResult convertDataXmlEditSetValueWithXPath(File inputFile, String xpathExpression, String xmlValue) throws ApiException {
+        ApiResponse<XmlSetValueWithXPathResult> resp = convertDataXmlEditSetValueWithXPathWithHttpInfo(inputFile, xpathExpression, xmlValue);
+        return resp.getData();
+    }
+
+    /**
+     * Sets the value contents of XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlValue XML Value to set into the matching XML nodes (required)
+     * @return ApiResponse&lt;XmlSetValueWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlSetValueWithXPathResult> convertDataXmlEditSetValueWithXPathWithHttpInfo(File inputFile, String xpathExpression, String xmlValue) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlEditSetValueWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlValue, null, null);
+        Type localVarReturnType = new TypeToken<XmlSetValueWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Sets the value contents of XML nodes matching XPath expression (asynchronously)
+     * Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlValue XML Value to set into the matching XML nodes (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlEditSetValueWithXPathAsync(File inputFile, String xpathExpression, String xmlValue, final ApiCallback<XmlSetValueWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlEditSetValueWithXPathValidateBeforeCall(inputFile, xpathExpression, xmlValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlSetValueWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlFilterWithXPath
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlFilterWithXPathCall(String xpathExpression, File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/select/xpath";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlFilterWithXPathValidateBeforeCall(String xpathExpression, File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlFilterWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlFilterWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlFilterWithXPathCall(xpathExpression, inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Filter, select XML nodes using XPath expression, get results
+     * Return the reuslts of filtering, selecting an XML document with an XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return XmlFIlterWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlFIlterWithXPathResult convertDataXmlFilterWithXPath(String xpathExpression, File inputFile) throws ApiException {
+        ApiResponse<XmlFIlterWithXPathResult> resp = convertDataXmlFilterWithXPathWithHttpInfo(xpathExpression, inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Filter, select XML nodes using XPath expression, get results
+     * Return the reuslts of filtering, selecting an XML document with an XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;XmlFIlterWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlFIlterWithXPathResult> convertDataXmlFilterWithXPathWithHttpInfo(String xpathExpression, File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlFilterWithXPathValidateBeforeCall(xpathExpression, inputFile, null, null);
+        Type localVarReturnType = new TypeToken<XmlFIlterWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Filter, select XML nodes using XPath expression, get results (asynchronously)
+     * Return the reuslts of filtering, selecting an XML document with an XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlFilterWithXPathAsync(String xpathExpression, File inputFile, final ApiCallback<XmlFIlterWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlFilterWithXPathValidateBeforeCall(xpathExpression, inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlFIlterWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlRemoveWithXPath
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlRemoveWithXPathCall(String xpathExpression, File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/edit/xpath/remove";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xpathExpression != null)
+        localVarHeaderParams.put("XPathExpression", apiClient.parameterToString(xpathExpression));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlRemoveWithXPathValidateBeforeCall(String xpathExpression, File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'xpathExpression' is set
+        if (xpathExpression == null) {
+            throw new ApiException("Missing the required parameter 'xpathExpression' when calling convertDataXmlRemoveWithXPath(Async)");
+        }
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlRemoveWithXPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlRemoveWithXPathCall(xpathExpression, inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove, delete XML nodes and items matching XPath expression
+     * Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return XmlRemoveWithXPathResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlRemoveWithXPathResult convertDataXmlRemoveWithXPath(String xpathExpression, File inputFile) throws ApiException {
+        ApiResponse<XmlRemoveWithXPathResult> resp = convertDataXmlRemoveWithXPathWithHttpInfo(xpathExpression, inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Remove, delete XML nodes and items matching XPath expression
+     * Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;XmlRemoveWithXPathResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlRemoveWithXPathResult> convertDataXmlRemoveWithXPathWithHttpInfo(String xpathExpression, File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlRemoveWithXPathValidateBeforeCall(xpathExpression, inputFile, null, null);
+        Type localVarReturnType = new TypeToken<XmlRemoveWithXPathResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove, delete XML nodes and items matching XPath expression (asynchronously)
+     * Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlRemoveWithXPathAsync(String xpathExpression, File inputFile, final ApiCallback<XmlRemoveWithXPathResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlRemoveWithXPathValidateBeforeCall(xpathExpression, inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlRemoveWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for convertDataXmlToJson
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -669,6 +1676,141 @@ public class ConvertDataApi {
 
         com.squareup.okhttp.Call call = convertDataXmlToJsonValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlTransformWithXsltToXml
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param transformFile Input XSLT file to use to transform the input XML file. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlTransformWithXsltToXmlCall(File inputFile, File transformFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/transform/xslt/to/xml";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+        if (transformFile != null)
+        localVarFormParams.put("transformFile", transformFile);
+
+        final String[] localVarAccepts = {
+            "application/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlTransformWithXsltToXmlValidateBeforeCall(File inputFile, File transformFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlTransformWithXsltToXml(Async)");
+        }
+        
+        // verify the required parameter 'transformFile' is set
+        if (transformFile == null) {
+            throw new ApiException("Missing the required parameter 'transformFile' when calling convertDataXmlTransformWithXsltToXml(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlTransformWithXsltToXmlCall(inputFile, transformFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Transform XML document file with XSLT into a new XML document
+     * Convert an XML string or file into JSON
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param transformFile Input XSLT file to use to transform the input XML file. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] convertDataXmlTransformWithXsltToXml(File inputFile, File transformFile) throws ApiException {
+        ApiResponse<byte[]> resp = convertDataXmlTransformWithXsltToXmlWithHttpInfo(inputFile, transformFile);
+        return resp.getData();
+    }
+
+    /**
+     * Transform XML document file with XSLT into a new XML document
+     * Convert an XML string or file into JSON
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param transformFile Input XSLT file to use to transform the input XML file. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> convertDataXmlTransformWithXsltToXmlWithHttpInfo(File inputFile, File transformFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlTransformWithXsltToXmlValidateBeforeCall(inputFile, transformFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Transform XML document file with XSLT into a new XML document (asynchronously)
+     * Convert an XML string or file into JSON
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param transformFile Input XSLT file to use to transform the input XML file. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlTransformWithXsltToXmlAsync(File inputFile, File transformFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlTransformWithXsltToXmlValidateBeforeCall(inputFile, transformFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

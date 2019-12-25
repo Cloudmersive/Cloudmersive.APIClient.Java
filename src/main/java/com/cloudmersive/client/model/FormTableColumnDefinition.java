@@ -28,7 +28,7 @@ import java.io.IOException;
  * Definition of a column within a table for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a column within a table for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T23:41:02.144-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T10:20:55.548-08:00")
 public class FormTableColumnDefinition {
   @SerializedName("ColumnID")
   private String columnID = null;

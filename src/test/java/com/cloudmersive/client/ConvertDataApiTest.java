@@ -15,6 +15,13 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.XmlAddAttributeWithXPathResult;
+import com.cloudmersive.client.model.XmlAddChildWithXPathResult;
+import com.cloudmersive.client.model.XmlFIlterWithXPathResult;
+import com.cloudmersive.client.model.XmlRemoveAllChildrenWithXPathResult;
+import com.cloudmersive.client.model.XmlRemoveWithXPathResult;
+import com.cloudmersive.client.model.XmlReplaceWithXPathResult;
+import com.cloudmersive.client.model.XmlSetValueWithXPathResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -59,7 +66,7 @@ public class ConvertDataApiTest {
     @Test
     public void convertDataJsonToXmlTest() throws ApiException {
         Object jsonObject = null;
-        Object response = api.convertDataJsonToXml(jsonObject);
+        byte[] response = api.convertDataJsonToXml(jsonObject);
 
         // TODO: test validations
     }
@@ -97,6 +104,130 @@ public class ConvertDataApiTest {
     }
     
     /**
+     * Adds an attribute to all XML nodes matching XPath expression
+     *
+     * Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlEditAddAttributeWithXPathTest() throws ApiException {
+        File inputFile = null;
+        String xpathExpression = null;
+        String xmlAttributeName = null;
+        String xmlAttributeValue = null;
+        XmlAddAttributeWithXPathResult response = api.convertDataXmlEditAddAttributeWithXPath(inputFile, xpathExpression, xmlAttributeName, xmlAttributeValue);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Adds an XML node as a child to XML nodes matching XPath expression
+     *
+     * Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlEditAddChildWithXPathTest() throws ApiException {
+        File inputFile = null;
+        String xpathExpression = null;
+        String xmlNodeToAdd = null;
+        XmlAddChildWithXPathResult response = api.convertDataXmlEditAddChildWithXPath(inputFile, xpathExpression, xmlNodeToAdd);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+     *
+     * Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlEditRemoveAllChildNodesWithXPathTest() throws ApiException {
+        File inputFile = null;
+        String xpathExpression = null;
+        XmlRemoveAllChildrenWithXPathResult response = api.convertDataXmlEditRemoveAllChildNodesWithXPath(inputFile, xpathExpression);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replaces XML nodes matching XPath expression with new node
+     *
+     * Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlEditReplaceWithXPathTest() throws ApiException {
+        File inputFile = null;
+        String xpathExpression = null;
+        String xmlNodeReplacement = null;
+        XmlReplaceWithXPathResult response = api.convertDataXmlEditReplaceWithXPath(inputFile, xpathExpression, xmlNodeReplacement);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Sets the value contents of XML nodes matching XPath expression
+     *
+     * Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlEditSetValueWithXPathTest() throws ApiException {
+        File inputFile = null;
+        String xpathExpression = null;
+        String xmlValue = null;
+        XmlSetValueWithXPathResult response = api.convertDataXmlEditSetValueWithXPath(inputFile, xpathExpression, xmlValue);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Filter, select XML nodes using XPath expression, get results
+     *
+     * Return the reuslts of filtering, selecting an XML document with an XPath expression
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlFilterWithXPathTest() throws ApiException {
+        String xpathExpression = null;
+        File inputFile = null;
+        XmlFIlterWithXPathResult response = api.convertDataXmlFilterWithXPath(xpathExpression, inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove, delete XML nodes and items matching XPath expression
+     *
+     * Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlRemoveWithXPathTest() throws ApiException {
+        String xpathExpression = null;
+        File inputFile = null;
+        XmlRemoveWithXPathResult response = api.convertDataXmlRemoveWithXPath(xpathExpression, inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert XML to JSON conversion
      *
      * Convert an XML string or file into JSON
@@ -108,6 +239,23 @@ public class ConvertDataApiTest {
     public void convertDataXmlToJsonTest() throws ApiException {
         File inputFile = null;
         Object response = api.convertDataXmlToJson(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Transform XML document file with XSLT into a new XML document
+     *
+     * Convert an XML string or file into JSON
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlTransformWithXsltToXmlTest() throws ApiException {
+        File inputFile = null;
+        File transformFile = null;
+        byte[] response = api.convertDataXmlTransformWithXsltToXml(inputFile, transformFile);
 
         // TODO: test validations
     }

@@ -31,7 +31,7 @@ import java.util.List;
  * Metadata from an image
  */
 @ApiModel(description = "Metadata from an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-23T23:41:09.759-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T10:21:08.355-08:00")
 public class ImageMetadata {
   @SerializedName("Successful")
   private Boolean successful = null;
