@@ -29,7 +29,7 @@ import java.io.IOException;
  * Column in an Excel spreadsheet worksheet
  */
 @ApiModel(description = "Column in an Excel spreadsheet worksheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T10:21:14.132-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T13:55:24.045-08:00")
 public class XlsxSpreadsheetColumn {
   @SerializedName("Path")
   private String path = null;

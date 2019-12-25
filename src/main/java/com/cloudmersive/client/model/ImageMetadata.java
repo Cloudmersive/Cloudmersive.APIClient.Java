@@ -31,10 +31,13 @@ import java.util.List;
  * Metadata from an image
  */
 @ApiModel(description = "Metadata from an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T10:21:08.355-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T13:55:17.268-08:00")
 public class ImageMetadata {
   @SerializedName("Successful")
   private Boolean successful = null;
+
+  @SerializedName("IsValidImage")
+  private Boolean isValidImage = null;
 
   @SerializedName("FileFormat")
   private String fileFormat = null;
@@ -47,6 +50,9 @@ public class ImageMetadata {
 
   @SerializedName("BitDepth")
   private Integer bitDepth = null;
+
+  @SerializedName("HasTransparency")
+  private Boolean hasTransparency = null;
 
   @SerializedName("ColorSpace")
   private String colorSpace = null;
@@ -73,6 +79,24 @@ public class ImageMetadata {
 
   public void setSuccessful(Boolean successful) {
     this.successful = successful;
+  }
+
+  public ImageMetadata isValidImage(Boolean isValidImage) {
+    this.isValidImage = isValidImage;
+    return this;
+  }
+
+   /**
+   * True if the input image is a valid image file, false otherwise
+   * @return isValidImage
+  **/
+  @ApiModelProperty(value = "True if the input image is a valid image file, false otherwise")
+  public Boolean isIsValidImage() {
+    return isValidImage;
+  }
+
+  public void setIsValidImage(Boolean isValidImage) {
+    this.isValidImage = isValidImage;
   }
 
   public ImageMetadata fileFormat(String fileFormat) {
@@ -145,6 +169,24 @@ public class ImageMetadata {
 
   public void setBitDepth(Integer bitDepth) {
     this.bitDepth = bitDepth;
+  }
+
+  public ImageMetadata hasTransparency(Boolean hasTransparency) {
+    this.hasTransparency = hasTransparency;
+    return this;
+  }
+
+   /**
+   * True if the image has transaprency in the form of an alpha channel, false otherwise
+   * @return hasTransparency
+  **/
+  @ApiModelProperty(value = "True if the image has transaprency in the form of an alpha channel, false otherwise")
+  public Boolean isHasTransparency() {
+    return hasTransparency;
+  }
+
+  public void setHasTransparency(Boolean hasTransparency) {
+    this.hasTransparency = hasTransparency;
   }
 
   public ImageMetadata colorSpace(String colorSpace) {
@@ -220,10 +262,12 @@ public class ImageMetadata {
     }
     ImageMetadata imageMetadata = (ImageMetadata) o;
     return Objects.equals(this.successful, imageMetadata.successful) &&
+        Objects.equals(this.isValidImage, imageMetadata.isValidImage) &&
         Objects.equals(this.fileFormat, imageMetadata.fileFormat) &&
         Objects.equals(this.width, imageMetadata.width) &&
         Objects.equals(this.height, imageMetadata.height) &&
         Objects.equals(this.bitDepth, imageMetadata.bitDepth) &&
+        Objects.equals(this.hasTransparency, imageMetadata.hasTransparency) &&
         Objects.equals(this.colorSpace, imageMetadata.colorSpace) &&
         Objects.equals(this.exifProfileName, imageMetadata.exifProfileName) &&
         Objects.equals(this.exifValues, imageMetadata.exifValues);
@@ -231,7 +275,7 @@ public class ImageMetadata {
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, fileFormat, width, height, bitDepth, colorSpace, exifProfileName, exifValues);
+    return Objects.hash(successful, isValidImage, fileFormat, width, height, bitDepth, hasTransparency, colorSpace, exifProfileName, exifValues);
   }
 
 
@@ -241,10 +285,12 @@ public class ImageMetadata {
     sb.append("class ImageMetadata {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
+    sb.append("    isValidImage: ").append(toIndentedString(isValidImage)).append("\n");
     sb.append("    fileFormat: ").append(toIndentedString(fileFormat)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    bitDepth: ").append(toIndentedString(bitDepth)).append("\n");
+    sb.append("    hasTransparency: ").append(toIndentedString(hasTransparency)).append("\n");
     sb.append("    colorSpace: ").append(toIndentedString(colorSpace)).append("\n");
     sb.append("    exifProfileName: ").append(toIndentedString(exifProfileName)).append("\n");
     sb.append("    exifValues: ").append(toIndentedString(exifValues)).append("\n");

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * WordPosition
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T10:20:50.146-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T13:54:56.300-08:00")
 public class WordPosition {
   @SerializedName("Word")
   private String word = null;
