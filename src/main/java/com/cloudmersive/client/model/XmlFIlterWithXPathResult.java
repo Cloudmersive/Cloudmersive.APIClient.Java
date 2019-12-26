@@ -30,8 +30,8 @@ import java.util.List;
  * Result of performing a filter operation on XML input using XPath
  */
 @ApiModel(description = "Result of performing a filter operation on XML input using XPath")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T16:25:59.913-08:00")
-public class XmlFIlterWithXPathResult {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T20:54:14.861-08:00")
+public class XmlFilterWithXPathResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
@@ -41,7 +41,7 @@ public class XmlFIlterWithXPathResult {
   @SerializedName("ResultCount")
   private Integer resultCount = null;
 
-  public XmlFIlterWithXPathResult successful(Boolean successful) {
+  public XmlFilterWithXPathResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -59,12 +59,12 @@ public class XmlFIlterWithXPathResult {
     this.successful = successful;
   }
 
-  public XmlFIlterWithXPathResult xmlNodes(List<String> xmlNodes) {
+  public XmlFilterWithXPathResult xmlNodes(List<String> xmlNodes) {
     this.xmlNodes = xmlNodes;
     return this;
   }
 
-  public XmlFIlterWithXPathResult addXmlNodesItem(String xmlNodesItem) {
+  public XmlFilterWithXPathResult addXmlNodesItem(String xmlNodesItem) {
     if (this.xmlNodes == null) {
       this.xmlNodes = new ArrayList<String>();
     }
@@ -85,7 +85,7 @@ public class XmlFIlterWithXPathResult {
     this.xmlNodes = xmlNodes;
   }
 
-  public XmlFIlterWithXPathResult resultCount(Integer resultCount) {
+  public XmlFilterWithXPathResult resultCount(Integer resultCount) {
     this.resultCount = resultCount;
     return this;
   }
@@ -112,10 +112,10 @@ public class XmlFIlterWithXPathResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    XmlFIlterWithXPathResult xmlFIlterWithXPathResult = (XmlFIlterWithXPathResult) o;
-    return Objects.equals(this.successful, xmlFIlterWithXPathResult.successful) &&
-        Objects.equals(this.xmlNodes, xmlFIlterWithXPathResult.xmlNodes) &&
-        Objects.equals(this.resultCount, xmlFIlterWithXPathResult.resultCount);
+    XmlFilterWithXPathResult xmlFilterWithXPathResult = (XmlFilterWithXPathResult) o;
+    return Objects.equals(this.successful, xmlFilterWithXPathResult.successful) &&
+        Objects.equals(this.xmlNodes, xmlFilterWithXPathResult.xmlNodes) &&
+        Objects.equals(this.resultCount, xmlFilterWithXPathResult.resultCount);
   }
 
   @Override
@@ -127,7 +127,7 @@ public class XmlFIlterWithXPathResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class XmlFIlterWithXPathResult {\n");
+    sb.append("class XmlFilterWithXPathResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    xmlNodes: ").append(toIndentedString(xmlNodes)).append("\n");

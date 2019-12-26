@@ -30,7 +30,9 @@ import java.io.IOException;
 import java.io.File;
 import com.cloudmersive.client.model.XmlAddAttributeWithXPathResult;
 import com.cloudmersive.client.model.XmlAddChildWithXPathResult;
-import com.cloudmersive.client.model.XmlFIlterWithXPathResult;
+import com.cloudmersive.client.model.XmlFilterWithXPathResult;
+import com.cloudmersive.client.model.XmlQueryWithXQueryMultiResult;
+import com.cloudmersive.client.model.XmlQueryWithXQueryResult;
 import com.cloudmersive.client.model.XmlRemoveAllChildrenWithXPathResult;
 import com.cloudmersive.client.model.XmlRemoveWithXPathResult;
 import com.cloudmersive.client.model.XmlReplaceWithXPathResult;
@@ -1363,11 +1365,11 @@ public class ConvertDataApi {
      * Return the reuslts of filtering, selecting an XML document with an XPath expression
      * @param xpathExpression Valid XML XPath query expression (required)
      * @param inputFile Input file to perform the operation on. (required)
-     * @return XmlFIlterWithXPathResult
+     * @return XmlFilterWithXPathResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public XmlFIlterWithXPathResult convertDataXmlFilterWithXPath(String xpathExpression, File inputFile) throws ApiException {
-        ApiResponse<XmlFIlterWithXPathResult> resp = convertDataXmlFilterWithXPathWithHttpInfo(xpathExpression, inputFile);
+    public XmlFilterWithXPathResult convertDataXmlFilterWithXPath(String xpathExpression, File inputFile) throws ApiException {
+        ApiResponse<XmlFilterWithXPathResult> resp = convertDataXmlFilterWithXPathWithHttpInfo(xpathExpression, inputFile);
         return resp.getData();
     }
 
@@ -1376,12 +1378,12 @@ public class ConvertDataApi {
      * Return the reuslts of filtering, selecting an XML document with an XPath expression
      * @param xpathExpression Valid XML XPath query expression (required)
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;XmlFIlterWithXPathResult&gt;
+     * @return ApiResponse&lt;XmlFilterWithXPathResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<XmlFIlterWithXPathResult> convertDataXmlFilterWithXPathWithHttpInfo(String xpathExpression, File inputFile) throws ApiException {
+    public ApiResponse<XmlFilterWithXPathResult> convertDataXmlFilterWithXPathWithHttpInfo(String xpathExpression, File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDataXmlFilterWithXPathValidateBeforeCall(xpathExpression, inputFile, null, null);
-        Type localVarReturnType = new TypeToken<XmlFIlterWithXPathResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<XmlFilterWithXPathResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1394,7 +1396,7 @@ public class ConvertDataApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDataXmlFilterWithXPathAsync(String xpathExpression, File inputFile, final ApiCallback<XmlFIlterWithXPathResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDataXmlFilterWithXPathAsync(String xpathExpression, File inputFile, final ApiCallback<XmlFilterWithXPathResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1416,7 +1418,331 @@ public class ConvertDataApi {
         }
 
         com.squareup.okhttp.Call call = convertDataXmlFilterWithXPathValidateBeforeCall(xpathExpression, inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<XmlFIlterWithXPathResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<XmlFilterWithXPathResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlQueryWithXQuery
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlQueryWithXQueryCall(File inputFile, String xquery, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/query/xquery";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xquery != null)
+        localVarHeaderParams.put("XQuery", apiClient.parameterToString(xquery));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlQueryWithXQueryValidateBeforeCall(File inputFile, String xquery, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXmlQueryWithXQuery(Async)");
+        }
+        
+        // verify the required parameter 'xquery' is set
+        if (xquery == null) {
+            throw new ApiException("Missing the required parameter 'xquery' when calling convertDataXmlQueryWithXQuery(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlQueryWithXQueryCall(inputFile, xquery, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Query an XML file using XQuery query, get results
+     * Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @return XmlQueryWithXQueryResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlQueryWithXQueryResult convertDataXmlQueryWithXQuery(File inputFile, String xquery) throws ApiException {
+        ApiResponse<XmlQueryWithXQueryResult> resp = convertDataXmlQueryWithXQueryWithHttpInfo(inputFile, xquery);
+        return resp.getData();
+    }
+
+    /**
+     * Query an XML file using XQuery query, get results
+     * Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @return ApiResponse&lt;XmlQueryWithXQueryResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlQueryWithXQueryResult> convertDataXmlQueryWithXQueryWithHttpInfo(File inputFile, String xquery) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlQueryWithXQueryValidateBeforeCall(inputFile, xquery, null, null);
+        Type localVarReturnType = new TypeToken<XmlQueryWithXQueryResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Query an XML file using XQuery query, get results (asynchronously)
+     * Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlQueryWithXQueryAsync(File inputFile, String xquery, final ApiCallback<XmlQueryWithXQueryResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlQueryWithXQueryValidateBeforeCall(inputFile, xquery, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlQueryWithXQueryResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXmlQueryWithXQueryMulti
+     * @param inputFile1 First input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @param inputFile2 Second input XML file to perform the operation on. (optional)
+     * @param inputFile3 Third input XML file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input XML file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input XML file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input XML file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input XML file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input XML file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input XML file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input XML file to perform the operation on. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlQueryWithXQueryMultiCall(File inputFile1, String xquery, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xml/query/xquery/multi";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xquery != null)
+        localVarHeaderParams.put("XQuery", apiClient.parameterToString(xquery));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+        if (inputFile3 != null)
+        localVarFormParams.put("inputFile3", inputFile3);
+        if (inputFile4 != null)
+        localVarFormParams.put("inputFile4", inputFile4);
+        if (inputFile5 != null)
+        localVarFormParams.put("inputFile5", inputFile5);
+        if (inputFile6 != null)
+        localVarFormParams.put("inputFile6", inputFile6);
+        if (inputFile7 != null)
+        localVarFormParams.put("inputFile7", inputFile7);
+        if (inputFile8 != null)
+        localVarFormParams.put("inputFile8", inputFile8);
+        if (inputFile9 != null)
+        localVarFormParams.put("inputFile9", inputFile9);
+        if (inputFile10 != null)
+        localVarFormParams.put("inputFile10", inputFile10);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXmlQueryWithXQueryMultiValidateBeforeCall(File inputFile1, String xquery, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling convertDataXmlQueryWithXQueryMulti(Async)");
+        }
+        
+        // verify the required parameter 'xquery' is set
+        if (xquery == null) {
+            throw new ApiException("Missing the required parameter 'xquery' when calling convertDataXmlQueryWithXQueryMulti(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXmlQueryWithXQueryMultiCall(inputFile1, xquery, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Query multiple XML files using XQuery query, get results
+     * Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+     * @param inputFile1 First input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @param inputFile2 Second input XML file to perform the operation on. (optional)
+     * @param inputFile3 Third input XML file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input XML file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input XML file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input XML file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input XML file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input XML file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input XML file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input XML file to perform the operation on. (optional)
+     * @return XmlQueryWithXQueryMultiResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XmlQueryWithXQueryMultiResult convertDataXmlQueryWithXQueryMulti(File inputFile1, String xquery, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        ApiResponse<XmlQueryWithXQueryMultiResult> resp = convertDataXmlQueryWithXQueryMultiWithHttpInfo(inputFile1, xquery, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+        return resp.getData();
+    }
+
+    /**
+     * Query multiple XML files using XQuery query, get results
+     * Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+     * @param inputFile1 First input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @param inputFile2 Second input XML file to perform the operation on. (optional)
+     * @param inputFile3 Third input XML file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input XML file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input XML file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input XML file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input XML file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input XML file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input XML file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input XML file to perform the operation on. (optional)
+     * @return ApiResponse&lt;XmlQueryWithXQueryMultiResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XmlQueryWithXQueryMultiResult> convertDataXmlQueryWithXQueryMultiWithHttpInfo(File inputFile1, String xquery, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXmlQueryWithXQueryMultiValidateBeforeCall(inputFile1, xquery, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, null, null);
+        Type localVarReturnType = new TypeToken<XmlQueryWithXQueryMultiResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Query multiple XML files using XQuery query, get results (asynchronously)
+     * Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+     * @param inputFile1 First input XML file to perform the operation on. (required)
+     * @param xquery Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported (required)
+     * @param inputFile2 Second input XML file to perform the operation on. (optional)
+     * @param inputFile3 Third input XML file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input XML file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input XML file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input XML file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input XML file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input XML file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input XML file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input XML file to perform the operation on. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXmlQueryWithXQueryMultiAsync(File inputFile1, String xquery, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ApiCallback<XmlQueryWithXQueryMultiResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXmlQueryWithXQueryMultiValidateBeforeCall(inputFile1, xquery, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XmlQueryWithXQueryMultiResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

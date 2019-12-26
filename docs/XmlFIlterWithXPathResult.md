@@ -1,5 +1,5 @@
 
-# XmlFIlterWithXPathResult
+# XmlFilterWithXPathResult
 
 ## Properties
 Name | Type | Description | Notes

@@ -17,7 +17,9 @@ import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.XmlAddAttributeWithXPathResult;
 import com.cloudmersive.client.model.XmlAddChildWithXPathResult;
-import com.cloudmersive.client.model.XmlFIlterWithXPathResult;
+import com.cloudmersive.client.model.XmlFilterWithXPathResult;
+import com.cloudmersive.client.model.XmlQueryWithXQueryMultiResult;
+import com.cloudmersive.client.model.XmlQueryWithXQueryResult;
 import com.cloudmersive.client.model.XmlRemoveAllChildrenWithXPathResult;
 import com.cloudmersive.client.model.XmlRemoveWithXPathResult;
 import com.cloudmersive.client.model.XmlReplaceWithXPathResult;
@@ -205,7 +207,50 @@ public class ConvertDataApiTest {
     public void convertDataXmlFilterWithXPathTest() throws ApiException {
         String xpathExpression = null;
         File inputFile = null;
-        XmlFIlterWithXPathResult response = api.convertDataXmlFilterWithXPath(xpathExpression, inputFile);
+        XmlFilterWithXPathResult response = api.convertDataXmlFilterWithXPath(xpathExpression, inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Query an XML file using XQuery query, get results
+     *
+     * Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlQueryWithXQueryTest() throws ApiException {
+        File inputFile = null;
+        String xquery = null;
+        XmlQueryWithXQueryResult response = api.convertDataXmlQueryWithXQuery(inputFile, xquery);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Query multiple XML files using XQuery query, get results
+     *
+     * Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXmlQueryWithXQueryMultiTest() throws ApiException {
+        File inputFile1 = null;
+        String xquery = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        XmlQueryWithXQueryMultiResult response = api.convertDataXmlQueryWithXQueryMulti(inputFile1, xquery, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
 
         // TODO: test validations
     }
