@@ -175,6 +175,38 @@ public class EditApiTest {
     }
     
     /**
+     * Invert, negate the colors in the image
+     *
+     * Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editInvertTest() throws ApiException {
+        File imageFile = null;
+        byte[] response = api.editInvert(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove EXIF data from the image
+     *
+     * Removes any EXIF data and profiles .
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editRemoveExifDataTest() throws ApiException {
+        File imageFile = null;
+        byte[] response = api.editRemoveExifData(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Remove transparency from the image
      *
      * Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
