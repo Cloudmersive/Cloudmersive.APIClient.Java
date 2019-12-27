@@ -27,8 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cloudmersive.client.model.AddPdfAnnotationRequest;
 import java.math.BigDecimal;
 import java.io.File;
+import com.cloudmersive.client.model.GetPdfAnnotationsResult;
 import com.cloudmersive.client.model.PdfFormFields;
 import com.cloudmersive.client.model.PdfMetadata;
 import com.cloudmersive.client.model.PdfTextByPageResult;
@@ -60,6 +62,128 @@ public class EditPdfApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for editPdfAddAnnotations
+     * @param request  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfAddAnnotationsCall(AddPdfAnnotationRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/annotations/add-item";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfAddAnnotationsValidateBeforeCall(AddPdfAnnotationRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling editPdfAddAnnotations(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfAddAnnotationsCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Add one or more PDF annotations, comments in the PDF document
+     * Adds one or more annotations, comments to a PDF document.
+     * @param request  (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfAddAnnotations(AddPdfAnnotationRequest request) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfAddAnnotationsWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Add one or more PDF annotations, comments in the PDF document
+     * Adds one or more annotations, comments to a PDF document.
+     * @param request  (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfAddAnnotationsWithHttpInfo(AddPdfAnnotationRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfAddAnnotationsValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Add one or more PDF annotations, comments in the PDF document (asynchronously)
+     * Adds one or more annotations, comments to a PDF document.
+     * @param request  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfAddAnnotationsAsync(AddPdfAnnotationRequest request, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfAddAnnotationsValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for editPdfDecrypt
      * @param password Valid password for the PDF file (required)
@@ -480,6 +604,130 @@ public class EditPdfApi {
 
         com.squareup.okhttp.Call call = editPdfEncryptValidateBeforeCall(inputFile, userPassword, ownerPassword, encryptionKeyLength, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfGetAnnotations
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfGetAnnotationsCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/annotations/list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfGetAnnotationsValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfGetAnnotations(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfGetAnnotationsCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get PDF annotations, including comments in the document
+     * Enumerates the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return GetPdfAnnotationsResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetPdfAnnotationsResult editPdfGetAnnotations(File inputFile) throws ApiException {
+        ApiResponse<GetPdfAnnotationsResult> resp = editPdfGetAnnotationsWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Get PDF annotations, including comments in the document
+     * Enumerates the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;GetPdfAnnotationsResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetPdfAnnotationsResult> editPdfGetAnnotationsWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfGetAnnotationsValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<GetPdfAnnotationsResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get PDF annotations, including comments in the document (asynchronously)
+     * Enumerates the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfGetAnnotationsAsync(File inputFile, final ApiCallback<GetPdfAnnotationsResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfGetAnnotationsValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetPdfAnnotationsResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1143,6 +1391,557 @@ public class EditPdfApi {
         }
 
         com.squareup.okhttp.Call call = editPdfRasterizeValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfRemoveAllAnnotations
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRemoveAllAnnotationsCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/annotations/remove-all";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfRemoveAllAnnotationsValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRemoveAllAnnotations(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfRemoveAllAnnotationsCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove all PDF annotations, including comments in the document
+     * Removes all of the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfRemoveAllAnnotations(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfRemoveAllAnnotationsWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Remove all PDF annotations, including comments in the document
+     * Removes all of the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfRemoveAllAnnotationsWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfRemoveAllAnnotationsValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove all PDF annotations, including comments in the document (asynchronously)
+     * Removes all of the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRemoveAllAnnotationsAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfRemoveAllAnnotationsValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfRemoveAnnotationItem
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param annotationIndex The 0-based index of the annotation in the document (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRemoveAnnotationItemCall(File inputFile, Integer annotationIndex, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/annotations/remove-item";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (annotationIndex != null)
+        localVarHeaderParams.put("annotationIndex", apiClient.parameterToString(annotationIndex));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfRemoveAnnotationItemValidateBeforeCall(File inputFile, Integer annotationIndex, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRemoveAnnotationItem(Async)");
+        }
+        
+        // verify the required parameter 'annotationIndex' is set
+        if (annotationIndex == null) {
+            throw new ApiException("Missing the required parameter 'annotationIndex' when calling editPdfRemoveAnnotationItem(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfRemoveAnnotationItemCall(inputFile, annotationIndex, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove a specific PDF annotation, comment in the document
+     * Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param annotationIndex The 0-based index of the annotation in the document (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfRemoveAnnotationItem(File inputFile, Integer annotationIndex) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfRemoveAnnotationItemWithHttpInfo(inputFile, annotationIndex);
+        return resp.getData();
+    }
+
+    /**
+     * Remove a specific PDF annotation, comment in the document
+     * Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param annotationIndex The 0-based index of the annotation in the document (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfRemoveAnnotationItemWithHttpInfo(File inputFile, Integer annotationIndex) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfRemoveAnnotationItemValidateBeforeCall(inputFile, annotationIndex, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove a specific PDF annotation, comment in the document (asynchronously)
+     * Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param annotationIndex The 0-based index of the annotation in the document (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRemoveAnnotationItemAsync(File inputFile, Integer annotationIndex, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfRemoveAnnotationItemValidateBeforeCall(inputFile, annotationIndex, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfRotateAllPages
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRotateAllPagesCall(File inputFile, Integer rotationAngle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/pages/rotate/all";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (rotationAngle != null)
+        localVarHeaderParams.put("rotationAngle", apiClient.parameterToString(rotationAngle));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfRotateAllPagesValidateBeforeCall(File inputFile, Integer rotationAngle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRotateAllPages(Async)");
+        }
+        
+        // verify the required parameter 'rotationAngle' is set
+        if (rotationAngle == null) {
+            throw new ApiException("Missing the required parameter 'rotationAngle' when calling editPdfRotateAllPages(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfRotateAllPagesCall(inputFile, rotationAngle, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Rotate all pages in a PDF document
+     * Rotate all of the pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfRotateAllPages(File inputFile, Integer rotationAngle) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfRotateAllPagesWithHttpInfo(inputFile, rotationAngle);
+        return resp.getData();
+    }
+
+    /**
+     * Rotate all pages in a PDF document
+     * Rotate all of the pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfRotateAllPagesWithHttpInfo(File inputFile, Integer rotationAngle) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfRotateAllPagesValidateBeforeCall(inputFile, rotationAngle, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Rotate all pages in a PDF document (asynchronously)
+     * Rotate all of the pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRotateAllPagesAsync(File inputFile, Integer rotationAngle, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfRotateAllPagesValidateBeforeCall(inputFile, rotationAngle, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfRotatePageRange
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param pageStart Page number (1 based) to start rotating pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop rotating pages from (inclusive). (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRotatePageRangeCall(File inputFile, Integer rotationAngle, Integer pageStart, Integer pageEnd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/pages/rotate/page-range";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (rotationAngle != null)
+        localVarHeaderParams.put("rotationAngle", apiClient.parameterToString(rotationAngle));
+        if (pageStart != null)
+        localVarHeaderParams.put("pageStart", apiClient.parameterToString(pageStart));
+        if (pageEnd != null)
+        localVarHeaderParams.put("pageEnd", apiClient.parameterToString(pageEnd));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfRotatePageRangeValidateBeforeCall(File inputFile, Integer rotationAngle, Integer pageStart, Integer pageEnd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRotatePageRange(Async)");
+        }
+        
+        // verify the required parameter 'rotationAngle' is set
+        if (rotationAngle == null) {
+            throw new ApiException("Missing the required parameter 'rotationAngle' when calling editPdfRotatePageRange(Async)");
+        }
+        
+        // verify the required parameter 'pageStart' is set
+        if (pageStart == null) {
+            throw new ApiException("Missing the required parameter 'pageStart' when calling editPdfRotatePageRange(Async)");
+        }
+        
+        // verify the required parameter 'pageEnd' is set
+        if (pageEnd == null) {
+            throw new ApiException("Missing the required parameter 'pageEnd' when calling editPdfRotatePageRange(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfRotatePageRangeCall(inputFile, rotationAngle, pageStart, pageEnd, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Rotate a range, subset of pages in a PDF document
+     * Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param pageStart Page number (1 based) to start rotating pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop rotating pages from (inclusive). (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfRotatePageRange(File inputFile, Integer rotationAngle, Integer pageStart, Integer pageEnd) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfRotatePageRangeWithHttpInfo(inputFile, rotationAngle, pageStart, pageEnd);
+        return resp.getData();
+    }
+
+    /**
+     * Rotate a range, subset of pages in a PDF document
+     * Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param pageStart Page number (1 based) to start rotating pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop rotating pages from (inclusive). (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfRotatePageRangeWithHttpInfo(File inputFile, Integer rotationAngle, Integer pageStart, Integer pageEnd) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfRotatePageRangeValidateBeforeCall(inputFile, rotationAngle, pageStart, pageEnd, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Rotate a range, subset of pages in a PDF document (asynchronously)
+     * Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param pageStart Page number (1 based) to start rotating pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop rotating pages from (inclusive). (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRotatePageRangeAsync(File inputFile, Integer rotationAngle, Integer pageStart, Integer pageEnd, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfRotatePageRangeValidateBeforeCall(inputFile, rotationAngle, pageStart, pageEnd, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

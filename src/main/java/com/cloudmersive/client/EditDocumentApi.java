@@ -85,6 +85,7 @@ import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
+import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 import com.cloudmersive.client.model.UpdateDocxTableCellRequest;
 import com.cloudmersive.client.model.UpdateDocxTableCellResponse;
@@ -549,7 +550,7 @@ public class EditDocumentApi {
 
     /**
      * Delete, remove pages from a Word DOCX document
-     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      * @param reqConfig Document input request (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -561,7 +562,7 @@ public class EditDocumentApi {
 
     /**
      * Delete, remove pages from a Word DOCX document
-     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      * @param reqConfig Document input request (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -574,7 +575,7 @@ public class EditDocumentApi {
 
     /**
      * Delete, remove pages from a Word DOCX document (asynchronously)
-     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      * @param reqConfig Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3286,6 +3287,128 @@ public class EditDocumentApi {
         }
 
         com.squareup.okhttp.Call call = editDocumentFinishEditingValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentPptxDeleteSlides
+     * @param reqConfig Presentation input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentPptxDeleteSlidesCall(RemovePptxSlidesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pptx/delete-slides";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentPptxDeleteSlidesValidateBeforeCall(RemovePptxSlidesRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentPptxDeleteSlides(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentPptxDeleteSlidesCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete, remove slides from a PowerPoint PPTX presentation document
+     * Edits the input PowerPoint PPTX presentation document to remove the specified slides
+     * @param reqConfig Presentation input request (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentPptxDeleteSlides(RemovePptxSlidesRequest reqConfig) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentPptxDeleteSlidesWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Delete, remove slides from a PowerPoint PPTX presentation document
+     * Edits the input PowerPoint PPTX presentation document to remove the specified slides
+     * @param reqConfig Presentation input request (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentPptxDeleteSlidesWithHttpInfo(RemovePptxSlidesRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentPptxDeleteSlidesValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete, remove slides from a PowerPoint PPTX presentation document (asynchronously)
+     * Edits the input PowerPoint PPTX presentation document to remove the specified slides
+     * @param reqConfig Presentation input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentPptxDeleteSlidesAsync(RemovePptxSlidesRequest reqConfig, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentPptxDeleteSlidesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

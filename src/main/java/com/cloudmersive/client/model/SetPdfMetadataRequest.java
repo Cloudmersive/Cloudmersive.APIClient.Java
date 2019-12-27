@@ -26,9 +26,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SetPdfMetadataRequest
+ * Request to set PDF metadata
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T21:09:57.567-08:00")
+@ApiModel(description = "Request to set PDF metadata")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-26T23:07:44.785-08:00")
 public class SetPdfMetadataRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
@@ -42,10 +43,10 @@ public class SetPdfMetadataRequest {
   }
 
    /**
-   * Get inputFileBytes
+   * Input file contents bytes for the file to modify
    * @return inputFileBytes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Input file contents bytes for the file to modify")
   public byte[] getInputFileBytes() {
     return inputFileBytes;
   }
@@ -60,10 +61,10 @@ public class SetPdfMetadataRequest {
   }
 
    /**
-   * Get metadataToSet
+   * PDF metadata to set on the file
    * @return metadataToSet
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "PDF metadata to set on the file")
   public PdfMetadata getMetadataToSet() {
     return metadataToSet;
   }

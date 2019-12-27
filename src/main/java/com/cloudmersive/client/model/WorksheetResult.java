@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
  */
 @ApiModel(description = "A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T21:09:57.567-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-26T23:07:44.785-08:00")
 public class WorksheetResult {
   @SerializedName("WorksheetNumber")
   private Integer worksheetNumber = null;
@@ -38,6 +38,9 @@ public class WorksheetResult {
 
   @SerializedName("URL")
   private String URL = null;
+
+  @SerializedName("WorksheetContents")
+  private byte[] worksheetContents = null;
 
   public WorksheetResult worksheetNumber(Integer worksheetNumber) {
     this.worksheetNumber = worksheetNumber;
@@ -93,6 +96,24 @@ public class WorksheetResult {
     this.URL = URL;
   }
 
+  public WorksheetResult worksheetContents(byte[] worksheetContents) {
+    this.worksheetContents = worksheetContents;
+    return this;
+  }
+
+   /**
+   * Contents of the worksheet in bytes
+   * @return worksheetContents
+  **/
+  @ApiModelProperty(value = "Contents of the worksheet in bytes")
+  public byte[] getWorksheetContents() {
+    return worksheetContents;
+  }
+
+  public void setWorksheetContents(byte[] worksheetContents) {
+    this.worksheetContents = worksheetContents;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class WorksheetResult {
     WorksheetResult worksheetResult = (WorksheetResult) o;
     return Objects.equals(this.worksheetNumber, worksheetResult.worksheetNumber) &&
         Objects.equals(this.worksheetName, worksheetResult.worksheetName) &&
-        Objects.equals(this.URL, worksheetResult.URL);
+        Objects.equals(this.URL, worksheetResult.URL) &&
+        Arrays.equals(this.worksheetContents, worksheetResult.worksheetContents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(worksheetNumber, worksheetName, URL);
+    return Objects.hash(worksheetNumber, worksheetName, URL, Arrays.hashCode(worksheetContents));
   }
 
 
@@ -122,6 +144,7 @@ public class WorksheetResult {
     sb.append("    worksheetNumber: ").append(toIndentedString(worksheetNumber)).append("\n");
     sb.append("    worksheetName: ").append(toIndentedString(worksheetName)).append("\n");
     sb.append("    URL: ").append(toIndentedString(URL)).append("\n");
+    sb.append("    worksheetContents: ").append(toIndentedString(worksheetContents)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to set-footer/add-page-number command
  */
 @ApiModel(description = "Input to set-footer/add-page-number command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T21:09:57.567-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-26T23:07:44.785-08:00")
 public class DocxSetFooterAddPageNumberRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

@@ -14,8 +14,10 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.AddPdfAnnotationRequest;
 import java.math.BigDecimal;
 import java.io.File;
+import com.cloudmersive.client.model.GetPdfAnnotationsResult;
 import com.cloudmersive.client.model.PdfFormFields;
 import com.cloudmersive.client.model.PdfMetadata;
 import com.cloudmersive.client.model.PdfTextByPageResult;
@@ -37,6 +39,22 @@ public class EditPdfApiTest {
 
     private final EditPdfApi api = new EditPdfApi();
 
+    
+    /**
+     * Add one or more PDF annotations, comments in the PDF document
+     *
+     * Adds one or more annotations, comments to a PDF document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfAddAnnotationsTest() throws ApiException {
+        AddPdfAnnotationRequest request = null;
+        byte[] response = api.editPdfAddAnnotations(request);
+
+        // TODO: test validations
+    }
     
     /**
      * Decrypt and password-protect a PDF
@@ -88,6 +106,22 @@ public class EditPdfApiTest {
         String ownerPassword = null;
         String encryptionKeyLength = null;
         byte[] response = api.editPdfEncrypt(inputFile, userPassword, ownerPassword, encryptionKeyLength);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get PDF annotations, including comments in the document
+     *
+     * Enumerates the annotations, including comments and notes, in a PDF document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfGetAnnotationsTest() throws ApiException {
+        File inputFile = null;
+        GetPdfAnnotationsResult response = api.editPdfGetAnnotations(inputFile);
 
         // TODO: test validations
     }
@@ -172,6 +206,75 @@ public class EditPdfApiTest {
     public void editPdfRasterizeTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.editPdfRasterize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove all PDF annotations, including comments in the document
+     *
+     * Removes all of the annotations, including comments and notes, in a PDF document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfRemoveAllAnnotationsTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editPdfRemoveAllAnnotations(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove a specific PDF annotation, comment in the document
+     *
+     * Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfRemoveAnnotationItemTest() throws ApiException {
+        File inputFile = null;
+        Integer annotationIndex = null;
+        byte[] response = api.editPdfRemoveAnnotationItem(inputFile, annotationIndex);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Rotate all pages in a PDF document
+     *
+     * Rotate all of the pages in a PDF document by a multiple of 90 degrees
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfRotateAllPagesTest() throws ApiException {
+        File inputFile = null;
+        Integer rotationAngle = null;
+        byte[] response = api.editPdfRotateAllPages(inputFile, rotationAngle);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Rotate a range, subset of pages in a PDF document
+     *
+     * Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfRotatePageRangeTest() throws ApiException {
+        File inputFile = null;
+        Integer rotationAngle = null;
+        Integer pageStart = null;
+        Integer pageEnd = null;
+        byte[] response = api.editPdfRotatePageRange(inputFile, rotationAngle, pageStart, pageEnd);
 
         // TODO: test validations
     }

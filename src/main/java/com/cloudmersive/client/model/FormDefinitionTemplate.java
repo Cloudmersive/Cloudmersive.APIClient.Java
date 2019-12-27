@@ -32,7 +32,7 @@ import java.util.List;
  * Definition of a form template; use a form template definition to recognize the fields in a form with Cloudmersive OCR
  */
 @ApiModel(description = "Definition of a form template; use a form template definition to recognize the fields in a form with Cloudmersive OCR")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-25T21:09:35.387-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-26T23:07:25.365-08:00")
 public class FormDefinitionTemplate {
   @SerializedName("FieldDefinitions")
   private List<FormFieldDefinition> fieldDefinitions = null;

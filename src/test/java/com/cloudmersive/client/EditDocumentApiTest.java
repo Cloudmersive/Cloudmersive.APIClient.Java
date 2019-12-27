@@ -72,6 +72,7 @@ import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
+import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 import com.cloudmersive.client.model.UpdateDocxTableCellRequest;
 import com.cloudmersive.client.model.UpdateDocxTableCellResponse;
@@ -145,7 +146,7 @@ public class EditDocumentApiTest {
     /**
      * Delete, remove pages from a Word DOCX document
      *
-     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      *
      * @throws ApiException
      *          if the Api call fails
@@ -506,6 +507,22 @@ public class EditDocumentApiTest {
     public void editDocumentFinishEditingTest() throws ApiException {
         FinishEditingRequest reqConfig = null;
         byte[] response = api.editDocumentFinishEditing(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete, remove slides from a PowerPoint PPTX presentation document
+     *
+     * Edits the input PowerPoint PPTX presentation document to remove the specified slides
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentPptxDeleteSlidesTest() throws ApiException {
+        RemovePptxSlidesRequest reqConfig = null;
+        byte[] response = api.editDocumentPptxDeleteSlides(reqConfig);
 
         // TODO: test validations
     }

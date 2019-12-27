@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.SplitPdfResult;
+import com.cloudmersive.client.model.SplitPptxPresentationResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -52,6 +53,23 @@ public class SplitDocumentApiTest {
     }
     
     /**
+     * Split a single PowerPoint Presentation PPTX into Separate Slides
+     *
+     * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentPptxTest() throws ApiException {
+        File inputFile = null;
+        Boolean returnDocumentContents = null;
+        SplitPptxPresentationResult response = api.splitDocumentPptx(inputFile, returnDocumentContents);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Split a single Excel XLSX into Separate Worksheets
      *
      * Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
@@ -62,7 +80,8 @@ public class SplitDocumentApiTest {
     @Test
     public void splitDocumentXlsxTest() throws ApiException {
         File inputFile = null;
-        SplitXlsxWorksheetResult response = api.splitDocumentXlsx(inputFile);
+        Boolean returnDocumentContents = null;
+        SplitXlsxWorksheetResult response = api.splitDocumentXlsx(inputFile, returnDocumentContents);
 
         // TODO: test validations
     }
