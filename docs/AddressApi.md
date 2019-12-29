@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addressCountry**](AddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
+[**addressGetTimezone**](AddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](AddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 
 
@@ -14,7 +15,7 @@ Method | HTTP request | Description
 
 Validate and normalize country information, return ISO 3166-1 country codes and country name
 
-Validates and normalizes country information, and returns key information about a country.
+Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
 
 ### Example
 ```java
@@ -53,6 +54,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidateCountryResponse**](ValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="addressGetTimezone"></a>
+# **addressGetTimezone**
+> GetTimezonesResponse addressGetTimezone(input)
+
+Gets IANA/Olsen time zones for a country
+
+Gets the IANA/Olsen time zones for a country.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.AddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+AddressApi apiInstance = new AddressApi();
+GetTimezonesRequest input = new GetTimezonesRequest(); // GetTimezonesRequest | Input request
+try {
+    GetTimezonesResponse result = apiInstance.addressGetTimezone(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AddressApi#addressGetTimezone");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**GetTimezonesRequest**](GetTimezonesRequest.md)| Input request |
+
+### Return type
+
+[**GetTimezonesResponse**](GetTimezonesResponse.md)
 
 ### Authorization
 

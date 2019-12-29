@@ -14,6 +14,8 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.GetTimezonesRequest;
+import com.cloudmersive.client.model.GetTimezonesResponse;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
 import com.cloudmersive.client.model.ValidateCountryRequest;
@@ -38,7 +40,7 @@ public class AddressApiTest {
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
      *
-     * Validates and normalizes country information, and returns key information about a country.
+     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -47,6 +49,22 @@ public class AddressApiTest {
     public void addressCountryTest() throws ApiException {
         ValidateCountryRequest input = null;
         ValidateCountryResponse response = api.addressCountry(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets IANA/Olsen time zones for a country
+     *
+     * Gets the IANA/Olsen time zones for a country.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressGetTimezoneTest() throws ApiException {
+        GetTimezonesRequest input = null;
+        GetTimezonesResponse response = api.addressGetTimezone(input);
 
         // TODO: test validations
     }

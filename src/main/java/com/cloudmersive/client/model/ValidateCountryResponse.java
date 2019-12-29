@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.Timezone;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +24,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Result of performing a country validation operation
  */
 @ApiModel(description = "Result of performing a country validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-26T23:07:02.224-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-28T18:16:45.318-08:00")
 public class ValidateCountryResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -44,6 +47,9 @@ public class ValidateCountryResponse {
 
   @SerializedName("ThreeLetterCode")
   private String threeLetterCode = null;
+
+  @SerializedName("Timezones")
+  private List<Timezone> timezones = null;
 
   public ValidateCountryResponse successful(Boolean successful) {
     this.successful = successful;
@@ -135,6 +141,32 @@ public class ValidateCountryResponse {
     this.threeLetterCode = threeLetterCode;
   }
 
+  public ValidateCountryResponse timezones(List<Timezone> timezones) {
+    this.timezones = timezones;
+    return this;
+  }
+
+  public ValidateCountryResponse addTimezonesItem(Timezone timezonesItem) {
+    if (this.timezones == null) {
+      this.timezones = new ArrayList<Timezone>();
+    }
+    this.timezones.add(timezonesItem);
+    return this;
+  }
+
+   /**
+   * Time zones (IANA/Olsen) in the country
+   * @return timezones
+  **/
+  @ApiModelProperty(value = "Time zones (IANA/Olsen) in the country")
+  public List<Timezone> getTimezones() {
+    return timezones;
+  }
+
+  public void setTimezones(List<Timezone> timezones) {
+    this.timezones = timezones;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +181,13 @@ public class ValidateCountryResponse {
         Objects.equals(this.countryFullName, validateCountryResponse.countryFullName) &&
         Objects.equals(this.isOTwoLetterCode, validateCountryResponse.isOTwoLetterCode) &&
         Objects.equals(this.fiPSTwoLetterCode, validateCountryResponse.fiPSTwoLetterCode) &&
-        Objects.equals(this.threeLetterCode, validateCountryResponse.threeLetterCode);
+        Objects.equals(this.threeLetterCode, validateCountryResponse.threeLetterCode) &&
+        Objects.equals(this.timezones, validateCountryResponse.timezones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, countryFullName, isOTwoLetterCode, fiPSTwoLetterCode, threeLetterCode);
+    return Objects.hash(successful, countryFullName, isOTwoLetterCode, fiPSTwoLetterCode, threeLetterCode, timezones);
   }
 
 
@@ -168,6 +201,7 @@ public class ValidateCountryResponse {
     sb.append("    isOTwoLetterCode: ").append(toIndentedString(isOTwoLetterCode)).append("\n");
     sb.append("    fiPSTwoLetterCode: ").append(toIndentedString(fiPSTwoLetterCode)).append("\n");
     sb.append("    threeLetterCode: ").append(toIndentedString(threeLetterCode)).append("\n");
+    sb.append("    timezones: ").append(toIndentedString(timezones)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,6 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cloudmersive.client.model.GetTimezonesRequest;
+import com.cloudmersive.client.model.GetTimezonesResponse;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
 import com.cloudmersive.client.model.ValidateCountryRequest;
@@ -122,7 +124,7 @@ public class AddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
-     * Validates and normalizes country information, and returns key information about a country.
+     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @return ValidateCountryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -134,7 +136,7 @@ public class AddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
-     * Validates and normalizes country information, and returns key information about a country.
+     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @return ApiResponse&lt;ValidateCountryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -147,7 +149,7 @@ public class AddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name (asynchronously)
-     * Validates and normalizes country information, and returns key information about a country.
+     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -176,6 +178,128 @@ public class AddressApi {
 
         com.squareup.okhttp.Call call = addressCountryValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ValidateCountryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for addressGetTimezone
+     * @param input Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addressGetTimezoneCall(GetTimezonesRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/address/country/get-timezones";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addressGetTimezoneValidateBeforeCall(GetTimezonesRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling addressGetTimezone(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addressGetTimezoneCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets IANA/Olsen time zones for a country
+     * Gets the IANA/Olsen time zones for a country.
+     * @param input Input request (required)
+     * @return GetTimezonesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetTimezonesResponse addressGetTimezone(GetTimezonesRequest input) throws ApiException {
+        ApiResponse<GetTimezonesResponse> resp = addressGetTimezoneWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Gets IANA/Olsen time zones for a country
+     * Gets the IANA/Olsen time zones for a country.
+     * @param input Input request (required)
+     * @return ApiResponse&lt;GetTimezonesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetTimezonesResponse> addressGetTimezoneWithHttpInfo(GetTimezonesRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = addressGetTimezoneValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<GetTimezonesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets IANA/Olsen time zones for a country (asynchronously)
+     * Gets the IANA/Olsen time zones for a country.
+     * @param input Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addressGetTimezoneAsync(GetTimezonesRequest input, final ApiCallback<GetTimezonesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addressGetTimezoneValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetTimezonesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
