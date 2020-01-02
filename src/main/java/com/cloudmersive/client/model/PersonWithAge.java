@@ -29,7 +29,7 @@ import java.io.IOException;
  * A person identified in an image age classification operation
  */
 @ApiModel(description = "A person identified in an image age classification operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-28T18:17:08.160-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-01T17:47:26.904-08:00")
 public class PersonWithAge {
   @SerializedName("FaceLocation")
   private Face faceLocation = null;

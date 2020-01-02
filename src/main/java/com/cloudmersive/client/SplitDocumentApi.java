@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.SplitDocxDocumentResult;
 import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitPptxPresentationResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
@@ -57,6 +58,136 @@ public class SplitDocumentApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for splitDocumentDocx
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentDocxCall(File inputFile, Boolean returnDocumentContents, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/split/docx";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (returnDocumentContents != null)
+        localVarHeaderParams.put("returnDocumentContents", apiClient.parameterToString(returnDocumentContents));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call splitDocumentDocxValidateBeforeCall(File inputFile, Boolean returnDocumentContents, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling splitDocumentDocx(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = splitDocumentDocxCall(inputFile, returnDocumentContents, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Split a single Word Document DOCX into Separate Documents by Page
+     * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true. (optional)
+     * @return SplitDocxDocumentResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SplitDocxDocumentResult splitDocumentDocx(File inputFile, Boolean returnDocumentContents) throws ApiException {
+        ApiResponse<SplitDocxDocumentResult> resp = splitDocumentDocxWithHttpInfo(inputFile, returnDocumentContents);
+        return resp.getData();
+    }
+
+    /**
+     * Split a single Word Document DOCX into Separate Documents by Page
+     * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true. (optional)
+     * @return ApiResponse&lt;SplitDocxDocumentResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SplitDocxDocumentResult> splitDocumentDocxWithHttpInfo(File inputFile, Boolean returnDocumentContents) throws ApiException {
+        com.squareup.okhttp.Call call = splitDocumentDocxValidateBeforeCall(inputFile, returnDocumentContents, null, null);
+        Type localVarReturnType = new TypeToken<SplitDocxDocumentResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Split a single Word Document DOCX into Separate Documents by Page (asynchronously)
+     * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentDocxAsync(File inputFile, Boolean returnDocumentContents, final ApiCallback<SplitDocxDocumentResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = splitDocumentDocxValidateBeforeCall(inputFile, returnDocumentContents, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SplitDocxDocumentResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for splitDocumentPdfByPage
      * @param inputFile Input file to perform the operation on. (required)
@@ -190,7 +321,7 @@ public class SplitDocumentApi {
     /**
      * Build call for splitDocumentPptx
      * @param inputFile Input file to perform the operation on. (required)
-     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
+     * @param returnDocumentContents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -259,7 +390,7 @@ public class SplitDocumentApi {
      * Split a single PowerPoint Presentation PPTX into Separate Slides
      * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
+     * @param returnDocumentContents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. (optional)
      * @return SplitPptxPresentationResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -272,7 +403,7 @@ public class SplitDocumentApi {
      * Split a single PowerPoint Presentation PPTX into Separate Slides
      * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
+     * @param returnDocumentContents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. (optional)
      * @return ApiResponse&lt;SplitPptxPresentationResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -286,7 +417,7 @@ public class SplitDocumentApi {
      * Split a single PowerPoint Presentation PPTX into Separate Slides (asynchronously)
      * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
+     * @param returnDocumentContents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

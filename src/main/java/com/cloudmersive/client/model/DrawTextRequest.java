@@ -31,7 +31,7 @@ import java.util.List;
  * Request to draw one or more pieces of text onto an image
  */
 @ApiModel(description = "Request to draw one or more pieces of text onto an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-28T18:17:08.160-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-01T17:47:26.904-08:00")
 public class DrawTextRequest {
   @SerializedName("BaseImageBytes")
   private byte[] baseImageBytes = null;

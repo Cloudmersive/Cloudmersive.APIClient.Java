@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.SplitDocxDocumentResult;
 import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitPptxPresentationResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
@@ -34,6 +35,23 @@ public class SplitDocumentApiTest {
 
     private final SplitDocumentApi api = new SplitDocumentApi();
 
+    
+    /**
+     * Split a single Word Document DOCX into Separate Documents by Page
+     *
+     * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentDocxTest() throws ApiException {
+        File inputFile = null;
+        Boolean returnDocumentContents = null;
+        SplitDocxDocumentResult response = api.splitDocumentDocx(inputFile, returnDocumentContents);
+
+        // TODO: test validations
+    }
     
     /**
      * Split a PDF file into separate PDF files, one per page
