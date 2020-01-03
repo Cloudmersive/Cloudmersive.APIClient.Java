@@ -18,6 +18,8 @@ import com.cloudmersive.client.model.CreateBlankDocxRequest;
 import com.cloudmersive.client.model.CreateBlankDocxResponse;
 import com.cloudmersive.client.model.CreateBlankSpreadsheetRequest;
 import com.cloudmersive.client.model.CreateBlankSpreadsheetResponse;
+import com.cloudmersive.client.model.CreateSpreadsheetFromDataRequest;
+import com.cloudmersive.client.model.CreateSpreadsheetFromDataResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
@@ -555,6 +557,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxCreateBlankSpreadsheetTest() throws ApiException {
         CreateBlankSpreadsheetRequest input = null;
         CreateBlankSpreadsheetResponse response = api.editDocumentXlsxCreateBlankSpreadsheet(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Excel XLSX spreadsheet from column and row data
+     *
+     * Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxCreateSpreadsheetFromDataTest() throws ApiException {
+        CreateSpreadsheetFromDataRequest input = null;
+        CreateSpreadsheetFromDataResponse response = api.editDocumentXlsxCreateSpreadsheetFromData(input);
 
         // TODO: test validations
     }
