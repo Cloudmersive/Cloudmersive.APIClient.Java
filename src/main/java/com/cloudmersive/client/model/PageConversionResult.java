@@ -28,7 +28,7 @@ import java.io.IOException;
  * Converted page as an image
  */
 @ApiModel(description = "Converted page as an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T20:55:12.048-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T23:52:21.544-08:00")
 public class PageConversionResult {
   @SerializedName("Filename")
   private String filename = null;

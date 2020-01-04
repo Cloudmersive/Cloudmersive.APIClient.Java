@@ -23,18 +23,22 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * IANA/Olsen time zone
  */
 @ApiModel(description = "IANA/Olsen time zone")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T20:54:30.760-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T23:51:53.062-08:00")
 public class Timezone {
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("BaseUTCOffset")
   private String baseUTCOffset = null;
+
+  @SerializedName("Now")
+  private OffsetDateTime now = null;
 
   public Timezone name(String name) {
     this.name = name;
@@ -72,6 +76,24 @@ public class Timezone {
     this.baseUTCOffset = baseUTCOffset;
   }
 
+  public Timezone now(OffsetDateTime now) {
+    this.now = now;
+    return this;
+  }
+
+   /**
+   * The current time (Now) in this time zone
+   * @return now
+  **/
+  @ApiModelProperty(value = "The current time (Now) in this time zone")
+  public OffsetDateTime getNow() {
+    return now;
+  }
+
+  public void setNow(OffsetDateTime now) {
+    this.now = now;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +105,13 @@ public class Timezone {
     }
     Timezone timezone = (Timezone) o;
     return Objects.equals(this.name, timezone.name) &&
-        Objects.equals(this.baseUTCOffset, timezone.baseUTCOffset);
+        Objects.equals(this.baseUTCOffset, timezone.baseUTCOffset) &&
+        Objects.equals(this.now, timezone.now);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, baseUTCOffset);
+    return Objects.hash(name, baseUTCOffset, now);
   }
 
 
@@ -99,6 +122,7 @@ public class Timezone {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    baseUTCOffset: ").append(toIndentedString(baseUTCOffset)).append("\n");
+    sb.append("    now: ").append(toIndentedString(now)).append("\n");
     sb.append("}");
     return sb.toString();
   }
