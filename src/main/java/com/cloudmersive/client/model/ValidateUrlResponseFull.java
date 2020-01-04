@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of validating a URL with full validation
  */
 @ApiModel(description = "Result of validating a URL with full validation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-02T22:32:29.432-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T20:54:30.760-08:00")
 public class ValidateUrlResponseFull {
   @SerializedName("ValidURL")
   private Boolean validURL = null;

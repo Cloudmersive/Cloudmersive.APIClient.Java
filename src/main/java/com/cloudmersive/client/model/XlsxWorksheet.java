@@ -28,7 +28,7 @@ import java.io.IOException;
  * A worksheet (tab) in an Excel (XLSX) spreadsheet
  */
 @ApiModel(description = "A worksheet (tab) in an Excel (XLSX) spreadsheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-02T22:33:02.806-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T20:55:12.048-08:00")
 public class XlsxWorksheet {
   @SerializedName("Path")
   private String path = null;

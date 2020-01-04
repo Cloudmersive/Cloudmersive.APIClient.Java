@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of an autodetect/get-info operation
  */
 @ApiModel(description = "Result of an autodetect/get-info operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-02T22:33:02.806-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-03T20:55:12.048-08:00")
 public class AutodetectGetInfoResult {
   @SerializedName("Successful")
   private Boolean successful = null;
