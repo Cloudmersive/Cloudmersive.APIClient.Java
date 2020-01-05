@@ -14,6 +14,8 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.ClearXlsxCellRequest;
+import com.cloudmersive.client.model.ClearXlsxCellResponse;
 import com.cloudmersive.client.model.CreateBlankDocxRequest;
 import com.cloudmersive.client.model.CreateBlankDocxResponse;
 import com.cloudmersive.client.model.CreateBlankSpreadsheetRequest;
@@ -75,7 +77,10 @@ import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.RemovePptxSlidesRequest;
+import com.cloudmersive.client.model.RemoveXlsxWorksheetRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
+import com.cloudmersive.client.model.SetXlsxCellRequest;
+import com.cloudmersive.client.model.SetXlsxCellResponse;
 import com.cloudmersive.client.model.UpdateDocxTableCellRequest;
 import com.cloudmersive.client.model.UpdateDocxTableCellResponse;
 import com.cloudmersive.client.model.UpdateDocxTableRowRequest;
@@ -546,6 +551,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+     *
+     * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxClearCellByIndexTest() throws ApiException {
+        ClearXlsxCellRequest input = null;
+        ClearXlsxCellResponse response = api.editDocumentXlsxClearCellByIndex(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a blank Excel XLSX spreadsheet
      *
      * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
@@ -573,6 +594,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxCreateSpreadsheetFromDataTest() throws ApiException {
         CreateSpreadsheetFromDataRequest input = null;
         CreateSpreadsheetFromDataResponse response = api.editDocumentXlsxCreateSpreadsheetFromData(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete, remove worksheet from an Excel XLSX spreadsheet document
+     *
+     * Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxDeleteWorksheetTest() throws ApiException {
+        RemoveXlsxWorksheetRequest reqConfig = null;
+        Object response = api.editDocumentXlsxDeleteWorksheet(reqConfig);
 
         // TODO: test validations
     }
@@ -685,6 +722,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxInsertWorksheetTest() throws ApiException {
         InsertXlsxWorksheetRequest input = null;
         InsertXlsxWorksheetResponse response = api.editDocumentXlsxInsertWorksheet(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+     *
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxSetCellByIndexTest() throws ApiException {
+        SetXlsxCellRequest input = null;
+        SetXlsxCellResponse response = api.editDocumentXlsxSetCellByIndex(input);
 
         // TODO: test validations
     }
