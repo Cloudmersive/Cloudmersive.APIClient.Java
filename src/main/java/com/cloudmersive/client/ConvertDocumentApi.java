@@ -433,12 +433,13 @@ public class ConvertDocumentApi {
     /**
      * Build call for convertDocumentAutodetectToTxt
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentAutodetectToTxtCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentAutodetectToTxtCall(File inputFile, String textFormattingMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -448,6 +449,8 @@ public class ConvertDocumentApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (textFormattingMode != null)
+        localVarHeaderParams.put("textFormattingMode", apiClient.parameterToString(textFormattingMode));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -482,7 +485,7 @@ public class ConvertDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentAutodetectToTxtValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentAutodetectToTxtValidateBeforeCall(File inputFile, String textFormattingMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -490,7 +493,7 @@ public class ConvertDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = convertDocumentAutodetectToTxtCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToTxtCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         return call;
 
     }
@@ -499,11 +502,12 @@ public class ConvertDocumentApi {
      * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @return TextConversionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TextConversionResult convertDocumentAutodetectToTxt(File inputFile) throws ApiException {
-        ApiResponse<TextConversionResult> resp = convertDocumentAutodetectToTxtWithHttpInfo(inputFile);
+    public TextConversionResult convertDocumentAutodetectToTxt(File inputFile, String textFormattingMode) throws ApiException {
+        ApiResponse<TextConversionResult> resp = convertDocumentAutodetectToTxtWithHttpInfo(inputFile, textFormattingMode);
         return resp.getData();
     }
 
@@ -511,11 +515,12 @@ public class ConvertDocumentApi {
      * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @return ApiResponse&lt;TextConversionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TextConversionResult> convertDocumentAutodetectToTxtWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = convertDocumentAutodetectToTxtValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<TextConversionResult> convertDocumentAutodetectToTxtWithHttpInfo(File inputFile, String textFormattingMode) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToTxtValidateBeforeCall(inputFile, textFormattingMode, null, null);
         Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -524,11 +529,12 @@ public class ConvertDocumentApi {
      * Convert Document to Text (txt) (asynchronously)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentAutodetectToTxtAsync(File inputFile, final ApiCallback<TextConversionResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentAutodetectToTxtAsync(File inputFile, String textFormattingMode, final ApiCallback<TextConversionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -549,7 +555,7 @@ public class ConvertDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDocumentAutodetectToTxtValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToTxtValidateBeforeCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2169,12 +2175,13 @@ public class ConvertDocumentApi {
     /**
      * Build call for convertDocumentPdfToTxt
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPdfToTxtCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPdfToTxtCall(File inputFile, String textFormattingMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2184,6 +2191,8 @@ public class ConvertDocumentApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (textFormattingMode != null)
+        localVarHeaderParams.put("textFormattingMode", apiClient.parameterToString(textFormattingMode));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -2218,7 +2227,7 @@ public class ConvertDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentPdfToTxtValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentPdfToTxtValidateBeforeCall(File inputFile, String textFormattingMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -2226,7 +2235,7 @@ public class ConvertDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = convertDocumentPdfToTxtCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPdfToTxtCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2235,11 +2244,12 @@ public class ConvertDocumentApi {
      * Convert PDF Document to Text (txt)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @return TextConversionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TextConversionResult convertDocumentPdfToTxt(File inputFile) throws ApiException {
-        ApiResponse<TextConversionResult> resp = convertDocumentPdfToTxtWithHttpInfo(inputFile);
+    public TextConversionResult convertDocumentPdfToTxt(File inputFile, String textFormattingMode) throws ApiException {
+        ApiResponse<TextConversionResult> resp = convertDocumentPdfToTxtWithHttpInfo(inputFile, textFormattingMode);
         return resp.getData();
     }
 
@@ -2247,11 +2257,12 @@ public class ConvertDocumentApi {
      * Convert PDF Document to Text (txt)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @return ApiResponse&lt;TextConversionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TextConversionResult> convertDocumentPdfToTxtWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = convertDocumentPdfToTxtValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<TextConversionResult> convertDocumentPdfToTxtWithHttpInfo(File inputFile, String textFormattingMode) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPdfToTxtValidateBeforeCall(inputFile, textFormattingMode, null, null);
         Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2260,11 +2271,12 @@ public class ConvertDocumentApi {
      * Convert PDF Document to Text (txt) (asynchronously)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPdfToTxtAsync(File inputFile, final ApiCallback<TextConversionResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPdfToTxtAsync(File inputFile, String textFormattingMode, final ApiCallback<TextConversionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2285,7 +2297,7 @@ public class ConvertDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDocumentPdfToTxtValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPdfToTxtValidateBeforeCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

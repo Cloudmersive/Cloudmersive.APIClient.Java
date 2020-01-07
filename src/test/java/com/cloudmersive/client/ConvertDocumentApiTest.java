@@ -95,7 +95,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentAutodetectToTxtTest() throws ApiException {
         File inputFile = null;
-        TextConversionResult response = api.convertDocumentAutodetectToTxt(inputFile);
+        String textFormattingMode = null;
+        TextConversionResult response = api.convertDocumentAutodetectToTxt(inputFile, textFormattingMode);
 
         // TODO: test validations
     }
@@ -319,7 +320,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentPdfToTxtTest() throws ApiException {
         File inputFile = null;
-        TextConversionResult response = api.convertDocumentPdfToTxt(inputFile);
+        String textFormattingMode = null;
+        TextConversionResult response = api.convertDocumentPdfToTxt(inputFile, textFormattingMode);
 
         // TODO: test validations
     }
