@@ -35,6 +35,8 @@ import com.cloudmersive.client.model.CreateBlankSpreadsheetRequest;
 import com.cloudmersive.client.model.CreateBlankSpreadsheetResponse;
 import com.cloudmersive.client.model.CreateSpreadsheetFromDataRequest;
 import com.cloudmersive.client.model.CreateSpreadsheetFromDataResponse;
+import com.cloudmersive.client.model.DeleteDocxTableRowRangeRequest;
+import com.cloudmersive.client.model.DeleteDocxTableRowRangeResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
@@ -66,6 +68,8 @@ import com.cloudmersive.client.model.GetDocxTableRowRequest;
 import com.cloudmersive.client.model.GetDocxTableRowResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.GetXlsxCellByIdentifierRequest;
+import com.cloudmersive.client.model.GetXlsxCellByIdentifierResponse;
 import com.cloudmersive.client.model.GetXlsxCellRequest;
 import com.cloudmersive.client.model.GetXlsxCellResponse;
 import com.cloudmersive.client.model.GetXlsxColumnsRequest;
@@ -92,6 +96,8 @@ import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.RemoveXlsxWorksheetRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
+import com.cloudmersive.client.model.SetXlsxCellByIdentifierRequest;
+import com.cloudmersive.client.model.SetXlsxCellByIdentifierResponse;
 import com.cloudmersive.client.model.SetXlsxCellRequest;
 import com.cloudmersive.client.model.SetXlsxCellResponse;
 import com.cloudmersive.client.model.UpdateDocxTableCellRequest;
@@ -733,6 +739,128 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteDocxTableRowResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxDeleteTableRowRange
+     * @param reqConfig Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxDeleteTableRowRangeCall(DeleteDocxTableRowRangeRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/delete-table-row/range";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxDeleteTableRowRangeValidateBeforeCall(DeleteDocxTableRowRangeRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxDeleteTableRowRange(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowRangeCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Deletes a range of multiple table rows in an existing table in a Word DOCX document
+     * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+     * @param reqConfig Document input request (required)
+     * @return DeleteDocxTableRowRangeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteDocxTableRowRangeResponse editDocumentDocxDeleteTableRowRange(DeleteDocxTableRowRangeRequest reqConfig) throws ApiException {
+        ApiResponse<DeleteDocxTableRowRangeResponse> resp = editDocumentDocxDeleteTableRowRangeWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Deletes a range of multiple table rows in an existing table in a Word DOCX document
+     * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+     * @param reqConfig Document input request (required)
+     * @return ApiResponse&lt;DeleteDocxTableRowRangeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteDocxTableRowRangeResponse> editDocumentDocxDeleteTableRowRangeWithHttpInfo(DeleteDocxTableRowRangeRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowRangeValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<DeleteDocxTableRowRangeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Deletes a range of multiple table rows in an existing table in a Word DOCX document (asynchronously)
+     * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+     * @param reqConfig Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxDeleteTableRowRangeAsync(DeleteDocxTableRowRangeRequest reqConfig, final ApiCallback<DeleteDocxTableRowRangeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowRangeValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteDocxTableRowRangeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4031,6 +4159,128 @@ public class EditDocumentApi {
         return call;
     }
     /**
+     * Build call for editDocumentXlsxGetCellByIdentifier
+     * @param input Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentXlsxGetCellByIdentifierCall(GetXlsxCellByIdentifierRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/xlsx/get-cell/by-identifier";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentXlsxGetCellByIdentifierValidateBeforeCall(GetXlsxCellByIdentifierRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling editDocumentXlsxGetCellByIdentifier(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentXlsxGetCellByIdentifierCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+     * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+     * @param input Document input request (required)
+     * @return GetXlsxCellByIdentifierResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetXlsxCellByIdentifierResponse editDocumentXlsxGetCellByIdentifier(GetXlsxCellByIdentifierRequest input) throws ApiException {
+        ApiResponse<GetXlsxCellByIdentifierResponse> resp = editDocumentXlsxGetCellByIdentifierWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+     * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+     * @param input Document input request (required)
+     * @return ApiResponse&lt;GetXlsxCellByIdentifierResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetXlsxCellByIdentifierResponse> editDocumentXlsxGetCellByIdentifierWithHttpInfo(GetXlsxCellByIdentifierRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentXlsxGetCellByIdentifierValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<GetXlsxCellByIdentifierResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier (asynchronously)
+     * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+     * @param input Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentXlsxGetCellByIdentifierAsync(GetXlsxCellByIdentifierRequest input, final ApiCallback<GetXlsxCellByIdentifierResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentXlsxGetCellByIdentifierValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetXlsxCellByIdentifierResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editDocumentXlsxGetCellByIndex
      * @param input Document input request (required)
      * @param progressListener Progress listener
@@ -4095,7 +4345,7 @@ public class EditDocumentApi {
 
     /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return GetXlsxCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4107,7 +4357,7 @@ public class EditDocumentApi {
 
     /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4120,7 +4370,7 @@ public class EditDocumentApi {
 
     /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index (asynchronously)
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4881,6 +5131,128 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentXlsxInsertWorksheetValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InsertXlsxWorksheetResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentXlsxSetCellByIdentifier
+     * @param input Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentXlsxSetCellByIdentifierCall(SetXlsxCellByIdentifierRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/xlsx/set-cell/by-identifier";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentXlsxSetCellByIdentifierValidateBeforeCall(SetXlsxCellByIdentifierRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling editDocumentXlsxSetCellByIdentifier(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentXlsxSetCellByIdentifierCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+     * @param input Document input request (required)
+     * @return SetXlsxCellByIdentifierResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SetXlsxCellByIdentifierResponse editDocumentXlsxSetCellByIdentifier(SetXlsxCellByIdentifierRequest input) throws ApiException {
+        ApiResponse<SetXlsxCellByIdentifierResponse> resp = editDocumentXlsxSetCellByIdentifierWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+     * @param input Document input request (required)
+     * @return ApiResponse&lt;SetXlsxCellByIdentifierResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SetXlsxCellByIdentifierResponse> editDocumentXlsxSetCellByIdentifierWithHttpInfo(SetXlsxCellByIdentifierRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentXlsxSetCellByIdentifierValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<SetXlsxCellByIdentifierResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier (asynchronously)
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+     * @param input Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentXlsxSetCellByIdentifierAsync(SetXlsxCellByIdentifierRequest input, final ApiCallback<SetXlsxCellByIdentifierResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentXlsxSetCellByIdentifierValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SetXlsxCellByIdentifierResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

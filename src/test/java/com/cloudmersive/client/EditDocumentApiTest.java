@@ -22,6 +22,8 @@ import com.cloudmersive.client.model.CreateBlankSpreadsheetRequest;
 import com.cloudmersive.client.model.CreateBlankSpreadsheetResponse;
 import com.cloudmersive.client.model.CreateSpreadsheetFromDataRequest;
 import com.cloudmersive.client.model.CreateSpreadsheetFromDataResponse;
+import com.cloudmersive.client.model.DeleteDocxTableRowRangeRequest;
+import com.cloudmersive.client.model.DeleteDocxTableRowRangeResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
@@ -53,6 +55,8 @@ import com.cloudmersive.client.model.GetDocxTableRowRequest;
 import com.cloudmersive.client.model.GetDocxTableRowResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.GetXlsxCellByIdentifierRequest;
+import com.cloudmersive.client.model.GetXlsxCellByIdentifierResponse;
 import com.cloudmersive.client.model.GetXlsxCellRequest;
 import com.cloudmersive.client.model.GetXlsxCellResponse;
 import com.cloudmersive.client.model.GetXlsxColumnsRequest;
@@ -79,6 +83,8 @@ import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.RemoveXlsxWorksheetRequest;
 import com.cloudmersive.client.model.ReplaceStringRequest;
+import com.cloudmersive.client.model.SetXlsxCellByIdentifierRequest;
+import com.cloudmersive.client.model.SetXlsxCellByIdentifierResponse;
 import com.cloudmersive.client.model.SetXlsxCellRequest;
 import com.cloudmersive.client.model.SetXlsxCellResponse;
 import com.cloudmersive.client.model.UpdateDocxTableCellRequest;
@@ -178,6 +184,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxDeleteTableRowTest() throws ApiException {
         DeleteDocxTableRowRequest reqConfig = null;
         DeleteDocxTableRowResponse response = api.editDocumentDocxDeleteTableRow(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Deletes a range of multiple table rows in an existing table in a Word DOCX document
+     *
+     * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxDeleteTableRowRangeTest() throws ApiException {
+        DeleteDocxTableRowRangeRequest reqConfig = null;
+        DeleteDocxTableRowRangeResponse response = api.editDocumentDocxDeleteTableRowRange(reqConfig);
 
         // TODO: test validations
     }
@@ -615,9 +637,25 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+     *
+     * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetCellByIdentifierTest() throws ApiException {
+        GetXlsxCellByIdentifierRequest input = null;
+        GetXlsxCellByIdentifierResponse response = api.editDocumentXlsxGetCellByIdentifier(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
      *
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      *
      * @throws ApiException
      *          if the Api call fails
@@ -722,6 +760,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxInsertWorksheetTest() throws ApiException {
         InsertXlsxWorksheetRequest input = null;
         InsertXlsxWorksheetResponse response = api.editDocumentXlsxInsertWorksheet(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+     *
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxSetCellByIdentifierTest() throws ApiException {
+        SetXlsxCellByIdentifierRequest input = null;
+        SetXlsxCellByIdentifierResponse response = api.editDocumentXlsxSetCellByIdentifier(input);
 
         // TODO: test validations
     }

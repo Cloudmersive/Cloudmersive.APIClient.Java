@@ -31,7 +31,7 @@ import java.util.List;
  * Request to draw one or more polygons on a base image
  */
 @ApiModel(description = "Request to draw one or more polygons on a base image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-06T22:30:48.511-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-08T20:51:48.833-08:00")
 public class DrawPolygonRequest {
   @SerializedName("BaseImageBytes")
   private byte[] baseImageBytes = null;

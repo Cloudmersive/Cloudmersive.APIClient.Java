@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**editDocumentDocxCreateBlankDocument**](EditDocumentApi.md#editDocumentDocxCreateBlankDocument) | **POST** /convert/edit/docx/create/blank | Create a blank Word DOCX document
 [**editDocumentDocxDeletePages**](EditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxDeleteTableRow**](EditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
+[**editDocumentDocxDeleteTableRowRange**](EditDocumentApi.md#editDocumentDocxDeleteTableRowRange) | **POST** /convert/edit/docx/delete-table-row/range | Deletes a range of multiple table rows in an existing table in a Word DOCX document
 [**editDocumentDocxGetHeadersAndFooters**](EditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**editDocumentDocxGetImages**](EditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 [**editDocumentDocxGetSections**](EditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -36,6 +37,7 @@ Method | HTTP request | Description
 [**editDocumentXlsxCreateBlankSpreadsheet**](EditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 [**editDocumentXlsxCreateSpreadsheetFromData**](EditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 [**editDocumentXlsxDeleteWorksheet**](EditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
+[**editDocumentXlsxGetCellByIdentifier**](EditDocumentApi.md#editDocumentXlsxGetCellByIdentifier) | **POST** /convert/edit/xlsx/get-cell/by-identifier | Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
 [**editDocumentXlsxGetCellByIndex**](EditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
 [**editDocumentXlsxGetColumns**](EditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetImages**](EditDocumentApi.md#editDocumentXlsxGetImages) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
@@ -43,6 +45,7 @@ Method | HTTP request | Description
 [**editDocumentXlsxGetStyles**](EditDocumentApi.md#editDocumentXlsxGetStyles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetWorksheets**](EditDocumentApi.md#editDocumentXlsxGetWorksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
 [**editDocumentXlsxInsertWorksheet**](EditDocumentApi.md#editDocumentXlsxInsertWorksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
+[**editDocumentXlsxSetCellByIdentifier**](EditDocumentApi.md#editDocumentXlsxSetCellByIdentifier) | **POST** /convert/edit/xlsx/set-cell/by-identifier | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
 [**editDocumentXlsxSetCellByIndex**](EditDocumentApi.md#editDocumentXlsxSetCellByIndex) | **POST** /convert/edit/xlsx/set-cell/by-index | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
 
 
@@ -311,6 +314,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteDocxTableRowResponse**](DeleteDocxTableRowResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxDeleteTableRowRange"></a>
+# **editDocumentDocxDeleteTableRowRange**
+> DeleteDocxTableRowRangeResponse editDocumentDocxDeleteTableRowRange(reqConfig)
+
+Deletes a range of multiple table rows in an existing table in a Word DOCX document
+
+Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+DeleteDocxTableRowRangeRequest reqConfig = new DeleteDocxTableRowRangeRequest(); // DeleteDocxTableRowRangeRequest | Document input request
+try {
+    DeleteDocxTableRowRangeResponse result = apiInstance.editDocumentDocxDeleteTableRowRange(reqConfig);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxDeleteTableRowRange");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**DeleteDocxTableRowRangeRequest**](DeleteDocxTableRowRangeRequest.md)| Document input request |
+
+### Return type
+
+[**DeleteDocxTableRowRangeResponse**](DeleteDocxTableRowRangeResponse.md)
 
 ### Authorization
 
@@ -1806,13 +1864,68 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/octet-stream
 
+<a name="editDocumentXlsxGetCellByIdentifier"></a>
+# **editDocumentXlsxGetCellByIdentifier**
+> GetXlsxCellByIdentifierResponse editDocumentXlsxGetCellByIdentifier(input)
+
+Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+
+Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+GetXlsxCellByIdentifierRequest input = new GetXlsxCellByIdentifierRequest(); // GetXlsxCellByIdentifierRequest | Document input request
+try {
+    GetXlsxCellByIdentifierResponse result = apiInstance.editDocumentXlsxGetCellByIdentifier(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentXlsxGetCellByIdentifier");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**GetXlsxCellByIdentifierRequest**](GetXlsxCellByIdentifierRequest.md)| Document input request |
+
+### Return type
+
+[**GetXlsxCellByIdentifierResponse**](GetXlsxCellByIdentifierResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 <a name="editDocumentXlsxGetCellByIndex"></a>
 # **editDocumentXlsxGetCellByIndex**
 > GetXlsxCellResponse editDocumentXlsxGetCellByIndex(input)
 
 Get cell from an Excel XLSX spreadsheet, worksheet by index
 
-Returns the rows and cells defined in the Excel Spreadsheet worksheet
+Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
 
 ### Example
 ```java
@@ -2181,6 +2294,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InsertXlsxWorksheetResponse**](InsertXlsxWorksheetResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentXlsxSetCellByIdentifier"></a>
+# **editDocumentXlsxSetCellByIdentifier**
+> SetXlsxCellByIdentifierResponse editDocumentXlsxSetCellByIdentifier(input)
+
+Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+
+Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+SetXlsxCellByIdentifierRequest input = new SetXlsxCellByIdentifierRequest(); // SetXlsxCellByIdentifierRequest | Document input request
+try {
+    SetXlsxCellByIdentifierResponse result = apiInstance.editDocumentXlsxSetCellByIdentifier(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentXlsxSetCellByIdentifier");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SetXlsxCellByIdentifierRequest**](SetXlsxCellByIdentifierRequest.md)| Document input request |
+
+### Return type
+
+[**SetXlsxCellByIdentifierResponse**](SetXlsxCellByIdentifierResponse.md)
 
 ### Authorization
 
