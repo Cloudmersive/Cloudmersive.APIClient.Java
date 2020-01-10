@@ -150,6 +150,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Word DOC (97-03) Document to Text (txt)
+     *
+     * Convert Office Word DOC (97-03) Document (doc) to text
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocToTxtTest() throws ApiException {
+        File inputFile = null;
+        TextConversionResult response = api.convertDocumentDocToTxt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Word DOCX Document to PDF
      *
      * Convert Office Word Documents (docx) to standard PDF

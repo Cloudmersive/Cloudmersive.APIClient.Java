@@ -31,6 +31,7 @@ import java.io.File;
 import com.cloudmersive.client.model.SplitDocxDocumentResult;
 import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitPptxPresentationResult;
+import com.cloudmersive.client.model.SplitTextDocumentByLinesResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
 
 import java.lang.reflect.Type;
@@ -445,6 +446,130 @@ public class SplitDocumentApi {
 
         com.squareup.okhttp.Call call = splitDocumentPptxValidateBeforeCall(inputFile, returnDocumentContents, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SplitPptxPresentationResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for splitDocumentTxtByLine
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentTxtByLineCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/split/txt/by-line";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call splitDocumentTxtByLineValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling splitDocumentTxtByLine(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = splitDocumentTxtByLineCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Split a single Text file (txt) into lines
+     * Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SplitTextDocumentByLinesResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SplitTextDocumentByLinesResult splitDocumentTxtByLine(File inputFile) throws ApiException {
+        ApiResponse<SplitTextDocumentByLinesResult> resp = splitDocumentTxtByLineWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Split a single Text file (txt) into lines
+     * Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;SplitTextDocumentByLinesResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SplitTextDocumentByLinesResult> splitDocumentTxtByLineWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = splitDocumentTxtByLineValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<SplitTextDocumentByLinesResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Split a single Text file (txt) into lines (asynchronously)
+     * Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentTxtByLineAsync(File inputFile, final ApiCallback<SplitTextDocumentByLinesResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = splitDocumentTxtByLineValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SplitTextDocumentByLinesResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
