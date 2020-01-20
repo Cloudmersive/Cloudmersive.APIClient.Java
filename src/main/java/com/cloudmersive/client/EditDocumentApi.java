@@ -39,6 +39,7 @@ import com.cloudmersive.client.model.DeleteDocxTableRowRangeRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowRangeResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
+import com.cloudmersive.client.model.DocxInsertCommentOnParagraphRequest;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
 import com.cloudmersive.client.model.DocxRemoveObjectRequest;
@@ -52,6 +53,10 @@ import java.io.File;
 import com.cloudmersive.client.model.FinishEditingRequest;
 import com.cloudmersive.client.model.GetDocxBodyRequest;
 import com.cloudmersive.client.model.GetDocxBodyResponse;
+import com.cloudmersive.client.model.GetDocxCommentsHierarchicalResponse;
+import com.cloudmersive.client.model.GetDocxCommentsResponse;
+import com.cloudmersive.client.model.GetDocxGetCommentsHierarchicalRequest;
+import com.cloudmersive.client.model.GetDocxGetCommentsRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.GetDocxImagesRequest;
@@ -82,6 +87,7 @@ import com.cloudmersive.client.model.GetXlsxStylesRequest;
 import com.cloudmersive.client.model.GetXlsxStylesResponse;
 import com.cloudmersive.client.model.GetXlsxWorksheetsRequest;
 import com.cloudmersive.client.model.GetXlsxWorksheetsResponse;
+import com.cloudmersive.client.model.InsertDocxCommentOnParagraphResponse;
 import com.cloudmersive.client.model.InsertDocxInsertParagraphRequest;
 import com.cloudmersive.client.model.InsertDocxInsertParagraphResponse;
 import com.cloudmersive.client.model.InsertDocxTableRowRequest;
@@ -861,6 +867,250 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowRangeValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteDocxTableRowRangeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxGetComments
+     * @param reqConfig Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetCommentsCall(GetDocxGetCommentsRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-comments/flat-list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetCommentsValidateBeforeCall(GetDocxGetCommentsRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxGetComments(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetCommentsCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get comments from a Word DOCX document as a flat list
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+     * @param reqConfig Document input request (required)
+     * @return GetDocxCommentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetDocxCommentsResponse editDocumentDocxGetComments(GetDocxGetCommentsRequest reqConfig) throws ApiException {
+        ApiResponse<GetDocxCommentsResponse> resp = editDocumentDocxGetCommentsWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Get comments from a Word DOCX document as a flat list
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+     * @param reqConfig Document input request (required)
+     * @return ApiResponse&lt;GetDocxCommentsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetDocxCommentsResponse> editDocumentDocxGetCommentsWithHttpInfo(GetDocxGetCommentsRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetCommentsValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<GetDocxCommentsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get comments from a Word DOCX document as a flat list (asynchronously)
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+     * @param reqConfig Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetCommentsAsync(GetDocxGetCommentsRequest reqConfig, final ApiCallback<GetDocxCommentsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetCommentsValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetDocxCommentsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxGetCommentsHierarchical
+     * @param reqConfig Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetCommentsHierarchicalCall(GetDocxGetCommentsHierarchicalRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-comments/hierarchical";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetCommentsHierarchicalValidateBeforeCall(GetDocxGetCommentsHierarchicalRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxGetCommentsHierarchical(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetCommentsHierarchicalCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get comments from a Word DOCX document hierarchically
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+     * @param reqConfig Document input request (required)
+     * @return GetDocxCommentsHierarchicalResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetDocxCommentsHierarchicalResponse editDocumentDocxGetCommentsHierarchical(GetDocxGetCommentsHierarchicalRequest reqConfig) throws ApiException {
+        ApiResponse<GetDocxCommentsHierarchicalResponse> resp = editDocumentDocxGetCommentsHierarchicalWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Get comments from a Word DOCX document hierarchically
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+     * @param reqConfig Document input request (required)
+     * @return ApiResponse&lt;GetDocxCommentsHierarchicalResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetDocxCommentsHierarchicalResponse> editDocumentDocxGetCommentsHierarchicalWithHttpInfo(GetDocxGetCommentsHierarchicalRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetCommentsHierarchicalValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<GetDocxCommentsHierarchicalResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get comments from a Word DOCX document hierarchically (asynchronously)
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+     * @param reqConfig Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetCommentsHierarchicalAsync(GetDocxGetCommentsHierarchicalRequest reqConfig, final ApiCallback<GetDocxCommentsHierarchicalResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetCommentsHierarchicalValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetDocxCommentsHierarchicalResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1715,6 +1965,128 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxGetTablesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetDocxTablesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxInsertCommentOnParagraph
+     * @param reqConfig Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxInsertCommentOnParagraphCall(DocxInsertCommentOnParagraphRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/insert-comment/on/paragraph";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxInsertCommentOnParagraphValidateBeforeCall(DocxInsertCommentOnParagraphRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxInsertCommentOnParagraph(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxInsertCommentOnParagraphCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert a new comment into a Word DOCX document attached to a paragraph
+     * Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @return InsertDocxCommentOnParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InsertDocxCommentOnParagraphResponse editDocumentDocxInsertCommentOnParagraph(DocxInsertCommentOnParagraphRequest reqConfig) throws ApiException {
+        ApiResponse<InsertDocxCommentOnParagraphResponse> resp = editDocumentDocxInsertCommentOnParagraphWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Insert a new comment into a Word DOCX document attached to a paragraph
+     * Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @return ApiResponse&lt;InsertDocxCommentOnParagraphResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InsertDocxCommentOnParagraphResponse> editDocumentDocxInsertCommentOnParagraphWithHttpInfo(DocxInsertCommentOnParagraphRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxInsertCommentOnParagraphValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<InsertDocxCommentOnParagraphResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert a new comment into a Word DOCX document attached to a paragraph (asynchronously)
+     * Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxInsertCommentOnParagraphAsync(DocxInsertCommentOnParagraphRequest reqConfig, final ApiCallback<InsertDocxCommentOnParagraphResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxInsertCommentOnParagraphValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InsertDocxCommentOnParagraphResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

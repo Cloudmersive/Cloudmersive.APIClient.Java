@@ -26,6 +26,7 @@ import com.cloudmersive.client.model.DeleteDocxTableRowRangeRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowRangeResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
+import com.cloudmersive.client.model.DocxInsertCommentOnParagraphRequest;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
 import com.cloudmersive.client.model.DocxRemoveObjectRequest;
@@ -39,6 +40,10 @@ import java.io.File;
 import com.cloudmersive.client.model.FinishEditingRequest;
 import com.cloudmersive.client.model.GetDocxBodyRequest;
 import com.cloudmersive.client.model.GetDocxBodyResponse;
+import com.cloudmersive.client.model.GetDocxCommentsHierarchicalResponse;
+import com.cloudmersive.client.model.GetDocxCommentsResponse;
+import com.cloudmersive.client.model.GetDocxGetCommentsHierarchicalRequest;
+import com.cloudmersive.client.model.GetDocxGetCommentsRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.GetDocxImagesRequest;
@@ -69,6 +74,7 @@ import com.cloudmersive.client.model.GetXlsxStylesRequest;
 import com.cloudmersive.client.model.GetXlsxStylesResponse;
 import com.cloudmersive.client.model.GetXlsxWorksheetsRequest;
 import com.cloudmersive.client.model.GetXlsxWorksheetsResponse;
+import com.cloudmersive.client.model.InsertDocxCommentOnParagraphResponse;
 import com.cloudmersive.client.model.InsertDocxInsertParagraphRequest;
 import com.cloudmersive.client.model.InsertDocxInsertParagraphResponse;
 import com.cloudmersive.client.model.InsertDocxTableRowRequest;
@@ -205,6 +211,38 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get comments from a Word DOCX document as a flat list
+     *
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetCommentsTest() throws ApiException {
+        GetDocxGetCommentsRequest reqConfig = null;
+        GetDocxCommentsResponse response = api.editDocumentDocxGetComments(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get comments from a Word DOCX document hierarchically
+     *
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetCommentsHierarchicalTest() throws ApiException {
+        GetDocxGetCommentsHierarchicalRequest reqConfig = null;
+        GetDocxCommentsHierarchicalResponse response = api.editDocumentDocxGetCommentsHierarchical(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get content of a footer from a Word DOCX document
      *
      * Returns the footer content from a Word Document (DOCX) format file
@@ -312,6 +350,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxGetTablesTest() throws ApiException {
         GetDocxTablesRequest reqConfig = null;
         GetDocxTablesResponse response = api.editDocumentDocxGetTables(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Insert a new comment into a Word DOCX document attached to a paragraph
+     *
+     * Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxInsertCommentOnParagraphTest() throws ApiException {
+        DocxInsertCommentOnParagraphRequest reqConfig = null;
+        InsertDocxCommentOnParagraphResponse response = api.editDocumentDocxInsertCommentOnParagraph(reqConfig);
 
         // TODO: test validations
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to get the gender from a first name
  */
 @ApiModel(description = "Request to get the gender from a first name")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T20:37:02.033-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:34:56.127-08:00")
 public class GetGenderRequest {
   @SerializedName("FirstName")
   private String firstName = null;

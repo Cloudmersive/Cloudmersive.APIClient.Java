@@ -29,7 +29,7 @@ import java.io.IOException;
  * Request to set PDF metadata
  */
 @ApiModel(description = "Request to set PDF metadata")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T20:37:33.258-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:35:33.539-08:00")
 public class SetPdfMetadataRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

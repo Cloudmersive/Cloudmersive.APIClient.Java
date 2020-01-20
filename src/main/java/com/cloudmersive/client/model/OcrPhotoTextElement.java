@@ -31,7 +31,7 @@ import java.util.List;
  * A single text in an OCR document
  */
 @ApiModel(description = "A single text in an OCR document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T20:37:18.812-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:35:13.238-08:00")
 public class OcrPhotoTextElement {
   @SerializedName("Text")
   private String text = null;

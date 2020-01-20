@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**editDocumentDocxDeletePages**](EditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxDeleteTableRow**](EditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 [**editDocumentDocxDeleteTableRowRange**](EditDocumentApi.md#editDocumentDocxDeleteTableRowRange) | **POST** /convert/edit/docx/delete-table-row/range | Deletes a range of multiple table rows in an existing table in a Word DOCX document
+[**editDocumentDocxGetComments**](EditDocumentApi.md#editDocumentDocxGetComments) | **POST** /convert/edit/docx/get-comments/flat-list | Get comments from a Word DOCX document as a flat list
+[**editDocumentDocxGetCommentsHierarchical**](EditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
 [**editDocumentDocxGetHeadersAndFooters**](EditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**editDocumentDocxGetImages**](EditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 [**editDocumentDocxGetSections**](EditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -17,6 +19,7 @@ Method | HTTP request | Description
 [**editDocumentDocxGetTableByIndex**](EditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
 [**editDocumentDocxGetTableRow**](EditDocumentApi.md#editDocumentDocxGetTableRow) | **POST** /convert/edit/docx/get-table-row | Gets the contents of an existing table row in an existing table in a Word DOCX document
 [**editDocumentDocxGetTables**](EditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get all tables in Word DOCX document
+[**editDocumentDocxInsertCommentOnParagraph**](EditDocumentApi.md#editDocumentDocxInsertCommentOnParagraph) | **POST** /convert/edit/docx/insert-comment/on/paragraph | Insert a new comment into a Word DOCX document attached to a paragraph
 [**editDocumentDocxInsertImage**](EditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 [**editDocumentDocxInsertParagraph**](EditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 [**editDocumentDocxInsertTable**](EditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
@@ -369,6 +372,116 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteDocxTableRowRangeResponse**](DeleteDocxTableRowRangeResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxGetComments"></a>
+# **editDocumentDocxGetComments**
+> GetDocxCommentsResponse editDocumentDocxGetComments(reqConfig)
+
+Get comments from a Word DOCX document as a flat list
+
+Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+GetDocxGetCommentsRequest reqConfig = new GetDocxGetCommentsRequest(); // GetDocxGetCommentsRequest | Document input request
+try {
+    GetDocxCommentsResponse result = apiInstance.editDocumentDocxGetComments(reqConfig);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxGetComments");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**GetDocxGetCommentsRequest**](GetDocxGetCommentsRequest.md)| Document input request |
+
+### Return type
+
+[**GetDocxCommentsResponse**](GetDocxCommentsResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxGetCommentsHierarchical"></a>
+# **editDocumentDocxGetCommentsHierarchical**
+> GetDocxCommentsHierarchicalResponse editDocumentDocxGetCommentsHierarchical(reqConfig)
+
+Get comments from a Word DOCX document hierarchically
+
+Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+GetDocxGetCommentsHierarchicalRequest reqConfig = new GetDocxGetCommentsHierarchicalRequest(); // GetDocxGetCommentsHierarchicalRequest | Document input request
+try {
+    GetDocxCommentsHierarchicalResponse result = apiInstance.editDocumentDocxGetCommentsHierarchical(reqConfig);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxGetCommentsHierarchical");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**GetDocxGetCommentsHierarchicalRequest**](GetDocxGetCommentsHierarchicalRequest.md)| Document input request |
+
+### Return type
+
+[**GetDocxCommentsHierarchicalResponse**](GetDocxCommentsHierarchicalResponse.md)
 
 ### Authorization
 
@@ -754,6 +867,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetDocxTablesResponse**](GetDocxTablesResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxInsertCommentOnParagraph"></a>
+# **editDocumentDocxInsertCommentOnParagraph**
+> InsertDocxCommentOnParagraphResponse editDocumentDocxInsertCommentOnParagraph(reqConfig)
+
+Insert a new comment into a Word DOCX document attached to a paragraph
+
+Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+DocxInsertCommentOnParagraphRequest reqConfig = new DocxInsertCommentOnParagraphRequest(); // DocxInsertCommentOnParagraphRequest | Document input request
+try {
+    InsertDocxCommentOnParagraphResponse result = apiInstance.editDocumentDocxInsertCommentOnParagraph(reqConfig);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxInsertCommentOnParagraph");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**DocxInsertCommentOnParagraphRequest**](DocxInsertCommentOnParagraphRequest.md)| Document input request |
+
+### Return type
+
+[**InsertDocxCommentOnParagraphResponse**](InsertDocxCommentOnParagraphResponse.md)
 
 ### Authorization
 

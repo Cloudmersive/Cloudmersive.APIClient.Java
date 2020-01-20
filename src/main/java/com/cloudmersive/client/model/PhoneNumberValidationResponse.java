@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result from validating a phone number
  */
 @ApiModel(description = "Result from validating a phone number")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T20:37:02.033-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:34:56.127-08:00")
 public class PhoneNumberValidationResponse {
   @SerializedName("IsValid")
   private Boolean isValid = null;

@@ -28,9 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * GetDocxPagesResponse
+ * Result of getting pages from a Word Document DOCX
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T20:37:33.258-08:00")
+@ApiModel(description = "Result of getting pages from a Word Document DOCX")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:35:33.539-08:00")
 public class GetDocxPagesResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -47,10 +48,10 @@ public class GetDocxPagesResponse {
   }
 
    /**
-   * Get successful
+   * True if successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -73,10 +74,10 @@ public class GetDocxPagesResponse {
   }
 
    /**
-   * Get pages
+   * Pages in the document
    * @return pages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Pages in the document")
   public List<DocxPage> getPages() {
     return pages;
   }
@@ -91,10 +92,10 @@ public class GetDocxPagesResponse {
   }
 
    /**
-   * Get pageCount
+   * Count of pages
    * @return pageCount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Count of pages")
   public Integer getPageCount() {
     return pageCount;
   }
