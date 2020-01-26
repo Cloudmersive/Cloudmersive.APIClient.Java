@@ -28,7 +28,7 @@ import java.io.IOException;
  * EXIF tag and value
  */
 @ApiModel(description = "EXIF tag and value")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:35:23.118-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-25T16:38:30.935-08:00")
 public class ImageMetadataExifValue {
   @SerializedName("Tag")
   private String tag = null;

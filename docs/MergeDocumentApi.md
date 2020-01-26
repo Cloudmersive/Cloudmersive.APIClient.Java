@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**mergeDocumentPng**](MergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Multple PNG Files Together
 [**mergeDocumentPptx**](MergeDocumentApi.md#mergeDocumentPptx) | **POST** /convert/merge/pptx | Merge Two PowerPoint PPTX Together
 [**mergeDocumentPptxMulti**](MergeDocumentApi.md#mergeDocumentPptxMulti) | **POST** /convert/merge/pptx/multi | Merge Multple PowerPoint PPTX Together
+[**mergeDocumentTxt**](MergeDocumentApi.md#mergeDocumentTxt) | **POST** /convert/merge/txt | Merge Two Text (TXT) Files Together
+[**mergeDocumentTxtMulti**](MergeDocumentApi.md#mergeDocumentTxtMulti) | **POST** /convert/merge/txt/multi | Merge Multple Text (TXT) Files Together
 [**mergeDocumentXlsx**](MergeDocumentApi.md#mergeDocumentXlsx) | **POST** /convert/merge/xlsx | Merge Two Excel XLSX Together
 [**mergeDocumentXlsxMulti**](MergeDocumentApi.md#mergeDocumentXlsxMulti) | **POST** /convert/merge/xlsx/multi | Merge Multple Excel XLSX Together
 
@@ -430,6 +432,136 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MergeDocumentApi#mergeDocumentPptxMulti");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **File**| First input file to perform the operation on. |
+ **inputFile2** | **File**| Second input file to perform the operation on. |
+ **inputFile3** | **File**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **File**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **File**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **File**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **File**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **File**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **File**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **File**| Tenth input file to perform the operation on. | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="mergeDocumentTxt"></a>
+# **mergeDocumentTxt**
+> Object mergeDocumentTxt(inputFile1, inputFile2)
+
+Merge Two Text (TXT) Files Together
+
+Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.MergeDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+MergeDocumentApi apiInstance = new MergeDocumentApi();
+File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
+File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on (more than 2 can be supplied).
+try {
+    Object result = apiInstance.mergeDocumentTxt(inputFile1, inputFile2);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MergeDocumentApi#mergeDocumentTxt");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **File**| First input file to perform the operation on. |
+ **inputFile2** | **File**| Second input file to perform the operation on (more than 2 can be supplied). |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="mergeDocumentTxtMulti"></a>
+# **mergeDocumentTxtMulti**
+> byte[] mergeDocumentTxtMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+Merge Multple Text (TXT) Files Together
+
+Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.MergeDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+MergeDocumentApi apiInstance = new MergeDocumentApi();
+File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
+File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on.
+File inputFile3 = new File("/path/to/file.txt"); // File | Third input file to perform the operation on.
+File inputFile4 = new File("/path/to/file.txt"); // File | Fourth input file to perform the operation on.
+File inputFile5 = new File("/path/to/file.txt"); // File | Fifth input file to perform the operation on.
+File inputFile6 = new File("/path/to/file.txt"); // File | Sixth input file to perform the operation on.
+File inputFile7 = new File("/path/to/file.txt"); // File | Seventh input file to perform the operation on.
+File inputFile8 = new File("/path/to/file.txt"); // File | Eighth input file to perform the operation on.
+File inputFile9 = new File("/path/to/file.txt"); // File | Ninth input file to perform the operation on.
+File inputFile10 = new File("/path/to/file.txt"); // File | Tenth input file to perform the operation on.
+try {
+    byte[] result = apiInstance.mergeDocumentTxtMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MergeDocumentApi#mergeDocumentTxtMulti");
     e.printStackTrace();
 }
 ```

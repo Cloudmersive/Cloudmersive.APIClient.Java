@@ -176,6 +176,48 @@ public class MergeDocumentApiTest {
     }
     
     /**
+     * Merge Two Text (TXT) Files Together
+     *
+     * Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentTxtTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        Object response = api.mergeDocumentTxt(inputFile1, inputFile2);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple Text (TXT) Files Together
+     *
+     * Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentTxtMultiTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.mergeDocumentTxtMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Merge Two Excel XLSX Together
      *
      * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet

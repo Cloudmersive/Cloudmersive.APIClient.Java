@@ -19,6 +19,7 @@ import com.cloudmersive.client.model.SplitDocxDocumentResult;
 import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitPptxPresentationResult;
 import com.cloudmersive.client.model.SplitTextDocumentByLinesResult;
+import com.cloudmersive.client.model.SplitTextDocumentByStringResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -100,6 +101,24 @@ public class SplitDocumentApiTest {
     public void splitDocumentTxtByLineTest() throws ApiException {
         File inputFile = null;
         SplitTextDocumentByLinesResult response = api.splitDocumentTxtByLine(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Split a single Text file (txt) by a string delimiter
+     *
+     * Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentTxtByStringTest() throws ApiException {
+        File inputFile = null;
+        String splitDelimiter = null;
+        Boolean skipEmptyElements = null;
+        SplitTextDocumentByStringResult response = api.splitDocumentTxtByString(inputFile, splitDelimiter, skipEmptyElements);
 
         // TODO: test validations
     }

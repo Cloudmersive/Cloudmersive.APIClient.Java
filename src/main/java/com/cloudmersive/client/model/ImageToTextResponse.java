@@ -28,7 +28,7 @@ import java.io.IOException;
  * Response from an OCR to text operation.  Includes the confience rating and converted text result.
  */
 @ApiModel(description = "Response from an OCR to text operation.  Includes the confience rating and converted text result.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:35:13.238-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-25T16:38:23.161-08:00")
 public class ImageToTextResponse {
   @SerializedName("MeanConfidenceLevel")
   private Float meanConfidenceLevel = null;

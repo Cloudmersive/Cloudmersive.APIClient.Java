@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a Set Cell in XLSX Worksheets command
  */
 @ApiModel(description = "Result of running a Set Cell in XLSX Worksheets command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-19T18:35:33.539-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-25T16:38:36.461-08:00")
 public class SetXlsxCellResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

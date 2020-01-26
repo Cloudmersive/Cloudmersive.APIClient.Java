@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**splitDocumentPdfByPage**](SplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 [**splitDocumentPptx**](SplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
 [**splitDocumentTxtByLine**](SplitDocumentApi.md#splitDocumentTxtByLine) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
+[**splitDocumentTxtByString**](SplitDocumentApi.md#splitDocumentTxtByString) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 [**splitDocumentXlsx**](SplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 
 
@@ -227,6 +228,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SplitTextDocumentByLinesResult**](SplitTextDocumentByLinesResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="splitDocumentTxtByString"></a>
+# **splitDocumentTxtByString**
+> SplitTextDocumentByStringResult splitDocumentTxtByString(inputFile, splitDelimiter, skipEmptyElements)
+
+Split a single Text file (txt) by a string delimiter
+
+Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.SplitDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+SplitDocumentApi apiInstance = new SplitDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+String splitDelimiter = "splitDelimiter_example"; // String | Required; String to split up the input file on
+Boolean skipEmptyElements = true; // Boolean | Optional; If true, empty elements will be skipped in the output
+try {
+    SplitTextDocumentByStringResult result = apiInstance.splitDocumentTxtByString(inputFile, splitDelimiter, skipEmptyElements);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SplitDocumentApi#splitDocumentTxtByString");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+ **splitDelimiter** | **String**| Required; String to split up the input file on |
+ **skipEmptyElements** | **Boolean**| Optional; If true, empty elements will be skipped in the output | [optional]
+
+### Return type
+
+[**SplitTextDocumentByStringResult**](SplitTextDocumentByStringResult.md)
 
 ### Authorization
 

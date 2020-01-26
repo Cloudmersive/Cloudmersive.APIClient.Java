@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentDocxToTxt"></a>
 # **convertDocumentDocxToTxt**
-> TextConversionResult convertDocumentDocxToTxt(inputFile)
+> TextConversionResult convertDocumentDocxToTxt(inputFile, textFormattingMode)
 
 Convert Word DOCX Document to Text (txt)
 
@@ -560,8 +560,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+String textFormattingMode = "textFormattingMode_example"; // String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'minimizeWhitespace'.
 try {
-    TextConversionResult result = apiInstance.convertDocumentDocxToTxt(inputFile);
+    TextConversionResult result = apiInstance.convertDocumentDocxToTxt(inputFile, textFormattingMode);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToTxt");
@@ -574,6 +575,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
+ **textFormattingMode** | **String**| Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;minimizeWhitespace&#39;. | [optional]
 
 ### Return type
 

@@ -192,7 +192,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentDocxToTxtTest() throws ApiException {
         File inputFile = null;
-        TextConversionResult response = api.convertDocumentDocxToTxt(inputFile);
+        String textFormattingMode = null;
+        TextConversionResult response = api.convertDocumentDocxToTxt(inputFile, textFormattingMode);
 
         // TODO: test validations
     }
