@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a website scan
  */
 @ApiModel(description = "Result of running a website scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-25T16:38:45.986-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-27T21:28:00.813-08:00")
 public class WebsiteScanResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -95,6 +95,9 @@ public class WebsiteScanResult {
   @SerializedName("FoundViruses")
   private List<VirusFound> foundViruses = null;
 
+  @SerializedName("WebsiteHttpResponseCode")
+  private Integer websiteHttpResponseCode = null;
+
   public WebsiteScanResult cleanResult(Boolean cleanResult) {
     this.cleanResult = cleanResult;
     return this;
@@ -157,6 +160,24 @@ public class WebsiteScanResult {
     this.foundViruses = foundViruses;
   }
 
+  public WebsiteScanResult websiteHttpResponseCode(Integer websiteHttpResponseCode) {
+    this.websiteHttpResponseCode = websiteHttpResponseCode;
+    return this;
+  }
+
+   /**
+   * The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL.
+   * @return websiteHttpResponseCode
+  **/
+  @ApiModelProperty(value = "The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL.")
+  public Integer getWebsiteHttpResponseCode() {
+    return websiteHttpResponseCode;
+  }
+
+  public void setWebsiteHttpResponseCode(Integer websiteHttpResponseCode) {
+    this.websiteHttpResponseCode = websiteHttpResponseCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,12 +190,13 @@ public class WebsiteScanResult {
     WebsiteScanResult websiteScanResult = (WebsiteScanResult) o;
     return Objects.equals(this.cleanResult, websiteScanResult.cleanResult) &&
         Objects.equals(this.websiteThreatType, websiteScanResult.websiteThreatType) &&
-        Objects.equals(this.foundViruses, websiteScanResult.foundViruses);
+        Objects.equals(this.foundViruses, websiteScanResult.foundViruses) &&
+        Objects.equals(this.websiteHttpResponseCode, websiteScanResult.websiteHttpResponseCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, websiteThreatType, foundViruses);
+    return Objects.hash(cleanResult, websiteThreatType, foundViruses, websiteHttpResponseCode);
   }
 
 
@@ -186,6 +208,7 @@ public class WebsiteScanResult {
     sb.append("    cleanResult: ").append(toIndentedString(cleanResult)).append("\n");
     sb.append("    websiteThreatType: ").append(toIndentedString(websiteThreatType)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
+    sb.append("    websiteHttpResponseCode: ").append(toIndentedString(websiteHttpResponseCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

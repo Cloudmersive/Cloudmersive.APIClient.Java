@@ -7,11 +7,11 @@ Method | HTTP request | Description
 [**convertWebHtmlToDocx**](ConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to Word DOCX Document
 [**convertWebHtmlToPdf**](ConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
 [**convertWebHtmlToPng**](ConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG screenshot
-[**convertWebHtmlToTxt**](ConvertWebApi.md#convertWebHtmlToTxt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
-[**convertWebHtmlToTxt_0**](ConvertWebApi.md#convertWebHtmlToTxt_0) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
+[**convertWebHtmlToTxt**](ConvertWebApi.md#convertWebHtmlToTxt) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
 [**convertWebMdToHtml**](ConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
 [**convertWebUrlToPdf**](ConvertWebApi.md#convertWebUrlToPdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
 [**convertWebUrlToScreenshot**](ConvertWebApi.md#convertWebUrlToScreenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
+[**convertWebUrlToTxt**](ConvertWebApi.md#convertWebUrlToTxt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
 
 
 <a name="convertWebHtmlToDocx"></a>
@@ -181,62 +181,7 @@ Name | Type | Description  | Notes
 
 <a name="convertWebHtmlToTxt"></a>
 # **convertWebHtmlToTxt**
-> UrlToTextResponse convertWebHtmlToTxt(input)
-
-Convert website URL page to text (txt)
-
-Converts a website URL page into text (txt); extracts text from HTML
-
-### Example
-```java
-// Import classes:
-//import com.cloudmersive.client.invoker.ApiClient;
-//import com.cloudmersive.client.invoker.ApiException;
-//import com.cloudmersive.client.invoker.Configuration;
-//import com.cloudmersive.client.invoker.auth.*;
-//import com.cloudmersive.client.ConvertWebApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: Apikey
-ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
-Apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Apikey.setApiKeyPrefix("Token");
-
-ConvertWebApi apiInstance = new ConvertWebApi();
-UrlToTextRequest input = new UrlToTextRequest(); // UrlToTextRequest | HTML to Text request parameters
-try {
-    UrlToTextResponse result = apiInstance.convertWebHtmlToTxt(input);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ConvertWebApi#convertWebHtmlToTxt");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **input** | [**UrlToTextRequest**](UrlToTextRequest.md)| HTML to Text request parameters |
-
-### Return type
-
-[**UrlToTextResponse**](UrlToTextResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/octet-stream
-
-<a name="convertWebHtmlToTxt_0"></a>
-# **convertWebHtmlToTxt_0**
-> HtmlToTextResponse convertWebHtmlToTxt_0(input)
+> HtmlToTextResponse convertWebHtmlToTxt(input)
 
 Convert HTML string to text (txt)
 
@@ -262,10 +207,10 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertWebApi apiInstance = new ConvertWebApi();
 HtmlToTextRequest input = new HtmlToTextRequest(); // HtmlToTextRequest | HTML to Text request parameters
 try {
-    HtmlToTextResponse result = apiInstance.convertWebHtmlToTxt_0(input);
+    HtmlToTextResponse result = apiInstance.convertWebHtmlToTxt(input);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ConvertWebApi#convertWebHtmlToTxt_0");
+    System.err.println("Exception when calling ConvertWebApi#convertWebHtmlToTxt");
     e.printStackTrace();
 }
 ```
@@ -444,6 +389,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 **byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/octet-stream
+
+<a name="convertWebUrlToTxt"></a>
+# **convertWebUrlToTxt**
+> UrlToTextResponse convertWebUrlToTxt(input)
+
+Convert website URL page to text (txt)
+
+Converts a website URL page into text (txt); extracts text from HTML
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertWebApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertWebApi apiInstance = new ConvertWebApi();
+UrlToTextRequest input = new UrlToTextRequest(); // UrlToTextRequest | HTML to Text request parameters
+try {
+    UrlToTextResponse result = apiInstance.convertWebUrlToTxt(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertWebApi#convertWebUrlToTxt");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**UrlToTextRequest**](UrlToTextRequest.md)| HTML to Text request parameters |
+
+### Return type
+
+[**UrlToTextResponse**](UrlToTextResponse.md)
 
 ### Authorization
 

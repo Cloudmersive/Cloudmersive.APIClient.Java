@@ -36,10 +36,18 @@ import com.cloudmersive.client.model.Base64EncodeResponse;
 import com.cloudmersive.client.model.ChangeLineEndingResponse;
 import com.cloudmersive.client.model.DetectLineEndingsResponse;
 import java.io.File;
+import com.cloudmersive.client.model.FindStringRegexRequest;
+import com.cloudmersive.client.model.FindStringRegexResponse;
+import com.cloudmersive.client.model.FindStringSimpleRequest;
+import com.cloudmersive.client.model.FindStringSimpleResponse;
 import com.cloudmersive.client.model.RemoveHtmlFromTextRequest;
 import com.cloudmersive.client.model.RemoveHtmlFromTextResponse;
 import com.cloudmersive.client.model.RemoveWhitespaceFromTextRequest;
 import com.cloudmersive.client.model.RemoveWhitespaceFromTextResponse;
+import com.cloudmersive.client.model.ReplaceStringRegexRequest;
+import com.cloudmersive.client.model.ReplaceStringRegexResponse;
+import com.cloudmersive.client.model.ReplaceStringSimpleRequest;
+import com.cloudmersive.client.model.ReplaceStringSimpleResponse;
 import com.cloudmersive.client.model.TextEncodingDetectResponse;
 
 import java.lang.reflect.Type;
@@ -69,7 +77,7 @@ public class EditTextApi {
 
     /**
      * Build call for editTextBase64Decode
-     * @param request  (required)
+     * @param request Input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -133,7 +141,7 @@ public class EditTextApi {
     /**
      * Base 64 decode, convert base 64 string to binary content
      * Decodes / converts base 64 UTF-8 text string to binary content
-     * @param request  (required)
+     * @param request Input request (required)
      * @return Base64DecodeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -145,7 +153,7 @@ public class EditTextApi {
     /**
      * Base 64 decode, convert base 64 string to binary content
      * Decodes / converts base 64 UTF-8 text string to binary content
-     * @param request  (required)
+     * @param request Input request (required)
      * @return ApiResponse&lt;Base64DecodeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -158,7 +166,7 @@ public class EditTextApi {
     /**
      * Base 64 decode, convert base 64 string to binary content (asynchronously)
      * Decodes / converts base 64 UTF-8 text string to binary content
-     * @param request  (required)
+     * @param request Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -191,7 +199,7 @@ public class EditTextApi {
     }
     /**
      * Build call for editTextBase64Detect
-     * @param request  (required)
+     * @param request Input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -255,7 +263,7 @@ public class EditTextApi {
     /**
      * Detect, check if text string is base 64 encoded
      * Checks, detects if input string is base 64 encoded
-     * @param request  (required)
+     * @param request Input request (required)
      * @return Base64DetectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -267,7 +275,7 @@ public class EditTextApi {
     /**
      * Detect, check if text string is base 64 encoded
      * Checks, detects if input string is base 64 encoded
-     * @param request  (required)
+     * @param request Input request (required)
      * @return ApiResponse&lt;Base64DetectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -280,7 +288,7 @@ public class EditTextApi {
     /**
      * Detect, check if text string is base 64 encoded (asynchronously)
      * Checks, detects if input string is base 64 encoded
-     * @param request  (required)
+     * @param request Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -313,7 +321,7 @@ public class EditTextApi {
     }
     /**
      * Build call for editTextBase64Encode
-     * @param request  (required)
+     * @param request Input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -377,7 +385,7 @@ public class EditTextApi {
     /**
      * Base 64 encode, convert binary or file data to a text string
      * Encodes / converts binary or file data to a text string
-     * @param request  (required)
+     * @param request Input request (required)
      * @return Base64EncodeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -389,7 +397,7 @@ public class EditTextApi {
     /**
      * Base 64 encode, convert binary or file data to a text string
      * Encodes / converts binary or file data to a text string
-     * @param request  (required)
+     * @param request Input request (required)
      * @return ApiResponse&lt;Base64EncodeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -402,7 +410,7 @@ public class EditTextApi {
     /**
      * Base 64 encode, convert binary or file data to a text string (asynchronously)
      * Encodes / converts binary or file data to a text string
-     * @param request  (required)
+     * @param request Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -693,8 +701,252 @@ public class EditTextApi {
         return call;
     }
     /**
+     * Build call for editTextFindRegex
+     * @param request Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editTextFindRegexCall(FindStringRegexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/text/find/regex";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editTextFindRegexValidateBeforeCall(FindStringRegexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling editTextFindRegex(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editTextFindRegexCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Find a regular expression regex in text input
+     * Find all occurrences of the input regular expression in the input content, and returns the matches
+     * @param request Input request (required)
+     * @return FindStringRegexResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FindStringRegexResponse editTextFindRegex(FindStringRegexRequest request) throws ApiException {
+        ApiResponse<FindStringRegexResponse> resp = editTextFindRegexWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Find a regular expression regex in text input
+     * Find all occurrences of the input regular expression in the input content, and returns the matches
+     * @param request Input request (required)
+     * @return ApiResponse&lt;FindStringRegexResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FindStringRegexResponse> editTextFindRegexWithHttpInfo(FindStringRegexRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = editTextFindRegexValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FindStringRegexResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Find a regular expression regex in text input (asynchronously)
+     * Find all occurrences of the input regular expression in the input content, and returns the matches
+     * @param request Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editTextFindRegexAsync(FindStringRegexRequest request, final ApiCallback<FindStringRegexResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editTextFindRegexValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FindStringRegexResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editTextFindSimple
+     * @param request Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editTextFindSimpleCall(FindStringSimpleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/text/find/string";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editTextFindSimpleValidateBeforeCall(FindStringSimpleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling editTextFindSimple(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editTextFindSimpleCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Find a string in text input
+     * Finds all occurrences of the input string in the input content, and returns the matches
+     * @param request Input request (required)
+     * @return FindStringSimpleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FindStringSimpleResponse editTextFindSimple(FindStringSimpleRequest request) throws ApiException {
+        ApiResponse<FindStringSimpleResponse> resp = editTextFindSimpleWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Find a string in text input
+     * Finds all occurrences of the input string in the input content, and returns the matches
+     * @param request Input request (required)
+     * @return ApiResponse&lt;FindStringSimpleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FindStringSimpleResponse> editTextFindSimpleWithHttpInfo(FindStringSimpleRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = editTextFindSimpleValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FindStringSimpleResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Find a string in text input (asynchronously)
+     * Finds all occurrences of the input string in the input content, and returns the matches
+     * @param request Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editTextFindSimpleAsync(FindStringSimpleRequest request, final ApiCallback<FindStringSimpleResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editTextFindSimpleValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FindStringSimpleResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editTextRemoveAllWhitespace
-     * @param request  (required)
+     * @param request Input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -758,7 +1010,7 @@ public class EditTextApi {
     /**
      * Remove whitespace from text string
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return RemoveWhitespaceFromTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -770,7 +1022,7 @@ public class EditTextApi {
     /**
      * Remove whitespace from text string
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return ApiResponse&lt;RemoveWhitespaceFromTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -783,7 +1035,7 @@ public class EditTextApi {
     /**
      * Remove whitespace from text string (asynchronously)
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -816,7 +1068,7 @@ public class EditTextApi {
     }
     /**
      * Build call for editTextRemoveHtml
-     * @param request  (required)
+     * @param request Input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -880,7 +1132,7 @@ public class EditTextApi {
     /**
      * Remove HTML from text string
      * Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return RemoveHtmlFromTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -892,7 +1144,7 @@ public class EditTextApi {
     /**
      * Remove HTML from text string
      * Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return ApiResponse&lt;RemoveHtmlFromTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -905,7 +1157,7 @@ public class EditTextApi {
     /**
      * Remove HTML from text string (asynchronously)
      * Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-     * @param request  (required)
+     * @param request Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -933,6 +1185,250 @@ public class EditTextApi {
 
         com.squareup.okhttp.Call call = editTextRemoveHtmlValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RemoveHtmlFromTextResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editTextReplaceRegex
+     * @param request Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editTextReplaceRegexCall(ReplaceStringRegexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/text/replace/regex";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editTextReplaceRegexValidateBeforeCall(ReplaceStringRegexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling editTextReplaceRegex(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editTextReplaceRegexCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replace a string in text with a regex regular expression string
+     * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+     * @param request Input request (required)
+     * @return ReplaceStringRegexResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ReplaceStringRegexResponse editTextReplaceRegex(ReplaceStringRegexRequest request) throws ApiException {
+        ApiResponse<ReplaceStringRegexResponse> resp = editTextReplaceRegexWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Replace a string in text with a regex regular expression string
+     * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+     * @param request Input request (required)
+     * @return ApiResponse&lt;ReplaceStringRegexResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ReplaceStringRegexResponse> editTextReplaceRegexWithHttpInfo(ReplaceStringRegexRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = editTextReplaceRegexValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ReplaceStringRegexResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replace a string in text with a regex regular expression string (asynchronously)
+     * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+     * @param request Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editTextReplaceRegexAsync(ReplaceStringRegexRequest request, final ApiCallback<ReplaceStringRegexResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editTextReplaceRegexValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ReplaceStringRegexResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editTextReplaceSimple
+     * @param request Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editTextReplaceSimpleCall(ReplaceStringSimpleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/text/replace/string";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editTextReplaceSimpleValidateBeforeCall(ReplaceStringSimpleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling editTextReplaceSimple(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editTextReplaceSimpleCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replace a string in text with another string value
+     * Replaces all occurrences of the input string in the input content, and returns the result
+     * @param request Input request (required)
+     * @return ReplaceStringSimpleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ReplaceStringSimpleResponse editTextReplaceSimple(ReplaceStringSimpleRequest request) throws ApiException {
+        ApiResponse<ReplaceStringSimpleResponse> resp = editTextReplaceSimpleWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Replace a string in text with another string value
+     * Replaces all occurrences of the input string in the input content, and returns the result
+     * @param request Input request (required)
+     * @return ApiResponse&lt;ReplaceStringSimpleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ReplaceStringSimpleResponse> editTextReplaceSimpleWithHttpInfo(ReplaceStringSimpleRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = editTextReplaceSimpleValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ReplaceStringSimpleResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replace a string in text with another string value (asynchronously)
+     * Replaces all occurrences of the input string in the input content, and returns the result
+     * @param request Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editTextReplaceSimpleAsync(ReplaceStringSimpleRequest request, final ApiCallback<ReplaceStringSimpleResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editTextReplaceSimpleValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ReplaceStringSimpleResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1062,7 +1558,7 @@ public class EditTextApi {
     }
     /**
      * Build call for editTextTrimWhitespace
-     * @param request  (required)
+     * @param request Input request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1126,7 +1622,7 @@ public class EditTextApi {
     /**
      * Trim leading and trailing whitespace from text string
      * Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return RemoveWhitespaceFromTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1138,7 +1634,7 @@ public class EditTextApi {
     /**
      * Trim leading and trailing whitespace from text string
      * Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return ApiResponse&lt;RemoveWhitespaceFromTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1151,7 +1647,7 @@ public class EditTextApi {
     /**
      * Trim leading and trailing whitespace from text string (asynchronously)
      * Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

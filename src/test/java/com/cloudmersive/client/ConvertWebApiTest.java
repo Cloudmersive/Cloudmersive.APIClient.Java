@@ -90,22 +90,6 @@ public class ConvertWebApiTest {
     }
     
     /**
-     * Convert website URL page to text (txt)
-     *
-     * Converts a website URL page into text (txt); extracts text from HTML
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void convertWebHtmlToTxtTest() throws ApiException {
-        UrlToTextRequest input = null;
-        UrlToTextResponse response = api.convertWebHtmlToTxt(input);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Convert HTML string to text (txt)
      *
      * Converts an HTML string input into text (txt); extracts text from HTML
@@ -114,9 +98,9 @@ public class ConvertWebApiTest {
      *          if the Api call fails
      */
     @Test
-    public void convertWebHtmlToTxt_0Test() throws ApiException {
+    public void convertWebHtmlToTxtTest() throws ApiException {
         HtmlToTextRequest input = null;
-        HtmlToTextResponse response = api.convertWebHtmlToTxt_0(input);
+        HtmlToTextResponse response = api.convertWebHtmlToTxt(input);
 
         // TODO: test validations
     }
@@ -165,6 +149,22 @@ public class ConvertWebApiTest {
     public void convertWebUrlToScreenshotTest() throws ApiException {
         ScreenshotRequest input = null;
         byte[] response = api.convertWebUrlToScreenshot(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert website URL page to text (txt)
+     *
+     * Converts a website URL page into text (txt); extracts text from HTML
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertWebUrlToTxtTest() throws ApiException {
+        UrlToTextRequest input = null;
+        UrlToTextResponse response = api.convertWebUrlToTxt(input);
 
         // TODO: test validations
     }

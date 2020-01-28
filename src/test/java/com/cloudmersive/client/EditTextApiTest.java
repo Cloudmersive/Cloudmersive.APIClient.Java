@@ -23,10 +23,18 @@ import com.cloudmersive.client.model.Base64EncodeResponse;
 import com.cloudmersive.client.model.ChangeLineEndingResponse;
 import com.cloudmersive.client.model.DetectLineEndingsResponse;
 import java.io.File;
+import com.cloudmersive.client.model.FindStringRegexRequest;
+import com.cloudmersive.client.model.FindStringRegexResponse;
+import com.cloudmersive.client.model.FindStringSimpleRequest;
+import com.cloudmersive.client.model.FindStringSimpleResponse;
 import com.cloudmersive.client.model.RemoveHtmlFromTextRequest;
 import com.cloudmersive.client.model.RemoveHtmlFromTextResponse;
 import com.cloudmersive.client.model.RemoveWhitespaceFromTextRequest;
 import com.cloudmersive.client.model.RemoveWhitespaceFromTextResponse;
+import com.cloudmersive.client.model.ReplaceStringRegexRequest;
+import com.cloudmersive.client.model.ReplaceStringRegexResponse;
+import com.cloudmersive.client.model.ReplaceStringSimpleRequest;
+import com.cloudmersive.client.model.ReplaceStringSimpleResponse;
 import com.cloudmersive.client.model.TextEncodingDetectResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -127,6 +135,38 @@ public class EditTextApiTest {
     }
     
     /**
+     * Find a regular expression regex in text input
+     *
+     * Find all occurrences of the input regular expression in the input content, and returns the matches
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editTextFindRegexTest() throws ApiException {
+        FindStringRegexRequest request = null;
+        FindStringRegexResponse response = api.editTextFindRegex(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Find a string in text input
+     *
+     * Finds all occurrences of the input string in the input content, and returns the matches
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editTextFindSimpleTest() throws ApiException {
+        FindStringSimpleRequest request = null;
+        FindStringSimpleResponse response = api.editTextFindSimple(request);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Remove whitespace from text string
      *
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
@@ -154,6 +194,38 @@ public class EditTextApiTest {
     public void editTextRemoveHtmlTest() throws ApiException {
         RemoveHtmlFromTextRequest request = null;
         RemoveHtmlFromTextResponse response = api.editTextRemoveHtml(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace a string in text with a regex regular expression string
+     *
+     * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editTextReplaceRegexTest() throws ApiException {
+        ReplaceStringRegexRequest request = null;
+        ReplaceStringRegexResponse response = api.editTextReplaceRegex(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace a string in text with another string value
+     *
+     * Replaces all occurrences of the input string in the input content, and returns the result
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editTextReplaceSimpleTest() throws ApiException {
+        ReplaceStringSimpleRequest request = null;
+        ReplaceStringSimpleResponse response = api.editTextReplaceSimple(request);
 
         // TODO: test validations
     }

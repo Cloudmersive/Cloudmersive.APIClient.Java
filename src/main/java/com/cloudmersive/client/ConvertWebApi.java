@@ -437,129 +437,7 @@ public class ConvertWebApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertWebHtmlToTxtCall(UrlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = input;
-
-        // create path and map variables
-        String localVarPath = "/convert/web/url/to/txt";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/octet-stream"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertWebHtmlToTxtValidateBeforeCall(UrlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'input' is set
-        if (input == null) {
-            throw new ApiException("Missing the required parameter 'input' when calling convertWebHtmlToTxt(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = convertWebHtmlToTxtCall(input, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Convert website URL page to text (txt)
-     * Converts a website URL page into text (txt); extracts text from HTML
-     * @param input HTML to Text request parameters (required)
-     * @return UrlToTextResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public UrlToTextResponse convertWebHtmlToTxt(UrlToTextRequest input) throws ApiException {
-        ApiResponse<UrlToTextResponse> resp = convertWebHtmlToTxtWithHttpInfo(input);
-        return resp.getData();
-    }
-
-    /**
-     * Convert website URL page to text (txt)
-     * Converts a website URL page into text (txt); extracts text from HTML
-     * @param input HTML to Text request parameters (required)
-     * @return ApiResponse&lt;UrlToTextResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<UrlToTextResponse> convertWebHtmlToTxtWithHttpInfo(UrlToTextRequest input) throws ApiException {
-        com.squareup.okhttp.Call call = convertWebHtmlToTxtValidateBeforeCall(input, null, null);
-        Type localVarReturnType = new TypeToken<UrlToTextResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Convert website URL page to text (txt) (asynchronously)
-     * Converts a website URL page into text (txt); extracts text from HTML
-     * @param input HTML to Text request parameters (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call convertWebHtmlToTxtAsync(UrlToTextRequest input, final ApiCallback<UrlToTextResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = convertWebHtmlToTxtValidateBeforeCall(input, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UrlToTextResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for convertWebHtmlToTxt_0
-     * @param input HTML to Text request parameters (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call convertWebHtmlToTxt_0Call(HtmlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertWebHtmlToTxtCall(HtmlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = input;
 
         // create path and map variables
@@ -601,15 +479,15 @@ public class ConvertWebApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertWebHtmlToTxt_0ValidateBeforeCall(HtmlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertWebHtmlToTxtValidateBeforeCall(HtmlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'input' is set
         if (input == null) {
-            throw new ApiException("Missing the required parameter 'input' when calling convertWebHtmlToTxt_0(Async)");
+            throw new ApiException("Missing the required parameter 'input' when calling convertWebHtmlToTxt(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = convertWebHtmlToTxt_0Call(input, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertWebHtmlToTxtCall(input, progressListener, progressRequestListener);
         return call;
 
     }
@@ -621,8 +499,8 @@ public class ConvertWebApi {
      * @return HtmlToTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HtmlToTextResponse convertWebHtmlToTxt_0(HtmlToTextRequest input) throws ApiException {
-        ApiResponse<HtmlToTextResponse> resp = convertWebHtmlToTxt_0WithHttpInfo(input);
+    public HtmlToTextResponse convertWebHtmlToTxt(HtmlToTextRequest input) throws ApiException {
+        ApiResponse<HtmlToTextResponse> resp = convertWebHtmlToTxtWithHttpInfo(input);
         return resp.getData();
     }
 
@@ -633,8 +511,8 @@ public class ConvertWebApi {
      * @return ApiResponse&lt;HtmlToTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<HtmlToTextResponse> convertWebHtmlToTxt_0WithHttpInfo(HtmlToTextRequest input) throws ApiException {
-        com.squareup.okhttp.Call call = convertWebHtmlToTxt_0ValidateBeforeCall(input, null, null);
+    public ApiResponse<HtmlToTextResponse> convertWebHtmlToTxtWithHttpInfo(HtmlToTextRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = convertWebHtmlToTxtValidateBeforeCall(input, null, null);
         Type localVarReturnType = new TypeToken<HtmlToTextResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -647,7 +525,7 @@ public class ConvertWebApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertWebHtmlToTxt_0Async(HtmlToTextRequest input, final ApiCallback<HtmlToTextResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertWebHtmlToTxtAsync(HtmlToTextRequest input, final ApiCallback<HtmlToTextResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -668,7 +546,7 @@ public class ConvertWebApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertWebHtmlToTxt_0ValidateBeforeCall(input, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertWebHtmlToTxtValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<HtmlToTextResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1038,6 +916,128 @@ public class ConvertWebApi {
 
         com.squareup.okhttp.Call call = convertWebUrlToScreenshotValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertWebUrlToTxt
+     * @param input HTML to Text request parameters (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertWebUrlToTxtCall(UrlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/convert/web/url/to/txt";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertWebUrlToTxtValidateBeforeCall(UrlToTextRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling convertWebUrlToTxt(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertWebUrlToTxtCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert website URL page to text (txt)
+     * Converts a website URL page into text (txt); extracts text from HTML
+     * @param input HTML to Text request parameters (required)
+     * @return UrlToTextResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UrlToTextResponse convertWebUrlToTxt(UrlToTextRequest input) throws ApiException {
+        ApiResponse<UrlToTextResponse> resp = convertWebUrlToTxtWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Convert website URL page to text (txt)
+     * Converts a website URL page into text (txt); extracts text from HTML
+     * @param input HTML to Text request parameters (required)
+     * @return ApiResponse&lt;UrlToTextResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UrlToTextResponse> convertWebUrlToTxtWithHttpInfo(UrlToTextRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = convertWebUrlToTxtValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<UrlToTextResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert website URL page to text (txt) (asynchronously)
+     * Converts a website URL page into text (txt); extracts text from HTML
+     * @param input HTML to Text request parameters (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertWebUrlToTxtAsync(UrlToTextRequest input, final ApiCallback<UrlToTextResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertWebUrlToTxtValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UrlToTextResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -102,7 +102,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 ConvertDataApi apiInstance = new ConvertDataApi();
-Object jsonObject = null; // Object | 
+Object jsonObject = null; // Object | Input JSON to convert to XML
 try {
     byte[] result = apiInstance.convertDataJsonToXml(jsonObject);
     System.out.println(result);
@@ -116,7 +116,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **jsonObject** | **Object**|  |
+ **jsonObject** | **Object**| Input JSON to convert to XML |
 
 ### Return type
 

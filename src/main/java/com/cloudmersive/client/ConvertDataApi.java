@@ -189,7 +189,7 @@ public class ConvertDataApi {
     }
     /**
      * Build call for convertDataJsonToXml
-     * @param jsonObject  (required)
+     * @param jsonObject Input JSON to convert to XML (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -253,7 +253,7 @@ public class ConvertDataApi {
     /**
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
-     * @param jsonObject  (required)
+     * @param jsonObject Input JSON to convert to XML (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -265,7 +265,7 @@ public class ConvertDataApi {
     /**
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
-     * @param jsonObject  (required)
+     * @param jsonObject Input JSON to convert to XML (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -278,7 +278,7 @@ public class ConvertDataApi {
     /**
      * Convert JSON to XML conversion (asynchronously)
      * Convert a JSON object into XML
-     * @param jsonObject  (required)
+     * @param jsonObject Input JSON to convert to XML (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

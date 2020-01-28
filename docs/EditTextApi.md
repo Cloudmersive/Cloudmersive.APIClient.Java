@@ -9,8 +9,12 @@ Method | HTTP request | Description
 [**editTextBase64Encode**](EditTextApi.md#editTextBase64Encode) | **POST** /convert/edit/text/encoding/base64/encode | Base 64 encode, convert binary or file data to a text string
 [**editTextChangeLineEndings**](EditTextApi.md#editTextChangeLineEndings) | **POST** /convert/edit/text/line-endings/change | Set, change line endings of a text file
 [**editTextDetectLineEndings**](EditTextApi.md#editTextDetectLineEndings) | **POST** /convert/edit/text/line-endings/detect | Detect line endings of a text file
+[**editTextFindRegex**](EditTextApi.md#editTextFindRegex) | **POST** /convert/edit/text/find/regex | Find a regular expression regex in text input
+[**editTextFindSimple**](EditTextApi.md#editTextFindSimple) | **POST** /convert/edit/text/find/string | Find a string in text input
 [**editTextRemoveAllWhitespace**](EditTextApi.md#editTextRemoveAllWhitespace) | **POST** /convert/edit/text/remove/whitespace/all | Remove whitespace from text string
 [**editTextRemoveHtml**](EditTextApi.md#editTextRemoveHtml) | **POST** /convert/edit/text/remove/html | Remove HTML from text string
+[**editTextReplaceRegex**](EditTextApi.md#editTextReplaceRegex) | **POST** /convert/edit/text/replace/regex | Replace a string in text with a regex regular expression string
+[**editTextReplaceSimple**](EditTextApi.md#editTextReplaceSimple) | **POST** /convert/edit/text/replace/string | Replace a string in text with another string value
 [**editTextTextEncodingDetect**](EditTextApi.md#editTextTextEncodingDetect) | **POST** /convert/edit/text/encoding/detect | Detect text encoding of file
 [**editTextTrimWhitespace**](EditTextApi.md#editTextTrimWhitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
 
@@ -41,7 +45,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditTextApi apiInstance = new EditTextApi();
-Base64DecodeRequest request = new Base64DecodeRequest(); // Base64DecodeRequest | 
+Base64DecodeRequest request = new Base64DecodeRequest(); // Base64DecodeRequest | Input request
 try {
     Base64DecodeResponse result = apiInstance.editTextBase64Decode(request);
     System.out.println(result);
@@ -55,7 +59,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Base64DecodeRequest**](Base64DecodeRequest.md)|  |
+ **request** | [**Base64DecodeRequest**](Base64DecodeRequest.md)| Input request |
 
 ### Return type
 
@@ -96,7 +100,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditTextApi apiInstance = new EditTextApi();
-Base64DetectRequest request = new Base64DetectRequest(); // Base64DetectRequest | 
+Base64DetectRequest request = new Base64DetectRequest(); // Base64DetectRequest | Input request
 try {
     Base64DetectResponse result = apiInstance.editTextBase64Detect(request);
     System.out.println(result);
@@ -110,7 +114,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Base64DetectRequest**](Base64DetectRequest.md)|  |
+ **request** | [**Base64DetectRequest**](Base64DetectRequest.md)| Input request |
 
 ### Return type
 
@@ -151,7 +155,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditTextApi apiInstance = new EditTextApi();
-Base64EncodeRequest request = new Base64EncodeRequest(); // Base64EncodeRequest | 
+Base64EncodeRequest request = new Base64EncodeRequest(); // Base64EncodeRequest | Input request
 try {
     Base64EncodeResponse result = apiInstance.editTextBase64Encode(request);
     System.out.println(result);
@@ -165,7 +169,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Base64EncodeRequest**](Base64EncodeRequest.md)|  |
+ **request** | [**Base64EncodeRequest**](Base64EncodeRequest.md)| Input request |
 
 ### Return type
 
@@ -292,6 +296,116 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
+<a name="editTextFindRegex"></a>
+# **editTextFindRegex**
+> FindStringRegexResponse editTextFindRegex(request)
+
+Find a regular expression regex in text input
+
+Find all occurrences of the input regular expression in the input content, and returns the matches
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditTextApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditTextApi apiInstance = new EditTextApi();
+FindStringRegexRequest request = new FindStringRegexRequest(); // FindStringRegexRequest | Input request
+try {
+    FindStringRegexResponse result = apiInstance.editTextFindRegex(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditTextApi#editTextFindRegex");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**FindStringRegexRequest**](FindStringRegexRequest.md)| Input request |
+
+### Return type
+
+[**FindStringRegexResponse**](FindStringRegexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editTextFindSimple"></a>
+# **editTextFindSimple**
+> FindStringSimpleResponse editTextFindSimple(request)
+
+Find a string in text input
+
+Finds all occurrences of the input string in the input content, and returns the matches
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditTextApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditTextApi apiInstance = new EditTextApi();
+FindStringSimpleRequest request = new FindStringSimpleRequest(); // FindStringSimpleRequest | Input request
+try {
+    FindStringSimpleResponse result = apiInstance.editTextFindSimple(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditTextApi#editTextFindSimple");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**FindStringSimpleRequest**](FindStringSimpleRequest.md)| Input request |
+
+### Return type
+
+[**FindStringSimpleResponse**](FindStringSimpleResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 <a name="editTextRemoveAllWhitespace"></a>
 # **editTextRemoveAllWhitespace**
 > RemoveWhitespaceFromTextResponse editTextRemoveAllWhitespace(request)
@@ -318,7 +432,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditTextApi apiInstance = new EditTextApi();
-RemoveWhitespaceFromTextRequest request = new RemoveWhitespaceFromTextRequest(); // RemoveWhitespaceFromTextRequest | 
+RemoveWhitespaceFromTextRequest request = new RemoveWhitespaceFromTextRequest(); // RemoveWhitespaceFromTextRequest | Input request
 try {
     RemoveWhitespaceFromTextResponse result = apiInstance.editTextRemoveAllWhitespace(request);
     System.out.println(result);
@@ -332,7 +446,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)|  |
+ **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)| Input request |
 
 ### Return type
 
@@ -373,7 +487,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditTextApi apiInstance = new EditTextApi();
-RemoveHtmlFromTextRequest request = new RemoveHtmlFromTextRequest(); // RemoveHtmlFromTextRequest | 
+RemoveHtmlFromTextRequest request = new RemoveHtmlFromTextRequest(); // RemoveHtmlFromTextRequest | Input request
 try {
     RemoveHtmlFromTextResponse result = apiInstance.editTextRemoveHtml(request);
     System.out.println(result);
@@ -387,11 +501,121 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**RemoveHtmlFromTextRequest**](RemoveHtmlFromTextRequest.md)|  |
+ **request** | [**RemoveHtmlFromTextRequest**](RemoveHtmlFromTextRequest.md)| Input request |
 
 ### Return type
 
 [**RemoveHtmlFromTextResponse**](RemoveHtmlFromTextResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editTextReplaceRegex"></a>
+# **editTextReplaceRegex**
+> ReplaceStringRegexResponse editTextReplaceRegex(request)
+
+Replace a string in text with a regex regular expression string
+
+Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditTextApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditTextApi apiInstance = new EditTextApi();
+ReplaceStringRegexRequest request = new ReplaceStringRegexRequest(); // ReplaceStringRegexRequest | Input request
+try {
+    ReplaceStringRegexResponse result = apiInstance.editTextReplaceRegex(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditTextApi#editTextReplaceRegex");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ReplaceStringRegexRequest**](ReplaceStringRegexRequest.md)| Input request |
+
+### Return type
+
+[**ReplaceStringRegexResponse**](ReplaceStringRegexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editTextReplaceSimple"></a>
+# **editTextReplaceSimple**
+> ReplaceStringSimpleResponse editTextReplaceSimple(request)
+
+Replace a string in text with another string value
+
+Replaces all occurrences of the input string in the input content, and returns the result
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditTextApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditTextApi apiInstance = new EditTextApi();
+ReplaceStringSimpleRequest request = new ReplaceStringSimpleRequest(); // ReplaceStringSimpleRequest | Input request
+try {
+    ReplaceStringSimpleResponse result = apiInstance.editTextReplaceSimple(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditTextApi#editTextReplaceSimple");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ReplaceStringSimpleRequest**](ReplaceStringSimpleRequest.md)| Input request |
+
+### Return type
+
+[**ReplaceStringSimpleResponse**](ReplaceStringSimpleResponse.md)
 
 ### Authorization
 
@@ -483,7 +707,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 EditTextApi apiInstance = new EditTextApi();
-RemoveWhitespaceFromTextRequest request = new RemoveWhitespaceFromTextRequest(); // RemoveWhitespaceFromTextRequest | 
+RemoveWhitespaceFromTextRequest request = new RemoveWhitespaceFromTextRequest(); // RemoveWhitespaceFromTextRequest | Input request
 try {
     RemoveWhitespaceFromTextResponse result = apiInstance.editTextTrimWhitespace(request);
     System.out.println(result);
@@ -497,7 +721,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)|  |
+ **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)| Input request |
 
 ### Return type
 
