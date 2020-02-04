@@ -315,7 +315,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 ConvertWebApi apiInstance = new ConvertWebApi();
-ScreenshotRequest input = new ScreenshotRequest(); // ScreenshotRequest | URL to PDF request parameters
+UrlToPdfRequest input = new UrlToPdfRequest(); // UrlToPdfRequest | URL to PDF request parameters
 try {
     byte[] result = apiInstance.convertWebUrlToPdf(input);
     System.out.println(result);
@@ -329,7 +329,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**ScreenshotRequest**](ScreenshotRequest.md)| URL to PDF request parameters |
+ **input** | [**UrlToPdfRequest**](UrlToPdfRequest.md)| URL to PDF request parameters |
 
 ### Return type
 

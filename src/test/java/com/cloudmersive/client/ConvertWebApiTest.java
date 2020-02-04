@@ -22,6 +22,7 @@ import com.cloudmersive.client.model.HtmlToPngRequest;
 import com.cloudmersive.client.model.HtmlToTextRequest;
 import com.cloudmersive.client.model.HtmlToTextResponse;
 import com.cloudmersive.client.model.ScreenshotRequest;
+import com.cloudmersive.client.model.UrlToPdfRequest;
 import com.cloudmersive.client.model.UrlToTextRequest;
 import com.cloudmersive.client.model.UrlToTextResponse;
 import org.junit.Test;
@@ -131,7 +132,7 @@ public class ConvertWebApiTest {
      */
     @Test
     public void convertWebUrlToPdfTest() throws ApiException {
-        ScreenshotRequest input = null;
+        UrlToPdfRequest input = null;
         byte[] response = api.convertWebUrlToPdf(input);
 
         // TODO: test validations

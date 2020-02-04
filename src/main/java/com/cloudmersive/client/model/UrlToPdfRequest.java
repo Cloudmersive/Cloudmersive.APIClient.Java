@@ -25,24 +25,21 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Details of the screenshot request
+ * Request to convert a URL to a PDF file
  */
-@ApiModel(description = "Details of the screenshot request")
+@ApiModel(description = "Request to convert a URL to a PDF file")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-03T20:36:41.760-08:00")
-public class ScreenshotRequest {
+public class UrlToPdfRequest {
   @SerializedName("Url")
   private String url = null;
 
   @SerializedName("ExtraLoadingWait")
   private Integer extraLoadingWait = null;
 
-  @SerializedName("ScreenshotWidth")
-  private Integer screenshotWidth = null;
+  @SerializedName("IncludeBackgroundGraphics")
+  private Boolean includeBackgroundGraphics = null;
 
-  @SerializedName("ScreenshotHeight")
-  private Integer screenshotHeight = null;
-
-  public ScreenshotRequest url(String url) {
+  public UrlToPdfRequest url(String url) {
     this.url = url;
     return this;
   }
@@ -60,7 +57,7 @@ public class ScreenshotRequest {
     this.url = url;
   }
 
-  public ScreenshotRequest extraLoadingWait(Integer extraLoadingWait) {
+  public UrlToPdfRequest extraLoadingWait(Integer extraLoadingWait) {
     this.extraLoadingWait = extraLoadingWait;
     return this;
   }
@@ -78,40 +75,22 @@ public class ScreenshotRequest {
     this.extraLoadingWait = extraLoadingWait;
   }
 
-  public ScreenshotRequest screenshotWidth(Integer screenshotWidth) {
-    this.screenshotWidth = screenshotWidth;
+  public UrlToPdfRequest includeBackgroundGraphics(Boolean includeBackgroundGraphics) {
+    this.includeBackgroundGraphics = includeBackgroundGraphics;
     return this;
   }
 
    /**
-   * Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024
-   * @return screenshotWidth
+   * Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+   * @return includeBackgroundGraphics
   **/
-  @ApiModelProperty(value = "Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024")
-  public Integer getScreenshotWidth() {
-    return screenshotWidth;
+  @ApiModelProperty(value = "Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.")
+  public Boolean isIncludeBackgroundGraphics() {
+    return includeBackgroundGraphics;
   }
 
-  public void setScreenshotWidth(Integer screenshotWidth) {
-    this.screenshotWidth = screenshotWidth;
-  }
-
-  public ScreenshotRequest screenshotHeight(Integer screenshotHeight) {
-    this.screenshotHeight = screenshotHeight;
-    return this;
-  }
-
-   /**
-   * Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
-   * @return screenshotHeight
-  **/
-  @ApiModelProperty(value = "Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot")
-  public Integer getScreenshotHeight() {
-    return screenshotHeight;
-  }
-
-  public void setScreenshotHeight(Integer screenshotHeight) {
-    this.screenshotHeight = screenshotHeight;
+  public void setIncludeBackgroundGraphics(Boolean includeBackgroundGraphics) {
+    this.includeBackgroundGraphics = includeBackgroundGraphics;
   }
 
 
@@ -123,28 +102,26 @@ public class ScreenshotRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScreenshotRequest screenshotRequest = (ScreenshotRequest) o;
-    return Objects.equals(this.url, screenshotRequest.url) &&
-        Objects.equals(this.extraLoadingWait, screenshotRequest.extraLoadingWait) &&
-        Objects.equals(this.screenshotWidth, screenshotRequest.screenshotWidth) &&
-        Objects.equals(this.screenshotHeight, screenshotRequest.screenshotHeight);
+    UrlToPdfRequest urlToPdfRequest = (UrlToPdfRequest) o;
+    return Objects.equals(this.url, urlToPdfRequest.url) &&
+        Objects.equals(this.extraLoadingWait, urlToPdfRequest.extraLoadingWait) &&
+        Objects.equals(this.includeBackgroundGraphics, urlToPdfRequest.includeBackgroundGraphics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, extraLoadingWait, screenshotWidth, screenshotHeight);
+    return Objects.hash(url, extraLoadingWait, includeBackgroundGraphics);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScreenshotRequest {\n");
+    sb.append("class UrlToPdfRequest {\n");
     
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    extraLoadingWait: ").append(toIndentedString(extraLoadingWait)).append("\n");
-    sb.append("    screenshotWidth: ").append(toIndentedString(screenshotWidth)).append("\n");
-    sb.append("    screenshotHeight: ").append(toIndentedString(screenshotHeight)).append("\n");
+    sb.append("    includeBackgroundGraphics: ").append(toIndentedString(includeBackgroundGraphics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

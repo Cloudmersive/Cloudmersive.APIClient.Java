@@ -877,7 +877,7 @@ public class RecognizeApi {
 
     /**
      * Detect vehicle license plates in an image
-     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return VehicleLicensePlateDetectionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -889,7 +889,7 @@ public class RecognizeApi {
 
     /**
      * Detect vehicle license plates in an image
-     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;VehicleLicensePlateDetectionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -902,7 +902,7 @@ public class RecognizeApi {
 
     /**
      * Detect vehicle license plates in an image (asynchronously)
-     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

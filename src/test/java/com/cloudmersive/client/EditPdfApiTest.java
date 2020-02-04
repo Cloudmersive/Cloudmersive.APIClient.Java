@@ -74,7 +74,7 @@ public class EditPdfApiTest {
     }
     
     /**
-     * Remove / delete pages from a PDF document
+     * Remove, delete pages from a PDF document
      *
      * Remove one or more pages from a PDF document
      *
@@ -175,7 +175,7 @@ public class EditPdfApiTest {
     }
     
     /**
-     * Insert / copy pages from one PDF document into another
+     * Insert, copy pages from one PDF document into another
      *
      * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
      *

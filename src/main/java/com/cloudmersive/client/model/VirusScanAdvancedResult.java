@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-27T21:28:00.813-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-03T20:36:48.959-08:00")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;

@@ -4838,8 +4838,8 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Get columns from a Excel XLSX spreadsheet, worksheet
+     * Returns the columns defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return GetXlsxColumnsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4850,8 +4850,8 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Get columns from a Excel XLSX spreadsheet, worksheet
+     * Returns the columns defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return ApiResponse&lt;GetXlsxColumnsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4863,8 +4863,8 @@ public class EditDocumentApi {
     }
 
     /**
-     * Get rows and cells from a Excel XLSX spreadsheet, worksheet (asynchronously)
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Get columns from a Excel XLSX spreadsheet, worksheet (asynchronously)
+     * Returns the columns defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

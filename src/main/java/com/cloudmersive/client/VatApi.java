@@ -119,8 +119,8 @@ public class VatApi {
     }
 
     /**
-     * Lookup a VAT code
-     * Checks if a VAT code is valid, and if it is, returns more information about it
+     * Validate a VAT number
+     * Checks if a VAT code is valid, and if it is, returns more information about it.  The first two letters of the VAT number must be letters that indicate the country, such as LU20260743.  Possible country codes include Austria (AT), Belgium (BE), Bulgaria (BG), Cyprus (CY), Czech Republic (CZ), Germany (DE), Denmark (DK), Estonia (EE), Greece (EL), Spain (ES), Finland (FI), France (FR), United Kingdom (GB), Croatia (HR), Hungary (HU), Ireland (IE), Italy (IT), Lithuania (LT), Luxembourg (LU), Latvia (LV), Malta (MT), The Netherlands (NL), Poland (PL), Portugal (PT), Romania (RO), Sweden (SE), Slovenia (SI), Slovakia (SK).
      * @param input Input VAT code (required)
      * @return VatLookupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -131,8 +131,8 @@ public class VatApi {
     }
 
     /**
-     * Lookup a VAT code
-     * Checks if a VAT code is valid, and if it is, returns more information about it
+     * Validate a VAT number
+     * Checks if a VAT code is valid, and if it is, returns more information about it.  The first two letters of the VAT number must be letters that indicate the country, such as LU20260743.  Possible country codes include Austria (AT), Belgium (BE), Bulgaria (BG), Cyprus (CY), Czech Republic (CZ), Germany (DE), Denmark (DK), Estonia (EE), Greece (EL), Spain (ES), Finland (FI), France (FR), United Kingdom (GB), Croatia (HR), Hungary (HU), Ireland (IE), Italy (IT), Lithuania (LT), Luxembourg (LU), Latvia (LV), Malta (MT), The Netherlands (NL), Poland (PL), Portugal (PT), Romania (RO), Sweden (SE), Slovenia (SI), Slovakia (SK).
      * @param input Input VAT code (required)
      * @return ApiResponse&lt;VatLookupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -144,8 +144,8 @@ public class VatApi {
     }
 
     /**
-     * Lookup a VAT code (asynchronously)
-     * Checks if a VAT code is valid, and if it is, returns more information about it
+     * Validate a VAT number (asynchronously)
+     * Checks if a VAT code is valid, and if it is, returns more information about it.  The first two letters of the VAT number must be letters that indicate the country, such as LU20260743.  Possible country codes include Austria (AT), Belgium (BE), Bulgaria (BG), Cyprus (CY), Czech Republic (CZ), Germany (DE), Denmark (DK), Estonia (EE), Greece (EL), Spain (ES), Finland (FI), France (FR), United Kingdom (GB), Croatia (HR), Hungary (HU), Ireland (IE), Italy (IT), Lithuania (LT), Luxembourg (LU), Latvia (LV), Malta (MT), The Netherlands (NL), Poland (PL), Portugal (PT), Romania (RO), Sweden (SE), Slovenia (SI), Slovakia (SK).
      * @param input Input VAT code (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of a find symbol operation on an input image
  */
 @ApiModel(description = "Result of a find symbol operation on an input image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-27T21:27:43.588-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-03T20:36:35.744-08:00")
 public class FindSymbolResult {
   @SerializedName("Successful")
   private Boolean successful = null;

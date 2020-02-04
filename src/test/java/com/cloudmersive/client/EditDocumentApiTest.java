@@ -723,9 +723,9 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
+     * Get columns from a Excel XLSX spreadsheet, worksheet
      *
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the columns defined in the Excel Spreadsheet worksheet
      *
      * @throws ApiException
      *          if the Api call fails

@@ -35,6 +35,7 @@ import com.cloudmersive.client.model.HtmlToPngRequest;
 import com.cloudmersive.client.model.HtmlToTextRequest;
 import com.cloudmersive.client.model.HtmlToTextResponse;
 import com.cloudmersive.client.model.ScreenshotRequest;
+import com.cloudmersive.client.model.UrlToPdfRequest;
 import com.cloudmersive.client.model.UrlToTextRequest;
 import com.cloudmersive.client.model.UrlToTextResponse;
 
@@ -683,7 +684,7 @@ public class ConvertWebApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertWebUrlToPdfCall(ScreenshotRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertWebUrlToPdfCall(UrlToPdfRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = input;
 
         // create path and map variables
@@ -725,7 +726,7 @@ public class ConvertWebApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertWebUrlToPdfValidateBeforeCall(ScreenshotRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertWebUrlToPdfValidateBeforeCall(UrlToPdfRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'input' is set
         if (input == null) {
@@ -745,7 +746,7 @@ public class ConvertWebApi {
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] convertWebUrlToPdf(ScreenshotRequest input) throws ApiException {
+    public byte[] convertWebUrlToPdf(UrlToPdfRequest input) throws ApiException {
         ApiResponse<byte[]> resp = convertWebUrlToPdfWithHttpInfo(input);
         return resp.getData();
     }
@@ -757,7 +758,7 @@ public class ConvertWebApi {
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> convertWebUrlToPdfWithHttpInfo(ScreenshotRequest input) throws ApiException {
+    public ApiResponse<byte[]> convertWebUrlToPdfWithHttpInfo(UrlToPdfRequest input) throws ApiException {
         com.squareup.okhttp.Call call = convertWebUrlToPdfValidateBeforeCall(input, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -771,7 +772,7 @@ public class ConvertWebApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertWebUrlToPdfAsync(ScreenshotRequest input, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertWebUrlToPdfAsync(UrlToPdfRequest input, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
