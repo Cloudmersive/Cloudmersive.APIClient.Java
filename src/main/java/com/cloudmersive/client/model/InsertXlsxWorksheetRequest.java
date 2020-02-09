@@ -26,10 +26,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Input to a Get Worksheets request
+ * Input to a Insert Worksheets request
  */
-@ApiModel(description = "Input to a Get Worksheets request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-03T20:36:41.760-08:00")
+@ApiModel(description = "Input to a Insert Worksheets request")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-08T21:01:17.928-08:00")
 public class InsertXlsxWorksheetRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

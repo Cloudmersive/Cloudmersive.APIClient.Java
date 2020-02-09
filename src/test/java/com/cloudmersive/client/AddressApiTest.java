@@ -18,6 +18,8 @@ import com.cloudmersive.client.model.GetTimezonesRequest;
 import com.cloudmersive.client.model.GetTimezonesResponse;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
+import com.cloudmersive.client.model.ValidateAddressRequest;
+import com.cloudmersive.client.model.ValidateAddressResponse;
 import com.cloudmersive.client.model.ValidateCountryRequest;
 import com.cloudmersive.client.model.ValidateCountryResponse;
 import org.junit.Test;
@@ -81,6 +83,22 @@ public class AddressApiTest {
     public void addressParseStringTest() throws ApiException {
         ParseAddressRequest input = null;
         ParseAddressResponse response = api.addressParseString(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a street address
+     *
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressValidateAddressTest() throws ApiException {
+        ValidateAddressRequest input = null;
+        ValidateAddressResponse response = api.addressValidateAddress(input);
 
         // TODO: test validations
     }
