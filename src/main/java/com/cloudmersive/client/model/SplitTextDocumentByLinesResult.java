@@ -31,7 +31,7 @@ import java.util.List;
  * The result of splitting a Text document into separate lines
  */
 @ApiModel(description = "The result of splitting a Text document into separate lines")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-08T21:01:17.928-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-09T19:06:16.441-08:00")
 public class SplitTextDocumentByLinesResult {
   @SerializedName("ResultLines")
   private List<TextDocumentLine> resultLines = null;
