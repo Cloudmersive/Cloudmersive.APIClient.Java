@@ -67,7 +67,7 @@ public class ParseApi {
         Object localVarPostBody = input;
 
         // create path and map variables
-        String localVarPath = "/nlp/parse/tree";
+        String localVarPath = "/nlp-v2/parse/tree";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

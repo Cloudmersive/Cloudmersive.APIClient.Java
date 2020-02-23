@@ -26,6 +26,8 @@ import com.cloudmersive.client.model.DeleteDocxTableRowRangeRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowRangeResponse;
 import com.cloudmersive.client.model.DeleteDocxTableRowRequest;
 import com.cloudmersive.client.model.DeleteDocxTableRowResponse;
+import com.cloudmersive.client.model.DisableSharedWorkbookRequest;
+import com.cloudmersive.client.model.DisableSharedWorkbookResponse;
 import com.cloudmersive.client.model.DocxInsertCommentOnParagraphRequest;
 import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
@@ -688,6 +690,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxDeleteWorksheetTest() throws ApiException {
         RemoveXlsxWorksheetRequest reqConfig = null;
         Object response = api.editDocumentXlsxDeleteWorksheet(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
+     *
+     * Disable the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxDisableSharedWorkbookTest() throws ApiException {
+        DisableSharedWorkbookRequest input = null;
+        DisableSharedWorkbookResponse response = api.editDocumentXlsxDisableSharedWorkbook(input);
 
         // TODO: test validations
     }
