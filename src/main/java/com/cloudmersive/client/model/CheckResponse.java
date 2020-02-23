@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of a validation operation
  */
 @ApiModel(description = "Result of a validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T17:06:59.684-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T22:36:07.324-08:00")
 public class CheckResponse {
   @SerializedName("ValidDomain")
   private Boolean validDomain = null;

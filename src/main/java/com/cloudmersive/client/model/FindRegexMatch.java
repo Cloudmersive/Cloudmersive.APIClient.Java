@@ -30,7 +30,7 @@ import java.util.List;
  * Individual regular expression match result of finding a target regex in a longer text string
  */
 @ApiModel(description = "Individual regular expression match result of finding a target regex in a longer text string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T17:07:42.359-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T22:36:50.374-08:00")
 public class FindRegexMatch {
   @SerializedName("CharacterOffsetStart")
   private Integer characterOffsetStart = null;

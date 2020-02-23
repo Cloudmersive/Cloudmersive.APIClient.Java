@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of the lead enrichment process
  */
 @ApiModel(description = "Result of the lead enrichment process")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T17:06:59.684-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T22:36:07.324-08:00")
 public class LeadEnrichmentResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to convert a URL to a PDF file
  */
 @ApiModel(description = "Request to convert a URL to a PDF file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T17:07:42.359-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T22:36:50.374-08:00")
 public class UrlToPdfRequest {
   @SerializedName("Url")
   private String url = null;
@@ -38,6 +38,9 @@ public class UrlToPdfRequest {
 
   @SerializedName("IncludeBackgroundGraphics")
   private Boolean includeBackgroundGraphics = null;
+
+  @SerializedName("ScaleFactor")
+  private Integer scaleFactor = null;
 
   public UrlToPdfRequest url(String url) {
     this.url = url;
@@ -93,6 +96,24 @@ public class UrlToPdfRequest {
     this.includeBackgroundGraphics = includeBackgroundGraphics;
   }
 
+  public UrlToPdfRequest scaleFactor(Integer scaleFactor) {
+    this.scaleFactor = scaleFactor;
+    return this;
+  }
+
+   /**
+   * Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%
+   * @return scaleFactor
+  **/
+  @ApiModelProperty(value = "Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%")
+  public Integer getScaleFactor() {
+    return scaleFactor;
+  }
+
+  public void setScaleFactor(Integer scaleFactor) {
+    this.scaleFactor = scaleFactor;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class UrlToPdfRequest {
     UrlToPdfRequest urlToPdfRequest = (UrlToPdfRequest) o;
     return Objects.equals(this.url, urlToPdfRequest.url) &&
         Objects.equals(this.extraLoadingWait, urlToPdfRequest.extraLoadingWait) &&
-        Objects.equals(this.includeBackgroundGraphics, urlToPdfRequest.includeBackgroundGraphics);
+        Objects.equals(this.includeBackgroundGraphics, urlToPdfRequest.includeBackgroundGraphics) &&
+        Objects.equals(this.scaleFactor, urlToPdfRequest.scaleFactor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, extraLoadingWait, includeBackgroundGraphics);
+    return Objects.hash(url, extraLoadingWait, includeBackgroundGraphics, scaleFactor);
   }
 
 
@@ -122,6 +144,7 @@ public class UrlToPdfRequest {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    extraLoadingWait: ").append(toIndentedString(extraLoadingWait)).append("\n");
     sb.append("    includeBackgroundGraphics: ").append(toIndentedString(includeBackgroundGraphics)).append("\n");
+    sb.append("    scaleFactor: ").append(toIndentedString(scaleFactor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
