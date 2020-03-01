@@ -1,6 +1,6 @@
 /*
- * virusapi
- * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
+ * configapi
+ * Config API lets you easily manage configuration at scale.
  *
  * OpenAPI spec version: v1
  * 
@@ -85,7 +85,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/3.3.9/java");
+        setUserAgent("Swagger-Codegen/3.4.0/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();

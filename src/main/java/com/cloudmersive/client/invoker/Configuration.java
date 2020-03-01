@@ -1,6 +1,6 @@
 /*
- * virusapi
- * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
+ * configapi
+ * Config API lets you easily manage configuration at scale.
  *
  * OpenAPI spec version: v1
  * 
@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-22T22:37:09.006-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-01T11:26:16.542-08:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

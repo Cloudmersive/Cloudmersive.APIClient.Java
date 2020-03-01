@@ -1,6 +1,6 @@
 /*
- * virusapi
- * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
+ * configapi
+ * Config API lets you easily manage configuration at scale.
  *
  * OpenAPI spec version: v1
  * 
