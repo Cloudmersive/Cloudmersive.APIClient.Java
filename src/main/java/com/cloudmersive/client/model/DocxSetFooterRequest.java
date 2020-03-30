@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to set-footer command
  */
 @ApiModel(description = "Input to set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-01T11:26:02.405-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:28.924-07:00")
 public class DocxSetFooterRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

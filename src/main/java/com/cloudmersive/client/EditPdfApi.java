@@ -982,12 +982,13 @@ public class EditPdfApi {
     /**
      * Build call for editPdfGetPdfTextByPages
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editPdfGetPdfTextByPagesCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editPdfGetPdfTextByPagesCall(File inputFile, String textFormattingMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -997,6 +998,8 @@ public class EditPdfApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (textFormattingMode != null)
+        localVarHeaderParams.put("textFormattingMode", apiClient.parameterToString(textFormattingMode));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -1031,7 +1034,7 @@ public class EditPdfApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editPdfGetPdfTextByPagesValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editPdfGetPdfTextByPagesValidateBeforeCall(File inputFile, String textFormattingMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -1039,7 +1042,7 @@ public class EditPdfApi {
         }
         
 
-        com.squareup.okhttp.Call call = editPdfGetPdfTextByPagesCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfGetPdfTextByPagesCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1048,11 +1051,12 @@ public class EditPdfApi {
      * Get text in a PDF document by page
      * Gets the text in a PDF by page
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @return PdfTextByPageResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PdfTextByPageResult editPdfGetPdfTextByPages(File inputFile) throws ApiException {
-        ApiResponse<PdfTextByPageResult> resp = editPdfGetPdfTextByPagesWithHttpInfo(inputFile);
+    public PdfTextByPageResult editPdfGetPdfTextByPages(File inputFile, String textFormattingMode) throws ApiException {
+        ApiResponse<PdfTextByPageResult> resp = editPdfGetPdfTextByPagesWithHttpInfo(inputFile, textFormattingMode);
         return resp.getData();
     }
 
@@ -1060,11 +1064,12 @@ public class EditPdfApi {
      * Get text in a PDF document by page
      * Gets the text in a PDF by page
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @return ApiResponse&lt;PdfTextByPageResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PdfTextByPageResult> editPdfGetPdfTextByPagesWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = editPdfGetPdfTextByPagesValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<PdfTextByPageResult> editPdfGetPdfTextByPagesWithHttpInfo(File inputFile, String textFormattingMode) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfGetPdfTextByPagesValidateBeforeCall(inputFile, textFormattingMode, null, null);
         Type localVarReturnType = new TypeToken<PdfTextByPageResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1073,11 +1078,12 @@ public class EditPdfApi {
      * Get text in a PDF document by page (asynchronously)
      * Gets the text in a PDF by page
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editPdfGetPdfTextByPagesAsync(File inputFile, final ApiCallback<PdfTextByPageResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call editPdfGetPdfTextByPagesAsync(File inputFile, String textFormattingMode, final ApiCallback<PdfTextByPageResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1098,7 +1104,7 @@ public class EditPdfApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editPdfGetPdfTextByPagesValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfGetPdfTextByPagesValidateBeforeCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PdfTextByPageResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

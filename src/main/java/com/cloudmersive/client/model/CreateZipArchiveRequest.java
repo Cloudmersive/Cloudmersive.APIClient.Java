@@ -32,7 +32,7 @@ import java.util.List;
  * Request to create a Zip Archive
  */
 @ApiModel(description = "Request to create a Zip Archive")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-01T11:26:02.405-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:28.924-07:00")
 public class CreateZipArchiveRequest {
   @SerializedName("FilesInZip")
   private List<ZipFile> filesInZip = null;

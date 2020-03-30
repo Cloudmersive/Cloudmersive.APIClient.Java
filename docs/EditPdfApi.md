@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfGetPdfTextByPages"></a>
 # **editPdfGetPdfTextByPages**
-> PdfTextByPageResult editPdfGetPdfTextByPages(inputFile)
+> PdfTextByPageResult editPdfGetPdfTextByPages(inputFile, textFormattingMode)
 
 Get text in a PDF document by page
 
@@ -448,8 +448,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditPdfApi apiInstance = new EditPdfApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+String textFormattingMode = "textFormattingMode_example"; // String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
 try {
-    PdfTextByPageResult result = apiInstance.editPdfGetPdfTextByPages(inputFile);
+    PdfTextByPageResult result = apiInstance.editPdfGetPdfTextByPages(inputFile, textFormattingMode);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditPdfApi#editPdfGetPdfTextByPages");
@@ -462,6 +463,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
+ **textFormattingMode** | **String**| Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. | [optional]
 
 ### Return type
 

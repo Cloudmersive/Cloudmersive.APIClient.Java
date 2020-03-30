@@ -169,7 +169,8 @@ public class EditPdfApiTest {
     @Test
     public void editPdfGetPdfTextByPagesTest() throws ApiException {
         File inputFile = null;
-        PdfTextByPageResult response = api.editPdfGetPdfTextByPages(inputFile);
+        String textFormattingMode = null;
+        PdfTextByPageResult response = api.editPdfGetPdfTextByPages(inputFile, textFormattingMode);
 
         // TODO: test validations
     }

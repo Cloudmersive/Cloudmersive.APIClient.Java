@@ -117,9 +117,9 @@ public class MergeDocumentApiTest {
     }
     
     /**
-     * Merge Multple PNG Files Together
+     * Merge Two PNG Files Together
      *
-     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     * Combine two PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
      *
      * @throws ApiException
      *          if the Api call fails
@@ -129,6 +129,31 @@ public class MergeDocumentApiTest {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentPng(inputFile1, inputFile2);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple PNG Files Together
+     *
+     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPngMultiTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.mergeDocumentPngMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
 
         // TODO: test validations
     }

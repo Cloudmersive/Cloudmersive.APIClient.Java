@@ -28,13 +28,16 @@ import java.io.IOException;
  * Input to a Get Word DOCX Document Pages request
  */
 @ApiModel(description = "Input to a Get Word DOCX Document Pages request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-01T11:26:02.405-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:28.924-07:00")
 public class GetDocxPagesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
 
   @SerializedName("InputFileUrl")
   private String inputFileUrl = null;
+
+  @SerializedName("MaximumPages")
+  private Integer maximumPages = null;
 
   public GetDocxPagesRequest inputFileBytes(byte[] inputFileBytes) {
     this.inputFileBytes = inputFileBytes;
@@ -72,6 +75,24 @@ public class GetDocxPagesRequest {
     this.inputFileUrl = inputFileUrl;
   }
 
+  public GetDocxPagesRequest maximumPages(Integer maximumPages) {
+    this.maximumPages = maximumPages;
+    return this;
+  }
+
+   /**
+   * Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages
+   * @return maximumPages
+  **/
+  @ApiModelProperty(value = "Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages")
+  public Integer getMaximumPages() {
+    return maximumPages;
+  }
+
+  public void setMaximumPages(Integer maximumPages) {
+    this.maximumPages = maximumPages;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class GetDocxPagesRequest {
     }
     GetDocxPagesRequest getDocxPagesRequest = (GetDocxPagesRequest) o;
     return Arrays.equals(this.inputFileBytes, getDocxPagesRequest.inputFileBytes) &&
-        Objects.equals(this.inputFileUrl, getDocxPagesRequest.inputFileUrl);
+        Objects.equals(this.inputFileUrl, getDocxPagesRequest.inputFileUrl) &&
+        Objects.equals(this.maximumPages, getDocxPagesRequest.maximumPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl);
+    return Objects.hash(Arrays.hashCode(inputFileBytes), inputFileUrl, maximumPages);
   }
 
 
@@ -99,6 +121,7 @@ public class GetDocxPagesRequest {
     
     sb.append("    inputFileBytes: ").append(toIndentedString(inputFileBytes)).append("\n");
     sb.append("    inputFileUrl: ").append(toIndentedString(inputFileUrl)).append("\n");
+    sb.append("    maximumPages: ").append(toIndentedString(maximumPages)).append("\n");
     sb.append("}");
     return sb.toString();
   }
