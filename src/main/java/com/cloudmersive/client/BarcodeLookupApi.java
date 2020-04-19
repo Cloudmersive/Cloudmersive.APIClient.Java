@@ -118,8 +118,8 @@ public class BarcodeLookupApi {
     }
 
     /**
-     * Lookup a barcode value and return product data
-     * 
+     * Lookup EAN barcode value, return product data
+     * Lookup an input EAN barcode and return key details about the product
      * @param value Barcode value (required)
      * @return BarcodeLookupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -130,8 +130,8 @@ public class BarcodeLookupApi {
     }
 
     /**
-     * Lookup a barcode value and return product data
-     * 
+     * Lookup EAN barcode value, return product data
+     * Lookup an input EAN barcode and return key details about the product
      * @param value Barcode value (required)
      * @return ApiResponse&lt;BarcodeLookupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,8 +143,8 @@ public class BarcodeLookupApi {
     }
 
     /**
-     * Lookup a barcode value and return product data (asynchronously)
-     * 
+     * Lookup EAN barcode value, return product data (asynchronously)
+     * Lookup an input EAN barcode and return key details about the product
      * @param value Barcode value (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

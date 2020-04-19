@@ -101,7 +101,7 @@ public class ValidateDocumentApiTest {
     /**
      * Validate a PDF document file
      *
-     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
      *
      * @throws ApiException
      *          if the Api call fails

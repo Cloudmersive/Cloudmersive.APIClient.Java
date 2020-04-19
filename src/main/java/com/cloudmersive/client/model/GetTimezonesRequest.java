@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to get time zones for a country
  */
 @ApiModel(description = "Request to get time zones for a country")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:07.422-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-18T23:27:03.214-07:00")
 public class GetTimezonesRequest {
   @SerializedName("CountryCodeOrName")
   private String countryCodeOrName = null;

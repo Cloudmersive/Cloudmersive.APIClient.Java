@@ -33,9 +33,9 @@ public class BarcodeLookupApiTest {
 
     
     /**
-     * Lookup a barcode value and return product data
+     * Lookup EAN barcode value, return product data
      *
-     * 
+     * Lookup an input EAN barcode and return key details about the product
      *
      * @throws ApiException
      *          if the Api call fails

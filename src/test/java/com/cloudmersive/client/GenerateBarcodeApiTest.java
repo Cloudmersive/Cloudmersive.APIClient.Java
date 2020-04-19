@@ -33,9 +33,9 @@ public class GenerateBarcodeApiTest {
 
     
     /**
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-13 code barcode as PNG file
      *
-     * 
+     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
      *
      * @throws ApiException
      *          if the Api call fails
@@ -49,9 +49,9 @@ public class GenerateBarcodeApiTest {
     }
     
     /**
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-8 code barcode as PNG file
      *
-     * 
+     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
      *
      * @throws ApiException
      *          if the Api call fails
@@ -65,9 +65,9 @@ public class GenerateBarcodeApiTest {
     }
     
     /**
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
+     * Generate a QR code barcode as PNG file
      *
-     * 
+     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,9 +81,9 @@ public class GenerateBarcodeApiTest {
     }
     
     /**
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-A code barcode as PNG file
      *
-     * 
+     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
      *
      * @throws ApiException
      *          if the Api call fails
@@ -97,9 +97,9 @@ public class GenerateBarcodeApiTest {
     }
     
     /**
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-E code barcode as PNG file
      *
-     * 
+     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
      *
      * @throws ApiException
      *          if the Api call fails

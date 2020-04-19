@@ -28,7 +28,7 @@ import java.io.IOException;
  * Text instance to draw on an image
  */
 @ApiModel(description = "Text instance to draw on an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:25.078-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-18T23:27:21.501-07:00")
 public class DrawTextInstance {
   @SerializedName("Text")
   private String text = null;
@@ -78,10 +78,10 @@ public class DrawTextInstance {
   }
 
    /**
-   * Font Family to use.  Leave blank to default to \&quot;Arial\&quot;.
+   * Font Family to use.  Leave blank to default to \&quot;Arial\&quot;.  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana
    * @return fontFamilyName
   **/
-  @ApiModelProperty(value = "Font Family to use.  Leave blank to default to \"Arial\".")
+  @ApiModelProperty(value = "Font Family to use.  Leave blank to default to \"Arial\".  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana")
   public String getFontFamilyName() {
     return fontFamilyName;
   }

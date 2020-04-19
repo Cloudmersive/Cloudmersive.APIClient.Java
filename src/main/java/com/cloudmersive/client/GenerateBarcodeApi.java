@@ -118,8 +118,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a EAN-13 code barcode as PNG file
      * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value Barcode value to generate from (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -130,8 +130,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a EAN-13 code barcode as PNG file
      * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value Barcode value to generate from (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,8 +143,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode (asynchronously)
-     * 
+     * Generate a EAN-13 code barcode as PNG file (asynchronously)
+     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -240,8 +240,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a EAN-8 code barcode as PNG file
      * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value Barcode value to generate from (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -252,8 +252,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a EAN-8 code barcode as PNG file
      * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value Barcode value to generate from (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -265,8 +265,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode (asynchronously)
-     * 
+     * Generate a EAN-8 code barcode as PNG file (asynchronously)
+     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -362,8 +362,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a QR code barcode as PNG file
      * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
-     * 
      * @param value QR code text to convert into the QR code barcode (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -374,8 +374,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a QR code barcode as PNG file
      * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
-     * 
      * @param value QR code text to convert into the QR code barcode (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -387,8 +387,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information (asynchronously)
-     * 
+     * Generate a QR code barcode as PNG file (asynchronously)
+     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
      * @param value QR code text to convert into the QR code barcode (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -484,8 +484,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a UPC-A code barcode as PNG file
      * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value UPC-A barcode value to generate from (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -496,8 +496,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a UPC-A code barcode as PNG file
      * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value UPC-A barcode value to generate from (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -509,8 +509,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode (asynchronously)
-     * 
+     * Generate a UPC-A code barcode as PNG file (asynchronously)
+     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
      * @param value UPC-A barcode value to generate from (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -606,8 +606,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a UPC-E code barcode as PNG file
      * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value UPC-E barcode value to generate from (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -618,8 +618,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
+     * Generate a UPC-E code barcode as PNG file
      * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
-     * 
      * @param value UPC-E barcode value to generate from (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -631,8 +631,8 @@ public class GenerateBarcodeApi {
     }
 
     /**
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode (asynchronously)
-     * 
+     * Generate a UPC-E code barcode as PNG file (asynchronously)
+     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
      * @param value UPC-E barcode value to generate from (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

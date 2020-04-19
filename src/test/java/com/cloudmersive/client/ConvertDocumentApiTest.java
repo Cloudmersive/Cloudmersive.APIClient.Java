@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
+import com.cloudmersive.client.model.CsvCollection;
 import java.io.File;
 import com.cloudmersive.client.model.PdfToPngResult;
 import com.cloudmersive.client.model.TextConversionResult;
@@ -481,9 +482,9 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Excel XLSX Spreadsheet to CSV
+     * Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
      *
-     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -493,6 +494,23 @@ public class ConvertDocumentApiTest {
         File inputFile = null;
         String outputEncoding = null;
         byte[] response = api.convertDocumentXlsxToCsv(inputFile, outputEncoding);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+     *
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsxToCsvMultiTest() throws ApiException {
+        File inputFile = null;
+        String outputEncoding = null;
+        CsvCollection response = api.convertDocumentXlsxToCsvMulti(inputFile, outputEncoding);
 
         // TODO: test validations
     }

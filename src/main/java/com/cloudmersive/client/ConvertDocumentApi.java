@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
+import com.cloudmersive.client.model.CsvCollection;
 import java.io.File;
 import com.cloudmersive.client.model.PdfToPngResult;
 import com.cloudmersive.client.model.TextConversionResult;
@@ -3486,7 +3487,7 @@ public class ConvertDocumentApi {
     /**
      * Build call for convertDocumentXlsxToCsv
      * @param inputFile Input file to perform the operation on. (required)
-     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -3552,10 +3553,10 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to CSV
-     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+     * Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3565,10 +3566,10 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to CSV
-     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+     * Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3579,10 +3580,10 @@ public class ConvertDocumentApi {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to CSV (asynchronously)
-     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+     * Convert Excel XLSX Spreadsheet to CSV, Single Worksheet (asynchronously)
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3610,6 +3611,136 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentXlsxToCsvValidateBeforeCall(inputFile, outputEncoding, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentXlsxToCsvMulti
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentXlsxToCsvMultiCall(File inputFile, String outputEncoding, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xlsx/to/csv/multi";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (outputEncoding != null)
+        localVarHeaderParams.put("outputEncoding", apiClient.parameterToString(outputEncoding));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentXlsxToCsvMultiValidateBeforeCall(File inputFile, String outputEncoding, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentXlsxToCsvMulti(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvMultiCall(inputFile, outputEncoding, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
+     * @return CsvCollection
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CsvCollection convertDocumentXlsxToCsvMulti(File inputFile, String outputEncoding) throws ApiException {
+        ApiResponse<CsvCollection> resp = convertDocumentXlsxToCsvMultiWithHttpInfo(inputFile, outputEncoding);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
+     * @return ApiResponse&lt;CsvCollection&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CsvCollection> convertDocumentXlsxToCsvMultiWithHttpInfo(File inputFile, String outputEncoding) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvMultiValidateBeforeCall(inputFile, outputEncoding, null, null);
+        Type localVarReturnType = new TypeToken<CsvCollection>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets (asynchronously)
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentXlsxToCsvMultiAsync(File inputFile, String outputEncoding, final ApiCallback<CsvCollection> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentXlsxToCsvMultiValidateBeforeCall(inputFile, outputEncoding, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CsvCollection>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -35,7 +35,7 @@ public class ResizeApiTest {
     /**
      * Resize an image while preserving aspect ratio
      *
-     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
+     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio.  Resize is EXIF-aware.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -53,7 +53,7 @@ public class ResizeApiTest {
     /**
      * Resize an image
      *
-     * Resize an image to a specific width and specific height
+     * Resize an image to a specific width and specific height.  Resize is EXIF-aware.
      *
      * @throws ApiException
      *          if the Api call fails

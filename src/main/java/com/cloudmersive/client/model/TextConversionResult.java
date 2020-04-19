@@ -28,7 +28,7 @@ import java.io.IOException;
  * Text conversion result from converting a document to Plain Text (TXT) format
  */
 @ApiModel(description = "Text conversion result from converting a document to Plain Text (TXT) format")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:28.924-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-18T23:27:26.293-07:00")
 public class TextConversionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

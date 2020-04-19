@@ -31,10 +31,13 @@ import java.util.List;
  * Document validation result
  */
 @ApiModel(description = "Document validation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-29T22:36:28.924-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-18T23:27:26.293-07:00")
 public class DocumentValidationResult {
   @SerializedName("DocumentIsValid")
   private Boolean documentIsValid = null;
+
+  @SerializedName("PasswordProtected")
+  private Boolean passwordProtected = null;
 
   @SerializedName("ErrorCount")
   private Integer errorCount = null;
@@ -61,6 +64,24 @@ public class DocumentValidationResult {
 
   public void setDocumentIsValid(Boolean documentIsValid) {
     this.documentIsValid = documentIsValid;
+  }
+
+  public DocumentValidationResult passwordProtected(Boolean passwordProtected) {
+    this.passwordProtected = passwordProtected;
+    return this;
+  }
+
+   /**
+   * True if the document is password protected, false otherwise
+   * @return passwordProtected
+  **/
+  @ApiModelProperty(value = "True if the document is password protected, false otherwise")
+  public Boolean isPasswordProtected() {
+    return passwordProtected;
+  }
+
+  public void setPasswordProtected(Boolean passwordProtected) {
+    this.passwordProtected = passwordProtected;
   }
 
   public DocumentValidationResult errorCount(Integer errorCount) {
@@ -136,6 +157,7 @@ public class DocumentValidationResult {
     }
     DocumentValidationResult documentValidationResult = (DocumentValidationResult) o;
     return Objects.equals(this.documentIsValid, documentValidationResult.documentIsValid) &&
+        Objects.equals(this.passwordProtected, documentValidationResult.passwordProtected) &&
         Objects.equals(this.errorCount, documentValidationResult.errorCount) &&
         Objects.equals(this.warningCount, documentValidationResult.warningCount) &&
         Objects.equals(this.errorsAndWarnings, documentValidationResult.errorsAndWarnings);
@@ -143,7 +165,7 @@ public class DocumentValidationResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentIsValid, errorCount, warningCount, errorsAndWarnings);
+    return Objects.hash(documentIsValid, passwordProtected, errorCount, warningCount, errorsAndWarnings);
   }
 
 
@@ -153,6 +175,7 @@ public class DocumentValidationResult {
     sb.append("class DocumentValidationResult {\n");
     
     sb.append("    documentIsValid: ").append(toIndentedString(documentIsValid)).append("\n");
+    sb.append("    passwordProtected: ").append(toIndentedString(passwordProtected)).append("\n");
     sb.append("    errorCount: ").append(toIndentedString(errorCount)).append("\n");
     sb.append("    warningCount: ").append(toIndentedString(warningCount)).append("\n");
     sb.append("    errorsAndWarnings: ").append(toIndentedString(errorsAndWarnings)).append("\n");

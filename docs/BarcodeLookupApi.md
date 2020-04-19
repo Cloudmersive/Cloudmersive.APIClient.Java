@@ -4,14 +4,16 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**barcodeLookupEanLookup**](BarcodeLookupApi.md#barcodeLookupEanLookup) | **POST** /barcode/lookup/ean | Lookup a barcode value and return product data
+[**barcodeLookupEanLookup**](BarcodeLookupApi.md#barcodeLookupEanLookup) | **POST** /barcode/lookup/ean | Lookup EAN barcode value, return product data
 
 
 <a name="barcodeLookupEanLookup"></a>
 # **barcodeLookupEanLookup**
 > BarcodeLookupResponse barcodeLookupEanLookup(value)
 
-Lookup a barcode value and return product data
+Lookup EAN barcode value, return product data
+
+Lookup an input EAN barcode and return key details about the product
 
 ### Example
 ```java
