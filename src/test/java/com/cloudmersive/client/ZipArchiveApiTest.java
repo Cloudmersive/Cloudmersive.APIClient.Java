@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CreateZipArchiveRequest;
 import java.io.File;
+import com.cloudmersive.client.model.ZipEncryptionAdvancedRequest;
 import com.cloudmersive.client.model.ZipExtractResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -44,7 +45,17 @@ public class ZipArchiveApiTest {
      */
     @Test
     public void zipArchiveZipCreateTest() throws ApiException {
-        Object response = api.zipArchiveZipCreate();
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.zipArchiveZipCreate(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
 
         // TODO: test validations
     }
@@ -61,6 +72,39 @@ public class ZipArchiveApiTest {
     public void zipArchiveZipCreateAdvancedTest() throws ApiException {
         CreateZipArchiveRequest request = null;
         Object response = api.zipArchiveZipCreateAdvanced(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Decrypt and remove password protection on a zip file
+     *
+     * Decrypts and removes password protection from an encrypted zip file with the specified password
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void zipArchiveZipDecryptTest() throws ApiException {
+        File inputFile = null;
+        String zipPassword = null;
+        Object response = api.zipArchiveZipDecrypt(inputFile, zipPassword);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Encrypt and password protect a zip file
+     *
+     * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void zipArchiveZipEncryptAdvancedTest() throws ApiException {
+        ZipEncryptionAdvancedRequest encryptionRequest = null;
+        Object response = api.zipArchiveZipEncryptAdvanced(encryptionRequest);
 
         // TODO: test validations
     }

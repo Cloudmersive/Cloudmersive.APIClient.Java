@@ -54,6 +54,8 @@ import com.cloudmersive.client.model.DocxSetHeaderResponse;
 import com.cloudmersive.client.model.EnableSharedWorkbookRequest;
 import com.cloudmersive.client.model.EnableSharedWorkbookResponse;
 import java.io.File;
+import com.cloudmersive.client.model.FindDocxParagraphRequest;
+import com.cloudmersive.client.model.FindDocxParagraphResponse;
 import com.cloudmersive.client.model.FinishEditingRequest;
 import com.cloudmersive.client.model.GetDocxBodyRequest;
 import com.cloudmersive.client.model.GetDocxBodyResponse;
@@ -105,6 +107,8 @@ import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.RemoveXlsxWorksheetRequest;
+import com.cloudmersive.client.model.ReplaceDocxParagraphRequest;
+import com.cloudmersive.client.model.ReplaceDocxParagraphResponse;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 import com.cloudmersive.client.model.SetXlsxCellByIdentifierRequest;
 import com.cloudmersive.client.model.SetXlsxCellByIdentifierResponse;
@@ -871,6 +875,128 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowRangeValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteDocxTableRowRangeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxFindParagraph
+     * @param reqConfig Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxFindParagraphCall(FindDocxParagraphRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/find/paragraph";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxFindParagraphValidateBeforeCall(FindDocxParagraphRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxFindParagraph(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxFindParagraphCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Find matching paragraphs in a Word DOCX document
+     * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+     * @param reqConfig Document input request (required)
+     * @return FindDocxParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FindDocxParagraphResponse editDocumentDocxFindParagraph(FindDocxParagraphRequest reqConfig) throws ApiException {
+        ApiResponse<FindDocxParagraphResponse> resp = editDocumentDocxFindParagraphWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Find matching paragraphs in a Word DOCX document
+     * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+     * @param reqConfig Document input request (required)
+     * @return ApiResponse&lt;FindDocxParagraphResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FindDocxParagraphResponse> editDocumentDocxFindParagraphWithHttpInfo(FindDocxParagraphRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxFindParagraphValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<FindDocxParagraphResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Find matching paragraphs in a Word DOCX document (asynchronously)
+     * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+     * @param reqConfig Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxFindParagraphAsync(FindDocxParagraphRequest reqConfig, final ApiCallback<FindDocxParagraphResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxFindParagraphValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FindDocxParagraphResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3067,6 +3193,128 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxReplaceValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxReplaceParagraph
+     * @param reqConfig Document input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxReplaceParagraphCall(ReplaceDocxParagraphRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = reqConfig;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/replace/paragraph";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxReplaceParagraphValidateBeforeCall(ReplaceDocxParagraphRequest reqConfig, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'reqConfig' is set
+        if (reqConfig == null) {
+            throw new ApiException("Missing the required parameter 'reqConfig' when calling editDocumentDocxReplaceParagraph(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxReplaceParagraphCall(reqConfig, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replace matching paragraphs in a Word DOCX document
+     * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+     * @param reqConfig Document input request (required)
+     * @return ReplaceDocxParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ReplaceDocxParagraphResponse editDocumentDocxReplaceParagraph(ReplaceDocxParagraphRequest reqConfig) throws ApiException {
+        ApiResponse<ReplaceDocxParagraphResponse> resp = editDocumentDocxReplaceParagraphWithHttpInfo(reqConfig);
+        return resp.getData();
+    }
+
+    /**
+     * Replace matching paragraphs in a Word DOCX document
+     * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+     * @param reqConfig Document input request (required)
+     * @return ApiResponse&lt;ReplaceDocxParagraphResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ReplaceDocxParagraphResponse> editDocumentDocxReplaceParagraphWithHttpInfo(ReplaceDocxParagraphRequest reqConfig) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxReplaceParagraphValidateBeforeCall(reqConfig, null, null);
+        Type localVarReturnType = new TypeToken<ReplaceDocxParagraphResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replace matching paragraphs in a Word DOCX document (asynchronously)
+     * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+     * @param reqConfig Document input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxReplaceParagraphAsync(ReplaceDocxParagraphRequest reqConfig, final ApiCallback<ReplaceDocxParagraphResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxReplaceParagraphValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ReplaceDocxParagraphResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

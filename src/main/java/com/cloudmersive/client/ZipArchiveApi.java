@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.CreateZipArchiveRequest;
 import java.io.File;
+import com.cloudmersive.client.model.ZipEncryptionAdvancedRequest;
 import com.cloudmersive.client.model.ZipExtractResponse;
 
 import java.lang.reflect.Type;
@@ -58,12 +59,22 @@ public class ZipArchiveApi {
 
     /**
      * Build call for zipArchiveZipCreate
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (optional)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call zipArchiveZipCreateCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call zipArchiveZipCreateCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -75,6 +86,26 @@ public class ZipArchiveApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+        if (inputFile3 != null)
+        localVarFormParams.put("inputFile3", inputFile3);
+        if (inputFile4 != null)
+        localVarFormParams.put("inputFile4", inputFile4);
+        if (inputFile5 != null)
+        localVarFormParams.put("inputFile5", inputFile5);
+        if (inputFile6 != null)
+        localVarFormParams.put("inputFile6", inputFile6);
+        if (inputFile7 != null)
+        localVarFormParams.put("inputFile7", inputFile7);
+        if (inputFile8 != null)
+        localVarFormParams.put("inputFile8", inputFile8);
+        if (inputFile9 != null)
+        localVarFormParams.put("inputFile9", inputFile9);
+        if (inputFile10 != null)
+        localVarFormParams.put("inputFile10", inputFile10);
 
         final String[] localVarAccepts = {
             "application/octet-stream"
@@ -83,7 +114,7 @@ public class ZipArchiveApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -105,10 +136,15 @@ public class ZipArchiveApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call zipArchiveZipCreateValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call zipArchiveZipCreateValidateBeforeCall(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling zipArchiveZipCreate(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = zipArchiveZipCreateCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = zipArchiveZipCreateCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
         return call;
 
     }
@@ -116,34 +152,64 @@ public class ZipArchiveApi {
     /**
      * Compress files to create a new zip archive
      * Create a new zip archive by compressing input files.
-     * @return Object
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (optional)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object zipArchiveZipCreate() throws ApiException {
-        ApiResponse<Object> resp = zipArchiveZipCreateWithHttpInfo();
+    public byte[] zipArchiveZipCreate(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        ApiResponse<byte[]> resp = zipArchiveZipCreateWithHttpInfo(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
         return resp.getData();
     }
 
     /**
      * Compress files to create a new zip archive
      * Create a new zip archive by compressing input files.
-     * @return ApiResponse&lt;Object&gt;
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (optional)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> zipArchiveZipCreateWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = zipArchiveZipCreateValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+    public ApiResponse<byte[]> zipArchiveZipCreateWithHttpInfo(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10) throws ApiException {
+        com.squareup.okhttp.Call call = zipArchiveZipCreateValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Compress files to create a new zip archive (asynchronously)
      * Create a new zip archive by compressing input files.
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (optional)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call zipArchiveZipCreateAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call zipArchiveZipCreateAsync(File inputFile1, File inputFile2, File inputFile3, File inputFile4, File inputFile5, File inputFile6, File inputFile7, File inputFile8, File inputFile9, File inputFile10, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -164,8 +230,8 @@ public class ZipArchiveApi {
             };
         }
 
-        com.squareup.okhttp.Call call = zipArchiveZipCreateValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        com.squareup.okhttp.Call call = zipArchiveZipCreateValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -287,6 +353,263 @@ public class ZipArchiveApi {
         }
 
         com.squareup.okhttp.Call call = zipArchiveZipCreateAdvancedValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for zipArchiveZipDecrypt
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param zipPassword Required; Password for the input archive (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call zipArchiveZipDecryptCall(File inputFile, String zipPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/archive/zip/decrypt";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (zipPassword != null)
+        localVarHeaderParams.put("zipPassword", apiClient.parameterToString(zipPassword));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call zipArchiveZipDecryptValidateBeforeCall(File inputFile, String zipPassword, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling zipArchiveZipDecrypt(Async)");
+        }
+        
+        // verify the required parameter 'zipPassword' is set
+        if (zipPassword == null) {
+            throw new ApiException("Missing the required parameter 'zipPassword' when calling zipArchiveZipDecrypt(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = zipArchiveZipDecryptCall(inputFile, zipPassword, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Decrypt and remove password protection on a zip file
+     * Decrypts and removes password protection from an encrypted zip file with the specified password
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param zipPassword Required; Password for the input archive (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object zipArchiveZipDecrypt(File inputFile, String zipPassword) throws ApiException {
+        ApiResponse<Object> resp = zipArchiveZipDecryptWithHttpInfo(inputFile, zipPassword);
+        return resp.getData();
+    }
+
+    /**
+     * Decrypt and remove password protection on a zip file
+     * Decrypts and removes password protection from an encrypted zip file with the specified password
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param zipPassword Required; Password for the input archive (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> zipArchiveZipDecryptWithHttpInfo(File inputFile, String zipPassword) throws ApiException {
+        com.squareup.okhttp.Call call = zipArchiveZipDecryptValidateBeforeCall(inputFile, zipPassword, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Decrypt and remove password protection on a zip file (asynchronously)
+     * Decrypts and removes password protection from an encrypted zip file with the specified password
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param zipPassword Required; Password for the input archive (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call zipArchiveZipDecryptAsync(File inputFile, String zipPassword, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = zipArchiveZipDecryptValidateBeforeCall(inputFile, zipPassword, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for zipArchiveZipEncryptAdvanced
+     * @param encryptionRequest Encryption request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call zipArchiveZipEncryptAdvancedCall(ZipEncryptionAdvancedRequest encryptionRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = encryptionRequest;
+
+        // create path and map variables
+        String localVarPath = "/convert/archive/zip/encrypt/advanced";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call zipArchiveZipEncryptAdvancedValidateBeforeCall(ZipEncryptionAdvancedRequest encryptionRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'encryptionRequest' is set
+        if (encryptionRequest == null) {
+            throw new ApiException("Missing the required parameter 'encryptionRequest' when calling zipArchiveZipEncryptAdvanced(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = zipArchiveZipEncryptAdvancedCall(encryptionRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Encrypt and password protect a zip file
+     * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+     * @param encryptionRequest Encryption request (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object zipArchiveZipEncryptAdvanced(ZipEncryptionAdvancedRequest encryptionRequest) throws ApiException {
+        ApiResponse<Object> resp = zipArchiveZipEncryptAdvancedWithHttpInfo(encryptionRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Encrypt and password protect a zip file
+     * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+     * @param encryptionRequest Encryption request (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> zipArchiveZipEncryptAdvancedWithHttpInfo(ZipEncryptionAdvancedRequest encryptionRequest) throws ApiException {
+        com.squareup.okhttp.Call call = zipArchiveZipEncryptAdvancedValidateBeforeCall(encryptionRequest, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Encrypt and password protect a zip file (asynchronously)
+     * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+     * @param encryptionRequest Encryption request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call zipArchiveZipEncryptAdvancedAsync(ZipEncryptionAdvancedRequest encryptionRequest, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = zipArchiveZipEncryptAdvancedValidateBeforeCall(encryptionRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

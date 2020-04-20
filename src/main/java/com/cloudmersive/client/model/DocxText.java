@@ -28,7 +28,7 @@ import java.io.IOException;
  * Unit of text content in a Word Document (DOCX) file
  */
 @ApiModel(description = "Unit of text content in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-18T23:27:26.293-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-19T22:20:33.095-07:00")
 public class DocxText {
   @SerializedName("TextIndex")
   private Integer textIndex = null;
@@ -63,10 +63,10 @@ public class DocxText {
   }
 
    /**
-   * The Path of the location of this object; leave blank for new tables
+   * The Path of the location of this Text object; leave blank for creation
    * @return path
   **/
-  @ApiModelProperty(value = "The Path of the location of this object; leave blank for new tables")
+  @ApiModelProperty(value = "The Path of the location of this Text object; leave blank for creation")
   public String getPath() {
     return path;
   }

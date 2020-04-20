@@ -83,6 +83,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a GZip Archive file (gzip or gz)
+     *
+     * Validate a GZip archive file (GZIP or GZ)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentGZipValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentGZipValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a JSON file
      *
      * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
@@ -131,6 +147,38 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a RAR Archive file (RAR)
+     *
+     * Validate a RAR archive file (RAR)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentRarValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentRarValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a TAR Tarball Archive file (TAR)
+     *
+     * Validate a TAR tarball archive file (TAR)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentTarValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentTarValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Excel document (XLSX)
      *
      * Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
@@ -158,6 +206,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentXmlValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXmlValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a Zip Archive file (zip)
+     *
+     * Validate a Zip archive file (ZIP)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentZipValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentZipValidation(inputFile);
 
         // TODO: test validations
     }

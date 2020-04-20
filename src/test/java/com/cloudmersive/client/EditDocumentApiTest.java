@@ -41,6 +41,8 @@ import com.cloudmersive.client.model.DocxSetHeaderResponse;
 import com.cloudmersive.client.model.EnableSharedWorkbookRequest;
 import com.cloudmersive.client.model.EnableSharedWorkbookResponse;
 import java.io.File;
+import com.cloudmersive.client.model.FindDocxParagraphRequest;
+import com.cloudmersive.client.model.FindDocxParagraphResponse;
 import com.cloudmersive.client.model.FinishEditingRequest;
 import com.cloudmersive.client.model.GetDocxBodyRequest;
 import com.cloudmersive.client.model.GetDocxBodyResponse;
@@ -92,6 +94,8 @@ import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.RemoveXlsxWorksheetRequest;
+import com.cloudmersive.client.model.ReplaceDocxParagraphRequest;
+import com.cloudmersive.client.model.ReplaceDocxParagraphResponse;
 import com.cloudmersive.client.model.ReplaceStringRequest;
 import com.cloudmersive.client.model.SetXlsxCellByIdentifierRequest;
 import com.cloudmersive.client.model.SetXlsxCellByIdentifierResponse;
@@ -210,6 +214,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxDeleteTableRowRangeTest() throws ApiException {
         DeleteDocxTableRowRangeRequest reqConfig = null;
         DeleteDocxTableRowRangeResponse response = api.editDocumentDocxDeleteTableRowRange(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Find matching paragraphs in a Word DOCX document
+     *
+     * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxFindParagraphTest() throws ApiException {
+        FindDocxParagraphRequest reqConfig = null;
+        FindDocxParagraphResponse response = api.editDocumentDocxFindParagraph(reqConfig);
 
         // TODO: test validations
     }
@@ -498,6 +518,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxReplaceTest() throws ApiException {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentDocxReplace(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace matching paragraphs in a Word DOCX document
+     *
+     * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxReplaceParagraphTest() throws ApiException {
+        ReplaceDocxParagraphRequest reqConfig = null;
+        ReplaceDocxParagraphResponse response = api.editDocumentDocxReplaceParagraph(reqConfig);
 
         // TODO: test validations
     }

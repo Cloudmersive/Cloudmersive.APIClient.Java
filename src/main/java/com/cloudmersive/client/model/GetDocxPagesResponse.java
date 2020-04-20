@@ -31,7 +31,7 @@ import java.util.List;
  * Result of getting pages from a Word Document DOCX
  */
 @ApiModel(description = "Result of getting pages from a Word Document DOCX")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-18T23:27:26.293-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-19T22:20:33.095-07:00")
 public class GetDocxPagesResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
