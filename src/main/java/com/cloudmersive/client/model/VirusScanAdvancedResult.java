@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-19T22:20:44.208-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-21T19:53:18.271-07:00")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -44,6 +44,9 @@ public class VirusScanAdvancedResult {
 
   @SerializedName("ContainsScript")
   private Boolean containsScript = null;
+
+  @SerializedName("ContainsPasswordProtectedFile")
+  private Boolean containsPasswordProtectedFile = null;
 
   @SerializedName("ContainsRestrictedFileFormat")
   private Boolean containsRestrictedFileFormat = null;
@@ -126,6 +129,24 @@ public class VirusScanAdvancedResult {
     this.containsScript = containsScript;
   }
 
+  public VirusScanAdvancedResult containsPasswordProtectedFile(Boolean containsPasswordProtectedFile) {
+    this.containsPasswordProtectedFile = containsPasswordProtectedFile;
+    return this;
+  }
+
+   /**
+   * True if the scan contained a password protected or encrypted file, which can be a significant risk factor
+   * @return containsPasswordProtectedFile
+  **/
+  @ApiModelProperty(value = "True if the scan contained a password protected or encrypted file, which can be a significant risk factor")
+  public Boolean isContainsPasswordProtectedFile() {
+    return containsPasswordProtectedFile;
+  }
+
+  public void setContainsPasswordProtectedFile(Boolean containsPasswordProtectedFile) {
+    this.containsPasswordProtectedFile = containsPasswordProtectedFile;
+  }
+
   public VirusScanAdvancedResult containsRestrictedFileFormat(Boolean containsRestrictedFileFormat) {
     this.containsRestrictedFileFormat = containsRestrictedFileFormat;
     return this;
@@ -202,6 +223,7 @@ public class VirusScanAdvancedResult {
         Objects.equals(this.containsExecutable, virusScanAdvancedResult.containsExecutable) &&
         Objects.equals(this.containsInvalidFile, virusScanAdvancedResult.containsInvalidFile) &&
         Objects.equals(this.containsScript, virusScanAdvancedResult.containsScript) &&
+        Objects.equals(this.containsPasswordProtectedFile, virusScanAdvancedResult.containsPasswordProtectedFile) &&
         Objects.equals(this.containsRestrictedFileFormat, virusScanAdvancedResult.containsRestrictedFileFormat) &&
         Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses);
@@ -209,7 +231,7 @@ public class VirusScanAdvancedResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsRestrictedFileFormat, verifiedFileFormat, foundViruses);
+    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, verifiedFileFormat, foundViruses);
   }
 
 
@@ -222,6 +244,7 @@ public class VirusScanAdvancedResult {
     sb.append("    containsExecutable: ").append(toIndentedString(containsExecutable)).append("\n");
     sb.append("    containsInvalidFile: ").append(toIndentedString(containsInvalidFile)).append("\n");
     sb.append("    containsScript: ").append(toIndentedString(containsScript)).append("\n");
+    sb.append("    containsPasswordProtectedFile: ").append(toIndentedString(containsPasswordProtectedFile)).append("\n");
     sb.append("    containsRestrictedFileFormat: ").append(toIndentedString(containsRestrictedFileFormat)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
