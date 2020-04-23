@@ -51,6 +51,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a CSV file document (CSV)
+     *
+     * Validate a CSV file document (CSV); if the document is not valid, identifies the errors in the document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentCsvValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentCsvValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Word document (DOCX)
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document

@@ -52,7 +52,8 @@ public class ConvertDataApiTest {
     @Test
     public void convertDataCsvToJsonTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDataCsvToJson(inputFile);
+        Boolean columnNamesFromFirstRow = null;
+        Object response = api.convertDataCsvToJson(inputFile, columnNamesFromFirstRow);
 
         // TODO: test validations
     }

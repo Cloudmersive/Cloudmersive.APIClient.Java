@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 <a name="convertDataCsvToJson"></a>
 # **convertDataCsvToJson**
-> Object convertDataCsvToJson(inputFile)
+> Object convertDataCsvToJson(inputFile, columnNamesFromFirstRow)
 
 Convert CSV to JSON conversion
 
@@ -48,8 +48,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 ConvertDataApi apiInstance = new ConvertDataApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+Boolean columnNamesFromFirstRow = true; // Boolean | Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
 try {
-    Object result = apiInstance.convertDataCsvToJson(inputFile);
+    Object result = apiInstance.convertDataCsvToJson(inputFile, columnNamesFromFirstRow);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDataApi#convertDataCsvToJson");
@@ -62,6 +63,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
+ **columnNamesFromFirstRow** | **Boolean**| Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. | [optional]
 
 ### Return type
 

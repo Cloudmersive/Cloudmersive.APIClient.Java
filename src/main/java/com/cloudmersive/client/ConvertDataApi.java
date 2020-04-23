@@ -66,12 +66,13 @@ public class ConvertDataApi {
     /**
      * Build call for convertDataCsvToJson
      * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDataCsvToJsonCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDataCsvToJsonCall(File inputFile, Boolean columnNamesFromFirstRow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -81,6 +82,8 @@ public class ConvertDataApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (columnNamesFromFirstRow != null)
+        localVarHeaderParams.put("columnNamesFromFirstRow", apiClient.parameterToString(columnNamesFromFirstRow));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -115,7 +118,7 @@ public class ConvertDataApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDataCsvToJsonValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDataCsvToJsonValidateBeforeCall(File inputFile, Boolean columnNamesFromFirstRow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -123,7 +126,7 @@ public class ConvertDataApi {
         }
         
 
-        com.squareup.okhttp.Call call = convertDataCsvToJsonCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDataCsvToJsonCall(inputFile, columnNamesFromFirstRow, progressListener, progressRequestListener);
         return call;
 
     }
@@ -132,11 +135,12 @@ public class ConvertDataApi {
      * Convert CSV to JSON conversion
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDataCsvToJson(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDataCsvToJsonWithHttpInfo(inputFile);
+    public Object convertDataCsvToJson(File inputFile, Boolean columnNamesFromFirstRow) throws ApiException {
+        ApiResponse<Object> resp = convertDataCsvToJsonWithHttpInfo(inputFile, columnNamesFromFirstRow);
         return resp.getData();
     }
 
@@ -144,11 +148,12 @@ public class ConvertDataApi {
      * Convert CSV to JSON conversion
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDataCsvToJsonWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = convertDataCsvToJsonValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<Object> convertDataCsvToJsonWithHttpInfo(File inputFile, Boolean columnNamesFromFirstRow) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataCsvToJsonValidateBeforeCall(inputFile, columnNamesFromFirstRow, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -157,11 +162,12 @@ public class ConvertDataApi {
      * Convert CSV to JSON conversion (asynchronously)
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDataCsvToJsonAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDataCsvToJsonAsync(File inputFile, Boolean columnNamesFromFirstRow, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -182,7 +188,7 @@ public class ConvertDataApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDataCsvToJsonValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDataCsvToJsonValidateBeforeCall(inputFile, columnNamesFromFirstRow, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
