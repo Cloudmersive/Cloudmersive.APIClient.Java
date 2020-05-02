@@ -1,0 +1,120 @@
+# LanguageTranslationApi
+
+All URIs are relative to *https://api.cloudmersive.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**languageTranslationTranslateDeuToEng**](LanguageTranslationApi.md#languageTranslationTranslateDeuToEng) | **POST** /nlp-v2/translate/language/deu/to/eng | Translate German to English text with Deep Learning AI
+[**languageTranslationTranslateEngToDeu**](LanguageTranslationApi.md#languageTranslationTranslateEngToDeu) | **POST** /nlp-v2/translate/language/eng/to/deu | Translate English to German text with Deep Learning AI
+
+
+<a name="languageTranslationTranslateDeuToEng"></a>
+# **languageTranslationTranslateDeuToEng**
+> LanguageTranslationResponse languageTranslationTranslateDeuToEng(input)
+
+Translate German to English text with Deep Learning AI
+
+Automatically translates input text in German to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.LanguageTranslationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+LanguageTranslationApi apiInstance = new LanguageTranslationApi();
+LanguageTranslationRequest input = new LanguageTranslationRequest(); // LanguageTranslationRequest | Input translation request
+try {
+    LanguageTranslationResponse result = apiInstance.languageTranslationTranslateDeuToEng(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LanguageTranslationApi#languageTranslationTranslateDeuToEng");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**LanguageTranslationRequest**](LanguageTranslationRequest.md)| Input translation request |
+
+### Return type
+
+[**LanguageTranslationResponse**](LanguageTranslationResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="languageTranslationTranslateEngToDeu"></a>
+# **languageTranslationTranslateEngToDeu**
+> LanguageTranslationResponse languageTranslationTranslateEngToDeu(input)
+
+Translate English to German text with Deep Learning AI
+
+Automatically translates input text in English to output text in German using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.LanguageTranslationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+LanguageTranslationApi apiInstance = new LanguageTranslationApi();
+LanguageTranslationRequest input = new LanguageTranslationRequest(); // LanguageTranslationRequest | Input translation request
+try {
+    LanguageTranslationResponse result = apiInstance.languageTranslationTranslateEngToDeu(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LanguageTranslationApi#languageTranslationTranslateEngToDeu");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**LanguageTranslationRequest**](LanguageTranslationRequest.md)| Input translation request |
+
+### Return type
+
+[**LanguageTranslationResponse**](LanguageTranslationResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
