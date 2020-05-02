@@ -31,7 +31,7 @@ import java.util.List;
  * Output of a text rephrasing operation
  */
 @ApiModel(description = "Output of a text rephrasing operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-01T18:06:07.315-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-02T15:19:05.228-07:00")
 public class RephraseResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

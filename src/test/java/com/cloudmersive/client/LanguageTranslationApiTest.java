@@ -65,4 +65,36 @@ public class LanguageTranslationApiTest {
         // TODO: test validations
     }
     
+    /**
+     * Translate English to Russian text with Deep Learning AI
+     *
+     * Automatically translates input text in English to output text in Russian using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void languageTranslationTranslateEngToRusTest() throws ApiException {
+        LanguageTranslationRequest input = null;
+        LanguageTranslationResponse response = api.languageTranslationTranslateEngToRus(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Translate Russian to English text with Deep Learning AI
+     *
+     * Automatically translates input text in Russian to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void languageTranslationTranslateRusToEngTest() throws ApiException {
+        LanguageTranslationRequest input = null;
+        LanguageTranslationResponse response = api.languageTranslationTranslateRusToEng(input);
+
+        // TODO: test validations
+    }
+    
 }
