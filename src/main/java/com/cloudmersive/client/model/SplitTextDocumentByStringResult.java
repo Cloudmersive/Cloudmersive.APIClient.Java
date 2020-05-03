@@ -31,7 +31,7 @@ import java.util.List;
  * The result of splitting a Text document into separate elements
  */
 @ApiModel(description = "The result of splitting a Text document into separate elements")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-02T15:19:22.030-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-03T11:35:37.159-07:00")
 public class SplitTextDocumentByStringResult {
   @SerializedName("ResultElements")
   private List<TextDocumentElement> resultElements = null;

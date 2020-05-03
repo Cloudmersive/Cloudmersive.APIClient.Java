@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a delete DOCX table row range request
  */
 @ApiModel(description = "Input to a delete DOCX table row range request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-02T15:19:22.030-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-03T11:35:37.159-07:00")
 public class DeleteDocxTableRowRangeRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

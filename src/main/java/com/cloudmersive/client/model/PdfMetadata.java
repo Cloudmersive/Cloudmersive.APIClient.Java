@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of an autodetect/get-info operation
  */
 @ApiModel(description = "Result of an autodetect/get-info operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-02T15:19:22.030-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-03T11:35:37.159-07:00")
 public class PdfMetadata {
   @SerializedName("Successful")
   private Boolean successful = null;

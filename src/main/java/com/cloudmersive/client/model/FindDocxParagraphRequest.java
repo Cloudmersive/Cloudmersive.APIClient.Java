@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a request to find matching paragraphs in a Word DOCX document
  */
 @ApiModel(description = "Input to a request to find matching paragraphs in a Word DOCX document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-02T15:19:22.030-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-03T11:35:37.159-07:00")
 public class FindDocxParagraphRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
