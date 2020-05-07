@@ -14,6 +14,8 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.ProfanityAnalysisRequest;
+import com.cloudmersive.client.model.ProfanityAnalysisResponse;
 import com.cloudmersive.client.model.SentimentAnalysisRequest;
 import com.cloudmersive.client.model.SentimentAnalysisResponse;
 import org.junit.Test;
@@ -32,6 +34,22 @@ public class AnalyticsApiTest {
 
     private final AnalyticsApi api = new AnalyticsApi();
 
+    
+    /**
+     * Perform Profanity and Obscene Language Analysis and Detection on Text
+     *
+     * Analyze input text using advanced Profanity and Obscene Language Analysis to determine if the input contains profane language.  Supports English language input.  Consumes 1-2 API calls per sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void analyticsProfanityTest() throws ApiException {
+        ProfanityAnalysisRequest input = null;
+        ProfanityAnalysisResponse response = api.analyticsProfanity(input);
+
+        // TODO: test validations
+    }
     
     /**
      * Perform Sentiment Analysis and Classification on Text
