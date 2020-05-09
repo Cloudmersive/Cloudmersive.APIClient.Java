@@ -18,6 +18,8 @@ import com.cloudmersive.client.model.ProfanityAnalysisRequest;
 import com.cloudmersive.client.model.ProfanityAnalysisResponse;
 import com.cloudmersive.client.model.SentimentAnalysisRequest;
 import com.cloudmersive.client.model.SentimentAnalysisResponse;
+import com.cloudmersive.client.model.SubjectivityAnalysisRequest;
+import com.cloudmersive.client.model.SubjectivityAnalysisResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -63,6 +65,22 @@ public class AnalyticsApiTest {
     public void analyticsSentimentTest() throws ApiException {
         SentimentAnalysisRequest input = null;
         SentimentAnalysisResponse response = api.analyticsSentiment(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Perform Subjectivity and Objectivity Analysis on Text
+     *
+     * Analyze input text using advanced Subjectivity and Objectivity Language Analysis to determine if the input text is objective or subjective, and how much.  Supports English language input.  Consumes 1-2 API calls per sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void analyticsSubjectivityTest() throws ApiException {
+        SubjectivityAnalysisRequest input = null;
+        SubjectivityAnalysisResponse response = api.analyticsSubjectivity(input);
 
         // TODO: test validations
     }

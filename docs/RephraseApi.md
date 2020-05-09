@@ -4,12 +4,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**rephraseTranslateDeuToEng**](RephraseApi.md#rephraseTranslateDeuToEng) | **POST** /nlp-v2/rephrase/rephrase/eng/by-sentence | Rephrase, paraphrase English text sentence-by-sentence using Deep Learning AI
+[**rephraseEnglishRephraseSentenceBySentence**](RephraseApi.md#rephraseEnglishRephraseSentenceBySentence) | **POST** /nlp-v2/rephrase/rephrase/eng/by-sentence | Rephrase, paraphrase English text sentence-by-sentence using Deep Learning AI
 
 
-<a name="rephraseTranslateDeuToEng"></a>
-# **rephraseTranslateDeuToEng**
-> RephraseResponse rephraseTranslateDeuToEng(input)
+<a name="rephraseEnglishRephraseSentenceBySentence"></a>
+# **rephraseEnglishRephraseSentenceBySentence**
+> RephraseResponse rephraseEnglishRephraseSentenceBySentence(input)
 
 Rephrase, paraphrase English text sentence-by-sentence using Deep Learning AI
 
@@ -35,10 +35,10 @@ Apikey.setApiKey("YOUR API KEY");
 RephraseApi apiInstance = new RephraseApi();
 RephraseRequest input = new RephraseRequest(); // RephraseRequest | Input rephrase request
 try {
-    RephraseResponse result = apiInstance.rephraseTranslateDeuToEng(input);
+    RephraseResponse result = apiInstance.rephraseEnglishRephraseSentenceBySentence(input);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RephraseApi#rephraseTranslateDeuToEng");
+    System.err.println("Exception when calling RephraseApi#rephraseEnglishRephraseSentenceBySentence");
     e.printStackTrace();
 }
 ```

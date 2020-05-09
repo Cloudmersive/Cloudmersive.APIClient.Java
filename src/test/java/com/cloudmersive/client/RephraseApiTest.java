@@ -42,9 +42,9 @@ public class RephraseApiTest {
      *          if the Api call fails
      */
     @Test
-    public void rephraseTranslateDeuToEngTest() throws ApiException {
+    public void rephraseEnglishRephraseSentenceBySentenceTest() throws ApiException {
         RephraseRequest input = null;
-        RephraseResponse response = api.rephraseTranslateDeuToEng(input);
+        RephraseResponse response = api.rephraseEnglishRephraseSentenceBySentence(input);
 
         // TODO: test validations
     }

@@ -56,14 +56,14 @@ public class RephraseApi {
     }
 
     /**
-     * Build call for rephraseTranslateDeuToEng
+     * Build call for rephraseEnglishRephraseSentenceBySentence
      * @param input Input rephrase request (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call rephraseTranslateDeuToEngCall(RephraseRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call rephraseEnglishRephraseSentenceBySentenceCall(RephraseRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = input;
 
         // create path and map variables
@@ -105,15 +105,15 @@ public class RephraseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call rephraseTranslateDeuToEngValidateBeforeCall(RephraseRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call rephraseEnglishRephraseSentenceBySentenceValidateBeforeCall(RephraseRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'input' is set
         if (input == null) {
-            throw new ApiException("Missing the required parameter 'input' when calling rephraseTranslateDeuToEng(Async)");
+            throw new ApiException("Missing the required parameter 'input' when calling rephraseEnglishRephraseSentenceBySentence(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = rephraseTranslateDeuToEngCall(input, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = rephraseEnglishRephraseSentenceBySentenceCall(input, progressListener, progressRequestListener);
         return call;
 
     }
@@ -125,8 +125,8 @@ public class RephraseApi {
      * @return RephraseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RephraseResponse rephraseTranslateDeuToEng(RephraseRequest input) throws ApiException {
-        ApiResponse<RephraseResponse> resp = rephraseTranslateDeuToEngWithHttpInfo(input);
+    public RephraseResponse rephraseEnglishRephraseSentenceBySentence(RephraseRequest input) throws ApiException {
+        ApiResponse<RephraseResponse> resp = rephraseEnglishRephraseSentenceBySentenceWithHttpInfo(input);
         return resp.getData();
     }
 
@@ -137,8 +137,8 @@ public class RephraseApi {
      * @return ApiResponse&lt;RephraseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RephraseResponse> rephraseTranslateDeuToEngWithHttpInfo(RephraseRequest input) throws ApiException {
-        com.squareup.okhttp.Call call = rephraseTranslateDeuToEngValidateBeforeCall(input, null, null);
+    public ApiResponse<RephraseResponse> rephraseEnglishRephraseSentenceBySentenceWithHttpInfo(RephraseRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = rephraseEnglishRephraseSentenceBySentenceValidateBeforeCall(input, null, null);
         Type localVarReturnType = new TypeToken<RephraseResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -151,7 +151,7 @@ public class RephraseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call rephraseTranslateDeuToEngAsync(RephraseRequest input, final ApiCallback<RephraseResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call rephraseEnglishRephraseSentenceBySentenceAsync(RephraseRequest input, final ApiCallback<RephraseResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,7 +172,7 @@ public class RephraseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = rephraseTranslateDeuToEngValidateBeforeCall(input, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = rephraseEnglishRephraseSentenceBySentenceValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RephraseResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

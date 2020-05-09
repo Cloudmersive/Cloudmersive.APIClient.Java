@@ -31,7 +31,7 @@ import java.util.List;
  * Definition of a form table for OCR data extraction from images
  */
 @ApiModel(description = "Definition of a form table for OCR data extraction from images")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-06T19:00:08.642-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-08T22:37:03.994-07:00")
 public class FormTableDefinition {
   @SerializedName("TableID")
   private String tableID = null;
