@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to encode content to Base 64
  */
 @ApiModel(description = "Request to encode content to Base 64")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-08T22:37:15.396-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:42.630-07:00")
 public class Base64EncodeRequest {
   @SerializedName("ContentToEncode")
   private byte[] contentToEncode = null;

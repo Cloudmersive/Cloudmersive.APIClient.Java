@@ -31,7 +31,7 @@ import java.util.List;
  * Word DOCX template application request
  */
 @ApiModel(description = "Word DOCX template application request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-08T22:37:15.396-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:42.630-07:00")
 public class DocxTemplateApplicationRequest {
   @SerializedName("Operations")
   private List<DocxTemplateOperation> operations = null;

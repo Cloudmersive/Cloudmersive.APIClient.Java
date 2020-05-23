@@ -18,6 +18,8 @@ import com.cloudmersive.client.model.ProfanityAnalysisRequest;
 import com.cloudmersive.client.model.ProfanityAnalysisResponse;
 import com.cloudmersive.client.model.SentimentAnalysisRequest;
 import com.cloudmersive.client.model.SentimentAnalysisResponse;
+import com.cloudmersive.client.model.SimilarityAnalysisRequest;
+import com.cloudmersive.client.model.SimilarityAnalysisResponse;
 import com.cloudmersive.client.model.SubjectivityAnalysisRequest;
 import com.cloudmersive.client.model.SubjectivityAnalysisResponse;
 import org.junit.Test;
@@ -65,6 +67,22 @@ public class AnalyticsApiTest {
     public void analyticsSentimentTest() throws ApiException {
         SentimentAnalysisRequest input = null;
         SentimentAnalysisResponse response = api.analyticsSentiment(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Perform Semantic Similarity Comparison of Two Strings
+     *
+     * Analyze two input text strings, typically sentences, and determine the semantic similarity of each.  Semantic similarity refers to the degree to which two sentences mean the same thing semantically.  Uses advanced Deep Learning to perform the semantic similarity comparison.  Consumes 1-2 API calls per sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void analyticsSimilarityTest() throws ApiException {
+        SimilarityAnalysisRequest input = null;
+        SimilarityAnalysisResponse response = api.analyticsSimilarity(input);
 
         // TODO: test validations
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Text of a single page of a PDF
  */
 @ApiModel(description = "Text of a single page of a PDF")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-08T22:37:15.396-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:42.630-07:00")
 public class PdfPageText {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

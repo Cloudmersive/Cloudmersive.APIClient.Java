@@ -28,7 +28,7 @@ import java.io.IOException;
  * Receipt line item, comprised of a product or item and a price (if available)
  */
 @ApiModel(description = "Receipt line item, comprised of a product or item and a price (if available)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-08T22:37:03.994-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:31.170-07:00")
 public class ReceiptLineItem {
   @SerializedName("ItemDescription")
   private String itemDescription = null;

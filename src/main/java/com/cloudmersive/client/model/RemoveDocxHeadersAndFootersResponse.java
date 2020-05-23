@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a Remove Headers and Footers command
  */
 @ApiModel(description = "Result of running a Remove Headers and Footers command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-08T22:37:15.396-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:42.630-07:00")
 public class RemoveDocxHeadersAndFootersResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
