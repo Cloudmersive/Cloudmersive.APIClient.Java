@@ -83,6 +83,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate if an EML file is executable
+     *
+     * Validate if an input file is an EML email file; if the document is not valid
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentEmlValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentEmlValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate if a file is executable
      *
      * Validate if an input file is a binary executable file; if the document is not valid
@@ -126,6 +142,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentJsonValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentJsonValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate if an MSG file is executable
+     *
+     * Validate if an input file is an MSG email file; if the document is not valid
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentMsgValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentMsgValidation(inputFile);
 
         // TODO: test validations
     }

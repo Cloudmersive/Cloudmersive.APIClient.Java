@@ -31,7 +31,7 @@ import java.util.List;
  * A content run in a Word Document (DOCX) file
  */
 @ApiModel(description = "A content run in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:42.630-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-24T22:07:58.019-07:00")
 public class DocxRun {
   @SerializedName("RunIndex")
   private Integer runIndex = null;

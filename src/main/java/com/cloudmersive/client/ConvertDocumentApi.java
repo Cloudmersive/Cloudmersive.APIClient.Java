@@ -29,10 +29,17 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
+import com.cloudmersive.client.model.AutodetectToThumbnailsResult;
 import com.cloudmersive.client.model.CsvCollection;
+import com.cloudmersive.client.model.DocxToPngResult;
+import com.cloudmersive.client.model.EmlToHtmlResult;
 import java.io.File;
+import com.cloudmersive.client.model.GetFileTypeIconResult;
+import com.cloudmersive.client.model.MsgToHtmlResult;
 import com.cloudmersive.client.model.PdfToPngResult;
+import com.cloudmersive.client.model.PptxToPngResult;
 import com.cloudmersive.client.model.TextConversionResult;
+import com.cloudmersive.client.model.XlsxToPngResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -428,6 +435,296 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentAutodetectToPngArrayValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AutodetectToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentAutodetectToThumbnail
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAutodetectToThumbnailCall(File inputFile, Integer maxWidth, Integer maxHeight, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/autodetect/to/thumbnail";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (maxWidth != null)
+        localVarHeaderParams.put("maxWidth", apiClient.parameterToString(maxWidth));
+        if (maxHeight != null)
+        localVarHeaderParams.put("maxHeight", apiClient.parameterToString(maxHeight));
+        if (extension != null)
+        localVarHeaderParams.put("extension", apiClient.parameterToString(extension));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentAutodetectToThumbnailValidateBeforeCall(File inputFile, Integer maxWidth, Integer maxHeight, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentAutodetectToThumbnail(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToThumbnailCall(inputFile, maxWidth, maxHeight, extension, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert File to Thumbnail Image
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object convertDocumentAutodetectToThumbnail(File inputFile, Integer maxWidth, Integer maxHeight, String extension) throws ApiException {
+        ApiResponse<Object> resp = convertDocumentAutodetectToThumbnailWithHttpInfo(inputFile, maxWidth, maxHeight, extension);
+        return resp.getData();
+    }
+
+    /**
+     * Convert File to Thumbnail Image
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> convertDocumentAutodetectToThumbnailWithHttpInfo(File inputFile, Integer maxWidth, Integer maxHeight, String extension) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToThumbnailValidateBeforeCall(inputFile, maxWidth, maxHeight, extension, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert File to Thumbnail Image (asynchronously)
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAutodetectToThumbnailAsync(File inputFile, Integer maxWidth, Integer maxHeight, String extension, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToThumbnailValidateBeforeCall(inputFile, maxWidth, maxHeight, extension, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentAutodetectToThumbnailsAdvanced
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. (optional)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAutodetectToThumbnailsAdvancedCall(File inputFile, Integer pages, Integer maxWidth, Integer maxHeight, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/autodetect/to/thumbnail/advanced";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (pages != null)
+        localVarHeaderParams.put("pages", apiClient.parameterToString(pages));
+        if (maxWidth != null)
+        localVarHeaderParams.put("maxWidth", apiClient.parameterToString(maxWidth));
+        if (maxHeight != null)
+        localVarHeaderParams.put("maxHeight", apiClient.parameterToString(maxHeight));
+        if (extension != null)
+        localVarHeaderParams.put("extension", apiClient.parameterToString(extension));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentAutodetectToThumbnailsAdvancedValidateBeforeCall(File inputFile, Integer pages, Integer maxWidth, Integer maxHeight, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentAutodetectToThumbnailsAdvanced(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToThumbnailsAdvancedCall(inputFile, pages, maxWidth, maxHeight, extension, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert File to Thumbnail Image Object
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. (optional)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @return AutodetectToThumbnailsResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutodetectToThumbnailsResult convertDocumentAutodetectToThumbnailsAdvanced(File inputFile, Integer pages, Integer maxWidth, Integer maxHeight, String extension) throws ApiException {
+        ApiResponse<AutodetectToThumbnailsResult> resp = convertDocumentAutodetectToThumbnailsAdvancedWithHttpInfo(inputFile, pages, maxWidth, maxHeight, extension);
+        return resp.getData();
+    }
+
+    /**
+     * Convert File to Thumbnail Image Object
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. (optional)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @return ApiResponse&lt;AutodetectToThumbnailsResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutodetectToThumbnailsResult> convertDocumentAutodetectToThumbnailsAdvancedWithHttpInfo(File inputFile, Integer pages, Integer maxWidth, Integer maxHeight, String extension) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToThumbnailsAdvancedValidateBeforeCall(inputFile, pages, maxWidth, maxHeight, extension, null, null);
+        Type localVarReturnType = new TypeToken<AutodetectToThumbnailsResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert File to Thumbnail Image Object (asynchronously)
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. (optional)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAutodetectToThumbnailsAdvancedAsync(File inputFile, Integer pages, Integer maxWidth, Integer maxHeight, String extension, final ApiCallback<AutodetectToThumbnailsResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToThumbnailsAdvancedValidateBeforeCall(inputFile, pages, maxWidth, maxHeight, extension, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutodetectToThumbnailsResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1182,6 +1479,130 @@ public class ConvertDocumentApi {
         return call;
     }
     /**
+     * Build call for convertDocumentDocxToPng
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentDocxToPngCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/docx/to/png";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentDocxToPngValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentDocxToPng(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentDocxToPngCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert DOCX document to PNG image array
+     * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return DocxToPngResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocxToPngResult convertDocumentDocxToPng(File inputFile) throws ApiException {
+        ApiResponse<DocxToPngResult> resp = convertDocumentDocxToPngWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert DOCX document to PNG image array
+     * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;DocxToPngResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocxToPngResult> convertDocumentDocxToPngWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentDocxToPngValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<DocxToPngResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert DOCX document to PNG image array (asynchronously)
+     * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentDocxToPngAsync(File inputFile, final ApiCallback<DocxToPngResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentDocxToPngValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocxToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for convertDocumentDocxToTxt
      * @param inputFile Input file to perform the operation on. (required)
      * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;minimizeWhitespace&#39;. (optional)
@@ -1308,6 +1729,532 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentDocxToTxtValidateBeforeCall(inputFile, textFormattingMode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentEmlToHtml
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentEmlToHtmlCall(File inputFile, Boolean bodyOnly, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/eml/to/html";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (bodyOnly != null)
+        localVarHeaderParams.put("bodyOnly", apiClient.parameterToString(bodyOnly));
+        if (includeAttachments != null)
+        localVarHeaderParams.put("includeAttachments", apiClient.parameterToString(includeAttachments));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentEmlToHtmlValidateBeforeCall(File inputFile, Boolean bodyOnly, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentEmlToHtml(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentEmlToHtmlCall(inputFile, bodyOnly, includeAttachments, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Email EML file to HTML string
+     * Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @return EmlToHtmlResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EmlToHtmlResult convertDocumentEmlToHtml(File inputFile, Boolean bodyOnly, Boolean includeAttachments) throws ApiException {
+        ApiResponse<EmlToHtmlResult> resp = convertDocumentEmlToHtmlWithHttpInfo(inputFile, bodyOnly, includeAttachments);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Email EML file to HTML string
+     * Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @return ApiResponse&lt;EmlToHtmlResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EmlToHtmlResult> convertDocumentEmlToHtmlWithHttpInfo(File inputFile, Boolean bodyOnly, Boolean includeAttachments) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentEmlToHtmlValidateBeforeCall(inputFile, bodyOnly, includeAttachments, null, null);
+        Type localVarReturnType = new TypeToken<EmlToHtmlResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Email EML file to HTML string (asynchronously)
+     * Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentEmlToHtmlAsync(File inputFile, Boolean bodyOnly, Boolean includeAttachments, final ApiCallback<EmlToHtmlResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentEmlToHtmlValidateBeforeCall(inputFile, bodyOnly, includeAttachments, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EmlToHtmlResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentEmlToPdf
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentEmlToPdfCall(File inputFile, Boolean bodyOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/eml/to/pdf";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (bodyOnly != null)
+        localVarHeaderParams.put("bodyOnly", apiClient.parameterToString(bodyOnly));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentEmlToPdfValidateBeforeCall(File inputFile, Boolean bodyOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentEmlToPdf(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentEmlToPdfCall(inputFile, bodyOnly, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Email EML file to PDF document
+     * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object convertDocumentEmlToPdf(File inputFile, Boolean bodyOnly) throws ApiException {
+        ApiResponse<Object> resp = convertDocumentEmlToPdfWithHttpInfo(inputFile, bodyOnly);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Email EML file to PDF document
+     * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> convertDocumentEmlToPdfWithHttpInfo(File inputFile, Boolean bodyOnly) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentEmlToPdfValidateBeforeCall(inputFile, bodyOnly, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Email EML file to PDF document (asynchronously)
+     * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentEmlToPdfAsync(File inputFile, Boolean bodyOnly, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentEmlToPdfValidateBeforeCall(inputFile, bodyOnly, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentGetFileTypeIcon
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentGetFileTypeIconCall(String fileExtension, Integer iconSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/autodetect/get-icon";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileExtension != null)
+        localVarHeaderParams.put("fileExtension", apiClient.parameterToString(fileExtension));
+        if (iconSize != null)
+        localVarHeaderParams.put("iconSize", apiClient.parameterToString(iconSize));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentGetFileTypeIconValidateBeforeCall(String fileExtension, Integer iconSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fileExtension' is set
+        if (fileExtension == null) {
+            throw new ApiException("Missing the required parameter 'fileExtension' when calling convertDocumentGetFileTypeIcon(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentGetFileTypeIconCall(fileExtension, iconSize, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get PNG icon file for the file extension
+     * Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object convertDocumentGetFileTypeIcon(String fileExtension, Integer iconSize) throws ApiException {
+        ApiResponse<Object> resp = convertDocumentGetFileTypeIconWithHttpInfo(fileExtension, iconSize);
+        return resp.getData();
+    }
+
+    /**
+     * Get PNG icon file for the file extension
+     * Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> convertDocumentGetFileTypeIconWithHttpInfo(String fileExtension, Integer iconSize) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentGetFileTypeIconValidateBeforeCall(fileExtension, iconSize, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get PNG icon file for the file extension (asynchronously)
+     * Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentGetFileTypeIconAsync(String fileExtension, Integer iconSize, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentGetFileTypeIconValidateBeforeCall(fileExtension, iconSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentGetFileTypeIconAdvanced
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentGetFileTypeIconAdvancedCall(String fileExtension, Integer iconSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/autodetect/get-icon-advanced";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileExtension != null)
+        localVarHeaderParams.put("fileExtension", apiClient.parameterToString(fileExtension));
+        if (iconSize != null)
+        localVarHeaderParams.put("iconSize", apiClient.parameterToString(iconSize));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentGetFileTypeIconAdvancedValidateBeforeCall(String fileExtension, Integer iconSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fileExtension' is set
+        if (fileExtension == null) {
+            throw new ApiException("Missing the required parameter 'fileExtension' when calling convertDocumentGetFileTypeIconAdvanced(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentGetFileTypeIconAdvancedCall(fileExtension, iconSize, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get PNG icon byte array for the file extension
+     * Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @return GetFileTypeIconResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetFileTypeIconResult convertDocumentGetFileTypeIconAdvanced(String fileExtension, Integer iconSize) throws ApiException {
+        ApiResponse<GetFileTypeIconResult> resp = convertDocumentGetFileTypeIconAdvancedWithHttpInfo(fileExtension, iconSize);
+        return resp.getData();
+    }
+
+    /**
+     * Get PNG icon byte array for the file extension
+     * Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @return ApiResponse&lt;GetFileTypeIconResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetFileTypeIconResult> convertDocumentGetFileTypeIconAdvancedWithHttpInfo(String fileExtension, Integer iconSize) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentGetFileTypeIconAdvancedValidateBeforeCall(fileExtension, iconSize, null, null);
+        Type localVarReturnType = new TypeToken<GetFileTypeIconResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get PNG icon byte array for the file extension (asynchronously)
+     * Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentGetFileTypeIconAdvancedAsync(String fileExtension, Integer iconSize, final ApiCallback<GetFileTypeIconResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentGetFileTypeIconAdvancedValidateBeforeCall(fileExtension, iconSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetFileTypeIconResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1680,6 +2627,272 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentHtmlToTxtValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TextConversionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentMsgToHtml
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentMsgToHtmlCall(File inputFile, Boolean bodyOnly, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/msg/to/html";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (bodyOnly != null)
+        localVarHeaderParams.put("bodyOnly", apiClient.parameterToString(bodyOnly));
+        if (includeAttachments != null)
+        localVarHeaderParams.put("includeAttachments", apiClient.parameterToString(includeAttachments));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentMsgToHtmlValidateBeforeCall(File inputFile, Boolean bodyOnly, Boolean includeAttachments, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentMsgToHtml(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentMsgToHtmlCall(inputFile, bodyOnly, includeAttachments, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Email MSG file to HTML string
+     * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @return MsgToHtmlResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public MsgToHtmlResult convertDocumentMsgToHtml(File inputFile, Boolean bodyOnly, Boolean includeAttachments) throws ApiException {
+        ApiResponse<MsgToHtmlResult> resp = convertDocumentMsgToHtmlWithHttpInfo(inputFile, bodyOnly, includeAttachments);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Email MSG file to HTML string
+     * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @return ApiResponse&lt;MsgToHtmlResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<MsgToHtmlResult> convertDocumentMsgToHtmlWithHttpInfo(File inputFile, Boolean bodyOnly, Boolean includeAttachments) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentMsgToHtmlValidateBeforeCall(inputFile, bodyOnly, includeAttachments, null, null);
+        Type localVarReturnType = new TypeToken<MsgToHtmlResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Email MSG file to HTML string (asynchronously)
+     * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentMsgToHtmlAsync(File inputFile, Boolean bodyOnly, Boolean includeAttachments, final ApiCallback<MsgToHtmlResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentMsgToHtmlValidateBeforeCall(inputFile, bodyOnly, includeAttachments, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MsgToHtmlResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentMsgToPdf
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentMsgToPdfCall(File inputFile, Boolean bodyOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/msg/to/pdf";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (bodyOnly != null)
+        localVarHeaderParams.put("bodyOnly", apiClient.parameterToString(bodyOnly));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentMsgToPdfValidateBeforeCall(File inputFile, Boolean bodyOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentMsgToPdf(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentMsgToPdfCall(inputFile, bodyOnly, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Email MSG file to PDF document
+     * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object convertDocumentMsgToPdf(File inputFile, Boolean bodyOnly) throws ApiException {
+        ApiResponse<Object> resp = convertDocumentMsgToPdfWithHttpInfo(inputFile, bodyOnly);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Email MSG file to PDF document
+     * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> convertDocumentMsgToPdfWithHttpInfo(File inputFile, Boolean bodyOnly) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentMsgToPdfValidateBeforeCall(inputFile, bodyOnly, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Email MSG file to PDF document (asynchronously)
+     * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentMsgToPdfAsync(File inputFile, Boolean bodyOnly, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentMsgToPdfValidateBeforeCall(inputFile, bodyOnly, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2989,6 +4202,130 @@ public class ConvertDocumentApi {
         return call;
     }
     /**
+     * Build call for convertDocumentPptxToPng
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPptxToPngCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/pptx/to/png";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentPptxToPngValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentPptxToPng(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentPptxToPngCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert PowerPoint PPTX to PNG image array
+     * Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return PptxToPngResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PptxToPngResult convertDocumentPptxToPng(File inputFile) throws ApiException {
+        ApiResponse<PptxToPngResult> resp = convertDocumentPptxToPngWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert PowerPoint PPTX to PNG image array
+     * Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;PptxToPngResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PptxToPngResult> convertDocumentPptxToPngWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPptxToPngValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<PptxToPngResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert PowerPoint PPTX to PNG image array (asynchronously)
+     * Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPptxToPngAsync(File inputFile, final ApiCallback<PptxToPngResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentPptxToPngValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PptxToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for convertDocumentPptxToTxt
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -3865,6 +5202,130 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentXlsxToPdfValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentXlsxToPng
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentXlsxToPngCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xlsx/to/png";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentXlsxToPngValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentXlsxToPng(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentXlsxToPngCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Excel XLSX spreadsheet to PNG image array
+     * Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return XlsxToPngResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XlsxToPngResult convertDocumentXlsxToPng(File inputFile) throws ApiException {
+        ApiResponse<XlsxToPngResult> resp = convertDocumentXlsxToPngWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Excel XLSX spreadsheet to PNG image array
+     * Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;XlsxToPngResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XlsxToPngResult> convertDocumentXlsxToPngWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentXlsxToPngValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<XlsxToPngResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Excel XLSX spreadsheet to PNG image array (asynchronously)
+     * Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentXlsxToPngAsync(File inputFile, final ApiCallback<XlsxToPngResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentXlsxToPngValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XlsxToPngResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -16,10 +16,17 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
+import com.cloudmersive.client.model.AutodetectToThumbnailsResult;
 import com.cloudmersive.client.model.CsvCollection;
+import com.cloudmersive.client.model.DocxToPngResult;
+import com.cloudmersive.client.model.EmlToHtmlResult;
 import java.io.File;
+import com.cloudmersive.client.model.GetFileTypeIconResult;
+import com.cloudmersive.client.model.MsgToHtmlResult;
 import com.cloudmersive.client.model.PdfToPngResult;
+import com.cloudmersive.client.model.PptxToPngResult;
 import com.cloudmersive.client.model.TextConversionResult;
+import com.cloudmersive.client.model.XlsxToPngResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -81,6 +88,45 @@ public class ConvertDocumentApiTest {
     public void convertDocumentAutodetectToPngArrayTest() throws ApiException {
         File inputFile = null;
         AutodetectToPngResult response = api.convertDocumentAutodetectToPngArray(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert File to Thumbnail Image
+     *
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectToThumbnailTest() throws ApiException {
+        File inputFile = null;
+        Integer maxWidth = null;
+        Integer maxHeight = null;
+        String extension = null;
+        Object response = api.convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert File to Thumbnail Image Object
+     *
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectToThumbnailsAdvancedTest() throws ApiException {
+        File inputFile = null;
+        Integer pages = null;
+        Integer maxWidth = null;
+        Integer maxHeight = null;
+        String extension = null;
+        AutodetectToThumbnailsResult response = api.convertDocumentAutodetectToThumbnailsAdvanced(inputFile, pages, maxWidth, maxHeight, extension);
 
         // TODO: test validations
     }
@@ -183,6 +229,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert DOCX document to PNG image array
+     *
+     * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToPngTest() throws ApiException {
+        File inputFile = null;
+        DocxToPngResult response = api.convertDocumentDocxToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Word DOCX Document to Text (txt)
      *
      * Convert Office Word Documents (docx) to text
@@ -195,6 +257,75 @@ public class ConvertDocumentApiTest {
         File inputFile = null;
         String textFormattingMode = null;
         TextConversionResult response = api.convertDocumentDocxToTxt(inputFile, textFormattingMode);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Email EML file to HTML string
+     *
+     * Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentEmlToHtmlTest() throws ApiException {
+        File inputFile = null;
+        Boolean bodyOnly = null;
+        Boolean includeAttachments = null;
+        EmlToHtmlResult response = api.convertDocumentEmlToHtml(inputFile, bodyOnly, includeAttachments);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Email EML file to PDF document
+     *
+     * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentEmlToPdfTest() throws ApiException {
+        File inputFile = null;
+        Boolean bodyOnly = null;
+        Object response = api.convertDocumentEmlToPdf(inputFile, bodyOnly);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get PNG icon file for the file extension
+     *
+     * Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentGetFileTypeIconTest() throws ApiException {
+        String fileExtension = null;
+        Integer iconSize = null;
+        Object response = api.convertDocumentGetFileTypeIcon(fileExtension, iconSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get PNG icon byte array for the file extension
+     *
+     * Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentGetFileTypeIconAdvancedTest() throws ApiException {
+        String fileExtension = null;
+        Integer iconSize = null;
+        GetFileTypeIconResult response = api.convertDocumentGetFileTypeIconAdvanced(fileExtension, iconSize);
 
         // TODO: test validations
     }
@@ -243,6 +374,41 @@ public class ConvertDocumentApiTest {
     public void convertDocumentHtmlToTxtTest() throws ApiException {
         File inputFile = null;
         TextConversionResult response = api.convertDocumentHtmlToTxt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Email MSG file to HTML string
+     *
+     * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentMsgToHtmlTest() throws ApiException {
+        File inputFile = null;
+        Boolean bodyOnly = null;
+        Boolean includeAttachments = null;
+        MsgToHtmlResult response = api.convertDocumentMsgToHtml(inputFile, bodyOnly, includeAttachments);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Email MSG file to PDF document
+     *
+     * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentMsgToPdfTest() throws ApiException {
+        File inputFile = null;
+        Boolean bodyOnly = null;
+        Object response = api.convertDocumentMsgToPdf(inputFile, bodyOnly);
 
         // TODO: test validations
     }
@@ -418,6 +584,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert PowerPoint PPTX to PNG image array
+     *
+     * Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPptxToPngTest() throws ApiException {
+        File inputFile = null;
+        PptxToPngResult response = api.convertDocumentPptxToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert PowerPoint PPTX Presentation to Text (txt)
      *
      * Convert Office PowerPoint Documents (pptx) to standard Text
@@ -527,6 +709,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentXlsxToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentXlsxToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Excel XLSX spreadsheet to PNG image array
+     *
+     * Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsxToPngTest() throws ApiException {
+        File inputFile = null;
+        XlsxToPngResult response = api.convertDocumentXlsxToPng(inputFile);
 
         // TODO: test validations
     }

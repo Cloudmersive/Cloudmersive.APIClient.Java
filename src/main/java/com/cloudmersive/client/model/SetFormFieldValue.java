@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual field value to set in a PDF form
  */
 @ApiModel(description = "Individual field value to set in a PDF form")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-23T15:52:42.630-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-24T22:07:58.019-07:00")
 public class SetFormFieldValue {
   @SerializedName("FieldName")
   private String fieldName = null;
