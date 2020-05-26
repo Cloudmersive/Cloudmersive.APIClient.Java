@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single element of a Text document
  */
 @ApiModel(description = "A single element of a Text document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-24T22:07:58.019-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-25T18:11:52.444-07:00")
 public class TextDocumentElement {
   @SerializedName("ElementNumber")
   private Integer elementNumber = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a remove all child nodes operation on XML input using XPath
  */
 @ApiModel(description = "Result of performing a remove all child nodes operation on XML input using XPath")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-24T22:07:58.019-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-25T18:11:52.444-07:00")
 public class XmlRemoveAllChildrenWithXPathResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an EML file to HTML string
  */
 @ApiModel(description = "Result of converting an EML file to HTML string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-24T22:07:58.019-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-25T18:11:52.444-07:00")
 public class EmlToHtmlResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -51,17 +51,11 @@ public class EmlToHtmlResult {
   @SerializedName("Cc")
   private String cc = null;
 
-  @SerializedName("Bcc")
-  private String bcc = null;
-
-  @SerializedName("ReceivedTime")
-  private String receivedTime = null;
+  @SerializedName("DateSent")
+  private String dateSent = null;
 
   @SerializedName("Subject")
   private String subject = null;
-
-  @SerializedName("Organization")
-  private String organization = null;
 
   @SerializedName("Attachments")
   private List<EmlAttachment> attachments = null;
@@ -174,40 +168,22 @@ public class EmlToHtmlResult {
     this.cc = cc;
   }
 
-  public EmlToHtmlResult bcc(String bcc) {
-    this.bcc = bcc;
+  public EmlToHtmlResult dateSent(String dateSent) {
+    this.dateSent = dateSent;
     return this;
   }
 
    /**
-   * The BCC recipients of the EML file&#39;s email
-   * @return bcc
+   * The date and time that the EML file&#39;s email was sent
+   * @return dateSent
   **/
-  @ApiModelProperty(value = "The BCC recipients of the EML file's email")
-  public String getBcc() {
-    return bcc;
+  @ApiModelProperty(value = "The date and time that the EML file's email was sent")
+  public String getDateSent() {
+    return dateSent;
   }
 
-  public void setBcc(String bcc) {
-    this.bcc = bcc;
-  }
-
-  public EmlToHtmlResult receivedTime(String receivedTime) {
-    this.receivedTime = receivedTime;
-    return this;
-  }
-
-   /**
-   * The time that the EML file&#39;s email was received
-   * @return receivedTime
-  **/
-  @ApiModelProperty(value = "The time that the EML file's email was received")
-  public String getReceivedTime() {
-    return receivedTime;
-  }
-
-  public void setReceivedTime(String receivedTime) {
-    this.receivedTime = receivedTime;
+  public void setDateSent(String dateSent) {
+    this.dateSent = dateSent;
   }
 
   public EmlToHtmlResult subject(String subject) {
@@ -226,24 +202,6 @@ public class EmlToHtmlResult {
 
   public void setSubject(String subject) {
     this.subject = subject;
-  }
-
-  public EmlToHtmlResult organization(String organization) {
-    this.organization = organization;
-    return this;
-  }
-
-   /**
-   * The Organization of the EML file&#39;s email
-   * @return organization
-  **/
-  @ApiModelProperty(value = "The Organization of the EML file's email")
-  public String getOrganization() {
-    return organization;
-  }
-
-  public void setOrganization(String organization) {
-    this.organization = organization;
   }
 
   public EmlToHtmlResult attachments(List<EmlAttachment> attachments) {
@@ -288,16 +246,14 @@ public class EmlToHtmlResult {
         Objects.equals(this.from, emlToHtmlResult.from) &&
         Objects.equals(this.to, emlToHtmlResult.to) &&
         Objects.equals(this.cc, emlToHtmlResult.cc) &&
-        Objects.equals(this.bcc, emlToHtmlResult.bcc) &&
-        Objects.equals(this.receivedTime, emlToHtmlResult.receivedTime) &&
+        Objects.equals(this.dateSent, emlToHtmlResult.dateSent) &&
         Objects.equals(this.subject, emlToHtmlResult.subject) &&
-        Objects.equals(this.organization, emlToHtmlResult.organization) &&
         Objects.equals(this.attachments, emlToHtmlResult.attachments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, content, body, from, to, cc, bcc, receivedTime, subject, organization, attachments);
+    return Objects.hash(successful, content, body, from, to, cc, dateSent, subject, attachments);
   }
 
 
@@ -312,10 +268,8 @@ public class EmlToHtmlResult {
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    cc: ").append(toIndentedString(cc)).append("\n");
-    sb.append("    bcc: ").append(toIndentedString(bcc)).append("\n");
-    sb.append("    receivedTime: ").append(toIndentedString(receivedTime)).append("\n");
+    sb.append("    dateSent: ").append(toIndentedString(dateSent)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();

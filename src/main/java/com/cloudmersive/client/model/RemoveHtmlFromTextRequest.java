@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to remove HTML from a string
  */
 @ApiModel(description = "Request to remove HTML from a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-24T22:07:58.019-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-25T18:11:52.444-07:00")
 public class RemoveHtmlFromTextRequest {
   @SerializedName("TextContainingHtml")
   private String textContainingHtml = null;

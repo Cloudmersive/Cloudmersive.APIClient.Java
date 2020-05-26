@@ -106,7 +106,7 @@ public class ConvertDocumentApiTest {
         Integer maxWidth = null;
         Integer maxHeight = null;
         String extension = null;
-        Object response = api.convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension);
+        byte[] response = api.convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension);
 
         // TODO: test validations
     }
@@ -291,7 +291,7 @@ public class ConvertDocumentApiTest {
     public void convertDocumentEmlToPdfTest() throws ApiException {
         File inputFile = null;
         Boolean bodyOnly = null;
-        Object response = api.convertDocumentEmlToPdf(inputFile, bodyOnly);
+        byte[] response = api.convertDocumentEmlToPdf(inputFile, bodyOnly);
 
         // TODO: test validations
     }
@@ -308,7 +308,7 @@ public class ConvertDocumentApiTest {
     public void convertDocumentGetFileTypeIconTest() throws ApiException {
         String fileExtension = null;
         Integer iconSize = null;
-        Object response = api.convertDocumentGetFileTypeIcon(fileExtension, iconSize);
+        byte[] response = api.convertDocumentGetFileTypeIcon(fileExtension, iconSize);
 
         // TODO: test validations
     }
@@ -408,7 +408,7 @@ public class ConvertDocumentApiTest {
     public void convertDocumentMsgToPdfTest() throws ApiException {
         File inputFile = null;
         Boolean bodyOnly = null;
-        Object response = api.convertDocumentMsgToPdf(inputFile, bodyOnly);
+        byte[] response = api.convertDocumentMsgToPdf(inputFile, bodyOnly);
 
         // TODO: test validations
     }

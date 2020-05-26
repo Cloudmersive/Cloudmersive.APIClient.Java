@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**convertDocumentEmlToHtml**](ConvertDocumentApi.md#convertDocumentEmlToHtml) | **POST** /convert/eml/to/html | Convert Email EML file to HTML string
 [**convertDocumentEmlToPdf**](ConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
 [**convertDocumentGetFileTypeIcon**](ConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
-[**convertDocumentGetFileTypeIconAdvanced**](ConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon-advanced | Get PNG icon byte array for the file extension
+[**convertDocumentGetFileTypeIconAdvanced**](ConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon/advanced | Get PNG icon byte array for the file extension
 [**convertDocumentHtmlToPdf**](ConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
 [**convertDocumentHtmlToPng**](ConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML document file to PNG image array
 [**convertDocumentHtmlToTxt**](ConvertDocumentApi.md#convertDocumentHtmlToTxt) | **POST** /convert/html/to/txt | HTML Document file to Text (txt)
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentAutodetectToThumbnail"></a>
 # **convertDocumentAutodetectToThumbnail**
-> Object convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension)
+> byte[] convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension)
 
 Convert File to Thumbnail Image
 
@@ -244,7 +244,7 @@ Integer maxWidth = 56; // Integer | Optional; Maximum width of the output thumbn
 Integer maxHeight = 56; // Integer | Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
 String extension = "extension_example"; // String | Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
 try {
-    Object result = apiInstance.convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension);
+    byte[] result = apiInstance.convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentAutodetectToThumbnail");
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -842,7 +842,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentEmlToPdf"></a>
 # **convertDocumentEmlToPdf**
-> Object convertDocumentEmlToPdf(inputFile, bodyOnly)
+> byte[] convertDocumentEmlToPdf(inputFile, bodyOnly)
 
 Convert Email EML file to PDF document
 
@@ -869,7 +869,7 @@ ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 Boolean bodyOnly = true; // Boolean | Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
 try {
-    Object result = apiInstance.convertDocumentEmlToPdf(inputFile, bodyOnly);
+    byte[] result = apiInstance.convertDocumentEmlToPdf(inputFile, bodyOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentEmlToPdf");
@@ -886,7 +886,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -899,7 +899,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentGetFileTypeIcon"></a>
 # **convertDocumentGetFileTypeIcon**
-> Object convertDocumentGetFileTypeIcon(fileExtension, iconSize)
+> byte[] convertDocumentGetFileTypeIcon(fileExtension, iconSize)
 
 Get PNG icon file for the file extension
 
@@ -926,7 +926,7 @@ ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 String fileExtension = "fileExtension_example"; // String | Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
 Integer iconSize = 56; // Integer | Optional; The desired width of the icon, preserving its aspect ratio.
 try {
-    Object result = apiInstance.convertDocumentGetFileTypeIcon(fileExtension, iconSize);
+    byte[] result = apiInstance.convertDocumentGetFileTypeIcon(fileExtension, iconSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentGetFileTypeIcon");
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentMsgToPdf"></a>
 # **convertDocumentMsgToPdf**
-> Object convertDocumentMsgToPdf(inputFile, bodyOnly)
+> byte[] convertDocumentMsgToPdf(inputFile, bodyOnly)
 
 Convert Email MSG file to PDF document
 
@@ -1264,7 +1264,7 @@ ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 Boolean bodyOnly = true; // Boolean | Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
 try {
-    Object result = apiInstance.convertDocumentMsgToPdf(inputFile, bodyOnly);
+    byte[] result = apiInstance.convertDocumentMsgToPdf(inputFile, bodyOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentMsgToPdf");
@@ -1281,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
