@@ -14,6 +14,8 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.HateSpeechAnalysisRequest;
+import com.cloudmersive.client.model.HateSpeechAnalysisResponse;
 import com.cloudmersive.client.model.ProfanityAnalysisRequest;
 import com.cloudmersive.client.model.ProfanityAnalysisResponse;
 import com.cloudmersive.client.model.SentimentAnalysisRequest;
@@ -38,6 +40,22 @@ public class AnalyticsApiTest {
 
     private final AnalyticsApi api = new AnalyticsApi();
 
+    
+    /**
+     * Perform Hate Speech Analysis and Detection on Text
+     *
+     * Analyze input text using advanced Hate Speech Analysis to determine if the input contains hate speech language.  Supports English language input.  Consumes 1-2 API calls per sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void analyticsHateSpeechTest() throws ApiException {
+        HateSpeechAnalysisRequest input = null;
+        HateSpeechAnalysisResponse response = api.analyticsHateSpeech(input);
+
+        // TODO: test validations
+    }
     
     /**
      * Perform Profanity and Obscene Language Analysis and Detection on Text

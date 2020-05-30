@@ -29,7 +29,7 @@ import java.io.IOException;
  * Result of running an Get Table Row command
  */
 @ApiModel(description = "Result of running an Get Table Row command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-25T18:11:52.444-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-30T15:26:08.828-07:00")
 public class GetDocxTableRowResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
