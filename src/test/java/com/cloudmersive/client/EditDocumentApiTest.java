@@ -14,8 +14,12 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.AppendXlsxRowRequest;
+import com.cloudmersive.client.model.AppendXlsxRowResponse;
 import com.cloudmersive.client.model.ClearXlsxCellRequest;
 import com.cloudmersive.client.model.ClearXlsxCellResponse;
+import com.cloudmersive.client.model.ClearXlsxRowRequest;
+import com.cloudmersive.client.model.ClearXlsxRowResponse;
 import com.cloudmersive.client.model.CreateBlankDocxRequest;
 import com.cloudmersive.client.model.CreateBlankDocxResponse;
 import com.cloudmersive.client.model.CreateBlankSpreadsheetRequest;
@@ -76,6 +80,8 @@ import com.cloudmersive.client.model.GetXlsxImagesRequest;
 import com.cloudmersive.client.model.GetXlsxImagesResponse;
 import com.cloudmersive.client.model.GetXlsxRowsAndCellsRequest;
 import com.cloudmersive.client.model.GetXlsxRowsAndCellsResponse;
+import com.cloudmersive.client.model.GetXlsxSpecificRowRequest;
+import com.cloudmersive.client.model.GetXlsxSpecificRowResponse;
 import com.cloudmersive.client.model.GetXlsxStylesRequest;
 import com.cloudmersive.client.model.GetXlsxStylesResponse;
 import com.cloudmersive.client.model.GetXlsxWorksheetsRequest;
@@ -94,6 +100,8 @@ import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
 import com.cloudmersive.client.model.RemovePptxSlidesRequest;
 import com.cloudmersive.client.model.RemoveXlsxWorksheetRequest;
+import com.cloudmersive.client.model.RenameXlsxWorksheetRequest;
+import com.cloudmersive.client.model.RenameXlsxWorksheetResponse;
 import com.cloudmersive.client.model.ReplaceDocxParagraphRequest;
 import com.cloudmersive.client.model.ReplaceDocxParagraphResponse;
 import com.cloudmersive.client.model.ReplaceStringRequest;
@@ -667,6 +675,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Append row to a Excel XLSX spreadsheet, worksheet
+     *
+     * Appends a row to the end of an Excel Spreadsheet worksheet.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxAppendRowTest() throws ApiException {
+        AppendXlsxRowRequest input = null;
+        AppendXlsxRowResponse response = api.editDocumentXlsxAppendRow(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
      *
      * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
@@ -678,6 +702,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxClearCellByIndexTest() throws ApiException {
         ClearXlsxCellRequest input = null;
         ClearXlsxCellResponse response = api.editDocumentXlsxClearCellByIndex(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Clear row from a Excel XLSX spreadsheet, worksheet
+     *
+     * Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxClearRowTest() throws ApiException {
+        ClearXlsxRowRequest input = null;
+        ClearXlsxRowResponse response = api.editDocumentXlsxClearRow(input);
 
         // TODO: test validations
     }
@@ -725,7 +765,7 @@ public class EditDocumentApiTest {
     @Test
     public void editDocumentXlsxDeleteWorksheetTest() throws ApiException {
         RemoveXlsxWorksheetRequest reqConfig = null;
-        Object response = api.editDocumentXlsxDeleteWorksheet(reqConfig);
+        byte[] response = api.editDocumentXlsxDeleteWorksheet(reqConfig);
 
         // TODO: test validations
     }
@@ -843,6 +883,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+     *
+     * Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetSpecificRowTest() throws ApiException {
+        GetXlsxSpecificRowRequest input = null;
+        GetXlsxSpecificRowResponse response = api.editDocumentXlsxGetSpecificRow(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get styles from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the style defined in the Excel Spreadsheet
@@ -886,6 +942,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxInsertWorksheetTest() throws ApiException {
         InsertXlsxWorksheetRequest input = null;
         InsertXlsxWorksheetResponse response = api.editDocumentXlsxInsertWorksheet(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Rename a specific worksheet in a Excel XLSX spreadsheet
+     *
+     * Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxRenameWorksheetTest() throws ApiException {
+        RenameXlsxWorksheetRequest input = null;
+        RenameXlsxWorksheetResponse response = api.editDocumentXlsxRenameWorksheet(input);
 
         // TODO: test validations
     }

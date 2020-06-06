@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to parse an address formatted as a string/free text into a structured address
  */
 @ApiModel(description = "Request to parse an address formatted as a string/free text into a structured address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-30T15:25:23.568-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-06T11:46:26.962-07:00")
 public class ParseAddressRequest {
   @SerializedName("AddressString")
   private String addressString = null;
