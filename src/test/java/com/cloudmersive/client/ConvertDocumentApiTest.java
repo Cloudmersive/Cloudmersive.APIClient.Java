@@ -379,6 +379,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Keynote Presentation (KEY) to PDF
+     *
+     * Convert Mac Keynote Presentation (KEY) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentKeynoteToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentKeynoteToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Email MSG file to HTML string
      *
      * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
@@ -409,6 +425,70 @@ public class ConvertDocumentApiTest {
         File inputFile = null;
         Boolean bodyOnly = null;
         byte[] response = api.convertDocumentMsgToPdf(inputFile, bodyOnly);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Office Open Document Presentation ODP to PDF
+     *
+     * Convert Office Open Document Presentation (ODP) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdpToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentOdpToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Office Open Document Spreadsheet ODS to PDF
+     *
+     * Convert Office Open Document Spreadsheet (ODS) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdsToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentOdsToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Office Open Document ODT to Word DOCX
+     *
+     * Convert Office Open Document Text File (ODT) to Word DOCX Document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdtToDocxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentOdtToDocx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Office Open Document ODT to PDF
+     *
+     * Convert Office Open Document Text File (ODT) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdtToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentOdtToPdf(inputFile);
 
         // TODO: test validations
     }
@@ -611,6 +691,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPptxToTxtTest() throws ApiException {
         File inputFile = null;
         TextConversionResult response = api.convertDocumentPptxToTxt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Rich Text Format RTF to PDF
+     *
+     * Convert Rich Text Format Document (RTF) to standard PDF
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentRtfToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentRtfToPdf(inputFile);
 
         // TODO: test validations
     }

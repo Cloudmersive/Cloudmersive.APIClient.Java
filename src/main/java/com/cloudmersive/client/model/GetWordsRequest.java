@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GetWordsRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-06T11:46:30.429-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-20T11:43:50.020-07:00")
 public class GetWordsRequest {
   @SerializedName("InputText")
   private String inputText = null;
