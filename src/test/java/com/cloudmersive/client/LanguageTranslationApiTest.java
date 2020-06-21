@@ -66,6 +66,22 @@ public class LanguageTranslationApiTest {
     }
     
     /**
+     * Translate English to French text with Deep Learning AI
+     *
+     * Automatically translates input text in English to output text in French using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void languageTranslationTranslateEngToFraTest() throws ApiException {
+        LanguageTranslationRequest input = null;
+        LanguageTranslationResponse response = api.languageTranslationTranslateEngToFra(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Translate English to Russian text with Deep Learning AI
      *
      * Automatically translates input text in English to output text in Russian using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
@@ -77,6 +93,22 @@ public class LanguageTranslationApiTest {
     public void languageTranslationTranslateEngToRusTest() throws ApiException {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateEngToRus(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Translate French to English text with Deep Learning AI
+     *
+     * Automatically translates input text in French to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void languageTranslationTranslateFraToEngTest() throws ApiException {
+        LanguageTranslationRequest input = null;
+        LanguageTranslationResponse response = api.languageTranslationTranslateFraToEng(input);
 
         // TODO: test validations
     }

@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Insert Paragraph request
  */
 @ApiModel(description = "Input to a Insert Paragraph request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-20T11:44:12.217-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-20T19:47:16.296-07:00")
 public class InsertDocxInsertParagraphRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
