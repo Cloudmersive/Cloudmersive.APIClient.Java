@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a similarity analysis operation
  */
 @ApiModel(description = "Input to a similarity analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-20T19:46:48.677-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-27T22:17:16.791-07:00")
 public class SimilarityAnalysisRequest {
   @SerializedName("TextToAnalyze1")
   private String textToAnalyze1 = null;

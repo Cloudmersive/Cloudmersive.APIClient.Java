@@ -28,7 +28,7 @@ import java.io.IOException;
  * Geolocation result
  */
 @ApiModel(description = "Geolocation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-20T19:46:42.984-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-27T22:17:12.972-07:00")
 public class GeolocateResponse {
   @SerializedName("CountryCode")
   private String countryCode = null;

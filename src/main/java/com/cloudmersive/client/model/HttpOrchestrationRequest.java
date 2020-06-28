@@ -31,7 +31,7 @@ import java.util.List;
  * HTTP Orchestration request
  */
 @ApiModel(description = "HTTP Orchestration request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-20T19:47:32.702-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-27T22:17:45.812-07:00")
 public class HttpOrchestrationRequest {
   @SerializedName("HttpTasks")
   private List<HttpOrchestrationTask> httpTasks = null;

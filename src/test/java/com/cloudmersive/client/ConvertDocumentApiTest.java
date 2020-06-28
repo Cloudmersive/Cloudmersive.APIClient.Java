@@ -15,16 +15,32 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AutodetectGetInfoResult;
+import com.cloudmersive.client.model.AutodetectToJpgResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
 import com.cloudmersive.client.model.AutodetectToThumbnailsResult;
 import com.cloudmersive.client.model.CsvCollection;
+import com.cloudmersive.client.model.DocxToJpgResult;
 import com.cloudmersive.client.model.DocxToPngResult;
 import com.cloudmersive.client.model.EmlToHtmlResult;
+import com.cloudmersive.client.model.EmlToJpgResult;
+import com.cloudmersive.client.model.EmlToPngResult;
 import java.io.File;
 import com.cloudmersive.client.model.GetFileTypeIconResult;
+import com.cloudmersive.client.model.KeynoteToJpgResult;
+import com.cloudmersive.client.model.KeynoteToPngResult;
 import com.cloudmersive.client.model.MsgToHtmlResult;
+import com.cloudmersive.client.model.MsgToJpgResult;
+import com.cloudmersive.client.model.MsgToPngResult;
+import com.cloudmersive.client.model.OdpToJpgResult;
+import com.cloudmersive.client.model.OdpToPngResult;
+import com.cloudmersive.client.model.OdsToJpgResult;
+import com.cloudmersive.client.model.OdsToPngResult;
+import com.cloudmersive.client.model.OdtToJpgResult;
+import com.cloudmersive.client.model.OdtToPngResult;
 import com.cloudmersive.client.model.PdfToPngResult;
 import com.cloudmersive.client.model.PptxToPngResult;
+import com.cloudmersive.client.model.RtfToJpgResult;
+import com.cloudmersive.client.model.RtfToPngResult;
 import com.cloudmersive.client.model.TextConversionResult;
 import com.cloudmersive.client.model.XlsxToPngResult;
 import org.junit.Test;
@@ -56,6 +72,23 @@ public class ConvertDocumentApiTest {
     public void convertDocumentAutodetectGetInfoTest() throws ApiException {
         File inputFile = null;
         AutodetectGetInfoResult response = api.convertDocumentAutodetectGetInfo(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Document to JPG/JPEG image array
+     *
+     * Automatically detect file type and convert it to an array of JPG/JPEG Images.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        AutodetectToJpgResult response = api.convertDocumentAutodetectToJpg(inputFile, quality);
 
         // TODO: test validations
     }
@@ -95,7 +128,7 @@ public class ConvertDocumentApiTest {
     /**
      * Convert File to Thumbnail Image
      *
-     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -114,7 +147,7 @@ public class ConvertDocumentApiTest {
     /**
      * Convert File to Thumbnail Image Object
      *
-     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -213,6 +246,39 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Word DOCX Document to HTML Document
+     *
+     * Convert Office Word Document (DOCX) to HTML Document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToHtmlTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentDocxToHtml(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Word DOCX Document to JPG/JPEG image array
+     *
+     * Converts an Office Word Document (DOCX) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        DocxToJpgResult response = api.convertDocumentDocxToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Word DOCX Document to PDF
      *
      * Convert Office Word Documents (docx) to standard PDF
@@ -229,7 +295,7 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert DOCX document to PNG image array
+     * Convert Word DOCX Document to PNG image array
      *
      * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
      *
@@ -240,6 +306,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentDocxToPngTest() throws ApiException {
         File inputFile = null;
         DocxToPngResult response = api.convertDocumentDocxToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Word DOCX Document to RTF
+     *
+     * Convert an Office Word Document (DOCX) to Rich Text Format Document (RTF)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToRtfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentDocxToRtf(inputFile);
 
         // TODO: test validations
     }
@@ -280,6 +362,23 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Email EML file to JPG/JPEG image array
+     *
+     * Converts an Outlook Email File (EML) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentEmlToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        EmlToJpgResult response = api.convertDocumentEmlToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Email EML file to PDF document
      *
      * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
@@ -292,6 +391,22 @@ public class ConvertDocumentApiTest {
         File inputFile = null;
         Boolean bodyOnly = null;
         byte[] response = api.convertDocumentEmlToPdf(inputFile, bodyOnly);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Email EML file to PNG image array
+     *
+     * Converts an Outlook Email File (EML) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentEmlToPngTest() throws ApiException {
+        File inputFile = null;
+        EmlToPngResult response = api.convertDocumentEmlToPng(inputFile);
 
         // TODO: test validations
     }
@@ -379,6 +494,23 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Keynote Presentation (KEY) to JPG/JPEG image array
+     *
+     * Converts a Mac Keynote Presentation (KEY) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentKeynoteToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        KeynoteToJpgResult response = api.convertDocumentKeynoteToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Keynote Presentation (KEY) to PDF
      *
      * Convert Mac Keynote Presentation (KEY) to standard PDF
@@ -390,6 +522,38 @@ public class ConvertDocumentApiTest {
     public void convertDocumentKeynoteToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentKeynoteToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Keynote Presentation (KEY) to PNG image array
+     *
+     * Converts a Mac Keynote Presentation (KEY) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentKeynoteToPngTest() throws ApiException {
+        File inputFile = null;
+        KeynoteToPngResult response = api.convertDocumentKeynoteToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Keynote Presentation (KEY) to PPTX
+     *
+     * Convert Mac Keynote Presentation (KEY) to PowerPoint Presentation (PPTX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentKeynoteToPptxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentKeynoteToPptx(inputFile);
 
         // TODO: test validations
     }
@@ -413,6 +577,23 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Email MSG file to JPG/JPEG image array
+     *
+     * Converts an Outlook Message File (MSG) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentMsgToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        MsgToJpgResult response = api.convertDocumentMsgToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Email MSG file to PDF document
      *
      * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
@@ -430,7 +611,40 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Office Open Document Presentation ODP to PDF
+     * Convert Email MSG file to PNG image array
+     *
+     * Converts an Outlook Email Message File (MSG) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentMsgToPngTest() throws ApiException {
+        File inputFile = null;
+        MsgToPngResult response = api.convertDocumentMsgToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODP Presentation to JPG/JPEG image array
+     *
+     * Converts an Open Document Presentation (ODP) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdpToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        OdpToJpgResult response = api.convertDocumentOdpToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODP Presentation to PDF
      *
      * Convert Office Open Document Presentation (ODP) to standard PDF
      *
@@ -446,7 +660,56 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Office Open Document Spreadsheet ODS to PDF
+     * Convert ODP Presentation to PNG image array
+     *
+     * Converts an Office Open Document Presentation (ODP) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdpToPngTest() throws ApiException {
+        File inputFile = null;
+        OdpToPngResult response = api.convertDocumentOdpToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODP Presentation to PPTX
+     *
+     * Convert Office Open Document Presentation (ODP) to PowerPoint Presentation (PPTX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdpToPptxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentOdpToPptx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODS Spreadsheet to JPG/JPEG image array
+     *
+     * Converts an Open Document Spreadsheet (ODS) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdsToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        OdsToJpgResult response = api.convertDocumentOdsToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODS Spreadsheet to PDF
      *
      * Convert Office Open Document Spreadsheet (ODS) to standard PDF
      *
@@ -462,7 +725,39 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Office Open Document ODT to Word DOCX
+     * Convert ODS Spreadsheet to PNG image array
+     *
+     * Converts an Office Open Document Spreadsheet (ODS) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdsToPngTest() throws ApiException {
+        File inputFile = null;
+        OdsToPngResult response = api.convertDocumentOdsToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODS Spreadsheet to XLSX
+     *
+     * Convert Office Open Document Spreadsheet (ODS) to Excel Spreadsheet (XLSX)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdsToXlsxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentOdsToXlsx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODT Text File to Word DOCX
      *
      * Convert Office Open Document Text File (ODT) to Word DOCX Document
      *
@@ -478,7 +773,24 @@ public class ConvertDocumentApiTest {
     }
     
     /**
-     * Convert Office Open Document ODT to PDF
+     * Convert ODT Text File to JPG/JPEG image array
+     *
+     * Converts an Open Document Text File (ODT) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdtToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        OdtToJpgResult response = api.convertDocumentOdtToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODT Text File to PDF
      *
      * Convert Office Open Document Text File (ODT) to standard PDF
      *
@@ -489,6 +801,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentOdtToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentOdtToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert ODT Text File to PNG image array
+     *
+     * Converts an Office Open Document Text File (ODT) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentOdtToPngTest() throws ApiException {
+        File inputFile = null;
+        OdtToPngResult response = api.convertDocumentOdtToPng(inputFile);
 
         // TODO: test validations
     }
@@ -696,6 +1024,55 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Rich Text Format RTF to DOCX Document
+     *
+     * Convert Rich Text Format Document (RTF) to Word DOCX Document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentRtfToDocxTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentRtfToDocx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Rich Text Format RTF to HTML Document
+     *
+     * Convert Rich Text Format Document (RTF) to HTML Document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentRtfToHtmlTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentRtfToHtml(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Rich Text Format RTF to JPG/JPEG image array
+     *
+     * Converts a Rich Text Format Document (RTF) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentRtfToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        RtfToJpgResult response = api.convertDocumentRtfToJpg(inputFile, quality);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Rich Text Format RTF to PDF
      *
      * Convert Rich Text Format Document (RTF) to standard PDF
@@ -707,6 +1084,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentRtfToPdfTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentRtfToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Rich Text Format RTF to PNG image array
+     *
+     * Converts a Rich Text Format Document (RTF) to an array of PNG images, one for each page.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentRtfToPngTest() throws ApiException {
+        File inputFile = null;
+        RtfToPngResult response = api.convertDocumentRtfToPng(inputFile);
 
         // TODO: test validations
     }
