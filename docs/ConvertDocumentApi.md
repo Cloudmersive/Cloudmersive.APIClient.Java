@@ -52,6 +52,7 @@ Method | HTTP request | Description
 [**convertDocumentOdtToPng**](ConvertDocumentApi.md#convertDocumentOdtToPng) | **POST** /convert/odt/to/png | Convert ODT Text File to PNG image array
 [**convertDocumentPdfToDocx**](ConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 [**convertDocumentPdfToDocxRasterize**](ConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
+[**convertDocumentPdfToJpg**](ConvertDocumentApi.md#convertDocumentPdfToJpg) | **POST** /convert/pdf/to/jpg | Convert PDF to JPG/JPEG image array
 [**convertDocumentPdfToPngArray**](ConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
 [**convertDocumentPdfToPngSingle**](ConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 [**convertDocumentPdfToPptx**](ConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
@@ -2766,6 +2767,63 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
+
+<a name="convertDocumentPdfToJpg"></a>
+# **convertDocumentPdfToJpg**
+> PdfToJpgResult convertDocumentPdfToJpg(inputFile, quality)
+
+Convert PDF to JPG/JPEG image array
+
+Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDocumentApi apiInstance = new ConvertDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+Integer quality = 56; // Integer | Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+try {
+    PdfToJpgResult result = apiInstance.convertDocumentPdfToJpg(inputFile, quality);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDocumentApi#convertDocumentPdfToJpg");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+ **quality** | **Integer**| Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. | [optional]
+
+### Return type
+
+[**PdfToJpgResult**](PdfToJpgResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="convertDocumentPdfToPngArray"></a>
 # **convertDocumentPdfToPngArray**

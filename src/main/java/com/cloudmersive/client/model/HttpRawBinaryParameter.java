@@ -29,7 +29,7 @@ import java.io.IOException;
  * Raw binary parameter that defines the entire body oft he HTTP payload; cannot be used with other parameter types
  */
 @ApiModel(description = "Raw binary parameter that defines the entire body oft he HTTP payload; cannot be used with other parameter types")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-27T22:17:45.812-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:28.774-07:00")
 public class HttpRawBinaryParameter {
   @SerializedName("ParameterValue")
   private byte[] parameterValue = null;

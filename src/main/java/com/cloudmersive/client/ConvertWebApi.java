@@ -66,7 +66,7 @@ public class ConvertWebApi {
 
     /**
      * Build call for convertWebHtmlToDocx
-     * @param inputRequest HTL input to convert to DOCX (required)
+     * @param inputRequest HTML input to convert to DOCX (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -130,7 +130,7 @@ public class ConvertWebApi {
     /**
      * Convert HTML to Word DOCX Document
      * Convert HTML to Office Word Document (DOCX) format
-     * @param inputRequest HTL input to convert to DOCX (required)
+     * @param inputRequest HTML input to convert to DOCX (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -142,7 +142,7 @@ public class ConvertWebApi {
     /**
      * Convert HTML to Word DOCX Document
      * Convert HTML to Office Word Document (DOCX) format
-     * @param inputRequest HTL input to convert to DOCX (required)
+     * @param inputRequest HTML input to convert to DOCX (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -155,7 +155,7 @@ public class ConvertWebApi {
     /**
      * Convert HTML to Word DOCX Document (asynchronously)
      * Convert HTML to Office Word Document (DOCX) format
-     * @param inputRequest HTL input to convert to DOCX (required)
+     * @param inputRequest HTML input to convert to DOCX (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

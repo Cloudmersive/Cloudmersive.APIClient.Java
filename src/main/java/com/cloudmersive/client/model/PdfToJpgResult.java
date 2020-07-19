@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.ConvertedJpgPage;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,29 +24,31 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Result of running a Remove Headers and Footers command
+ * Result of converting a PDF input to a JPG array
  */
-@ApiModel(description = "Result of running a Remove Headers and Footers command")
+@ApiModel(description = "Result of converting a PDF input to a JPG array")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:18.353-07:00")
-public class RemoveDocxHeadersAndFootersResponse {
+public class PdfToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("EditedDocumentURL")
-  private String editedDocumentURL = null;
+  @SerializedName("JpgResultPages")
+  private List<ConvertedJpgPage> jpgResultPages = null;
 
-  public RemoveDocxHeadersAndFootersResponse successful(Boolean successful) {
+  public PdfToJpgResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
 
    /**
-   * True if successful, false otherwise
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "True if successful, false otherwise")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -54,22 +57,30 @@ public class RemoveDocxHeadersAndFootersResponse {
     this.successful = successful;
   }
 
-  public RemoveDocxHeadersAndFootersResponse editedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public PdfToJpgResult jpgResultPages(List<ConvertedJpgPage> jpgResultPages) {
+    this.jpgResultPages = jpgResultPages;
+    return this;
+  }
+
+  public PdfToJpgResult addJpgResultPagesItem(ConvertedJpgPage jpgResultPagesItem) {
+    if (this.jpgResultPages == null) {
+      this.jpgResultPages = new ArrayList<ConvertedJpgPage>();
+    }
+    this.jpgResultPages.add(jpgResultPagesItem);
     return this;
   }
 
    /**
-   * URL of the resulting edited document; this is a secure URL and cannot be downloaded without adding the Apikey header; it is also temporary, stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
-   * @return editedDocumentURL
+   * Array of converted pages
+   * @return jpgResultPages
   **/
-  @ApiModelProperty(value = "URL of the resulting edited document; this is a secure URL and cannot be downloaded without adding the Apikey header; it is also temporary, stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.")
-  public String getEditedDocumentURL() {
-    return editedDocumentURL;
+  @ApiModelProperty(value = "Array of converted pages")
+  public List<ConvertedJpgPage> getJpgResultPages() {
+    return jpgResultPages;
   }
 
-  public void setEditedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public void setJpgResultPages(List<ConvertedJpgPage> jpgResultPages) {
+    this.jpgResultPages = jpgResultPages;
   }
 
 
@@ -81,24 +92,24 @@ public class RemoveDocxHeadersAndFootersResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RemoveDocxHeadersAndFootersResponse removeDocxHeadersAndFootersResponse = (RemoveDocxHeadersAndFootersResponse) o;
-    return Objects.equals(this.successful, removeDocxHeadersAndFootersResponse.successful) &&
-        Objects.equals(this.editedDocumentURL, removeDocxHeadersAndFootersResponse.editedDocumentURL);
+    PdfToJpgResult pdfToJpgResult = (PdfToJpgResult) o;
+    return Objects.equals(this.successful, pdfToJpgResult.successful) &&
+        Objects.equals(this.jpgResultPages, pdfToJpgResult.jpgResultPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, editedDocumentURL);
+    return Objects.hash(successful, jpgResultPages);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RemoveDocxHeadersAndFootersResponse {\n");
+    sb.append("class PdfToJpgResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    editedDocumentURL: ").append(toIndentedString(editedDocumentURL)).append("\n");
+    sb.append("    jpgResultPages: ").append(toIndentedString(jpgResultPages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -40,7 +40,7 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 ConvertWebApi apiInstance = new ConvertWebApi();
-HtmlToOfficeRequest inputRequest = new HtmlToOfficeRequest(); // HtmlToOfficeRequest | HTL input to convert to DOCX
+HtmlToOfficeRequest inputRequest = new HtmlToOfficeRequest(); // HtmlToOfficeRequest | HTML input to convert to DOCX
 try {
     byte[] result = apiInstance.convertWebHtmlToDocx(inputRequest);
     System.out.println(result);
@@ -54,7 +54,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputRequest** | [**HtmlToOfficeRequest**](HtmlToOfficeRequest.md)| HTL input to convert to DOCX |
+ **inputRequest** | [**HtmlToOfficeRequest**](HtmlToOfficeRequest.md)| HTML input to convert to DOCX |
 
 ### Return type
 

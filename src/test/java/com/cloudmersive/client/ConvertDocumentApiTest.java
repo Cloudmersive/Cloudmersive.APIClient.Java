@@ -37,6 +37,7 @@ import com.cloudmersive.client.model.OdsToJpgResult;
 import com.cloudmersive.client.model.OdsToPngResult;
 import com.cloudmersive.client.model.OdtToJpgResult;
 import com.cloudmersive.client.model.OdtToPngResult;
+import com.cloudmersive.client.model.PdfToJpgResult;
 import com.cloudmersive.client.model.PdfToPngResult;
 import com.cloudmersive.client.model.PptxToPngResult;
 import com.cloudmersive.client.model.RtfToJpgResult;
@@ -849,6 +850,23 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPdfToDocxRasterizeTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.convertDocumentPdfToDocxRasterize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert PDF to JPG/JPEG image array
+     *
+     * Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToJpgTest() throws ApiException {
+        File inputFile = null;
+        Integer quality = null;
+        PdfToJpgResult response = api.convertDocumentPdfToJpg(inputFile, quality);
 
         // TODO: test validations
     }

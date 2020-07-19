@@ -28,7 +28,7 @@ import java.io.IOException;
  * The result of a User-Agent validation request
  */
 @ApiModel(description = "The result of a User-Agent validation request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-27T22:17:12.972-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:22:58.078-07:00")
 public class UserAgentValidateResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
