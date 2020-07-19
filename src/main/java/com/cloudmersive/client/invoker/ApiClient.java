@@ -1,6 +1,6 @@
 /*
- * configapi
- * Config API lets you easily manage configuration at scale.
+ * videoapi
+ * The video APIs help you convert, encode, and transcode videos.
  *
  * OpenAPI spec version: v1
  * 
@@ -85,7 +85,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/3.5.9/java");
+        setUserAgent("Swagger-Codegen/3.6.0/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();

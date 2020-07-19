@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual match result of finding a target string in a longer text string
  */
 @ApiModel(description = "Individual match result of finding a target string in a longer text string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:18.353-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:42.122-07:00")
 public class FindStringMatch {
   @SerializedName("CharacterOffsetStart")
   private Integer characterOffsetStart = null;

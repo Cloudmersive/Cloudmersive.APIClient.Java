@@ -1,6 +1,6 @@
 /*
- * configapi
- * Config API lets you easily manage configuration at scale.
+ * videoapi
+ * The video APIs help you convert, encode, and transcode videos.
  *
  * OpenAPI spec version: v1
  * 

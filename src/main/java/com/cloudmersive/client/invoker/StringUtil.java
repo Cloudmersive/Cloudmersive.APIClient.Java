@@ -1,6 +1,6 @@
 /*
- * configapi
- * Config API lets you easily manage configuration at scale.
+ * videoapi
+ * The video APIs help you convert, encode, and transcode videos.
  *
  * OpenAPI spec version: v1
  * 
@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:28.774-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:46:00.482-07:00")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

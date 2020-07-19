@@ -1,6 +1,6 @@
 /*
- * configapi
- * Config API lets you easily manage configuration at scale.
+ * videoapi
+ * The video APIs help you convert, encode, and transcode videos.
  *
  * OpenAPI spec version: v1
  * 
@@ -16,7 +16,7 @@ package com.cloudmersive.client.invoker;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:28.774-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:46:00.482-07:00")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;

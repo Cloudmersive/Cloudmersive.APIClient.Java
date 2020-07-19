@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an XQuery operation on an XML document.
  */
 @ApiModel(description = "Result of performing an XQuery operation on an XML document.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:18.353-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:42.122-07:00")
 public class XmlQueryWithXQueryResult {
   @SerializedName("Successful")
   private Boolean successful = null;

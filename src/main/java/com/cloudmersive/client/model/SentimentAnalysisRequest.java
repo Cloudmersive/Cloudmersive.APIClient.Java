@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a sentiment analysis operation
  */
 @ApiModel(description = "Input to a sentiment analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-18T23:23:02.456-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:19.867-07:00")
 public class SentimentAnalysisRequest {
   @SerializedName("TextToAnalyze")
   private String textToAnalyze = null;
