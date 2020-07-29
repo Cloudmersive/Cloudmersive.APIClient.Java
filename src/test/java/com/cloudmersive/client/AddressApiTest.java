@@ -22,6 +22,8 @@ import com.cloudmersive.client.model.ValidateAddressRequest;
 import com.cloudmersive.client.model.ValidateAddressResponse;
 import com.cloudmersive.client.model.ValidateCountryRequest;
 import com.cloudmersive.client.model.ValidateCountryResponse;
+import com.cloudmersive.client.model.ValidatePostalCodeRequest;
+import com.cloudmersive.client.model.ValidatePostalCodeResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -40,9 +42,25 @@ public class AddressApiTest {
 
     
     /**
+     * Check if a country is a member of the European Union (EU)
+     *
+     * Checks if the input country is a member of the European Union or not.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressCheckEUMembershipTest() throws ApiException {
+        ValidateCountryRequest input = null;
+        ValidateCountryResponse response = api.addressCheckEUMembership(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
      *
-     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+     * Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -99,6 +117,22 @@ public class AddressApiTest {
     public void addressValidateAddressTest() throws ApiException {
         ValidateAddressRequest input = null;
         ValidateAddressResponse response = api.addressValidateAddress(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a postal code, get location information about it
+     *
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressValidatePostalCodeTest() throws ApiException {
+        ValidatePostalCodeRequest input = null;
+        ValidatePostalCodeResponse response = api.addressValidatePostalCode(input);
 
         // TODO: test validations
     }

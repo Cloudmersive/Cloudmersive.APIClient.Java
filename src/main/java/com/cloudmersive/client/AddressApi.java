@@ -35,6 +35,8 @@ import com.cloudmersive.client.model.ValidateAddressRequest;
 import com.cloudmersive.client.model.ValidateAddressResponse;
 import com.cloudmersive.client.model.ValidateCountryRequest;
 import com.cloudmersive.client.model.ValidateCountryResponse;
+import com.cloudmersive.client.model.ValidatePostalCodeRequest;
+import com.cloudmersive.client.model.ValidatePostalCodeResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -61,6 +63,128 @@ public class AddressApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for addressCheckEUMembership
+     * @param input Input request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addressCheckEUMembershipCall(ValidateCountryRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/address/country/check-eu-membership";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addressCheckEUMembershipValidateBeforeCall(ValidateCountryRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling addressCheckEUMembership(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addressCheckEUMembershipCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check if a country is a member of the European Union (EU)
+     * Checks if the input country is a member of the European Union or not.
+     * @param input Input request (required)
+     * @return ValidateCountryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ValidateCountryResponse addressCheckEUMembership(ValidateCountryRequest input) throws ApiException {
+        ApiResponse<ValidateCountryResponse> resp = addressCheckEUMembershipWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Check if a country is a member of the European Union (EU)
+     * Checks if the input country is a member of the European Union or not.
+     * @param input Input request (required)
+     * @return ApiResponse&lt;ValidateCountryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ValidateCountryResponse> addressCheckEUMembershipWithHttpInfo(ValidateCountryRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = addressCheckEUMembershipValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<ValidateCountryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check if a country is a member of the European Union (EU) (asynchronously)
+     * Checks if the input country is a member of the European Union or not.
+     * @param input Input request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addressCheckEUMembershipAsync(ValidateCountryRequest input, final ApiCallback<ValidateCountryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addressCheckEUMembershipValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ValidateCountryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for addressCountry
      * @param input Input request (required)
@@ -126,7 +250,7 @@ public class AddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
-     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+     * Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @return ValidateCountryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -138,7 +262,7 @@ public class AddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
-     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+     * Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @return ApiResponse&lt;ValidateCountryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -151,7 +275,7 @@ public class AddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name (asynchronously)
-     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+     * Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -546,6 +670,128 @@ public class AddressApi {
 
         com.squareup.okhttp.Call call = addressValidateAddressValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ValidateAddressResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for addressValidatePostalCode
+     * @param input Input parse request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addressValidatePostalCodeCall(ValidatePostalCodeRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/address/postal-code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addressValidatePostalCodeValidateBeforeCall(ValidatePostalCodeRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling addressValidatePostalCode(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addressValidatePostalCodeCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Validate a postal code, get location information about it
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * @param input Input parse request (required)
+     * @return ValidatePostalCodeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ValidatePostalCodeResponse addressValidatePostalCode(ValidatePostalCodeRequest input) throws ApiException {
+        ApiResponse<ValidatePostalCodeResponse> resp = addressValidatePostalCodeWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Validate a postal code, get location information about it
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * @param input Input parse request (required)
+     * @return ApiResponse&lt;ValidatePostalCodeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ValidatePostalCodeResponse> addressValidatePostalCodeWithHttpInfo(ValidatePostalCodeRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = addressValidatePostalCodeValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<ValidatePostalCodeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Validate a postal code, get location information about it (asynchronously)
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * @param input Input parse request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addressValidatePostalCodeAsync(ValidatePostalCodeRequest input, final ApiCallback<ValidatePostalCodeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addressValidatePostalCodeValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ValidatePostalCodeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

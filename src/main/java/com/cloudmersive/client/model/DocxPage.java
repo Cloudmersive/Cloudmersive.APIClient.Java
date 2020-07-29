@@ -31,7 +31,7 @@ import java.util.List;
  * One page in a Word Document DOCX
  */
 @ApiModel(description = "One page in a Word Document DOCX")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:42.122-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-28T19:48:07.529-07:00")
 public class DocxPage {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

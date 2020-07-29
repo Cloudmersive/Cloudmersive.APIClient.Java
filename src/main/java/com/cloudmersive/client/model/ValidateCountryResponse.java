@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a country validation operation
  */
 @ApiModel(description = "Result of performing a country validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:15.898-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-28T19:47:51.374-07:00")
 public class ValidateCountryResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -47,6 +47,9 @@ public class ValidateCountryResponse {
 
   @SerializedName("ThreeLetterCode")
   private String threeLetterCode = null;
+
+  @SerializedName("IsEuropeanUnionMember")
+  private Boolean isEuropeanUnionMember = null;
 
   @SerializedName("Timezones")
   private List<Timezone> timezones = null;
@@ -141,6 +144,24 @@ public class ValidateCountryResponse {
     this.threeLetterCode = threeLetterCode;
   }
 
+  public ValidateCountryResponse isEuropeanUnionMember(Boolean isEuropeanUnionMember) {
+    this.isEuropeanUnionMember = isEuropeanUnionMember;
+    return this;
+  }
+
+   /**
+   * True if this country is currently a member of the European Union (EU), false otherwise
+   * @return isEuropeanUnionMember
+  **/
+  @ApiModelProperty(value = "True if this country is currently a member of the European Union (EU), false otherwise")
+  public Boolean isIsEuropeanUnionMember() {
+    return isEuropeanUnionMember;
+  }
+
+  public void setIsEuropeanUnionMember(Boolean isEuropeanUnionMember) {
+    this.isEuropeanUnionMember = isEuropeanUnionMember;
+  }
+
   public ValidateCountryResponse timezones(List<Timezone> timezones) {
     this.timezones = timezones;
     return this;
@@ -182,12 +203,13 @@ public class ValidateCountryResponse {
         Objects.equals(this.isOTwoLetterCode, validateCountryResponse.isOTwoLetterCode) &&
         Objects.equals(this.fiPSTwoLetterCode, validateCountryResponse.fiPSTwoLetterCode) &&
         Objects.equals(this.threeLetterCode, validateCountryResponse.threeLetterCode) &&
+        Objects.equals(this.isEuropeanUnionMember, validateCountryResponse.isEuropeanUnionMember) &&
         Objects.equals(this.timezones, validateCountryResponse.timezones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, countryFullName, isOTwoLetterCode, fiPSTwoLetterCode, threeLetterCode, timezones);
+    return Objects.hash(successful, countryFullName, isOTwoLetterCode, fiPSTwoLetterCode, threeLetterCode, isEuropeanUnionMember, timezones);
   }
 
 
@@ -201,6 +223,7 @@ public class ValidateCountryResponse {
     sb.append("    isOTwoLetterCode: ").append(toIndentedString(isOTwoLetterCode)).append("\n");
     sb.append("    fiPSTwoLetterCode: ").append(toIndentedString(fiPSTwoLetterCode)).append("\n");
     sb.append("    threeLetterCode: ").append(toIndentedString(threeLetterCode)).append("\n");
+    sb.append("    isEuropeanUnionMember: ").append(toIndentedString(isEuropeanUnionMember)).append("\n");
     sb.append("    timezones: ").append(toIndentedString(timezones)).append("\n");
     sb.append("}");
     return sb.toString();

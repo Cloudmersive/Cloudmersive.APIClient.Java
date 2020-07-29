@@ -31,7 +31,7 @@ import java.util.List;
  * Result of retrieving annotations from a PDF document
  */
 @ApiModel(description = "Result of retrieving annotations from a PDF document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:42.122-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-28T19:48:07.529-07:00")
 public class GetPdfAnnotationsResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * The recognition result of one cell in one row in a table of a form
  */
 @ApiModel(description = "The recognition result of one cell in one row in a table of a form")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-19T10:45:24.343-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-28T19:47:58.465-07:00")
 public class TableCellResult {
   @SerializedName("ColumnID")
   private String columnID = null;
