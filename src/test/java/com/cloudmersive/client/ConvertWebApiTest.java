@@ -85,7 +85,7 @@ public class ConvertWebApiTest {
     @Test
     public void convertWebHtmlToPngTest() throws ApiException {
         HtmlToPngRequest input = null;
-        Object response = api.convertWebHtmlToPng(input);
+        byte[] response = api.convertWebHtmlToPng(input);
 
         // TODO: test validations
     }

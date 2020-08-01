@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 <a name="convertWebHtmlToPng"></a>
 # **convertWebHtmlToPng**
-> Object convertWebHtmlToPng(input)
+> byte[] convertWebHtmlToPng(input)
 
 Convert HTML string to PNG screenshot
 
@@ -152,7 +152,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertWebApi apiInstance = new ConvertWebApi();
 HtmlToPngRequest input = new HtmlToPngRequest(); // HtmlToPngRequest | HTML to PNG request parameters
 try {
-    Object result = apiInstance.convertWebHtmlToPng(input);
+    byte[] result = apiInstance.convertWebHtmlToPng(input);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertWebApi#convertWebHtmlToPng");
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

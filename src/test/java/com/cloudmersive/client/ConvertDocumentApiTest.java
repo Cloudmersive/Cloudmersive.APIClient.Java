@@ -183,6 +183,64 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Multiple CSV Files into a Single XLSX Spreadsheet
+     *
+     * Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentCsvMultiToXlsxTest() throws ApiException {
+        File inputFile1 = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        String worksheetNames = null;
+        byte[] response = api.convertDocumentCsvMultiToXlsx(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, worksheetNames);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert CSV to HTML document
+     *
+     * Convert Comma-Separated Values (CSV) file to HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentCsvToHtmlTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentCsvToHtml(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert CSV to PDF document
+     *
+     * Convert Comma-Separated Values (CSV) file to PDF document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentCsvToPdfTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentCsvToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert CSV to Excel XLSX Spreadsheet
      *
      * Convert CSV file to Office Excel XLSX Workbooks file format.
@@ -457,7 +515,9 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentHtmlToPdfTest() throws ApiException {
         File inputFile = null;
-        byte[] response = api.convertDocumentHtmlToPdf(inputFile);
+        Boolean includeBackgroundGraphics = null;
+        Integer scaleFactor = null;
+        byte[] response = api.convertDocumentHtmlToPdf(inputFile, includeBackgroundGraphics, scaleFactor);
 
         // TODO: test validations
     }
@@ -1200,6 +1260,22 @@ public class ConvertDocumentApiTest {
         File inputFile = null;
         String outputEncoding = null;
         CsvCollection response = api.convertDocumentXlsxToCsvMulti(inputFile, outputEncoding);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Excel XLSX Spreadsheet to HTML Document
+     *
+     * Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsxToHtmlTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentXlsxToHtml(inputFile);
 
         // TODO: test validations
     }

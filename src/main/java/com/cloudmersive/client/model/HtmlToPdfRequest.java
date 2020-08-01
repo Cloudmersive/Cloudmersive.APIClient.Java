@@ -28,13 +28,19 @@ import java.io.IOException;
  * Details of the HTML to PDF request
  */
 @ApiModel(description = "Details of the HTML to PDF request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-28T19:48:07.529-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-01T12:52:36.787-07:00")
 public class HtmlToPdfRequest {
   @SerializedName("Html")
   private String html = null;
 
   @SerializedName("ExtraLoadingWait")
   private Integer extraLoadingWait = null;
+
+  @SerializedName("IncludeBackgroundGraphics")
+  private Boolean includeBackgroundGraphics = null;
+
+  @SerializedName("ScaleFactor")
+  private Integer scaleFactor = null;
 
   public HtmlToPdfRequest html(String html) {
     this.html = html;
@@ -60,16 +66,52 @@ public class HtmlToPdfRequest {
   }
 
    /**
-   * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.
+   * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites. Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 30000 milliseconds (30 seconds).
    * @return extraLoadingWait
   **/
-  @ApiModelProperty(value = "Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.")
+  @ApiModelProperty(value = "Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites. Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 30000 milliseconds (30 seconds).")
   public Integer getExtraLoadingWait() {
     return extraLoadingWait;
   }
 
   public void setExtraLoadingWait(Integer extraLoadingWait) {
     this.extraLoadingWait = extraLoadingWait;
+  }
+
+  public HtmlToPdfRequest includeBackgroundGraphics(Boolean includeBackgroundGraphics) {
+    this.includeBackgroundGraphics = includeBackgroundGraphics;
+    return this;
+  }
+
+   /**
+   * Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+   * @return includeBackgroundGraphics
+  **/
+  @ApiModelProperty(value = "Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.")
+  public Boolean isIncludeBackgroundGraphics() {
+    return includeBackgroundGraphics;
+  }
+
+  public void setIncludeBackgroundGraphics(Boolean includeBackgroundGraphics) {
+    this.includeBackgroundGraphics = includeBackgroundGraphics;
+  }
+
+  public HtmlToPdfRequest scaleFactor(Integer scaleFactor) {
+    this.scaleFactor = scaleFactor;
+    return this;
+  }
+
+   /**
+   * Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+   * @return scaleFactor
+  **/
+  @ApiModelProperty(value = "Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.")
+  public Integer getScaleFactor() {
+    return scaleFactor;
+  }
+
+  public void setScaleFactor(Integer scaleFactor) {
+    this.scaleFactor = scaleFactor;
   }
 
 
@@ -83,12 +125,14 @@ public class HtmlToPdfRequest {
     }
     HtmlToPdfRequest htmlToPdfRequest = (HtmlToPdfRequest) o;
     return Objects.equals(this.html, htmlToPdfRequest.html) &&
-        Objects.equals(this.extraLoadingWait, htmlToPdfRequest.extraLoadingWait);
+        Objects.equals(this.extraLoadingWait, htmlToPdfRequest.extraLoadingWait) &&
+        Objects.equals(this.includeBackgroundGraphics, htmlToPdfRequest.includeBackgroundGraphics) &&
+        Objects.equals(this.scaleFactor, htmlToPdfRequest.scaleFactor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(html, extraLoadingWait);
+    return Objects.hash(html, extraLoadingWait, includeBackgroundGraphics, scaleFactor);
   }
 
 
@@ -99,6 +143,8 @@ public class HtmlToPdfRequest {
     
     sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("    extraLoadingWait: ").append(toIndentedString(extraLoadingWait)).append("\n");
+    sb.append("    includeBackgroundGraphics: ").append(toIndentedString(includeBackgroundGraphics)).append("\n");
+    sb.append("    scaleFactor: ").append(toIndentedString(scaleFactor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -95,6 +95,7 @@ import com.cloudmersive.client.model.InsertDocxTablesRequest;
 import com.cloudmersive.client.model.InsertDocxTablesResponse;
 import com.cloudmersive.client.model.InsertXlsxWorksheetRequest;
 import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
+import com.cloudmersive.client.model.MultiReplaceStringRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
@@ -526,6 +527,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxReplaceTest() throws ApiException {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentDocxReplace(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace multiple strings in Word DOCX document
+     *
+     * Replace all instances of multiple strings in an Office Word Document (docx)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxReplaceMultiTest() throws ApiException {
+        MultiReplaceStringRequest reqConfig = null;
+        byte[] response = api.editDocumentDocxReplaceMulti(reqConfig);
 
         // TODO: test validations
     }
