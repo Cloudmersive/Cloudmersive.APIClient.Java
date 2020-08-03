@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**validPostalCode** | **Boolean** | True if the address is valid, false otherwise |  [optional]
+**validPostalCode** | **Boolean** | True if the Postal Code is valid, false otherwise |  [optional]
 **city** | **String** | If valid, City corresponding to the input postal code, such as &#39;Walnut Creek&#39; |  [optional]
 **stateOrProvince** | **String** | If valid; State or province corresponding to the input postal code, such as &#39;CA&#39; or &#39;California&#39; |  [optional]
 **latitude** | **Double** | If the postal code is valid, the degrees latitude of the centroid of the postal code, null otherwise |  [optional]

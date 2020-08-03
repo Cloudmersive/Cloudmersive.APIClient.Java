@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Clear-Row request
  */
 @ApiModel(description = "Input to a Clear-Row request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-01T12:52:36.787-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-02T19:46:36.696-07:00")
 public class ClearXlsxRowRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

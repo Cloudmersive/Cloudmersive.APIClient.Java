@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to Validate a Postal Code
  */
 @ApiModel(description = "Request to Validate a Postal Code")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-01T12:52:17.336-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-02T19:46:19.400-07:00")
 public class ValidatePostalCodeRequest {
   @SerializedName("PostalCode")
   private String postalCode = null;
@@ -45,10 +45,10 @@ public class ValidatePostalCodeRequest {
   }
 
    /**
-   * Optional (recommended); Zip code or postal code of the address to validate, such as &#39;94597&#39;
+   * Required: Zip code or postal code of the address to validate, such as &#39;94597&#39;
    * @return postalCode
   **/
-  @ApiModelProperty(value = "Optional (recommended); Zip code or postal code of the address to validate, such as '94597'")
+  @ApiModelProperty(value = "Required: Zip code or postal code of the address to validate, such as '94597'")
   public String getPostalCode() {
     return postalCode;
   }

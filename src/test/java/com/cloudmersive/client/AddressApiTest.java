@@ -14,16 +14,21 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.CountryListResult;
 import com.cloudmersive.client.model.GetTimezonesRequest;
 import com.cloudmersive.client.model.GetTimezonesResponse;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
 import com.cloudmersive.client.model.ValidateAddressRequest;
 import com.cloudmersive.client.model.ValidateAddressResponse;
+import com.cloudmersive.client.model.ValidateCityRequest;
+import com.cloudmersive.client.model.ValidateCityResponse;
 import com.cloudmersive.client.model.ValidateCountryRequest;
 import com.cloudmersive.client.model.ValidateCountryResponse;
 import com.cloudmersive.client.model.ValidatePostalCodeRequest;
 import com.cloudmersive.client.model.ValidatePostalCodeResponse;
+import com.cloudmersive.client.model.ValidateStateRequest;
+import com.cloudmersive.client.model.ValidateStateResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -69,6 +74,21 @@ public class AddressApiTest {
     public void addressCountryTest() throws ApiException {
         ValidateCountryRequest input = null;
         ValidateCountryResponse response = api.addressCountry(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of ISO 3166-1 countries
+     *
+     * Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressCountryListTest() throws ApiException {
+        CountryListResult response = api.addressCountryList();
 
         // TODO: test validations
     }
@@ -122,6 +142,22 @@ public class AddressApiTest {
     }
     
     /**
+     * Validate a City and State/Province combination, get location information about it
+     *
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressValidateCityTest() throws ApiException {
+        ValidateCityRequest input = null;
+        ValidateCityResponse response = api.addressValidateCity(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a postal code, get location information about it
      *
      * Checks if the input postal code is valid, and returns information about it such as City, State and more.
@@ -133,6 +169,22 @@ public class AddressApiTest {
     public void addressValidatePostalCodeTest() throws ApiException {
         ValidatePostalCodeRequest input = null;
         ValidatePostalCodeResponse response = api.addressValidatePostalCode(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a state or province, name or abbreviation, get location information about it
+     *
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressValidateStateTest() throws ApiException {
+        ValidateStateRequest input = null;
+        ValidateStateResponse response = api.addressValidateState(input);
 
         // TODO: test validations
     }

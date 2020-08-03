@@ -6,10 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addressCheckEUMembership**](AddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 [**addressCountry**](AddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
+[**addressCountryList**](AddressApi.md#addressCountryList) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
 [**addressGetTimezone**](AddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](AddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**addressValidateAddress**](AddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
+[**addressValidateCity**](AddressApi.md#addressValidateCity) | **POST** /validate/address/city | Validate a City and State/Province combination, get location information about it
 [**addressValidatePostalCode**](AddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
+[**addressValidateState**](AddressApi.md#addressValidateState) | **POST** /validate/address/state | Validate a state or province, name or abbreviation, get location information about it
 
 
 <a name="addressCheckEUMembership"></a>
@@ -120,6 +123,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="addressCountryList"></a>
+# **addressCountryList**
+> CountryListResult addressCountryList()
+
+Get a list of ISO 3166-1 countries
+
+Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.AddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+AddressApi apiInstance = new AddressApi();
+try {
+    CountryListResult result = apiInstance.addressCountryList();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AddressApi#addressCountryList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CountryListResult**](CountryListResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="addressGetTimezone"></a>
@@ -287,6 +341,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
+<a name="addressValidateCity"></a>
+# **addressValidateCity**
+> ValidateCityResponse addressValidateCity(input)
+
+Validate a City and State/Province combination, get location information about it
+
+Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.AddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+AddressApi apiInstance = new AddressApi();
+ValidateCityRequest input = new ValidateCityRequest(); // ValidateCityRequest | Input parse request
+try {
+    ValidateCityResponse result = apiInstance.addressValidateCity(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AddressApi#addressValidateCity");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateCityRequest**](ValidateCityRequest.md)| Input parse request |
+
+### Return type
+
+[**ValidateCityResponse**](ValidateCityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 <a name="addressValidatePostalCode"></a>
 # **addressValidatePostalCode**
 > ValidatePostalCodeResponse addressValidatePostalCode(input)
@@ -332,6 +441,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidatePostalCodeResponse**](ValidatePostalCodeResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="addressValidateState"></a>
+# **addressValidateState**
+> ValidateStateResponse addressValidateState(input)
+
+Validate a state or province, name or abbreviation, get location information about it
+
+Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.AddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+AddressApi apiInstance = new AddressApi();
+ValidateStateRequest input = new ValidateStateRequest(); // ValidateStateRequest | Input parse request
+try {
+    ValidateStateResponse result = apiInstance.addressValidateState(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AddressApi#addressValidateState");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateStateRequest**](ValidateStateRequest.md)| Input parse request |
+
+### Return type
+
+[**ValidateStateResponse**](ValidateStateResponse.md)
 
 ### Authorization
 
