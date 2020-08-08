@@ -29,7 +29,7 @@ import java.io.IOException;
  * Result of running a Get-Body command
  */
 @ApiModel(description = "Result of running a Get-Body command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:25.010-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:50.847-07:00")
 public class GetDocxBodyResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

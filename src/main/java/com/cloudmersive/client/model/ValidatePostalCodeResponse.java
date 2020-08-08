@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of validating a postal code
  */
 @ApiModel(description = "Result of validating a postal code")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:01.341-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:27.432-07:00")
 public class ValidatePostalCodeResponse {
   @SerializedName("ValidPostalCode")
   private Boolean validPostalCode = null;

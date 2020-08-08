@@ -1661,6 +1661,141 @@ public class EditPdfApi {
         return call;
     }
     /**
+     * Build call for editPdfResize
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfResizeCall(File inputFile, String paperSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/resize";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (paperSize != null)
+        localVarHeaderParams.put("paperSize", apiClient.parameterToString(paperSize));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfResizeValidateBeforeCall(File inputFile, String paperSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfResize(Async)");
+        }
+        
+        // verify the required parameter 'paperSize' is set
+        if (paperSize == null) {
+            throw new ApiException("Missing the required parameter 'paperSize' when calling editPdfResize(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfResizeCall(inputFile, paperSize, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Change PDF Document&#39;s Paper Size
+     * Resizes a PDF document&#39;s paper size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfResize(File inputFile, String paperSize) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfResizeWithHttpInfo(inputFile, paperSize);
+        return resp.getData();
+    }
+
+    /**
+     * Change PDF Document&#39;s Paper Size
+     * Resizes a PDF document&#39;s paper size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfResizeWithHttpInfo(File inputFile, String paperSize) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfResizeValidateBeforeCall(inputFile, paperSize, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Change PDF Document&#39;s Paper Size (asynchronously)
+     * Resizes a PDF document&#39;s paper size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfResizeAsync(File inputFile, String paperSize, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfResizeValidateBeforeCall(inputFile, paperSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfRotateAllPages
      * @param inputFile Input file to perform the operation on. (required)
      * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)

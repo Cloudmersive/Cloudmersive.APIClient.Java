@@ -245,6 +245,23 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Change PDF Document&#39;s Paper Size
+     *
+     * Resizes a PDF document&#39;s paper size.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfResizeTest() throws ApiException {
+        File inputFile = null;
+        String paperSize = null;
+        byte[] response = api.editPdfResize(inputFile, paperSize);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Rotate all pages in a PDF document
      *
      * Rotate all of the pages in a PDF document by a multiple of 90 degrees

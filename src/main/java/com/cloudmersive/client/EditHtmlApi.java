@@ -58,14 +58,15 @@ public class EditHtmlApi {
      * Build call for editHtmlHtmlAppendHeading
      * @param headingText The text content to be used in the header. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
-     * @param headingSize Optional: The heading size number. Default is 1. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param headingSize Optional: The heading size number. Default is 1. Accepts values between 1 and 6. (optional)
+     * @param cssStyle Optional: The CSS style for the heading. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editHtmlHtmlAppendHeadingCall(String headingText, File inputFile, String inputFileUrl, Integer headingSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editHtmlHtmlAppendHeadingCall(String headingText, File inputFile, String inputFileUrl, Integer headingSize, String cssStyle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -81,6 +82,8 @@ public class EditHtmlApi {
         localVarHeaderParams.put("headingText", apiClient.parameterToString(headingText));
         if (headingSize != null)
         localVarHeaderParams.put("headingSize", apiClient.parameterToString(headingSize));
+        if (cssStyle != null)
+        localVarHeaderParams.put("cssStyle", apiClient.parameterToString(cssStyle));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -115,7 +118,7 @@ public class EditHtmlApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editHtmlHtmlAppendHeadingValidateBeforeCall(String headingText, File inputFile, String inputFileUrl, Integer headingSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editHtmlHtmlAppendHeadingValidateBeforeCall(String headingText, File inputFile, String inputFileUrl, Integer headingSize, String cssStyle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'headingText' is set
         if (headingText == null) {
@@ -123,7 +126,7 @@ public class EditHtmlApi {
         }
         
 
-        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeadingCall(headingText, inputFile, inputFileUrl, headingSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeadingCall(headingText, inputFile, inputFileUrl, headingSize, cssStyle, progressListener, progressRequestListener);
         return call;
 
     }
@@ -133,13 +136,14 @@ public class EditHtmlApi {
      * Appends a heading to the end of an HTML document.
      * @param headingText The text content to be used in the header. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
-     * @param headingSize Optional: The heading size number. Default is 1. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param headingSize Optional: The heading size number. Default is 1. Accepts values between 1 and 6. (optional)
+     * @param cssStyle Optional: The CSS style for the heading. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editHtmlHtmlAppendHeading(String headingText, File inputFile, String inputFileUrl, Integer headingSize) throws ApiException {
-        ApiResponse<byte[]> resp = editHtmlHtmlAppendHeadingWithHttpInfo(headingText, inputFile, inputFileUrl, headingSize);
+    public byte[] editHtmlHtmlAppendHeading(String headingText, File inputFile, String inputFileUrl, Integer headingSize, String cssStyle) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlAppendHeadingWithHttpInfo(headingText, inputFile, inputFileUrl, headingSize, cssStyle);
         return resp.getData();
     }
 
@@ -148,13 +152,14 @@ public class EditHtmlApi {
      * Appends a heading to the end of an HTML document.
      * @param headingText The text content to be used in the header. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
-     * @param headingSize Optional: The heading size number. Default is 1. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param headingSize Optional: The heading size number. Default is 1. Accepts values between 1 and 6. (optional)
+     * @param cssStyle Optional: The CSS style for the heading. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editHtmlHtmlAppendHeadingWithHttpInfo(String headingText, File inputFile, String inputFileUrl, Integer headingSize) throws ApiException {
-        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeadingValidateBeforeCall(headingText, inputFile, inputFileUrl, headingSize, null, null);
+    public ApiResponse<byte[]> editHtmlHtmlAppendHeadingWithHttpInfo(String headingText, File inputFile, String inputFileUrl, Integer headingSize, String cssStyle) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeadingValidateBeforeCall(headingText, inputFile, inputFileUrl, headingSize, cssStyle, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -164,13 +169,14 @@ public class EditHtmlApi {
      * Appends a heading to the end of an HTML document.
      * @param headingText The text content to be used in the header. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
-     * @param headingSize Optional: The heading size number. Default is 1. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param headingSize Optional: The heading size number. Default is 1. Accepts values between 1 and 6. (optional)
+     * @param cssStyle Optional: The CSS style for the heading. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editHtmlHtmlAppendHeadingAsync(String headingText, File inputFile, String inputFileUrl, Integer headingSize, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editHtmlHtmlAppendHeadingAsync(String headingText, File inputFile, String inputFileUrl, Integer headingSize, String cssStyle, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -191,7 +197,7 @@ public class EditHtmlApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeadingValidateBeforeCall(headingText, inputFile, inputFileUrl, headingSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeadingValidateBeforeCall(headingText, inputFile, inputFileUrl, headingSize, cssStyle, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -200,7 +206,7 @@ public class EditHtmlApi {
      * Build call for editHtmlHtmlAppendImageFromUrl
      * @param imageUrl The URL for the image. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -275,7 +281,7 @@ public class EditHtmlApi {
      * Appends an image to the end of an HTML document using a URL.
      * @param imageUrl The URL for the image. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -290,7 +296,7 @@ public class EditHtmlApi {
      * Appends an image to the end of an HTML document using a URL.
      * @param imageUrl The URL for the image. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -306,7 +312,7 @@ public class EditHtmlApi {
      * Appends an image to the end of an HTML document using a URL.
      * @param imageUrl The URL for the image. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -341,11 +347,11 @@ public class EditHtmlApi {
     /**
      * Build call for editHtmlHtmlAppendImageInline
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param imageFile Optional: Image file to be appended as base64 inline image. (optional)
      * @param imageUrl Optional: Image URL to be appended as base64 inline image. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
-     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG. (optional)
+     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -383,7 +389,7 @@ public class EditHtmlApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -417,11 +423,11 @@ public class EditHtmlApi {
      * Append a Base64 Inline Image to an HTML Document
      * Appends a base64 inline image to the end of an HTML document from an input file or URL.
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param imageFile Optional: Image file to be appended as base64 inline image. (optional)
      * @param imageUrl Optional: Image URL to be appended as base64 inline image. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
-     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG. (optional)
+     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -434,11 +440,11 @@ public class EditHtmlApi {
      * Append a Base64 Inline Image to an HTML Document
      * Appends a base64 inline image to the end of an HTML document from an input file or URL.
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param imageFile Optional: Image file to be appended as base64 inline image. (optional)
      * @param imageUrl Optional: Image URL to be appended as base64 inline image. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
-     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG. (optional)
+     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -452,11 +458,11 @@ public class EditHtmlApi {
      * Append a Base64 Inline Image to an HTML Document (asynchronously)
      * Appends a base64 inline image to the end of an HTML document from an input file or URL.
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param imageFile Optional: Image file to be appended as base64 inline image. (optional)
      * @param imageUrl Optional: Image URL to be appended as base64 inline image. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
-     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG. (optional)
+     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -491,13 +497,14 @@ public class EditHtmlApi {
      * Build call for editHtmlHtmlAppendParagraph
      * @param paragraphText The text content to be used in the paragraph. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param cssStyle Optional: The CSS style for the paragraph. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editHtmlHtmlAppendParagraphCall(String paragraphText, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editHtmlHtmlAppendParagraphCall(String paragraphText, File inputFile, String inputFileUrl, String cssStyle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -511,6 +518,8 @@ public class EditHtmlApi {
         localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
         if (paragraphText != null)
         localVarHeaderParams.put("paragraphText", apiClient.parameterToString(paragraphText));
+        if (cssStyle != null)
+        localVarHeaderParams.put("cssStyle", apiClient.parameterToString(cssStyle));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -545,7 +554,7 @@ public class EditHtmlApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editHtmlHtmlAppendParagraphValidateBeforeCall(String paragraphText, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editHtmlHtmlAppendParagraphValidateBeforeCall(String paragraphText, File inputFile, String inputFileUrl, String cssStyle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'paragraphText' is set
         if (paragraphText == null) {
@@ -553,7 +562,7 @@ public class EditHtmlApi {
         }
         
 
-        com.squareup.okhttp.Call call = editHtmlHtmlAppendParagraphCall(paragraphText, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendParagraphCall(paragraphText, inputFile, inputFileUrl, cssStyle, progressListener, progressRequestListener);
         return call;
 
     }
@@ -563,12 +572,13 @@ public class EditHtmlApi {
      * Appends a paragraph to the end of an HTML document.
      * @param paragraphText The text content to be used in the paragraph. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param cssStyle Optional: The CSS style for the paragraph. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editHtmlHtmlAppendParagraph(String paragraphText, File inputFile, String inputFileUrl) throws ApiException {
-        ApiResponse<byte[]> resp = editHtmlHtmlAppendParagraphWithHttpInfo(paragraphText, inputFile, inputFileUrl);
+    public byte[] editHtmlHtmlAppendParagraph(String paragraphText, File inputFile, String inputFileUrl, String cssStyle) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlAppendParagraphWithHttpInfo(paragraphText, inputFile, inputFileUrl, cssStyle);
         return resp.getData();
     }
 
@@ -577,12 +587,13 @@ public class EditHtmlApi {
      * Appends a paragraph to the end of an HTML document.
      * @param paragraphText The text content to be used in the paragraph. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param cssStyle Optional: The CSS style for the paragraph. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editHtmlHtmlAppendParagraphWithHttpInfo(String paragraphText, File inputFile, String inputFileUrl) throws ApiException {
-        com.squareup.okhttp.Call call = editHtmlHtmlAppendParagraphValidateBeforeCall(paragraphText, inputFile, inputFileUrl, null, null);
+    public ApiResponse<byte[]> editHtmlHtmlAppendParagraphWithHttpInfo(String paragraphText, File inputFile, String inputFileUrl, String cssStyle) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendParagraphValidateBeforeCall(paragraphText, inputFile, inputFileUrl, cssStyle, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -592,12 +603,13 @@ public class EditHtmlApi {
      * Appends a paragraph to the end of an HTML document.
      * @param paragraphText The text content to be used in the paragraph. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param cssStyle Optional: The CSS style for the paragraph. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editHtmlHtmlAppendParagraphAsync(String paragraphText, File inputFile, String inputFileUrl, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editHtmlHtmlAppendParagraphAsync(String paragraphText, File inputFile, String inputFileUrl, String cssStyle, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -618,7 +630,150 @@ public class EditHtmlApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editHtmlHtmlAppendParagraphValidateBeforeCall(paragraphText, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendParagraphValidateBeforeCall(paragraphText, inputFile, inputFileUrl, cssStyle, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlCreateBlankDocument
+     * @param title Optional: The title of the HTML document (optional)
+     * @param cssUrl Optional: A CSS style URL to be added to the document. (optional)
+     * @param cssInline Optional: An inline CSS style to be added to the document. (optional)
+     * @param javascriptUrl Optional: Javascript URL to be added to the document. (optional)
+     * @param javascriptInline Optional: Inline Javascript to be added to the document. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlCreateBlankDocumentCall(String title, String cssUrl, String cssInline, String javascriptUrl, String javascriptInline, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/create/blank";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (title != null)
+        localVarHeaderParams.put("title", apiClient.parameterToString(title));
+        if (cssUrl != null)
+        localVarHeaderParams.put("cssUrl", apiClient.parameterToString(cssUrl));
+        if (cssInline != null)
+        localVarHeaderParams.put("cssInline", apiClient.parameterToString(cssInline));
+        if (javascriptUrl != null)
+        localVarHeaderParams.put("javascriptUrl", apiClient.parameterToString(javascriptUrl));
+        if (javascriptInline != null)
+        localVarHeaderParams.put("javascriptInline", apiClient.parameterToString(javascriptInline));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlCreateBlankDocumentValidateBeforeCall(String title, String cssUrl, String cssInline, String javascriptUrl, String javascriptInline, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlCreateBlankDocumentCall(title, cssUrl, cssInline, javascriptUrl, javascriptInline, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a Blank HTML Document
+     * Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+     * @param title Optional: The title of the HTML document (optional)
+     * @param cssUrl Optional: A CSS style URL to be added to the document. (optional)
+     * @param cssInline Optional: An inline CSS style to be added to the document. (optional)
+     * @param javascriptUrl Optional: Javascript URL to be added to the document. (optional)
+     * @param javascriptInline Optional: Inline Javascript to be added to the document. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editHtmlHtmlCreateBlankDocument(String title, String cssUrl, String cssInline, String javascriptUrl, String javascriptInline) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlCreateBlankDocumentWithHttpInfo(title, cssUrl, cssInline, javascriptUrl, javascriptInline);
+        return resp.getData();
+    }
+
+    /**
+     * Create a Blank HTML Document
+     * Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+     * @param title Optional: The title of the HTML document (optional)
+     * @param cssUrl Optional: A CSS style URL to be added to the document. (optional)
+     * @param cssInline Optional: An inline CSS style to be added to the document. (optional)
+     * @param javascriptUrl Optional: Javascript URL to be added to the document. (optional)
+     * @param javascriptInline Optional: Inline Javascript to be added to the document. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editHtmlHtmlCreateBlankDocumentWithHttpInfo(String title, String cssUrl, String cssInline, String javascriptUrl, String javascriptInline) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlCreateBlankDocumentValidateBeforeCall(title, cssUrl, cssInline, javascriptUrl, javascriptInline, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a Blank HTML Document (asynchronously)
+     * Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+     * @param title Optional: The title of the HTML document (optional)
+     * @param cssUrl Optional: A CSS style URL to be added to the document. (optional)
+     * @param cssInline Optional: An inline CSS style to be added to the document. (optional)
+     * @param javascriptUrl Optional: Javascript URL to be added to the document. (optional)
+     * @param javascriptInline Optional: Inline Javascript to be added to the document. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlCreateBlankDocumentAsync(String title, String cssUrl, String cssInline, String javascriptUrl, String javascriptInline, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlCreateBlankDocumentValidateBeforeCall(title, cssUrl, cssInline, javascriptUrl, javascriptInline, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -8,11 +8,12 @@ Method | HTTP request | Description
 [**editHtmlHtmlAppendImageFromUrl**](EditHtmlApi.md#editHtmlHtmlAppendImageFromUrl) | **POST** /convert/edit/html/append/image/from-url | Append an Image to an HTML Document from a URL
 [**editHtmlHtmlAppendImageInline**](EditHtmlApi.md#editHtmlHtmlAppendImageInline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 [**editHtmlHtmlAppendParagraph**](EditHtmlApi.md#editHtmlHtmlAppendParagraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
+[**editHtmlHtmlCreateBlankDocument**](EditHtmlApi.md#editHtmlHtmlCreateBlankDocument) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
 
 
 <a name="editHtmlHtmlAppendHeading"></a>
 # **editHtmlHtmlAppendHeading**
-> byte[] editHtmlHtmlAppendHeading(headingText, inputFile, inputFileUrl, headingSize)
+> byte[] editHtmlHtmlAppendHeading(headingText, inputFile, inputFileUrl, headingSize, cssStyle)
 
 Append a Heading to an HTML Document
 
@@ -38,10 +39,11 @@ Apikey.setApiKey("YOUR API KEY");
 EditHtmlApi apiInstance = new EditHtmlApi();
 String headingText = "headingText_example"; // String | The text content to be used in the header.
 File inputFile = new File("/path/to/file.txt"); // File | Optional: Input file to perform the operation on.
-String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
-Integer headingSize = 56; // Integer | Optional: The heading size number. Default is 1.
+String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.
+Integer headingSize = 56; // Integer | Optional: The heading size number. Default is 1. Accepts values between 1 and 6.
+String cssStyle = "cssStyle_example"; // String | Optional: The CSS style for the heading.
 try {
-    byte[] result = apiInstance.editHtmlHtmlAppendHeading(headingText, inputFile, inputFileUrl, headingSize);
+    byte[] result = apiInstance.editHtmlHtmlAppendHeading(headingText, inputFile, inputFileUrl, headingSize, cssStyle);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditHtmlApi#editHtmlHtmlAppendHeading");
@@ -55,8 +57,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **headingText** | **String**| The text content to be used in the header. |
  **inputFile** | **File**| Optional: Input file to perform the operation on. | [optional]
- **inputFileUrl** | **String**| Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). | [optional]
- **headingSize** | **Integer**| Optional: The heading size number. Default is 1. | [optional]
+ **inputFileUrl** | **String**| Optional: URL of a file to operate on as input. | [optional]
+ **headingSize** | **Integer**| Optional: The heading size number. Default is 1. Accepts values between 1 and 6. | [optional]
+ **cssStyle** | **String**| Optional: The CSS style for the heading. | [optional]
 
 ### Return type
 
@@ -99,7 +102,7 @@ Apikey.setApiKey("YOUR API KEY");
 EditHtmlApi apiInstance = new EditHtmlApi();
 String imageUrl = "imageUrl_example"; // String | The URL for the image.
 File inputFile = new File("/path/to/file.txt"); // File | Optional: Input file to perform the operation on.
-String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.
 String cssStyle = "cssStyle_example"; // String | Optional: CSS style for the image.
 try {
     byte[] result = apiInstance.editHtmlHtmlAppendImageFromUrl(imageUrl, inputFile, inputFileUrl, cssStyle);
@@ -116,7 +119,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **imageUrl** | **String**| The URL for the image. |
  **inputFile** | **File**| Optional: Input file to perform the operation on. | [optional]
- **inputFileUrl** | **String**| Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). | [optional]
+ **inputFileUrl** | **String**| Optional: URL of a file to operate on as input. | [optional]
  **cssStyle** | **String**| Optional: CSS style for the image. | [optional]
 
 ### Return type
@@ -159,11 +162,11 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditHtmlApi apiInstance = new EditHtmlApi();
 File inputFile = new File("/path/to/file.txt"); // File | Optional: Input file to perform the operation on.
-String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.
 File imageFile = new File("/path/to/file.txt"); // File | Optional: Image file to be appended as base64 inline image.
 String imageUrl = "imageUrl_example"; // String | Optional: Image URL to be appended as base64 inline image.
 String cssStyle = "cssStyle_example"; // String | Optional: CSS style for the image.
-String imageExtension = "imageExtension_example"; // String | Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG.
+String imageExtension = "imageExtension_example"; // String | Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG.
 try {
     byte[] result = apiInstance.editHtmlHtmlAppendImageInline(inputFile, inputFileUrl, imageFile, imageUrl, cssStyle, imageExtension);
     System.out.println(result);
@@ -178,11 +181,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Optional: Input file to perform the operation on. | [optional]
- **inputFileUrl** | **String**| Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). | [optional]
+ **inputFileUrl** | **String**| Optional: URL of a file to operate on as input. | [optional]
  **imageFile** | **File**| Optional: Image file to be appended as base64 inline image. | [optional]
  **imageUrl** | **String**| Optional: Image URL to be appended as base64 inline image. | [optional]
  **cssStyle** | **String**| Optional: CSS style for the image. | [optional]
- **imageExtension** | **String**| Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG. | [optional]
+ **imageExtension** | **String**| Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG. | [optional]
 
 ### Return type
 
@@ -194,12 +197,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="editHtmlHtmlAppendParagraph"></a>
 # **editHtmlHtmlAppendParagraph**
-> byte[] editHtmlHtmlAppendParagraph(paragraphText, inputFile, inputFileUrl)
+> byte[] editHtmlHtmlAppendParagraph(paragraphText, inputFile, inputFileUrl, cssStyle)
 
 Append a Paragraph to an HTML Document
 
@@ -225,9 +228,10 @@ Apikey.setApiKey("YOUR API KEY");
 EditHtmlApi apiInstance = new EditHtmlApi();
 String paragraphText = "paragraphText_example"; // String | The text content to be used in the paragraph.
 File inputFile = new File("/path/to/file.txt"); // File | Optional: Input file to perform the operation on.
-String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.
+String cssStyle = "cssStyle_example"; // String | Optional: The CSS style for the paragraph.
 try {
-    byte[] result = apiInstance.editHtmlHtmlAppendParagraph(paragraphText, inputFile, inputFileUrl);
+    byte[] result = apiInstance.editHtmlHtmlAppendParagraph(paragraphText, inputFile, inputFileUrl, cssStyle);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditHtmlApi#editHtmlHtmlAppendParagraph");
@@ -241,7 +245,71 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **paragraphText** | **String**| The text content to be used in the paragraph. |
  **inputFile** | **File**| Optional: Input file to perform the operation on. | [optional]
- **inputFileUrl** | **String**| Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). | [optional]
+ **inputFileUrl** | **String**| Optional: URL of a file to operate on as input. | [optional]
+ **cssStyle** | **String**| Optional: The CSS style for the paragraph. | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editHtmlHtmlCreateBlankDocument"></a>
+# **editHtmlHtmlCreateBlankDocument**
+> byte[] editHtmlHtmlCreateBlankDocument(title, cssUrl, cssInline, javascriptUrl, javascriptInline)
+
+Create a Blank HTML Document
+
+Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditHtmlApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditHtmlApi apiInstance = new EditHtmlApi();
+String title = "title_example"; // String | Optional: The title of the HTML document
+String cssUrl = "cssUrl_example"; // String | Optional: A CSS style URL to be added to the document.
+String cssInline = "cssInline_example"; // String | Optional: An inline CSS style to be added to the document.
+String javascriptUrl = "javascriptUrl_example"; // String | Optional: Javascript URL to be added to the document.
+String javascriptInline = "javascriptInline_example"; // String | Optional: Inline Javascript to be added to the document.
+try {
+    byte[] result = apiInstance.editHtmlHtmlCreateBlankDocument(title, cssUrl, cssInline, javascriptUrl, javascriptInline);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditHtmlApi#editHtmlHtmlCreateBlankDocument");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **title** | **String**| Optional: The title of the HTML document | [optional]
+ **cssUrl** | **String**| Optional: A CSS style URL to be added to the document. | [optional]
+ **cssInline** | **String**| Optional: An inline CSS style to be added to the document. | [optional]
+ **javascriptUrl** | **String**| Optional: Javascript URL to be added to the document. | [optional]
+ **javascriptInline** | **String**| Optional: Inline Javascript to be added to the document. | [optional]
 
 ### Return type
 

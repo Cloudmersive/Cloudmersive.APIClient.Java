@@ -2,7 +2,7 @@
 Remove-Item –path ./gradle –recurse
 Remove-Item –path ./scripts –recurse
 Remove-Item –path ./src –recurse
-$artifact_version = "3.6.4"
+$artifact_version = "3.6.5"
 & java -jar swagger-codegen-cli-2.4.8.jar generate   -i https://api.cloudmersive.com/validate/docs/v1/swagger  -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
 & java -jar swagger-codegen-cli-2.4.8.jar generate    -i https://api.cloudmersive.com/nlp-v2/docs/v1/swagger  -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
 & java -jar swagger-codegen-cli-2.4.8.jar generate  -i https://api.cloudmersive.com/ocr/docs/v1/swagger  -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .

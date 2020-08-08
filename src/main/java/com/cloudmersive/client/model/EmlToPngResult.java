@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an EML input to a PNG array
  */
 @ApiModel(description = "Result of converting an EML input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:25.010-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:50.847-07:00")
 public class EmlToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

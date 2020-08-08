@@ -31,7 +31,7 @@ import java.util.List;
  * Result of getting comments hierarchically from a Word Document DOCX
  */
 @ApiModel(description = "Result of getting comments hierarchically from a Word Document DOCX")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:25.010-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:50.847-07:00")
 public class GetDocxCommentsHierarchicalResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

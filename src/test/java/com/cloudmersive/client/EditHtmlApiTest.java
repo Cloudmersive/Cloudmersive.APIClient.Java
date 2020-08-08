@@ -46,7 +46,8 @@ public class EditHtmlApiTest {
         File inputFile = null;
         String inputFileUrl = null;
         Integer headingSize = null;
-        byte[] response = api.editHtmlHtmlAppendHeading(headingText, inputFile, inputFileUrl, headingSize);
+        String cssStyle = null;
+        byte[] response = api.editHtmlHtmlAppendHeading(headingText, inputFile, inputFileUrl, headingSize, cssStyle);
 
         // TODO: test validations
     }
@@ -104,7 +105,28 @@ public class EditHtmlApiTest {
         String paragraphText = null;
         File inputFile = null;
         String inputFileUrl = null;
-        byte[] response = api.editHtmlHtmlAppendParagraph(paragraphText, inputFile, inputFileUrl);
+        String cssStyle = null;
+        byte[] response = api.editHtmlHtmlAppendParagraph(paragraphText, inputFile, inputFileUrl, cssStyle);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Blank HTML Document
+     *
+     * Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlCreateBlankDocumentTest() throws ApiException {
+        String title = null;
+        String cssUrl = null;
+        String cssInline = null;
+        String javascriptUrl = null;
+        String javascriptInline = null;
+        byte[] response = api.editHtmlHtmlCreateBlankDocument(title, cssUrl, cssInline, javascriptUrl, javascriptInline);
 
         // TODO: test validations
     }

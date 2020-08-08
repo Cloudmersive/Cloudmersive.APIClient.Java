@@ -32,7 +32,7 @@ import java.util.List;
  * Result of performing a zip extract operation
  */
 @ApiModel(description = "Result of performing a zip extract operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:25.010-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:50.847-07:00")
 public class ZipExtractResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
