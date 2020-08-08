@@ -28,7 +28,11 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.MediaInformation;
+import com.cloudmersive.client.model.NsfwResult;
 import org.threeten.bp.OffsetDateTime;
+import com.cloudmersive.client.model.SplitVideoResult;
+import com.cloudmersive.client.model.StillFramesResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,21 +61,20 @@ public class VideoApi {
 
     /**
      * Build call for videoConvertToGif
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param startTime Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToGifCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Boolean extendProcessingTime, OffsetDateTime startTime, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToGifCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, OffsetDateTime startTime, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -91,8 +94,6 @@ public class VideoApi {
         localVarHeaderParams.put("preserveAspectRatio", apiClient.parameterToString(preserveAspectRatio));
         if (frameRate != null)
         localVarHeaderParams.put("frameRate", apiClient.parameterToString(frameRate));
-        if (extendProcessingTime != null)
-        localVarHeaderParams.put("extendProcessingTime", apiClient.parameterToString(extendProcessingTime));
         if (startTime != null)
         localVarHeaderParams.put("startTime", apiClient.parameterToString(startTime));
         if (timeSpan != null)
@@ -131,77 +132,69 @@ public class VideoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoConvertToGifValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Boolean extendProcessingTime, OffsetDateTime startTime, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling videoConvertToGif(Async)");
-        }
+    private com.squareup.okhttp.Call videoConvertToGifValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, OffsetDateTime startTime, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = videoConvertToGifCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, extendProcessingTime, startTime, timeSpan, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToGifCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, startTime, timeSpan, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Convert Video to Animated GIF format.
-     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param startTime Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] videoConvertToGif(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Boolean extendProcessingTime, OffsetDateTime startTime, OffsetDateTime timeSpan) throws ApiException {
-        ApiResponse<byte[]> resp = videoConvertToGifWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, extendProcessingTime, startTime, timeSpan);
+    public byte[] videoConvertToGif(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, OffsetDateTime startTime, OffsetDateTime timeSpan) throws ApiException {
+        ApiResponse<byte[]> resp = videoConvertToGifWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, startTime, timeSpan);
         return resp.getData();
     }
 
     /**
      * Convert Video to Animated GIF format.
-     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param startTime Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> videoConvertToGifWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Boolean extendProcessingTime, OffsetDateTime startTime, OffsetDateTime timeSpan) throws ApiException {
-        com.squareup.okhttp.Call call = videoConvertToGifValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, extendProcessingTime, startTime, timeSpan, null, null);
+    public ApiResponse<byte[]> videoConvertToGifWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, OffsetDateTime startTime, OffsetDateTime timeSpan) throws ApiException {
+        com.squareup.okhttp.Call call = videoConvertToGifValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, startTime, timeSpan, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Convert Video to Animated GIF format. (asynchronously)
-     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param startTime Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToGifAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Boolean extendProcessingTime, OffsetDateTime startTime, OffsetDateTime timeSpan, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToGifAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, OffsetDateTime startTime, OffsetDateTime timeSpan, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -222,27 +215,26 @@ public class VideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = videoConvertToGifValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, extendProcessingTime, startTime, timeSpan, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToGifValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, startTime, timeSpan, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for videoConvertToMov
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToMovCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToMovCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -264,8 +256,6 @@ public class VideoApi {
         localVarHeaderParams.put("frameRate", apiClient.parameterToString(frameRate));
         if (quality != null)
         localVarHeaderParams.put("quality", apiClient.parameterToString(quality));
-        if (extendProcessingTime != null)
-        localVarHeaderParams.put("extendProcessingTime", apiClient.parameterToString(extendProcessingTime));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -300,74 +290,66 @@ public class VideoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoConvertToMovValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling videoConvertToMov(Async)");
-        }
+    private com.squareup.okhttp.Call videoConvertToMovValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = videoConvertToMovCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToMovCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Convert Video to MOV format.
-     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] videoConvertToMov(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime) throws ApiException {
-        ApiResponse<byte[]> resp = videoConvertToMovWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime);
+    public byte[] videoConvertToMov(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality) throws ApiException {
+        ApiResponse<byte[]> resp = videoConvertToMovWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality);
         return resp.getData();
     }
 
     /**
      * Convert Video to MOV format.
-     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> videoConvertToMovWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime) throws ApiException {
-        com.squareup.okhttp.Call call = videoConvertToMovValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, null, null);
+    public ApiResponse<byte[]> videoConvertToMovWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality) throws ApiException {
+        com.squareup.okhttp.Call call = videoConvertToMovValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Convert Video to MOV format. (asynchronously)
-     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToMovAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToMovAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -388,27 +370,26 @@ public class VideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = videoConvertToMovValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToMovValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for videoConvertToMp4
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToMp4Call(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToMp4Call(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -430,8 +411,6 @@ public class VideoApi {
         localVarHeaderParams.put("frameRate", apiClient.parameterToString(frameRate));
         if (quality != null)
         localVarHeaderParams.put("quality", apiClient.parameterToString(quality));
-        if (extendProcessingTime != null)
-        localVarHeaderParams.put("extendProcessingTime", apiClient.parameterToString(extendProcessingTime));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -466,74 +445,66 @@ public class VideoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoConvertToMp4ValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling videoConvertToMp4(Async)");
-        }
+    private com.squareup.okhttp.Call videoConvertToMp4ValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = videoConvertToMp4Call(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToMp4Call(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Convert Video to MP4 format.
-     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] videoConvertToMp4(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime) throws ApiException {
-        ApiResponse<byte[]> resp = videoConvertToMp4WithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime);
+    public byte[] videoConvertToMp4(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality) throws ApiException {
+        ApiResponse<byte[]> resp = videoConvertToMp4WithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality);
         return resp.getData();
     }
 
     /**
      * Convert Video to MP4 format.
-     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> videoConvertToMp4WithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime) throws ApiException {
-        com.squareup.okhttp.Call call = videoConvertToMp4ValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, null, null);
+    public ApiResponse<byte[]> videoConvertToMp4WithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality) throws ApiException {
+        com.squareup.okhttp.Call call = videoConvertToMp4ValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Convert Video to MP4 format. (asynchronously)
-     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToMp4Async(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToMp4Async(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -554,27 +525,169 @@ public class VideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = videoConvertToMp4ValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToMp4ValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
+     * Build call for videoConvertToStillFrames
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call videoConvertToStillFramesCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/video/convert/to/still-frames";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileUrl != null)
+        localVarHeaderParams.put("fileUrl", apiClient.parameterToString(fileUrl));
+        if (maxWidth != null)
+        localVarHeaderParams.put("maxWidth", apiClient.parameterToString(maxWidth));
+        if (maxHeight != null)
+        localVarHeaderParams.put("maxHeight", apiClient.parameterToString(maxHeight));
+        if (framesPerSecond != null)
+        localVarHeaderParams.put("framesPerSecond", apiClient.parameterToString(framesPerSecond));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call videoConvertToStillFramesValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = videoConvertToStillFramesCall(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Video to PNG Still Frames.
+     * Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @return StillFramesResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public StillFramesResult videoConvertToStillFrames(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond) throws ApiException {
+        ApiResponse<StillFramesResult> resp = videoConvertToStillFramesWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Video to PNG Still Frames.
+     * Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @return ApiResponse&lt;StillFramesResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<StillFramesResult> videoConvertToStillFramesWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond) throws ApiException {
+        com.squareup.okhttp.Call call = videoConvertToStillFramesValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond, null, null);
+        Type localVarReturnType = new TypeToken<StillFramesResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Video to PNG Still Frames. (asynchronously)
+     * Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call videoConvertToStillFramesAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond, final ApiCallback<StillFramesResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = videoConvertToStillFramesValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<StillFramesResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for videoConvertToWebm
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToWebmCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToWebmCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -596,8 +709,6 @@ public class VideoApi {
         localVarHeaderParams.put("frameRate", apiClient.parameterToString(frameRate));
         if (quality != null)
         localVarHeaderParams.put("quality", apiClient.parameterToString(quality));
-        if (extendProcessingTime != null)
-        localVarHeaderParams.put("extendProcessingTime", apiClient.parameterToString(extendProcessingTime));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -632,74 +743,66 @@ public class VideoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoConvertToWebmValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling videoConvertToWebm(Async)");
-        }
+    private com.squareup.okhttp.Call videoConvertToWebmValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = videoConvertToWebmCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToWebmCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Convert Video to WEBM format.
-     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] videoConvertToWebm(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime) throws ApiException {
-        ApiResponse<byte[]> resp = videoConvertToWebmWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime);
+    public byte[] videoConvertToWebm(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality) throws ApiException {
+        ApiResponse<byte[]> resp = videoConvertToWebmWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality);
         return resp.getData();
     }
 
     /**
      * Convert Video to WEBM format.
-     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> videoConvertToWebmWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime) throws ApiException {
-        com.squareup.okhttp.Call call = videoConvertToWebmValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, null, null);
+    public ApiResponse<byte[]> videoConvertToWebmWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality) throws ApiException {
+        com.squareup.okhttp.Call call = videoConvertToWebmValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Convert Video to WEBM format. (asynchronously)
-     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToWebmAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, Boolean extendProcessingTime, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToWebmAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Boolean preserveAspectRatio, Integer frameRate, Integer quality, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -720,14 +823,151 @@ public class VideoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = videoConvertToWebmValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, extendProcessingTime, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = videoConvertToWebmValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, preserveAspectRatio, frameRate, quality, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for videoCutVideo
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param startTime Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param timeSpan Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call videoCutVideoCall(File inputFile, String fileUrl, OffsetDateTime startTime, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/video/cut";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileUrl != null)
+        localVarHeaderParams.put("fileUrl", apiClient.parameterToString(fileUrl));
+        if (startTime != null)
+        localVarHeaderParams.put("startTime", apiClient.parameterToString(startTime));
+        if (timeSpan != null)
+        localVarHeaderParams.put("timeSpan", apiClient.parameterToString(timeSpan));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call videoCutVideoValidateBeforeCall(File inputFile, String fileUrl, OffsetDateTime startTime, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = videoCutVideoCall(inputFile, fileUrl, startTime, timeSpan, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Cut a Video to a Shorter Length
+     * Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param startTime Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param timeSpan Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] videoCutVideo(File inputFile, String fileUrl, OffsetDateTime startTime, OffsetDateTime timeSpan) throws ApiException {
+        ApiResponse<byte[]> resp = videoCutVideoWithHttpInfo(inputFile, fileUrl, startTime, timeSpan);
+        return resp.getData();
+    }
+
+    /**
+     * Cut a Video to a Shorter Length
+     * Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param startTime Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param timeSpan Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> videoCutVideoWithHttpInfo(File inputFile, String fileUrl, OffsetDateTime startTime, OffsetDateTime timeSpan) throws ApiException {
+        com.squareup.okhttp.Call call = videoCutVideoValidateBeforeCall(inputFile, fileUrl, startTime, timeSpan, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Cut a Video to a Shorter Length (asynchronously)
+     * Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param startTime Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param timeSpan Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call videoCutVideoAsync(File inputFile, String fileUrl, OffsetDateTime startTime, OffsetDateTime timeSpan, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = videoCutVideoValidateBeforeCall(inputFile, fileUrl, startTime, timeSpan, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for videoGetInfo
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -782,11 +1022,6 @@ public class VideoApi {
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call videoGetInfoValidateBeforeCall(File inputFile, String fileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling videoGetInfo(Async)");
-        }
-        
 
         com.squareup.okhttp.Call call = videoGetInfoCall(inputFile, fileUrl, progressListener, progressRequestListener);
         return call;
@@ -796,40 +1031,40 @@ public class VideoApi {
     /**
      * Get detailed information about a video or audio file
      * Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @return byte[]
+     * @return MediaInformation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] videoGetInfo(File inputFile, String fileUrl) throws ApiException {
-        ApiResponse<byte[]> resp = videoGetInfoWithHttpInfo(inputFile, fileUrl);
+    public MediaInformation videoGetInfo(File inputFile, String fileUrl) throws ApiException {
+        ApiResponse<MediaInformation> resp = videoGetInfoWithHttpInfo(inputFile, fileUrl);
         return resp.getData();
     }
 
     /**
      * Get detailed information about a video or audio file
      * Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @return ApiResponse&lt;byte[]&gt;
+     * @return ApiResponse&lt;MediaInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> videoGetInfoWithHttpInfo(File inputFile, String fileUrl) throws ApiException {
+    public ApiResponse<MediaInformation> videoGetInfoWithHttpInfo(File inputFile, String fileUrl) throws ApiException {
         com.squareup.okhttp.Call call = videoGetInfoValidateBeforeCall(inputFile, fileUrl, null, null);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        Type localVarReturnType = new TypeToken<MediaInformation>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get detailed information about a video or audio file (asynchronously)
      * Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoGetInfoAsync(File inputFile, String fileUrl, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoGetInfoAsync(File inputFile, String fileUrl, final ApiCallback<MediaInformation> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -851,7 +1086,590 @@ public class VideoApi {
         }
 
         com.squareup.okhttp.Call call = videoGetInfoValidateBeforeCall(inputFile, fileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MediaInformation>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for videoResizeVideo
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call videoResizeVideoCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/video/resize/preserveAspectRatio";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileUrl != null)
+        localVarHeaderParams.put("fileUrl", apiClient.parameterToString(fileUrl));
+        if (maxWidth != null)
+        localVarHeaderParams.put("maxWidth", apiClient.parameterToString(maxWidth));
+        if (maxHeight != null)
+        localVarHeaderParams.put("maxHeight", apiClient.parameterToString(maxHeight));
+        if (frameRate != null)
+        localVarHeaderParams.put("frameRate", apiClient.parameterToString(frameRate));
+        if (quality != null)
+        localVarHeaderParams.put("quality", apiClient.parameterToString(quality));
+        if (extension != null)
+        localVarHeaderParams.put("extension", apiClient.parameterToString(extension));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call videoResizeVideoValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = videoResizeVideoCall(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Resizes a Video Preserving the Original Aspect Ratio.
+     * Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] videoResizeVideo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension) throws ApiException {
+        ApiResponse<byte[]> resp = videoResizeVideoWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension);
+        return resp.getData();
+    }
+
+    /**
+     * Resizes a Video Preserving the Original Aspect Ratio.
+     * Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> videoResizeVideoWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension) throws ApiException {
+        com.squareup.okhttp.Call call = videoResizeVideoValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Resizes a Video Preserving the Original Aspect Ratio. (asynchronously)
+     * Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call videoResizeVideoAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = videoResizeVideoValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for videoResizeVideoSimple
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call videoResizeVideoSimpleCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/video/resize/target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileUrl != null)
+        localVarHeaderParams.put("fileUrl", apiClient.parameterToString(fileUrl));
+        if (maxWidth != null)
+        localVarHeaderParams.put("maxWidth", apiClient.parameterToString(maxWidth));
+        if (maxHeight != null)
+        localVarHeaderParams.put("maxHeight", apiClient.parameterToString(maxHeight));
+        if (frameRate != null)
+        localVarHeaderParams.put("frameRate", apiClient.parameterToString(frameRate));
+        if (quality != null)
+        localVarHeaderParams.put("quality", apiClient.parameterToString(quality));
+        if (extension != null)
+        localVarHeaderParams.put("extension", apiClient.parameterToString(extension));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call videoResizeVideoSimpleValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = videoResizeVideoSimpleCall(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Resizes a Video without Preserving Aspect Ratio.
+     * Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] videoResizeVideoSimple(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension) throws ApiException {
+        ApiResponse<byte[]> resp = videoResizeVideoSimpleWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension);
+        return resp.getData();
+    }
+
+    /**
+     * Resizes a Video without Preserving Aspect Ratio.
+     * Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> videoResizeVideoSimpleWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension) throws ApiException {
+        com.squareup.okhttp.Call call = videoResizeVideoSimpleValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Resizes a Video without Preserving Aspect Ratio. (asynchronously)
+     * Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call videoResizeVideoSimpleAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Integer frameRate, Integer quality, String extension, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = videoResizeVideoSimpleValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, frameRate, quality, extension, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for videoScanForNsfw
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call videoScanForNsfwCall(File inputFile, String fileUrl, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/video/scan/nsfw";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileUrl != null)
+        localVarHeaderParams.put("fileUrl", apiClient.parameterToString(fileUrl));
+        if (framesPerSecond != null)
+        localVarHeaderParams.put("framesPerSecond", apiClient.parameterToString(framesPerSecond));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call videoScanForNsfwValidateBeforeCall(File inputFile, String fileUrl, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = videoScanForNsfwCall(inputFile, fileUrl, framesPerSecond, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Scan a Video for NSFW content.
+     * Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @return NsfwResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NsfwResult videoScanForNsfw(File inputFile, String fileUrl, Object framesPerSecond) throws ApiException {
+        ApiResponse<NsfwResult> resp = videoScanForNsfwWithHttpInfo(inputFile, fileUrl, framesPerSecond);
+        return resp.getData();
+    }
+
+    /**
+     * Scan a Video for NSFW content.
+     * Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @return ApiResponse&lt;NsfwResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NsfwResult> videoScanForNsfwWithHttpInfo(File inputFile, String fileUrl, Object framesPerSecond) throws ApiException {
+        com.squareup.okhttp.Call call = videoScanForNsfwValidateBeforeCall(inputFile, fileUrl, framesPerSecond, null, null);
+        Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Scan a Video for NSFW content. (asynchronously)
+     * Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call videoScanForNsfwAsync(File inputFile, String fileUrl, Object framesPerSecond, final ApiCallback<NsfwResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = videoScanForNsfwValidateBeforeCall(inputFile, fileUrl, framesPerSecond, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for videoSplitVideo
+     * @param splitTime Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param timeSpan Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call videoSplitVideoCall(OffsetDateTime splitTime, File inputFile, String fileUrl, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/video/split";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (fileUrl != null)
+        localVarHeaderParams.put("fileUrl", apiClient.parameterToString(fileUrl));
+        if (splitTime != null)
+        localVarHeaderParams.put("splitTime", apiClient.parameterToString(splitTime));
+        if (timeSpan != null)
+        localVarHeaderParams.put("timeSpan", apiClient.parameterToString(timeSpan));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call videoSplitVideoValidateBeforeCall(OffsetDateTime splitTime, File inputFile, String fileUrl, OffsetDateTime timeSpan, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'splitTime' is set
+        if (splitTime == null) {
+            throw new ApiException("Missing the required parameter 'splitTime' when calling videoSplitVideo(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = videoSplitVideoCall(splitTime, inputFile, fileUrl, timeSpan, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Split a Video into Two Shorter Videos
+     * Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param splitTime Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param timeSpan Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @return SplitVideoResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SplitVideoResult videoSplitVideo(OffsetDateTime splitTime, File inputFile, String fileUrl, OffsetDateTime timeSpan) throws ApiException {
+        ApiResponse<SplitVideoResult> resp = videoSplitVideoWithHttpInfo(splitTime, inputFile, fileUrl, timeSpan);
+        return resp.getData();
+    }
+
+    /**
+     * Split a Video into Two Shorter Videos
+     * Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param splitTime Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param timeSpan Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @return ApiResponse&lt;SplitVideoResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SplitVideoResult> videoSplitVideoWithHttpInfo(OffsetDateTime splitTime, File inputFile, String fileUrl, OffsetDateTime timeSpan) throws ApiException {
+        com.squareup.okhttp.Call call = videoSplitVideoValidateBeforeCall(splitTime, inputFile, fileUrl, timeSpan, null, null);
+        Type localVarReturnType = new TypeToken<SplitVideoResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Split a Video into Two Shorter Videos (asynchronously)
+     * Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param splitTime Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param timeSpan Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call videoSplitVideoAsync(OffsetDateTime splitTime, File inputFile, String fileUrl, OffsetDateTime timeSpan, final ApiCallback<SplitVideoResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = videoSplitVideoValidateBeforeCall(splitTime, inputFile, fileUrl, timeSpan, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SplitVideoResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

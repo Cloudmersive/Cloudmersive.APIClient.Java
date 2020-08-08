@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of creating a blank worksheet
  */
 @ApiModel(description = "Result of creating a blank worksheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:50.847-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T14:32:54.100-07:00")
 public class CreateBlankSpreadsheetResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

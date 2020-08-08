@@ -31,7 +31,7 @@ import java.util.List;
  * Input to Create a new Spreadsheet request
  */
 @ApiModel(description = "Input to Create a new Spreadsheet request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T13:30:50.847-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T14:32:54.100-07:00")
 public class CreateSpreadsheetFromDataRequest {
   @SerializedName("WorksheetName")
   private String worksheetName = null;
