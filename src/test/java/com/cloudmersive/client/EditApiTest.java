@@ -70,6 +70,29 @@ public class EditApiTest {
     }
     
     /**
+     * Composite two images together precisely
+     *
+     * Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editCompositePreciseTest() throws ApiException {
+        File baseImage = null;
+        File layeredImage = null;
+        Integer top = null;
+        Integer bottom = null;
+        Integer left = null;
+        Integer right = null;
+        Integer width = null;
+        Integer height = null;
+        byte[] response = api.editCompositePrecise(baseImage, layeredImage, top, bottom, left, right, width, height);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Adaptively adjust the contrast of the image to be more appealing and easy to see
      *
      * Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
@@ -82,6 +105,25 @@ public class EditApiTest {
         Double gamma = null;
         File imageFile = null;
         byte[] response = api.editContrastAdaptive(gamma, imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Crop an image to an circular area
+     *
+     * Crop an image to a target circular area
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editCropCircleTest() throws ApiException {
+        Integer left = null;
+        Integer top = null;
+        Integer radius = null;
+        File imageFile = null;
+        byte[] response = api.editCropCircle(left, top, radius, imageFile);
 
         // TODO: test validations
     }

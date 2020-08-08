@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
+[**editCompositePrecise**](EditApi.md#editCompositePrecise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**editCropCircle**](EditApi.md#editCropCircle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 [**editCropRectangle**](EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
@@ -132,6 +134,75 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
+<a name="editCompositePrecise"></a>
+# **editCompositePrecise**
+> byte[] editCompositePrecise(baseImage, layeredImage, top, bottom, left, right, width, height)
+
+Composite two images together precisely
+
+Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditApi apiInstance = new EditApi();
+File baseImage = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+File layeredImage = new File("/path/to/file.txt"); // File | Image to layer on top of the base image.
+Integer top = 56; // Integer | Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+Integer bottom = 56; // Integer | Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+Integer left = 56; // Integer | Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+Integer right = 56; // Integer | Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+Integer width = 56; // Integer | Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+Integer height = 56; // Integer | Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+try {
+    byte[] result = apiInstance.editCompositePrecise(baseImage, layeredImage, top, bottom, left, right, width, height);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditApi#editCompositePrecise");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **baseImage** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+ **layeredImage** | **File**| Image to layer on top of the base image. |
+ **top** | **Integer**| Optional; Desired distance in pixels from the top of the base image to the top of the layered image. | [optional]
+ **bottom** | **Integer**| Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. | [optional]
+ **left** | **Integer**| Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. | [optional]
+ **right** | **Integer**| Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. | [optional]
+ **width** | **Integer**| Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. | [optional]
+ **height** | **Integer**| Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
 <a name="editContrastAdaptive"></a>
 # **editContrastAdaptive**
 > byte[] editContrastAdaptive(gamma, imageFile)
@@ -174,6 +245,67 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gamma** | **Double**| Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. |
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="editCropCircle"></a>
+# **editCropCircle**
+> byte[] editCropCircle(left, top, radius, imageFile)
+
+Crop an image to an circular area
+
+Crop an image to a target circular area
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditApi apiInstance = new EditApi();
+Integer left = 56; // Integer | The left edge of the circular crop area in pixels (X).
+Integer top = 56; // Integer | The top edge of the circular crop area in pixels (Y).
+Integer radius = 56; // Integer | The radius of the circular crop area in pixels.
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+try {
+    byte[] result = apiInstance.editCropCircle(left, top, radius, imageFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditApi#editCropCircle");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **Integer**| The left edge of the circular crop area in pixels (X). |
+ **top** | **Integer**| The top edge of the circular crop area in pixels (Y). |
+ **radius** | **Integer**| The radius of the circular crop area in pixels. |
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type

@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Update Table Row request
  */
 @ApiModel(description = "Input to a Update Table Row request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-02T19:46:36.696-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:25.010-07:00")
 public class UpdateDocxTableRowRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

@@ -14,7 +14,6 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
-import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +42,7 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeEAN13Test() throws ApiException {
         String value = null;
-        File response = api.generateBarcodeEAN13(value);
+        byte[] response = api.generateBarcodeEAN13(value);
 
         // TODO: test validations
     }
@@ -59,7 +58,7 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeEAN8Test() throws ApiException {
         String value = null;
-        File response = api.generateBarcodeEAN8(value);
+        byte[] response = api.generateBarcodeEAN8(value);
 
         // TODO: test validations
     }
@@ -75,7 +74,7 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeQRCodeTest() throws ApiException {
         String value = null;
-        File response = api.generateBarcodeQRCode(value);
+        byte[] response = api.generateBarcodeQRCode(value);
 
         // TODO: test validations
     }
@@ -91,7 +90,7 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeUPCATest() throws ApiException {
         String value = null;
-        File response = api.generateBarcodeUPCA(value);
+        byte[] response = api.generateBarcodeUPCA(value);
 
         // TODO: test validations
     }
@@ -107,7 +106,7 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeUPCETest() throws ApiException {
         String value = null;
-        File response = api.generateBarcodeUPCE(value);
+        byte[] response = api.generateBarcodeUPCE(value);
 
         // TODO: test validations
     }

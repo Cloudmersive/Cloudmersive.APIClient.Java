@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="generateBarcodeEAN13"></a>
 # **generateBarcodeEAN13**
-> File generateBarcodeEAN13(value)
+> byte[] generateBarcodeEAN13(value)
 
 Generate a EAN-13 code barcode as PNG file
 
@@ -39,7 +39,7 @@ Apikey.setApiKey("YOUR API KEY");
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | Barcode value to generate from
 try {
-    File result = apiInstance.generateBarcodeEAN13(value);
+    byte[] result = apiInstance.generateBarcodeEAN13(value);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeEAN13");
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
@@ -64,11 +64,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="generateBarcodeEAN8"></a>
 # **generateBarcodeEAN8**
-> File generateBarcodeEAN8(value)
+> byte[] generateBarcodeEAN8(value)
 
 Generate a EAN-8 code barcode as PNG file
 
@@ -94,7 +94,7 @@ Apikey.setApiKey("YOUR API KEY");
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | Barcode value to generate from
 try {
-    File result = apiInstance.generateBarcodeEAN8(value);
+    byte[] result = apiInstance.generateBarcodeEAN8(value);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeEAN8");
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
@@ -119,11 +119,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="generateBarcodeQRCode"></a>
 # **generateBarcodeQRCode**
-> File generateBarcodeQRCode(value)
+> byte[] generateBarcodeQRCode(value)
 
 Generate a QR code barcode as PNG file
 
@@ -149,7 +149,7 @@ Apikey.setApiKey("YOUR API KEY");
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | QR code text to convert into the QR code barcode
 try {
-    File result = apiInstance.generateBarcodeQRCode(value);
+    byte[] result = apiInstance.generateBarcodeQRCode(value);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeQRCode");
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
@@ -174,11 +174,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="generateBarcodeUPCA"></a>
 # **generateBarcodeUPCA**
-> File generateBarcodeUPCA(value)
+> byte[] generateBarcodeUPCA(value)
 
 Generate a UPC-A code barcode as PNG file
 
@@ -204,7 +204,7 @@ Apikey.setApiKey("YOUR API KEY");
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | UPC-A barcode value to generate from
 try {
-    File result = apiInstance.generateBarcodeUPCA(value);
+    byte[] result = apiInstance.generateBarcodeUPCA(value);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeUPCA");
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
@@ -229,11 +229,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="generateBarcodeUPCE"></a>
 # **generateBarcodeUPCE**
-> File generateBarcodeUPCE(value)
+> byte[] generateBarcodeUPCE(value)
 
 Generate a UPC-E code barcode as PNG file
 
@@ -259,7 +259,7 @@ Apikey.setApiKey("YOUR API KEY");
 GenerateBarcodeApi apiInstance = new GenerateBarcodeApi();
 String value = "value_example"; // String | UPC-E barcode value to generate from
 try {
-    File result = apiInstance.generateBarcodeUPCE(value);
+    byte[] result = apiInstance.generateBarcodeUPCE(value);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GenerateBarcodeApi#generateBarcodeUPCE");
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**File**](File.md)
+**byte[]**
 
 ### Authorization
 
@@ -284,5 +284,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 

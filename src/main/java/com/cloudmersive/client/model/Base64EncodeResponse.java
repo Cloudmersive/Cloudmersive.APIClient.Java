@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of base 64 encoding
  */
 @ApiModel(description = "Result of base 64 encoding")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-02T19:46:36.696-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T11:59:25.010-07:00")
 public class Base64EncodeResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

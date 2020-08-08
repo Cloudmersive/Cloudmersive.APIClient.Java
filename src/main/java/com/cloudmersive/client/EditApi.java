@@ -327,6 +327,177 @@ public class EditApi {
         return call;
     }
     /**
+     * Build call for editCompositePrecise
+     * @param baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param layeredImage Image to layer on top of the base image. (required)
+     * @param top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editCompositePreciseCall(File baseImage, File layeredImage, Integer top, Integer bottom, Integer left, Integer right, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/edit/composite/precise";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (top != null)
+        localVarHeaderParams.put("top", apiClient.parameterToString(top));
+        if (bottom != null)
+        localVarHeaderParams.put("bottom", apiClient.parameterToString(bottom));
+        if (left != null)
+        localVarHeaderParams.put("left", apiClient.parameterToString(left));
+        if (right != null)
+        localVarHeaderParams.put("right", apiClient.parameterToString(right));
+        if (width != null)
+        localVarHeaderParams.put("width", apiClient.parameterToString(width));
+        if (height != null)
+        localVarHeaderParams.put("height", apiClient.parameterToString(height));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (baseImage != null)
+        localVarFormParams.put("baseImage", baseImage);
+        if (layeredImage != null)
+        localVarFormParams.put("layeredImage", layeredImage);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editCompositePreciseValidateBeforeCall(File baseImage, File layeredImage, Integer top, Integer bottom, Integer left, Integer right, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'baseImage' is set
+        if (baseImage == null) {
+            throw new ApiException("Missing the required parameter 'baseImage' when calling editCompositePrecise(Async)");
+        }
+        
+        // verify the required parameter 'layeredImage' is set
+        if (layeredImage == null) {
+            throw new ApiException("Missing the required parameter 'layeredImage' when calling editCompositePrecise(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editCompositePreciseCall(baseImage, layeredImage, top, bottom, left, right, width, height, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Composite two images together precisely
+     * Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+     * @param baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param layeredImage Image to layer on top of the base image. (required)
+     * @param top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editCompositePrecise(File baseImage, File layeredImage, Integer top, Integer bottom, Integer left, Integer right, Integer width, Integer height) throws ApiException {
+        ApiResponse<byte[]> resp = editCompositePreciseWithHttpInfo(baseImage, layeredImage, top, bottom, left, right, width, height);
+        return resp.getData();
+    }
+
+    /**
+     * Composite two images together precisely
+     * Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+     * @param baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param layeredImage Image to layer on top of the base image. (required)
+     * @param top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editCompositePreciseWithHttpInfo(File baseImage, File layeredImage, Integer top, Integer bottom, Integer left, Integer right, Integer width, Integer height) throws ApiException {
+        com.squareup.okhttp.Call call = editCompositePreciseValidateBeforeCall(baseImage, layeredImage, top, bottom, left, right, width, height, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Composite two images together precisely (asynchronously)
+     * Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+     * @param baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param layeredImage Image to layer on top of the base image. (required)
+     * @param top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editCompositePreciseAsync(File baseImage, File layeredImage, Integer top, Integer bottom, Integer left, Integer right, Integer width, Integer height, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editCompositePreciseValidateBeforeCall(baseImage, layeredImage, top, bottom, left, right, width, height, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editContrastAdaptive
      * @param gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -456,6 +627,160 @@ public class EditApi {
         }
 
         com.squareup.okhttp.Call call = editContrastAdaptiveValidateBeforeCall(gamma, imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editCropCircle
+     * @param left The left edge of the circular crop area in pixels (X). (required)
+     * @param top The top edge of the circular crop area in pixels (Y). (required)
+     * @param radius The radius of the circular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editCropCircleCall(Integer left, Integer top, Integer radius, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/edit/crop/circle/{left}/{top}/{radius}"
+            .replaceAll("\\{" + "left" + "\\}", apiClient.escapeString(left.toString()))
+            .replaceAll("\\{" + "top" + "\\}", apiClient.escapeString(top.toString()))
+            .replaceAll("\\{" + "radius" + "\\}", apiClient.escapeString(radius.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editCropCircleValidateBeforeCall(Integer left, Integer top, Integer radius, File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'left' is set
+        if (left == null) {
+            throw new ApiException("Missing the required parameter 'left' when calling editCropCircle(Async)");
+        }
+        
+        // verify the required parameter 'top' is set
+        if (top == null) {
+            throw new ApiException("Missing the required parameter 'top' when calling editCropCircle(Async)");
+        }
+        
+        // verify the required parameter 'radius' is set
+        if (radius == null) {
+            throw new ApiException("Missing the required parameter 'radius' when calling editCropCircle(Async)");
+        }
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling editCropCircle(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editCropCircleCall(left, top, radius, imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Crop an image to an circular area
+     * Crop an image to a target circular area
+     * @param left The left edge of the circular crop area in pixels (X). (required)
+     * @param top The top edge of the circular crop area in pixels (Y). (required)
+     * @param radius The radius of the circular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editCropCircle(Integer left, Integer top, Integer radius, File imageFile) throws ApiException {
+        ApiResponse<byte[]> resp = editCropCircleWithHttpInfo(left, top, radius, imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Crop an image to an circular area
+     * Crop an image to a target circular area
+     * @param left The left edge of the circular crop area in pixels (X). (required)
+     * @param top The top edge of the circular crop area in pixels (Y). (required)
+     * @param radius The radius of the circular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editCropCircleWithHttpInfo(Integer left, Integer top, Integer radius, File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = editCropCircleValidateBeforeCall(left, top, radius, imageFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Crop an image to an circular area (asynchronously)
+     * Crop an image to a target circular area
+     * @param left The left edge of the circular crop area in pixels (X). (required)
+     * @param top The top edge of the circular crop area in pixels (Y). (required)
+     * @param radius The radius of the circular crop area in pixels. (required)
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editCropCircleAsync(Integer left, Integer top, Integer radius, File imageFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editCropCircleValidateBeforeCall(left, top, radius, imageFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
