@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to replace a string in a string
  */
 @ApiModel(description = "Request to replace a string in a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T14:32:54.100-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T19:56:33.707-07:00")
 public class ReplaceStringSimpleRequest {
   @SerializedName("TextContent")
   private String textContent = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * One input sentence and associated rephrasing results
  */
 @ApiModel(description = "One input sentence and associated rephrasing results")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T14:32:36.023-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T19:56:16.262-07:00")
 public class RephrasedSentence {
   @SerializedName("SentenceIndex")
   private Integer sentenceIndex = null;
