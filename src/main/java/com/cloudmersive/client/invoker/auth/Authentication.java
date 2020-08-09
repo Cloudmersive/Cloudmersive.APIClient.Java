@@ -1,6 +1,6 @@
 /*
- * videoapi
- * The video APIs help you convert, encode, and transcode videos.
+ * dataintegrationapi
+ * Easily and directly query database backup files, convert into other file formats.
  *
  * OpenAPI spec version: v1
  * 

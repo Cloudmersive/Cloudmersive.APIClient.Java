@@ -1,6 +1,6 @@
 /*
- * videoapi
- * The video APIs help you convert, encode, and transcode videos.
+ * dataintegrationapi
+ * Easily and directly query database backup files, convert into other file formats.
  *
  * OpenAPI spec version: v1
  * 
@@ -52,7 +52,7 @@ import com.cloudmersive.client.invoker.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://api.cloudmersive.com";
+    private String basePath = "https://localhost";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -85,7 +85,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/3.6.7/java");
+        setUserAgent("Swagger-Codegen/3.6.8/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -106,7 +106,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.cloudmersive.com
+     * @param basePath Base path of the URL (e.g https://localhost
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

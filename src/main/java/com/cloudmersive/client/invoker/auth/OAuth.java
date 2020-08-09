@@ -1,6 +1,6 @@
 /*
- * videoapi
- * The video APIs help you convert, encode, and transcode videos.
+ * dataintegrationapi
+ * Easily and directly query database backup files, convert into other file formats.
  *
  * OpenAPI spec version: v1
  * 
@@ -18,7 +18,7 @@ import com.cloudmersive.client.invoker.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T19:56:48.677-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:36:25.297-07:00")
 public class OAuth implements Authentication {
   private String accessToken;
 
