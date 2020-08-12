@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an ODP input to a PNG array
  */
 @ApiModel(description = "Result of converting an ODP input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:36:02.954-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:24.886-07:00")
 public class OdpToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

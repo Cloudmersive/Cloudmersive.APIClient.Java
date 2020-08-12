@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * IANA/Olsen time zone
  */
 @ApiModel(description = "IANA/Olsen time zone")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:35:29.800-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:53:56.868-07:00")
 public class Timezone {
   @SerializedName("Name")
   private String name = null;

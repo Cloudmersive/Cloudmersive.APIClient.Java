@@ -4,10 +4,10 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**audioConvertToAac**](AudioApi.md#audioConvertToAac) | **POST** /audio/convert/to/aac | Convert Audio File to AAC format.
-[**audioConvertToM4a**](AudioApi.md#audioConvertToM4a) | **POST** /audio/convert/to/m4a | Convert Audio File to M4A format.
-[**audioConvertToMp3**](AudioApi.md#audioConvertToMp3) | **POST** /audio/convert/to/mp3 | Convert Audio File to MP3 format.
-[**audioConvertToWav**](AudioApi.md#audioConvertToWav) | **POST** /audio/convert/to/wav | Convert Audio File to WAV format.
+[**audioConvertToAac**](AudioApi.md#audioConvertToAac) | **POST** /video/convert/to/aac | Convert Audio File to AAC format.
+[**audioConvertToM4a**](AudioApi.md#audioConvertToM4a) | **POST** /video/convert/to/m4a | Convert Audio File to M4A format.
+[**audioConvertToMp3**](AudioApi.md#audioConvertToMp3) | **POST** /video/convert/to/mp3 | Convert Audio File to MP3 format.
+[**audioConvertToWav**](AudioApi.md#audioConvertToWav) | **POST** /video/convert/to/wav | Convert Audio File to WAV format.
 
 
 <a name="audioConvertToAac"></a>

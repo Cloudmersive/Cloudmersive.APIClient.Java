@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SentenceSegmentationRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:35:35.377-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:02.379-07:00")
 public class SentenceSegmentationRequest {
   @SerializedName("InputString")
   private String inputString = null;

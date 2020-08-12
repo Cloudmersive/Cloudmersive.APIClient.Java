@@ -28,7 +28,7 @@ import java.io.IOException;
  * An EML file attachment
  */
 @ApiModel(description = "An EML file attachment")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:36:02.954-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:24.886-07:00")
 public class EmlAttachment {
   @SerializedName("Name")
   private String name = null;

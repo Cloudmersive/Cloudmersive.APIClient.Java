@@ -32,7 +32,7 @@ import java.util.List;
  * The result of extracting form field values
  */
 @ApiModel(description = "The result of extracting form field values")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:35:41.422-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:08.821-07:00")
 public class FormRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

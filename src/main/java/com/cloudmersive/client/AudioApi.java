@@ -68,7 +68,7 @@ public class AudioApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/audio/convert/to/aac";
+        String localVarPath = "/video/convert/to/aac";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -199,7 +199,7 @@ public class AudioApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/audio/convert/to/m4a";
+        String localVarPath = "/video/convert/to/m4a";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -330,7 +330,7 @@ public class AudioApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/audio/convert/to/mp3";
+        String localVarPath = "/video/convert/to/mp3";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -461,7 +461,7 @@ public class AudioApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/audio/convert/to/wav";
+        String localVarPath = "/video/convert/to/wav";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

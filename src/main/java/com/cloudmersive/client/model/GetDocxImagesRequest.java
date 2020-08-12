@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Images request
  */
 @ApiModel(description = "Input to a Get Images request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-08T23:36:02.954-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:24.886-07:00")
 public class GetDocxImagesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
