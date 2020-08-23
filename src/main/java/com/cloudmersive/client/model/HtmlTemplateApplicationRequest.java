@@ -31,7 +31,7 @@ import java.util.List;
  * HTML template application request
  */
 @ApiModel(description = "HTML template application request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:24.886-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-22T21:42:12.227-07:00")
 public class HtmlTemplateApplicationRequest {
   @SerializedName("HtmlTemplate")
   private String htmlTemplate = null;

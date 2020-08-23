@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import java.math.BigDecimal;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -44,7 +45,7 @@ public class AudioApiTest {
     public void audioConvertToAacTest() throws ApiException {
         File inputFile = null;
         String fileUrl = null;
-        Object bitRate = null;
+        Integer bitRate = null;
         byte[] response = api.audioConvertToAac(inputFile, fileUrl, bitRate);
 
         // TODO: test validations
@@ -62,7 +63,7 @@ public class AudioApiTest {
     public void audioConvertToM4aTest() throws ApiException {
         File inputFile = null;
         String fileUrl = null;
-        Object bitRate = null;
+        Integer bitRate = null;
         byte[] response = api.audioConvertToM4a(inputFile, fileUrl, bitRate);
 
         // TODO: test validations
@@ -80,7 +81,7 @@ public class AudioApiTest {
     public void audioConvertToMp3Test() throws ApiException {
         File inputFile = null;
         String fileUrl = null;
-        Object bitRate = null;
+        Integer bitRate = null;
         byte[] response = api.audioConvertToMp3(inputFile, fileUrl, bitRate);
 
         // TODO: test validations
@@ -98,7 +99,7 @@ public class AudioApiTest {
     public void audioConvertToWavTest() throws ApiException {
         File inputFile = null;
         String fileUrl = null;
-        Object sampleRate = null;
+        BigDecimal sampleRate = null;
         byte[] response = api.audioConvertToWav(inputFile, fileUrl, sampleRate);
 
         // TODO: test validations

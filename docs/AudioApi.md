@@ -38,7 +38,7 @@ Apikey.setApiKey("YOUR API KEY");
 AudioApi apiInstance = new AudioApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 String fileUrl = "fileUrl_example"; // String | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-Object bitRate = null; // Object | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+Integer bitRate = 56; // Integer | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 try {
     byte[] result = apiInstance.audioConvertToAac(inputFile, fileUrl, bitRate);
     System.out.println(result);
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bitRate** | [**Object**](.md)| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bitRate** | **Integer**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 <a name="audioConvertToM4a"></a>
 # **audioConvertToM4a**
@@ -97,7 +97,7 @@ Apikey.setApiKey("YOUR API KEY");
 AudioApi apiInstance = new AudioApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 String fileUrl = "fileUrl_example"; // String | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-Object bitRate = null; // Object | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+Integer bitRate = 56; // Integer | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 try {
     byte[] result = apiInstance.audioConvertToM4a(inputFile, fileUrl, bitRate);
     System.out.println(result);
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bitRate** | [**Object**](.md)| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bitRate** | **Integer**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 <a name="audioConvertToMp3"></a>
 # **audioConvertToMp3**
@@ -156,7 +156,7 @@ Apikey.setApiKey("YOUR API KEY");
 AudioApi apiInstance = new AudioApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 String fileUrl = "fileUrl_example"; // String | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-Object bitRate = null; // Object | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+Integer bitRate = 56; // Integer | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 try {
     byte[] result = apiInstance.audioConvertToMp3(inputFile, fileUrl, bitRate);
     System.out.println(result);
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bitRate** | [**Object**](.md)| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bitRate** | **Integer**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 <a name="audioConvertToWav"></a>
 # **audioConvertToWav**
@@ -215,7 +215,7 @@ Apikey.setApiKey("YOUR API KEY");
 AudioApi apiInstance = new AudioApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 String fileUrl = "fileUrl_example"; // String | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-Object sampleRate = null; // Object | Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
+BigDecimal sampleRate = new BigDecimal(); // BigDecimal | Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
 try {
     byte[] result = apiInstance.audioConvertToWav(inputFile, fileUrl, sampleRate);
     System.out.println(result);
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **sampleRate** | [**Object**](.md)| Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. | [optional]
+ **sampleRate** | **BigDecimal**| Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -244,5 +244,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 

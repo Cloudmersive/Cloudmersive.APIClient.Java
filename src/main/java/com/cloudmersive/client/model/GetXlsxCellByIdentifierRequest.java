@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Get Cell by cell identifier request
  */
 @ApiModel(description = "Input to a Get Cell by cell identifier request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:24.886-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-22T21:42:12.227-07:00")
 public class GetXlsxCellByIdentifierRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

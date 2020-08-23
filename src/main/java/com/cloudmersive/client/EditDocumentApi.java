@@ -278,6 +278,130 @@ public class EditDocumentApi {
         return call;
     }
     /**
+     * Build call for editDocumentDocxAcceptAllTrackChanges
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/track-changes/accept-all";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentDocxAcceptAllTrackChanges(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Accept all tracked changes, revisions in a Word DOCX document
+     * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentDocxAcceptAllTrackChanges(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentDocxAcceptAllTrackChangesWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Accept all tracked changes, revisions in a Word DOCX document
+     * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentDocxAcceptAllTrackChangesWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Accept all tracked changes, revisions in a Word DOCX document (asynchronously)
+     * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editDocumentDocxBody
      * @param reqConfig Document input request (required)
      * @param progressListener Progress listener
@@ -884,6 +1008,254 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxDeleteTableRowRangeValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteDocxTableRowRangeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxDisableTrackChanges
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxDisableTrackChangesCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/track-changes/disable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxDisableTrackChangesValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentDocxDisableTrackChanges(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxDisableTrackChangesCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Disable track changes, revisions in a Word DOCX document
+     * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentDocxDisableTrackChanges(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentDocxDisableTrackChangesWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Disable track changes, revisions in a Word DOCX document
+     * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentDocxDisableTrackChangesWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxDisableTrackChangesValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Disable track changes, revisions in a Word DOCX document (asynchronously)
+     * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxDisableTrackChangesAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxDisableTrackChangesValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxEnableTrackChanges
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxEnableTrackChangesCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/track-changes/enable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxEnableTrackChangesValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentDocxEnableTrackChanges(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxEnableTrackChangesCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Enable track changes, revisions in a Word DOCX document
+     * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentDocxEnableTrackChanges(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentDocxEnableTrackChangesWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Enable track changes, revisions in a Word DOCX document
+     * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentDocxEnableTrackChangesWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxEnableTrackChangesValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Enable track changes, revisions in a Word DOCX document (asynchronously)
+     * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxEnableTrackChangesAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxEnableTrackChangesValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2836,6 +3208,130 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxPagesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetDocxPagesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxRemoveAllComments
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxRemoveAllCommentsCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/comments/remove-all";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxRemoveAllCommentsValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentDocxRemoveAllComments(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxRemoveAllCommentsCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove all comments from a Word DOCX document
+     * Removes all of the comments from a Word Document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentDocxRemoveAllComments(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentDocxRemoveAllCommentsWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Remove all comments from a Word DOCX document
+     * Removes all of the comments from a Word Document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentDocxRemoveAllCommentsWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxRemoveAllCommentsValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove all comments from a Word DOCX document (asynchronously)
+     * Removes all of the comments from a Word Document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxRemoveAllCommentsAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxRemoveAllCommentsValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

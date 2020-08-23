@@ -148,6 +148,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Accept all tracked changes, revisions in a Word DOCX document
+     *
+     * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxAcceptAllTrackChangesTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editDocumentDocxAcceptAllTrackChanges(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get body from a Word DOCX document
      *
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
@@ -223,6 +239,38 @@ public class EditDocumentApiTest {
     public void editDocumentDocxDeleteTableRowRangeTest() throws ApiException {
         DeleteDocxTableRowRangeRequest reqConfig = null;
         DeleteDocxTableRowRangeResponse response = api.editDocumentDocxDeleteTableRowRange(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Disable track changes, revisions in a Word DOCX document
+     *
+     * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxDisableTrackChangesTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editDocumentDocxDisableTrackChanges(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Enable track changes, revisions in a Word DOCX document
+     *
+     * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxEnableTrackChangesTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editDocumentDocxEnableTrackChanges(inputFile);
 
         // TODO: test validations
     }
@@ -479,6 +527,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxPagesTest() throws ApiException {
         GetDocxPagesRequest reqConfig = null;
         GetDocxPagesResponse response = api.editDocumentDocxPages(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove all comments from a Word DOCX document
+     *
+     * Removes all of the comments from a Word Document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxRemoveAllCommentsTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editDocumentDocxRemoveAllComments(inputFile);
 
         // TODO: test validations
     }

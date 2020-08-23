@@ -5,11 +5,14 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editDocumentBeginEditing**](EditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
+[**editDocumentDocxAcceptAllTrackChanges**](EditDocumentApi.md#editDocumentDocxAcceptAllTrackChanges) | **POST** /convert/edit/docx/track-changes/accept-all | Accept all tracked changes, revisions in a Word DOCX document
 [**editDocumentDocxBody**](EditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
 [**editDocumentDocxCreateBlankDocument**](EditDocumentApi.md#editDocumentDocxCreateBlankDocument) | **POST** /convert/edit/docx/create/blank | Create a blank Word DOCX document
 [**editDocumentDocxDeletePages**](EditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxDeleteTableRow**](EditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 [**editDocumentDocxDeleteTableRowRange**](EditDocumentApi.md#editDocumentDocxDeleteTableRowRange) | **POST** /convert/edit/docx/delete-table-row/range | Deletes a range of multiple table rows in an existing table in a Word DOCX document
+[**editDocumentDocxDisableTrackChanges**](EditDocumentApi.md#editDocumentDocxDisableTrackChanges) | **POST** /convert/edit/docx/track-changes/disable | Disable track changes, revisions in a Word DOCX document
+[**editDocumentDocxEnableTrackChanges**](EditDocumentApi.md#editDocumentDocxEnableTrackChanges) | **POST** /convert/edit/docx/track-changes/enable | Enable track changes, revisions in a Word DOCX document
 [**editDocumentDocxFindParagraph**](EditDocumentApi.md#editDocumentDocxFindParagraph) | **POST** /convert/edit/docx/find/paragraph | Find matching paragraphs in a Word DOCX document
 [**editDocumentDocxGetComments**](EditDocumentApi.md#editDocumentDocxGetComments) | **POST** /convert/edit/docx/get-comments/flat-list | Get comments from a Word DOCX document as a flat list
 [**editDocumentDocxGetCommentsHierarchical**](EditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
@@ -26,6 +29,7 @@ Method | HTTP request | Description
 [**editDocumentDocxInsertTable**](EditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
 [**editDocumentDocxInsertTableRow**](EditDocumentApi.md#editDocumentDocxInsertTableRow) | **POST** /convert/edit/docx/insert-table-row | Insert a new row into an existing table in a Word DOCX document
 [**editDocumentDocxPages**](EditDocumentApi.md#editDocumentDocxPages) | **POST** /convert/edit/docx/get-pages | Get pages and content from a Word DOCX document
+[**editDocumentDocxRemoveAllComments**](EditDocumentApi.md#editDocumentDocxRemoveAllComments) | **POST** /convert/edit/docx/comments/remove-all | Remove all comments from a Word DOCX document
 [**editDocumentDocxRemoveHeadersAndFooters**](EditDocumentApi.md#editDocumentDocxRemoveHeadersAndFooters) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 [**editDocumentDocxRemoveObject**](EditDocumentApi.md#editDocumentDocxRemoveObject) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 [**editDocumentDocxReplace**](EditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
@@ -106,6 +110,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxAcceptAllTrackChanges"></a>
+# **editDocumentDocxAcceptAllTrackChanges**
+> byte[] editDocumentDocxAcceptAllTrackChanges(inputFile)
+
+Accept all tracked changes, revisions in a Word DOCX document
+
+Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.editDocumentDocxAcceptAllTrackChanges(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxAcceptAllTrackChanges");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
 
 ### Authorization
 
@@ -389,6 +448,116 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxDisableTrackChanges"></a>
+# **editDocumentDocxDisableTrackChanges**
+> byte[] editDocumentDocxDisableTrackChanges(inputFile)
+
+Disable track changes, revisions in a Word DOCX document
+
+Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.editDocumentDocxDisableTrackChanges(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxDisableTrackChanges");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxEnableTrackChanges"></a>
+# **editDocumentDocxEnableTrackChanges**
+> byte[] editDocumentDocxEnableTrackChanges(inputFile)
+
+Enable track changes, revisions in a Word DOCX document
+
+Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.editDocumentDocxEnableTrackChanges(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxEnableTrackChanges");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="editDocumentDocxFindParagraph"></a>
@@ -1269,6 +1438,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentDocxRemoveAllComments"></a>
+# **editDocumentDocxRemoveAllComments**
+> byte[] editDocumentDocxRemoveAllComments(inputFile)
+
+Remove all comments from a Word DOCX document
+
+Removes all of the comments from a Word Document.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.editDocumentDocxRemoveAllComments(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxRemoveAllComments");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="editDocumentDocxRemoveHeadersAndFooters"></a>

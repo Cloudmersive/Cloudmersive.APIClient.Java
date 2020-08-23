@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import java.math.BigDecimal;
 import java.io.File;
 
 import java.lang.reflect.Type;
@@ -64,7 +65,7 @@ public class AudioApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToAacCall(File inputFile, String fileUrl, Object bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToAacCall(File inputFile, String fileUrl, Integer bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -84,7 +85,7 @@ public class AudioApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -112,7 +113,7 @@ public class AudioApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call audioConvertToAacValidateBeforeCall(File inputFile, String fileUrl, Object bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call audioConvertToAacValidateBeforeCall(File inputFile, String fileUrl, Integer bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = audioConvertToAacCall(inputFile, fileUrl, bitRate, progressListener, progressRequestListener);
@@ -129,7 +130,7 @@ public class AudioApi {
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] audioConvertToAac(File inputFile, String fileUrl, Object bitRate) throws ApiException {
+    public byte[] audioConvertToAac(File inputFile, String fileUrl, Integer bitRate) throws ApiException {
         ApiResponse<byte[]> resp = audioConvertToAacWithHttpInfo(inputFile, fileUrl, bitRate);
         return resp.getData();
     }
@@ -143,7 +144,7 @@ public class AudioApi {
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> audioConvertToAacWithHttpInfo(File inputFile, String fileUrl, Object bitRate) throws ApiException {
+    public ApiResponse<byte[]> audioConvertToAacWithHttpInfo(File inputFile, String fileUrl, Integer bitRate) throws ApiException {
         com.squareup.okhttp.Call call = audioConvertToAacValidateBeforeCall(inputFile, fileUrl, bitRate, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -159,7 +160,7 @@ public class AudioApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToAacAsync(File inputFile, String fileUrl, Object bitRate, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToAacAsync(File inputFile, String fileUrl, Integer bitRate, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -195,7 +196,7 @@ public class AudioApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToM4aCall(File inputFile, String fileUrl, Object bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToM4aCall(File inputFile, String fileUrl, Integer bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -215,7 +216,7 @@ public class AudioApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -243,7 +244,7 @@ public class AudioApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call audioConvertToM4aValidateBeforeCall(File inputFile, String fileUrl, Object bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call audioConvertToM4aValidateBeforeCall(File inputFile, String fileUrl, Integer bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = audioConvertToM4aCall(inputFile, fileUrl, bitRate, progressListener, progressRequestListener);
@@ -260,7 +261,7 @@ public class AudioApi {
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] audioConvertToM4a(File inputFile, String fileUrl, Object bitRate) throws ApiException {
+    public byte[] audioConvertToM4a(File inputFile, String fileUrl, Integer bitRate) throws ApiException {
         ApiResponse<byte[]> resp = audioConvertToM4aWithHttpInfo(inputFile, fileUrl, bitRate);
         return resp.getData();
     }
@@ -274,7 +275,7 @@ public class AudioApi {
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> audioConvertToM4aWithHttpInfo(File inputFile, String fileUrl, Object bitRate) throws ApiException {
+    public ApiResponse<byte[]> audioConvertToM4aWithHttpInfo(File inputFile, String fileUrl, Integer bitRate) throws ApiException {
         com.squareup.okhttp.Call call = audioConvertToM4aValidateBeforeCall(inputFile, fileUrl, bitRate, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -290,7 +291,7 @@ public class AudioApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToM4aAsync(File inputFile, String fileUrl, Object bitRate, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToM4aAsync(File inputFile, String fileUrl, Integer bitRate, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -326,7 +327,7 @@ public class AudioApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToMp3Call(File inputFile, String fileUrl, Object bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToMp3Call(File inputFile, String fileUrl, Integer bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -346,7 +347,7 @@ public class AudioApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -374,7 +375,7 @@ public class AudioApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call audioConvertToMp3ValidateBeforeCall(File inputFile, String fileUrl, Object bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call audioConvertToMp3ValidateBeforeCall(File inputFile, String fileUrl, Integer bitRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = audioConvertToMp3Call(inputFile, fileUrl, bitRate, progressListener, progressRequestListener);
@@ -391,7 +392,7 @@ public class AudioApi {
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] audioConvertToMp3(File inputFile, String fileUrl, Object bitRate) throws ApiException {
+    public byte[] audioConvertToMp3(File inputFile, String fileUrl, Integer bitRate) throws ApiException {
         ApiResponse<byte[]> resp = audioConvertToMp3WithHttpInfo(inputFile, fileUrl, bitRate);
         return resp.getData();
     }
@@ -405,7 +406,7 @@ public class AudioApi {
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> audioConvertToMp3WithHttpInfo(File inputFile, String fileUrl, Object bitRate) throws ApiException {
+    public ApiResponse<byte[]> audioConvertToMp3WithHttpInfo(File inputFile, String fileUrl, Integer bitRate) throws ApiException {
         com.squareup.okhttp.Call call = audioConvertToMp3ValidateBeforeCall(inputFile, fileUrl, bitRate, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -421,7 +422,7 @@ public class AudioApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToMp3Async(File inputFile, String fileUrl, Object bitRate, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToMp3Async(File inputFile, String fileUrl, Integer bitRate, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -457,7 +458,7 @@ public class AudioApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToWavCall(File inputFile, String fileUrl, Object sampleRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToWavCall(File inputFile, String fileUrl, BigDecimal sampleRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -477,7 +478,7 @@ public class AudioApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -505,7 +506,7 @@ public class AudioApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call audioConvertToWavValidateBeforeCall(File inputFile, String fileUrl, Object sampleRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call audioConvertToWavValidateBeforeCall(File inputFile, String fileUrl, BigDecimal sampleRate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = audioConvertToWavCall(inputFile, fileUrl, sampleRate, progressListener, progressRequestListener);
@@ -522,7 +523,7 @@ public class AudioApi {
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] audioConvertToWav(File inputFile, String fileUrl, Object sampleRate) throws ApiException {
+    public byte[] audioConvertToWav(File inputFile, String fileUrl, BigDecimal sampleRate) throws ApiException {
         ApiResponse<byte[]> resp = audioConvertToWavWithHttpInfo(inputFile, fileUrl, sampleRate);
         return resp.getData();
     }
@@ -536,7 +537,7 @@ public class AudioApi {
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> audioConvertToWavWithHttpInfo(File inputFile, String fileUrl, Object sampleRate) throws ApiException {
+    public ApiResponse<byte[]> audioConvertToWavWithHttpInfo(File inputFile, String fileUrl, BigDecimal sampleRate) throws ApiException {
         com.squareup.okhttp.Call call = audioConvertToWavValidateBeforeCall(inputFile, fileUrl, sampleRate, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -552,7 +553,7 @@ public class AudioApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call audioConvertToWavAsync(File inputFile, String fileUrl, Object sampleRate, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call audioConvertToWavAsync(File inputFile, String fileUrl, BigDecimal sampleRate, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

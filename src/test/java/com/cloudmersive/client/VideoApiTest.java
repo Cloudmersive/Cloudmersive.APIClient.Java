@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import java.math.BigDecimal;
 import java.io.File;
 import com.cloudmersive.client.model.MediaInformation;
 import com.cloudmersive.client.model.NsfwResult;
@@ -118,7 +119,7 @@ public class VideoApiTest {
         String fileUrl = null;
         Integer maxWidth = null;
         Integer maxHeight = null;
-        Object framesPerSecond = null;
+        BigDecimal framesPerSecond = null;
         StillFramesResult response = api.videoConvertToStillFrames(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond);
 
         // TODO: test validations
@@ -238,7 +239,7 @@ public class VideoApiTest {
     public void videoScanForNsfwTest() throws ApiException {
         File inputFile = null;
         String fileUrl = null;
-        Object framesPerSecond = null;
+        BigDecimal framesPerSecond = null;
         NsfwResult response = api.videoScanForNsfw(inputFile, fileUrl, framesPerSecond);
 
         // TODO: test validations

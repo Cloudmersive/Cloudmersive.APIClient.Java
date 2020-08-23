@@ -29,7 +29,7 @@ import java.io.IOException;
  * Request to update a setting
  */
 @ApiModel(description = "Request to update a setting")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-12T15:54:39.681-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-22T21:42:20.616-07:00")
 public class UpdateSettingRequest {
   @SerializedName("BucketID")
   private String bucketID = null;

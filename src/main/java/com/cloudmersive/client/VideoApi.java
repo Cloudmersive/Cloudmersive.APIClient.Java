@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import java.math.BigDecimal;
 import java.io.File;
 import com.cloudmersive.client.model.MediaInformation;
 import com.cloudmersive.client.model.NsfwResult;
@@ -104,7 +105,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -262,7 +263,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -417,7 +418,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -542,7 +543,7 @@ public class VideoApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToStillFramesCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToStillFramesCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, BigDecimal framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -594,7 +595,7 @@ public class VideoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoConvertToStillFramesValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call videoConvertToStillFramesValidateBeforeCall(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, BigDecimal framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = videoConvertToStillFramesCall(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond, progressListener, progressRequestListener);
@@ -613,7 +614,7 @@ public class VideoApi {
      * @return StillFramesResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StillFramesResult videoConvertToStillFrames(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond) throws ApiException {
+    public StillFramesResult videoConvertToStillFrames(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, BigDecimal framesPerSecond) throws ApiException {
         ApiResponse<StillFramesResult> resp = videoConvertToStillFramesWithHttpInfo(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond);
         return resp.getData();
     }
@@ -629,7 +630,7 @@ public class VideoApi {
      * @return ApiResponse&lt;StillFramesResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StillFramesResult> videoConvertToStillFramesWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond) throws ApiException {
+    public ApiResponse<StillFramesResult> videoConvertToStillFramesWithHttpInfo(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, BigDecimal framesPerSecond) throws ApiException {
         com.squareup.okhttp.Call call = videoConvertToStillFramesValidateBeforeCall(inputFile, fileUrl, maxWidth, maxHeight, framesPerSecond, null, null);
         Type localVarReturnType = new TypeToken<StillFramesResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -647,7 +648,7 @@ public class VideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoConvertToStillFramesAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, Object framesPerSecond, final ApiCallback<StillFramesResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoConvertToStillFramesAsync(File inputFile, String fileUrl, Integer maxWidth, Integer maxHeight, BigDecimal framesPerSecond, final ApiCallback<StillFramesResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -715,7 +716,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -861,7 +862,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1132,7 +1133,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1287,7 +1288,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1410,7 +1411,7 @@ public class VideoApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call videoScanForNsfwCall(File inputFile, String fileUrl, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call videoScanForNsfwCall(File inputFile, String fileUrl, BigDecimal framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1458,7 +1459,7 @@ public class VideoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call videoScanForNsfwValidateBeforeCall(File inputFile, String fileUrl, Object framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call videoScanForNsfwValidateBeforeCall(File inputFile, String fileUrl, BigDecimal framesPerSecond, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = videoScanForNsfwCall(inputFile, fileUrl, framesPerSecond, progressListener, progressRequestListener);
@@ -1475,7 +1476,7 @@ public class VideoApi {
      * @return NsfwResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public NsfwResult videoScanForNsfw(File inputFile, String fileUrl, Object framesPerSecond) throws ApiException {
+    public NsfwResult videoScanForNsfw(File inputFile, String fileUrl, BigDecimal framesPerSecond) throws ApiException {
         ApiResponse<NsfwResult> resp = videoScanForNsfwWithHttpInfo(inputFile, fileUrl, framesPerSecond);
         return resp.getData();
     }
@@ -1489,7 +1490,7 @@ public class VideoApi {
      * @return ApiResponse&lt;NsfwResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<NsfwResult> videoScanForNsfwWithHttpInfo(File inputFile, String fileUrl, Object framesPerSecond) throws ApiException {
+    public ApiResponse<NsfwResult> videoScanForNsfwWithHttpInfo(File inputFile, String fileUrl, BigDecimal framesPerSecond) throws ApiException {
         com.squareup.okhttp.Call call = videoScanForNsfwValidateBeforeCall(inputFile, fileUrl, framesPerSecond, null, null);
         Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1505,7 +1506,7 @@ public class VideoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call videoScanForNsfwAsync(File inputFile, String fileUrl, Object framesPerSecond, final ApiCallback<NsfwResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call videoScanForNsfwAsync(File inputFile, String fileUrl, BigDecimal framesPerSecond, final ApiCallback<NsfwResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1564,7 +1565,7 @@ public class VideoApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
