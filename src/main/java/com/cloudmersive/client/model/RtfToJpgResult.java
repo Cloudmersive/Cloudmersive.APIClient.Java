@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a RTF input to a JPG array
  */
 @ApiModel(description = "Result of converting a RTF input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-22T21:42:12.227-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:35.571-07:00")
 public class RtfToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running an Insert-Comment-on-Paragraph command
  */
 @ApiModel(description = "Result of running an Insert-Comment-on-Paragraph command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-22T21:42:12.227-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:35.571-07:00")
 public class InsertDocxCommentOnParagraphResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

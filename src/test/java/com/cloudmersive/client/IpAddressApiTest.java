@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.GeolocateResponse;
+import com.cloudmersive.client.model.TorNodeResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -31,6 +32,22 @@ public class IpAddressApiTest {
 
     private final IpAddressApi api = new IpAddressApi();
 
+    
+    /**
+     * Check if IP address is a Tor node server
+     *
+     * Check if the input IP address is a Tor exit node server.  Tor servers are a type of privacy-preserving technology that can hide the original IP address who makes a request.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void iPAddressIsTorNodeTest() throws ApiException {
+        String value = null;
+        TorNodeResponse response = api.iPAddressIsTorNode(value);
+
+        // TODO: test validations
+    }
     
     /**
      * Geolocate an IP address

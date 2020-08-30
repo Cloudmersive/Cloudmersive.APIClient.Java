@@ -1,6 +1,6 @@
 /*
- * nlpapiv2
- * The powerful Natural Language Processing APIs (v2) let you perform part of speech tagging, entity identification, sentence parsing, and much more to help you understand the meaning of unstructured text.
+ * validateapi
+ * The validation APIs help you validate data. Check if an E-mail address is real. Check if a domain is real. Check up on an IP address, and even where it is located. All this and much more is available in the validation API.
  *
  * OpenAPI spec version: v1
  * 
@@ -25,30 +25,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Part of speech tagging request
+ * Result of performing a Tor node check on an IP address
  */
-@ApiModel(description = "Part of speech tagging request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:21.435-07:00")
-public class PosRequest {
-  @SerializedName("InputText")
-  private String inputText = null;
+@ApiModel(description = "Result of performing a Tor node check on an IP address")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:17.897-07:00")
+public class TorNodeResponse {
+  @SerializedName("IsTorNode")
+  private Boolean isTorNode = null;
 
-  public PosRequest inputText(String inputText) {
-    this.inputText = inputText;
+  public TorNodeResponse isTorNode(Boolean isTorNode) {
+    this.isTorNode = isTorNode;
     return this;
   }
 
    /**
-   * Input text string
-   * @return inputText
+   * True if the input IP address is a Tor exit node, false otherwise
+   * @return isTorNode
   **/
-  @ApiModelProperty(value = "Input text string")
-  public String getInputText() {
-    return inputText;
+  @ApiModelProperty(value = "True if the input IP address is a Tor exit node, false otherwise")
+  public Boolean isIsTorNode() {
+    return isTorNode;
   }
 
-  public void setInputText(String inputText) {
-    this.inputText = inputText;
+  public void setIsTorNode(Boolean isTorNode) {
+    this.isTorNode = isTorNode;
   }
 
 
@@ -60,22 +60,22 @@ public class PosRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PosRequest posRequest = (PosRequest) o;
-    return Objects.equals(this.inputText, posRequest.inputText);
+    TorNodeResponse torNodeResponse = (TorNodeResponse) o;
+    return Objects.equals(this.isTorNode, torNodeResponse.isTorNode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputText);
+    return Objects.hash(isTorNode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PosRequest {\n");
+    sb.append("class TorNodeResponse {\n");
     
-    sb.append("    inputText: ").append(toIndentedString(inputText)).append("\n");
+    sb.append("    isTorNode: ").append(toIndentedString(isTorNode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

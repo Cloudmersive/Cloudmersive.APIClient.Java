@@ -31,7 +31,7 @@ import java.util.List;
  * A row in a Word Document (DOCX) file
  */
 @ApiModel(description = "A row in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-22T21:42:12.227-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:35.571-07:00")
 public class DocxTableRow {
   @SerializedName("RowIndex")
   private Integer rowIndex = null;
