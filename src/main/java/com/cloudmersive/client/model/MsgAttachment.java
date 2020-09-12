@@ -28,7 +28,7 @@ import java.io.IOException;
  * An MSG file attachment
  */
 @ApiModel(description = "An MSG file attachment")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-11T21:21:17.482-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T15:35:46.385-07:00")
 public class MsgAttachment {
   @SerializedName("Name")
   private String name = null;

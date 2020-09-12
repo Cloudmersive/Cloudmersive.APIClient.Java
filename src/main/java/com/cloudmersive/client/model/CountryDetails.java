@@ -28,7 +28,7 @@ import java.io.IOException;
  * Details of one country
  */
 @ApiModel(description = "Details of one country")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-11T21:20:55.653-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T15:35:24.792-07:00")
 public class CountryDetails {
   @SerializedName("CountryName")
   private String countryName = null;
@@ -41,6 +41,15 @@ public class CountryDetails {
 
   @SerializedName("IsEuropeanUnionMember")
   private Boolean isEuropeanUnionMember = null;
+
+  @SerializedName("ISOCurrencyCode")
+  private String isOCurrencyCode = null;
+
+  @SerializedName("CurrencySymbol")
+  private String currencySymbol = null;
+
+  @SerializedName("CurrencyEnglishName")
+  private String currencyEnglishName = null;
 
   public CountryDetails countryName(String countryName) {
     this.countryName = countryName;
@@ -114,6 +123,60 @@ public class CountryDetails {
     this.isEuropeanUnionMember = isEuropeanUnionMember;
   }
 
+  public CountryDetails isOCurrencyCode(String isOCurrencyCode) {
+    this.isOCurrencyCode = isOCurrencyCode;
+    return this;
+  }
+
+   /**
+   * ISO 4217 currency three-letter code associated with the country
+   * @return isOCurrencyCode
+  **/
+  @ApiModelProperty(value = "ISO 4217 currency three-letter code associated with the country")
+  public String getIsOCurrencyCode() {
+    return isOCurrencyCode;
+  }
+
+  public void setIsOCurrencyCode(String isOCurrencyCode) {
+    this.isOCurrencyCode = isOCurrencyCode;
+  }
+
+  public CountryDetails currencySymbol(String currencySymbol) {
+    this.currencySymbol = currencySymbol;
+    return this;
+  }
+
+   /**
+   * Symbol associated with the currency
+   * @return currencySymbol
+  **/
+  @ApiModelProperty(value = "Symbol associated with the currency")
+  public String getCurrencySymbol() {
+    return currencySymbol;
+  }
+
+  public void setCurrencySymbol(String currencySymbol) {
+    this.currencySymbol = currencySymbol;
+  }
+
+  public CountryDetails currencyEnglishName(String currencyEnglishName) {
+    this.currencyEnglishName = currencyEnglishName;
+    return this;
+  }
+
+   /**
+   * Full name of the currency
+   * @return currencyEnglishName
+  **/
+  @ApiModelProperty(value = "Full name of the currency")
+  public String getCurrencyEnglishName() {
+    return currencyEnglishName;
+  }
+
+  public void setCurrencyEnglishName(String currencyEnglishName) {
+    this.currencyEnglishName = currencyEnglishName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +190,15 @@ public class CountryDetails {
     return Objects.equals(this.countryName, countryDetails.countryName) &&
         Objects.equals(this.threeLetterCode, countryDetails.threeLetterCode) &&
         Objects.equals(this.isOTwoLetterCode, countryDetails.isOTwoLetterCode) &&
-        Objects.equals(this.isEuropeanUnionMember, countryDetails.isEuropeanUnionMember);
+        Objects.equals(this.isEuropeanUnionMember, countryDetails.isEuropeanUnionMember) &&
+        Objects.equals(this.isOCurrencyCode, countryDetails.isOCurrencyCode) &&
+        Objects.equals(this.currencySymbol, countryDetails.currencySymbol) &&
+        Objects.equals(this.currencyEnglishName, countryDetails.currencyEnglishName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryName, threeLetterCode, isOTwoLetterCode, isEuropeanUnionMember);
+    return Objects.hash(countryName, threeLetterCode, isOTwoLetterCode, isEuropeanUnionMember, isOCurrencyCode, currencySymbol, currencyEnglishName);
   }
 
 
@@ -145,6 +211,9 @@ public class CountryDetails {
     sb.append("    threeLetterCode: ").append(toIndentedString(threeLetterCode)).append("\n");
     sb.append("    isOTwoLetterCode: ").append(toIndentedString(isOTwoLetterCode)).append("\n");
     sb.append("    isEuropeanUnionMember: ").append(toIndentedString(isEuropeanUnionMember)).append("\n");
+    sb.append("    isOCurrencyCode: ").append(toIndentedString(isOCurrencyCode)).append("\n");
+    sb.append("    currencySymbol: ").append(toIndentedString(currencySymbol)).append("\n");
+    sb.append("    currencyEnglishName: ").append(toIndentedString(currencyEnglishName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -94,6 +94,22 @@ public class AddressApiTest {
     }
     
     /**
+     * Get the currency of the input country
+     *
+     * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressGetCountryCurrencyTest() throws ApiException {
+        ValidateCountryRequest input = null;
+        ValidateCountryResponse response = api.addressGetCountryCurrency(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Gets IANA/Olsen time zones for a country
      *
      * Gets the IANA/Olsen time zones for a country.
