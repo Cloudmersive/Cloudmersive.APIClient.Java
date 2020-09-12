@@ -25,30 +25,51 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * User-Agent parse and validation request
+ * Result of performing a IP threat check on an IP address
  */
-@ApiModel(description = "User-Agent parse and validation request")
+@ApiModel(description = "Result of performing a IP threat check on an IP address")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-11T21:20:55.653-07:00")
-public class UserAgentValidateRequest {
-  @SerializedName("UserAgentString")
-  private String userAgentString = null;
+public class IPThreatResponse {
+  @SerializedName("IsThreat")
+  private Boolean isThreat = null;
 
-  public UserAgentValidateRequest userAgentString(String userAgentString) {
-    this.userAgentString = userAgentString;
+  @SerializedName("ThreatType")
+  private String threatType = null;
+
+  public IPThreatResponse isThreat(Boolean isThreat) {
+    this.isThreat = isThreat;
     return this;
   }
 
    /**
-   * The user agent string you wish to parse and validate
-   * @return userAgentString
+   * True if the input IP address is a threat, false otherwise
+   * @return isThreat
   **/
-  @ApiModelProperty(value = "The user agent string you wish to parse and validate")
-  public String getUserAgentString() {
-    return userAgentString;
+  @ApiModelProperty(value = "True if the input IP address is a threat, false otherwise")
+  public Boolean isIsThreat() {
+    return isThreat;
   }
 
-  public void setUserAgentString(String userAgentString) {
-    this.userAgentString = userAgentString;
+  public void setIsThreat(Boolean isThreat) {
+    this.isThreat = isThreat;
+  }
+
+  public IPThreatResponse threatType(String threatType) {
+    this.threatType = threatType;
+    return this;
+  }
+
+   /**
+   * Specifies the type of IP threat; possible values include Blocklist, Botnet, WebBot
+   * @return threatType
+  **/
+  @ApiModelProperty(value = "Specifies the type of IP threat; possible values include Blocklist, Botnet, WebBot")
+  public String getThreatType() {
+    return threatType;
+  }
+
+  public void setThreatType(String threatType) {
+    this.threatType = threatType;
   }
 
 
@@ -60,22 +81,24 @@ public class UserAgentValidateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserAgentValidateRequest userAgentValidateRequest = (UserAgentValidateRequest) o;
-    return Objects.equals(this.userAgentString, userAgentValidateRequest.userAgentString);
+    IPThreatResponse ipThreatResponse = (IPThreatResponse) o;
+    return Objects.equals(this.isThreat, ipThreatResponse.isThreat) &&
+        Objects.equals(this.threatType, ipThreatResponse.threatType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userAgentString);
+    return Objects.hash(isThreat, threatType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserAgentValidateRequest {\n");
+    sb.append("class IPThreatResponse {\n");
     
-    sb.append("    userAgentString: ").append(toIndentedString(userAgentString)).append("\n");
+    sb.append("    isThreat: ").append(toIndentedString(isThreat)).append("\n");
+    sb.append("    threatType: ").append(toIndentedString(threatType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

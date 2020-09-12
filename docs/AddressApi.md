@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 Validate a street address
 
-Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
 
 ### Example
 ```java
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 Validate a City and State/Province combination, get location information about it
 
-Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
 
 ### Example
 ```java
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 Validate a postal code, get location information about it
 
-Checks if the input postal code is valid, and returns information about it such as City, State and more.
+Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
 
 ### Example
 ```java
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 Validate a state or province, name or abbreviation, get location information about it
 
-Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
 
 ### Example
 ```java

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a replace matching paragraphs operation on a Word Document
  */
 @ApiModel(description = "Result of performing a replace matching paragraphs operation on a Word Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:35.571-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-11T21:21:17.482-07:00")
 public class ReplaceDocxParagraphResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

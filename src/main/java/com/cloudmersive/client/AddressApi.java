@@ -734,7 +734,7 @@ public class AddressApi {
 
     /**
      * Validate a street address
-     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @return ValidateAddressResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -746,7 +746,7 @@ public class AddressApi {
 
     /**
      * Validate a street address
-     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @return ApiResponse&lt;ValidateAddressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -759,7 +759,7 @@ public class AddressApi {
 
     /**
      * Validate a street address (asynchronously)
-     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -856,7 +856,7 @@ public class AddressApi {
 
     /**
      * Validate a City and State/Province combination, get location information about it
-     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @return ValidateCityResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -868,7 +868,7 @@ public class AddressApi {
 
     /**
      * Validate a City and State/Province combination, get location information about it
-     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @return ApiResponse&lt;ValidateCityResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -881,7 +881,7 @@ public class AddressApi {
 
     /**
      * Validate a City and State/Province combination, get location information about it (asynchronously)
-     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -978,7 +978,7 @@ public class AddressApi {
 
     /**
      * Validate a postal code, get location information about it
-     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @return ValidatePostalCodeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -990,7 +990,7 @@ public class AddressApi {
 
     /**
      * Validate a postal code, get location information about it
-     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @return ApiResponse&lt;ValidatePostalCodeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1003,7 +1003,7 @@ public class AddressApi {
 
     /**
      * Validate a postal code, get location information about it (asynchronously)
-     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1100,7 +1100,7 @@ public class AddressApi {
 
     /**
      * Validate a state or province, name or abbreviation, get location information about it
-     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @return ValidateStateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1112,7 +1112,7 @@ public class AddressApi {
 
     /**
      * Validate a state or province, name or abbreviation, get location information about it
-     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @return ApiResponse&lt;ValidateStateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1125,7 +1125,7 @@ public class AddressApi {
 
     /**
      * Validate a state or province, name or abbreviation, get location information about it (asynchronously)
-     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

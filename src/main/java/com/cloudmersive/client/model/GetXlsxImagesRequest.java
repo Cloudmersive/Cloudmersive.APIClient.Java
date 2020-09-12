@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Get Images request
  */
 @ApiModel(description = "Input to a Get Images request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:35.571-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-11T21:21:17.482-07:00")
 public class GetXlsxImagesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

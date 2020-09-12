@@ -29,7 +29,7 @@ import java.io.IOException;
  * Raw text parameter that defines the entire body of the HTTP payload; cannot be used with other parameter types
  */
 @ApiModel(description = "Raw text parameter that defines the entire body of the HTTP payload; cannot be used with other parameter types")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-08-30T16:05:45.371-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-11T21:21:30.238-07:00")
 public class HttpRawTextParameter {
   @SerializedName("ParameterValue")
   private String parameterValue = null;
