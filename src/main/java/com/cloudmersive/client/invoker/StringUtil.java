@@ -1,6 +1,6 @@
 /*
- * dataintegrationapi
- * Easily and directly query database backup files, convert into other file formats.
+ * currencyapi
+ * The currency APIs help you retrieve exchange rates and convert prices between currencies easily.
  *
  * OpenAPI spec version: v1
  * 
@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T15:36:06.565-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T22:12:36.474-07:00")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

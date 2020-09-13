@@ -1,6 +1,6 @@
 /*
- * dataintegrationapi
- * Easily and directly query database backup files, convert into other file formats.
+ * currencyapi
+ * The currency APIs help you retrieve exchange rates and convert prices between currencies easily.
  *
  * OpenAPI spec version: v1
  * 

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a Clear-Row command
  */
 @ApiModel(description = "Result of running a Clear-Row command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T15:35:46.385-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T22:12:10.795-07:00")
 public class ClearXlsxRowResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
