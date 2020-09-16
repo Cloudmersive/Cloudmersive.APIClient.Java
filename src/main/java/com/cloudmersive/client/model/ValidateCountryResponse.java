@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a country validation operation
  */
 @ApiModel(description = "Result of performing a country validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T22:11:48.027-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-15T18:41:07.918-07:00")
 public class ValidateCountryResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -62,6 +62,12 @@ public class ValidateCountryResponse {
 
   @SerializedName("CurrencyEnglishName")
   private String currencyEnglishName = null;
+
+  @SerializedName("Region")
+  private String region = null;
+
+  @SerializedName("Subregion")
+  private String subregion = null;
 
   public ValidateCountryResponse successful(Boolean successful) {
     this.successful = successful;
@@ -251,6 +257,42 @@ public class ValidateCountryResponse {
     this.currencyEnglishName = currencyEnglishName;
   }
 
+  public ValidateCountryResponse region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania
+   * @return region
+  **/
+  @ApiModelProperty(value = "Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public ValidateCountryResponse subregion(String subregion) {
+    this.subregion = subregion;
+    return this;
+  }
+
+   /**
+   * Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean,
+   * @return subregion
+  **/
+  @ApiModelProperty(value = "Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean,")
+  public String getSubregion() {
+    return subregion;
+  }
+
+  public void setSubregion(String subregion) {
+    this.subregion = subregion;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -270,12 +312,14 @@ public class ValidateCountryResponse {
         Objects.equals(this.timezones, validateCountryResponse.timezones) &&
         Objects.equals(this.isOCurrencyCode, validateCountryResponse.isOCurrencyCode) &&
         Objects.equals(this.currencySymbol, validateCountryResponse.currencySymbol) &&
-        Objects.equals(this.currencyEnglishName, validateCountryResponse.currencyEnglishName);
+        Objects.equals(this.currencyEnglishName, validateCountryResponse.currencyEnglishName) &&
+        Objects.equals(this.region, validateCountryResponse.region) &&
+        Objects.equals(this.subregion, validateCountryResponse.subregion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, countryFullName, isOTwoLetterCode, fiPSTwoLetterCode, threeLetterCode, isEuropeanUnionMember, timezones, isOCurrencyCode, currencySymbol, currencyEnglishName);
+    return Objects.hash(successful, countryFullName, isOTwoLetterCode, fiPSTwoLetterCode, threeLetterCode, isEuropeanUnionMember, timezones, isOCurrencyCode, currencySymbol, currencyEnglishName, region, subregion);
   }
 
 
@@ -294,6 +338,8 @@ public class ValidateCountryResponse {
     sb.append("    isOCurrencyCode: ").append(toIndentedString(isOCurrencyCode)).append("\n");
     sb.append("    currencySymbol: ").append(toIndentedString(currencySymbol)).append("\n");
     sb.append("    currencyEnglishName: ").append(toIndentedString(currencyEnglishName)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    subregion: ").append(toIndentedString(subregion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

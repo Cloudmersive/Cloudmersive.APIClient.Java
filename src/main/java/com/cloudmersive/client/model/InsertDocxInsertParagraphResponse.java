@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running an Insert-Paragraph command
  */
 @ApiModel(description = "Result of running an Insert-Paragraph command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-12T22:12:10.795-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-15T18:41:30.496-07:00")
 public class InsertDocxInsertParagraphResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

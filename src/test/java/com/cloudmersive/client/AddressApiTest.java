@@ -110,6 +110,22 @@ public class AddressApiTest {
     }
     
     /**
+     * Get the region, subregion and continent of the country
+     *
+     * Gets the continent information including region and subregion for the input country.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressGetCountryRegionTest() throws ApiException {
+        ValidateCountryRequest input = null;
+        ValidateCountryResponse response = api.addressGetCountryRegion(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Gets IANA/Olsen time zones for a country
      *
      * Gets the IANA/Olsen time zones for a country.

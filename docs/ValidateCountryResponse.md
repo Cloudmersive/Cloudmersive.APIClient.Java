@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **isOCurrencyCode** | **String** | ISO 4217 currency three-letter code associated with the country |  [optional]
 **currencySymbol** | **String** | Symbol associated with the currency |  [optional]
 **currencyEnglishName** | **String** | Full name of the currency |  [optional]
+**region** | **String** | Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania |  [optional]
+**subregion** | **String** | Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean, |  [optional]
 
 
 
