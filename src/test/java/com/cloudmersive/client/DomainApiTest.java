@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckResponse;
+import com.cloudmersive.client.model.DomainQualityResponse;
 import com.cloudmersive.client.model.ValidateUrlRequestFull;
 import com.cloudmersive.client.model.ValidateUrlRequestSyntaxOnly;
 import com.cloudmersive.client.model.ValidateUrlResponseFull;
@@ -65,6 +66,22 @@ public class DomainApiTest {
     public void domainPostTest() throws ApiException {
         String domain = null;
         WhoisResponse response = api.domainPost(domain);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a domain name&#39;s quality score
+     *
+     * Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainQualityScoreTest() throws ApiException {
+        String domain = null;
+        DomainQualityResponse response = api.domainQualityScore(domain);
 
         // TODO: test validations
     }

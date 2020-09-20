@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input parameter to a country validation request
  */
 @ApiModel(description = "Input parameter to a country validation request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-15T18:41:07.918-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:13:57.835-07:00")
 public class ValidateCountryRequest {
   @SerializedName("RawCountryInput")
   private String rawCountryInput = null;

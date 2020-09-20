@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Comment in a Word Document
  */
 @ApiModel(description = "Comment in a Word Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-15T18:41:30.496-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
 public class DocxComment {
   @SerializedName("Path")
   private String path = null;

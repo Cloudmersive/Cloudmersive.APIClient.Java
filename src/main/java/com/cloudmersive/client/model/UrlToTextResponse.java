@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running the URL website to Text operation
  */
 @ApiModel(description = "Result of running the URL website to Text operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-15T18:41:30.496-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
 public class UrlToTextResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

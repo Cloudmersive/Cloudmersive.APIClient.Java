@@ -29,7 +29,7 @@ import java.io.IOException;
  * Query string parameter
  */
 @ApiModel(description = "Query string parameter")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-15T18:41:42.770-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:34.720-07:00")
 public class HttpGetParameter {
   @SerializedName("ParameterName")
   private String parameterName = null;
