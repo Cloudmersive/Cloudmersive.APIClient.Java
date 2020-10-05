@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Value of a setting
  */
 @ApiModel(description = "Value of a setting")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:34.720-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:38.115-07:00")
 public class SettingValue {
   @SerializedName("ConfigSettingValueID")
   private String configSettingValueID = null;

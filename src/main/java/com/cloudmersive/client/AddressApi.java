@@ -32,6 +32,8 @@ import com.cloudmersive.client.model.GetTimezonesRequest;
 import com.cloudmersive.client.model.GetTimezonesResponse;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
+import com.cloudmersive.client.model.ReverseGeocodeAddressRequest;
+import com.cloudmersive.client.model.ReverseGeocodeAddressResponse;
 import com.cloudmersive.client.model.ValidateAddressRequest;
 import com.cloudmersive.client.model.ValidateAddressResponse;
 import com.cloudmersive.client.model.ValidateCityRequest;
@@ -422,6 +424,128 @@ public class AddressApi {
 
         com.squareup.okhttp.Call call = addressCountryListValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CountryListResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for addressGeocode
+     * @param input Input parse request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addressGeocodeCall(ValidateAddressRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/address/geocode";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addressGeocodeValidateBeforeCall(ValidateAddressRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling addressGeocode(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addressGeocodeCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Geocode a street address into latitude and longitude
+     * Geocodes a street address into latitude and longitude.
+     * @param input Input parse request (required)
+     * @return ValidateAddressResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ValidateAddressResponse addressGeocode(ValidateAddressRequest input) throws ApiException {
+        ApiResponse<ValidateAddressResponse> resp = addressGeocodeWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Geocode a street address into latitude and longitude
+     * Geocodes a street address into latitude and longitude.
+     * @param input Input parse request (required)
+     * @return ApiResponse&lt;ValidateAddressResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ValidateAddressResponse> addressGeocodeWithHttpInfo(ValidateAddressRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = addressGeocodeValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<ValidateAddressResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Geocode a street address into latitude and longitude (asynchronously)
+     * Geocodes a street address into latitude and longitude.
+     * @param input Input parse request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addressGeocodeAsync(ValidateAddressRequest input, final ApiCallback<ValidateAddressResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addressGeocodeValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ValidateAddressResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -910,6 +1034,128 @@ public class AddressApi {
 
         com.squareup.okhttp.Call call = addressParseStringValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParseAddressResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for addressReverseGeocodeAddress
+     * @param input Input reverse geocoding request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addressReverseGeocodeAddressCall(ReverseGeocodeAddressRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/validate/address/geocode/reverse";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addressReverseGeocodeAddressValidateBeforeCall(ReverseGeocodeAddressRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling addressReverseGeocodeAddress(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addressReverseGeocodeAddressCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Reverse geocode a lattitude and longitude into an address
+     * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+     * @param input Input reverse geocoding request (required)
+     * @return ReverseGeocodeAddressResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ReverseGeocodeAddressResponse addressReverseGeocodeAddress(ReverseGeocodeAddressRequest input) throws ApiException {
+        ApiResponse<ReverseGeocodeAddressResponse> resp = addressReverseGeocodeAddressWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Reverse geocode a lattitude and longitude into an address
+     * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+     * @param input Input reverse geocoding request (required)
+     * @return ApiResponse&lt;ReverseGeocodeAddressResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ReverseGeocodeAddressResponse> addressReverseGeocodeAddressWithHttpInfo(ReverseGeocodeAddressRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = addressReverseGeocodeAddressValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<ReverseGeocodeAddressResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reverse geocode a lattitude and longitude into an address (asynchronously)
+     * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+     * @param input Input reverse geocoding request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addressReverseGeocodeAddressAsync(ReverseGeocodeAddressRequest input, final ApiCallback<ReverseGeocodeAddressResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addressReverseGeocodeAddressValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ReverseGeocodeAddressResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

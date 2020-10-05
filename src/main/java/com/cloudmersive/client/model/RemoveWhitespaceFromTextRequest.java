@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to remove whitespace from a string
  */
 @ApiModel(description = "Request to remove whitespace from a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:26.588-07:00")
 public class RemoveWhitespaceFromTextRequest {
   @SerializedName("TextContainingWhitespace")
   private String textContainingWhitespace = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Details of a specific currency
  */
 @ApiModel(description = "Details of a specific currency")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:47.711-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:50.353-07:00")
 public class AvailableCurrency {
   @SerializedName("ISOCurrencyCode")
   private String isOCurrencyCode = null;

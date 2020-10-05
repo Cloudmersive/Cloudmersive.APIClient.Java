@@ -29,7 +29,7 @@ import java.io.IOException;
  * Result of running a Get-Specific-Row command
  */
 @ApiModel(description = "Result of running a Get-Specific-Row command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:26.588-07:00")
 public class GetXlsxSpecificRowResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * The result of converting a video into still frames
  */
 @ApiModel(description = "The result of converting a video into still frames")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:41.231-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:43.866-07:00")
 public class StillFramesResult {
   @SerializedName("Successful")
   private Boolean successful = null;

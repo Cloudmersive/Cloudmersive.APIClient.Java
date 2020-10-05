@@ -31,7 +31,7 @@ import java.util.List;
  * Result of enumerating available countries
  */
 @ApiModel(description = "Result of enumerating available countries")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:13:57.835-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:05.717-07:00")
 public class CountryListResult {
   @SerializedName("Successful")
   private Boolean successful = null;

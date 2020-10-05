@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to set-footer command
  */
 @ApiModel(description = "Input to set-footer command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:26.588-07:00")
 public class DocxInsertImageRequest {
   @SerializedName("InputDocumentFileBytes")
   private byte[] inputDocumentFileBytes = null;

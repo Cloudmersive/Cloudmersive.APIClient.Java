@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual color
  */
 @ApiModel(description = "Individual color")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:14.919-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:21.868-07:00")
 public class ColorResult {
   @SerializedName("R")
   private Integer R = null;

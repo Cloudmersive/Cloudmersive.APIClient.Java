@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of creating a new worksheet from rows and cells
  */
 @ApiModel(description = "Result of creating a new worksheet from rows and cells")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:26.588-07:00")
 public class CreateSpreadsheetFromDataResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

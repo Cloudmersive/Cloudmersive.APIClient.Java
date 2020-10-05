@@ -19,6 +19,8 @@ import com.cloudmersive.client.model.GetTimezonesRequest;
 import com.cloudmersive.client.model.GetTimezonesResponse;
 import com.cloudmersive.client.model.ParseAddressRequest;
 import com.cloudmersive.client.model.ParseAddressResponse;
+import com.cloudmersive.client.model.ReverseGeocodeAddressRequest;
+import com.cloudmersive.client.model.ReverseGeocodeAddressResponse;
 import com.cloudmersive.client.model.ValidateAddressRequest;
 import com.cloudmersive.client.model.ValidateAddressResponse;
 import com.cloudmersive.client.model.ValidateCityRequest;
@@ -94,6 +96,22 @@ public class AddressApiTest {
     }
     
     /**
+     * Geocode a street address into latitude and longitude
+     *
+     * Geocodes a street address into latitude and longitude.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressGeocodeTest() throws ApiException {
+        ValidateAddressRequest input = null;
+        ValidateAddressResponse response = api.addressGeocode(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get the currency of the input country
      *
      * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
@@ -153,6 +171,22 @@ public class AddressApiTest {
     public void addressParseStringTest() throws ApiException {
         ParseAddressRequest input = null;
         ParseAddressResponse response = api.addressParseString(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Reverse geocode a lattitude and longitude into an address
+     *
+     * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addressReverseGeocodeAddressTest() throws ApiException {
+        ReverseGeocodeAddressRequest input = null;
+        ReverseGeocodeAddressResponse response = api.addressReverseGeocodeAddress(input);
 
         // TODO: test validations
     }

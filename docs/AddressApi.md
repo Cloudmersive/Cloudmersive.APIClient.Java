@@ -7,10 +7,12 @@ Method | HTTP request | Description
 [**addressCheckEUMembership**](AddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 [**addressCountry**](AddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressCountryList**](AddressApi.md#addressCountryList) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
+[**addressGeocode**](AddressApi.md#addressGeocode) | **POST** /validate/address/geocode | Geocode a street address into latitude and longitude
 [**addressGetCountryCurrency**](AddressApi.md#addressGetCountryCurrency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
 [**addressGetCountryRegion**](AddressApi.md#addressGetCountryRegion) | **POST** /validate/address/country/get-region | Get the region, subregion and continent of the country
 [**addressGetTimezone**](AddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](AddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
+[**addressReverseGeocodeAddress**](AddressApi.md#addressReverseGeocodeAddress) | **POST** /validate/address/geocode/reverse | Reverse geocode a lattitude and longitude into an address
 [**addressValidateAddress**](AddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
 [**addressValidateCity**](AddressApi.md#addressValidateCity) | **POST** /validate/address/city | Validate a City and State/Province combination, get location information about it
 [**addressValidatePostalCode**](AddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
@@ -176,6 +178,61 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="addressGeocode"></a>
+# **addressGeocode**
+> ValidateAddressResponse addressGeocode(input)
+
+Geocode a street address into latitude and longitude
+
+Geocodes a street address into latitude and longitude.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.AddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+AddressApi apiInstance = new AddressApi();
+ValidateAddressRequest input = new ValidateAddressRequest(); // ValidateAddressRequest | Input parse request
+try {
+    ValidateAddressResponse result = apiInstance.addressGeocode(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AddressApi#addressGeocode");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateAddressRequest**](ValidateAddressRequest.md)| Input parse request |
+
+### Return type
+
+[**ValidateAddressResponse**](ValidateAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="addressGetCountryCurrency"></a>
@@ -388,6 +445,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ParseAddressResponse**](ParseAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="addressReverseGeocodeAddress"></a>
+# **addressReverseGeocodeAddress**
+> ReverseGeocodeAddressResponse addressReverseGeocodeAddress(input)
+
+Reverse geocode a lattitude and longitude into an address
+
+Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.AddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+AddressApi apiInstance = new AddressApi();
+ReverseGeocodeAddressRequest input = new ReverseGeocodeAddressRequest(); // ReverseGeocodeAddressRequest | Input reverse geocoding request
+try {
+    ReverseGeocodeAddressResponse result = apiInstance.addressReverseGeocodeAddress(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AddressApi#addressReverseGeocodeAddress");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ReverseGeocodeAddressRequest**](ReverseGeocodeAddressRequest.md)| Input reverse geocoding request |
+
+### Return type
+
+[**ReverseGeocodeAddressResponse**](ReverseGeocodeAddressResponse.md)
 
 ### Authorization
 

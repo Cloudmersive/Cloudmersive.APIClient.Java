@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * XlsxImage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-19T18:14:20.056-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-04T21:04:26.588-07:00")
 public class XlsxImage {
   @SerializedName("Path")
   private String path = null;
