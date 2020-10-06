@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.GeolocateResponse;
+import com.cloudmersive.client.model.GeolocateStreetAddressResponse;
 import com.cloudmersive.client.model.IPThreatResponse;
 import com.cloudmersive.client.model.TorNodeResponse;
 import org.junit.Test;
@@ -33,6 +34,22 @@ public class IpAddressApiTest {
 
     private final IpAddressApi api = new IpAddressApi();
 
+    
+    /**
+     * Geolocate an IP address to a street address
+     *
+     * Identify an IP address&#39;s street address.  Useful for security and UX applications.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void iPAddressGeolocateStreetAddressTest() throws ApiException {
+        String value = null;
+        GeolocateStreetAddressResponse response = api.iPAddressGeolocateStreetAddress(value);
+
+        // TODO: test validations
+    }
     
     /**
      * Check if IP address is a known threat

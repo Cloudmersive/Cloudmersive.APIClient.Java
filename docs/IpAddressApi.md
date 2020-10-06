@@ -4,10 +4,66 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**iPAddressGeolocateStreetAddress**](IpAddressApi.md#iPAddressGeolocateStreetAddress) | **POST** /validate/ip/geolocate/street-address | Geolocate an IP address to a street address
 [**iPAddressIsThreat**](IpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 [**iPAddressIsTorNode**](IpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 [**iPAddressPost**](IpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
 
+
+<a name="iPAddressGeolocateStreetAddress"></a>
+# **iPAddressGeolocateStreetAddress**
+> GeolocateStreetAddressResponse iPAddressGeolocateStreetAddress(value)
+
+Geolocate an IP address to a street address
+
+Identify an IP address&#39;s street address.  Useful for security and UX applications.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.IpAddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+IpAddressApi apiInstance = new IpAddressApi();
+String value = "value_example"; // String | IP address to geolocate, e.g. \"55.55.55.55\".  The input is a string so be sure to enclose it in double-quotes.
+try {
+    GeolocateStreetAddressResponse result = apiInstance.iPAddressGeolocateStreetAddress(value);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling IpAddressApi#iPAddressGeolocateStreetAddress");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| IP address to geolocate, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes. |
+
+### Return type
+
+[**GeolocateStreetAddressResponse**](GeolocateStreetAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: text/javascript, application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="iPAddressIsThreat"></a>
 # **iPAddressIsThreat**
