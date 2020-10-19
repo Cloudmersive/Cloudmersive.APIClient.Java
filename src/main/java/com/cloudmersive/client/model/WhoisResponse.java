@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of a WHOIS operation
  */
 @ApiModel(description = "Result of a WHOIS operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-05T18:20:05.775-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:04:14.496-07:00")
 public class WhoisResponse {
   @SerializedName("ValidDomain")
   private Boolean validDomain = null;

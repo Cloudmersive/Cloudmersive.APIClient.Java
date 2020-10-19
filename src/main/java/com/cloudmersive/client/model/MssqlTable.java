@@ -28,7 +28,7 @@ import java.io.IOException;
  * Details about a SQL Server Table
  */
 @ApiModel(description = "Details about a SQL Server Table")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-05T18:20:43.429-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:05:25.999-07:00")
 public class MssqlTable {
   @SerializedName("schemaName")
   private String schemaName = null;

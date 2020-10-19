@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a create setting operation
  */
 @ApiModel(description = "Result of performing a create setting operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-05T18:20:34.621-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:05:15.432-07:00")
 public class CreateSettingResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

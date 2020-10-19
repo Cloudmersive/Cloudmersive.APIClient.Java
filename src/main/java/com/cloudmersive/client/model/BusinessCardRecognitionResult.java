@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of recognizing a business card, to extract the key information from the business card
  */
 @ApiModel(description = "Result of recognizing a business card, to extract the key information from the business card")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-05T18:20:14.369-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:04:30.585-07:00")
 public class BusinessCardRecognitionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

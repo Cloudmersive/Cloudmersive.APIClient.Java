@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**zipArchiveZipCreate**](ZipArchiveApi.md#zipArchiveZipCreate) | **POST** /convert/archive/zip/create | Compress files to create a new zip archive
 [**zipArchiveZipCreateAdvanced**](ZipArchiveApi.md#zipArchiveZipCreateAdvanced) | **POST** /convert/archive/zip/create/advanced | Compress files and folders to create a new zip archive with advanced options
+[**zipArchiveZipCreateEncrypted**](ZipArchiveApi.md#zipArchiveZipCreateEncrypted) | **POST** /convert/archive/zip/create/encrypted | Compress files to create a new, encrypted and password-protected zip archive
 [**zipArchiveZipDecrypt**](ZipArchiveApi.md#zipArchiveZipDecrypt) | **POST** /convert/archive/zip/decrypt | Decrypt and remove password protection on a zip file
 [**zipArchiveZipEncryptAdvanced**](ZipArchiveApi.md#zipArchiveZipEncryptAdvanced) | **POST** /convert/archive/zip/encrypt/advanced | Encrypt and password protect a zip file
 [**zipArchiveZipExtract**](ZipArchiveApi.md#zipArchiveZipExtract) | **POST** /convert/archive/zip/extract | Extract, decompress files and folders from a zip archive
@@ -137,6 +138,83 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/octet-stream
+
+<a name="zipArchiveZipCreateEncrypted"></a>
+# **zipArchiveZipCreateEncrypted**
+> byte[] zipArchiveZipCreateEncrypted(password, inputFile1, encryptionAlgorithm, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+Compress files to create a new, encrypted and password-protected zip archive
+
+Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ZipArchiveApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ZipArchiveApi apiInstance = new ZipArchiveApi();
+String password = "password_example"; // String | Password to place on the Zip file; the longer the password, the more secure
+File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
+String encryptionAlgorithm = "encryptionAlgorithm_example"; // String | Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
+File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on.
+File inputFile3 = new File("/path/to/file.txt"); // File | Third input file to perform the operation on.
+File inputFile4 = new File("/path/to/file.txt"); // File | Fourth input file to perform the operation on.
+File inputFile5 = new File("/path/to/file.txt"); // File | Fifth input file to perform the operation on.
+File inputFile6 = new File("/path/to/file.txt"); // File | Sixth input file to perform the operation on.
+File inputFile7 = new File("/path/to/file.txt"); // File | Seventh input file to perform the operation on.
+File inputFile8 = new File("/path/to/file.txt"); // File | Eighth input file to perform the operation on.
+File inputFile9 = new File("/path/to/file.txt"); // File | Ninth input file to perform the operation on.
+File inputFile10 = new File("/path/to/file.txt"); // File | Tenth input file to perform the operation on.
+try {
+    byte[] result = apiInstance.zipArchiveZipCreateEncrypted(password, inputFile1, encryptionAlgorithm, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ZipArchiveApi#zipArchiveZipCreateEncrypted");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Password to place on the Zip file; the longer the password, the more secure |
+ **inputFile1** | **File**| First input file to perform the operation on. |
+ **encryptionAlgorithm** | **String**| Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. | [optional]
+ **inputFile2** | **File**| Second input file to perform the operation on. | [optional]
+ **inputFile3** | **File**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **File**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **File**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **File**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **File**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **File**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **File**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **File**| Tenth input file to perform the operation on. | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 <a name="zipArchiveZipDecrypt"></a>

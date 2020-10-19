@@ -77,6 +77,33 @@ public class ZipArchiveApiTest {
     }
     
     /**
+     * Compress files to create a new, encrypted and password-protected zip archive
+     *
+     * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void zipArchiveZipCreateEncryptedTest() throws ApiException {
+        String password = null;
+        File inputFile1 = null;
+        String encryptionAlgorithm = null;
+        File inputFile2 = null;
+        File inputFile3 = null;
+        File inputFile4 = null;
+        File inputFile5 = null;
+        File inputFile6 = null;
+        File inputFile7 = null;
+        File inputFile8 = null;
+        File inputFile9 = null;
+        File inputFile10 = null;
+        byte[] response = api.zipArchiveZipCreateEncrypted(password, inputFile1, encryptionAlgorithm, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Decrypt and remove password protection on a zip file
      *
      * Decrypts and removes password protection from an encrypted zip file with the specified password

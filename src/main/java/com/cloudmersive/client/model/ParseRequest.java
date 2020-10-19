@@ -28,7 +28,7 @@ import java.io.IOException;
  * Linguistic parse request
  */
 @ApiModel(description = "Linguistic parse request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-05T18:20:10.408-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:04:22.714-07:00")
 public class ParseRequest {
   @SerializedName("InputString")
   private String inputString = null;

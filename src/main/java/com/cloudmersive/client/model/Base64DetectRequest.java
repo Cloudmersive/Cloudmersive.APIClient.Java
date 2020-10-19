@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to detect if input content is base 64 encoded
  */
 @ApiModel(description = "Request to detect if input content is base 64 encoded")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-05T18:20:24.396-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:04:54.531-07:00")
 public class Base64DetectRequest {
   @SerializedName("Base64ContentToDetect")
   private String base64ContentToDetect = null;
