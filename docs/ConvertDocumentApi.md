@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**convertDocumentDocToDocx**](ConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 [**convertDocumentDocToPdf**](ConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
 [**convertDocumentDocToTxt**](ConvertDocumentApi.md#convertDocumentDocToTxt) | **POST** /convert/doc/to/txt | Convert Word DOC (97-03) Document to Text (txt)
+[**convertDocumentDocxToDoc**](ConvertDocumentApi.md#convertDocumentDocxToDoc) | **POST** /convert/docx/to/doc | Convert Word DOCX Document to Legacy Word DOC (97-03)
 [**convertDocumentDocxToHtml**](ConvertDocumentApi.md#convertDocumentDocxToHtml) | **POST** /convert/docx/to/html | Convert Word DOCX Document to HTML Document
 [**convertDocumentDocxToJpg**](ConvertDocumentApi.md#convertDocumentDocxToJpg) | **POST** /convert/docx/to/jpg | Convert Word DOCX Document to JPG/JPEG image array
 [**convertDocumentDocxToPdf**](ConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
@@ -65,6 +66,7 @@ Method | HTTP request | Description
 [**convertDocumentPptToPptx**](ConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
 [**convertDocumentPptxToPdf**](ConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
 [**convertDocumentPptxToPng**](ConvertDocumentApi.md#convertDocumentPptxToPng) | **POST** /convert/pptx/to/png | Convert PowerPoint PPTX to PNG image array
+[**convertDocumentPptxToPpt**](ConvertDocumentApi.md#convertDocumentPptxToPpt) | **POST** /convert/pptx/to/ppt | Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
 [**convertDocumentPptxToTxt**](ConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | Convert PowerPoint PPTX Presentation to Text (txt)
 [**convertDocumentRtfToDocx**](ConvertDocumentApi.md#convertDocumentRtfToDocx) | **POST** /convert/rtf/to/docx | Convert Rich Text Format RTF to DOCX Document
 [**convertDocumentRtfToHtml**](ConvertDocumentApi.md#convertDocumentRtfToHtml) | **POST** /convert/rtf/to/html | Convert Rich Text Format RTF to HTML Document
@@ -80,6 +82,7 @@ Method | HTTP request | Description
 [**convertDocumentXlsxToPdf**](ConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
 [**convertDocumentXlsxToPng**](ConvertDocumentApi.md#convertDocumentXlsxToPng) | **POST** /convert/xlsx/to/png | Convert Excel XLSX spreadsheet to PNG image array
 [**convertDocumentXlsxToTxt**](ConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
+[**convertDocumentXlsxToXls**](ConvertDocumentApi.md#convertDocumentXlsxToXls) | **POST** /convert/xlsx/to/xls | Convert Excel XLSX Spreadsheet to Legacy Excel XLS (97-03)
 
 
 <a name="convertDocumentAutodetectGetInfo"></a>
@@ -889,6 +892,61 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="convertDocumentDocxToDoc"></a>
+# **convertDocumentDocxToDoc**
+> byte[] convertDocumentDocxToDoc(inputFile)
+
+Convert Word DOCX Document to Legacy Word DOC (97-03)
+
+Convert/downgrade modern Office Word DOCX Documents (DOCX) to the legacy Word DOC (97-2003 Format) format
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDocumentApi apiInstance = new ConvertDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.convertDocumentDocxToDoc(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToDoc");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentDocxToHtml"></a>
 # **convertDocumentDocxToHtml**
@@ -3533,6 +3591,57 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
+<a name="convertDocumentPptxToPpt"></a>
+# **convertDocumentPptxToPpt**
+> Object convertDocumentPptxToPpt()
+
+Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
+
+Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDocumentApi apiInstance = new ConvertDocumentApi();
+try {
+    Object result = apiInstance.convertDocumentPptxToPpt();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDocumentApi#convertDocumentPptxToPpt");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
 <a name="convertDocumentPptxToTxt"></a>
 # **convertDocumentPptxToTxt**
 > TextConversionResult convertDocumentPptxToTxt(inputFile)
@@ -4363,4 +4472,59 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="convertDocumentXlsxToXls"></a>
+# **convertDocumentXlsxToXls**
+> byte[] convertDocumentXlsxToXls(inputFile)
+
+Convert Excel XLSX Spreadsheet to Legacy Excel XLS (97-03)
+
+Convert/downgrade modern Office Excel XLSX Spreadsheet to the legacy Excel XLS (97-2003 Format) format
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDocumentApi apiInstance = new ConvertDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.convertDocumentXlsxToXls(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDocumentApi#convertDocumentXlsxToXls");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 

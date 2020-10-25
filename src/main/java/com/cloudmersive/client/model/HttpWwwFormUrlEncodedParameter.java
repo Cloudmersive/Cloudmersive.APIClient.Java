@@ -29,7 +29,7 @@ import java.io.IOException;
  * Defines an x-www-form-urlencoded parameter
  */
 @ApiModel(description = "Defines an x-www-form-urlencoded parameter")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:05:15.432-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-25T00:32:52.415-07:00")
 public class HttpWwwFormUrlEncodedParameter {
   @SerializedName("KeyName")
   private String keyName = null;

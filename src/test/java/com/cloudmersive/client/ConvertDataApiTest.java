@@ -59,6 +59,23 @@ public class ConvertDataApiTest {
     }
     
     /**
+     * Convert CSV to XML conversion
+     *
+     * Convert a CSV file to a XML file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataCsvToXmlTest() throws ApiException {
+        File inputFile = null;
+        Boolean columnNamesFromFirstRow = null;
+        byte[] response = api.convertDataCsvToXml(inputFile, columnNamesFromFirstRow);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert JSON to XML conversion
      *
      * Convert a JSON object into XML
@@ -101,7 +118,23 @@ public class ConvertDataApiTest {
     @Test
     public void convertDataXlsxToJsonTest() throws ApiException {
         File inputFile = null;
-        Object response = api.convertDataXlsxToJson(inputFile);
+        byte[] response = api.convertDataXlsxToJson(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Excel XLSX to XML conversion
+     *
+     * Convert an Excel XLSX file to a XML file
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataXlsxToXmlTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDataXlsxToXml(inputFile);
 
         // TODO: test validations
     }

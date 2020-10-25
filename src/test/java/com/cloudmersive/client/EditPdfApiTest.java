@@ -57,6 +57,23 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Convert a PDF file to PDF/A
+     *
+     * Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfConvertToPdfATest() throws ApiException {
+        File inputFile = null;
+        String conformanceLevel = null;
+        byte[] response = api.editPdfConvertToPdfA(inputFile, conformanceLevel);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Decrypt and password-protect a PDF
      *
      * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
@@ -196,6 +213,22 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Linearize and optimize a PDF for streaming download
+     *
+     * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfLinearizeTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editPdfLinearize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Rasterize a PDF to an image-based PDF
      *
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -207,6 +240,22 @@ public class EditPdfApiTest {
     public void editPdfRasterizeTest() throws ApiException {
         File inputFile = null;
         byte[] response = api.editPdfRasterize(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Reduce the file size and optimize a PDF
+     *
+     * Reduces the file size and optimizes the content of a PDF to minimize its file size.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfReduceFileSizeTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.editPdfReduceFileSize(inputFile);
 
         // TODO: test validations
     }

@@ -185,6 +185,136 @@ public class EditPdfApi {
         return call;
     }
     /**
+     * Build call for editPdfConvertToPdfA
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param conformanceLevel Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfConvertToPdfACall(File inputFile, String conformanceLevel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/optimize/pdf-a";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (conformanceLevel != null)
+        localVarHeaderParams.put("conformanceLevel", apiClient.parameterToString(conformanceLevel));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfConvertToPdfAValidateBeforeCall(File inputFile, String conformanceLevel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfConvertToPdfA(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfConvertToPdfACall(inputFile, conformanceLevel, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert a PDF file to PDF/A
+     * Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param conformanceLevel Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfConvertToPdfA(File inputFile, String conformanceLevel) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfConvertToPdfAWithHttpInfo(inputFile, conformanceLevel);
+        return resp.getData();
+    }
+
+    /**
+     * Convert a PDF file to PDF/A
+     * Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param conformanceLevel Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfConvertToPdfAWithHttpInfo(File inputFile, String conformanceLevel) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfConvertToPdfAValidateBeforeCall(inputFile, conformanceLevel, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert a PDF file to PDF/A (asynchronously)
+     * Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param conformanceLevel Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfConvertToPdfAAsync(File inputFile, String conformanceLevel, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfConvertToPdfAValidateBeforeCall(inputFile, conformanceLevel, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfDecrypt
      * @param password Valid password for the PDF file (required)
      * @param inputFile Input file to perform the operation on. (required)
@@ -1278,6 +1408,130 @@ public class EditPdfApi {
         return call;
     }
     /**
+     * Build call for editPdfLinearize
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfLinearizeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/optimize/linearize";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfLinearizeValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfLinearize(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfLinearizeCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Linearize and optimize a PDF for streaming download
+     * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfLinearize(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfLinearizeWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Linearize and optimize a PDF for streaming download
+     * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfLinearizeWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfLinearizeValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Linearize and optimize a PDF for streaming download (asynchronously)
+     * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfLinearizeAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfLinearizeValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfRasterize
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -1397,6 +1651,130 @@ public class EditPdfApi {
         }
 
         com.squareup.okhttp.Call call = editPdfRasterizeValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfReduceFileSize
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfReduceFileSizeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/optimize/reduce-file-size";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfReduceFileSizeValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfReduceFileSize(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfReduceFileSizeCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Reduce the file size and optimize a PDF
+     * Reduces the file size and optimizes the content of a PDF to minimize its file size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfReduceFileSize(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfReduceFileSizeWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Reduce the file size and optimize a PDF
+     * Reduces the file size and optimizes the content of a PDF to minimize its file size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfReduceFileSizeWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfReduceFileSizeValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reduce the file size and optimize a PDF (asynchronously)
+     * Reduces the file size and optimizes the content of a PDF to minimize its file size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfReduceFileSizeAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfReduceFileSizeValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

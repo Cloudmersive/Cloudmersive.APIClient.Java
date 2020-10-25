@@ -194,6 +194,136 @@ public class ConvertDataApi {
         return call;
     }
     /**
+     * Build call for convertDataCsvToXml
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataCsvToXmlCall(File inputFile, Boolean columnNamesFromFirstRow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/csv/to/xml";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (columnNamesFromFirstRow != null)
+        localVarHeaderParams.put("columnNamesFromFirstRow", apiClient.parameterToString(columnNamesFromFirstRow));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataCsvToXmlValidateBeforeCall(File inputFile, Boolean columnNamesFromFirstRow, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataCsvToXml(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataCsvToXmlCall(inputFile, columnNamesFromFirstRow, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert CSV to XML conversion
+     * Convert a CSV file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] convertDataCsvToXml(File inputFile, Boolean columnNamesFromFirstRow) throws ApiException {
+        ApiResponse<byte[]> resp = convertDataCsvToXmlWithHttpInfo(inputFile, columnNamesFromFirstRow);
+        return resp.getData();
+    }
+
+    /**
+     * Convert CSV to XML conversion
+     * Convert a CSV file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> convertDataCsvToXmlWithHttpInfo(File inputFile, Boolean columnNamesFromFirstRow) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataCsvToXmlValidateBeforeCall(inputFile, columnNamesFromFirstRow, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert CSV to XML conversion (asynchronously)
+     * Convert a CSV file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataCsvToXmlAsync(File inputFile, Boolean columnNamesFromFirstRow, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataCsvToXmlValidateBeforeCall(inputFile, columnNamesFromFirstRow, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for convertDataJsonToXml
      * @param jsonObject Input JSON to convert to XML (required)
      * @param progressListener Progress listener
@@ -463,7 +593,7 @@ public class ConvertDataApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/json"
+            "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -508,11 +638,11 @@ public class ConvertDataApi {
      * Convert Excel XLSX to JSON conversion
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDataXlsxToJson(File inputFile) throws ApiException {
-        ApiResponse<Object> resp = convertDataXlsxToJsonWithHttpInfo(inputFile);
+    public byte[] convertDataXlsxToJson(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = convertDataXlsxToJsonWithHttpInfo(inputFile);
         return resp.getData();
     }
 
@@ -520,12 +650,12 @@ public class ConvertDataApi {
      * Convert Excel XLSX to JSON conversion
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDataXlsxToJsonWithHttpInfo(File inputFile) throws ApiException {
+    public ApiResponse<byte[]> convertDataXlsxToJsonWithHttpInfo(File inputFile) throws ApiException {
         com.squareup.okhttp.Call call = convertDataXlsxToJsonValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -537,7 +667,7 @@ public class ConvertDataApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDataXlsxToJsonAsync(File inputFile, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDataXlsxToJsonAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -559,7 +689,131 @@ public class ConvertDataApi {
         }
 
         com.squareup.okhttp.Call call = convertDataXlsxToJsonValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDataXlsxToXml
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXlsxToXmlCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/xlsx/to/xml";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDataXlsxToXmlValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDataXlsxToXml(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDataXlsxToXmlCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Excel XLSX to XML conversion
+     * Convert an Excel XLSX file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] convertDataXlsxToXml(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = convertDataXlsxToXmlWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Excel XLSX to XML conversion
+     * Convert an Excel XLSX file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> convertDataXlsxToXmlWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDataXlsxToXmlValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Excel XLSX to XML conversion (asynchronously)
+     * Convert an Excel XLSX file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDataXlsxToXmlAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDataXlsxToXmlValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of converting a single document page to a PNG thumbnail
  */
 @ApiModel(description = "Result of converting a single document page to a PNG thumbnail")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:04:54.531-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-25T00:32:41.947-07:00")
 public class Thumbnail {
   @SerializedName("Index")
   private Integer index = null;

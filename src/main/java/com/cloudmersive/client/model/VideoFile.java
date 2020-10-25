@@ -28,7 +28,7 @@ import java.io.IOException;
  * A video file
  */
 @ApiModel(description = "A video file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:05:21.998-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-25T00:32:57.831-07:00")
 public class VideoFile {
   @SerializedName("VideoNumber")
   private Integer videoNumber = null;

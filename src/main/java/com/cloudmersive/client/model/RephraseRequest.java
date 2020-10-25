@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a text rephrasing operation
  */
 @ApiModel(description = "Input to a text rephrasing operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:04:22.714-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-25T00:32:23.901-07:00")
 public class RephraseRequest {
   @SerializedName("TextToTranslate")
   private String textToTranslate = null;

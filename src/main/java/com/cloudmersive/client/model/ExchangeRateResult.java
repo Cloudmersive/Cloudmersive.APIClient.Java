@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a get exchange rate operation
  */
 @ApiModel(description = "Result of performing a get exchange rate operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-18T17:05:29.048-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-25T00:33:04.226-07:00")
 public class ExchangeRateResult {
   @SerializedName("ExchangeRate")
   private Double exchangeRate = null;

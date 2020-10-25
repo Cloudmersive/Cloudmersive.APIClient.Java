@@ -5,9 +5,11 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**convertDataCsvToJson**](ConvertDataApi.md#convertDataCsvToJson) | **POST** /convert/csv/to/json | Convert CSV to JSON conversion
+[**convertDataCsvToXml**](ConvertDataApi.md#convertDataCsvToXml) | **POST** /convert/csv/to/xml | Convert CSV to XML conversion
 [**convertDataJsonToXml**](ConvertDataApi.md#convertDataJsonToXml) | **POST** /convert/json/to/xml | Convert JSON to XML conversion
 [**convertDataXlsToJson**](ConvertDataApi.md#convertDataXlsToJson) | **POST** /convert/xls/to/json | Convert Excel (97-2003) XLS to JSON conversion
 [**convertDataXlsxToJson**](ConvertDataApi.md#convertDataXlsxToJson) | **POST** /convert/xlsx/to/json | Convert Excel XLSX to JSON conversion
+[**convertDataXlsxToXml**](ConvertDataApi.md#convertDataXlsxToXml) | **POST** /convert/xlsx/to/xml | Convert Excel XLSX to XML conversion
 [**convertDataXmlEditAddAttributeWithXPath**](ConvertDataApi.md#convertDataXmlEditAddAttributeWithXPath) | **POST** /convert/xml/edit/xpath/add-attribute | Adds an attribute to all XML nodes matching XPath expression
 [**convertDataXmlEditAddChildWithXPath**](ConvertDataApi.md#convertDataXmlEditAddChildWithXPath) | **POST** /convert/xml/edit/xpath/add-child | Adds an XML node as a child to XML nodes matching XPath expression
 [**convertDataXmlEditRemoveAllChildNodesWithXPath**](ConvertDataApi.md#convertDataXmlEditRemoveAllChildNodesWithXPath) | **POST** /convert/xml/edit/xpath/remove-all-children | Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
@@ -77,6 +79,63 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
+
+<a name="convertDataCsvToXml"></a>
+# **convertDataCsvToXml**
+> byte[] convertDataCsvToXml(inputFile, columnNamesFromFirstRow)
+
+Convert CSV to XML conversion
+
+Convert a CSV file to a XML file
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDataApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDataApi apiInstance = new ConvertDataApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+Boolean columnNamesFromFirstRow = true; // Boolean | Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
+try {
+    byte[] result = apiInstance.convertDataCsvToXml(inputFile, columnNamesFromFirstRow);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDataApi#convertDataCsvToXml");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+ **columnNamesFromFirstRow** | **Boolean**| Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 <a name="convertDataJsonToXml"></a>
 # **convertDataJsonToXml**
@@ -190,7 +249,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDataXlsxToJson"></a>
 # **convertDataXlsxToJson**
-> Object convertDataXlsxToJson(inputFile)
+> byte[] convertDataXlsxToJson(inputFile)
 
 Convert Excel XLSX to JSON conversion
 
@@ -216,7 +275,7 @@ Apikey.setApiKey("YOUR API KEY");
 ConvertDataApi apiInstance = new ConvertDataApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 try {
-    Object result = apiInstance.convertDataXlsxToJson(inputFile);
+    byte[] result = apiInstance.convertDataXlsxToJson(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDataApi#convertDataXlsxToJson");
@@ -232,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -241,7 +300,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/octet-stream
+
+<a name="convertDataXlsxToXml"></a>
+# **convertDataXlsxToXml**
+> byte[] convertDataXlsxToXml(inputFile)
+
+Convert Excel XLSX to XML conversion
+
+Convert an Excel XLSX file to a XML file
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.ConvertDataApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+ConvertDataApi apiInstance = new ConvertDataApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    byte[] result = apiInstance.convertDataXlsxToXml(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConvertDataApi#convertDataXlsxToXml");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 <a name="convertDataXmlEditAddAttributeWithXPath"></a>
 # **convertDataXmlEditAddAttributeWithXPath**

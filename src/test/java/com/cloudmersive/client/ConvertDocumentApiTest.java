@@ -305,6 +305,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Word DOCX Document to Legacy Word DOC (97-03)
+     *
+     * Convert/downgrade modern Office Word DOCX Documents (DOCX) to the legacy Word DOC (97-2003 Format) format
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToDocTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentDocxToDoc(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Word DOCX Document to HTML Document
      *
      * Convert Office Word Document (DOCX) to HTML Document
@@ -1086,6 +1102,21 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
+     *
+     * Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPptxToPptTest() throws ApiException {
+        Object response = api.convertDocumentPptxToPpt();
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert PowerPoint PPTX Presentation to Text (txt)
      *
      * Convert Office PowerPoint Documents (pptx) to standard Text
@@ -1324,6 +1355,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentXlsxToTxtTest() throws ApiException {
         File inputFile = null;
         TextConversionResult response = api.convertDocumentXlsxToTxt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Excel XLSX Spreadsheet to Legacy Excel XLS (97-03)
+     *
+     * Convert/downgrade modern Office Excel XLSX Spreadsheet to the legacy Excel XLS (97-2003 Format) format
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentXlsxToXlsTest() throws ApiException {
+        File inputFile = null;
+        byte[] response = api.convertDocumentXlsxToXls(inputFile);
 
         // TODO: test validations
     }
