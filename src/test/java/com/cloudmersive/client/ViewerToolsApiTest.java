@@ -44,7 +44,9 @@ public class ViewerToolsApiTest {
     @Test
     public void viewerToolsCreateSimpleTest() throws ApiException {
         File inputFile = null;
-        ViewerResponse response = api.viewerToolsCreateSimple(inputFile);
+        Integer width = null;
+        Integer height = null;
+        ViewerResponse response = api.viewerToolsCreateSimple(inputFile, width, height);
 
         // TODO: test validations
     }

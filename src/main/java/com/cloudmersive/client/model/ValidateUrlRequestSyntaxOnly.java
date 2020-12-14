@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to determine if a URL is valid
  */
 @ApiModel(description = "Request to determine if a URL is valid")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-14T18:35:52.821-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-13T19:22:24.134-08:00")
 public class ValidateUrlRequestSyntaxOnly {
   @SerializedName("URL")
   private String URL = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running an Delete Table Row command
  */
 @ApiModel(description = "Result of running an Delete Table Row command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-14T18:36:18.122-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-13T19:22:53.758-08:00")
 public class DeleteDocxTableRowResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

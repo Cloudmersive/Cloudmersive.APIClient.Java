@@ -58,12 +58,14 @@ public class ViewerToolsApi {
     /**
      * Build call for viewerToolsCreateSimple
      * @param inputFile Input file to perform the operation on. (required)
+     * @param width Optional; width of the output viewer in pixels (optional)
+     * @param height Optional; height of the output viewer in pixels (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call viewerToolsCreateSimpleCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call viewerToolsCreateSimpleCall(File inputFile, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -73,6 +75,10 @@ public class ViewerToolsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (width != null)
+        localVarHeaderParams.put("width", apiClient.parameterToString(width));
+        if (height != null)
+        localVarHeaderParams.put("height", apiClient.parameterToString(height));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -107,7 +113,7 @@ public class ViewerToolsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call viewerToolsCreateSimpleValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call viewerToolsCreateSimpleValidateBeforeCall(File inputFile, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -115,7 +121,7 @@ public class ViewerToolsApi {
         }
         
 
-        com.squareup.okhttp.Call call = viewerToolsCreateSimpleCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = viewerToolsCreateSimpleCall(inputFile, width, height, progressListener, progressRequestListener);
         return call;
 
     }
@@ -124,11 +130,13 @@ public class ViewerToolsApi {
      * Create a web-based viewer
      * Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param width Optional; width of the output viewer in pixels (optional)
+     * @param height Optional; height of the output viewer in pixels (optional)
      * @return ViewerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ViewerResponse viewerToolsCreateSimple(File inputFile) throws ApiException {
-        ApiResponse<ViewerResponse> resp = viewerToolsCreateSimpleWithHttpInfo(inputFile);
+    public ViewerResponse viewerToolsCreateSimple(File inputFile, Integer width, Integer height) throws ApiException {
+        ApiResponse<ViewerResponse> resp = viewerToolsCreateSimpleWithHttpInfo(inputFile, width, height);
         return resp.getData();
     }
 
@@ -136,11 +144,13 @@ public class ViewerToolsApi {
      * Create a web-based viewer
      * Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param width Optional; width of the output viewer in pixels (optional)
+     * @param height Optional; height of the output viewer in pixels (optional)
      * @return ApiResponse&lt;ViewerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ViewerResponse> viewerToolsCreateSimpleWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = viewerToolsCreateSimpleValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<ViewerResponse> viewerToolsCreateSimpleWithHttpInfo(File inputFile, Integer width, Integer height) throws ApiException {
+        com.squareup.okhttp.Call call = viewerToolsCreateSimpleValidateBeforeCall(inputFile, width, height, null, null);
         Type localVarReturnType = new TypeToken<ViewerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -149,11 +159,13 @@ public class ViewerToolsApi {
      * Create a web-based viewer (asynchronously)
      * Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param width Optional; width of the output viewer in pixels (optional)
+     * @param height Optional; height of the output viewer in pixels (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call viewerToolsCreateSimpleAsync(File inputFile, final ApiCallback<ViewerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call viewerToolsCreateSimpleAsync(File inputFile, Integer width, Integer height, final ApiCallback<ViewerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,7 +186,7 @@ public class ViewerToolsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = viewerToolsCreateSimpleValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = viewerToolsCreateSimpleValidateBeforeCall(inputFile, width, height, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ViewerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

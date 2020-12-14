@@ -14,6 +14,8 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.XssProtectionBatchRequest;
+import com.cloudmersive.client.model.XssProtectionBatchResponse;
 import com.cloudmersive.client.model.XssProtectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -44,6 +46,22 @@ public class TextInputApiTest {
     public void textInputCheckXssTest() throws ApiException {
         String value = null;
         XssProtectionResult response = api.textInputCheckXss(value);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+     *
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void textInputCheckXssBatchTest() throws ApiException {
+        XssProtectionBatchRequest value = null;
+        XssProtectionBatchResponse response = api.textInputCheckXssBatch(value);
 
         // TODO: test validations
     }

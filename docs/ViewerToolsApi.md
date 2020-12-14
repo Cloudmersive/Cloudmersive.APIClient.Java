@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="viewerToolsCreateSimple"></a>
 # **viewerToolsCreateSimple**
-> ViewerResponse viewerToolsCreateSimple(inputFile)
+> ViewerResponse viewerToolsCreateSimple(inputFile, width, height)
 
 Create a web-based viewer
 
@@ -34,8 +34,10 @@ Apikey.setApiKey("YOUR API KEY");
 
 ViewerToolsApi apiInstance = new ViewerToolsApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+Integer width = 56; // Integer | Optional; width of the output viewer in pixels
+Integer height = 56; // Integer | Optional; height of the output viewer in pixels
 try {
-    ViewerResponse result = apiInstance.viewerToolsCreateSimple(inputFile);
+    ViewerResponse result = apiInstance.viewerToolsCreateSimple(inputFile, width, height);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ViewerToolsApi#viewerToolsCreateSimple");
@@ -48,6 +50,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
+ **width** | **Integer**| Optional; width of the output viewer in pixels | [optional]
+ **height** | **Integer**| Optional; height of the output viewer in pixels | [optional]
 
 ### Return type
 

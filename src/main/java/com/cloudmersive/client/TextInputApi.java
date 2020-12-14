@@ -27,6 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cloudmersive.client.model.XssProtectionBatchRequest;
+import com.cloudmersive.client.model.XssProtectionBatchResponse;
 import com.cloudmersive.client.model.XssProtectionResult;
 
 import java.lang.reflect.Type;
@@ -173,6 +175,128 @@ public class TextInputApi {
 
         com.squareup.okhttp.Call call = textInputCheckXssValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<XssProtectionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for textInputCheckXssBatch
+     * @param value User-facing text input. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call textInputCheckXssBatchCall(XssProtectionBatchRequest value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = value;
+
+        // create path and map variables
+        String localVarPath = "/validate/text-input/check-and-protect/xss/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call textInputCheckXssBatchValidateBeforeCall(XssProtectionBatchRequest value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'value' is set
+        if (value == null) {
+            throw new ApiException("Missing the required parameter 'value' when calling textInputCheckXssBatch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = textInputCheckXssBatchCall(value, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     * @param value User-facing text input. (required)
+     * @return XssProtectionBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XssProtectionBatchResponse textInputCheckXssBatch(XssProtectionBatchRequest value) throws ApiException {
+        ApiResponse<XssProtectionBatchResponse> resp = textInputCheckXssBatchWithHttpInfo(value);
+        return resp.getData();
+    }
+
+    /**
+     * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     * @param value User-facing text input. (required)
+     * @return ApiResponse&lt;XssProtectionBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XssProtectionBatchResponse> textInputCheckXssBatchWithHttpInfo(XssProtectionBatchRequest value) throws ApiException {
+        com.squareup.okhttp.Call call = textInputCheckXssBatchValidateBeforeCall(value, null, null);
+        Type localVarReturnType = new TypeToken<XssProtectionBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch (asynchronously)
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     * @param value User-facing text input. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call textInputCheckXssBatchAsync(XssProtectionBatchRequest value, final ApiCallback<XssProtectionBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = textInputCheckXssBatchValidateBeforeCall(value, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XssProtectionBatchResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

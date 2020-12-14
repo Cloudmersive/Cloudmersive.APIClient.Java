@@ -259,6 +259,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate an TXT file
+     *
+     * Validate an TXT document file; if the document is not valid, identifies the errors in the document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentTxtValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentTxtValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Excel document (XLSX)
      *
      * Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
