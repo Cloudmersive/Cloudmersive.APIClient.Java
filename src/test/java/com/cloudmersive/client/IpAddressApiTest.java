@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.GeolocateResponse;
 import com.cloudmersive.client.model.GeolocateStreetAddressResponse;
+import com.cloudmersive.client.model.IPReverseDNSLookupResponse;
 import com.cloudmersive.client.model.IPThreatResponse;
 import com.cloudmersive.client.model.TorNodeResponse;
 import org.junit.Test;
@@ -95,6 +96,22 @@ public class IpAddressApiTest {
     public void iPAddressPostTest() throws ApiException {
         String value = null;
         GeolocateResponse response = api.iPAddressPost(value);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Perform a reverse domain name (DNS) lookup on an IP address
+     *
+     * Gets the domain name, if any, associated with the IP address.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void iPAddressReverseDomainLookupTest() throws ApiException {
+        String value = null;
+        IPReverseDNSLookupResponse response = api.iPAddressReverseDomainLookup(value);
 
         // TODO: test validations
     }

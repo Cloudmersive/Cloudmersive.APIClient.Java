@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**iPAddressIsThreat**](IpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 [**iPAddressIsTorNode**](IpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 [**iPAddressPost**](IpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
+[**iPAddressReverseDomainLookup**](IpAddressApi.md#iPAddressReverseDomainLookup) | **POST** /validate/ip/reverse-domain-lookup | Perform a reverse domain name (DNS) lookup on an IP address
 
 
 <a name="iPAddressGeolocateStreetAddress"></a>
@@ -220,6 +221,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GeolocateResponse**](GeolocateResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="iPAddressReverseDomainLookup"></a>
+# **iPAddressReverseDomainLookup**
+> IPReverseDNSLookupResponse iPAddressReverseDomainLookup(value)
+
+Perform a reverse domain name (DNS) lookup on an IP address
+
+Gets the domain name, if any, associated with the IP address.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.IpAddressApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+IpAddressApi apiInstance = new IpAddressApi();
+String value = "value_example"; // String | IP address to check, e.g. \"55.55.55.55\".  The input is a string so be sure to enclose it in double-quotes.
+try {
+    IPReverseDNSLookupResponse result = apiInstance.iPAddressReverseDomainLookup(value);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling IpAddressApi#iPAddressReverseDomainLookup");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes. |
+
+### Return type
+
+[**IPReverseDNSLookupResponse**](IPReverseDNSLookupResponse.md)
 
 ### Authorization
 

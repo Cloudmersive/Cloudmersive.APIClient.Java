@@ -31,7 +31,7 @@ import java.util.List;
  * Text of the PDF, broken down by page
  */
 @ApiModel(description = "Text of the PDF, broken down by page")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-13T19:22:53.758-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-25T20:51:30.126-08:00")
 public class PdfTextByPageResult {
   @SerializedName("Successful")
   private Boolean successful = null;

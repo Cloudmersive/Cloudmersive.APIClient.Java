@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an EML file to HTML string
  */
 @ApiModel(description = "Result of converting an EML file to HTML string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-13T19:22:53.758-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-25T20:51:30.126-08:00")
 public class EmlToHtmlResult {
   @SerializedName("Successful")
   private Boolean successful = null;

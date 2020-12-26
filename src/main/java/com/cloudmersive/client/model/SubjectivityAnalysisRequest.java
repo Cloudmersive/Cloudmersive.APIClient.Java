@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a subjectivity analysis operation
  */
 @ApiModel(description = "Input to a subjectivity analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-13T19:22:31.424-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-25T20:51:06.937-08:00")
 public class SubjectivityAnalysisRequest {
   @SerializedName("TextToAnalyze")
   private String textToAnalyze = null;
