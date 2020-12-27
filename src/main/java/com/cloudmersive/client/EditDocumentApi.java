@@ -50,6 +50,7 @@ import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
 import com.cloudmersive.client.model.DocxRemoveObjectRequest;
 import com.cloudmersive.client.model.DocxRemoveObjectResponse;
+import com.cloudmersive.client.model.DocxSetCustomMetadataPropertiesRequest;
 import com.cloudmersive.client.model.DocxSetFooterAddPageNumberRequest;
 import com.cloudmersive.client.model.DocxSetFooterRequest;
 import com.cloudmersive.client.model.DocxSetFooterResponse;
@@ -71,6 +72,7 @@ import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.GetDocxImagesRequest;
 import com.cloudmersive.client.model.GetDocxImagesResponse;
+import com.cloudmersive.client.model.GetDocxMetadataPropertiesResponse;
 import com.cloudmersive.client.model.GetDocxPagesRequest;
 import com.cloudmersive.client.model.GetDocxPagesResponse;
 import com.cloudmersive.client.model.GetDocxSectionsRequest;
@@ -1866,6 +1868,130 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxGetImagesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetDocxImagesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxGetMetadataProperties
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetMetadataPropertiesCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-metadata";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetMetadataPropertiesValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentDocxGetMetadataProperties(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetMetadataPropertiesCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get all metadata properties in Word DOCX document
+     * Returns all the metadata properties in an Office Word Document (docx)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return GetDocxMetadataPropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetDocxMetadataPropertiesResponse editDocumentDocxGetMetadataProperties(File inputFile) throws ApiException {
+        ApiResponse<GetDocxMetadataPropertiesResponse> resp = editDocumentDocxGetMetadataPropertiesWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Get all metadata properties in Word DOCX document
+     * Returns all the metadata properties in an Office Word Document (docx)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;GetDocxMetadataPropertiesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetDocxMetadataPropertiesResponse> editDocumentDocxGetMetadataPropertiesWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetMetadataPropertiesValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<GetDocxMetadataPropertiesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all metadata properties in Word DOCX document (asynchronously)
+     * Returns all the metadata properties in an Office Word Document (docx)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetMetadataPropertiesAsync(File inputFile, final ApiCallback<GetDocxMetadataPropertiesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetMetadataPropertiesValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetDocxMetadataPropertiesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3942,6 +4068,128 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxReplaceParagraphValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ReplaceDocxParagraphResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxSetCustomMetadataProperties
+     * @param input  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxSetCustomMetadataPropertiesCall(DocxSetCustomMetadataPropertiesRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/set-metadata/custom-property";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxSetCustomMetadataPropertiesValidateBeforeCall(DocxSetCustomMetadataPropertiesRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling editDocumentDocxSetCustomMetadataProperties(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxSetCustomMetadataPropertiesCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Set custom property metadata properties in Word DOCX document
+     * Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+     * @param input  (required)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editDocumentDocxSetCustomMetadataProperties(DocxSetCustomMetadataPropertiesRequest input) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentDocxSetCustomMetadataPropertiesWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Set custom property metadata properties in Word DOCX document
+     * Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+     * @param input  (required)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editDocumentDocxSetCustomMetadataPropertiesWithHttpInfo(DocxSetCustomMetadataPropertiesRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxSetCustomMetadataPropertiesValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Set custom property metadata properties in Word DOCX document (asynchronously)
+     * Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+     * @param input  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxSetCustomMetadataPropertiesAsync(DocxSetCustomMetadataPropertiesRequest input, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxSetCustomMetadataPropertiesValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

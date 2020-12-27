@@ -31,7 +31,7 @@ import java.util.List;
  * Results of locating faces in an image
  */
 @ApiModel(description = "Results of locating faces in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-25T20:51:24.200-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-26T20:57:02.060-08:00")
 public class FaceLocateWithLandmarksResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

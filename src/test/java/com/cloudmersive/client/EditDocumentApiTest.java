@@ -37,6 +37,7 @@ import com.cloudmersive.client.model.DocxInsertImageRequest;
 import com.cloudmersive.client.model.DocxInsertImageResponse;
 import com.cloudmersive.client.model.DocxRemoveObjectRequest;
 import com.cloudmersive.client.model.DocxRemoveObjectResponse;
+import com.cloudmersive.client.model.DocxSetCustomMetadataPropertiesRequest;
 import com.cloudmersive.client.model.DocxSetFooterAddPageNumberRequest;
 import com.cloudmersive.client.model.DocxSetFooterRequest;
 import com.cloudmersive.client.model.DocxSetFooterResponse;
@@ -58,6 +59,7 @@ import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.GetDocxImagesRequest;
 import com.cloudmersive.client.model.GetDocxImagesResponse;
+import com.cloudmersive.client.model.GetDocxMetadataPropertiesResponse;
 import com.cloudmersive.client.model.GetDocxPagesRequest;
 import com.cloudmersive.client.model.GetDocxPagesResponse;
 import com.cloudmersive.client.model.GetDocxSectionsRequest;
@@ -356,6 +358,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get all metadata properties in Word DOCX document
+     *
+     * Returns all the metadata properties in an Office Word Document (docx)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetMetadataPropertiesTest() throws ApiException {
+        File inputFile = null;
+        GetDocxMetadataPropertiesResponse response = api.editDocumentDocxGetMetadataProperties(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get sections from a Word DOCX document
      *
      * Returns the sections defined in the Word Document (DOCX) format file
@@ -623,6 +641,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxReplaceParagraphTest() throws ApiException {
         ReplaceDocxParagraphRequest reqConfig = null;
         ReplaceDocxParagraphResponse response = api.editDocumentDocxReplaceParagraph(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set custom property metadata properties in Word DOCX document
+     *
+     * Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxSetCustomMetadataPropertiesTest() throws ApiException {
+        DocxSetCustomMetadataPropertiesRequest input = null;
+        byte[] response = api.editDocumentDocxSetCustomMetadataProperties(input);
 
         // TODO: test validations
     }

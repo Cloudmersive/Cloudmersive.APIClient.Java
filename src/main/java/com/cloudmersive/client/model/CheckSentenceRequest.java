@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input object for spell checking
  */
 @ApiModel(description = "Input object for spell checking")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-25T20:51:06.937-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-26T20:56:52.880-08:00")
 public class CheckSentenceRequest {
   @SerializedName("Sentence")
   private String sentence = null;

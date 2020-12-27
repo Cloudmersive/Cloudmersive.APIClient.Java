@@ -28,7 +28,7 @@ import java.io.IOException;
  * Representation of a file in a zip file
  */
 @ApiModel(description = "Representation of a file in a zip file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-25T20:51:30.126-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-26T20:57:06.021-08:00")
 public class ZipFile {
   @SerializedName("FileName")
   private String fileName = null;
