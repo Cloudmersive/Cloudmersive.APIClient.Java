@@ -14,8 +14,10 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.BotCheckResponse;
 import com.cloudmersive.client.model.GeolocateResponse;
 import com.cloudmersive.client.model.GeolocateStreetAddressResponse;
+import com.cloudmersive.client.model.IPIntelligenceResponse;
 import com.cloudmersive.client.model.IPReverseDNSLookupResponse;
 import com.cloudmersive.client.model.IPThreatResponse;
 import com.cloudmersive.client.model.TorNodeResponse;
@@ -48,6 +50,38 @@ public class IpAddressApiTest {
     public void iPAddressGeolocateStreetAddressTest() throws ApiException {
         String value = null;
         GeolocateStreetAddressResponse response = api.iPAddressGeolocateStreetAddress(value);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get intelligence on an IP address
+     *
+     * Identify key intelligence about an IP address, including if it is a known threat IP, known bot, Tor exit node, as well as the location of the IP address.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void iPAddressIpIntelligenceTest() throws ApiException {
+        String value = null;
+        IPIntelligenceResponse response = api.iPAddressIpIntelligence(value);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check if IP address is a Bot client
+     *
+     * Check if the input IP address is a Bot, robot, or otherwise a non-user entity.  Leverages real-time signals to check against known high-probability bots..
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void iPAddressIsBotTest() throws ApiException {
+        String value = null;
+        BotCheckResponse response = api.iPAddressIsBot(value);
 
         // TODO: test validations
     }
