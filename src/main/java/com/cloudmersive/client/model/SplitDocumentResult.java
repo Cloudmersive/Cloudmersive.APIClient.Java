@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single Word DOCX file corresponding to one page in the original document
  */
 @ApiModel(description = "A single Word DOCX file corresponding to one page in the original document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T18:23:53.456-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-01T13:41:52.720-08:00")
 public class SplitDocumentResult {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
