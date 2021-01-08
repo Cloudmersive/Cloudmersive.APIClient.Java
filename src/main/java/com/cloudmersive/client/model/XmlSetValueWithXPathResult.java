@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a set value operation on XML input using XPath
  */
 @ApiModel(description = "Result of performing a set value operation on XML input using XPath")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-01T13:41:52.720-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-07T19:09:00.148-08:00")
 public class XmlSetValueWithXPathResult {
   @SerializedName("Successful")
   private Boolean successful = null;

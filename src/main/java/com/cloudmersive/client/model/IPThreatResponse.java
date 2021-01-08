@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a IP threat check on an IP address
  */
 @ApiModel(description = "Result of performing a IP threat check on an IP address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-01T13:41:32.104-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-07T19:08:41.279-08:00")
 public class IPThreatResponse {
   @SerializedName("IsThreat")
   private Boolean isThreat = null;

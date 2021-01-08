@@ -163,6 +163,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a JPG File
+     *
+     * Validate a JPEG image file; if the document is not valid, identifies the errors in the document..
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentJpgValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentJpgValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a JSON file
      *
      * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
@@ -206,6 +222,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentPdfValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentPdfValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a PNG File
+     *
+     * Validate a PNG image file; if the document is not valid, identifies the errors in the document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentPngValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentPngValidation(inputFile);
 
         // TODO: test validations
     }
