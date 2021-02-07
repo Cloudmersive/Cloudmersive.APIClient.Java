@@ -5,8 +5,11 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](DomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
+[**domainGetTopLevelDomainFromUrl**](DomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
 [**domainPost**](DomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domainQualityScore**](DomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
+[**domainSsrfCheck**](DomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
+[**domainSsrfCheckBatch**](DomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domainUrlFull**](DomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
 [**domainUrlSyntaxOnly**](DomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
@@ -56,6 +59,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CheckResponse**](CheckResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainGetTopLevelDomainFromUrl"></a>
+# **domainGetTopLevelDomainFromUrl**
+> ValidateUrlResponseSyntaxOnly domainGetTopLevelDomainFromUrl(request)
+
+Get top-level domain name from URL
+
+Gets the top-level domain name from a URL, such as mydomain.com.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+ValidateUrlRequestSyntaxOnly request = new ValidateUrlRequestSyntaxOnly(); // ValidateUrlRequestSyntaxOnly | Input URL information
+try {
+    ValidateUrlResponseSyntaxOnly result = apiInstance.domainGetTopLevelDomainFromUrl(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainGetTopLevelDomainFromUrl");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)| Input URL information |
+
+### Return type
+
+[**ValidateUrlResponseSyntaxOnly**](ValidateUrlResponseSyntaxOnly.md)
 
 ### Authorization
 
@@ -166,6 +224,116 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DomainQualityResponse**](DomainQualityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainSsrfCheck"></a>
+# **domainSsrfCheck**
+> UrlSsrfResponseFull domainSsrfCheck(request)
+
+Check a URL for SSRF threats
+
+Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+UrlSsrfRequestFull request = new UrlSsrfRequestFull(); // UrlSsrfRequestFull | Input URL request
+try {
+    UrlSsrfResponseFull result = apiInstance.domainSsrfCheck(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainSsrfCheck");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlSsrfRequestFull**](UrlSsrfRequestFull.md)| Input URL request |
+
+### Return type
+
+[**UrlSsrfResponseFull**](UrlSsrfResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainSsrfCheckBatch"></a>
+# **domainSsrfCheckBatch**
+> UrlSsrfResponseBatch domainSsrfCheckBatch(request)
+
+Check a URL for SSRF threats in batches
+
+Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+UrlSsrfRequestBatch request = new UrlSsrfRequestBatch(); // UrlSsrfRequestBatch | Input URL request as a batch of multiple URLs
+try {
+    UrlSsrfResponseBatch result = apiInstance.domainSsrfCheckBatch(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainSsrfCheckBatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlSsrfRequestBatch**](UrlSsrfRequestBatch.md)| Input URL request as a batch of multiple URLs |
+
+### Return type
+
+[**UrlSsrfResponseBatch**](UrlSsrfResponseBatch.md)
 
 ### Authorization
 

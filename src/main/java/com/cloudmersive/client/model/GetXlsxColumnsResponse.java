@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a Get-Columns command
  */
 @ApiModel(description = "Result of running a Get-Columns command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-07T19:09:00.148-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T15:45:36.234-08:00")
 public class GetXlsxColumnsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

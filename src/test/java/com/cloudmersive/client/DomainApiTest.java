@@ -16,6 +16,10 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckResponse;
 import com.cloudmersive.client.model.DomainQualityResponse;
+import com.cloudmersive.client.model.UrlSsrfRequestBatch;
+import com.cloudmersive.client.model.UrlSsrfRequestFull;
+import com.cloudmersive.client.model.UrlSsrfResponseBatch;
+import com.cloudmersive.client.model.UrlSsrfResponseFull;
 import com.cloudmersive.client.model.ValidateUrlRequestFull;
 import com.cloudmersive.client.model.ValidateUrlRequestSyntaxOnly;
 import com.cloudmersive.client.model.ValidateUrlResponseFull;
@@ -55,6 +59,22 @@ public class DomainApiTest {
     }
     
     /**
+     * Get top-level domain name from URL
+     *
+     * Gets the top-level domain name from a URL, such as mydomain.com.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainGetTopLevelDomainFromUrlTest() throws ApiException {
+        ValidateUrlRequestSyntaxOnly request = null;
+        ValidateUrlResponseSyntaxOnly response = api.domainGetTopLevelDomainFromUrl(request);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get WHOIS information for a domain
      *
      * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain&#39;s owners.
@@ -82,6 +102,38 @@ public class DomainApiTest {
     public void domainQualityScoreTest() throws ApiException {
         String domain = null;
         DomainQualityResponse response = api.domainQualityScore(domain);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check a URL for SSRF threats
+     *
+     * Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainSsrfCheckTest() throws ApiException {
+        UrlSsrfRequestFull request = null;
+        UrlSsrfResponseFull response = api.domainSsrfCheck(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check a URL for SSRF threats in batches
+     *
+     * Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainSsrfCheckBatchTest() throws ApiException {
+        UrlSsrfRequestBatch request = null;
+        UrlSsrfResponseBatch response = api.domainSsrfCheckBatch(request);
 
         // TODO: test validations
     }
