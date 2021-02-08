@@ -29,7 +29,7 @@ import java.io.IOException;
  * Result of running a Get-Tables by Index command
  */
 @ApiModel(description = "Result of running a Get-Tables by Index command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T15:45:36.234-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:26:02.735-08:00")
 public class GetDocxTableByIndexResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

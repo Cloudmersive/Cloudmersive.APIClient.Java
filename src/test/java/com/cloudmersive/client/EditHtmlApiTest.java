@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.HtmlGetLinksResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -127,6 +128,24 @@ public class EditHtmlApiTest {
         String javascriptUrl = null;
         String javascriptInline = null;
         byte[] response = api.editHtmlHtmlCreateBlankDocument(title, cssUrl, cssInline, javascriptUrl, javascriptInline);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Extract resolved link URLs from HTML File
+     *
+     * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlGetLinksTest() throws ApiException {
+        File inputFile = null;
+        String inputFileUrl = null;
+        String baseUrl = null;
+        HtmlGetLinksResponse response = api.editHtmlHtmlGetLinks(inputFile, inputFileUrl, baseUrl);
 
         // TODO: test validations
     }

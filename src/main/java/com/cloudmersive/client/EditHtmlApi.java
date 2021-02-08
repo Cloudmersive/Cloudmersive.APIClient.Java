@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.HtmlGetLinksResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -775,6 +776,137 @@ public class EditHtmlApi {
 
         com.squareup.okhttp.Call call = editHtmlHtmlCreateBlankDocumentValidateBeforeCall(title, cssUrl, cssInline, javascriptUrl, javascriptInline, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlGetLinks
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param baseUrl Optional: Base URL of the page, such as https://mydomain.com (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetLinksCall(File inputFile, String inputFileUrl, String baseUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/extract/links";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+        if (baseUrl != null)
+        localVarHeaderParams.put("baseUrl", apiClient.parameterToString(baseUrl));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlGetLinksValidateBeforeCall(File inputFile, String inputFileUrl, String baseUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetLinksCall(inputFile, inputFileUrl, baseUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Extract resolved link URLs from HTML File
+     * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param baseUrl Optional: Base URL of the page, such as https://mydomain.com (optional)
+     * @return HtmlGetLinksResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HtmlGetLinksResponse editHtmlHtmlGetLinks(File inputFile, String inputFileUrl, String baseUrl) throws ApiException {
+        ApiResponse<HtmlGetLinksResponse> resp = editHtmlHtmlGetLinksWithHttpInfo(inputFile, inputFileUrl, baseUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Extract resolved link URLs from HTML File
+     * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param baseUrl Optional: Base URL of the page, such as https://mydomain.com (optional)
+     * @return ApiResponse&lt;HtmlGetLinksResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<HtmlGetLinksResponse> editHtmlHtmlGetLinksWithHttpInfo(File inputFile, String inputFileUrl, String baseUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlGetLinksValidateBeforeCall(inputFile, inputFileUrl, baseUrl, null, null);
+        Type localVarReturnType = new TypeToken<HtmlGetLinksResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Extract resolved link URLs from HTML File (asynchronously)
+     * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param baseUrl Optional: Base URL of the page, such as https://mydomain.com (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetLinksAsync(File inputFile, String inputFileUrl, String baseUrl, final ApiCallback<HtmlGetLinksResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetLinksValidateBeforeCall(inputFile, inputFileUrl, baseUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<HtmlGetLinksResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

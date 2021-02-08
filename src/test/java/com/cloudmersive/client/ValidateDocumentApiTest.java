@@ -17,6 +17,7 @@ import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AutodetectDocumentValidationResult;
 import com.cloudmersive.client.model.DocumentValidationResult;
 import java.io.File;
+import com.cloudmersive.client.model.HtmlSsrfThreatCheckResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -126,6 +127,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentGZipValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentGZipValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate an HTML file and checks for SSRF threats
+     *
+     * Validate an HTML document file and checks for SSRF (Server-side Request Forgery) threats in the file; if the document is not valid, identifies the errors in the document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentHtmlSsrfValidationTest() throws ApiException {
+        File inputFile = null;
+        HtmlSsrfThreatCheckResult response = api.validateDocumentHtmlSsrfValidation(inputFile);
 
         // TODO: test validations
     }

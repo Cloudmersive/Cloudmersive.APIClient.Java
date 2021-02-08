@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**editHtmlHtmlAppendImageInline**](EditHtmlApi.md#editHtmlHtmlAppendImageInline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 [**editHtmlHtmlAppendParagraph**](EditHtmlApi.md#editHtmlHtmlAppendParagraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
 [**editHtmlHtmlCreateBlankDocument**](EditHtmlApi.md#editHtmlHtmlCreateBlankDocument) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
+[**editHtmlHtmlGetLinks**](EditHtmlApi.md#editHtmlHtmlGetLinks) | **POST** /convert/edit/html/extract/links | Extract resolved link URLs from HTML File
 
 
 <a name="editHtmlHtmlAppendHeading"></a>
@@ -314,6 +315,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 **byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editHtmlHtmlGetLinks"></a>
+# **editHtmlHtmlGetLinks**
+> HtmlGetLinksResponse editHtmlHtmlGetLinks(inputFile, inputFileUrl, baseUrl)
+
+Extract resolved link URLs from HTML File
+
+Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditHtmlApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditHtmlApi apiInstance = new EditHtmlApi();
+File inputFile = new File("/path/to/file.txt"); // File | Optional: Input file to perform the operation on.
+String inputFileUrl = "inputFileUrl_example"; // String | Optional: URL of a file to operate on as input.
+String baseUrl = "baseUrl_example"; // String | Optional: Base URL of the page, such as https://mydomain.com
+try {
+    HtmlGetLinksResponse result = apiInstance.editHtmlHtmlGetLinks(inputFile, inputFileUrl, baseUrl);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditHtmlApi#editHtmlHtmlGetLinks");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Optional: Input file to perform the operation on. | [optional]
+ **inputFileUrl** | **String**| Optional: URL of a file to operate on as input. | [optional]
+ **baseUrl** | **String**| Optional: Base URL of the page, such as https://mydomain.com | [optional]
+
+### Return type
+
+[**HtmlGetLinksResponse**](HtmlGetLinksResponse.md)
 
 ### Authorization
 

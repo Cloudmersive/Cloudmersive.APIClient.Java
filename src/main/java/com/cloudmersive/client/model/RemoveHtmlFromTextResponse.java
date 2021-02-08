@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of removing HTML from a string
  */
 @ApiModel(description = "Result of removing HTML from a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T15:45:36.234-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:26:02.735-08:00")
 public class RemoveHtmlFromTextResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
