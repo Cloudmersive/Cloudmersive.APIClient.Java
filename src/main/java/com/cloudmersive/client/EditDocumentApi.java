@@ -85,6 +85,7 @@ import com.cloudmersive.client.model.GetDocxTableRowRequest;
 import com.cloudmersive.client.model.GetDocxTableRowResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.GetMacrosResponse;
 import com.cloudmersive.client.model.GetXlsxCellByIdentifierRequest;
 import com.cloudmersive.client.model.GetXlsxCellByIdentifierResponse;
 import com.cloudmersive.client.model.GetXlsxCellRequest;
@@ -1868,6 +1869,130 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentDocxGetImagesValidateBeforeCall(reqConfig, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetDocxImagesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentDocxGetMacroInformation
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetMacroInformationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/docx/get-macros";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentDocxGetMacroInformationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentDocxGetMacroInformation(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetMacroInformationCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get macro information from a Word DOCX/DOCM document
+     * Returns information about the Macros (e.g. VBA) defined in the Word Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return GetMacrosResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetMacrosResponse editDocumentDocxGetMacroInformation(File inputFile) throws ApiException {
+        ApiResponse<GetMacrosResponse> resp = editDocumentDocxGetMacroInformationWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Get macro information from a Word DOCX/DOCM document
+     * Returns information about the Macros (e.g. VBA) defined in the Word Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;GetMacrosResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetMacrosResponse> editDocumentDocxGetMacroInformationWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxGetMacroInformationValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get macro information from a Word DOCX/DOCM document (asynchronously)
+     * Returns information about the Macros (e.g. VBA) defined in the Word Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentDocxGetMacroInformationAsync(File inputFile, final ApiCallback<GetMacrosResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentDocxGetMacroInformationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5048,6 +5173,130 @@ public class EditDocumentApi {
         return call;
     }
     /**
+     * Build call for editDocumentPptxGetMacroInformation
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentPptxGetMacroInformationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pptx/get-macros";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentPptxGetMacroInformationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentPptxGetMacroInformation(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentPptxGetMacroInformationCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get macro information from a PowerPoint PPTX/PPTM presentation document
+     * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return GetMacrosResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetMacrosResponse editDocumentPptxGetMacroInformation(File inputFile) throws ApiException {
+        ApiResponse<GetMacrosResponse> resp = editDocumentPptxGetMacroInformationWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Get macro information from a PowerPoint PPTX/PPTM presentation document
+     * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;GetMacrosResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetMacrosResponse> editDocumentPptxGetMacroInformationWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentPptxGetMacroInformationValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get macro information from a PowerPoint PPTX/PPTM presentation document (asynchronously)
+     * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentPptxGetMacroInformationAsync(File inputFile, final ApiCallback<GetMacrosResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentPptxGetMacroInformationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editDocumentPptxReplace
      * @param reqConfig Replacement document configuration input (required)
      * @param progressListener Progress listener
@@ -6630,6 +6879,130 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentXlsxGetImagesValidateBeforeCall(input, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetXlsxImagesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editDocumentXlsxGetMacroInformation
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentXlsxGetMacroInformationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/xlsx/get-macros";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentXlsxGetMacroInformationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentXlsxGetMacroInformation(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentXlsxGetMacroInformationCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+     * Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return GetMacrosResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetMacrosResponse editDocumentXlsxGetMacroInformation(File inputFile) throws ApiException {
+        ApiResponse<GetMacrosResponse> resp = editDocumentXlsxGetMacroInformationWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+     * Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;GetMacrosResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetMacrosResponse> editDocumentXlsxGetMacroInformationWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentXlsxGetMacroInformationValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet (asynchronously)
+     * Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentXlsxGetMacroInformationAsync(File inputFile, final ApiCallback<GetMacrosResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentXlsxGetMacroInformationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

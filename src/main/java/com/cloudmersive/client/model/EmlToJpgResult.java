@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an EML input to a JPG array
  */
 @ApiModel(description = "Result of converting an EML input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:26:02.735-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:47:48.635-08:00")
 public class EmlToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;

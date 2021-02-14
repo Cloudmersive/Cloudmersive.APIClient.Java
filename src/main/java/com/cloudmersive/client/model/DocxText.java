@@ -28,7 +28,7 @@ import java.io.IOException;
  * Unit of text content in a Word Document (DOCX) file
  */
 @ApiModel(description = "Unit of text content in a Word Document (DOCX) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:26:02.735-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:47:48.635-08:00")
 public class DocxText {
   @SerializedName("TextIndex")
   private Integer textIndex = null;

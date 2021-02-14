@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a get time zones operation
  */
 @ApiModel(description = "Result of performing a get time zones operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:25:28.484-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:46:44.593-08:00")
 public class GetTimezonesResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

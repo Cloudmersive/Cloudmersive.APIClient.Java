@@ -31,7 +31,7 @@ import java.util.List;
  * Sentence in a POS tag result
  */
 @ApiModel(description = "Sentence in a POS tag result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:25:33.577-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:47:01.939-08:00")
 public class PosSentence {
   @SerializedName("Words")
   private List<PosTaggedWord> words = null;

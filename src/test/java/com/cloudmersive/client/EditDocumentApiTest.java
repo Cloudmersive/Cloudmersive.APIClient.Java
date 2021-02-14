@@ -72,6 +72,7 @@ import com.cloudmersive.client.model.GetDocxTableRowRequest;
 import com.cloudmersive.client.model.GetDocxTableRowResponse;
 import com.cloudmersive.client.model.GetDocxTablesRequest;
 import com.cloudmersive.client.model.GetDocxTablesResponse;
+import com.cloudmersive.client.model.GetMacrosResponse;
 import com.cloudmersive.client.model.GetXlsxCellByIdentifierRequest;
 import com.cloudmersive.client.model.GetXlsxCellByIdentifierResponse;
 import com.cloudmersive.client.model.GetXlsxCellRequest;
@@ -353,6 +354,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxGetImagesTest() throws ApiException {
         GetDocxImagesRequest reqConfig = null;
         GetDocxImagesResponse response = api.editDocumentDocxGetImages(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get macro information from a Word DOCX/DOCM document
+     *
+     * Returns information about the Macros (e.g. VBA) defined in the Word Document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetMacroInformationTest() throws ApiException {
+        File inputFile = null;
+        GetMacrosResponse response = api.editDocumentDocxGetMacroInformation(inputFile);
 
         // TODO: test validations
     }
@@ -774,6 +791,22 @@ public class EditDocumentApiTest {
     }
     
     /**
+     * Get macro information from a PowerPoint PPTX/PPTM presentation document
+     *
+     * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentPptxGetMacroInformationTest() throws ApiException {
+        File inputFile = null;
+        GetMacrosResponse response = api.editDocumentPptxGetMacroInformation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Replace string in PowerPoint PPTX presentation
      *
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
@@ -977,6 +1010,22 @@ public class EditDocumentApiTest {
     public void editDocumentXlsxGetImagesTest() throws ApiException {
         GetXlsxImagesRequest input = null;
         GetXlsxImagesResponse response = api.editDocumentXlsxGetImages(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+     *
+     * Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentXlsxGetMacroInformationTest() throws ApiException {
+        File inputFile = null;
+        GetMacrosResponse response = api.editDocumentXlsxGetMacroInformation(inputFile);
 
         // TODO: test validations
     }

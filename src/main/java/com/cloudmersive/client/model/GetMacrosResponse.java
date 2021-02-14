@@ -25,18 +25,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Result of replacing a string
+ * Result of running a Get Macro Information command
  */
-@ApiModel(description = "Result of replacing a string")
+@ApiModel(description = "Result of running a Get Macro Information command")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:47:48.635-08:00")
-public class ReplaceStringSimpleResponse {
+public class GetMacrosResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("TextContentResult")
-  private String textContentResult = null;
+  @SerializedName("ContainsVbaMacros")
+  private Boolean containsVbaMacros = null;
 
-  public ReplaceStringSimpleResponse successful(Boolean successful) {
+  public GetMacrosResponse successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -54,22 +54,22 @@ public class ReplaceStringSimpleResponse {
     this.successful = successful;
   }
 
-  public ReplaceStringSimpleResponse textContentResult(String textContentResult) {
-    this.textContentResult = textContentResult;
+  public GetMacrosResponse containsVbaMacros(Boolean containsVbaMacros) {
+    this.containsVbaMacros = containsVbaMacros;
     return this;
   }
 
    /**
-   * Result of performing a replace string operation
-   * @return textContentResult
+   * True if the document contains VBA macros, false otherwise
+   * @return containsVbaMacros
   **/
-  @ApiModelProperty(value = "Result of performing a replace string operation")
-  public String getTextContentResult() {
-    return textContentResult;
+  @ApiModelProperty(value = "True if the document contains VBA macros, false otherwise")
+  public Boolean isContainsVbaMacros() {
+    return containsVbaMacros;
   }
 
-  public void setTextContentResult(String textContentResult) {
-    this.textContentResult = textContentResult;
+  public void setContainsVbaMacros(Boolean containsVbaMacros) {
+    this.containsVbaMacros = containsVbaMacros;
   }
 
 
@@ -81,24 +81,24 @@ public class ReplaceStringSimpleResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReplaceStringSimpleResponse replaceStringSimpleResponse = (ReplaceStringSimpleResponse) o;
-    return Objects.equals(this.successful, replaceStringSimpleResponse.successful) &&
-        Objects.equals(this.textContentResult, replaceStringSimpleResponse.textContentResult);
+    GetMacrosResponse getMacrosResponse = (GetMacrosResponse) o;
+    return Objects.equals(this.successful, getMacrosResponse.successful) &&
+        Objects.equals(this.containsVbaMacros, getMacrosResponse.containsVbaMacros);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, textContentResult);
+    return Objects.hash(successful, containsVbaMacros);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReplaceStringSimpleResponse {\n");
+    sb.append("class GetMacrosResponse {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    textContentResult: ").append(toIndentedString(textContentResult)).append("\n");
+    sb.append("    containsVbaMacros: ").append(toIndentedString(containsVbaMacros)).append("\n");
     sb.append("}");
     return sb.toString();
   }

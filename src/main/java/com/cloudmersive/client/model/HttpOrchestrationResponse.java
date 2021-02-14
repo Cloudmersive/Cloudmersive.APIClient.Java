@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an HTTP orchestration
  */
 @ApiModel(description = "Result of performing an HTTP orchestration")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-07T20:26:16.126-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:48:20.906-08:00")
 public class HttpOrchestrationResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
