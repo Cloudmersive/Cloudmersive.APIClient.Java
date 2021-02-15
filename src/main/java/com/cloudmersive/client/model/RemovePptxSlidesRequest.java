@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Remove PowerPoint PPTX Presentation Slides request
  */
 @ApiModel(description = "Input to a Remove PowerPoint PPTX Presentation Slides request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:47:48.635-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-15T01:01:53.598-08:00")
 public class RemovePptxSlidesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

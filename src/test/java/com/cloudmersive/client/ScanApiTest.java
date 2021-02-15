@@ -67,8 +67,9 @@ public class ScanApiTest {
         Boolean allowInvalidFiles = null;
         Boolean allowScripts = null;
         Boolean allowPasswordProtectedFiles = null;
+        Boolean allowMacros = null;
         String restrictFileTypes = null;
-        VirusScanAdvancedResult response = api.scanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, restrictFileTypes);
+        VirusScanAdvancedResult response = api.scanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
 
         // TODO: test validations
     }

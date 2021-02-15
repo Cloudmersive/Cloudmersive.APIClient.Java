@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to Validate a City and State or Province in a country
  */
 @ApiModel(description = "Request to Validate a City and State or Province in a country")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:46:44.593-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-15T01:01:26.452-08:00")
 public class ValidateCityRequest {
   @SerializedName("City")
   private String city = null;

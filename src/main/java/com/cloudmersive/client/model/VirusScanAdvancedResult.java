@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-14T11:48:14.052-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-15T01:01:59.276-08:00")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -50,6 +50,9 @@ public class VirusScanAdvancedResult {
 
   @SerializedName("ContainsRestrictedFileFormat")
   private Boolean containsRestrictedFileFormat = null;
+
+  @SerializedName("ContainsMacros")
+  private Boolean containsMacros = null;
 
   @SerializedName("VerifiedFileFormat")
   private String verifiedFileFormat = null;
@@ -165,6 +168,24 @@ public class VirusScanAdvancedResult {
     this.containsRestrictedFileFormat = containsRestrictedFileFormat;
   }
 
+  public VirusScanAdvancedResult containsMacros(Boolean containsMacros) {
+    this.containsMacros = containsMacros;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor
+   * @return containsMacros
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor")
+  public Boolean isContainsMacros() {
+    return containsMacros;
+  }
+
+  public void setContainsMacros(Boolean containsMacros) {
+    this.containsMacros = containsMacros;
+  }
+
   public VirusScanAdvancedResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
@@ -225,13 +246,14 @@ public class VirusScanAdvancedResult {
         Objects.equals(this.containsScript, virusScanAdvancedResult.containsScript) &&
         Objects.equals(this.containsPasswordProtectedFile, virusScanAdvancedResult.containsPasswordProtectedFile) &&
         Objects.equals(this.containsRestrictedFileFormat, virusScanAdvancedResult.containsRestrictedFileFormat) &&
+        Objects.equals(this.containsMacros, virusScanAdvancedResult.containsMacros) &&
         Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, verifiedFileFormat, foundViruses);
+    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses);
   }
 
 
@@ -246,6 +268,7 @@ public class VirusScanAdvancedResult {
     sb.append("    containsScript: ").append(toIndentedString(containsScript)).append("\n");
     sb.append("    containsPasswordProtectedFile: ").append(toIndentedString(containsPasswordProtectedFile)).append("\n");
     sb.append("    containsRestrictedFileFormat: ").append(toIndentedString(containsRestrictedFileFormat)).append("\n");
+    sb.append("    containsMacros: ").append(toIndentedString(containsMacros)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("}");
