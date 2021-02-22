@@ -29,6 +29,10 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.CheckResponse;
 import com.cloudmersive.client.model.DomainQualityResponse;
+import com.cloudmersive.client.model.PhishingCheckRequest;
+import com.cloudmersive.client.model.PhishingCheckResponse;
+import com.cloudmersive.client.model.UrlSafetyCheckRequestFull;
+import com.cloudmersive.client.model.UrlSafetyCheckResponseFull;
 import com.cloudmersive.client.model.UrlSsrfRequestBatch;
 import com.cloudmersive.client.model.UrlSsrfRequestFull;
 import com.cloudmersive.client.model.UrlSsrfResponseBatch;
@@ -309,6 +313,128 @@ public class DomainApi {
         return call;
     }
     /**
+     * Build call for domainPhishingCheck
+     * @param request Input URL request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call domainPhishingCheckCall(PhishingCheckRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/validate/domain/url/phishing-threat-check";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call domainPhishingCheckValidateBeforeCall(PhishingCheckRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling domainPhishingCheck(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = domainPhishingCheckCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check a URL for Phishing threats
+     * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+     * @param request Input URL request (required)
+     * @return PhishingCheckResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PhishingCheckResponse domainPhishingCheck(PhishingCheckRequest request) throws ApiException {
+        ApiResponse<PhishingCheckResponse> resp = domainPhishingCheckWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Check a URL for Phishing threats
+     * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+     * @param request Input URL request (required)
+     * @return ApiResponse&lt;PhishingCheckResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PhishingCheckResponse> domainPhishingCheckWithHttpInfo(PhishingCheckRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = domainPhishingCheckValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<PhishingCheckResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check a URL for Phishing threats (asynchronously)
+     * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+     * @param request Input URL request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call domainPhishingCheckAsync(PhishingCheckRequest request, final ApiCallback<PhishingCheckResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = domainPhishingCheckValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PhishingCheckResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for domainPost
      * @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot;.   The input is a string so be sure to enclose it in double-quotes. (required)
      * @param progressListener Progress listener
@@ -549,6 +675,128 @@ public class DomainApi {
 
         com.squareup.okhttp.Call call = domainQualityScoreValidateBeforeCall(domain, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DomainQualityResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for domainSafetyCheck
+     * @param request Input URL request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call domainSafetyCheckCall(UrlSafetyCheckRequestFull request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/validate/domain/url/safety-threat-check";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call domainSafetyCheckValidateBeforeCall(UrlSafetyCheckRequestFull request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling domainSafetyCheck(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = domainSafetyCheckCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check a URL for safety threats
+     * Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+     * @param request Input URL request (required)
+     * @return UrlSafetyCheckResponseFull
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UrlSafetyCheckResponseFull domainSafetyCheck(UrlSafetyCheckRequestFull request) throws ApiException {
+        ApiResponse<UrlSafetyCheckResponseFull> resp = domainSafetyCheckWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Check a URL for safety threats
+     * Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+     * @param request Input URL request (required)
+     * @return ApiResponse&lt;UrlSafetyCheckResponseFull&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UrlSafetyCheckResponseFull> domainSafetyCheckWithHttpInfo(UrlSafetyCheckRequestFull request) throws ApiException {
+        com.squareup.okhttp.Call call = domainSafetyCheckValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<UrlSafetyCheckResponseFull>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check a URL for safety threats (asynchronously)
+     * Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+     * @param request Input URL request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call domainSafetyCheckAsync(UrlSafetyCheckRequestFull request, final ApiCallback<UrlSafetyCheckResponseFull> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = domainSafetyCheckValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UrlSafetyCheckResponseFull>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

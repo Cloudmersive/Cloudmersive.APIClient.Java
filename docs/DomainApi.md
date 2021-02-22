@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](DomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 [**domainGetTopLevelDomainFromUrl**](DomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+[**domainPhishingCheck**](DomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domainPost**](DomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domainQualityScore**](DomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
+[**domainSafetyCheck**](DomainApi.md#domainSafetyCheck) | **POST** /validate/domain/url/safety-threat-check | Check a URL for safety threats
 [**domainSsrfCheck**](DomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 [**domainSsrfCheckBatch**](DomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domainUrlFull**](DomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -124,6 +126,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
+<a name="domainPhishingCheck"></a>
+# **domainPhishingCheck**
+> PhishingCheckResponse domainPhishingCheck(request)
+
+Check a URL for Phishing threats
+
+Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+PhishingCheckRequest request = new PhishingCheckRequest(); // PhishingCheckRequest | Input URL request
+try {
+    PhishingCheckResponse result = apiInstance.domainPhishingCheck(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainPhishingCheck");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**PhishingCheckRequest**](PhishingCheckRequest.md)| Input URL request |
+
+### Return type
+
+[**PhishingCheckResponse**](PhishingCheckResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 <a name="domainPost"></a>
 # **domainPost**
 > WhoisResponse domainPost(domain)
@@ -224,6 +281,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DomainQualityResponse**](DomainQualityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainSafetyCheck"></a>
+# **domainSafetyCheck**
+> UrlSafetyCheckResponseFull domainSafetyCheck(request)
+
+Check a URL for safety threats
+
+Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+UrlSafetyCheckRequestFull request = new UrlSafetyCheckRequestFull(); // UrlSafetyCheckRequestFull | Input URL request
+try {
+    UrlSafetyCheckResponseFull result = apiInstance.domainSafetyCheck(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainSafetyCheck");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlSafetyCheckRequestFull**](UrlSafetyCheckRequestFull.md)| Input URL request |
+
+### Return type
+
+[**UrlSafetyCheckResponseFull**](UrlSafetyCheckResponseFull.md)
 
 ### Authorization
 

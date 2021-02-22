@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * PDF Annotation details
  */
 @ApiModel(description = "PDF Annotation details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-15T01:01:53.598-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-21T16:14:43.897-08:00")
 public class PdfAnnotation {
   @SerializedName("Title")
   private String title = null;
