@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a Autodetected Document input to a JPG array
  */
 @ApiModel(description = "Result of converting a Autodetected Document input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-21T16:14:43.897-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-02T20:50:24.301-07:00")
 public class AutodetectToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -14,6 +14,9 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.SqlInjectionCheckBatchRequest;
+import com.cloudmersive.client.model.SqlInjectionCheckBatchResponse;
+import com.cloudmersive.client.model.SqlInjectionDetectionResult;
 import com.cloudmersive.client.model.XssProtectionBatchRequest;
 import com.cloudmersive.client.model.XssProtectionBatchResponse;
 import com.cloudmersive.client.model.XssProtectionResult;
@@ -35,6 +38,39 @@ public class TextInputApiTest {
 
     
     /**
+     * Check text input for SQL Injection (SQLI) attacks
+     *
+     * Detects SQL Injection (SQLI) attacks from text input.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void textInputCheckSqlInjectionTest() throws ApiException {
+        String value = null;
+        String detectionLevel = null;
+        SqlInjectionDetectionResult response = api.textInputCheckSqlInjection(value, detectionLevel);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
+     *
+     * Detects SQL Injection (SQLI) attacks from multiple text inputs.  Output preverses order of input items.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void textInputCheckSqlInjectionBatchTest() throws ApiException {
+        SqlInjectionCheckBatchRequest value = null;
+        SqlInjectionCheckBatchResponse response = api.textInputCheckSqlInjectionBatch(value);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Check text input for Cross-Site-Scripting (XSS) attacks
      *
      * Detects XSS (Cross-Site-Scripting) attacks from text input.
@@ -53,7 +89,7 @@ public class TextInputApiTest {
     /**
      * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
      *
-     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text inputs.  Output preverses order of input items.
      *
      * @throws ApiException
      *          if the Api call fails

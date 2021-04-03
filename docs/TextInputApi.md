@@ -4,10 +4,124 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**textInputCheckSqlInjection**](TextInputApi.md#textInputCheckSqlInjection) | **POST** /validate/text-input/check/sql-injection | Check text input for SQL Injection (SQLI) attacks
+[**textInputCheckSqlInjectionBatch**](TextInputApi.md#textInputCheckSqlInjectionBatch) | **POST** /validate/text-input/check/sql-injection/batch | Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
 [**textInputCheckXss**](TextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
 [**textInputCheckXssBatch**](TextInputApi.md#textInputCheckXssBatch) | **POST** /validate/text-input/check-and-protect/xss/batch | Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
 [**textInputProtectXss**](TextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 
+
+<a name="textInputCheckSqlInjection"></a>
+# **textInputCheckSqlInjection**
+> SqlInjectionDetectionResult textInputCheckSqlInjection(value, detectionLevel)
+
+Check text input for SQL Injection (SQLI) attacks
+
+Detects SQL Injection (SQLI) attacks from text input.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.TextInputApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+TextInputApi apiInstance = new TextInputApi();
+String value = "value_example"; // String | User-facing text input.
+String detectionLevel = "detectionLevel_example"; // String | Set to Normal to target a high-security SQL Injection detection level with a very low false positive rate; select High to target a very-high security SQL Injection detection level with higher false positives.  Default is Normal (recommended).
+try {
+    SqlInjectionDetectionResult result = apiInstance.textInputCheckSqlInjection(value, detectionLevel);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TextInputApi#textInputCheckSqlInjection");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| User-facing text input. |
+ **detectionLevel** | **String**| Set to Normal to target a high-security SQL Injection detection level with a very low false positive rate; select High to target a very-high security SQL Injection detection level with higher false positives.  Default is Normal (recommended). | [optional]
+
+### Return type
+
+[**SqlInjectionDetectionResult**](SqlInjectionDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="textInputCheckSqlInjectionBatch"></a>
+# **textInputCheckSqlInjectionBatch**
+> SqlInjectionCheckBatchResponse textInputCheckSqlInjectionBatch(value)
+
+Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
+
+Detects SQL Injection (SQLI) attacks from multiple text inputs.  Output preverses order of input items.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.TextInputApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+TextInputApi apiInstance = new TextInputApi();
+SqlInjectionCheckBatchRequest value = new SqlInjectionCheckBatchRequest(); // SqlInjectionCheckBatchRequest | User-facing text input.
+try {
+    SqlInjectionCheckBatchResponse result = apiInstance.textInputCheckSqlInjectionBatch(value);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TextInputApi#textInputCheckSqlInjectionBatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | [**SqlInjectionCheckBatchRequest**](SqlInjectionCheckBatchRequest.md)| User-facing text input. |
+
+### Return type
+
+[**SqlInjectionCheckBatchResponse**](SqlInjectionCheckBatchResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="textInputCheckXss"></a>
 # **textInputCheckXss**
@@ -70,7 +184,7 @@ Name | Type | Description  | Notes
 
 Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
 
-Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+Detects XSS (Cross-Site-Scripting) attacks from multiple text inputs.  Output preverses order of input items.
 
 ### Example
 ```java
