@@ -31,6 +31,9 @@ import java.io.File;
 import com.cloudmersive.client.model.FindSymbolResult;
 import com.cloudmersive.client.model.FineTextDetectionResult;
 import com.cloudmersive.client.model.ImageDescriptionResponse;
+import com.cloudmersive.client.model.ImageSimilarityHashDistanceRequest;
+import com.cloudmersive.client.model.ImageSimilarityHashDistanceResponse;
+import com.cloudmersive.client.model.ImageSimilarityHashResponse;
 import com.cloudmersive.client.model.ObjectDetectionResult;
 import com.cloudmersive.client.model.TextDetectionResult;
 import com.cloudmersive.client.model.VehicleLicensePlateDetectionResult;
@@ -1066,6 +1069,399 @@ public class RecognizeApi {
 
         com.squareup.okhttp.Call call = recognizeFindSymbolValidateBeforeCall(inputImage, targetImage, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FindSymbolResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for recognizeSimilarityCompare
+     * @param baseImage Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param comparisonImage Image to compare to the base image. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call recognizeSimilarityCompareCall(File baseImage, File comparisonImage, String recognitionMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/recognize/similarity/compare";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (recognitionMode != null)
+        localVarHeaderParams.put("recognitionMode", apiClient.parameterToString(recognitionMode));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (baseImage != null)
+        localVarFormParams.put("baseImage", baseImage);
+        if (comparisonImage != null)
+        localVarFormParams.put("comparisonImage", comparisonImage);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call recognizeSimilarityCompareValidateBeforeCall(File baseImage, File comparisonImage, String recognitionMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'baseImage' is set
+        if (baseImage == null) {
+            throw new ApiException("Missing the required parameter 'baseImage' when calling recognizeSimilarityCompare(Async)");
+        }
+        
+        // verify the required parameter 'comparisonImage' is set
+        if (comparisonImage == null) {
+            throw new ApiException("Missing the required parameter 'comparisonImage' when calling recognizeSimilarityCompare(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = recognizeSimilarityCompareCall(baseImage, comparisonImage, recognitionMode, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Compare two images for similarity
+     * Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+     * @param baseImage Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param comparisonImage Image to compare to the base image. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] recognizeSimilarityCompare(File baseImage, File comparisonImage, String recognitionMode) throws ApiException {
+        ApiResponse<byte[]> resp = recognizeSimilarityCompareWithHttpInfo(baseImage, comparisonImage, recognitionMode);
+        return resp.getData();
+    }
+
+    /**
+     * Compare two images for similarity
+     * Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+     * @param baseImage Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param comparisonImage Image to compare to the base image. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> recognizeSimilarityCompareWithHttpInfo(File baseImage, File comparisonImage, String recognitionMode) throws ApiException {
+        com.squareup.okhttp.Call call = recognizeSimilarityCompareValidateBeforeCall(baseImage, comparisonImage, recognitionMode, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Compare two images for similarity (asynchronously)
+     * Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+     * @param baseImage Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param comparisonImage Image to compare to the base image. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call recognizeSimilarityCompareAsync(File baseImage, File comparisonImage, String recognitionMode, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = recognizeSimilarityCompareValidateBeforeCall(baseImage, comparisonImage, recognitionMode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for recognizeSimilarityHash
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call recognizeSimilarityHashCall(File imageFile, String recognitionMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/recognize/similarity/hash";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (recognitionMode != null)
+        localVarHeaderParams.put("recognitionMode", apiClient.parameterToString(recognitionMode));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call recognizeSimilarityHashValidateBeforeCall(File imageFile, String recognitionMode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling recognizeSimilarityHash(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = recognizeSimilarityHashCall(imageFile, recognitionMode, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Generate a perceptual image hash
+     * Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @return ImageSimilarityHashResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ImageSimilarityHashResponse recognizeSimilarityHash(File imageFile, String recognitionMode) throws ApiException {
+        ApiResponse<ImageSimilarityHashResponse> resp = recognizeSimilarityHashWithHttpInfo(imageFile, recognitionMode);
+        return resp.getData();
+    }
+
+    /**
+     * Generate a perceptual image hash
+     * Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @return ApiResponse&lt;ImageSimilarityHashResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ImageSimilarityHashResponse> recognizeSimilarityHashWithHttpInfo(File imageFile, String recognitionMode) throws ApiException {
+        com.squareup.okhttp.Call call = recognizeSimilarityHashValidateBeforeCall(imageFile, recognitionMode, null, null);
+        Type localVarReturnType = new TypeToken<ImageSimilarityHashResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Generate a perceptual image hash (asynchronously)
+     * Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call recognizeSimilarityHashAsync(File imageFile, String recognitionMode, final ApiCallback<ImageSimilarityHashResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = recognizeSimilarityHashValidateBeforeCall(imageFile, recognitionMode, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ImageSimilarityHashResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for recognizeSimilarityHashDistance
+     * @param request  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call recognizeSimilarityHashDistanceCall(ImageSimilarityHashDistanceRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/image/recognize/similarity/hash/distance";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call recognizeSimilarityHashDistanceValidateBeforeCall(ImageSimilarityHashDistanceRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling recognizeSimilarityHashDistance(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = recognizeSimilarityHashDistanceCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Calculates the similarity between two perceptual image hashes
+     * Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+     * @param request  (required)
+     * @return ImageSimilarityHashDistanceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ImageSimilarityHashDistanceResponse recognizeSimilarityHashDistance(ImageSimilarityHashDistanceRequest request) throws ApiException {
+        ApiResponse<ImageSimilarityHashDistanceResponse> resp = recognizeSimilarityHashDistanceWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Calculates the similarity between two perceptual image hashes
+     * Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+     * @param request  (required)
+     * @return ApiResponse&lt;ImageSimilarityHashDistanceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ImageSimilarityHashDistanceResponse> recognizeSimilarityHashDistanceWithHttpInfo(ImageSimilarityHashDistanceRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = recognizeSimilarityHashDistanceValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ImageSimilarityHashDistanceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Calculates the similarity between two perceptual image hashes (asynchronously)
+     * Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+     * @param request  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call recognizeSimilarityHashDistanceAsync(ImageSimilarityHashDistanceRequest request, final ApiCallback<ImageSimilarityHashDistanceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = recognizeSimilarityHashDistanceValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ImageSimilarityHashDistanceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

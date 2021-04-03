@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Word DOCX Document comments request
  */
 @ApiModel(description = "Input to a Get Word DOCX Document comments request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-02T20:50:24.301-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-02T22:01:37.955-07:00")
 public class GetDocxGetCommentsRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

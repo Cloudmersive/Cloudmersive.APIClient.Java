@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**recognizeDetectTextLarge**](RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognizeDetectVehicleLicensePlates**](RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 [**recognizeFindSymbol**](RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+[**recognizeSimilarityCompare**](RecognizeApi.md#recognizeSimilarityCompare) | **POST** /image/recognize/similarity/compare | Compare two images for similarity
+[**recognizeSimilarityHash**](RecognizeApi.md#recognizeSimilarityHash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
+[**recognizeSimilarityHashDistance**](RecognizeApi.md#recognizeSimilarityHashDistance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 
 
 <a name="recognizeDescribe"></a>
@@ -456,5 +459,176 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="recognizeSimilarityCompare"></a>
+# **recognizeSimilarityCompare**
+> byte[] recognizeSimilarityCompare(baseImage, comparisonImage, recognitionMode)
+
+Compare two images for similarity
+
+Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.RecognizeApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+RecognizeApi apiInstance = new RecognizeApi();
+File baseImage = new File("/path/to/file.txt"); // File | Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+File comparisonImage = new File("/path/to/file.txt"); // File | Image to compare to the base image.
+String recognitionMode = "recognitionMode_example"; // String | Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+try {
+    byte[] result = apiInstance.recognizeSimilarityCompare(baseImage, comparisonImage, recognitionMode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecognizeApi#recognizeSimilarityCompare");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **baseImage** | **File**| Image file to compare against.  Common file formats such as PNG, JPEG are supported. |
+ **comparisonImage** | **File**| Image to compare to the base image. |
+ **recognitionMode** | **String**| Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="recognizeSimilarityHash"></a>
+# **recognizeSimilarityHash**
+> ImageSimilarityHashResponse recognizeSimilarityHash(imageFile, recognitionMode)
+
+Generate a perceptual image hash
+
+Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.RecognizeApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+RecognizeApi apiInstance = new RecognizeApi();
+File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+String recognitionMode = "recognitionMode_example"; // String | Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+try {
+    ImageSimilarityHashResponse result = apiInstance.recognizeSimilarityHash(imageFile, recognitionMode);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecognizeApi#recognizeSimilarityHash");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+ **recognitionMode** | **String**| Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. | [optional]
+
+### Return type
+
+[**ImageSimilarityHashResponse**](ImageSimilarityHashResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="recognizeSimilarityHashDistance"></a>
+# **recognizeSimilarityHashDistance**
+> ImageSimilarityHashDistanceResponse recognizeSimilarityHashDistance(request)
+
+Calculates the similarity between two perceptual image hashes
+
+Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.RecognizeApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+RecognizeApi apiInstance = new RecognizeApi();
+ImageSimilarityHashDistanceRequest request = new ImageSimilarityHashDistanceRequest(); // ImageSimilarityHashDistanceRequest | 
+try {
+    ImageSimilarityHashDistanceResponse result = apiInstance.recognizeSimilarityHashDistance(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecognizeApi#recognizeSimilarityHashDistance");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ImageSimilarityHashDistanceRequest**](ImageSimilarityHashDistanceRequest.md)|  |
+
+### Return type
+
+[**ImageSimilarityHashDistanceResponse**](ImageSimilarityHashDistanceResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/json, text/json, application/xml, text/xml
 
