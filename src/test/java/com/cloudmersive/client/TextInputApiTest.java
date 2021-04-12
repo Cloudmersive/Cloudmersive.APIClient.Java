@@ -20,6 +20,9 @@ import com.cloudmersive.client.model.SqlInjectionDetectionResult;
 import com.cloudmersive.client.model.XssProtectionBatchRequest;
 import com.cloudmersive.client.model.XssProtectionBatchResponse;
 import com.cloudmersive.client.model.XssProtectionResult;
+import com.cloudmersive.client.model.XxeDetectionBatchRequest;
+import com.cloudmersive.client.model.XxeDetectionBatchResponse;
+import com.cloudmersive.client.model.XxeDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -98,6 +101,41 @@ public class TextInputApiTest {
     public void textInputCheckXssBatchTest() throws ApiException {
         XssProtectionBatchRequest value = null;
         XssProtectionBatchResponse response = api.textInputCheckXssBatch(value);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     *
+     * Detects XXE (XML External Entity) attacks from text input.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void textInputCheckXxeTest() throws ApiException {
+        String value = null;
+        Boolean allowInternetUrls = null;
+        String knownSafeUrls = null;
+        String knownUnsafeUrls = null;
+        XxeDetectionResult response = api.textInputCheckXxe(value, allowInternetUrls, knownSafeUrls, knownUnsafeUrls);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     *
+     * Detects XXE (XML External Entity) attacks from text input.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void textInputCheckXxeBatchTest() throws ApiException {
+        XxeDetectionBatchRequest request = null;
+        XxeDetectionBatchResponse response = api.textInputCheckXxeBatch(request);
 
         // TODO: test validations
     }

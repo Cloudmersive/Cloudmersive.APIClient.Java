@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a DOCX input to a PNG array
  */
 @ApiModel(description = "Result of converting a DOCX input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-02T22:01:37.955-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-11T18:04:14.328-07:00")
 public class DocxToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

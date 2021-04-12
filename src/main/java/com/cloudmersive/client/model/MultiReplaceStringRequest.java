@@ -31,7 +31,7 @@ import java.util.List;
  * Input to a multiple string replacement request
  */
 @ApiModel(description = "Input to a multiple string replacement request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-02T22:01:37.955-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-11T18:04:14.328-07:00")
 public class MultiReplaceStringRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

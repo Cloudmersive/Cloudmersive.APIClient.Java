@@ -33,6 +33,9 @@ import com.cloudmersive.client.model.SqlInjectionDetectionResult;
 import com.cloudmersive.client.model.XssProtectionBatchRequest;
 import com.cloudmersive.client.model.XssProtectionBatchResponse;
 import com.cloudmersive.client.model.XssProtectionResult;
+import com.cloudmersive.client.model.XxeDetectionBatchRequest;
+import com.cloudmersive.client.model.XxeDetectionBatchResponse;
+import com.cloudmersive.client.model.XxeDetectionResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -550,6 +553,268 @@ public class TextInputApi {
 
         com.squareup.okhttp.Call call = textInputCheckXssBatchValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<XssProtectionBatchResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for textInputCheckXxe
+     * @param value User-facing text input. (required)
+     * @param allowInternetUrls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false. (optional)
+     * @param knownSafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe. (optional)
+     * @param knownUnsafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call textInputCheckXxeCall(String value, Boolean allowInternetUrls, String knownSafeUrls, String knownUnsafeUrls, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = value;
+
+        // create path and map variables
+        String localVarPath = "/validate/text-input/check/xxe";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (allowInternetUrls != null)
+        localVarHeaderParams.put("allowInternetUrls", apiClient.parameterToString(allowInternetUrls));
+        if (knownSafeUrls != null)
+        localVarHeaderParams.put("knownSafeUrls", apiClient.parameterToString(knownSafeUrls));
+        if (knownUnsafeUrls != null)
+        localVarHeaderParams.put("knownUnsafeUrls", apiClient.parameterToString(knownUnsafeUrls));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call textInputCheckXxeValidateBeforeCall(String value, Boolean allowInternetUrls, String knownSafeUrls, String knownUnsafeUrls, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'value' is set
+        if (value == null) {
+            throw new ApiException("Missing the required parameter 'value' when calling textInputCheckXxe(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = textInputCheckXxeCall(value, allowInternetUrls, knownSafeUrls, knownUnsafeUrls, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param value User-facing text input. (required)
+     * @param allowInternetUrls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false. (optional)
+     * @param knownSafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe. (optional)
+     * @param knownUnsafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe. (optional)
+     * @return XxeDetectionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XxeDetectionResult textInputCheckXxe(String value, Boolean allowInternetUrls, String knownSafeUrls, String knownUnsafeUrls) throws ApiException {
+        ApiResponse<XxeDetectionResult> resp = textInputCheckXxeWithHttpInfo(value, allowInternetUrls, knownSafeUrls, knownUnsafeUrls);
+        return resp.getData();
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param value User-facing text input. (required)
+     * @param allowInternetUrls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false. (optional)
+     * @param knownSafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe. (optional)
+     * @param knownUnsafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe. (optional)
+     * @return ApiResponse&lt;XxeDetectionResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XxeDetectionResult> textInputCheckXxeWithHttpInfo(String value, Boolean allowInternetUrls, String knownSafeUrls, String knownUnsafeUrls) throws ApiException {
+        com.squareup.okhttp.Call call = textInputCheckXxeValidateBeforeCall(value, allowInternetUrls, knownSafeUrls, knownUnsafeUrls, null, null);
+        Type localVarReturnType = new TypeToken<XxeDetectionResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks (asynchronously)
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param value User-facing text input. (required)
+     * @param allowInternetUrls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false. (optional)
+     * @param knownSafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe. (optional)
+     * @param knownUnsafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call textInputCheckXxeAsync(String value, Boolean allowInternetUrls, String knownSafeUrls, String knownUnsafeUrls, final ApiCallback<XxeDetectionResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = textInputCheckXxeValidateBeforeCall(value, allowInternetUrls, knownSafeUrls, knownUnsafeUrls, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XxeDetectionResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for textInputCheckXxeBatch
+     * @param request  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call textInputCheckXxeBatchCall(XxeDetectionBatchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/validate/text-input/check/xxe/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call textInputCheckXxeBatchValidateBeforeCall(XxeDetectionBatchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling textInputCheckXxeBatch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = textInputCheckXxeBatchCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param request  (required)
+     * @return XxeDetectionBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public XxeDetectionBatchResponse textInputCheckXxeBatch(XxeDetectionBatchRequest request) throws ApiException {
+        ApiResponse<XxeDetectionBatchResponse> resp = textInputCheckXxeBatchWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param request  (required)
+     * @return ApiResponse&lt;XxeDetectionBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<XxeDetectionBatchResponse> textInputCheckXxeBatchWithHttpInfo(XxeDetectionBatchRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = textInputCheckXxeBatchValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<XxeDetectionBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks (asynchronously)
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param request  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call textInputCheckXxeBatchAsync(XxeDetectionBatchRequest request, final ApiCallback<XxeDetectionBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = textInputCheckXxeBatchValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<XxeDetectionBatchResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -29,7 +29,7 @@ import java.io.IOException;
  * IP address intelligence result
  */
 @ApiModel(description = "IP address intelligence result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-02T22:01:13.794-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-11T18:03:37.657-07:00")
 public class IPIntelligenceResponse {
   @SerializedName("IsBot")
   private Boolean isBot = null;
