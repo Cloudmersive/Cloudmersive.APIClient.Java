@@ -25,27 +25,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Result of creating a blank Word document
+ * Result of performing an XXE threat detection operation
  */
-@ApiModel(description = "Result of creating a blank Word document")
+@ApiModel(description = "Result of performing an XXE threat detection operation")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:06:09.609-07:00")
-public class CreateBlankDocxResponse {
+public class XxeThreatDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("EditedDocumentURL")
-  private String editedDocumentURL = null;
+  @SerializedName("ContainsXxeThreat")
+  private Boolean containsXxeThreat = null;
 
-  public CreateBlankDocxResponse successful(Boolean successful) {
+  public XxeThreatDetectionResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
 
    /**
-   * True if successful, false otherwise
+   * True if the operation was successful, false otherwise
    * @return successful
   **/
-  @ApiModelProperty(value = "True if successful, false otherwise")
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
   public Boolean isSuccessful() {
     return successful;
   }
@@ -54,22 +54,22 @@ public class CreateBlankDocxResponse {
     this.successful = successful;
   }
 
-  public CreateBlankDocxResponse editedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public XxeThreatDetectionResult containsXxeThreat(Boolean containsXxeThreat) {
+    this.containsXxeThreat = containsXxeThreat;
     return this;
   }
 
    /**
-   * URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
-   * @return editedDocumentURL
+   * True if the XML input contains XXE threats, false otherwise
+   * @return containsXxeThreat
   **/
-  @ApiModelProperty(value = "URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.")
-  public String getEditedDocumentURL() {
-    return editedDocumentURL;
+  @ApiModelProperty(value = "True if the XML input contains XXE threats, false otherwise")
+  public Boolean isContainsXxeThreat() {
+    return containsXxeThreat;
   }
 
-  public void setEditedDocumentURL(String editedDocumentURL) {
-    this.editedDocumentURL = editedDocumentURL;
+  public void setContainsXxeThreat(Boolean containsXxeThreat) {
+    this.containsXxeThreat = containsXxeThreat;
   }
 
 
@@ -81,24 +81,24 @@ public class CreateBlankDocxResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBlankDocxResponse createBlankDocxResponse = (CreateBlankDocxResponse) o;
-    return Objects.equals(this.successful, createBlankDocxResponse.successful) &&
-        Objects.equals(this.editedDocumentURL, createBlankDocxResponse.editedDocumentURL);
+    XxeThreatDetectionResult xxeThreatDetectionResult = (XxeThreatDetectionResult) o;
+    return Objects.equals(this.successful, xxeThreatDetectionResult.successful) &&
+        Objects.equals(this.containsXxeThreat, xxeThreatDetectionResult.containsXxeThreat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, editedDocumentURL);
+    return Objects.hash(successful, containsXxeThreat);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBlankDocxResponse {\n");
+    sb.append("class XxeThreatDetectionResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    editedDocumentURL: ").append(toIndentedString(editedDocumentURL)).append("\n");
+    sb.append("    containsXxeThreat: ").append(toIndentedString(containsXxeThreat)).append("\n");
     sb.append("}");
     return sb.toString();
   }

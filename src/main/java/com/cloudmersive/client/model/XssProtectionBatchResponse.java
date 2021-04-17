@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a batch XSS protection operation
  */
 @ApiModel(description = "Result of performing a batch XSS protection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-11T18:03:37.657-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:05:48.948-07:00")
 public class XssProtectionBatchResponse {
   @SerializedName("ResultItems")
   private List<XssProtectionResult> resultItems = null;

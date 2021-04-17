@@ -18,6 +18,7 @@ import com.cloudmersive.client.model.AutodetectDocumentValidationResult;
 import com.cloudmersive.client.model.DocumentValidationResult;
 import java.io.File;
 import com.cloudmersive.client.model.HtmlSsrfThreatCheckResult;
+import com.cloudmersive.client.model.XxeThreatDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -351,6 +352,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentXmlValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXmlValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate an XML file for XML External Entity (XXE) threats
+     *
+     * Validate an XML document file for XML External Entity (XXE) threats; if the document is not valid, identifies the errors in the document.  XXE threats are a type of threat that exploits vulnerabilities in the XML standard relating to external or local entity URIs in XML documents.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentXmlXxeThreatValidationTest() throws ApiException {
+        File inputFile = null;
+        XxeThreatDetectionResult response = api.validateDocumentXmlXxeThreatValidation(inputFile);
 
         // TODO: test validations
     }
