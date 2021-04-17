@@ -31,7 +31,7 @@ import java.util.List;
  * Row in an Excel spreadsheet worksheet
  */
 @ApiModel(description = "Row in an Excel spreadsheet worksheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:06:09.609-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:47:16.844-07:00")
 public class XlsxSpreadsheetRow {
   @SerializedName("Path")
   private String path = null;

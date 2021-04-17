@@ -16,6 +16,7 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckResponse;
 import com.cloudmersive.client.model.DomainQualityResponse;
+import com.cloudmersive.client.model.IsAdminPathResponse;
 import com.cloudmersive.client.model.PhishingCheckRequest;
 import com.cloudmersive.client.model.PhishingCheckResponse;
 import com.cloudmersive.client.model.UrlSafetyCheckRequestFull;
@@ -74,6 +75,22 @@ public class DomainApiTest {
     public void domainGetTopLevelDomainFromUrlTest() throws ApiException {
         ValidateUrlRequestSyntaxOnly request = null;
         ValidateUrlResponseSyntaxOnly response = api.domainGetTopLevelDomainFromUrl(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check if path is a high-risk server administration path
+     *
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainIsAdminPathTest() throws ApiException {
+        String value = null;
+        IsAdminPathResponse response = api.domainIsAdminPath(value);
 
         // TODO: test validations
     }

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](DomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 [**domainGetTopLevelDomainFromUrl**](DomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+[**domainIsAdminPath**](DomainApi.md#domainIsAdminPath) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk server administration path
 [**domainPhishingCheck**](DomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domainPost**](DomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domainQualityScore**](DomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
@@ -116,6 +117,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidateUrlResponseSyntaxOnly**](ValidateUrlResponseSyntaxOnly.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainIsAdminPath"></a>
+# **domainIsAdminPath**
+> IsAdminPathResponse domainIsAdminPath(value)
+
+Check if path is a high-risk server administration path
+
+Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+String value = "value_example"; // String | URL or relative path to check, e.g. \"/admin/login\".  The input is a string so be sure to enclose it in double-quotes.
+try {
+    IsAdminPathResponse result = apiInstance.domainIsAdminPath(value);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainIsAdminPath");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. |
+
+### Return type
+
+[**IsAdminPathResponse**](IsAdminPathResponse.md)
 
 ### Authorization
 

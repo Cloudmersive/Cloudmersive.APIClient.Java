@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UpdateSettingResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:06:18.283-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:47:28.145-07:00")
 public class UpdateSettingResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

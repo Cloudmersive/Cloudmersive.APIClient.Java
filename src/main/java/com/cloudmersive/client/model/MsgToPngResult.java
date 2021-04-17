@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a MSG input to a PNG array
  */
 @ApiModel(description = "Result of converting a MSG input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:06:09.609-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:47:16.844-07:00")
 public class MsgToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.CheckResponse;
 import com.cloudmersive.client.model.DomainQualityResponse;
+import com.cloudmersive.client.model.IsAdminPathResponse;
 import com.cloudmersive.client.model.PhishingCheckRequest;
 import com.cloudmersive.client.model.PhishingCheckResponse;
 import com.cloudmersive.client.model.UrlSafetyCheckRequestFull;
@@ -309,6 +310,128 @@ public class DomainApi {
 
         com.squareup.okhttp.Call call = domainGetTopLevelDomainFromUrlValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ValidateUrlResponseSyntaxOnly>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for domainIsAdminPath
+     * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call domainIsAdminPathCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = value;
+
+        // create path and map variables
+        String localVarPath = "/validate/domain/url/is-admin-path";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call domainIsAdminPathValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'value' is set
+        if (value == null) {
+            throw new ApiException("Missing the required parameter 'value' when calling domainIsAdminPath(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = domainIsAdminPathCall(value, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check if path is a high-risk server administration path
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return IsAdminPathResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public IsAdminPathResponse domainIsAdminPath(String value) throws ApiException {
+        ApiResponse<IsAdminPathResponse> resp = domainIsAdminPathWithHttpInfo(value);
+        return resp.getData();
+    }
+
+    /**
+     * Check if path is a high-risk server administration path
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return ApiResponse&lt;IsAdminPathResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<IsAdminPathResponse> domainIsAdminPathWithHttpInfo(String value) throws ApiException {
+        com.squareup.okhttp.Call call = domainIsAdminPathValidateBeforeCall(value, null, null);
+        Type localVarReturnType = new TypeToken<IsAdminPathResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check if path is a high-risk server administration path (asynchronously)
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call domainIsAdminPathAsync(String value, final ApiCallback<IsAdminPathResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = domainIsAdminPathValidateBeforeCall(value, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<IsAdminPathResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

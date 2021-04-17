@@ -30,7 +30,7 @@ import java.util.List;
  * Individual item to detect for XXE
  */
 @ApiModel(description = "Individual item to detect for XXE")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:05:48.948-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:46:53.628-07:00")
 public class XxeDetectionRequestItem {
   @SerializedName("InputText")
   private String inputText = null;

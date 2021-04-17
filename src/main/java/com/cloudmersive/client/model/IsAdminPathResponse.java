@@ -15,7 +15,6 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudmersive.client.model.UrlSsrfResponseFull;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,42 +23,53 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Result of performing SSRF threat checks on multiple URLs
+ * Result of performing an Admin Path operation
  */
-@ApiModel(description = "Result of performing SSRF threat checks on multiple URLs")
+@ApiModel(description = "Result of performing an Admin Path operation")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:46:53.628-07:00")
-public class UrlSsrfResponseBatch {
-  @SerializedName("OutputItems")
-  private List<UrlSsrfResponseFull> outputItems = null;
+public class IsAdminPathResponse {
+  @SerializedName("IsAdminPathNode")
+  private Boolean isAdminPathNode = null;
 
-  public UrlSsrfResponseBatch outputItems(List<UrlSsrfResponseFull> outputItems) {
-    this.outputItems = outputItems;
-    return this;
-  }
+  @SerializedName("Successful")
+  private Boolean successful = null;
 
-  public UrlSsrfResponseBatch addOutputItemsItem(UrlSsrfResponseFull outputItemsItem) {
-    if (this.outputItems == null) {
-      this.outputItems = new ArrayList<UrlSsrfResponseFull>();
-    }
-    this.outputItems.add(outputItemsItem);
+  public IsAdminPathResponse isAdminPathNode(Boolean isAdminPathNode) {
+    this.isAdminPathNode = isAdminPathNode;
     return this;
   }
 
    /**
-   * Results of the operation, with indexes matched to input values
-   * @return outputItems
+   * True if the input IP address is an Admin Path, and false otherwise
+   * @return isAdminPathNode
   **/
-  @ApiModelProperty(value = "Results of the operation, with indexes matched to input values")
-  public List<UrlSsrfResponseFull> getOutputItems() {
-    return outputItems;
+  @ApiModelProperty(value = "True if the input IP address is an Admin Path, and false otherwise")
+  public Boolean isIsAdminPathNode() {
+    return isAdminPathNode;
   }
 
-  public void setOutputItems(List<UrlSsrfResponseFull> outputItems) {
-    this.outputItems = outputItems;
+  public void setIsAdminPathNode(Boolean isAdminPathNode) {
+    this.isAdminPathNode = isAdminPathNode;
+  }
+
+  public IsAdminPathResponse successful(Boolean successful) {
+    this.successful = successful;
+    return this;
+  }
+
+   /**
+   * True if the operation was successful, false otherwise
+   * @return successful
+  **/
+  @ApiModelProperty(value = "True if the operation was successful, false otherwise")
+  public Boolean isSuccessful() {
+    return successful;
+  }
+
+  public void setSuccessful(Boolean successful) {
+    this.successful = successful;
   }
 
 
@@ -71,22 +81,24 @@ public class UrlSsrfResponseBatch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UrlSsrfResponseBatch urlSsrfResponseBatch = (UrlSsrfResponseBatch) o;
-    return Objects.equals(this.outputItems, urlSsrfResponseBatch.outputItems);
+    IsAdminPathResponse isAdminPathResponse = (IsAdminPathResponse) o;
+    return Objects.equals(this.isAdminPathNode, isAdminPathResponse.isAdminPathNode) &&
+        Objects.equals(this.successful, isAdminPathResponse.successful);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(outputItems);
+    return Objects.hash(isAdminPathNode, successful);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UrlSsrfResponseBatch {\n");
+    sb.append("class IsAdminPathResponse {\n");
     
-    sb.append("    outputItems: ").append(toIndentedString(outputItems)).append("\n");
+    sb.append("    isAdminPathNode: ").append(toIndentedString(isAdminPathNode)).append("\n");
+    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("}");
     return sb.toString();
   }
