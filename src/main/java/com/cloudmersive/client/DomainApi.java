@@ -377,8 +377,8 @@ public class DomainApi {
     }
 
     /**
-     * Check if path is a high-risk server administration path
-     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * Check if path is a high-risk or vulnerable server administration path
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
      * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
      * @return IsAdminPathResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -389,8 +389,8 @@ public class DomainApi {
     }
 
     /**
-     * Check if path is a high-risk server administration path
-     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * Check if path is a high-risk or vulnerable server administration path
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
      * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
      * @return ApiResponse&lt;IsAdminPathResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -402,8 +402,8 @@ public class DomainApi {
     }
 
     /**
-     * Check if path is a high-risk server administration path (asynchronously)
-     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * Check if path is a high-risk or vulnerable server administration path (asynchronously)
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
      * @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

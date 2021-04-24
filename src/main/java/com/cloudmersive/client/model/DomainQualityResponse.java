@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a domain quality score operation
  */
 @ApiModel(description = "Result of performing a domain quality score operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:46:53.628-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-24T10:26:08.607-07:00")
 public class DomainQualityResponse {
   @SerializedName("DomainQualityScore")
   private Double domainQualityScore = null;

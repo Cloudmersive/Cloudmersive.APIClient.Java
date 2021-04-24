@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a PDF input to a JPG array
  */
 @ApiModel(description = "Result of converting a PDF input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:47:16.844-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-24T10:26:48.871-07:00")
 public class PdfToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;

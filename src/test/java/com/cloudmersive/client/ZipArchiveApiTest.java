@@ -104,6 +104,21 @@ public class ZipArchiveApiTest {
     }
     
     /**
+     * Create an encrypted zip file to quarantine a dangerous file
+     *
+     * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void zipArchiveZipCreateQuarantineTest() throws ApiException {
+        Object response = api.zipArchiveZipCreateQuarantine();
+
+        // TODO: test validations
+    }
+    
+    /**
      * Decrypt and remove password protection on a zip file
      *
      * Decrypts and removes password protection from an encrypted zip file with the specified password

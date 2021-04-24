@@ -31,7 +31,7 @@ import java.util.List;
  * The result of splitting a Word document into individual Word DOCX pages
  */
 @ApiModel(description = "The result of splitting a Word document into individual Word DOCX pages")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-16T22:47:16.844-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-24T10:26:48.871-07:00")
 public class SplitDocxDocumentResult {
   @SerializedName("ResultDocuments")
   private List<SplitDocumentResult> resultDocuments = null;
