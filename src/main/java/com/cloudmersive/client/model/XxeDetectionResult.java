@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an XXE threat detection operation
  */
 @ApiModel(description = "Result of performing an XXE threat detection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-24T10:26:08.607-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:00:42.859-07:00")
 public class XxeDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

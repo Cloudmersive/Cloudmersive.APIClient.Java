@@ -113,7 +113,10 @@ public class ZipArchiveApiTest {
      */
     @Test
     public void zipArchiveZipCreateQuarantineTest() throws ApiException {
-        Object response = api.zipArchiveZipCreateQuarantine();
+        String password = null;
+        File inputFile1 = null;
+        String encryptionAlgorithm = null;
+        Object response = api.zipArchiveZipCreateQuarantine(password, inputFile1, encryptionAlgorithm);
 
         // TODO: test validations
     }

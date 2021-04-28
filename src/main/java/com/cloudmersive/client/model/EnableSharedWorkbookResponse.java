@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a Enable Shared Workbook command
  */
 @ApiModel(description = "Result of running a Enable Shared Workbook command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-24T10:26:48.871-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:01:13.943-07:00")
 public class EnableSharedWorkbookResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

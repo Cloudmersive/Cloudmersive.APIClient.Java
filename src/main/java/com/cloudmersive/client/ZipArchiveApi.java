@@ -554,12 +554,15 @@ public class ZipArchiveApi {
     }
     /**
      * Build call for zipArchiveZipCreateQuarantine
+     * @param password Password to place on the Zip file; the longer the password, the more secure (required)
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param encryptionAlgorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call zipArchiveZipCreateQuarantineCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call zipArchiveZipCreateQuarantineCall(String password, File inputFile1, String encryptionAlgorithm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -569,8 +572,14 @@ public class ZipArchiveApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (password != null)
+        localVarHeaderParams.put("password", apiClient.parameterToString(password));
+        if (encryptionAlgorithm != null)
+        localVarHeaderParams.put("encryptionAlgorithm", apiClient.parameterToString(encryptionAlgorithm));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
 
         final String[] localVarAccepts = {
             "application/octet-stream"
@@ -601,10 +610,20 @@ public class ZipArchiveApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call zipArchiveZipCreateQuarantineValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call zipArchiveZipCreateQuarantineValidateBeforeCall(String password, File inputFile1, String encryptionAlgorithm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'password' is set
+        if (password == null) {
+            throw new ApiException("Missing the required parameter 'password' when calling zipArchiveZipCreateQuarantine(Async)");
+        }
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling zipArchiveZipCreateQuarantine(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = zipArchiveZipCreateQuarantineCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = zipArchiveZipCreateQuarantineCall(password, inputFile1, encryptionAlgorithm, progressListener, progressRequestListener);
         return call;
 
     }
@@ -612,22 +631,28 @@ public class ZipArchiveApi {
     /**
      * Create an encrypted zip file to quarantine a dangerous file
      * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+     * @param password Password to place on the Zip file; the longer the password, the more secure (required)
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param encryptionAlgorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object zipArchiveZipCreateQuarantine() throws ApiException {
-        ApiResponse<Object> resp = zipArchiveZipCreateQuarantineWithHttpInfo();
+    public Object zipArchiveZipCreateQuarantine(String password, File inputFile1, String encryptionAlgorithm) throws ApiException {
+        ApiResponse<Object> resp = zipArchiveZipCreateQuarantineWithHttpInfo(password, inputFile1, encryptionAlgorithm);
         return resp.getData();
     }
 
     /**
      * Create an encrypted zip file to quarantine a dangerous file
      * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+     * @param password Password to place on the Zip file; the longer the password, the more secure (required)
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param encryptionAlgorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> zipArchiveZipCreateQuarantineWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = zipArchiveZipCreateQuarantineValidateBeforeCall(null, null);
+    public ApiResponse<Object> zipArchiveZipCreateQuarantineWithHttpInfo(String password, File inputFile1, String encryptionAlgorithm) throws ApiException {
+        com.squareup.okhttp.Call call = zipArchiveZipCreateQuarantineValidateBeforeCall(password, inputFile1, encryptionAlgorithm, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -635,11 +660,14 @@ public class ZipArchiveApi {
     /**
      * Create an encrypted zip file to quarantine a dangerous file (asynchronously)
      * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+     * @param password Password to place on the Zip file; the longer the password, the more secure (required)
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param encryptionAlgorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call zipArchiveZipCreateQuarantineAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call zipArchiveZipCreateQuarantineAsync(String password, File inputFile1, String encryptionAlgorithm, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -660,7 +688,7 @@ public class ZipArchiveApi {
             };
         }
 
-        com.squareup.okhttp.Call call = zipArchiveZipCreateQuarantineValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = zipArchiveZipCreateQuarantineValidateBeforeCall(password, inputFile1, encryptionAlgorithm, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

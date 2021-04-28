@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of reverse geocoding a street address
  */
 @ApiModel(description = "Result of reverse geocoding a street address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-24T10:26:08.607-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:00:42.859-07:00")
 public class ReverseGeocodeAddressResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

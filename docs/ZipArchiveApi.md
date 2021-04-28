@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 <a name="zipArchiveZipCreateQuarantine"></a>
 # **zipArchiveZipCreateQuarantine**
-> Object zipArchiveZipCreateQuarantine()
+> Object zipArchiveZipCreateQuarantine(password, inputFile1, encryptionAlgorithm)
 
 Create an encrypted zip file to quarantine a dangerous file
 
@@ -244,8 +244,11 @@ Apikey.setApiKey("YOUR API KEY");
 //Apikey.setApiKeyPrefix("Token");
 
 ZipArchiveApi apiInstance = new ZipArchiveApi();
+String password = "password_example"; // String | Password to place on the Zip file; the longer the password, the more secure
+File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
+String encryptionAlgorithm = "encryptionAlgorithm_example"; // String | Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
 try {
-    Object result = apiInstance.zipArchiveZipCreateQuarantine();
+    Object result = apiInstance.zipArchiveZipCreateQuarantine(password, inputFile1, encryptionAlgorithm);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ZipArchiveApi#zipArchiveZipCreateQuarantine");
@@ -254,7 +257,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Password to place on the Zip file; the longer the password, the more secure |
+ **inputFile1** | **File**| First input file to perform the operation on. |
+ **encryptionAlgorithm** | **String**| Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. | [optional]
 
 ### Return type
 
