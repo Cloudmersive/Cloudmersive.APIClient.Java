@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a country validation operation
  */
 @ApiModel(description = "Result of performing a country validation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:00:42.859-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:28.792-07:00")
 public class ValidateCountryResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

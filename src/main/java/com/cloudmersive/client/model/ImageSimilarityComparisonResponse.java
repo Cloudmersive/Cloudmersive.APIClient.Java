@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an image similarity operation
  */
 @ApiModel(description = "Result of performing an image similarity operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:01:06.395-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:43.969-07:00")
 public class ImageSimilarityComparisonResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

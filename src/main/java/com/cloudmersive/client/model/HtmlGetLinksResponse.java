@@ -31,7 +31,7 @@ import java.util.List;
  * Result of extracting links from an HTML file
  */
 @ApiModel(description = "Result of extracting links from an HTML file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:01:13.943-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:48.137-07:00")
 public class HtmlGetLinksResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

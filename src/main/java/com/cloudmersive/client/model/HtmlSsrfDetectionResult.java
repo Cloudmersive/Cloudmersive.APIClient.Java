@@ -1,6 +1,6 @@
 /*
- * convertapi
- * Convert API lets you effortlessly convert file formats and types.
+ * validateapi
+ * The validation APIs help you validate data. Check if an E-mail address is real. Check if a domain is real. Check up on an IP address, and even where it is located. All this and much more is available in the validation API.
  *
  * OpenAPI spec version: v1
  * 
@@ -15,7 +15,6 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudmersive.client.model.ConvertedJpgPage;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,22 +23,20 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Result of converting a MSG input to a JPG array
+ * Result of performing an XXE threat detection operation
  */
-@ApiModel(description = "Result of converting a MSG input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:48.137-07:00")
-public class MsgToJpgResult {
+@ApiModel(description = "Result of performing an XXE threat detection operation")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:28.792-07:00")
+public class HtmlSsrfDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
 
-  @SerializedName("JpgResultPages")
-  private List<ConvertedJpgPage> jpgResultPages = null;
+  @SerializedName("ContainedThreats")
+  private Boolean containedThreats = null;
 
-  public MsgToJpgResult successful(Boolean successful) {
+  public HtmlSsrfDetectionResult successful(Boolean successful) {
     this.successful = successful;
     return this;
   }
@@ -57,30 +54,22 @@ public class MsgToJpgResult {
     this.successful = successful;
   }
 
-  public MsgToJpgResult jpgResultPages(List<ConvertedJpgPage> jpgResultPages) {
-    this.jpgResultPages = jpgResultPages;
-    return this;
-  }
-
-  public MsgToJpgResult addJpgResultPagesItem(ConvertedJpgPage jpgResultPagesItem) {
-    if (this.jpgResultPages == null) {
-      this.jpgResultPages = new ArrayList<ConvertedJpgPage>();
-    }
-    this.jpgResultPages.add(jpgResultPagesItem);
+  public HtmlSsrfDetectionResult containedThreats(Boolean containedThreats) {
+    this.containedThreats = containedThreats;
     return this;
   }
 
    /**
-   * Array of converted pages
-   * @return jpgResultPages
+   * True if the input contained SSRF threats, false otherwise
+   * @return containedThreats
   **/
-  @ApiModelProperty(value = "Array of converted pages")
-  public List<ConvertedJpgPage> getJpgResultPages() {
-    return jpgResultPages;
+  @ApiModelProperty(value = "True if the input contained SSRF threats, false otherwise")
+  public Boolean isContainedThreats() {
+    return containedThreats;
   }
 
-  public void setJpgResultPages(List<ConvertedJpgPage> jpgResultPages) {
-    this.jpgResultPages = jpgResultPages;
+  public void setContainedThreats(Boolean containedThreats) {
+    this.containedThreats = containedThreats;
   }
 
 
@@ -92,24 +81,24 @@ public class MsgToJpgResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MsgToJpgResult msgToJpgResult = (MsgToJpgResult) o;
-    return Objects.equals(this.successful, msgToJpgResult.successful) &&
-        Objects.equals(this.jpgResultPages, msgToJpgResult.jpgResultPages);
+    HtmlSsrfDetectionResult htmlSsrfDetectionResult = (HtmlSsrfDetectionResult) o;
+    return Objects.equals(this.successful, htmlSsrfDetectionResult.successful) &&
+        Objects.equals(this.containedThreats, htmlSsrfDetectionResult.containedThreats);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, jpgResultPages);
+    return Objects.hash(successful, containedThreats);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MsgToJpgResult {\n");
+    sb.append("class HtmlSsrfDetectionResult {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
-    sb.append("    jpgResultPages: ").append(toIndentedString(jpgResultPages)).append("\n");
+    sb.append("    containedThreats: ").append(toIndentedString(containedThreats)).append("\n");
     sb.append("}");
     return sb.toString();
   }

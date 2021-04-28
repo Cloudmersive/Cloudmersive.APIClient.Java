@@ -31,7 +31,7 @@ import java.util.List;
  * Location of one face in an image
  */
 @ApiModel(description = "Location of one face in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-26T21:01:06.395-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:43.969-07:00")
 public class FaceWithLandmarks {
   @SerializedName("LeftX")
   private Integer leftX = null;

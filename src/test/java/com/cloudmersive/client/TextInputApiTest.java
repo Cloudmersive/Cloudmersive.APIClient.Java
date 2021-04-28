@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.HtmlSsrfDetectionResult;
 import com.cloudmersive.client.model.SqlInjectionCheckBatchRequest;
 import com.cloudmersive.client.model.SqlInjectionCheckBatchResponse;
 import com.cloudmersive.client.model.SqlInjectionDetectionResult;
@@ -39,6 +40,22 @@ public class TextInputApiTest {
 
     private final TextInputApi api = new TextInputApi();
 
+    
+    /**
+     * Protect html input from Server-side Request Forgery (SSRF) attacks
+     *
+     * Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void textInputCheckHtmlSsrfTest() throws ApiException {
+        String value = null;
+        HtmlSsrfDetectionResult response = api.textInputCheckHtmlSsrf(value);
+
+        // TODO: test validations
+    }
     
     /**
      * Check text input for SQL Injection (SQLI) attacks
