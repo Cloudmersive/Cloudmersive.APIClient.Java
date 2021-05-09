@@ -32,6 +32,8 @@ import com.cloudmersive.client.model.DomainQualityResponse;
 import com.cloudmersive.client.model.IsAdminPathResponse;
 import com.cloudmersive.client.model.PhishingCheckRequest;
 import com.cloudmersive.client.model.PhishingCheckResponse;
+import com.cloudmersive.client.model.UrlHtmlSsrfRequestFull;
+import com.cloudmersive.client.model.UrlHtmlSsrfResponseFull;
 import com.cloudmersive.client.model.UrlSafetyCheckRequestFull;
 import com.cloudmersive.client.model.UrlSafetyCheckResponseFull;
 import com.cloudmersive.client.model.UrlSsrfRequestBatch;
@@ -1286,6 +1288,128 @@ public class DomainApi {
 
         com.squareup.okhttp.Call call = domainUrlFullValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ValidateUrlResponseFull>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for domainUrlHtmlSsrfCheck
+     * @param request Input URL request (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call domainUrlHtmlSsrfCheckCall(UrlHtmlSsrfRequestFull request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/validate/domain/url/ssrf-threat-check/html-embedded";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call domainUrlHtmlSsrfCheckValidateBeforeCall(UrlHtmlSsrfRequestFull request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling domainUrlHtmlSsrfCheck(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = domainUrlHtmlSsrfCheckCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Check a URL for HTML embedded SSRF threats
+     * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+     * @param request Input URL request (required)
+     * @return UrlHtmlSsrfResponseFull
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UrlHtmlSsrfResponseFull domainUrlHtmlSsrfCheck(UrlHtmlSsrfRequestFull request) throws ApiException {
+        ApiResponse<UrlHtmlSsrfResponseFull> resp = domainUrlHtmlSsrfCheckWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Check a URL for HTML embedded SSRF threats
+     * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+     * @param request Input URL request (required)
+     * @return ApiResponse&lt;UrlHtmlSsrfResponseFull&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UrlHtmlSsrfResponseFull> domainUrlHtmlSsrfCheckWithHttpInfo(UrlHtmlSsrfRequestFull request) throws ApiException {
+        com.squareup.okhttp.Call call = domainUrlHtmlSsrfCheckValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<UrlHtmlSsrfResponseFull>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Check a URL for HTML embedded SSRF threats (asynchronously)
+     * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+     * @param request Input URL request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call domainUrlHtmlSsrfCheckAsync(UrlHtmlSsrfRequestFull request, final ApiCallback<UrlHtmlSsrfResponseFull> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = domainUrlHtmlSsrfCheckValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UrlHtmlSsrfResponseFull>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

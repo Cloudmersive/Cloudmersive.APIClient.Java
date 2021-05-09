@@ -19,6 +19,8 @@ import com.cloudmersive.client.model.DomainQualityResponse;
 import com.cloudmersive.client.model.IsAdminPathResponse;
 import com.cloudmersive.client.model.PhishingCheckRequest;
 import com.cloudmersive.client.model.PhishingCheckResponse;
+import com.cloudmersive.client.model.UrlHtmlSsrfRequestFull;
+import com.cloudmersive.client.model.UrlHtmlSsrfResponseFull;
 import com.cloudmersive.client.model.UrlSafetyCheckRequestFull;
 import com.cloudmersive.client.model.UrlSafetyCheckResponseFull;
 import com.cloudmersive.client.model.UrlSsrfRequestBatch;
@@ -203,6 +205,22 @@ public class DomainApiTest {
     public void domainUrlFullTest() throws ApiException {
         ValidateUrlRequestFull request = null;
         ValidateUrlResponseFull response = api.domainUrlFull(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Check a URL for HTML embedded SSRF threats
+     *
+     * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainUrlHtmlSsrfCheckTest() throws ApiException {
+        UrlHtmlSsrfRequestFull request = null;
+        UrlHtmlSsrfResponseFull response = api.domainUrlHtmlSsrfCheck(request);
 
         // TODO: test validations
     }

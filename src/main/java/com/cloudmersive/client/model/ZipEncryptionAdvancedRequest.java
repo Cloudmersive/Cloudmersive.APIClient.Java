@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to encrypt an existing Zip Archive file and protect it with a password
  */
 @ApiModel(description = "Request to encrypt an existing Zip Archive file and protect it with a password")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-27T18:24:48.137-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-09T14:00:16.728-07:00")
 public class ZipEncryptionAdvancedRequest {
   @SerializedName("InputFileContents")
   private byte[] inputFileContents = null;

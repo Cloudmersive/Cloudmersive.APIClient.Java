@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**domainSsrfCheck**](DomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 [**domainSsrfCheckBatch**](DomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domainUrlFull**](DomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
+[**domainUrlHtmlSsrfCheck**](DomainApi.md#domainUrlHtmlSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check/html-embedded | Check a URL for HTML embedded SSRF threats
 [**domainUrlSyntaxOnly**](DomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
 
@@ -557,6 +558,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidateUrlResponseFull**](ValidateUrlResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="domainUrlHtmlSsrfCheck"></a>
+# **domainUrlHtmlSsrfCheck**
+> UrlHtmlSsrfResponseFull domainUrlHtmlSsrfCheck(request)
+
+Check a URL for HTML embedded SSRF threats
+
+Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.DomainApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+DomainApi apiInstance = new DomainApi();
+UrlHtmlSsrfRequestFull request = new UrlHtmlSsrfRequestFull(); // UrlHtmlSsrfRequestFull | Input URL request
+try {
+    UrlHtmlSsrfResponseFull result = apiInstance.domainUrlHtmlSsrfCheck(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DomainApi#domainUrlHtmlSsrfCheck");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlHtmlSsrfRequestFull**](UrlHtmlSsrfRequestFull.md)| Input URL request |
+
+### Return type
+
+[**UrlHtmlSsrfResponseFull**](UrlHtmlSsrfResponseFull.md)
 
 ### Authorization
 
