@@ -86,7 +86,7 @@ public class MergeDocumentApiTest {
     public void mergeDocumentHtmlTest() throws ApiException {
         File inputFile1 = null;
         File inputFile2 = null;
-        Object response = api.mergeDocumentHtml(inputFile1, inputFile2);
+        byte[] response = api.mergeDocumentHtml(inputFile1, inputFile2);
 
         // TODO: test validations
     }

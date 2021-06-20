@@ -1658,12 +1658,13 @@ public class EditPdfApi {
     /**
      * Build call for editPdfReduceFileSize
      * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editPdfReduceFileSizeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editPdfReduceFileSizeCall(File inputFile, BigDecimal quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1673,6 +1674,8 @@ public class EditPdfApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (quality != null)
+        localVarHeaderParams.put("quality", apiClient.parameterToString(quality));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -1707,7 +1710,7 @@ public class EditPdfApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editPdfReduceFileSizeValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editPdfReduceFileSizeValidateBeforeCall(File inputFile, BigDecimal quality, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -1715,7 +1718,7 @@ public class EditPdfApi {
         }
         
 
-        com.squareup.okhttp.Call call = editPdfReduceFileSizeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfReduceFileSizeCall(inputFile, quality, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1724,11 +1727,12 @@ public class EditPdfApi {
      * Reduce the file size and optimize a PDF
      * Reduces the file size and optimizes the content of a PDF to minimize its file size.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editPdfReduceFileSize(File inputFile) throws ApiException {
-        ApiResponse<byte[]> resp = editPdfReduceFileSizeWithHttpInfo(inputFile);
+    public byte[] editPdfReduceFileSize(File inputFile, BigDecimal quality) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfReduceFileSizeWithHttpInfo(inputFile, quality);
         return resp.getData();
     }
 
@@ -1736,11 +1740,12 @@ public class EditPdfApi {
      * Reduce the file size and optimize a PDF
      * Reduces the file size and optimizes the content of a PDF to minimize its file size.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editPdfReduceFileSizeWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = editPdfReduceFileSizeValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<byte[]> editPdfReduceFileSizeWithHttpInfo(File inputFile, BigDecimal quality) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfReduceFileSizeValidateBeforeCall(inputFile, quality, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1749,11 +1754,12 @@ public class EditPdfApi {
      * Reduce the file size and optimize a PDF (asynchronously)
      * Reduces the file size and optimizes the content of a PDF to minimize its file size.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editPdfReduceFileSizeAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editPdfReduceFileSizeAsync(File inputFile, BigDecimal quality, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1774,7 +1780,7 @@ public class EditPdfApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editPdfReduceFileSizeValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfReduceFileSizeValidateBeforeCall(inputFile, quality, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

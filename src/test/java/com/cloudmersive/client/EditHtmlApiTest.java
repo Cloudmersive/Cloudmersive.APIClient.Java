@@ -15,7 +15,10 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
+import com.cloudmersive.client.model.HtmlGetLanguageResult;
 import com.cloudmersive.client.model.HtmlGetLinksResponse;
+import com.cloudmersive.client.model.HtmlGetRelCanonicalUrlResult;
+import com.cloudmersive.client.model.HtmlGetSitemapUrlResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,6 +35,24 @@ public class EditHtmlApiTest {
 
     private final EditHtmlApi api = new EditHtmlApi();
 
+    
+    /**
+     * Append an HTML tag to the HEAD section of an HTML Document
+     *
+     * Appends an HTML tag to the HEAD section of an HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlAppendHeaderTagTest() throws ApiException {
+        String htmlTag = null;
+        File inputFile = null;
+        String inputFileUrl = null;
+        byte[] response = api.editHtmlHtmlAppendHeaderTag(htmlTag, inputFile, inputFileUrl);
+
+        // TODO: test validations
+    }
     
     /**
      * Append a Heading to an HTML Document
@@ -133,6 +154,23 @@ public class EditHtmlApiTest {
     }
     
     /**
+     * Gets the language for the HTML document
+     *
+     * Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlGetLanguageTest() throws ApiException {
+        File inputFile = null;
+        String inputFileUrl = null;
+        HtmlGetLanguageResult response = api.editHtmlHtmlGetLanguage(inputFile, inputFileUrl);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Extract resolved link URLs from HTML File
      *
      * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
@@ -146,6 +184,94 @@ public class EditHtmlApiTest {
         String inputFileUrl = null;
         String baseUrl = null;
         HtmlGetLinksResponse response = api.editHtmlHtmlGetLinks(inputFile, inputFileUrl, baseUrl);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets the rel canonical URL for the HTML document
+     *
+     * Gets the rel canonical URL of an HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlGetRelCanonicalTest() throws ApiException {
+        File inputFile = null;
+        String inputFileUrl = null;
+        HtmlGetRelCanonicalUrlResult response = api.editHtmlHtmlGetRelCanonical(inputFile, inputFileUrl);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets the sitemap URL for the HTML document
+     *
+     * Gets the sitemap link URL of an HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlGetSitemapTest() throws ApiException {
+        File inputFile = null;
+        String inputFileUrl = null;
+        HtmlGetSitemapUrlResult response = api.editHtmlHtmlGetSitemap(inputFile, inputFileUrl);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Sets the language for the HTML document
+     *
+     * Sets the language code of an HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlSetLanguageTest() throws ApiException {
+        String languageCode = null;
+        File inputFile = null;
+        String inputFileUrl = null;
+        byte[] response = api.editHtmlHtmlSetLanguage(languageCode, inputFile, inputFileUrl);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Sets the rel canonical URL for the HTML document
+     *
+     * Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlSetRelCanonicalTest() throws ApiException {
+        String canonicalUrl = null;
+        File inputFile = null;
+        String inputFileUrl = null;
+        byte[] response = api.editHtmlHtmlSetRelCanonical(canonicalUrl, inputFile, inputFileUrl);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Sets the sitemap URL for the HTML document
+     *
+     * Sets the sitemap URL of an HTML document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editHtmlHtmlSetSitemapUrlTest() throws ApiException {
+        String sitemapUrl = null;
+        File inputFile = null;
+        String inputFileUrl = null;
+        byte[] response = api.editHtmlHtmlSetSitemapUrl(sitemapUrl, inputFile, inputFileUrl);
 
         // TODO: test validations
     }

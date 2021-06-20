@@ -255,7 +255,8 @@ public class EditPdfApiTest {
     @Test
     public void editPdfReduceFileSizeTest() throws ApiException {
         File inputFile = null;
-        byte[] response = api.editPdfReduceFileSize(inputFile);
+        BigDecimal quality = null;
+        byte[] response = api.editPdfReduceFileSize(inputFile, quality);
 
         // TODO: test validations
     }

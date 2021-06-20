@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfReduceFileSize"></a>
 # **editPdfReduceFileSize**
-> byte[] editPdfReduceFileSize(inputFile)
+> byte[] editPdfReduceFileSize(inputFile, quality)
 
 Reduce the file size and optimize a PDF
 
@@ -739,8 +739,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditPdfApi apiInstance = new EditPdfApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+BigDecimal quality = new BigDecimal(); // BigDecimal | Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3
 try {
-    byte[] result = apiInstance.editPdfReduceFileSize(inputFile);
+    byte[] result = apiInstance.editPdfReduceFileSize(inputFile, quality);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditPdfApi#editPdfReduceFileSize");
@@ -753,6 +754,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
+ **quality** | **BigDecimal**| Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 | [optional]
 
 ### Return type
 

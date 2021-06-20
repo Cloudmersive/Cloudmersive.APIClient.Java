@@ -30,7 +30,7 @@ import java.util.List;
  * Spelling correction check result
  */
 @ApiModel(description = "Spelling correction check result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-09T13:59:56.227-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-19T22:01:34.558-07:00")
 public class CheckWordResponse {
   @SerializedName("Correct")
   private Boolean correct = null;

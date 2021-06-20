@@ -450,11 +450,11 @@ public class MergeDocumentApi {
      * Combine two HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object mergeDocumentHtml(File inputFile1, File inputFile2) throws ApiException {
-        ApiResponse<Object> resp = mergeDocumentHtmlWithHttpInfo(inputFile1, inputFile2);
+    public byte[] mergeDocumentHtml(File inputFile1, File inputFile2) throws ApiException {
+        ApiResponse<byte[]> resp = mergeDocumentHtmlWithHttpInfo(inputFile1, inputFile2);
         return resp.getData();
     }
 
@@ -463,12 +463,12 @@ public class MergeDocumentApi {
      * Combine two HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> mergeDocumentHtmlWithHttpInfo(File inputFile1, File inputFile2) throws ApiException {
+    public ApiResponse<byte[]> mergeDocumentHtmlWithHttpInfo(File inputFile1, File inputFile2) throws ApiException {
         com.squareup.okhttp.Call call = mergeDocumentHtmlValidateBeforeCall(inputFile1, inputFile2, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -481,7 +481,7 @@ public class MergeDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call mergeDocumentHtmlAsync(File inputFile1, File inputFile2, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call mergeDocumentHtmlAsync(File inputFile1, File inputFile2, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -503,7 +503,7 @@ public class MergeDocumentApi {
         }
 
         com.squareup.okhttp.Call call = mergeDocumentHtmlValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

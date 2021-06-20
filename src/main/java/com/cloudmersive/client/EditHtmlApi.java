@@ -28,7 +28,10 @@ import java.io.IOException;
 
 
 import java.io.File;
+import com.cloudmersive.client.model.HtmlGetLanguageResult;
 import com.cloudmersive.client.model.HtmlGetLinksResponse;
+import com.cloudmersive.client.model.HtmlGetRelCanonicalUrlResult;
+import com.cloudmersive.client.model.HtmlGetSitemapUrlResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -55,6 +58,142 @@ public class EditHtmlApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for editHtmlHtmlAppendHeaderTag
+     * @param htmlTag The HTML tag to append. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlAppendHeaderTagCall(String htmlTag, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/append/tag";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+        if (htmlTag != null)
+        localVarHeaderParams.put("htmlTag", apiClient.parameterToString(htmlTag));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlAppendHeaderTagValidateBeforeCall(String htmlTag, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'htmlTag' is set
+        if (htmlTag == null) {
+            throw new ApiException("Missing the required parameter 'htmlTag' when calling editHtmlHtmlAppendHeaderTag(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeaderTagCall(htmlTag, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Append an HTML tag to the HEAD section of an HTML Document
+     * Appends an HTML tag to the HEAD section of an HTML document.
+     * @param htmlTag The HTML tag to append. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editHtmlHtmlAppendHeaderTag(String htmlTag, File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlAppendHeaderTagWithHttpInfo(htmlTag, inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Append an HTML tag to the HEAD section of an HTML Document
+     * Appends an HTML tag to the HEAD section of an HTML document.
+     * @param htmlTag The HTML tag to append. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editHtmlHtmlAppendHeaderTagWithHttpInfo(String htmlTag, File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeaderTagValidateBeforeCall(htmlTag, inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Append an HTML tag to the HEAD section of an HTML Document (asynchronously)
+     * Appends an HTML tag to the HEAD section of an HTML document.
+     * @param htmlTag The HTML tag to append. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlAppendHeaderTagAsync(String htmlTag, File inputFile, String inputFileUrl, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlAppendHeaderTagValidateBeforeCall(htmlTag, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for editHtmlHtmlAppendHeading
      * @param headingText The text content to be used in the header. (required)
@@ -780,6 +919,131 @@ public class EditHtmlApi {
         return call;
     }
     /**
+     * Build call for editHtmlHtmlGetLanguage
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetLanguageCall(File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/get/language";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlGetLanguageValidateBeforeCall(File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetLanguageCall(inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets the language for the HTML document
+     * Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return HtmlGetLanguageResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HtmlGetLanguageResult editHtmlHtmlGetLanguage(File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<HtmlGetLanguageResult> resp = editHtmlHtmlGetLanguageWithHttpInfo(inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Gets the language for the HTML document
+     * Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;HtmlGetLanguageResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<HtmlGetLanguageResult> editHtmlHtmlGetLanguageWithHttpInfo(File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlGetLanguageValidateBeforeCall(inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<HtmlGetLanguageResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets the language for the HTML document (asynchronously)
+     * Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetLanguageAsync(File inputFile, String inputFileUrl, final ApiCallback<HtmlGetLanguageResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetLanguageValidateBeforeCall(inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<HtmlGetLanguageResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editHtmlHtmlGetLinks
      * @param inputFile Optional: Input file to perform the operation on. (optional)
      * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
@@ -907,6 +1171,664 @@ public class EditHtmlApi {
 
         com.squareup.okhttp.Call call = editHtmlHtmlGetLinksValidateBeforeCall(inputFile, inputFileUrl, baseUrl, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<HtmlGetLinksResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlGetRelCanonical
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetRelCanonicalCall(File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/get/rel-canonical-url";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlGetRelCanonicalValidateBeforeCall(File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetRelCanonicalCall(inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets the rel canonical URL for the HTML document
+     * Gets the rel canonical URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return HtmlGetRelCanonicalUrlResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HtmlGetRelCanonicalUrlResult editHtmlHtmlGetRelCanonical(File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<HtmlGetRelCanonicalUrlResult> resp = editHtmlHtmlGetRelCanonicalWithHttpInfo(inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Gets the rel canonical URL for the HTML document
+     * Gets the rel canonical URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;HtmlGetRelCanonicalUrlResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<HtmlGetRelCanonicalUrlResult> editHtmlHtmlGetRelCanonicalWithHttpInfo(File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlGetRelCanonicalValidateBeforeCall(inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<HtmlGetRelCanonicalUrlResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets the rel canonical URL for the HTML document (asynchronously)
+     * Gets the rel canonical URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetRelCanonicalAsync(File inputFile, String inputFileUrl, final ApiCallback<HtmlGetRelCanonicalUrlResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetRelCanonicalValidateBeforeCall(inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<HtmlGetRelCanonicalUrlResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlGetSitemap
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetSitemapCall(File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/get/sitemap-url";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlGetSitemapValidateBeforeCall(File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetSitemapCall(inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets the sitemap URL for the HTML document
+     * Gets the sitemap link URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return HtmlGetSitemapUrlResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HtmlGetSitemapUrlResult editHtmlHtmlGetSitemap(File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<HtmlGetSitemapUrlResult> resp = editHtmlHtmlGetSitemapWithHttpInfo(inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Gets the sitemap URL for the HTML document
+     * Gets the sitemap link URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;HtmlGetSitemapUrlResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<HtmlGetSitemapUrlResult> editHtmlHtmlGetSitemapWithHttpInfo(File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlGetSitemapValidateBeforeCall(inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<HtmlGetSitemapUrlResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets the sitemap URL for the HTML document (asynchronously)
+     * Gets the sitemap link URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlGetSitemapAsync(File inputFile, String inputFileUrl, final ApiCallback<HtmlGetSitemapUrlResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlGetSitemapValidateBeforeCall(inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<HtmlGetSitemapUrlResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlSetLanguage
+     * @param languageCode The HTML langauge code to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlSetLanguageCall(String languageCode, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/set/language";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+        if (languageCode != null)
+        localVarHeaderParams.put("languageCode", apiClient.parameterToString(languageCode));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlSetLanguageValidateBeforeCall(String languageCode, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'languageCode' is set
+        if (languageCode == null) {
+            throw new ApiException("Missing the required parameter 'languageCode' when calling editHtmlHtmlSetLanguage(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlSetLanguageCall(languageCode, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Sets the language for the HTML document
+     * Sets the language code of an HTML document.
+     * @param languageCode The HTML langauge code to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editHtmlHtmlSetLanguage(String languageCode, File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlSetLanguageWithHttpInfo(languageCode, inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Sets the language for the HTML document
+     * Sets the language code of an HTML document.
+     * @param languageCode The HTML langauge code to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editHtmlHtmlSetLanguageWithHttpInfo(String languageCode, File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlSetLanguageValidateBeforeCall(languageCode, inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Sets the language for the HTML document (asynchronously)
+     * Sets the language code of an HTML document.
+     * @param languageCode The HTML langauge code to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlSetLanguageAsync(String languageCode, File inputFile, String inputFileUrl, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlSetLanguageValidateBeforeCall(languageCode, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlSetRelCanonical
+     * @param canonicalUrl The HTML canonical URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlSetRelCanonicalCall(String canonicalUrl, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/set/rel-canonical-url";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+        if (canonicalUrl != null)
+        localVarHeaderParams.put("canonicalUrl", apiClient.parameterToString(canonicalUrl));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlSetRelCanonicalValidateBeforeCall(String canonicalUrl, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'canonicalUrl' is set
+        if (canonicalUrl == null) {
+            throw new ApiException("Missing the required parameter 'canonicalUrl' when calling editHtmlHtmlSetRelCanonical(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlSetRelCanonicalCall(canonicalUrl, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Sets the rel canonical URL for the HTML document
+     * Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+     * @param canonicalUrl The HTML canonical URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editHtmlHtmlSetRelCanonical(String canonicalUrl, File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlSetRelCanonicalWithHttpInfo(canonicalUrl, inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Sets the rel canonical URL for the HTML document
+     * Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+     * @param canonicalUrl The HTML canonical URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editHtmlHtmlSetRelCanonicalWithHttpInfo(String canonicalUrl, File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlSetRelCanonicalValidateBeforeCall(canonicalUrl, inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Sets the rel canonical URL for the HTML document (asynchronously)
+     * Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+     * @param canonicalUrl The HTML canonical URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlSetRelCanonicalAsync(String canonicalUrl, File inputFile, String inputFileUrl, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlSetRelCanonicalValidateBeforeCall(canonicalUrl, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editHtmlHtmlSetSitemapUrl
+     * @param sitemapUrl The HTML sitemap URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlSetSitemapUrlCall(String sitemapUrl, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/html/head/set/sitemap-url";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+        if (sitemapUrl != null)
+        localVarHeaderParams.put("sitemapUrl", apiClient.parameterToString(sitemapUrl));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editHtmlHtmlSetSitemapUrlValidateBeforeCall(String sitemapUrl, File inputFile, String inputFileUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'sitemapUrl' is set
+        if (sitemapUrl == null) {
+            throw new ApiException("Missing the required parameter 'sitemapUrl' when calling editHtmlHtmlSetSitemapUrl(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editHtmlHtmlSetSitemapUrlCall(sitemapUrl, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Sets the sitemap URL for the HTML document
+     * Sets the sitemap URL of an HTML document.
+     * @param sitemapUrl The HTML sitemap URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editHtmlHtmlSetSitemapUrl(String sitemapUrl, File inputFile, String inputFileUrl) throws ApiException {
+        ApiResponse<byte[]> resp = editHtmlHtmlSetSitemapUrlWithHttpInfo(sitemapUrl, inputFile, inputFileUrl);
+        return resp.getData();
+    }
+
+    /**
+     * Sets the sitemap URL for the HTML document
+     * Sets the sitemap URL of an HTML document.
+     * @param sitemapUrl The HTML sitemap URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editHtmlHtmlSetSitemapUrlWithHttpInfo(String sitemapUrl, File inputFile, String inputFileUrl) throws ApiException {
+        com.squareup.okhttp.Call call = editHtmlHtmlSetSitemapUrlValidateBeforeCall(sitemapUrl, inputFile, inputFileUrl, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Sets the sitemap URL for the HTML document (asynchronously)
+     * Sets the sitemap URL of an HTML document.
+     * @param sitemapUrl The HTML sitemap URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editHtmlHtmlSetSitemapUrlAsync(String sitemapUrl, File inputFile, String inputFileUrl, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editHtmlHtmlSetSitemapUrlValidateBeforeCall(sitemapUrl, inputFile, inputFileUrl, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

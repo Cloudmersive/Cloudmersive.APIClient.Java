@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an Admin Path operation
  */
 @ApiModel(description = "Result of performing an Admin Path operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-09T13:59:48.979-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-19T22:01:17.387-07:00")
 public class IsAdminPathResponse {
   @SerializedName("IsAdminPathNode")
   private Boolean isAdminPathNode = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Point location in 2D in an image, where 0, 0 represents the top/left corner of the image
  */
 @ApiModel(description = "Point location in 2D in an image, where 0, 0 represents the top/left corner of the image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-09T14:00:03.338-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-19T22:01:52.049-07:00")
 public class Point {
   @SerializedName("X")
   private Integer X = null;

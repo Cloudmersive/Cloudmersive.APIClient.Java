@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 <a name="mergeDocumentHtml"></a>
 # **mergeDocumentHtml**
-> Object mergeDocumentHtml(inputFile1, inputFile2)
+> byte[] mergeDocumentHtml(inputFile1, inputFile2)
 
 Merge Two HTML (HTM) Files Together
 
@@ -179,7 +179,7 @@ MergeDocumentApi apiInstance = new MergeDocumentApi();
 File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
 File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on (more than 2 can be supplied).
 try {
-    Object result = apiInstance.mergeDocumentHtml(inputFile1, inputFile2);
+    byte[] result = apiInstance.mergeDocumentHtml(inputFile1, inputFile2);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MergeDocumentApi#mergeDocumentHtml");
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
