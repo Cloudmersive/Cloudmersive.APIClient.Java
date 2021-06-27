@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a Clear Cell in XLSX Worksheet request
  */
 @ApiModel(description = "Input to a Clear Cell in XLSX Worksheet request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-19T22:02:42.811-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-26T22:18:49.605-07:00")
 public class ClearXlsxCellRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

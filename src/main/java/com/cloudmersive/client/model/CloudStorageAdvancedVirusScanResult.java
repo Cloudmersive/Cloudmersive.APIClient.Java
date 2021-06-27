@@ -15,7 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudmersive.client.model.VirusFound;
+import com.cloudmersive.client.model.CloudStorageVirusFound;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,11 +28,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Result of running an advanced virus scan
+ * Result of running an advanced virus scan on cloud storage
  */
-@ApiModel(description = "Result of running an advanced virus scan")
+@ApiModel(description = "Result of running an advanced virus scan on cloud storage")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-26T22:18:58.881-07:00")
-public class VirusScanAdvancedResult {
+public class CloudStorageAdvancedVirusScanResult {
+  @SerializedName("Successful")
+  private Boolean successful = null;
+
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
 
@@ -58,9 +61,33 @@ public class VirusScanAdvancedResult {
   private String verifiedFileFormat = null;
 
   @SerializedName("FoundViruses")
-  private List<VirusFound> foundViruses = null;
+  private List<CloudStorageVirusFound> foundViruses = null;
 
-  public VirusScanAdvancedResult cleanResult(Boolean cleanResult) {
+  @SerializedName("ErrorDetailedDescription")
+  private String errorDetailedDescription = null;
+
+  @SerializedName("FileSize")
+  private Long fileSize = null;
+
+  public CloudStorageAdvancedVirusScanResult successful(Boolean successful) {
+    this.successful = successful;
+    return this;
+  }
+
+   /**
+   * True if the operation of retrieving the file, and scanning it were successfully completed, false if the file could not be downloaded from cloud storage, or if the file could not be scanned.  Note that successful completion does not mean the file is clean; for the output of the virus scanning operation itself, use the CleanResult and FoundViruses parameters.
+   * @return successful
+  **/
+  @ApiModelProperty(value = "True if the operation of retrieving the file, and scanning it were successfully completed, false if the file could not be downloaded from cloud storage, or if the file could not be scanned.  Note that successful completion does not mean the file is clean; for the output of the virus scanning operation itself, use the CleanResult and FoundViruses parameters.")
+  public Boolean isSuccessful() {
+    return successful;
+  }
+
+  public void setSuccessful(Boolean successful) {
+    this.successful = successful;
+  }
+
+  public CloudStorageAdvancedVirusScanResult cleanResult(Boolean cleanResult) {
     this.cleanResult = cleanResult;
     return this;
   }
@@ -78,7 +105,7 @@ public class VirusScanAdvancedResult {
     this.cleanResult = cleanResult;
   }
 
-  public VirusScanAdvancedResult containsExecutable(Boolean containsExecutable) {
+  public CloudStorageAdvancedVirusScanResult containsExecutable(Boolean containsExecutable) {
     this.containsExecutable = containsExecutable;
     return this;
   }
@@ -96,7 +123,7 @@ public class VirusScanAdvancedResult {
     this.containsExecutable = containsExecutable;
   }
 
-  public VirusScanAdvancedResult containsInvalidFile(Boolean containsInvalidFile) {
+  public CloudStorageAdvancedVirusScanResult containsInvalidFile(Boolean containsInvalidFile) {
     this.containsInvalidFile = containsInvalidFile;
     return this;
   }
@@ -114,7 +141,7 @@ public class VirusScanAdvancedResult {
     this.containsInvalidFile = containsInvalidFile;
   }
 
-  public VirusScanAdvancedResult containsScript(Boolean containsScript) {
+  public CloudStorageAdvancedVirusScanResult containsScript(Boolean containsScript) {
     this.containsScript = containsScript;
     return this;
   }
@@ -132,7 +159,7 @@ public class VirusScanAdvancedResult {
     this.containsScript = containsScript;
   }
 
-  public VirusScanAdvancedResult containsPasswordProtectedFile(Boolean containsPasswordProtectedFile) {
+  public CloudStorageAdvancedVirusScanResult containsPasswordProtectedFile(Boolean containsPasswordProtectedFile) {
     this.containsPasswordProtectedFile = containsPasswordProtectedFile;
     return this;
   }
@@ -150,7 +177,7 @@ public class VirusScanAdvancedResult {
     this.containsPasswordProtectedFile = containsPasswordProtectedFile;
   }
 
-  public VirusScanAdvancedResult containsRestrictedFileFormat(Boolean containsRestrictedFileFormat) {
+  public CloudStorageAdvancedVirusScanResult containsRestrictedFileFormat(Boolean containsRestrictedFileFormat) {
     this.containsRestrictedFileFormat = containsRestrictedFileFormat;
     return this;
   }
@@ -168,7 +195,7 @@ public class VirusScanAdvancedResult {
     this.containsRestrictedFileFormat = containsRestrictedFileFormat;
   }
 
-  public VirusScanAdvancedResult containsMacros(Boolean containsMacros) {
+  public CloudStorageAdvancedVirusScanResult containsMacros(Boolean containsMacros) {
     this.containsMacros = containsMacros;
     return this;
   }
@@ -186,7 +213,7 @@ public class VirusScanAdvancedResult {
     this.containsMacros = containsMacros;
   }
 
-  public VirusScanAdvancedResult verifiedFileFormat(String verifiedFileFormat) {
+  public CloudStorageAdvancedVirusScanResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
   }
@@ -204,14 +231,14 @@ public class VirusScanAdvancedResult {
     this.verifiedFileFormat = verifiedFileFormat;
   }
 
-  public VirusScanAdvancedResult foundViruses(List<VirusFound> foundViruses) {
+  public CloudStorageAdvancedVirusScanResult foundViruses(List<CloudStorageVirusFound> foundViruses) {
     this.foundViruses = foundViruses;
     return this;
   }
 
-  public VirusScanAdvancedResult addFoundVirusesItem(VirusFound foundVirusesItem) {
+  public CloudStorageAdvancedVirusScanResult addFoundVirusesItem(CloudStorageVirusFound foundVirusesItem) {
     if (this.foundViruses == null) {
-      this.foundViruses = new ArrayList<VirusFound>();
+      this.foundViruses = new ArrayList<CloudStorageVirusFound>();
     }
     this.foundViruses.add(foundVirusesItem);
     return this;
@@ -222,12 +249,48 @@ public class VirusScanAdvancedResult {
    * @return foundViruses
   **/
   @ApiModelProperty(value = "Array of viruses found, if any")
-  public List<VirusFound> getFoundViruses() {
+  public List<CloudStorageVirusFound> getFoundViruses() {
     return foundViruses;
   }
 
-  public void setFoundViruses(List<VirusFound> foundViruses) {
+  public void setFoundViruses(List<CloudStorageVirusFound> foundViruses) {
     this.foundViruses = foundViruses;
+  }
+
+  public CloudStorageAdvancedVirusScanResult errorDetailedDescription(String errorDetailedDescription) {
+    this.errorDetailedDescription = errorDetailedDescription;
+    return this;
+  }
+
+   /**
+   * Detailed error message if the operation was not successful
+   * @return errorDetailedDescription
+  **/
+  @ApiModelProperty(value = "Detailed error message if the operation was not successful")
+  public String getErrorDetailedDescription() {
+    return errorDetailedDescription;
+  }
+
+  public void setErrorDetailedDescription(String errorDetailedDescription) {
+    this.errorDetailedDescription = errorDetailedDescription;
+  }
+
+  public CloudStorageAdvancedVirusScanResult fileSize(Long fileSize) {
+    this.fileSize = fileSize;
+    return this;
+  }
+
+   /**
+   * Size in bytes of the file that was retrieved and scanned
+   * @return fileSize
+  **/
+  @ApiModelProperty(value = "Size in bytes of the file that was retrieved and scanned")
+  public Long getFileSize() {
+    return fileSize;
+  }
+
+  public void setFileSize(Long fileSize) {
+    this.fileSize = fileSize;
   }
 
 
@@ -239,29 +302,33 @@ public class VirusScanAdvancedResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VirusScanAdvancedResult virusScanAdvancedResult = (VirusScanAdvancedResult) o;
-    return Objects.equals(this.cleanResult, virusScanAdvancedResult.cleanResult) &&
-        Objects.equals(this.containsExecutable, virusScanAdvancedResult.containsExecutable) &&
-        Objects.equals(this.containsInvalidFile, virusScanAdvancedResult.containsInvalidFile) &&
-        Objects.equals(this.containsScript, virusScanAdvancedResult.containsScript) &&
-        Objects.equals(this.containsPasswordProtectedFile, virusScanAdvancedResult.containsPasswordProtectedFile) &&
-        Objects.equals(this.containsRestrictedFileFormat, virusScanAdvancedResult.containsRestrictedFileFormat) &&
-        Objects.equals(this.containsMacros, virusScanAdvancedResult.containsMacros) &&
-        Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
-        Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses);
+    CloudStorageAdvancedVirusScanResult cloudStorageAdvancedVirusScanResult = (CloudStorageAdvancedVirusScanResult) o;
+    return Objects.equals(this.successful, cloudStorageAdvancedVirusScanResult.successful) &&
+        Objects.equals(this.cleanResult, cloudStorageAdvancedVirusScanResult.cleanResult) &&
+        Objects.equals(this.containsExecutable, cloudStorageAdvancedVirusScanResult.containsExecutable) &&
+        Objects.equals(this.containsInvalidFile, cloudStorageAdvancedVirusScanResult.containsInvalidFile) &&
+        Objects.equals(this.containsScript, cloudStorageAdvancedVirusScanResult.containsScript) &&
+        Objects.equals(this.containsPasswordProtectedFile, cloudStorageAdvancedVirusScanResult.containsPasswordProtectedFile) &&
+        Objects.equals(this.containsRestrictedFileFormat, cloudStorageAdvancedVirusScanResult.containsRestrictedFileFormat) &&
+        Objects.equals(this.containsMacros, cloudStorageAdvancedVirusScanResult.containsMacros) &&
+        Objects.equals(this.verifiedFileFormat, cloudStorageAdvancedVirusScanResult.verifiedFileFormat) &&
+        Objects.equals(this.foundViruses, cloudStorageAdvancedVirusScanResult.foundViruses) &&
+        Objects.equals(this.errorDetailedDescription, cloudStorageAdvancedVirusScanResult.errorDetailedDescription) &&
+        Objects.equals(this.fileSize, cloudStorageAdvancedVirusScanResult.fileSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses);
+    return Objects.hash(successful, cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses, errorDetailedDescription, fileSize);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VirusScanAdvancedResult {\n");
+    sb.append("class CloudStorageAdvancedVirusScanResult {\n");
     
+    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    cleanResult: ").append(toIndentedString(cleanResult)).append("\n");
     sb.append("    containsExecutable: ").append(toIndentedString(containsExecutable)).append("\n");
     sb.append("    containsInvalidFile: ").append(toIndentedString(containsInvalidFile)).append("\n");
@@ -271,6 +338,8 @@ public class VirusScanAdvancedResult {
     sb.append("    containsMacros: ").append(toIndentedString(containsMacros)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
+    sb.append("    errorDetailedDescription: ").append(toIndentedString(errorDetailedDescription)).append("\n");
+    sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
