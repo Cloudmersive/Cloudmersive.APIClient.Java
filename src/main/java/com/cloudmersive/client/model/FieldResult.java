@@ -32,7 +32,7 @@ import java.util.List;
  * A pairing target field and actual value read from form
  */
 @ApiModel(description = "A pairing target field and actual value read from form")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-26T22:18:29.271-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:20.504-07:00")
 public class FieldResult {
   @SerializedName("TargetField")
   private FormFieldDefinition targetField = null;

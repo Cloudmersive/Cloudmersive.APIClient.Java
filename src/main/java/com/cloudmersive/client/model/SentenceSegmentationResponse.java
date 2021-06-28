@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * SentenceSegmentationResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-26T22:18:24.542-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:16.404-07:00")
 public class SentenceSegmentationResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

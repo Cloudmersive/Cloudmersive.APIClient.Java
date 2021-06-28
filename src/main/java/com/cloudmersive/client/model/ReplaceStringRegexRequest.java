@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to replace a regex string in a string
  */
 @ApiModel(description = "Request to replace a regex string in a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-26T22:18:49.605-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:31.725-07:00")
 public class ReplaceStringRegexRequest {
   @SerializedName("TextContent")
   private String textContent = null;

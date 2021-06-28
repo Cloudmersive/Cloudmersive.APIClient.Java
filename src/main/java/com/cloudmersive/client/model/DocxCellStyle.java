@@ -28,7 +28,7 @@ import java.io.IOException;
  * Style in an Excel spreadsheet
  */
 @ApiModel(description = "Style in an Excel spreadsheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-26T22:18:49.605-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:31.725-07:00")
 public class DocxCellStyle {
   @SerializedName("Path")
   private String path = null;
