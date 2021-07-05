@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:39.452-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:42.004-07:00")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -53,6 +53,9 @@ public class VirusScanAdvancedResult {
 
   @SerializedName("ContainsMacros")
   private Boolean containsMacros = null;
+
+  @SerializedName("ContainsXmlExternalEntities")
+  private Boolean containsXmlExternalEntities = null;
 
   @SerializedName("VerifiedFileFormat")
   private String verifiedFileFormat = null;
@@ -186,6 +189,24 @@ public class VirusScanAdvancedResult {
     this.containsMacros = containsMacros;
   }
 
+  public VirusScanAdvancedResult containsXmlExternalEntities(Boolean containsXmlExternalEntities) {
+    this.containsXmlExternalEntities = containsXmlExternalEntities;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor
+   * @return containsXmlExternalEntities
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor")
+  public Boolean isContainsXmlExternalEntities() {
+    return containsXmlExternalEntities;
+  }
+
+  public void setContainsXmlExternalEntities(Boolean containsXmlExternalEntities) {
+    this.containsXmlExternalEntities = containsXmlExternalEntities;
+  }
+
   public VirusScanAdvancedResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
@@ -247,13 +268,14 @@ public class VirusScanAdvancedResult {
         Objects.equals(this.containsPasswordProtectedFile, virusScanAdvancedResult.containsPasswordProtectedFile) &&
         Objects.equals(this.containsRestrictedFileFormat, virusScanAdvancedResult.containsRestrictedFileFormat) &&
         Objects.equals(this.containsMacros, virusScanAdvancedResult.containsMacros) &&
+        Objects.equals(this.containsXmlExternalEntities, virusScanAdvancedResult.containsXmlExternalEntities) &&
         Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses);
+    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, verifiedFileFormat, foundViruses);
   }
 
 
@@ -269,6 +291,7 @@ public class VirusScanAdvancedResult {
     sb.append("    containsPasswordProtectedFile: ").append(toIndentedString(containsPasswordProtectedFile)).append("\n");
     sb.append("    containsRestrictedFileFormat: ").append(toIndentedString(containsRestrictedFileFormat)).append("\n");
     sb.append("    containsMacros: ").append(toIndentedString(containsMacros)).append("\n");
+    sb.append("    containsXmlExternalEntities: ").append(toIndentedString(containsXmlExternalEntities)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("}");

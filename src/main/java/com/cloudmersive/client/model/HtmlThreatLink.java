@@ -28,7 +28,7 @@ import java.io.IOException;
  * Threat assessment for a hyperlink URL
  */
 @ApiModel(description = "Threat assessment for a hyperlink URL")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:31.725-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:29.559-07:00")
 public class HtmlThreatLink {
   @SerializedName("LinkUrl")
   private String linkUrl = null;

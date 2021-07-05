@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual item to protect for XSS
  */
 @ApiModel(description = "Individual item to protect for XSS")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:11.835-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:00.946-07:00")
 public class XssProtectionRequestItem {
   @SerializedName("InputText")
   private String inputText = null;

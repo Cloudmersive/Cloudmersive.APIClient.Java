@@ -28,7 +28,7 @@ import java.io.IOException;
  * Details of the HTML to Text request
  */
 @ApiModel(description = "Details of the HTML to Text request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-06-27T17:49:31.725-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:29.559-07:00")
 public class HtmlToTextRequest {
   @SerializedName("Html")
   private String html = null;
