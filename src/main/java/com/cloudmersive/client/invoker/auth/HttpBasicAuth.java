@@ -1,6 +1,6 @@
 /*
- * currencyapi
- * The currency APIs help you retrieve exchange rates and convert prices between currencies easily.
+ * securityapi
+ * The security APIs help you detect and block security threats.
  *
  * OpenAPI spec version: v1
  * 

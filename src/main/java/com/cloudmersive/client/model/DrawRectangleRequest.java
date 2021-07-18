@@ -31,7 +31,7 @@ import java.util.List;
  * Request to draw one or more rectangles on a base image
  */
 @ApiModel(description = "Request to draw one or more rectangles on a base image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:24.176-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:00.238-07:00")
 public class DrawRectangleRequest {
   @SerializedName("BaseImageBytes")
   private byte[] baseImageBytes = null;

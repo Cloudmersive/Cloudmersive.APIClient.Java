@@ -28,7 +28,7 @@ import java.io.IOException;
  * Point location within a face
  */
 @ApiModel(description = "Point location within a face")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:24.176-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:00.238-07:00")
 public class FacePoint {
   @SerializedName("X")
   private Integer X = null;

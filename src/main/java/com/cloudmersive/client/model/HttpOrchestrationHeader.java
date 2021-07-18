@@ -29,7 +29,7 @@ import java.io.IOException;
  * HTTP header to add to the HTTP request
  */
 @ApiModel(description = "HTTP header to add to the HTTP request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:45.748-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:26.957-07:00")
 public class HttpOrchestrationHeader {
   @SerializedName("HeaderName")
   private String headerName = null;

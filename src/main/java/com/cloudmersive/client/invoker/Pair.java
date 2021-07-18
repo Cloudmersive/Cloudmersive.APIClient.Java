@@ -1,6 +1,6 @@
 /*
- * currencyapi
- * The currency APIs help you retrieve exchange rates and convert prices between currencies easily.
+ * securityapi
+ * The security APIs help you detect and block security threats.
  *
  * OpenAPI spec version: v1
  * 
@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:45:01.249-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:43.641-07:00")
 public class Pair {
     private String name = "";
     private String value = "";

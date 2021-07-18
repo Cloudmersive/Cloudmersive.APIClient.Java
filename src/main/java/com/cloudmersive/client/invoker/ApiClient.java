@@ -1,6 +1,6 @@
 /*
- * currencyapi
- * The currency APIs help you retrieve exchange rates and convert prices between currencies easily.
+ * securityapi
+ * The security APIs help you detect and block security threats.
  *
  * OpenAPI spec version: v1
  * 
@@ -85,7 +85,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/4.0.6/java");
+        setUserAgent("Swagger-Codegen/4.0.2/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();

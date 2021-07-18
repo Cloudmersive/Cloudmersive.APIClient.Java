@@ -31,7 +31,7 @@ import java.util.List;
  * A word in a sentence
  */
 @ApiModel(description = "A word in a sentence")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:08.840-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:42:45.716-07:00")
 public class CorrectWordInSentence {
   @SerializedName("Word")
   private WordPosition word = null;

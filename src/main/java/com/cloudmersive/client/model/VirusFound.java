@@ -28,7 +28,7 @@ import java.io.IOException;
  * Virus positively identified
  */
 @ApiModel(description = "Virus positively identified")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:42.004-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:22.055-07:00")
 public class VirusFound {
   @SerializedName("FileName")
   private String fileName = null;

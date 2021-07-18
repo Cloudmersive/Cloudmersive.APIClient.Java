@@ -31,7 +31,7 @@ import java.util.List;
  * The result of splitting a spreadsheet into individual Excel XLSX worksheets
  */
 @ApiModel(description = "The result of splitting a spreadsheet into individual Excel XLSX worksheets")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:29.559-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:11.127-07:00")
 public class SplitXlsxWorksheetResult {
   @SerializedName("ResultWorksheets")
   private List<WorksheetResult> resultWorksheets = null;

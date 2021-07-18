@@ -31,7 +31,7 @@ import java.util.List;
  * The result of splitting a video
  */
 @ApiModel(description = "The result of splitting a video")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:50.512-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:32.233-07:00")
 public class SplitVideoResult {
   @SerializedName("Successful")
   private Boolean successful = null;

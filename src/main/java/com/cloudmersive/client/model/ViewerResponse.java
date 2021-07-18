@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of creating a viewer
  */
 @ApiModel(description = "Result of creating a viewer")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-04T21:44:29.559-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:11.127-07:00")
 public class ViewerResponse {
   @SerializedName("HtmlEmbed")
   private String htmlEmbed = null;
