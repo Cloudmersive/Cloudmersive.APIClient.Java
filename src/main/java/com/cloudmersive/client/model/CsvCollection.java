@@ -31,7 +31,7 @@ import java.util.List;
  * Collection of CSV Files
  */
 @ApiModel(description = "Collection of CSV Files")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:11.127-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-25T19:53:24.676-07:00")
 public class CsvCollection {
   @SerializedName("Successful")
   private Boolean successful = null;

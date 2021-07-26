@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
+import com.cloudmersive.client.model.DocxTableTableFillRequest;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -48,6 +49,22 @@ public class TransformDocumentApiTest {
         String inputFileUrl = null;
         Boolean matchCase = null;
         byte[] response = api.transformDocumentDocxReplace(matchString, replaceString, inputFile, inputFileUrl, matchCase);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Fill in data in a table in a Word DOCX document
+     *
+     * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void transformDocumentDocxTableFillInTest() throws ApiException {
+        DocxTableTableFillRequest request = null;
+        byte[] response = api.transformDocumentDocxTableFillIn(request);
 
         // TODO: test validations
     }

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**transformDocumentDocxReplace**](TransformDocumentApi.md#transformDocumentDocxReplace) | **POST** /convert/transform/docx/replace-all | Replace string in Word DOCX document
+[**transformDocumentDocxTableFillIn**](TransformDocumentApi.md#transformDocumentDocxTableFillIn) | **POST** /convert/transform/docx/table/fill/data | Fill in data in a table in a Word DOCX document
 [**transformDocumentPptxReplace**](TransformDocumentApi.md#transformDocumentPptxReplace) | **POST** /convert/transform/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 
 
@@ -69,6 +70,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="transformDocumentDocxTableFillIn"></a>
+# **transformDocumentDocxTableFillIn**
+> byte[] transformDocumentDocxTableFillIn(request)
+
+Fill in data in a table in a Word DOCX document
+
+Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.TransformDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+TransformDocumentApi apiInstance = new TransformDocumentApi();
+DocxTableTableFillRequest request = new DocxTableTableFillRequest(); // DocxTableTableFillRequest | 
+try {
+    byte[] result = apiInstance.transformDocumentDocxTableFillIn(request);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransformDocumentApi#transformDocumentDocxTableFillIn");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**DocxTableTableFillRequest**](DocxTableTableFillRequest.md)|  |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/octet-stream
 
 <a name="transformDocumentPptxReplace"></a>

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a Reverse Domain (DNS) lookup on an IP address
  */
 @ApiModel(description = "Result of performing a Reverse Domain (DNS) lookup on an IP address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:42:39.170-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-25T19:52:42.157-07:00")
 public class IPReverseDNSLookupResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

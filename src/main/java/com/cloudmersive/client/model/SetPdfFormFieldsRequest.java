@@ -31,7 +31,7 @@ import java.util.List;
  * Request to set the fields in a PDF form
  */
 @ApiModel(description = "Request to set the fields in a PDF form")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-18T00:43:11.127-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-07-25T19:53:24.676-07:00")
 public class SetPdfFormFieldsRequest {
   @SerializedName("FieldValues")
   private List<SetFormFieldValue> fieldValues = null;
