@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cloudmersive.client.model.DocumentTransformEditSession;
 import com.cloudmersive.client.model.DocxTableTableFillRequest;
 import java.io.File;
 
@@ -138,7 +139,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Replace string in Word DOCX document
+     * Replace string in Word DOCX document, return result
      * Replace all instances of a string in an Office Word Document (docx)
      * @param matchString String to search for and match against, to be replaced (required)
      * @param replaceString String to replace the matched values with (required)
@@ -154,7 +155,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Replace string in Word DOCX document
+     * Replace string in Word DOCX document, return result
      * Replace all instances of a string in an Office Word Document (docx)
      * @param matchString String to search for and match against, to be replaced (required)
      * @param replaceString String to replace the matched values with (required)
@@ -171,7 +172,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Replace string in Word DOCX document (asynchronously)
+     * Replace string in Word DOCX document, return result (asynchronously)
      * Replace all instances of a string in an Office Word Document (docx)
      * @param matchString String to search for and match against, to be replaced (required)
      * @param replaceString String to replace the matched values with (required)
@@ -205,6 +206,159 @@ public class TransformDocumentApi {
 
         com.squareup.okhttp.Call call = transformDocumentDocxReplaceValidateBeforeCall(matchString, replaceString, inputFile, inputFileUrl, matchCase, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for transformDocumentDocxReplaceEditSession
+     * @param matchString String to search for and match against, to be replaced (required)
+     * @param replaceString String to replace the matched values with (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param matchCase Optional: True if the case should be matched, false for case insensitive match. Default is false. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call transformDocumentDocxReplaceEditSessionCall(String matchString, String replaceString, File inputFile, String inputFileUrl, Boolean matchCase, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/transform/docx/replace-all/edit-session";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (inputFileUrl != null)
+        localVarHeaderParams.put("inputFileUrl", apiClient.parameterToString(inputFileUrl));
+        if (matchString != null)
+        localVarHeaderParams.put("matchString", apiClient.parameterToString(matchString));
+        if (replaceString != null)
+        localVarHeaderParams.put("replaceString", apiClient.parameterToString(replaceString));
+        if (matchCase != null)
+        localVarHeaderParams.put("matchCase", apiClient.parameterToString(matchCase));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call transformDocumentDocxReplaceEditSessionValidateBeforeCall(String matchString, String replaceString, File inputFile, String inputFileUrl, Boolean matchCase, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'matchString' is set
+        if (matchString == null) {
+            throw new ApiException("Missing the required parameter 'matchString' when calling transformDocumentDocxReplaceEditSession(Async)");
+        }
+        
+        // verify the required parameter 'replaceString' is set
+        if (replaceString == null) {
+            throw new ApiException("Missing the required parameter 'replaceString' when calling transformDocumentDocxReplaceEditSession(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = transformDocumentDocxReplaceEditSessionCall(matchString, replaceString, inputFile, inputFileUrl, matchCase, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replace string in Word DOCX document, return edit session
+     * Replace all instances of a string in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param matchString String to search for and match against, to be replaced (required)
+     * @param replaceString String to replace the matched values with (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param matchCase Optional: True if the case should be matched, false for case insensitive match. Default is false. (optional)
+     * @return DocumentTransformEditSession
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentTransformEditSession transformDocumentDocxReplaceEditSession(String matchString, String replaceString, File inputFile, String inputFileUrl, Boolean matchCase) throws ApiException {
+        ApiResponse<DocumentTransformEditSession> resp = transformDocumentDocxReplaceEditSessionWithHttpInfo(matchString, replaceString, inputFile, inputFileUrl, matchCase);
+        return resp.getData();
+    }
+
+    /**
+     * Replace string in Word DOCX document, return edit session
+     * Replace all instances of a string in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param matchString String to search for and match against, to be replaced (required)
+     * @param replaceString String to replace the matched values with (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param matchCase Optional: True if the case should be matched, false for case insensitive match. Default is false. (optional)
+     * @return ApiResponse&lt;DocumentTransformEditSession&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentTransformEditSession> transformDocumentDocxReplaceEditSessionWithHttpInfo(String matchString, String replaceString, File inputFile, String inputFileUrl, Boolean matchCase) throws ApiException {
+        com.squareup.okhttp.Call call = transformDocumentDocxReplaceEditSessionValidateBeforeCall(matchString, replaceString, inputFile, inputFileUrl, matchCase, null, null);
+        Type localVarReturnType = new TypeToken<DocumentTransformEditSession>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replace string in Word DOCX document, return edit session (asynchronously)
+     * Replace all instances of a string in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param matchString String to search for and match against, to be replaced (required)
+     * @param replaceString String to replace the matched values with (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param matchCase Optional: True if the case should be matched, false for case insensitive match. Default is false. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call transformDocumentDocxReplaceEditSessionAsync(String matchString, String replaceString, File inputFile, String inputFileUrl, Boolean matchCase, final ApiCallback<DocumentTransformEditSession> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = transformDocumentDocxReplaceEditSessionValidateBeforeCall(matchString, replaceString, inputFile, inputFileUrl, matchCase, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentTransformEditSession>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -272,7 +426,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Fill in data in a table in a Word DOCX document
+     * Fill in data in a table in a Word DOCX document, return result
      * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
      * @param request  (required)
      * @return byte[]
@@ -284,7 +438,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Fill in data in a table in a Word DOCX document
+     * Fill in data in a table in a Word DOCX document, return result
      * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
      * @param request  (required)
      * @return ApiResponse&lt;byte[]&gt;
@@ -297,7 +451,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Fill in data in a table in a Word DOCX document (asynchronously)
+     * Fill in data in a table in a Word DOCX document, return result (asynchronously)
      * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
      * @param request  (required)
      * @param callback The callback to be executed when the API call finishes
@@ -327,6 +481,128 @@ public class TransformDocumentApi {
 
         com.squareup.okhttp.Call call = transformDocumentDocxTableFillInValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for transformDocumentDocxTableFillInEditSession
+     * @param request  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call transformDocumentDocxTableFillInEditSessionCall(DocxTableTableFillRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+
+        // create path and map variables
+        String localVarPath = "/convert/transform/docx/table/fill/data/edit-session";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call transformDocumentDocxTableFillInEditSessionValidateBeforeCall(DocxTableTableFillRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling transformDocumentDocxTableFillInEditSession(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = transformDocumentDocxTableFillInEditSessionCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Fill in data in a table in a Word DOCX document, return edit session
+     * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates.  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param request  (required)
+     * @return DocumentTransformEditSession
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentTransformEditSession transformDocumentDocxTableFillInEditSession(DocxTableTableFillRequest request) throws ApiException {
+        ApiResponse<DocumentTransformEditSession> resp = transformDocumentDocxTableFillInEditSessionWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * Fill in data in a table in a Word DOCX document, return edit session
+     * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates.  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param request  (required)
+     * @return ApiResponse&lt;DocumentTransformEditSession&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentTransformEditSession> transformDocumentDocxTableFillInEditSessionWithHttpInfo(DocxTableTableFillRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = transformDocumentDocxTableFillInEditSessionValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentTransformEditSession>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Fill in data in a table in a Word DOCX document, return edit session (asynchronously)
+     * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates.  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param request  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call transformDocumentDocxTableFillInEditSessionAsync(DocxTableTableFillRequest request, final ApiCallback<DocumentTransformEditSession> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = transformDocumentDocxTableFillInEditSessionValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentTransformEditSession>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -413,7 +689,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Replace string in PowerPoint PPTX presentation
+     * Replace string in PowerPoint PPTX presentation, return result
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      * @param matchString String to search for and match against, to be replaced (required)
      * @param replaceString String to replace the matched values with (required)
@@ -429,7 +705,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Replace string in PowerPoint PPTX presentation
+     * Replace string in PowerPoint PPTX presentation, return result
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      * @param matchString String to search for and match against, to be replaced (required)
      * @param replaceString String to replace the matched values with (required)
@@ -446,7 +722,7 @@ public class TransformDocumentApi {
     }
 
     /**
-     * Replace string in PowerPoint PPTX presentation (asynchronously)
+     * Replace string in PowerPoint PPTX presentation, return result (asynchronously)
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      * @param matchString String to search for and match against, to be replaced (required)
      * @param replaceString String to replace the matched values with (required)

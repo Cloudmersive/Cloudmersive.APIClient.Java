@@ -35,7 +35,8 @@ Method | HTTP request | Description
 [**editDocumentDocxRemoveHeadersAndFooters**](EditDocumentApi.md#editDocumentDocxRemoveHeadersAndFooters) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 [**editDocumentDocxRemoveObject**](EditDocumentApi.md#editDocumentDocxRemoveObject) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 [**editDocumentDocxReplace**](EditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
-[**editDocumentDocxReplaceMulti**](EditDocumentApi.md#editDocumentDocxReplaceMulti) | **POST** /convert/edit/docx/replace-all/multi | Replace multiple strings in Word DOCX document
+[**editDocumentDocxReplaceMulti**](EditDocumentApi.md#editDocumentDocxReplaceMulti) | **POST** /convert/edit/docx/replace-all/multi | Replace multiple strings in Word DOCX document, return result
+[**editDocumentDocxReplaceMultiEditSession**](EditDocumentApi.md#editDocumentDocxReplaceMultiEditSession) | **POST** /convert/edit/docx/replace-all/multi/edit-session | Replace multiple strings in Word DOCX document, return edit session
 [**editDocumentDocxReplaceParagraph**](EditDocumentApi.md#editDocumentDocxReplaceParagraph) | **POST** /convert/edit/docx/replace/paragraph | Replace matching paragraphs in a Word DOCX document
 [**editDocumentDocxSetCustomMetadataProperties**](EditDocumentApi.md#editDocumentDocxSetCustomMetadataProperties) | **POST** /convert/edit/docx/set-metadata/custom-property | Set custom property metadata properties in Word DOCX document
 [**editDocumentDocxSetFooter**](EditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
@@ -1779,7 +1780,7 @@ Name | Type | Description  | Notes
 # **editDocumentDocxReplaceMulti**
 > byte[] editDocumentDocxReplaceMulti(reqConfig)
 
-Replace multiple strings in Word DOCX document
+Replace multiple strings in Word DOCX document, return result
 
 Replace all instances of multiple strings in an Office Word Document (docx)
 
@@ -1829,6 +1830,61 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/octet-stream
+
+<a name="editDocumentDocxReplaceMultiEditSession"></a>
+# **editDocumentDocxReplaceMultiEditSession**
+> DocumentEditingEditSession editDocumentDocxReplaceMultiEditSession(reqConfig)
+
+Replace multiple strings in Word DOCX document, return edit session
+
+Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+MultiReplaceStringRequest reqConfig = new MultiReplaceStringRequest(); // MultiReplaceStringRequest | Document string replacement configuration input
+try {
+    DocumentEditingEditSession result = apiInstance.editDocumentDocxReplaceMultiEditSession(reqConfig);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentDocxReplaceMultiEditSession");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**MultiReplaceStringRequest**](MultiReplaceStringRequest.md)| Document string replacement configuration input |
+
+### Return type
+
+[**DocumentEditingEditSession**](DocumentEditingEditSession.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="editDocumentDocxReplaceParagraph"></a>
 # **editDocumentDocxReplaceParagraph**
