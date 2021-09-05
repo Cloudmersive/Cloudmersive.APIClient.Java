@@ -42,6 +42,7 @@ import com.cloudmersive.client.model.DocxSetCustomMetadataPropertiesRequest;
 import com.cloudmersive.client.model.DocxSetFooterAddPageNumberRequest;
 import com.cloudmersive.client.model.DocxSetFooterRequest;
 import com.cloudmersive.client.model.DocxSetFooterResponse;
+import com.cloudmersive.client.model.DocxSetFormFieldsRequest;
 import com.cloudmersive.client.model.DocxSetHeaderRequest;
 import com.cloudmersive.client.model.DocxSetHeaderResponse;
 import com.cloudmersive.client.model.EnableSharedWorkbookRequest;
@@ -54,8 +55,10 @@ import com.cloudmersive.client.model.GetDocxBodyRequest;
 import com.cloudmersive.client.model.GetDocxBodyResponse;
 import com.cloudmersive.client.model.GetDocxCommentsHierarchicalResponse;
 import com.cloudmersive.client.model.GetDocxCommentsResponse;
+import com.cloudmersive.client.model.GetDocxContentControlsResponse;
 import com.cloudmersive.client.model.GetDocxGetCommentsHierarchicalRequest;
 import com.cloudmersive.client.model.GetDocxGetCommentsRequest;
+import com.cloudmersive.client.model.GetDocxGetFormFieldsResponse;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.GetDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.GetDocxImagesRequest;
@@ -323,6 +326,38 @@ public class EditDocumentApiTest {
     public void editDocumentDocxGetCommentsHierarchicalTest() throws ApiException {
         GetDocxGetCommentsHierarchicalRequest reqConfig = null;
         GetDocxCommentsHierarchicalResponse response = api.editDocumentDocxGetCommentsHierarchical(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get all content controls (form fields) and values in a Word DOCX document
+     *
+     * Returns all the content controls, used for creating form fields, in a Office Word Document (docx)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetContentControlsTest() throws ApiException {
+        File inputFile = null;
+        GetDocxContentControlsResponse response = api.editDocumentDocxGetContentControls(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get all form fields in a Word DOCX document
+     *
+     * Returns all the content controls, used for creating form fields, as well as handlebar style text-based form fields such as \&quot;{{FieldName}}\&quot;, in a Office Word Document (docx)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxGetFormFieldsTest() throws ApiException {
+        File inputFile = null;
+        GetDocxGetFormFieldsResponse response = api.editDocumentDocxGetFormFields(inputFile);
 
         // TODO: test validations
     }
@@ -723,6 +758,22 @@ public class EditDocumentApiTest {
     public void editDocumentDocxSetFooterAddPageNumberTest() throws ApiException {
         DocxSetFooterAddPageNumberRequest reqConfig = null;
         DocxSetFooterResponse response = api.editDocumentDocxSetFooterAddPageNumber(reqConfig);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set and fill values for form fields in a Word DOCX document
+     *
+     * Modifies a Office Word Document (docx) by filling in form fields using the provided values.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentDocxSetFormFieldsTest() throws ApiException {
+        DocxSetFormFieldsRequest reqConfig = null;
+        byte[] response = api.editDocumentDocxSetFormFields(reqConfig);
 
         // TODO: test validations
     }

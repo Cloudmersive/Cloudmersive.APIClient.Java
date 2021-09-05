@@ -29,7 +29,7 @@ import java.io.IOException;
  * Input to a request to replace matching paragraphs in a Word DOCX document
  */
 @ApiModel(description = "Input to a request to replace matching paragraphs in a Word DOCX document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-14T17:54:46.362-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-04T20:57:16.181-07:00")
 public class ReplaceDocxParagraphRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

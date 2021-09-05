@@ -15,6 +15,7 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DocumentTransformEditSession;
+import com.cloudmersive.client.model.DocxTableTableFillMultiRequest;
 import com.cloudmersive.client.model.DocxTableTableFillRequest;
 import java.io.File;
 import org.junit.Test;
@@ -102,6 +103,22 @@ public class TransformDocumentApiTest {
     public void transformDocumentDocxTableFillInEditSessionTest() throws ApiException {
         DocxTableTableFillRequest request = null;
         DocumentTransformEditSession response = api.transformDocumentDocxTableFillInEditSession(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Fill in data in multiple tables in a Word DOCX document, return result
+     *
+     * Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void transformDocumentDocxTableFillInMultiTest() throws ApiException {
+        DocxTableTableFillMultiRequest request = null;
+        Object response = api.transformDocumentDocxTableFillInMulti(request);
 
         // TODO: test validations
     }

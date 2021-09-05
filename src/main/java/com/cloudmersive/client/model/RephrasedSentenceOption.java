@@ -28,7 +28,7 @@ import java.io.IOException;
  * One rephrasing of an original input sentence
  */
 @ApiModel(description = "One rephrasing of an original input sentence")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-14T17:54:26.121-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-04T20:56:46.021-07:00")
 public class RephrasedSentenceOption {
   @SerializedName("RephrasedOptionIndex")
   private Integer rephrasedOptionIndex = null;
