@@ -118,7 +118,7 @@ public class TransformDocumentApiTest {
     @Test
     public void transformDocumentDocxTableFillInMultiTest() throws ApiException {
         DocxTableTableFillMultiRequest request = null;
-        Object response = api.transformDocumentDocxTableFillInMulti(request);
+        byte[] response = api.transformDocumentDocxTableFillInMulti(request);
 
         // TODO: test validations
     }

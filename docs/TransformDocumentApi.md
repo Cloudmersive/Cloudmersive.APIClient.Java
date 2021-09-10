@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="transformDocumentDocxTableFillInMulti"></a>
 # **transformDocumentDocxTableFillInMulti**
-> Object transformDocumentDocxTableFillInMulti(request)
+> byte[] transformDocumentDocxTableFillInMulti(request)
 
 Fill in data in multiple tables in a Word DOCX document, return result
 
@@ -276,7 +276,7 @@ Apikey.setApiKey("YOUR API KEY");
 TransformDocumentApi apiInstance = new TransformDocumentApi();
 DocxTableTableFillMultiRequest request = new DocxTableTableFillMultiRequest(); // DocxTableTableFillMultiRequest | 
 try {
-    Object result = apiInstance.transformDocumentDocxTableFillInMulti(request);
+    byte[] result = apiInstance.transformDocumentDocxTableFillInMulti(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransformDocumentApi#transformDocumentDocxTableFillInMulti");
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="transformDocumentPptxReplace"></a>
 # **transformDocumentPptxReplace**

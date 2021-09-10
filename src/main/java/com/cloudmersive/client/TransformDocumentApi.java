@@ -629,7 +629,7 @@ public class TransformDocumentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/octet-stream"
+            "application/json", "text/json", "application/xml", "text/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -674,11 +674,11 @@ public class TransformDocumentApi {
      * Fill in data in multiple tables in a Word DOCX document, return result
      * Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
      * @param request  (required)
-     * @return Object
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object transformDocumentDocxTableFillInMulti(DocxTableTableFillMultiRequest request) throws ApiException {
-        ApiResponse<Object> resp = transformDocumentDocxTableFillInMultiWithHttpInfo(request);
+    public byte[] transformDocumentDocxTableFillInMulti(DocxTableTableFillMultiRequest request) throws ApiException {
+        ApiResponse<byte[]> resp = transformDocumentDocxTableFillInMultiWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -686,12 +686,12 @@ public class TransformDocumentApi {
      * Fill in data in multiple tables in a Word DOCX document, return result
      * Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
      * @param request  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> transformDocumentDocxTableFillInMultiWithHttpInfo(DocxTableTableFillMultiRequest request) throws ApiException {
+    public ApiResponse<byte[]> transformDocumentDocxTableFillInMultiWithHttpInfo(DocxTableTableFillMultiRequest request) throws ApiException {
         com.squareup.okhttp.Call call = transformDocumentDocxTableFillInMultiValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -703,7 +703,7 @@ public class TransformDocumentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call transformDocumentDocxTableFillInMultiAsync(DocxTableTableFillMultiRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call transformDocumentDocxTableFillInMultiAsync(DocxTableTableFillMultiRequest request, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -725,7 +725,7 @@ public class TransformDocumentApi {
         }
 
         com.squareup.okhttp.Call call = transformDocumentDocxTableFillInMultiValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
