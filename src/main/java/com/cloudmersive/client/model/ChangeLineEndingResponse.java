@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a change line ending operation
  */
 @ApiModel(description = "Result of performing a change line ending operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-09T19:28:42.852-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-26T22:13:44.168-07:00")
 public class ChangeLineEndingResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -69,6 +69,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a Word 97-2003 Legacy document (DOC)
+     *
+     * Validate a Word 97-2003 Legacy document (DOC)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentDocValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentDocValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Word document (DOCX)
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
@@ -261,6 +277,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+     *
+     * Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentPptValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentPptValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a PowerPoint presentation (PPTX)
      *
      * Validate a PowerPoint presentation (PPTX); if the document is not valid, identifies the errors in the document
@@ -293,6 +325,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Validate a Rich Text Format document (RTF)
+     *
+     * Validate a Rich Text Format document (RTF)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentRtfValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentRtfValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a TAR Tarball Archive file (TAR)
      *
      * Validate a TAR tarball archive file (TAR)
@@ -320,6 +368,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentTxtValidationTest() throws ApiException {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentTxtValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+     *
+     * Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentXlsValidationTest() throws ApiException {
+        File inputFile = null;
+        DocumentValidationResult response = api.validateDocumentXlsValidation(inputFile);
 
         // TODO: test validations
     }

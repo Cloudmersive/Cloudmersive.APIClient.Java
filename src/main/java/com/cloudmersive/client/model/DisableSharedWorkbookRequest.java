@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Disable Shared Workbook request
  */
 @ApiModel(description = "Input to a Disable Shared Workbook request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-09T19:28:42.852-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-26T22:13:44.168-07:00")
 public class DisableSharedWorkbookRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
