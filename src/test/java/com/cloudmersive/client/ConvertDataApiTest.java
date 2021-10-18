@@ -76,7 +76,23 @@ public class ConvertDataApiTest {
     }
     
     /**
-     * Convert JSON to XML conversion
+     * Convert JSON String to XML conversion
+     *
+     * Convert a JSON object into XML
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDataJsonStringToXmlTest() throws ApiException {
+        String jsonString = null;
+        Object response = api.convertDataJsonStringToXml(jsonString);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert JSON Object to XML conversion
      *
      * Convert a JSON object into XML
      *

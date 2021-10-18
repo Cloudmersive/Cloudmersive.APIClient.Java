@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 <a name="scanCloudStorageScanSharePointOnlineFile"></a>
 # **scanCloudStorageScanSharePointOnlineFile**
-> CloudStorageVirusScanResult scanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID)
+> CloudStorageVirusScanResult scanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID)
 
 Virus Scan a file in a SharePoint Online Site Drive
 
@@ -450,8 +450,9 @@ String sharepointDomainName = "sharepointDomainName_example"; // String | ShareP
 String siteID = "siteID_example"; // String | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
 String filePath = "filePath_example"; // String | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
 String tenantID = "tenantID_example"; // String | Optional; Tenant ID of your Azure Active Directory
+String itemID = "itemID_example"; // String | SharePoint itemID, such as a DriveItem Id
 try {
-    CloudStorageVirusScanResult result = apiInstance.scanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+    CloudStorageVirusScanResult result = apiInstance.scanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ScanCloudStorageApi#scanCloudStorageScanSharePointOnlineFile");
@@ -469,6 +470,7 @@ Name | Type | Description  | Notes
  **siteID** | **String**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from |
  **filePath** | **String**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; |
  **tenantID** | **String**| Optional; Tenant ID of your Azure Active Directory | [optional]
+ **itemID** | **String**| SharePoint itemID, such as a DriveItem Id | [optional]
 
 ### Return type
 
@@ -485,7 +487,7 @@ Name | Type | Description  | Notes
 
 <a name="scanCloudStorageScanSharePointOnlineFileAdvanced"></a>
 # **scanCloudStorageScanSharePointOnlineFileAdvanced**
-> CloudStorageAdvancedVirusScanResult scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes)
+> CloudStorageAdvancedVirusScanResult scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes)
 
 Advanced Virus Scan a file in a SharePoint Online Site Drive
 
@@ -513,8 +515,9 @@ String clientID = "clientID_example"; // String | Client ID access credentials; 
 String clientSecret = "clientSecret_example"; // String | Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal
 String sharepointDomainName = "sharepointDomainName_example"; // String | SharePoint Online domain name, such as mydomain.sharepoint.com
 String siteID = "siteID_example"; // String | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
-String filePath = "filePath_example"; // String | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
 String tenantID = "tenantID_example"; // String | Optional; Tenant ID of your Azure Active Directory
+String filePath = "filePath_example"; // String | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+String itemID = "itemID_example"; // String | SharePoint itemID, such as a DriveItem Id
 Boolean allowExecutables = true; // Boolean | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
 Boolean allowInvalidFiles = true; // Boolean | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
 Boolean allowScripts = true; // Boolean | Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -523,7 +526,7 @@ Boolean allowMacros = true; // Boolean | Set to false to block macros and other 
 Boolean allowXmlExternalEntities = true; // Boolean | Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended).
 String restrictFileTypes = "restrictFileTypes_example"; // String | Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
 try {
-    CloudStorageAdvancedVirusScanResult result = apiInstance.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+    CloudStorageAdvancedVirusScanResult result = apiInstance.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ScanCloudStorageApi#scanCloudStorageScanSharePointOnlineFileAdvanced");
@@ -539,8 +542,9 @@ Name | Type | Description  | Notes
  **clientSecret** | **String**| Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal |
  **sharepointDomainName** | **String**| SharePoint Online domain name, such as mydomain.sharepoint.com |
  **siteID** | **String**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from |
- **filePath** | **String**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; |
  **tenantID** | **String**| Optional; Tenant ID of your Azure Active Directory | [optional]
+ **filePath** | **String**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | [optional]
+ **itemID** | **String**| SharePoint itemID, such as a DriveItem Id | [optional]
  **allowExecutables** | **Boolean**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional]
  **allowInvalidFiles** | **Boolean**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional]
  **allowScripts** | **Boolean**| Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). | [optional]

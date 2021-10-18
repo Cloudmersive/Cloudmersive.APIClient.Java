@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Remove Word DOCX Document Pages request
  */
 @ApiModel(description = "Input to a Remove Word DOCX Document Pages request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-09-26T22:13:44.168-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-17T20:36:02.739-07:00")
 public class RemoveDocxPagesRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

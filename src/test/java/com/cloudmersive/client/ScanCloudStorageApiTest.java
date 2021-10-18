@@ -183,7 +183,8 @@ public class ScanCloudStorageApiTest {
         String siteID = null;
         String filePath = null;
         String tenantID = null;
-        CloudStorageVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+        String itemID = null;
+        CloudStorageVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
 
         // TODO: test validations
     }
@@ -202,8 +203,9 @@ public class ScanCloudStorageApiTest {
         String clientSecret = null;
         String sharepointDomainName = null;
         String siteID = null;
-        String filePath = null;
         String tenantID = null;
+        String filePath = null;
+        String itemID = null;
         Boolean allowExecutables = null;
         Boolean allowInvalidFiles = null;
         Boolean allowScripts = null;
@@ -211,7 +213,7 @@ public class ScanCloudStorageApiTest {
         Boolean allowMacros = null;
         Boolean allowXmlExternalEntities = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
 
         // TODO: test validations
     }

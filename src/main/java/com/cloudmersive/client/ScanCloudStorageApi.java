@@ -1110,12 +1110,13 @@ public class ScanCloudStorageApi {
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
      * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, String itemID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1137,6 +1138,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("tenantID", apiClient.parameterToString(tenantID));
         if (filePath != null)
         localVarHeaderParams.put("filePath", apiClient.parameterToString(filePath));
+        if (itemID != null)
+        localVarHeaderParams.put("itemID", apiClient.parameterToString(itemID));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1169,7 +1172,7 @@ public class ScanCloudStorageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileValidateBeforeCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileValidateBeforeCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, String itemID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'clientID' is set
         if (clientID == null) {
@@ -1197,7 +1200,7 @@ public class ScanCloudStorageApi {
         }
         
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1211,11 +1214,12 @@ public class ScanCloudStorageApi {
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
      * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @return CloudStorageVirusScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CloudStorageVirusScanResult scanCloudStorageScanSharePointOnlineFile(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID) throws ApiException {
-        ApiResponse<CloudStorageVirusScanResult> resp = scanCloudStorageScanSharePointOnlineFileWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+    public CloudStorageVirusScanResult scanCloudStorageScanSharePointOnlineFile(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, String itemID) throws ApiException {
+        ApiResponse<CloudStorageVirusScanResult> resp = scanCloudStorageScanSharePointOnlineFileWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
         return resp.getData();
     }
 
@@ -1228,11 +1232,12 @@ public class ScanCloudStorageApi {
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
      * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @return ApiResponse&lt;CloudStorageVirusScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CloudStorageVirusScanResult> scanCloudStorageScanSharePointOnlineFileWithHttpInfo(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID) throws ApiException {
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, null, null);
+    public ApiResponse<CloudStorageVirusScanResult> scanCloudStorageScanSharePointOnlineFileWithHttpInfo(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, String itemID) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID, null, null);
         Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1246,11 +1251,12 @@ public class ScanCloudStorageApi {
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
      * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAsync(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, final ApiCallback<CloudStorageVirusScanResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAsync(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, String itemID, final ApiCallback<CloudStorageVirusScanResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1271,7 +1277,7 @@ public class ScanCloudStorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1282,8 +1288,9 @@ public class ScanCloudStorageApi {
      * @param clientSecret Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
      * @param sharepointDomainName SharePoint Online domain name, such as mydomain.sharepoint.com (required)
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
      * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
      * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
@@ -1296,7 +1303,7 @@ public class ScanCloudStorageApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1318,6 +1325,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("tenantID", apiClient.parameterToString(tenantID));
         if (filePath != null)
         localVarHeaderParams.put("filePath", apiClient.parameterToString(filePath));
+        if (itemID != null)
+        localVarHeaderParams.put("itemID", apiClient.parameterToString(itemID));
         if (allowExecutables != null)
         localVarHeaderParams.put("allowExecutables", apiClient.parameterToString(allowExecutables));
         if (allowInvalidFiles != null)
@@ -1364,7 +1373,7 @@ public class ScanCloudStorageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'clientID' is set
         if (clientID == null) {
@@ -1386,13 +1395,8 @@ public class ScanCloudStorageApi {
             throw new ApiException("Missing the required parameter 'siteID' when calling scanCloudStorageScanSharePointOnlineFileAdvanced(Async)");
         }
         
-        // verify the required parameter 'filePath' is set
-        if (filePath == null) {
-            throw new ApiException("Missing the required parameter 'filePath' when calling scanCloudStorageScanSharePointOnlineFileAdvanced(Async)");
-        }
-        
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1404,8 +1408,9 @@ public class ScanCloudStorageApi {
      * @param clientSecret Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
      * @param sharepointDomainName SharePoint Online domain name, such as mydomain.sharepoint.com (required)
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
      * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
      * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
@@ -1416,8 +1421,8 @@ public class ScanCloudStorageApi {
      * @return CloudStorageAdvancedVirusScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanSharePointOnlineFileAdvanced(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes) throws ApiException {
-        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanSharePointOnlineFileAdvanced(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes) throws ApiException {
+        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
         return resp.getData();
     }
 
@@ -1428,8 +1433,9 @@ public class ScanCloudStorageApi {
      * @param clientSecret Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
      * @param sharepointDomainName SharePoint Online domain name, such as mydomain.sharepoint.com (required)
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
      * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
      * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
@@ -1440,8 +1446,8 @@ public class ScanCloudStorageApi {
      * @return ApiResponse&lt;CloudStorageAdvancedVirusScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes) throws ApiException {
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes, null, null);
+    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes, null, null);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1453,8 +1459,9 @@ public class ScanCloudStorageApi {
      * @param clientSecret Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
      * @param sharepointDomainName SharePoint Online domain name, such as mydomain.sharepoint.com (required)
      * @param siteID Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (required)
      * @param tenantID Optional; Tenant ID of your Azure Active Directory (optional)
+     * @param filePath Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; (optional)
+     * @param itemID SharePoint itemID, such as a DriveItem Id (optional)
      * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
      * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
      * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
@@ -1466,7 +1473,7 @@ public class ScanCloudStorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedAsync(String clientID, String clientSecret, String sharepointDomainName, String siteID, String filePath, String tenantID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedAsync(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1487,7 +1494,7 @@ public class ScanCloudStorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
