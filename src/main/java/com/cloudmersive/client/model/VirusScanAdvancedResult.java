@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.AdditionalAdvancedScanInformation;
 import com.cloudmersive.client.model.VirusFound;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +32,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-10-17T20:36:15.411-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-01-01T16:39:34.724-08:00")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -57,11 +58,20 @@ public class VirusScanAdvancedResult {
   @SerializedName("ContainsXmlExternalEntities")
   private Boolean containsXmlExternalEntities = null;
 
+  @SerializedName("ContainsInsecureDeserialization")
+  private Boolean containsInsecureDeserialization = null;
+
+  @SerializedName("ContainsHtml")
+  private Boolean containsHtml = null;
+
   @SerializedName("VerifiedFileFormat")
   private String verifiedFileFormat = null;
 
   @SerializedName("FoundViruses")
   private List<VirusFound> foundViruses = null;
+
+  @SerializedName("ContentInformation")
+  private AdditionalAdvancedScanInformation contentInformation = null;
 
   public VirusScanAdvancedResult cleanResult(Boolean cleanResult) {
     this.cleanResult = cleanResult;
@@ -207,6 +217,42 @@ public class VirusScanAdvancedResult {
     this.containsXmlExternalEntities = containsXmlExternalEntities;
   }
 
+  public VirusScanAdvancedResult containsInsecureDeserialization(Boolean containsInsecureDeserialization) {
+    this.containsInsecureDeserialization = containsInsecureDeserialization;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor
+   * @return containsInsecureDeserialization
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor")
+  public Boolean isContainsInsecureDeserialization() {
+    return containsInsecureDeserialization;
+  }
+
+  public void setContainsInsecureDeserialization(Boolean containsInsecureDeserialization) {
+    this.containsInsecureDeserialization = containsInsecureDeserialization;
+  }
+
+  public VirusScanAdvancedResult containsHtml(Boolean containsHtml) {
+    this.containsHtml = containsHtml;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains HTML, which can be a significant risk factor
+   * @return containsHtml
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains HTML, which can be a significant risk factor")
+  public Boolean isContainsHtml() {
+    return containsHtml;
+  }
+
+  public void setContainsHtml(Boolean containsHtml) {
+    this.containsHtml = containsHtml;
+  }
+
   public VirusScanAdvancedResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
@@ -251,6 +297,24 @@ public class VirusScanAdvancedResult {
     this.foundViruses = foundViruses;
   }
 
+  public VirusScanAdvancedResult contentInformation(AdditionalAdvancedScanInformation contentInformation) {
+    this.contentInformation = contentInformation;
+    return this;
+  }
+
+   /**
+   * Contains additional non-threat content verification information
+   * @return contentInformation
+  **/
+  @ApiModelProperty(value = "Contains additional non-threat content verification information")
+  public AdditionalAdvancedScanInformation getContentInformation() {
+    return contentInformation;
+  }
+
+  public void setContentInformation(AdditionalAdvancedScanInformation contentInformation) {
+    this.contentInformation = contentInformation;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -269,13 +333,16 @@ public class VirusScanAdvancedResult {
         Objects.equals(this.containsRestrictedFileFormat, virusScanAdvancedResult.containsRestrictedFileFormat) &&
         Objects.equals(this.containsMacros, virusScanAdvancedResult.containsMacros) &&
         Objects.equals(this.containsXmlExternalEntities, virusScanAdvancedResult.containsXmlExternalEntities) &&
+        Objects.equals(this.containsInsecureDeserialization, virusScanAdvancedResult.containsInsecureDeserialization) &&
+        Objects.equals(this.containsHtml, virusScanAdvancedResult.containsHtml) &&
         Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
-        Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses);
+        Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses) &&
+        Objects.equals(this.contentInformation, virusScanAdvancedResult.contentInformation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, verifiedFileFormat, foundViruses);
+    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, containsInsecureDeserialization, containsHtml, verifiedFileFormat, foundViruses, contentInformation);
   }
 
 
@@ -292,8 +359,11 @@ public class VirusScanAdvancedResult {
     sb.append("    containsRestrictedFileFormat: ").append(toIndentedString(containsRestrictedFileFormat)).append("\n");
     sb.append("    containsMacros: ").append(toIndentedString(containsMacros)).append("\n");
     sb.append("    containsXmlExternalEntities: ").append(toIndentedString(containsXmlExternalEntities)).append("\n");
+    sb.append("    containsInsecureDeserialization: ").append(toIndentedString(containsInsecureDeserialization)).append("\n");
+    sb.append("    containsHtml: ").append(toIndentedString(containsHtml)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
+    sb.append("    contentInformation: ").append(toIndentedString(contentInformation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
