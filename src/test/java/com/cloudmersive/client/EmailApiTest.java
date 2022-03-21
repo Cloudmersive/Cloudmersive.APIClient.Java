@@ -13,12 +13,12 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AddressGetServersResponse;
 import com.cloudmersive.client.model.AddressVerifySyntaxOnlyResponse;
 import com.cloudmersive.client.model.FullEmailValidationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class EmailApiTest {
      *
      * Validate an email address by identifying whether its parent domain has email servers defined.  This call is less limited than syntaxOnly but not as comprehensive as address/full.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void emailAddressGetServersTest() throws ApiException {
+    public void emailAddressGetServersTest() throws Exception {
         String email = null;
         AddressGetServersResponse response = api.emailAddressGetServers(email);
 
@@ -55,11 +55,11 @@ public class EmailApiTest {
      *
      * Performs a full validation of the email address.  Checks for syntactic correctness, identifies the mail server in question if any, and then contacts the email server to validate the existence of the account - without sending any emails.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void emailFullValidationTest() throws ApiException {
+    public void emailFullValidationTest() throws Exception {
         String email = null;
         FullEmailValidationResponse response = api.emailFullValidation(email);
 
@@ -71,11 +71,11 @@ public class EmailApiTest {
      *
      * Validate whether a given email address is syntactically correct via a limited local-only check.  Use the address/full API to do a full validation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void emailPostTest() throws ApiException {
+    public void emailPostTest() throws Exception {
         String value = null;
         AddressVerifySyntaxOnlyResponse response = api.emailPost(value);
 

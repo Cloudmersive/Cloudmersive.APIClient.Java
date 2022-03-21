@@ -13,9 +13,9 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,11 +36,11 @@ public class GenerateBarcodeApiTest {
      *
      * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeEAN13Test() throws ApiException {
+    public void generateBarcodeEAN13Test() throws Exception {
         String value = null;
         byte[] response = api.generateBarcodeEAN13(value);
 
@@ -52,11 +52,11 @@ public class GenerateBarcodeApiTest {
      *
      * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeEAN8Test() throws ApiException {
+    public void generateBarcodeEAN8Test() throws Exception {
         String value = null;
         byte[] response = api.generateBarcodeEAN8(value);
 
@@ -68,11 +68,11 @@ public class GenerateBarcodeApiTest {
      *
      * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeQRCodeTest() throws ApiException {
+    public void generateBarcodeQRCodeTest() throws Exception {
         String value = null;
         byte[] response = api.generateBarcodeQRCode(value);
 
@@ -84,11 +84,11 @@ public class GenerateBarcodeApiTest {
      *
      * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeUPCATest() throws ApiException {
+    public void generateBarcodeUPCATest() throws Exception {
         String value = null;
         byte[] response = api.generateBarcodeUPCA(value);
 
@@ -100,11 +100,11 @@ public class GenerateBarcodeApiTest {
      *
      * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void generateBarcodeUPCETest() throws ApiException {
+    public void generateBarcodeUPCETest() throws Exception {
         String value = null;
         byte[] response = api.generateBarcodeUPCE(value);
 

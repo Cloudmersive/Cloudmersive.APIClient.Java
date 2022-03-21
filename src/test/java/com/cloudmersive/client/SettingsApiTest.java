@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CreateSettingRequest;
 import com.cloudmersive.client.model.CreateSettingResponse;
 import com.cloudmersive.client.model.ListSettingsRequest;
@@ -22,6 +21,7 @@ import com.cloudmersive.client.model.UpdateSettingRequest;
 import com.cloudmersive.client.model.UpdateSettingResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +42,11 @@ public class SettingsApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void settingsCreateSettingTest() throws ApiException {
+    public void settingsCreateSettingTest() throws Exception {
         CreateSettingRequest request = null;
         CreateSettingResponse response = api.settingsCreateSetting(request);
 
@@ -58,11 +58,11 @@ public class SettingsApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void settingsListSettingsTest() throws ApiException {
+    public void settingsListSettingsTest() throws Exception {
         ListSettingsRequest request = null;
         ListSettingsResponse response = api.settingsListSettings(request);
 
@@ -74,11 +74,11 @@ public class SettingsApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void settingsUpdateSettingTest() throws ApiException {
+    public void settingsUpdateSettingTest() throws Exception {
         UpdateSettingRequest request = null;
         UpdateSettingResponse response = api.settingsUpdateSetting(request);
 

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of getting comments from a Word Document DOCX
  */
 @ApiModel(description = "Result of getting comments from a Word Document DOCX")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-01-01T16:39:14.898-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:29.931-07:00")
 public class GetDocxCommentsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

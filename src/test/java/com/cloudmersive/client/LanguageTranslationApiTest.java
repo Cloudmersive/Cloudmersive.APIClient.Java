@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.LanguageTranslationRequest;
 import com.cloudmersive.client.model.LanguageTranslationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class LanguageTranslationApiTest {
      *
      * Automatically translates input text in German to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void languageTranslationTranslateDeuToEngTest() throws ApiException {
+    public void languageTranslationTranslateDeuToEngTest() throws Exception {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateDeuToEng(input);
 
@@ -54,11 +54,11 @@ public class LanguageTranslationApiTest {
      *
      * Automatically translates input text in English to output text in German using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void languageTranslationTranslateEngToDeuTest() throws ApiException {
+    public void languageTranslationTranslateEngToDeuTest() throws Exception {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateEngToDeu(input);
 
@@ -70,11 +70,11 @@ public class LanguageTranslationApiTest {
      *
      * Automatically translates input text in English to output text in French using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void languageTranslationTranslateEngToFraTest() throws ApiException {
+    public void languageTranslationTranslateEngToFraTest() throws Exception {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateEngToFra(input);
 
@@ -86,11 +86,11 @@ public class LanguageTranslationApiTest {
      *
      * Automatically translates input text in English to output text in Russian using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void languageTranslationTranslateEngToRusTest() throws ApiException {
+    public void languageTranslationTranslateEngToRusTest() throws Exception {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateEngToRus(input);
 
@@ -102,11 +102,11 @@ public class LanguageTranslationApiTest {
      *
      * Automatically translates input text in French to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void languageTranslationTranslateFraToEngTest() throws ApiException {
+    public void languageTranslationTranslateFraToEngTest() throws Exception {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateFraToEng(input);
 
@@ -118,11 +118,11 @@ public class LanguageTranslationApiTest {
      *
      * Automatically translates input text in Russian to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void languageTranslationTranslateRusToEngTest() throws ApiException {
+    public void languageTranslationTranslateRusToEngTest() throws Exception {
         LanguageTranslationRequest input = null;
         LanguageTranslationResponse response = api.languageTranslationTranslateRusToEng(input);
 

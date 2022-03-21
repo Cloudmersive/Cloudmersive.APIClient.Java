@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.LeadEnrichmentRequest;
 import com.cloudmersive.client.model.LeadEnrichmentResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class LeadEnrichmentApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void leadEnrichmentEnrichLeadTest() throws ApiException {
+    public void leadEnrichmentEnrichLeadTest() throws Exception {
         LeadEnrichmentRequest request = null;
         LeadEnrichmentResponse response = api.leadEnrichmentEnrichLead(request);
 

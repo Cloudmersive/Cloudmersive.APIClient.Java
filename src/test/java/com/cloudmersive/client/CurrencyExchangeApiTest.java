@@ -13,12 +13,12 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AvailableCurrencyResponse;
 import com.cloudmersive.client.model.ConvertedCurrencyResult;
 import com.cloudmersive.client.model.ExchangeRateResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class CurrencyExchangeApiTest {
      *
      * Automatically converts the price in the source currency into the destination currency using the latest available currency exchange rate data.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void currencyExchangeConvertCurrencyTest() throws ApiException {
+    public void currencyExchangeConvertCurrencyTest() throws Exception {
         String source = null;
         String destination = null;
         Double sourcePrice = null;
@@ -57,11 +57,11 @@ public class CurrencyExchangeApiTest {
      *
      * Enumerates available currencies and the countries that correspond to these currencies.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void currencyExchangeGetAvailableCurrenciesTest() throws ApiException {
+    public void currencyExchangeGetAvailableCurrenciesTest() throws Exception {
         AvailableCurrencyResponse response = api.currencyExchangeGetAvailableCurrencies();
 
         // TODO: test validations
@@ -72,11 +72,11 @@ public class CurrencyExchangeApiTest {
      *
      * Automatically gets the exchange rate from the source currency into the destination currency using the latest available currency exchange rate data.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void currencyExchangeGetExchangeRateTest() throws ApiException {
+    public void currencyExchangeGetExchangeRateTest() throws Exception {
         String source = null;
         String destination = null;
         ExchangeRateResult response = api.currencyExchangeGetExchangeRate(source, destination);

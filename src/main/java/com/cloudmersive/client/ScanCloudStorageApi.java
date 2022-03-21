@@ -101,7 +101,7 @@ public class ScanCloudStorageApi {
             "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        //localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {

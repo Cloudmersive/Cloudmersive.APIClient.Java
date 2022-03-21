@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CountryListResult;
 import com.cloudmersive.client.model.GetTimezonesRequest;
 import com.cloudmersive.client.model.GetTimezonesResponse;
@@ -35,6 +34,7 @@ import com.cloudmersive.client.model.ValidateStateResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,11 +54,11 @@ public class AddressApiTest {
      *
      * Checks if the input country is a member of the European Union or not.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressCheckEUMembershipTest() throws ApiException {
+    public void addressCheckEUMembershipTest() throws Exception {
         ValidateCountryRequest input = null;
         ValidateCountryResponse response = api.addressCheckEUMembership(input);
 
@@ -70,11 +70,11 @@ public class AddressApiTest {
      *
      * Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressCountryTest() throws ApiException {
+    public void addressCountryTest() throws Exception {
         ValidateCountryRequest input = null;
         ValidateCountryResponse response = api.addressCountry(input);
 
@@ -86,11 +86,11 @@ public class AddressApiTest {
      *
      * Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressCountryListTest() throws ApiException {
+    public void addressCountryListTest() throws Exception {
         CountryListResult response = api.addressCountryList();
 
         // TODO: test validations
@@ -101,11 +101,11 @@ public class AddressApiTest {
      *
      * Geocodes a street address into latitude and longitude.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressGeocodeTest() throws ApiException {
+    public void addressGeocodeTest() throws Exception {
         ValidateAddressRequest input = null;
         ValidateAddressResponse response = api.addressGeocode(input);
 
@@ -117,11 +117,11 @@ public class AddressApiTest {
      *
      * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressGetCountryCurrencyTest() throws ApiException {
+    public void addressGetCountryCurrencyTest() throws Exception {
         ValidateCountryRequest input = null;
         ValidateCountryResponse response = api.addressGetCountryCurrency(input);
 
@@ -133,11 +133,11 @@ public class AddressApiTest {
      *
      * Gets the continent information including region and subregion for the input country.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressGetCountryRegionTest() throws ApiException {
+    public void addressGetCountryRegionTest() throws Exception {
         ValidateCountryRequest input = null;
         ValidateCountryResponse response = api.addressGetCountryRegion(input);
 
@@ -149,11 +149,11 @@ public class AddressApiTest {
      *
      * Gets the IANA/Olsen time zones for a country.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressGetTimezoneTest() throws ApiException {
+    public void addressGetTimezoneTest() throws Exception {
         GetTimezonesRequest input = null;
         GetTimezonesResponse response = api.addressGetTimezone(input);
 
@@ -165,11 +165,11 @@ public class AddressApiTest {
      *
      * Normalizes an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressNormalizeAddressTest() throws ApiException {
+    public void addressNormalizeAddressTest() throws Exception {
         ValidateAddressRequest input = null;
         NormalizeAddressResponse response = api.addressNormalizeAddress(input);
 
@@ -181,11 +181,11 @@ public class AddressApiTest {
      *
      * Uses machine learning and Natural Language Processing (NLP) to handle a wide array of cases, including non-standard and unstructured address strings across a wide array of countries and address formatting norms.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressParseStringTest() throws ApiException {
+    public void addressParseStringTest() throws Exception {
         ParseAddressRequest input = null;
         ParseAddressResponse response = api.addressParseString(input);
 
@@ -197,11 +197,11 @@ public class AddressApiTest {
      *
      * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressReverseGeocodeAddressTest() throws ApiException {
+    public void addressReverseGeocodeAddressTest() throws Exception {
         ReverseGeocodeAddressRequest input = null;
         ReverseGeocodeAddressResponse response = api.addressReverseGeocodeAddress(input);
 
@@ -213,11 +213,11 @@ public class AddressApiTest {
      *
      * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressValidateAddressTest() throws ApiException {
+    public void addressValidateAddressTest() throws Exception {
         ValidateAddressRequest input = null;
         ValidateAddressResponse response = api.addressValidateAddress(input);
 
@@ -229,11 +229,11 @@ public class AddressApiTest {
      *
      * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressValidateCityTest() throws ApiException {
+    public void addressValidateCityTest() throws Exception {
         ValidateCityRequest input = null;
         ValidateCityResponse response = api.addressValidateCity(input);
 
@@ -245,11 +245,11 @@ public class AddressApiTest {
      *
      * Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressValidatePostalCodeTest() throws ApiException {
+    public void addressValidatePostalCodeTest() throws Exception {
         ValidatePostalCodeRequest input = null;
         ValidatePostalCodeResponse response = api.addressValidatePostalCode(input);
 
@@ -261,11 +261,11 @@ public class AddressApiTest {
      *
      * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void addressValidateStateTest() throws ApiException {
+    public void addressValidateStateTest() throws Exception {
         ValidateStateRequest input = null;
         ValidateStateResponse response = api.addressValidateState(input);
 

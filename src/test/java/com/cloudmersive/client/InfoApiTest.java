@@ -13,12 +13,12 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DominantColorResult;
 import java.io.File;
 import com.cloudmersive.client.model.ImageMetadata;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class InfoApiTest {
      *
      * Uses advanced image processing to extract the top 5 dominant colors in the image, returned in the order of dominance with the most-dominant color first.  These are the primary perceptual colors used in the image as perceived by a viewer.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void infoGetDominantColorTest() throws ApiException {
+    public void infoGetDominantColorTest() throws Exception {
         File imageFile = null;
         DominantColorResult response = api.infoGetDominantColor(imageFile);
 
@@ -55,11 +55,11 @@ public class InfoApiTest {
      *
      * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void infoGetMetadataTest() throws ApiException {
+    public void infoGetMetadataTest() throws Exception {
         File imageFile = null;
         ImageMetadata response = api.infoGetMetadata(imageFile);
 

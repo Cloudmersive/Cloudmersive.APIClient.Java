@@ -13,13 +13,13 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.GetWordsRequest;
 import com.cloudmersive.client.model.GetWordsResponse;
 import com.cloudmersive.client.model.SentenceSegmentationRequest;
 import com.cloudmersive.client.model.SentenceSegmentationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class SegmentationApiTest {
      *
      * Segment an input string into separate sentences, output result as a string.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void segmentationGetSentencesTest() throws ApiException {
+    public void segmentationGetSentencesTest() throws Exception {
         SentenceSegmentationRequest input = null;
         SentenceSegmentationResponse response = api.segmentationGetSentences(input);
 
@@ -56,11 +56,11 @@ public class SegmentationApiTest {
      *
      * Get the component words in an input string
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void segmentationGetWordsTest() throws ApiException {
+    public void segmentationGetWordsTest() throws Exception {
         GetWordsRequest input = null;
         GetWordsResponse response = api.segmentationGetWords(input);
 

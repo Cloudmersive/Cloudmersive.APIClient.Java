@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.VirusScanAdvancedResult;
 import com.cloudmersive.client.model.VirusScanResult;
@@ -21,6 +20,7 @@ import com.cloudmersive.client.model.WebsiteScanRequest;
 import com.cloudmersive.client.model.WebsiteScanResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,11 +41,11 @@ public class ScanApiTest {
      *
      * Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void scanFileTest() throws ApiException {
+    public void scanFileTest() throws Exception {
         File inputFile = null;
         VirusScanResult response = api.scanFile(inputFile);
 
@@ -57,11 +57,11 @@ public class ScanApiTest {
      *
      * Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void scanFileAdvancedTest() throws ApiException {
+    public void scanFileAdvancedTest() throws Exception {
         File inputFile = null;
         Boolean allowExecutables = null;
         Boolean allowInvalidFiles = null;
@@ -82,11 +82,11 @@ public class ScanApiTest {
      *
      * Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void scanWebsiteTest() throws ApiException {
+    public void scanWebsiteTest() throws Exception {
         WebsiteScanRequest input = null;
         WebsiteScanResult response = api.scanWebsite(input);
 

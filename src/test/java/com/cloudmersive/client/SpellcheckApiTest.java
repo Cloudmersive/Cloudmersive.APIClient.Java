@@ -13,13 +13,13 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckSentenceRequest;
 import com.cloudmersive.client.model.CheckSentenceResponse;
 import com.cloudmersive.client.model.CheckWordRequest;
 import com.cloudmersive.client.model.CheckWordResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class SpellcheckApiTest {
      *
      * Checks whether the sentence is spelled correctly and returns the result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void spellcheckCheckSentenceTest() throws ApiException {
+    public void spellcheckCheckSentenceTest() throws Exception {
         CheckSentenceRequest value = null;
         CheckSentenceResponse response = api.spellcheckCheckSentence(value);
 
@@ -56,11 +56,11 @@ public class SpellcheckApiTest {
      *
      * Find spelling correction suggestions and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void spellcheckCorrectJsonTest() throws ApiException {
+    public void spellcheckCorrectJsonTest() throws Exception {
         CheckWordRequest value = null;
         CheckWordResponse response = api.spellcheckCorrectJson(value);
 

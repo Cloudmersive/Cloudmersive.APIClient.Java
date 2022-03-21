@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.NsfwResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class NsfwApiTest {
      *
      * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void nsfwClassifyTest() throws ApiException {
+    public void nsfwClassifyTest() throws Exception {
         File imageFile = null;
         NsfwResult response = api.nsfwClassify(imageFile);
 

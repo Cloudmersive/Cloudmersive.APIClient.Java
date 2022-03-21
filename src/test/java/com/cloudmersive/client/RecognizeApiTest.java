@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.FindSymbolResult;
 import com.cloudmersive.client.model.FineTextDetectionResult;
@@ -26,6 +25,7 @@ import com.cloudmersive.client.model.TextDetectionResult;
 import com.cloudmersive.client.model.VehicleLicensePlateDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,11 +46,11 @@ public class RecognizeApiTest {
      *
      * Generate an English language text description of the image as a sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDescribeTest() throws ApiException {
+    public void recognizeDescribeTest() throws Exception {
         File imageFile = null;
         ImageDescriptionResponse response = api.recognizeDescribe(imageFile);
 
@@ -62,11 +62,11 @@ public class RecognizeApiTest {
      *
      * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDetectAndUnskewDocumentTest() throws ApiException {
+    public void recognizeDetectAndUnskewDocumentTest() throws Exception {
         File imageFile = null;
         String postProcessingEffect = null;
         byte[] response = api.recognizeDetectAndUnskewDocument(imageFile, postProcessingEffect);
@@ -79,11 +79,11 @@ public class RecognizeApiTest {
      *
      * Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDetectObjectsTest() throws ApiException {
+    public void recognizeDetectObjectsTest() throws Exception {
         File imageFile = null;
         ObjectDetectionResult response = api.recognizeDetectObjects(imageFile);
 
@@ -95,11 +95,11 @@ public class RecognizeApiTest {
      *
      * Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDetectPeopleTest() throws ApiException {
+    public void recognizeDetectPeopleTest() throws Exception {
         File imageFile = null;
         ObjectDetectionResult response = api.recognizeDetectPeople(imageFile);
 
@@ -111,11 +111,11 @@ public class RecognizeApiTest {
      *
      * Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDetectTextFineTest() throws ApiException {
+    public void recognizeDetectTextFineTest() throws Exception {
         File imageFile = null;
         FineTextDetectionResult response = api.recognizeDetectTextFine(imageFile);
 
@@ -127,11 +127,11 @@ public class RecognizeApiTest {
      *
      * Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDetectTextLargeTest() throws ApiException {
+    public void recognizeDetectTextLargeTest() throws Exception {
         File imageFile = null;
         TextDetectionResult response = api.recognizeDetectTextLarge(imageFile);
 
@@ -143,11 +143,11 @@ public class RecognizeApiTest {
      *
      * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeDetectVehicleLicensePlatesTest() throws ApiException {
+    public void recognizeDetectVehicleLicensePlatesTest() throws Exception {
         File imageFile = null;
         VehicleLicensePlateDetectionResult response = api.recognizeDetectVehicleLicensePlates(imageFile);
 
@@ -159,11 +159,11 @@ public class RecognizeApiTest {
      *
      * Determine if an image contains a symbol, and if so, the location of that symbol in the image.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeFindSymbolTest() throws ApiException {
+    public void recognizeFindSymbolTest() throws Exception {
         File inputImage = null;
         File targetImage = null;
         FindSymbolResult response = api.recognizeFindSymbol(inputImage, targetImage);
@@ -176,11 +176,11 @@ public class RecognizeApiTest {
      *
      * Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeSimilarityCompareTest() throws ApiException {
+    public void recognizeSimilarityCompareTest() throws Exception {
         File baseImage = null;
         File comparisonImage = null;
         String recognitionMode = null;
@@ -194,11 +194,11 @@ public class RecognizeApiTest {
      *
      * Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeSimilarityHashTest() throws ApiException {
+    public void recognizeSimilarityHashTest() throws Exception {
         File imageFile = null;
         String recognitionMode = null;
         ImageSimilarityHashResponse response = api.recognizeSimilarityHash(imageFile, recognitionMode);
@@ -211,11 +211,11 @@ public class RecognizeApiTest {
      *
      * Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void recognizeSimilarityHashDistanceTest() throws ApiException {
+    public void recognizeSimilarityHashDistanceTest() throws Exception {
         ImageSimilarityHashDistanceRequest request = null;
         ImageSimilarityHashDistanceResponse response = api.recognizeSimilarityHashDistance(request);
 

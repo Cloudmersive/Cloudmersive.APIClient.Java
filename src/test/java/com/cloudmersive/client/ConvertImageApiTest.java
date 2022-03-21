@@ -13,12 +13,12 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.GetImageInfoResult;
 import com.cloudmersive.client.model.MultipageImageFormatConversionResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class ConvertImageApiTest {
      *
      * Get details from an image such as size, format and MIME type, compression, EXIF data such as location, DPI, unique colors, transparency information, and more
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertImageGetImageInfoTest() throws ApiException {
+    public void convertImageGetImageInfoTest() throws Exception {
         File inputFile = null;
         GetImageInfoResult response = api.convertImageGetImageInfo(inputFile);
 
@@ -55,11 +55,11 @@ public class ConvertImageApiTest {
      *
      * Convert between over 100 file formats, including key formats such as Photoshop (PSD), PNG, JPG, GIF, NEF, and BMP.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertImageImageFormatConvertTest() throws ApiException {
+    public void convertImageImageFormatConvertTest() throws Exception {
         String format1 = null;
         String format2 = null;
         File inputFile = null;
@@ -73,11 +73,11 @@ public class ConvertImageApiTest {
      *
      * Resize an image to have a different DPI
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertImageImageSetDPITest() throws ApiException {
+    public void convertImageImageSetDPITest() throws Exception {
         Integer dpi = null;
         File inputFile = null;
         byte[] response = api.convertImageImageSetDPI(dpi, inputFile);
@@ -90,11 +90,11 @@ public class ConvertImageApiTest {
      *
      * Convert between over 100 file formats, including support for Multiple-Page formats (e.g. PDFs, TIFFs, etc. with multiple pages).
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertImageMultipageImageFormatConvertTest() throws ApiException {
+    public void convertImageMultipageImageFormatConvertTest() throws Exception {
         String format1 = null;
         String format2 = null;
         File inputFile = null;

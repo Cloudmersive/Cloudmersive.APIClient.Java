@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.ExtractEntitiesRequest;
 import com.cloudmersive.client.model.ExtractEntitiesResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class ExtractEntitiesApiTest {
      *
      * Extract the named entitites from an input string.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void extractEntitiesPostTest() throws ApiException {
+    public void extractEntitiesPostTest() throws Exception {
         ExtractEntitiesRequest value = null;
         ExtractEntitiesResponse response = api.extractEntitiesPost(value);
 

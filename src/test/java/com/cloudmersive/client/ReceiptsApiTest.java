@@ -13,10 +13,10 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class ReceiptsApiTest {
      *
      * Leverage Deep Learning to automatically turn a photo of a receipt into a CSV file containing the structured information from the receipt.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void receiptsPhotoToCSVTest() throws ApiException {
+    public void receiptsPhotoToCSVTest() throws Exception {
         File imageFile = null;
         Object response = api.receiptsPhotoToCSV(imageFile);
 

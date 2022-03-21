@@ -13,13 +13,13 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.PdfToLinesWithLocationResult;
 import com.cloudmersive.client.model.PdfToTextResponse;
 import com.cloudmersive.client.model.PdfToWordsWithLocationResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class PdfOcrApiTest {
      *
      * Converts a PDF into lines/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void pdfOcrPdfToLinesWithLocationTest() throws ApiException {
+    public void pdfOcrPdfToLinesWithLocationTest() throws Exception {
         File imageFile = null;
         String language = null;
         String preprocessing = null;
@@ -58,11 +58,11 @@ public class PdfOcrApiTest {
      *
      * Converts a PDF into words/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void pdfOcrPdfToWordsWithLocationTest() throws ApiException {
+    public void pdfOcrPdfToWordsWithLocationTest() throws Exception {
         File imageFile = null;
         String language = null;
         String preprocessing = null;
@@ -76,11 +76,11 @@ public class PdfOcrApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void pdfOcrPostTest() throws ApiException {
+    public void pdfOcrPostTest() throws Exception {
         File imageFile = null;
         String recognitionMode = null;
         String language = null;

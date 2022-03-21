@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AppendXlsxRowRequest;
 import com.cloudmersive.client.model.AppendXlsxRowResponse;
 import com.cloudmersive.client.model.ClearXlsxCellRequest;
@@ -124,6 +123,7 @@ import com.cloudmersive.client.model.UpdateDocxTableRowResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -143,11 +143,11 @@ public class EditDocumentApiTest {
      *
      * Uploads a document to Cloudmersive to begin a series of one or more editing operations.  To edit a document, first call Begin Editing on the document.  Then perform operations on the document using the secure URL returned from BeginEditing, such as Word DOCX Delete Pages and Insert Table.  Finally, perform finish editing on the URL to return the resulting edited document.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentBeginEditingTest() throws ApiException {
+    public void editDocumentBeginEditingTest() throws Exception {
         File inputFile = null;
         String response = api.editDocumentBeginEditing(inputFile);
 
@@ -159,11 +159,11 @@ public class EditDocumentApiTest {
      *
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxAcceptAllTrackChangesTest() throws ApiException {
+    public void editDocumentDocxAcceptAllTrackChangesTest() throws Exception {
         File inputFile = null;
         byte[] response = api.editDocumentDocxAcceptAllTrackChanges(inputFile);
 
@@ -175,11 +175,11 @@ public class EditDocumentApiTest {
      *
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxBodyTest() throws ApiException {
+    public void editDocumentDocxBodyTest() throws Exception {
         GetDocxBodyRequest reqConfig = null;
         GetDocxBodyResponse response = api.editDocumentDocxBody(reqConfig);
 
@@ -191,11 +191,11 @@ public class EditDocumentApiTest {
      *
      * Returns a blank Word DOCX Document format file.  The file is blank, with no contents.  Use additional editing commands such as Insert Paragraph or Insert Table or Insert Image to populate the document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxCreateBlankDocumentTest() throws ApiException {
+    public void editDocumentDocxCreateBlankDocumentTest() throws Exception {
         CreateBlankDocxRequest input = null;
         CreateBlankDocxResponse response = api.editDocumentDocxCreateBlankDocument(input);
 
@@ -207,11 +207,11 @@ public class EditDocumentApiTest {
      *
      * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxDeletePagesTest() throws ApiException {
+    public void editDocumentDocxDeletePagesTest() throws Exception {
         RemoveDocxPagesRequest reqConfig = null;
         byte[] response = api.editDocumentDocxDeletePages(reqConfig);
 
@@ -223,11 +223,11 @@ public class EditDocumentApiTest {
      *
      * Deletes an existing table row in a Word DOCX Document and returns the result.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxDeleteTableRowTest() throws ApiException {
+    public void editDocumentDocxDeleteTableRowTest() throws Exception {
         DeleteDocxTableRowRequest reqConfig = null;
         DeleteDocxTableRowResponse response = api.editDocumentDocxDeleteTableRow(reqConfig);
 
@@ -239,11 +239,11 @@ public class EditDocumentApiTest {
      *
      * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxDeleteTableRowRangeTest() throws ApiException {
+    public void editDocumentDocxDeleteTableRowRangeTest() throws Exception {
         DeleteDocxTableRowRangeRequest reqConfig = null;
         DeleteDocxTableRowRangeResponse response = api.editDocumentDocxDeleteTableRowRange(reqConfig);
 
@@ -255,11 +255,11 @@ public class EditDocumentApiTest {
      *
      * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxDisableTrackChangesTest() throws ApiException {
+    public void editDocumentDocxDisableTrackChangesTest() throws Exception {
         File inputFile = null;
         byte[] response = api.editDocumentDocxDisableTrackChanges(inputFile);
 
@@ -271,11 +271,11 @@ public class EditDocumentApiTest {
      *
      * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxEnableTrackChangesTest() throws ApiException {
+    public void editDocumentDocxEnableTrackChangesTest() throws Exception {
         File inputFile = null;
         byte[] response = api.editDocumentDocxEnableTrackChanges(inputFile);
 
@@ -287,11 +287,11 @@ public class EditDocumentApiTest {
      *
      * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxFindParagraphTest() throws ApiException {
+    public void editDocumentDocxFindParagraphTest() throws Exception {
         FindDocxParagraphRequest reqConfig = null;
         FindDocxParagraphResponse response = api.editDocumentDocxFindParagraph(reqConfig);
 
@@ -303,11 +303,11 @@ public class EditDocumentApiTest {
      *
      * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetCommentsTest() throws ApiException {
+    public void editDocumentDocxGetCommentsTest() throws Exception {
         GetDocxGetCommentsRequest reqConfig = null;
         GetDocxCommentsResponse response = api.editDocumentDocxGetComments(reqConfig);
 
@@ -319,11 +319,11 @@ public class EditDocumentApiTest {
      *
      * Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetCommentsHierarchicalTest() throws ApiException {
+    public void editDocumentDocxGetCommentsHierarchicalTest() throws Exception {
         GetDocxGetCommentsHierarchicalRequest reqConfig = null;
         GetDocxCommentsHierarchicalResponse response = api.editDocumentDocxGetCommentsHierarchical(reqConfig);
 
@@ -335,11 +335,11 @@ public class EditDocumentApiTest {
      *
      * Returns all the content controls, used for creating form fields, in a Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetContentControlsTest() throws ApiException {
+    public void editDocumentDocxGetContentControlsTest() throws Exception {
         File inputFile = null;
         GetDocxContentControlsResponse response = api.editDocumentDocxGetContentControls(inputFile);
 
@@ -351,11 +351,11 @@ public class EditDocumentApiTest {
      *
      * Returns all the content controls, used for creating form fields, as well as handlebar style text-based form fields such as \&quot;{{FieldName}}\&quot;, in a Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetFormFieldsTest() throws ApiException {
+    public void editDocumentDocxGetFormFieldsTest() throws Exception {
         File inputFile = null;
         GetDocxGetFormFieldsResponse response = api.editDocumentDocxGetFormFields(inputFile);
 
@@ -367,11 +367,11 @@ public class EditDocumentApiTest {
      *
      * Returns the footer content from a Word Document (DOCX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetHeadersAndFootersTest() throws ApiException {
+    public void editDocumentDocxGetHeadersAndFootersTest() throws Exception {
         GetDocxHeadersAndFootersRequest reqConfig = null;
         GetDocxHeadersAndFootersResponse response = api.editDocumentDocxGetHeadersAndFooters(reqConfig);
 
@@ -383,11 +383,11 @@ public class EditDocumentApiTest {
      *
      * Returns the images defined in the Word Document (DOCX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetImagesTest() throws ApiException {
+    public void editDocumentDocxGetImagesTest() throws Exception {
         GetDocxImagesRequest reqConfig = null;
         GetDocxImagesResponse response = api.editDocumentDocxGetImages(reqConfig);
 
@@ -399,11 +399,11 @@ public class EditDocumentApiTest {
      *
      * Returns information about the Macros (e.g. VBA) defined in the Word Document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetMacroInformationTest() throws ApiException {
+    public void editDocumentDocxGetMacroInformationTest() throws Exception {
         File inputFile = null;
         GetMacrosResponse response = api.editDocumentDocxGetMacroInformation(inputFile);
 
@@ -415,11 +415,11 @@ public class EditDocumentApiTest {
      *
      * Returns all the metadata properties in an Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetMetadataPropertiesTest() throws ApiException {
+    public void editDocumentDocxGetMetadataPropertiesTest() throws Exception {
         File inputFile = null;
         GetDocxMetadataPropertiesResponse response = api.editDocumentDocxGetMetadataProperties(inputFile);
 
@@ -431,11 +431,11 @@ public class EditDocumentApiTest {
      *
      * Returns the sections defined in the Word Document (DOCX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetSectionsTest() throws ApiException {
+    public void editDocumentDocxGetSectionsTest() throws Exception {
         GetDocxSectionsRequest reqConfig = null;
         GetDocxSectionsResponse response = api.editDocumentDocxGetSections(reqConfig);
 
@@ -447,11 +447,11 @@ public class EditDocumentApiTest {
      *
      * Returns the styles defined in the Word Document (DOCX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetStylesTest() throws ApiException {
+    public void editDocumentDocxGetStylesTest() throws Exception {
         GetDocxStylesRequest reqConfig = null;
         GetDocxStylesResponse response = api.editDocumentDocxGetStyles(reqConfig);
 
@@ -463,11 +463,11 @@ public class EditDocumentApiTest {
      *
      * Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetTableByIndexTest() throws ApiException {
+    public void editDocumentDocxGetTableByIndexTest() throws Exception {
         GetDocxTableByIndexRequest reqConfig = null;
         GetDocxTableByIndexResponse response = api.editDocumentDocxGetTableByIndex(reqConfig);
 
@@ -479,11 +479,11 @@ public class EditDocumentApiTest {
      *
      * Gets the contents of an existing table row in a Word DOCX Document and returns the result.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetTableRowTest() throws ApiException {
+    public void editDocumentDocxGetTableRowTest() throws Exception {
         GetDocxTableRowRequest reqConfig = null;
         GetDocxTableRowResponse response = api.editDocumentDocxGetTableRow(reqConfig);
 
@@ -495,11 +495,11 @@ public class EditDocumentApiTest {
      *
      * Returns all the table objects in an Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxGetTablesTest() throws ApiException {
+    public void editDocumentDocxGetTablesTest() throws Exception {
         GetDocxTablesRequest reqConfig = null;
         GetDocxTablesResponse response = api.editDocumentDocxGetTables(reqConfig);
 
@@ -511,11 +511,11 @@ public class EditDocumentApiTest {
      *
      * Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxInsertCommentOnParagraphTest() throws ApiException {
+    public void editDocumentDocxInsertCommentOnParagraphTest() throws Exception {
         DocxInsertCommentOnParagraphRequest reqConfig = null;
         InsertDocxCommentOnParagraphResponse response = api.editDocumentDocxInsertCommentOnParagraph(reqConfig);
 
@@ -527,11 +527,11 @@ public class EditDocumentApiTest {
      *
      * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxInsertImageTest() throws ApiException {
+    public void editDocumentDocxInsertImageTest() throws Exception {
         DocxInsertImageRequest reqConfig = null;
         DocxInsertImageResponse response = api.editDocumentDocxInsertImage(reqConfig);
 
@@ -543,11 +543,11 @@ public class EditDocumentApiTest {
      *
      * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxInsertParagraphTest() throws ApiException {
+    public void editDocumentDocxInsertParagraphTest() throws Exception {
         InsertDocxInsertParagraphRequest reqConfig = null;
         InsertDocxInsertParagraphResponse response = api.editDocumentDocxInsertParagraph(reqConfig);
 
@@ -559,11 +559,11 @@ public class EditDocumentApiTest {
      *
      * Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxInsertTableTest() throws ApiException {
+    public void editDocumentDocxInsertTableTest() throws Exception {
         InsertDocxTablesRequest reqConfig = null;
         InsertDocxTablesResponse response = api.editDocumentDocxInsertTable(reqConfig);
 
@@ -575,11 +575,11 @@ public class EditDocumentApiTest {
      *
      * Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxInsertTableRowTest() throws ApiException {
+    public void editDocumentDocxInsertTableRowTest() throws Exception {
         InsertDocxTableRowRequest reqConfig = null;
         InsertDocxTableRowResponse response = api.editDocumentDocxInsertTableRow(reqConfig);
 
@@ -591,11 +591,11 @@ public class EditDocumentApiTest {
      *
      * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxPagesTest() throws ApiException {
+    public void editDocumentDocxPagesTest() throws Exception {
         GetDocxPagesRequest reqConfig = null;
         GetDocxPagesResponse response = api.editDocumentDocxPages(reqConfig);
 
@@ -607,11 +607,11 @@ public class EditDocumentApiTest {
      *
      * Removes all of the comments from a Word Document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxRemoveAllCommentsTest() throws ApiException {
+    public void editDocumentDocxRemoveAllCommentsTest() throws Exception {
         File inputFile = null;
         byte[] response = api.editDocumentDocxRemoveAllComments(inputFile);
 
@@ -623,11 +623,11 @@ public class EditDocumentApiTest {
      *
      * Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxRemoveHeadersAndFootersTest() throws ApiException {
+    public void editDocumentDocxRemoveHeadersAndFootersTest() throws Exception {
         RemoveDocxHeadersAndFootersRequest reqConfig = null;
         RemoveDocxHeadersAndFootersResponse response = api.editDocumentDocxRemoveHeadersAndFooters(reqConfig);
 
@@ -639,11 +639,11 @@ public class EditDocumentApiTest {
      *
      * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxRemoveObjectTest() throws ApiException {
+    public void editDocumentDocxRemoveObjectTest() throws Exception {
         DocxRemoveObjectRequest reqConfig = null;
         DocxRemoveObjectResponse response = api.editDocumentDocxRemoveObject(reqConfig);
 
@@ -655,11 +655,11 @@ public class EditDocumentApiTest {
      *
      * Replace all instances of a string in an Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxReplaceTest() throws ApiException {
+    public void editDocumentDocxReplaceTest() throws Exception {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentDocxReplace(reqConfig);
 
@@ -671,11 +671,11 @@ public class EditDocumentApiTest {
      *
      * Replace all instances of multiple strings in an Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxReplaceMultiTest() throws ApiException {
+    public void editDocumentDocxReplaceMultiTest() throws Exception {
         MultiReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentDocxReplaceMulti(reqConfig);
 
@@ -687,11 +687,11 @@ public class EditDocumentApiTest {
      *
      * Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxReplaceMultiEditSessionTest() throws ApiException {
+    public void editDocumentDocxReplaceMultiEditSessionTest() throws Exception {
         MultiReplaceStringRequest reqConfig = null;
         DocumentEditingEditSession response = api.editDocumentDocxReplaceMultiEditSession(reqConfig);
 
@@ -703,11 +703,11 @@ public class EditDocumentApiTest {
      *
      * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxReplaceParagraphTest() throws ApiException {
+    public void editDocumentDocxReplaceParagraphTest() throws Exception {
         ReplaceDocxParagraphRequest reqConfig = null;
         ReplaceDocxParagraphResponse response = api.editDocumentDocxReplaceParagraph(reqConfig);
 
@@ -719,11 +719,11 @@ public class EditDocumentApiTest {
      *
      * Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxSetCustomMetadataPropertiesTest() throws ApiException {
+    public void editDocumentDocxSetCustomMetadataPropertiesTest() throws Exception {
         DocxSetCustomMetadataPropertiesRequest input = null;
         byte[] response = api.editDocumentDocxSetCustomMetadataProperties(input);
 
@@ -735,11 +735,11 @@ public class EditDocumentApiTest {
      *
      * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxSetFooterTest() throws ApiException {
+    public void editDocumentDocxSetFooterTest() throws Exception {
         DocxSetFooterRequest reqConfig = null;
         DocxSetFooterResponse response = api.editDocumentDocxSetFooter(reqConfig);
 
@@ -751,11 +751,11 @@ public class EditDocumentApiTest {
      *
      * Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxSetFooterAddPageNumberTest() throws ApiException {
+    public void editDocumentDocxSetFooterAddPageNumberTest() throws Exception {
         DocxSetFooterAddPageNumberRequest reqConfig = null;
         DocxSetFooterResponse response = api.editDocumentDocxSetFooterAddPageNumber(reqConfig);
 
@@ -767,11 +767,11 @@ public class EditDocumentApiTest {
      *
      * Modifies a Office Word Document (docx) by filling in form fields using the provided values.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxSetFormFieldsTest() throws ApiException {
+    public void editDocumentDocxSetFormFieldsTest() throws Exception {
         DocxSetFormFieldsRequest reqConfig = null;
         byte[] response = api.editDocumentDocxSetFormFields(reqConfig);
 
@@ -783,11 +783,11 @@ public class EditDocumentApiTest {
      *
      * Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxSetHeaderTest() throws ApiException {
+    public void editDocumentDocxSetHeaderTest() throws Exception {
         DocxSetHeaderRequest reqConfig = null;
         DocxSetHeaderResponse response = api.editDocumentDocxSetHeader(reqConfig);
 
@@ -799,11 +799,11 @@ public class EditDocumentApiTest {
      *
      * Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxUpdateTableCellTest() throws ApiException {
+    public void editDocumentDocxUpdateTableCellTest() throws Exception {
         UpdateDocxTableCellRequest reqConfig = null;
         UpdateDocxTableCellResponse response = api.editDocumentDocxUpdateTableCell(reqConfig);
 
@@ -815,11 +815,11 @@ public class EditDocumentApiTest {
      *
      * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentDocxUpdateTableRowTest() throws ApiException {
+    public void editDocumentDocxUpdateTableRowTest() throws Exception {
         UpdateDocxTableRowRequest reqConfig = null;
         UpdateDocxTableRowResponse response = api.editDocumentDocxUpdateTableRow(reqConfig);
 
@@ -831,11 +831,11 @@ public class EditDocumentApiTest {
      *
      * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentFinishEditingTest() throws ApiException {
+    public void editDocumentFinishEditingTest() throws Exception {
         FinishEditingRequest reqConfig = null;
         byte[] response = api.editDocumentFinishEditing(reqConfig);
 
@@ -847,11 +847,11 @@ public class EditDocumentApiTest {
      *
      * Edits the input PowerPoint PPTX presentation document to remove the specified slides
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentPptxDeleteSlidesTest() throws ApiException {
+    public void editDocumentPptxDeleteSlidesTest() throws Exception {
         RemovePptxSlidesRequest reqConfig = null;
         byte[] response = api.editDocumentPptxDeleteSlides(reqConfig);
 
@@ -863,11 +863,11 @@ public class EditDocumentApiTest {
      *
      * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentPptxGetMacroInformationTest() throws ApiException {
+    public void editDocumentPptxGetMacroInformationTest() throws Exception {
         File inputFile = null;
         GetMacrosResponse response = api.editDocumentPptxGetMacroInformation(inputFile);
 
@@ -879,11 +879,11 @@ public class EditDocumentApiTest {
      *
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentPptxReplaceTest() throws ApiException {
+    public void editDocumentPptxReplaceTest() throws Exception {
         ReplaceStringRequest reqConfig = null;
         byte[] response = api.editDocumentPptxReplace(reqConfig);
 
@@ -895,11 +895,11 @@ public class EditDocumentApiTest {
      *
      * Appends a row to the end of an Excel Spreadsheet worksheet.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxAppendRowTest() throws ApiException {
+    public void editDocumentXlsxAppendRowTest() throws Exception {
         AppendXlsxRowRequest input = null;
         AppendXlsxRowResponse response = api.editDocumentXlsxAppendRow(input);
 
@@ -911,11 +911,11 @@ public class EditDocumentApiTest {
      *
      * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxClearCellByIndexTest() throws ApiException {
+    public void editDocumentXlsxClearCellByIndexTest() throws Exception {
         ClearXlsxCellRequest input = null;
         ClearXlsxCellResponse response = api.editDocumentXlsxClearCellByIndex(input);
 
@@ -927,11 +927,11 @@ public class EditDocumentApiTest {
      *
      * Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxClearRowTest() throws ApiException {
+    public void editDocumentXlsxClearRowTest() throws Exception {
         ClearXlsxRowRequest input = null;
         ClearXlsxRowResponse response = api.editDocumentXlsxClearRow(input);
 
@@ -943,11 +943,11 @@ public class EditDocumentApiTest {
      *
      * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxCreateBlankSpreadsheetTest() throws ApiException {
+    public void editDocumentXlsxCreateBlankSpreadsheetTest() throws Exception {
         CreateBlankSpreadsheetRequest input = null;
         CreateBlankSpreadsheetResponse response = api.editDocumentXlsxCreateBlankSpreadsheet(input);
 
@@ -959,11 +959,11 @@ public class EditDocumentApiTest {
      *
      * Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxCreateSpreadsheetFromDataTest() throws ApiException {
+    public void editDocumentXlsxCreateSpreadsheetFromDataTest() throws Exception {
         CreateSpreadsheetFromDataRequest input = null;
         CreateSpreadsheetFromDataResponse response = api.editDocumentXlsxCreateSpreadsheetFromData(input);
 
@@ -975,11 +975,11 @@ public class EditDocumentApiTest {
      *
      * Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxDeleteWorksheetTest() throws ApiException {
+    public void editDocumentXlsxDeleteWorksheetTest() throws Exception {
         RemoveXlsxWorksheetRequest reqConfig = null;
         byte[] response = api.editDocumentXlsxDeleteWorksheet(reqConfig);
 
@@ -991,11 +991,11 @@ public class EditDocumentApiTest {
      *
      * Disable the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxDisableSharedWorkbookTest() throws ApiException {
+    public void editDocumentXlsxDisableSharedWorkbookTest() throws Exception {
         DisableSharedWorkbookRequest input = null;
         DisableSharedWorkbookResponse response = api.editDocumentXlsxDisableSharedWorkbook(input);
 
@@ -1007,11 +1007,11 @@ public class EditDocumentApiTest {
      *
      * Enables the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxEnableSharedWorkbookTest() throws ApiException {
+    public void editDocumentXlsxEnableSharedWorkbookTest() throws Exception {
         EnableSharedWorkbookRequest input = null;
         EnableSharedWorkbookResponse response = api.editDocumentXlsxEnableSharedWorkbook(input);
 
@@ -1023,11 +1023,11 @@ public class EditDocumentApiTest {
      *
      * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetCellByIdentifierTest() throws ApiException {
+    public void editDocumentXlsxGetCellByIdentifierTest() throws Exception {
         GetXlsxCellByIdentifierRequest input = null;
         GetXlsxCellByIdentifierResponse response = api.editDocumentXlsxGetCellByIdentifier(input);
 
@@ -1039,11 +1039,11 @@ public class EditDocumentApiTest {
      *
      * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetCellByIndexTest() throws ApiException {
+    public void editDocumentXlsxGetCellByIndexTest() throws Exception {
         GetXlsxCellRequest input = null;
         GetXlsxCellResponse response = api.editDocumentXlsxGetCellByIndex(input);
 
@@ -1055,11 +1055,11 @@ public class EditDocumentApiTest {
      *
      * Returns the columns defined in the Excel Spreadsheet worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetColumnsTest() throws ApiException {
+    public void editDocumentXlsxGetColumnsTest() throws Exception {
         GetXlsxColumnsRequest input = null;
         GetXlsxColumnsResponse response = api.editDocumentXlsxGetColumns(input);
 
@@ -1071,11 +1071,11 @@ public class EditDocumentApiTest {
      *
      * Returns the images defined in the Excel Spreadsheet worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetImagesTest() throws ApiException {
+    public void editDocumentXlsxGetImagesTest() throws Exception {
         GetXlsxImagesRequest input = null;
         GetXlsxImagesResponse response = api.editDocumentXlsxGetImages(input);
 
@@ -1087,11 +1087,11 @@ public class EditDocumentApiTest {
      *
      * Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetMacroInformationTest() throws ApiException {
+    public void editDocumentXlsxGetMacroInformationTest() throws Exception {
         File inputFile = null;
         GetMacrosResponse response = api.editDocumentXlsxGetMacroInformation(inputFile);
 
@@ -1103,11 +1103,11 @@ public class EditDocumentApiTest {
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetRowsAndCellsTest() throws ApiException {
+    public void editDocumentXlsxGetRowsAndCellsTest() throws Exception {
         GetXlsxRowsAndCellsRequest input = null;
         GetXlsxRowsAndCellsResponse response = api.editDocumentXlsxGetRowsAndCells(input);
 
@@ -1119,11 +1119,11 @@ public class EditDocumentApiTest {
      *
      * Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetSpecificRowTest() throws ApiException {
+    public void editDocumentXlsxGetSpecificRowTest() throws Exception {
         GetXlsxSpecificRowRequest input = null;
         GetXlsxSpecificRowResponse response = api.editDocumentXlsxGetSpecificRow(input);
 
@@ -1135,11 +1135,11 @@ public class EditDocumentApiTest {
      *
      * Returns the style defined in the Excel Spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetStylesTest() throws ApiException {
+    public void editDocumentXlsxGetStylesTest() throws Exception {
         GetXlsxStylesRequest input = null;
         GetXlsxStylesResponse response = api.editDocumentXlsxGetStyles(input);
 
@@ -1151,11 +1151,11 @@ public class EditDocumentApiTest {
      *
      * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxGetWorksheetsTest() throws ApiException {
+    public void editDocumentXlsxGetWorksheetsTest() throws Exception {
         GetXlsxWorksheetsRequest input = null;
         GetXlsxWorksheetsResponse response = api.editDocumentXlsxGetWorksheets(input);
 
@@ -1167,11 +1167,11 @@ public class EditDocumentApiTest {
      *
      * Inserts a new worksheet into an Excel Spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxInsertWorksheetTest() throws ApiException {
+    public void editDocumentXlsxInsertWorksheetTest() throws Exception {
         InsertXlsxWorksheetRequest input = null;
         InsertXlsxWorksheetResponse response = api.editDocumentXlsxInsertWorksheet(input);
 
@@ -1183,11 +1183,11 @@ public class EditDocumentApiTest {
      *
      * Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxRenameWorksheetTest() throws ApiException {
+    public void editDocumentXlsxRenameWorksheetTest() throws Exception {
         RenameXlsxWorksheetRequest input = null;
         RenameXlsxWorksheetResponse response = api.editDocumentXlsxRenameWorksheet(input);
 
@@ -1199,11 +1199,11 @@ public class EditDocumentApiTest {
      *
      * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxSetCellByIdentifierTest() throws ApiException {
+    public void editDocumentXlsxSetCellByIdentifierTest() throws Exception {
         SetXlsxCellByIdentifierRequest input = null;
         SetXlsxCellByIdentifierResponse response = api.editDocumentXlsxSetCellByIdentifier(input);
 
@@ -1215,11 +1215,11 @@ public class EditDocumentApiTest {
      *
      * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDocumentXlsxSetCellByIndexTest() throws ApiException {
+    public void editDocumentXlsxSetCellByIndexTest() throws Exception {
         SetXlsxCellRequest input = null;
         SetXlsxCellResponse response = api.editDocumentXlsxSetCellByIndex(input);
 

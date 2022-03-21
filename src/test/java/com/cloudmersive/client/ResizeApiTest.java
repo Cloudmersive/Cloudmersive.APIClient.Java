@@ -13,10 +13,10 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class ResizeApiTest {
      *
      * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio.  Resize is EXIF-aware.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void resizePostTest() throws ApiException {
+    public void resizePostTest() throws Exception {
         Integer maxWidth = null;
         Integer maxHeight = null;
         File imageFile = null;
@@ -55,11 +55,11 @@ public class ResizeApiTest {
      *
      * Resize an image to a specific width and specific height.  Resize is EXIF-aware.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void resizeResizeSimpleTest() throws ApiException {
+    public void resizeResizeSimpleTest() throws Exception {
         Integer width = null;
         Integer height = null;
         File imageFile = null;

@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.HttpOrchestrationRequest;
 import com.cloudmersive.client.model.HttpOrchestrationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class OrchestratorApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void orchestratorHttpSimpleTest() throws ApiException {
+    public void orchestratorHttpSimpleTest() throws Exception {
         HttpOrchestrationRequest request = null;
         HttpOrchestrationResponse response = api.orchestratorHttpSimple(request);
 

@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.ParseRequest;
 import com.cloudmersive.client.model.ParseResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class ParseApiTest {
      *
      * Parses the input string into a Penn Treebank syntax tree
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void parseParseStringTest() throws ApiException {
+    public void parseParseStringTest() throws Exception {
         ParseRequest input = null;
         ParseResponse response = api.parseParseString(input);
 

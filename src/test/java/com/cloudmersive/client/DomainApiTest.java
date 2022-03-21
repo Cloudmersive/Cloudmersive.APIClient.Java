@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CheckResponse;
 import com.cloudmersive.client.model.DomainQualityResponse;
 import com.cloudmersive.client.model.IsAdminPathResponse;
@@ -35,6 +34,7 @@ import com.cloudmersive.client.model.WhoisResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,11 +54,11 @@ public class DomainApiTest {
      *
      * Check whether a domain name is valid or not.  API performs a live validation by contacting DNS services to validate the existence of the domain name.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainCheckTest() throws ApiException {
+    public void domainCheckTest() throws Exception {
         String domain = null;
         CheckResponse response = api.domainCheck(domain);
 
@@ -70,11 +70,11 @@ public class DomainApiTest {
      *
      * Gets the top-level domain name from a URL, such as mydomain.com.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainGetTopLevelDomainFromUrlTest() throws ApiException {
+    public void domainGetTopLevelDomainFromUrlTest() throws Exception {
         ValidateUrlRequestSyntaxOnly request = null;
         ValidateUrlResponseSyntaxOnly response = api.domainGetTopLevelDomainFromUrl(request);
 
@@ -86,11 +86,11 @@ public class DomainApiTest {
      *
      * Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainIsAdminPathTest() throws ApiException {
+    public void domainIsAdminPathTest() throws Exception {
         String value = null;
         IsAdminPathResponse response = api.domainIsAdminPath(value);
 
@@ -102,11 +102,11 @@ public class DomainApiTest {
      *
      * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainPhishingCheckTest() throws ApiException {
+    public void domainPhishingCheckTest() throws Exception {
         PhishingCheckRequest request = null;
         PhishingCheckResponse response = api.domainPhishingCheck(request);
 
@@ -118,11 +118,11 @@ public class DomainApiTest {
      *
      * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain&#39;s owners.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainPostTest() throws ApiException {
+    public void domainPostTest() throws Exception {
         String domain = null;
         WhoisResponse response = api.domainPost(domain);
 
@@ -134,11 +134,11 @@ public class DomainApiTest {
      *
      * Check the quality of a domain name.  Supports over 9 million domain names.  Higher quality scores indicate more trust and authority in the domain name, with values ranging from 0.0 (low quality) to 10.0 (maximum quality).
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainQualityScoreTest() throws ApiException {
+    public void domainQualityScoreTest() throws Exception {
         String domain = null;
         DomainQualityResponse response = api.domainQualityScore(domain);
 
@@ -150,11 +150,11 @@ public class DomainApiTest {
      *
      * Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainSafetyCheckTest() throws ApiException {
+    public void domainSafetyCheckTest() throws Exception {
         UrlSafetyCheckRequestFull request = null;
         UrlSafetyCheckResponseFull response = api.domainSafetyCheck(request);
 
@@ -166,11 +166,11 @@ public class DomainApiTest {
      *
      * Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainSsrfCheckTest() throws ApiException {
+    public void domainSsrfCheckTest() throws Exception {
         UrlSsrfRequestFull request = null;
         UrlSsrfResponseFull response = api.domainSsrfCheck(request);
 
@@ -182,11 +182,11 @@ public class DomainApiTest {
      *
      * Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainSsrfCheckBatchTest() throws ApiException {
+    public void domainSsrfCheckBatchTest() throws Exception {
         UrlSsrfRequestBatch request = null;
         UrlSsrfResponseBatch response = api.domainSsrfCheckBatch(request);
 
@@ -198,11 +198,11 @@ public class DomainApiTest {
      *
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainUrlFullTest() throws ApiException {
+    public void domainUrlFullTest() throws Exception {
         ValidateUrlRequestFull request = null;
         ValidateUrlResponseFull response = api.domainUrlFull(request);
 
@@ -214,11 +214,11 @@ public class DomainApiTest {
      *
      * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainUrlHtmlSsrfCheckTest() throws ApiException {
+    public void domainUrlHtmlSsrfCheckTest() throws Exception {
         UrlHtmlSsrfRequestFull request = null;
         UrlHtmlSsrfResponseFull response = api.domainUrlHtmlSsrfCheck(request);
 
@@ -230,11 +230,11 @@ public class DomainApiTest {
      *
      * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void domainUrlSyntaxOnlyTest() throws ApiException {
+    public void domainUrlSyntaxOnlyTest() throws Exception {
         ValidateUrlRequestSyntaxOnly request = null;
         ValidateUrlResponseSyntaxOnly response = api.domainUrlSyntaxOnly(request);
 

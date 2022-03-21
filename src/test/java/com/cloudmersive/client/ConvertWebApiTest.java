@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.HtmlMdResult;
 import com.cloudmersive.client.model.HtmlToOfficeRequest;
@@ -27,6 +26,7 @@ import com.cloudmersive.client.model.UrlToTextRequest;
 import com.cloudmersive.client.model.UrlToTextResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,11 +47,11 @@ public class ConvertWebApiTest {
      *
      * Convert HTML to Office Word Document (DOCX) format
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebHtmlToDocxTest() throws ApiException {
+    public void convertWebHtmlToDocxTest() throws Exception {
         HtmlToOfficeRequest inputRequest = null;
         byte[] response = api.convertWebHtmlToDocx(inputRequest);
 
@@ -63,11 +63,11 @@ public class ConvertWebApiTest {
      *
      * Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebHtmlToPdfTest() throws ApiException {
+    public void convertWebHtmlToPdfTest() throws Exception {
         HtmlToPdfRequest input = null;
         byte[] response = api.convertWebHtmlToPdf(input);
 
@@ -79,11 +79,11 @@ public class ConvertWebApiTest {
      *
      * Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebHtmlToPngTest() throws ApiException {
+    public void convertWebHtmlToPngTest() throws Exception {
         HtmlToPngRequest input = null;
         byte[] response = api.convertWebHtmlToPng(input);
 
@@ -95,11 +95,11 @@ public class ConvertWebApiTest {
      *
      * Converts an HTML string input into text (txt); extracts text from HTML
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebHtmlToTxtTest() throws ApiException {
+    public void convertWebHtmlToTxtTest() throws Exception {
         HtmlToTextRequest input = null;
         HtmlToTextResponse response = api.convertWebHtmlToTxt(input);
 
@@ -111,11 +111,11 @@ public class ConvertWebApiTest {
      *
      * Convert a markdown file (.md) to HTML
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebMdToHtmlTest() throws ApiException {
+    public void convertWebMdToHtmlTest() throws Exception {
         File inputFile = null;
         HtmlMdResult response = api.convertWebMdToHtml(inputFile);
 
@@ -127,11 +127,11 @@ public class ConvertWebApiTest {
      *
      * Fully renders a website and returns a PDF of the full page.  Javascript, HTML5, CSS and other advanced features are all supported.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebUrlToPdfTest() throws ApiException {
+    public void convertWebUrlToPdfTest() throws Exception {
         UrlToPdfRequest input = null;
         byte[] response = api.convertWebUrlToPdf(input);
 
@@ -143,11 +143,11 @@ public class ConvertWebApiTest {
      *
      * Fully renders a website and returns a PNG screenshot of the full page image.  Javascript, HTML5, CSS and other advanced features are all supported.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebUrlToScreenshotTest() throws ApiException {
+    public void convertWebUrlToScreenshotTest() throws Exception {
         ScreenshotRequest input = null;
         byte[] response = api.convertWebUrlToScreenshot(input);
 
@@ -159,11 +159,11 @@ public class ConvertWebApiTest {
      *
      * Converts a website URL page into text (txt); extracts text from HTML
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertWebUrlToTxtTest() throws ApiException {
+    public void convertWebUrlToTxtTest() throws Exception {
         UrlToTextRequest input = null;
         UrlToTextResponse response = api.convertWebUrlToTxt(input);
 

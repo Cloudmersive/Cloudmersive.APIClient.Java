@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.XmlAddAttributeWithXPathResult;
 import com.cloudmersive.client.model.XmlAddChildWithXPathResult;
@@ -26,6 +25,7 @@ import com.cloudmersive.client.model.XmlReplaceWithXPathResult;
 import com.cloudmersive.client.model.XmlSetValueWithXPathResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,11 +46,11 @@ public class ConvertDataApiTest {
      *
      * Convert a CSV file to a JSON object array
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataCsvToJsonTest() throws ApiException {
+    public void convertDataCsvToJsonTest() throws Exception {
         File inputFile = null;
         Boolean columnNamesFromFirstRow = null;
         Object response = api.convertDataCsvToJson(inputFile, columnNamesFromFirstRow);
@@ -63,11 +63,11 @@ public class ConvertDataApiTest {
      *
      * Convert a CSV file to a XML file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataCsvToXmlTest() throws ApiException {
+    public void convertDataCsvToXmlTest() throws Exception {
         File inputFile = null;
         Boolean columnNamesFromFirstRow = null;
         byte[] response = api.convertDataCsvToXml(inputFile, columnNamesFromFirstRow);
@@ -80,11 +80,11 @@ public class ConvertDataApiTest {
      *
      * Convert a JSON object into XML
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataJsonStringToXmlTest() throws ApiException {
+    public void convertDataJsonStringToXmlTest() throws Exception {
         String jsonString = null;
         Object response = api.convertDataJsonStringToXml(jsonString);
 
@@ -96,11 +96,11 @@ public class ConvertDataApiTest {
      *
      * Convert a JSON object into XML
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataJsonToXmlTest() throws ApiException {
+    public void convertDataJsonToXmlTest() throws Exception {
         Object jsonObject = null;
         byte[] response = api.convertDataJsonToXml(jsonObject);
 
@@ -112,11 +112,11 @@ public class ConvertDataApiTest {
      *
      * Convert an Excel (97-2003) XLS file to a JSON object array
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXlsToJsonTest() throws ApiException {
+    public void convertDataXlsToJsonTest() throws Exception {
         File inputFile = null;
         Object response = api.convertDataXlsToJson(inputFile);
 
@@ -128,11 +128,11 @@ public class ConvertDataApiTest {
      *
      * Convert an Excel XLSX file to a JSON object array
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXlsxToJsonTest() throws ApiException {
+    public void convertDataXlsxToJsonTest() throws Exception {
         File inputFile = null;
         byte[] response = api.convertDataXlsxToJson(inputFile);
 
@@ -144,11 +144,11 @@ public class ConvertDataApiTest {
      *
      * Convert an Excel XLSX file to a XML file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXlsxToXmlTest() throws ApiException {
+    public void convertDataXlsxToXmlTest() throws Exception {
         File inputFile = null;
         byte[] response = api.convertDataXlsxToXml(inputFile);
 
@@ -160,11 +160,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlEditAddAttributeWithXPathTest() throws ApiException {
+    public void convertDataXmlEditAddAttributeWithXPathTest() throws Exception {
         File inputFile = null;
         String xpathExpression = null;
         String xmlAttributeName = null;
@@ -179,11 +179,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlEditAddChildWithXPathTest() throws ApiException {
+    public void convertDataXmlEditAddChildWithXPathTest() throws Exception {
         File inputFile = null;
         String xpathExpression = null;
         String xmlNodeToAdd = null;
@@ -197,11 +197,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlEditRemoveAllChildNodesWithXPathTest() throws ApiException {
+    public void convertDataXmlEditRemoveAllChildNodesWithXPathTest() throws Exception {
         File inputFile = null;
         String xpathExpression = null;
         XmlRemoveAllChildrenWithXPathResult response = api.convertDataXmlEditRemoveAllChildNodesWithXPath(inputFile, xpathExpression);
@@ -214,11 +214,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlEditReplaceWithXPathTest() throws ApiException {
+    public void convertDataXmlEditReplaceWithXPathTest() throws Exception {
         File inputFile = null;
         String xpathExpression = null;
         String xmlNodeReplacement = null;
@@ -232,11 +232,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlEditSetValueWithXPathTest() throws ApiException {
+    public void convertDataXmlEditSetValueWithXPathTest() throws Exception {
         File inputFile = null;
         String xpathExpression = null;
         String xmlValue = null;
@@ -250,11 +250,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of filtering, selecting an XML document with an XPath expression
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlFilterWithXPathTest() throws ApiException {
+    public void convertDataXmlFilterWithXPathTest() throws Exception {
         String xpathExpression = null;
         File inputFile = null;
         XmlFilterWithXPathResult response = api.convertDataXmlFilterWithXPath(xpathExpression, inputFile);
@@ -267,11 +267,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlQueryWithXQueryTest() throws ApiException {
+    public void convertDataXmlQueryWithXQueryTest() throws Exception {
         File inputFile = null;
         String xquery = null;
         XmlQueryWithXQueryResult response = api.convertDataXmlQueryWithXQuery(inputFile, xquery);
@@ -284,11 +284,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlQueryWithXQueryMultiTest() throws ApiException {
+    public void convertDataXmlQueryWithXQueryMultiTest() throws Exception {
         File inputFile1 = null;
         String xquery = null;
         File inputFile2 = null;
@@ -310,11 +310,11 @@ public class ConvertDataApiTest {
      *
      * Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlRemoveWithXPathTest() throws ApiException {
+    public void convertDataXmlRemoveWithXPathTest() throws Exception {
         String xpathExpression = null;
         File inputFile = null;
         XmlRemoveWithXPathResult response = api.convertDataXmlRemoveWithXPath(xpathExpression, inputFile);
@@ -327,11 +327,11 @@ public class ConvertDataApiTest {
      *
      * Convert an XML string or file into JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlToJsonTest() throws ApiException {
+    public void convertDataXmlToJsonTest() throws Exception {
         File inputFile = null;
         Object response = api.convertDataXmlToJson(inputFile);
 
@@ -343,11 +343,11 @@ public class ConvertDataApiTest {
      *
      * Convert an XML string or file into JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertDataXmlTransformWithXsltToXmlTest() throws ApiException {
+    public void convertDataXmlTransformWithXsltToXmlTest() throws Exception {
         File inputFile = null;
         File transformFile = null;
         byte[] response = api.convertDataXmlTransformWithXsltToXml(inputFile, transformFile);

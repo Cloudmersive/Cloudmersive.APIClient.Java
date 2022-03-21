@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.StringAutomaticThreatDetection;
 import com.cloudmersive.client.model.StringInsecureDeserializationJsonDetection;
 import com.cloudmersive.client.model.StringSqlInjectionDetectionResult;
@@ -21,6 +20,7 @@ import com.cloudmersive.client.model.StringXssProtectionResult;
 import com.cloudmersive.client.model.StringXxeDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,11 +41,11 @@ public class ContentThreatDetectionApiTest {
      *
      * Auto-detects a wide range of threat types in input string, including Cross-Site Scripting (XSS), SQL Injection (SQLI), XML External Entitites (XXE), Server-side Request Forgeries (SSRF), and JSON Insecure Deserialization (JID).
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void contentThreatDetectionAutomaticThreatDetectionStringTest() throws ApiException {
+    public void contentThreatDetectionAutomaticThreatDetectionStringTest() throws Exception {
         String value = null;
         StringAutomaticThreatDetection response = api.contentThreatDetectionAutomaticThreatDetectionString(value);
 
@@ -57,11 +57,11 @@ public class ContentThreatDetectionApiTest {
      *
      * Detects SQL Injection (SQLI) attacks from text input.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void contentThreatDetectionCheckSqlInjectionStringTest() throws ApiException {
+    public void contentThreatDetectionCheckSqlInjectionStringTest() throws Exception {
         String value = null;
         StringSqlInjectionDetectionResult response = api.contentThreatDetectionCheckSqlInjectionString(value);
 
@@ -73,11 +73,11 @@ public class ContentThreatDetectionApiTest {
      *
      * Detects XXE (XML External Entity) attacks from XML text input.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void contentThreatDetectionCheckXxeTest() throws ApiException {
+    public void contentThreatDetectionCheckXxeTest() throws Exception {
         String value = null;
         StringXxeDetectionResult response = api.contentThreatDetectionCheckXxe(value);
 
@@ -89,11 +89,11 @@ public class ContentThreatDetectionApiTest {
      *
      * Detects Insecure Deserialization JSON (JID) attacks from text input.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void contentThreatDetectionDetectInsecureDeserializationJsonStringTest() throws ApiException {
+    public void contentThreatDetectionDetectInsecureDeserializationJsonStringTest() throws Exception {
         String value = null;
         StringInsecureDeserializationJsonDetection response = api.contentThreatDetectionDetectInsecureDeserializationJsonString(value);
 
@@ -105,11 +105,11 @@ public class ContentThreatDetectionApiTest {
      *
      * Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void contentThreatDetectionProtectXssTest() throws ApiException {
+    public void contentThreatDetectionProtectXssTest() throws Exception {
         String value = null;
         StringXssProtectionResult response = api.contentThreatDetectionProtectXss(value);
 

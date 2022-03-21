@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.BusinessCardRecognitionResult;
 import java.io.File;
 import com.cloudmersive.client.model.FormRecognitionResult;
@@ -24,6 +23,7 @@ import com.cloudmersive.client.model.PhotoToWordsWithLocationResult;
 import com.cloudmersive.client.model.ReceiptRecognitionResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,11 +44,11 @@ public class ImageOcrApiTest {
      *
      * Converts an uploaded image in common formats such as JPEG, PNG into lines/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrImageLinesWithLocationTest() throws ApiException {
+    public void imageOcrImageLinesWithLocationTest() throws Exception {
         File imageFile = null;
         String language = null;
         String preprocessing = null;
@@ -62,11 +62,11 @@ public class ImageOcrApiTest {
      *
      * Converts an uploaded image in common formats such as JPEG, PNG into words/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrImageWordsWithLocationTest() throws ApiException {
+    public void imageOcrImageWordsWithLocationTest() throws Exception {
         File imageFile = null;
         String language = null;
         String preprocessing = null;
@@ -80,11 +80,11 @@ public class ImageOcrApiTest {
      *
      * Analyzes a photograph of a business card as input, and outputs key business information such as the name of the person, name of the business, the address of the business, the phone number, the email address and more.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPhotoRecognizeBusinessCardTest() throws ApiException {
+    public void imageOcrPhotoRecognizeBusinessCardTest() throws Exception {
         File imageFile = null;
         BusinessCardRecognitionResult response = api.imageOcrPhotoRecognizeBusinessCard(imageFile);
 
@@ -96,11 +96,11 @@ public class ImageOcrApiTest {
      *
      * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPhotoRecognizeFormTest() throws ApiException {
+    public void imageOcrPhotoRecognizeFormTest() throws Exception {
         File imageFile = null;
         Object formTemplateDefinition = null;
         String recognitionMode = null;
@@ -117,11 +117,11 @@ public class ImageOcrApiTest {
      *
      * Analyzes a photograph of a form as input, and outputs key business fields and information.  Customzie data to be extracted by defining fields for the form.  Uses template definitions stored in Cloudmersive Configuration; to configure stored templates in a configuration bucket, log into Cloudmersive Management Portal and navigate to Settings &amp;gt; API Configuration &amp;gt; Create Bucket.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPhotoRecognizeFormAdvancedTest() throws ApiException {
+    public void imageOcrPhotoRecognizeFormAdvancedTest() throws Exception {
         File imageFile = null;
         String bucketID = null;
         String bucketSecretKey = null;
@@ -138,11 +138,11 @@ public class ImageOcrApiTest {
      *
      * Analyzes a photograph of a receipt as input, and outputs key business information such as the name of the business, the address of the business, the phone number of the business, the total of the receipt, the date of the receipt, and more.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPhotoRecognizeReceiptTest() throws ApiException {
+    public void imageOcrPhotoRecognizeReceiptTest() throws Exception {
         File imageFile = null;
         String recognitionMode = null;
         String language = null;
@@ -157,11 +157,11 @@ public class ImageOcrApiTest {
      *
      * Converts an uploaded photo of a document in common formats such as JPEG, PNG into text via Optical Character Recognition.  This API is intended to be run on photos of documents, e.g. taken with a smartphone and supports cases where other content, such as a desk, are in the frame and the camera is crooked.  If you want to OCR a scanned image, use the image/toText API call instead as it is designed for scanned images.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPhotoToTextTest() throws ApiException {
+    public void imageOcrPhotoToTextTest() throws Exception {
         File imageFile = null;
         String recognitionMode = null;
         String language = null;
@@ -175,11 +175,11 @@ public class ImageOcrApiTest {
      *
      * Converts a photo of a document or receipt in common formats such as JPEG, PNG into words/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on photographs of documents.  If you want to OCR scanned documents (e.g. taken with a scanner), be sure to use the image/toText API instead, as it is designed for that use case.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPhotoWordsWithLocationTest() throws ApiException {
+    public void imageOcrPhotoWordsWithLocationTest() throws Exception {
         File imageFile = null;
         String recognitionMode = null;
         String language = null;
@@ -195,11 +195,11 @@ public class ImageOcrApiTest {
      *
      * Converts an uploaded image in common formats such as JPEG, PNG into text via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.  Note: for free tier API keys, it is required to add a credit card to your account for security reasons, to use the free tier key with this API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void imageOcrPostTest() throws ApiException {
+    public void imageOcrPostTest() throws Exception {
         File imageFile = null;
         String recognitionMode = null;
         String language = null;

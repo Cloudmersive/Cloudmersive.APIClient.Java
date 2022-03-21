@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AutodetectDocumentValidationResult;
 import com.cloudmersive.client.model.DocumentValidationResult;
 import java.io.File;
@@ -21,6 +20,7 @@ import com.cloudmersive.client.model.HtmlSsrfThreatCheckResult;
 import com.cloudmersive.client.model.XxeThreatDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,11 +41,11 @@ public class ValidateDocumentApiTest {
      *
      * Automatically detect the type of content, verify and validate that the content is indeed fully valid at depth, and then report the validation result.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentAutodetectValidationTest() throws ApiException {
+    public void validateDocumentAutodetectValidationTest() throws Exception {
         File inputFile = null;
         AutodetectDocumentValidationResult response = api.validateDocumentAutodetectValidation(inputFile);
 
@@ -57,11 +57,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a CSV file document (CSV); if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentCsvValidationTest() throws ApiException {
+    public void validateDocumentCsvValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentCsvValidation(inputFile);
 
@@ -73,11 +73,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a Word 97-2003 Legacy document (DOC)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentDocValidationTest() throws ApiException {
+    public void validateDocumentDocValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentDocValidation(inputFile);
 
@@ -89,11 +89,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentDocxValidationTest() throws ApiException {
+    public void validateDocumentDocxValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentDocxValidation(inputFile);
 
@@ -105,11 +105,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate if an input file is an EML email file; if the document is not valid
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentEmlValidationTest() throws ApiException {
+    public void validateDocumentEmlValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentEmlValidation(inputFile);
 
@@ -121,11 +121,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate if an input file is a binary executable file; if the document is not valid
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentExecutableValidationTest() throws ApiException {
+    public void validateDocumentExecutableValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentExecutableValidation(inputFile);
 
@@ -137,11 +137,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a GZip archive file (GZIP or GZ)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentGZipValidationTest() throws ApiException {
+    public void validateDocumentGZipValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentGZipValidation(inputFile);
 
@@ -153,11 +153,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate an HTML document file and checks for SSRF (Server-side Request Forgery) threats in the file; if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentHtmlSsrfValidationTest() throws ApiException {
+    public void validateDocumentHtmlSsrfValidationTest() throws Exception {
         File inputFile = null;
         HtmlSsrfThreatCheckResult response = api.validateDocumentHtmlSsrfValidation(inputFile);
 
@@ -169,11 +169,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate an HTML document file; if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentHtmlValidationTest() throws ApiException {
+    public void validateDocumentHtmlValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentHtmlValidation(inputFile);
 
@@ -185,11 +185,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate an image file; if the document is not valid, identifies the errors in the document.  Formats supported include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentImageValidationTest() throws ApiException {
+    public void validateDocumentImageValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentImageValidation(inputFile);
 
@@ -201,11 +201,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a JPEG image file; if the document is not valid, identifies the errors in the document..
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentJpgValidationTest() throws ApiException {
+    public void validateDocumentJpgValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentJpgValidation(inputFile);
 
@@ -217,11 +217,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentJsonValidationTest() throws ApiException {
+    public void validateDocumentJsonValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentJsonValidation(inputFile);
 
@@ -233,11 +233,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate if an input file is an MSG email file; if the document is not valid
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentMsgValidationTest() throws ApiException {
+    public void validateDocumentMsgValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentMsgValidation(inputFile);
 
@@ -249,11 +249,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentPdfValidationTest() throws ApiException {
+    public void validateDocumentPdfValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentPdfValidation(inputFile);
 
@@ -265,11 +265,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a PNG image file; if the document is not valid, identifies the errors in the document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentPngValidationTest() throws ApiException {
+    public void validateDocumentPngValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentPngValidation(inputFile);
 
@@ -281,11 +281,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a PowerPoint 97-2003 Legacy presentation (PPT)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentPptValidationTest() throws ApiException {
+    public void validateDocumentPptValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentPptValidation(inputFile);
 
@@ -297,11 +297,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a PowerPoint presentation (PPTX); if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentPptxValidationTest() throws ApiException {
+    public void validateDocumentPptxValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentPptxValidation(inputFile);
 
@@ -313,11 +313,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a RAR archive file (RAR)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentRarValidationTest() throws ApiException {
+    public void validateDocumentRarValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentRarValidation(inputFile);
 
@@ -329,11 +329,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a Rich Text Format document (RTF)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentRtfValidationTest() throws ApiException {
+    public void validateDocumentRtfValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentRtfValidation(inputFile);
 
@@ -345,11 +345,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a TAR tarball archive file (TAR)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentTarValidationTest() throws ApiException {
+    public void validateDocumentTarValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentTarValidation(inputFile);
 
@@ -361,11 +361,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate an TXT document file; if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentTxtValidationTest() throws ApiException {
+    public void validateDocumentTxtValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentTxtValidation(inputFile);
 
@@ -377,11 +377,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a Excel 97-2003 Legacy spreadsheet (XLS)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentXlsValidationTest() throws ApiException {
+    public void validateDocumentXlsValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXlsValidation(inputFile);
 
@@ -393,11 +393,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentXlsxValidationTest() throws ApiException {
+    public void validateDocumentXlsxValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXlsxValidation(inputFile);
 
@@ -409,11 +409,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate an XML document file; if the document is not valid, identifies the errors in the document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentXmlValidationTest() throws ApiException {
+    public void validateDocumentXmlValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXmlValidation(inputFile);
 
@@ -425,11 +425,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate an XML document file for XML External Entity (XXE) threats; if the document is not valid, identifies the errors in the document.  XXE threats are a type of threat that exploits vulnerabilities in the XML standard relating to external or local entity URIs in XML documents.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentXmlXxeThreatValidationTest() throws ApiException {
+    public void validateDocumentXmlXxeThreatValidationTest() throws Exception {
         File inputFile = null;
         XxeThreatDetectionResult response = api.validateDocumentXmlXxeThreatValidation(inputFile);
 
@@ -441,11 +441,11 @@ public class ValidateDocumentApiTest {
      *
      * Validate a Zip archive file (ZIP)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void validateDocumentZipValidationTest() throws ApiException {
+    public void validateDocumentZipValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentZipValidation(inputFile);
 

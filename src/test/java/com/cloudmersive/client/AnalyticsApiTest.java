@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.HateSpeechAnalysisRequest;
 import com.cloudmersive.client.model.HateSpeechAnalysisResponse;
 import com.cloudmersive.client.model.ProfanityAnalysisRequest;
@@ -26,6 +25,7 @@ import com.cloudmersive.client.model.SubjectivityAnalysisRequest;
 import com.cloudmersive.client.model.SubjectivityAnalysisResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,11 +46,11 @@ public class AnalyticsApiTest {
      *
      * Analyze input text using advanced Hate Speech Analysis to determine if the input contains hate speech language.  Supports English language input.  Consumes 1-2 API calls per sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void analyticsHateSpeechTest() throws ApiException {
+    public void analyticsHateSpeechTest() throws Exception {
         HateSpeechAnalysisRequest input = null;
         HateSpeechAnalysisResponse response = api.analyticsHateSpeech(input);
 
@@ -62,11 +62,11 @@ public class AnalyticsApiTest {
      *
      * Analyze input text using advanced Profanity and Obscene Language Analysis to determine if the input contains profane language.  Supports English language input.  Consumes 1-2 API calls per sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void analyticsProfanityTest() throws ApiException {
+    public void analyticsProfanityTest() throws Exception {
         ProfanityAnalysisRequest input = null;
         ProfanityAnalysisResponse response = api.analyticsProfanity(input);
 
@@ -78,11 +78,11 @@ public class AnalyticsApiTest {
      *
      * Analyze input text using advanced Sentiment Analysis to determine if the input is positive, negative, or neutral.  Supports English language input.  Consumes 1-2 API calls per sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void analyticsSentimentTest() throws ApiException {
+    public void analyticsSentimentTest() throws Exception {
         SentimentAnalysisRequest input = null;
         SentimentAnalysisResponse response = api.analyticsSentiment(input);
 
@@ -94,11 +94,11 @@ public class AnalyticsApiTest {
      *
      * Analyze two input text strings, typically sentences, and determine the semantic similarity of each.  Semantic similarity refers to the degree to which two sentences mean the same thing semantically.  Uses advanced Deep Learning to perform the semantic similarity comparison.  Consumes 1-2 API calls per sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void analyticsSimilarityTest() throws ApiException {
+    public void analyticsSimilarityTest() throws Exception {
         SimilarityAnalysisRequest input = null;
         SimilarityAnalysisResponse response = api.analyticsSimilarity(input);
 
@@ -110,11 +110,11 @@ public class AnalyticsApiTest {
      *
      * Analyze input text using advanced Subjectivity and Objectivity Language Analysis to determine if the input text is objective or subjective, and how much.  Supports English language input.  Consumes 1-2 API calls per sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void analyticsSubjectivityTest() throws ApiException {
+    public void analyticsSubjectivityTest() throws Exception {
         SubjectivityAnalysisRequest input = null;
         SubjectivityAnalysisResponse response = api.analyticsSubjectivity(input);
 

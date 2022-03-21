@@ -13,13 +13,13 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DrawPolygonRequest;
 import com.cloudmersive.client.model.DrawRectangleRequest;
 import com.cloudmersive.client.model.DrawTextRequest;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class EditApiTest {
      *
      * Automatically orients the input image based on EXIF information and then removes the EXIF information.  EXIF is an additional set of information stored in some images taken with cell phone cameras based on the orientation of the camera.  By normalizing rotation and removing EXIF data these images become much easier to process.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editAutoOrientTest() throws ApiException {
+    public void editAutoOrientTest() throws Exception {
         File imageFile = null;
         byte[] response = api.editAutoOrient(imageFile);
 
@@ -56,11 +56,11 @@ public class EditApiTest {
      *
      * Composites two input images together; a layered image onto a base image.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editCompositeBasicTest() throws ApiException {
+    public void editCompositeBasicTest() throws Exception {
         String location = null;
         File baseImage = null;
         File layeredImage = null;
@@ -74,11 +74,11 @@ public class EditApiTest {
      *
      * Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editCompositePreciseTest() throws ApiException {
+    public void editCompositePreciseTest() throws Exception {
         File baseImage = null;
         File layeredImage = null;
         Integer top = null;
@@ -97,11 +97,11 @@ public class EditApiTest {
      *
      * Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editContrastAdaptiveTest() throws ApiException {
+    public void editContrastAdaptiveTest() throws Exception {
         Double gamma = null;
         File imageFile = null;
         byte[] response = api.editContrastAdaptive(gamma, imageFile);
@@ -114,11 +114,11 @@ public class EditApiTest {
      *
      * Crop an image to a target circular area
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editCropCircleTest() throws ApiException {
+    public void editCropCircleTest() throws Exception {
         Integer left = null;
         Integer top = null;
         Integer radius = null;
@@ -133,11 +133,11 @@ public class EditApiTest {
      *
      * Crop an image to a target rectangular area
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editCropRectangleTest() throws ApiException {
+    public void editCropRectangleTest() throws Exception {
         Integer left = null;
         Integer top = null;
         Integer width = null;
@@ -153,11 +153,11 @@ public class EditApiTest {
      *
      * Draw one or more polygons, with customized visuals, onto an image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDrawPolygonTest() throws ApiException {
+    public void editDrawPolygonTest() throws Exception {
         DrawPolygonRequest request = null;
         byte[] response = api.editDrawPolygon(request);
 
@@ -169,11 +169,11 @@ public class EditApiTest {
      *
      * Draw one or more rectangles, with customized visuals, onto an image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDrawRectangleTest() throws ApiException {
+    public void editDrawRectangleTest() throws Exception {
         DrawRectangleRequest request = null;
         byte[] response = api.editDrawRectangle(request);
 
@@ -185,11 +185,11 @@ public class EditApiTest {
      *
      * Draw one or more pieces of text, with customized visuals, onto an image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDrawTextTest() throws ApiException {
+    public void editDrawTextTest() throws Exception {
         DrawTextRequest request = null;
         byte[] response = api.editDrawText(request);
 
@@ -201,11 +201,11 @@ public class EditApiTest {
      *
      * Add a customizeable drop shadow to the image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editDropShadowTest() throws ApiException {
+    public void editDropShadowTest() throws Exception {
         Integer X = null;
         Integer Y = null;
         Integer sigma = null;
@@ -221,11 +221,11 @@ public class EditApiTest {
      *
      * Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editInvertTest() throws ApiException {
+    public void editInvertTest() throws Exception {
         File imageFile = null;
         byte[] response = api.editInvert(imageFile);
 
@@ -237,11 +237,11 @@ public class EditApiTest {
      *
      * Removes any EXIF data and profiles .
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editRemoveExifDataTest() throws ApiException {
+    public void editRemoveExifDataTest() throws Exception {
         File imageFile = null;
         byte[] response = api.editRemoveExifData(imageFile);
 
@@ -253,11 +253,11 @@ public class EditApiTest {
      *
      * Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editRemoveTransparencyTest() throws ApiException {
+    public void editRemoveTransparencyTest() throws Exception {
         File imageFile = null;
         byte[] response = api.editRemoveTransparency(imageFile);
 
@@ -269,11 +269,11 @@ public class EditApiTest {
      *
      * Rotates an image by an arbitrary number of degrees
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editRotateTest() throws ApiException {
+    public void editRotateTest() throws Exception {
         Double degrees = null;
         File imageFile = null;
         byte[] response = api.editRotate(degrees, imageFile);

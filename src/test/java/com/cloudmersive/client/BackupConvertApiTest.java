@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.MssqlBakEnumerateTablesResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class BackupConvertApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void dataintegrationBackupConvertMssqlBakGetTablesPostTest() throws ApiException {
+    public void dataintegrationBackupConvertMssqlBakGetTablesPostTest() throws Exception {
         File inputFile = null;
         MssqlBakEnumerateTablesResult response = api.dataintegrationBackupConvertMssqlBakGetTablesPost(inputFile);
 
@@ -54,11 +54,11 @@ public class BackupConvertApiTest {
      *
      * Input the target table to extract the data as a CSV format file.  Supports a wide array of SQL Server .BAK files and SQL Server backup file versions.  Consumes 1 API call per MB of input data.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void dataintegrationBackupConvertMssqlBakToCsvPostTest() throws ApiException {
+    public void dataintegrationBackupConvertMssqlBakToCsvPostTest() throws Exception {
         String tableName = null;
         File inputFile = null;
         byte[] response = api.dataintegrationBackupConvertMssqlBakToCsvPost(tableName, inputFile);

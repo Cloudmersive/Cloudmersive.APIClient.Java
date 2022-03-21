@@ -13,10 +13,10 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two Office Word Documents (docx) into one single Office Word document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentDocxTest() throws ApiException {
+    public void mergeDocumentDocxTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentDocx(inputFile1, inputFile2);
@@ -54,11 +54,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple Office Word Documents (docx) into one single Office Word document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentDocxMultiTest() throws ApiException {
+    public void mergeDocumentDocxMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -79,11 +79,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentHtmlTest() throws ApiException {
+    public void mergeDocumentHtmlTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentHtml(inputFile1, inputFile2);
@@ -96,11 +96,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentHtmlMultiTest() throws ApiException {
+    public void mergeDocumentHtmlMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -121,11 +121,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentPdfTest() throws ApiException {
+    public void mergeDocumentPdfTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentPdf(inputFile1, inputFile2);
@@ -138,11 +138,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentPdfMultiTest() throws ApiException {
+    public void mergeDocumentPdfMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -163,11 +163,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentPngTest() throws ApiException {
+    public void mergeDocumentPngTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentPng(inputFile1, inputFile2);
@@ -180,11 +180,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentPngMultiTest() throws ApiException {
+    public void mergeDocumentPngMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -205,11 +205,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentPptxTest() throws ApiException {
+    public void mergeDocumentPptxTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentPptx(inputFile1, inputFile2);
@@ -222,11 +222,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentPptxMultiTest() throws ApiException {
+    public void mergeDocumentPptxMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -247,11 +247,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentTxtTest() throws ApiException {
+    public void mergeDocumentTxtTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         Object response = api.mergeDocumentTxt(inputFile1, inputFile2);
@@ -264,11 +264,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentTxtMultiTest() throws ApiException {
+    public void mergeDocumentTxtMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -289,11 +289,11 @@ public class MergeDocumentApiTest {
      *
      * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentXlsxTest() throws ApiException {
+    public void mergeDocumentXlsxTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.mergeDocumentXlsx(inputFile1, inputFile2);
@@ -306,11 +306,11 @@ public class MergeDocumentApiTest {
      *
      * Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void mergeDocumentXlsxMultiTest() throws ApiException {
+    public void mergeDocumentXlsxMultiTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;

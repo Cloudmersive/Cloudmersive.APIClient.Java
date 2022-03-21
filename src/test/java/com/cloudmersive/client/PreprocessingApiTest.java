@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.GetPageAngleResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class PreprocessingApiTest {
      *
      * Perform an adaptive binarization algorithm on the input image to prepare it for further OCR operations.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void preprocessingBinarizeTest() throws ApiException {
+    public void preprocessingBinarizeTest() throws Exception {
         File imageFile = null;
         byte[] response = api.preprocessingBinarize(imageFile);
 
@@ -54,11 +54,11 @@ public class PreprocessingApiTest {
      *
      * Perform an advanced adaptive, Deep Learning-based binarization algorithm on the input image to prepare it for further OCR operations.  Provides enhanced accuracy than adaptive binarization.  Image will be upsampled to 300 DPI if it has a DPI below 300.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void preprocessingBinarizeAdvancedTest() throws ApiException {
+    public void preprocessingBinarizeAdvancedTest() throws Exception {
         File imageFile = null;
         byte[] response = api.preprocessingBinarizeAdvanced(imageFile);
 
@@ -70,11 +70,11 @@ public class PreprocessingApiTest {
      *
      * Analyzes a photo or image of a document and identifies the rotation angle of the page.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void preprocessingGetPageAngleTest() throws ApiException {
+    public void preprocessingGetPageAngleTest() throws Exception {
         File imageFile = null;
         GetPageAngleResult response = api.preprocessingGetPageAngle(imageFile);
 
@@ -86,11 +86,11 @@ public class PreprocessingApiTest {
      *
      * Detect and unrotate an image of a document (e.g. that was scanned at an angle).  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void preprocessingUnrotateTest() throws ApiException {
+    public void preprocessingUnrotateTest() throws Exception {
         File imageFile = null;
         byte[] response = api.preprocessingUnrotate(imageFile);
 
@@ -102,11 +102,11 @@ public class PreprocessingApiTest {
      *
      * Detect and unrotate an image of a document (e.g. that was scanned at an angle) using deep learning.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void preprocessingUnrotateAdvancedTest() throws ApiException {
+    public void preprocessingUnrotateAdvancedTest() throws Exception {
         File imageFile = null;
         byte[] response = api.preprocessingUnrotateAdvanced(imageFile);
 
@@ -118,11 +118,11 @@ public class PreprocessingApiTest {
      *
      * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void preprocessingUnskewTest() throws ApiException {
+    public void preprocessingUnskewTest() throws Exception {
         File imageFile = null;
         byte[] response = api.preprocessingUnskew(imageFile);
 

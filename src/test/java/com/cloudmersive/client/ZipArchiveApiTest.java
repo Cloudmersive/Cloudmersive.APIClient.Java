@@ -13,13 +13,13 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CreateZipArchiveRequest;
 import java.io.File;
 import com.cloudmersive.client.model.ZipEncryptionAdvancedRequest;
 import com.cloudmersive.client.model.ZipExtractResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class ZipArchiveApiTest {
      *
      * Create a new zip archive by compressing input files.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipCreateTest() throws ApiException {
+    public void zipArchiveZipCreateTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         File inputFile3 = null;
@@ -65,11 +65,11 @@ public class ZipArchiveApiTest {
      *
      * Create a new zip archive by compressing input files, folders and leverage advanced options to control the structure of the resulting zip archive.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipCreateAdvancedTest() throws ApiException {
+    public void zipArchiveZipCreateAdvancedTest() throws Exception {
         CreateZipArchiveRequest request = null;
         Object response = api.zipArchiveZipCreateAdvanced(request);
 
@@ -81,11 +81,11 @@ public class ZipArchiveApiTest {
      *
      * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipCreateEncryptedTest() throws ApiException {
+    public void zipArchiveZipCreateEncryptedTest() throws Exception {
         String password = null;
         File inputFile1 = null;
         String encryptionAlgorithm = null;
@@ -108,11 +108,11 @@ public class ZipArchiveApiTest {
      *
      * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipCreateQuarantineTest() throws ApiException {
+    public void zipArchiveZipCreateQuarantineTest() throws Exception {
         String password = null;
         File inputFile1 = null;
         String encryptionAlgorithm = null;
@@ -126,11 +126,11 @@ public class ZipArchiveApiTest {
      *
      * Decrypts and removes password protection from an encrypted zip file with the specified password
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipDecryptTest() throws ApiException {
+    public void zipArchiveZipDecryptTest() throws Exception {
         File inputFile = null;
         String zipPassword = null;
         Object response = api.zipArchiveZipDecrypt(inputFile, zipPassword);
@@ -143,11 +143,11 @@ public class ZipArchiveApiTest {
      *
      * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipEncryptAdvancedTest() throws ApiException {
+    public void zipArchiveZipEncryptAdvancedTest() throws Exception {
         ZipEncryptionAdvancedRequest encryptionRequest = null;
         Object response = api.zipArchiveZipEncryptAdvanced(encryptionRequest);
 
@@ -159,11 +159,11 @@ public class ZipArchiveApiTest {
      *
      * Extracts a zip archive by decompressing files, and folders.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void zipArchiveZipExtractTest() throws ApiException {
+    public void zipArchiveZipExtractTest() throws Exception {
         File inputFile = null;
         ZipExtractResponse response = api.zipArchiveZipExtract(inputFile);
 

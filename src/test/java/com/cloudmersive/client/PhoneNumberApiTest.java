@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.PhoneNumberValidateRequest;
 import com.cloudmersive.client.model.PhoneNumberValidationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class PhoneNumberApiTest {
      *
      * Validate a phone number by analyzing the syntax
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void phoneNumberSyntaxOnlyTest() throws ApiException {
+    public void phoneNumberSyntaxOnlyTest() throws Exception {
         PhoneNumberValidateRequest value = null;
         PhoneNumberValidationResponse response = api.phoneNumberSyntaxOnly(value);
 

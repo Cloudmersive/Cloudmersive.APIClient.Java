@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.RephraseRequest;
 import com.cloudmersive.client.model.RephraseResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class RephraseApiTest {
      *
      * Automatically rephrases or paraphrases input text in English sentence by sentence using advanced Deep Learning and Neural NLP.  Creates multiple reprhasing candidates per input sentence, from 1 to 10 possible rephrasings of the original sentence.  Seeks to preserve original semantic meaning in rephrased output candidates.  Consumes 1-2 API calls per output rephrasing option generated, per sentence.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void rephraseEnglishRephraseSentenceBySentenceTest() throws ApiException {
+    public void rephraseEnglishRephraseSentenceBySentenceTest() throws Exception {
         RephraseRequest input = null;
         RephraseResponse response = api.rephraseEnglishRephraseSentenceBySentence(input);
 

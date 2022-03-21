@@ -13,10 +13,10 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class CompareDocumentApiTest {
      *
      * Compare two Office Word Documents (docx) files and highlight the differences
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void compareDocumentDocxTest() throws ApiException {
+    public void compareDocumentDocxTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
         byte[] response = api.compareDocumentDocx(inputFile1, inputFile2);

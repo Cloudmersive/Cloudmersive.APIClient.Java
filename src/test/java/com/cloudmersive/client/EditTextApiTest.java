@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.Base64DecodeRequest;
 import com.cloudmersive.client.model.Base64DecodeResponse;
 import com.cloudmersive.client.model.Base64DetectRequest;
@@ -39,6 +38,7 @@ import com.cloudmersive.client.model.TextEncodingDetectResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -58,11 +58,11 @@ public class EditTextApiTest {
      *
      * Decodes / converts base 64 UTF-8 text string to binary content
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextBase64DecodeTest() throws ApiException {
+    public void editTextBase64DecodeTest() throws Exception {
         Base64DecodeRequest request = null;
         Base64DecodeResponse response = api.editTextBase64Decode(request);
 
@@ -74,11 +74,11 @@ public class EditTextApiTest {
      *
      * Checks, detects if input string is base 64 encoded
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextBase64DetectTest() throws ApiException {
+    public void editTextBase64DetectTest() throws Exception {
         Base64DetectRequest request = null;
         Base64DetectResponse response = api.editTextBase64Detect(request);
 
@@ -90,11 +90,11 @@ public class EditTextApiTest {
      *
      * Encodes / converts binary or file data to a text string
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextBase64EncodeTest() throws ApiException {
+    public void editTextBase64EncodeTest() throws Exception {
         Base64EncodeRequest request = null;
         Base64EncodeResponse response = api.editTextBase64Encode(request);
 
@@ -106,11 +106,11 @@ public class EditTextApiTest {
      *
      * Sets the line ending type of a text file; set to Windows, Unix or Mac.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextChangeLineEndingsTest() throws ApiException {
+    public void editTextChangeLineEndingsTest() throws Exception {
         String lineEndingType = null;
         File inputFile = null;
         ChangeLineEndingResponse response = api.editTextChangeLineEndings(lineEndingType, inputFile);
@@ -123,11 +123,11 @@ public class EditTextApiTest {
      *
      * Detect line ending type (Windows, Unix or Mac) of an input file.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextDetectLineEndingsTest() throws ApiException {
+    public void editTextDetectLineEndingsTest() throws Exception {
         File inputFile = null;
         DetectLineEndingsResponse response = api.editTextDetectLineEndings(inputFile);
 
@@ -139,11 +139,11 @@ public class EditTextApiTest {
      *
      * Find all occurrences of the input regular expression in the input content, and returns the matches
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextFindRegexTest() throws ApiException {
+    public void editTextFindRegexTest() throws Exception {
         FindStringRegexRequest request = null;
         FindStringRegexResponse response = api.editTextFindRegex(request);
 
@@ -155,11 +155,11 @@ public class EditTextApiTest {
      *
      * Finds all occurrences of the input string in the input content, and returns the matches
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextFindSimpleTest() throws ApiException {
+    public void editTextFindSimpleTest() throws Exception {
         FindStringSimpleRequest request = null;
         FindStringSimpleResponse response = api.editTextFindSimple(request);
 
@@ -171,11 +171,11 @@ public class EditTextApiTest {
      *
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextRemoveAllWhitespaceTest() throws ApiException {
+    public void editTextRemoveAllWhitespaceTest() throws Exception {
         RemoveWhitespaceFromTextRequest request = null;
         RemoveWhitespaceFromTextResponse response = api.editTextRemoveAllWhitespace(request);
 
@@ -187,11 +187,11 @@ public class EditTextApiTest {
      *
      * Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextRemoveHtmlTest() throws ApiException {
+    public void editTextRemoveHtmlTest() throws Exception {
         RemoveHtmlFromTextRequest request = null;
         RemoveHtmlFromTextResponse response = api.editTextRemoveHtml(request);
 
@@ -203,11 +203,11 @@ public class EditTextApiTest {
      *
      * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextReplaceRegexTest() throws ApiException {
+    public void editTextReplaceRegexTest() throws Exception {
         ReplaceStringRegexRequest request = null;
         ReplaceStringRegexResponse response = api.editTextReplaceRegex(request);
 
@@ -219,11 +219,11 @@ public class EditTextApiTest {
      *
      * Replaces all occurrences of the input string in the input content, and returns the result
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextReplaceSimpleTest() throws ApiException {
+    public void editTextReplaceSimpleTest() throws Exception {
         ReplaceStringSimpleRequest request = null;
         ReplaceStringSimpleResponse response = api.editTextReplaceSimple(request);
 
@@ -235,11 +235,11 @@ public class EditTextApiTest {
      *
      * Checks text encoding of file
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextTextEncodingDetectTest() throws ApiException {
+    public void editTextTextEncodingDetectTest() throws Exception {
         File inputFile = null;
         TextEncodingDetectResponse response = api.editTextTextEncodingDetect(inputFile);
 
@@ -251,11 +251,11 @@ public class EditTextApiTest {
      *
      * Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editTextTrimWhitespaceTest() throws ApiException {
+    public void editTextTrimWhitespaceTest() throws Exception {
         RemoveWhitespaceFromTextRequest request = null;
         RemoveWhitespaceFromTextResponse response = api.editTextTrimWhitespace(request);
 

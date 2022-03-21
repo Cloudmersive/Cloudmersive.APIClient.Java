@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.ViewerResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class ViewerToolsApiTest {
      *
      * Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void viewerToolsCreateSimpleTest() throws ApiException {
+    public void viewerToolsCreateSimpleTest() throws Exception {
         File inputFile = null;
         Integer width = null;
         Integer height = null;

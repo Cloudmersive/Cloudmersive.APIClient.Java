@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.SplitDocxDocumentResult;
 import com.cloudmersive.client.model.SplitPdfResult;
@@ -23,6 +22,7 @@ import com.cloudmersive.client.model.SplitTextDocumentByStringResult;
 import com.cloudmersive.client.model.SplitXlsxWorksheetResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,11 +43,11 @@ public class SplitDocumentApiTest {
      *
      * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void splitDocumentDocxTest() throws ApiException {
+    public void splitDocumentDocxTest() throws Exception {
         File inputFile = null;
         Boolean returnDocumentContents = null;
         SplitDocxDocumentResult response = api.splitDocumentDocx(inputFile, returnDocumentContents);
@@ -60,11 +60,11 @@ public class SplitDocumentApiTest {
      *
      * Split an input PDF file into separate pages, comprised of one PDF file per page.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void splitDocumentPdfByPageTest() throws ApiException {
+    public void splitDocumentPdfByPageTest() throws Exception {
         File inputFile = null;
         Boolean returnDocumentContents = null;
         SplitPdfResult response = api.splitDocumentPdfByPage(inputFile, returnDocumentContents);
@@ -77,11 +77,11 @@ public class SplitDocumentApiTest {
      *
      * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void splitDocumentPptxTest() throws ApiException {
+    public void splitDocumentPptxTest() throws Exception {
         File inputFile = null;
         Boolean returnDocumentContents = null;
         SplitPptxPresentationResult response = api.splitDocumentPptx(inputFile, returnDocumentContents);
@@ -94,11 +94,11 @@ public class SplitDocumentApiTest {
      *
      * Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void splitDocumentTxtByLineTest() throws ApiException {
+    public void splitDocumentTxtByLineTest() throws Exception {
         File inputFile = null;
         SplitTextDocumentByLinesResult response = api.splitDocumentTxtByLine(inputFile);
 
@@ -110,11 +110,11 @@ public class SplitDocumentApiTest {
      *
      * Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void splitDocumentTxtByStringTest() throws ApiException {
+    public void splitDocumentTxtByStringTest() throws Exception {
         File inputFile = null;
         String splitDelimiter = null;
         Boolean skipEmptyElements = null;
@@ -128,11 +128,11 @@ public class SplitDocumentApiTest {
      *
      * Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void splitDocumentXlsxTest() throws ApiException {
+    public void splitDocumentXlsxTest() throws Exception {
         File inputFile = null;
         Boolean returnDocumentContents = null;
         SplitXlsxWorksheetResult response = api.splitDocumentXlsx(inputFile, returnDocumentContents);

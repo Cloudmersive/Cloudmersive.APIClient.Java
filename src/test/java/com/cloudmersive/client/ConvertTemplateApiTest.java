@@ -13,12 +13,12 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.HtmlTemplateApplicationRequest;
 import com.cloudmersive.client.model.HtmlTemplateApplicationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class ConvertTemplateApiTest {
      *
      * Apply operations to fill in a Word DOCX template by replacing target template/placeholder strings in the DOCX with values, generating a final Word DOCX result.  For example, you could create a Word Document invoice containing strings such as \&quot;{FirstName}\&quot; and \&quot;{LastName}\&quot; and then replace these values with \&quot;John\&quot; and \&quot;Smith\&quot;.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertTemplateApplyDocxTemplateTest() throws ApiException {
+    public void convertTemplateApplyDocxTemplateTest() throws Exception {
         File inputFile = null;
         Object templateDefinition = null;
         byte[] response = api.convertTemplateApplyDocxTemplate(inputFile, templateDefinition);
@@ -56,11 +56,11 @@ public class ConvertTemplateApiTest {
      *
      * Apply operations to fill in an HTML template, generating a final HTML result
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void convertTemplateApplyHtmlTemplateTest() throws ApiException {
+    public void convertTemplateApplyHtmlTemplateTest() throws Exception {
         HtmlTemplateApplicationRequest value = null;
         HtmlTemplateApplicationResponse response = api.convertTemplateApplyHtmlTemplate(value);
 

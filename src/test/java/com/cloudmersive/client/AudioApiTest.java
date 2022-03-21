@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.math.BigDecimal;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class AudioApiTest {
      *
      * Automatically detect audio file format and convert it to AAC format. Supports many input audio formats, including AAC, FLAC, M4A, MP2, MP3, OGG, WMA, and WAV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void audioConvertToAacTest() throws ApiException {
+    public void audioConvertToAacTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer bitRate = null;
@@ -56,11 +56,11 @@ public class AudioApiTest {
      *
      * Automatically detect audio file format and convert it to M4A format. Supports many input audio formats, including AAC, FLAC, M4A, MP2, MP3, OGG, WMA, and WAV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void audioConvertToM4aTest() throws ApiException {
+    public void audioConvertToM4aTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer bitRate = null;
@@ -74,11 +74,11 @@ public class AudioApiTest {
      *
      * Automatically detect audio file format and convert it to MP3 format. Supports many input audio formats, including AAC, FLAC, M4A, MP2, MP3, OGG, WMA, and WAV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void audioConvertToMp3Test() throws ApiException {
+    public void audioConvertToMp3Test() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer bitRate = null;
@@ -92,11 +92,11 @@ public class AudioApiTest {
      *
      * Automatically detect audio file format and convert it to WAV format. Supports many input audio formats, including AAC, FLAC, M4A, MP2, MP3, OGG, WMA, and WAV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void audioConvertToWavTest() throws ApiException {
+    public void audioConvertToWavTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         BigDecimal sampleRate = null;

@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.AgeDetectionResult;
 import com.cloudmersive.client.model.FaceCompareResponse;
 import com.cloudmersive.client.model.FaceLocateResponse;
@@ -22,6 +21,7 @@ import java.io.File;
 import com.cloudmersive.client.model.GenderDetectionResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +42,11 @@ public class FaceApiTest {
      *
      * Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceCompareTest() throws ApiException {
+    public void faceCompareTest() throws Exception {
         File inputImage = null;
         File matchFace = null;
         FaceCompareResponse response = api.faceCompare(inputImage, matchFace);
@@ -59,11 +59,11 @@ public class FaceApiTest {
      *
      * Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceCropFirstTest() throws ApiException {
+    public void faceCropFirstTest() throws Exception {
         File imageFile = null;
         byte[] response = api.faceCropFirst(imageFile);
 
@@ -75,11 +75,11 @@ public class FaceApiTest {
      *
      * Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceCropFirstRoundTest() throws ApiException {
+    public void faceCropFirstRoundTest() throws Exception {
         File imageFile = null;
         byte[] response = api.faceCropFirstRound(imageFile);
 
@@ -91,11 +91,11 @@ public class FaceApiTest {
      *
      * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceDetectAgeTest() throws ApiException {
+    public void faceDetectAgeTest() throws Exception {
         File imageFile = null;
         AgeDetectionResult response = api.faceDetectAge(imageFile);
 
@@ -107,11 +107,11 @@ public class FaceApiTest {
      *
      * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceDetectGenderTest() throws ApiException {
+    public void faceDetectGenderTest() throws Exception {
         File imageFile = null;
         GenderDetectionResult response = api.faceDetectGender(imageFile);
 
@@ -123,11 +123,11 @@ public class FaceApiTest {
      *
      * Locate the positions of all faces in an image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceLocateTest() throws ApiException {
+    public void faceLocateTest() throws Exception {
         File imageFile = null;
         FaceLocateResponse response = api.faceLocate(imageFile);
 
@@ -139,11 +139,11 @@ public class FaceApiTest {
      *
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void faceLocateWithLandmarksTest() throws ApiException {
+    public void faceLocateWithLandmarksTest() throws Exception {
         File imageFile = null;
         FaceLocateWithLandmarksResponse response = api.faceLocateWithLandmarks(imageFile);
 

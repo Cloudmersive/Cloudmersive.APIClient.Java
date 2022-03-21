@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.FirstNameValidationRequest;
 import com.cloudmersive.client.model.FirstNameValidationResponse;
 import com.cloudmersive.client.model.FullNameValidationRequest;
@@ -26,6 +25,7 @@ import com.cloudmersive.client.model.ValidateIdentifierRequest;
 import com.cloudmersive.client.model.ValidateIdentifierResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,11 +46,11 @@ public class NameApiTest {
      *
      * Determines the gender of a first name (given name)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void nameGetGenderTest() throws ApiException {
+    public void nameGetGenderTest() throws Exception {
         GetGenderRequest input = null;
         GetGenderResponse response = api.nameGetGender(input);
 
@@ -62,11 +62,11 @@ public class NameApiTest {
      *
      * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be \&quot;helloWorld\&quot; but not \&quot;hello*World\&quot;.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void nameIdentifierTest() throws ApiException {
+    public void nameIdentifierTest() throws Exception {
         ValidateIdentifierRequest input = null;
         ValidateIdentifierResponse response = api.nameIdentifier(input);
 
@@ -78,11 +78,11 @@ public class NameApiTest {
      *
      * Determines if a string is a valid first name (given name)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void nameValidateFirstNameTest() throws ApiException {
+    public void nameValidateFirstNameTest() throws Exception {
         FirstNameValidationRequest input = null;
         FirstNameValidationResponse response = api.nameValidateFirstName(input);
 
@@ -94,11 +94,11 @@ public class NameApiTest {
      *
      * Parses a full name string (e.g. \&quot;Mr. Jon van der Waal Jr.\&quot;) into its component parts (and returns these component parts), and then validates whether it is a valid name string or not
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void nameValidateFullNameTest() throws ApiException {
+    public void nameValidateFullNameTest() throws Exception {
         FullNameValidationRequest input = null;
         FullNameValidationResponse response = api.nameValidateFullName(input);
 
@@ -110,11 +110,11 @@ public class NameApiTest {
      *
      * Determines if a string is a valid last name (surname)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void nameValidateLastNameTest() throws ApiException {
+    public void nameValidateLastNameTest() throws Exception {
         LastNameValidationRequest input = null;
         LastNameValidationResponse response = api.nameValidateLastName(input);
 

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a profanity analysis operation
  */
 @ApiModel(description = "Input to a profanity analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-01-01T16:38:43.748-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:21.587-07:00")
 public class ProfanityAnalysisRequest {
   @SerializedName("TextToAnalyze")
   private String textToAnalyze = null;

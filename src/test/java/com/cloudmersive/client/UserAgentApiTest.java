@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.UserAgentValidateRequest;
 import com.cloudmersive.client.model.UserAgentValidateResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class UserAgentApiTest {
      *
      * Uses a parsing system and database to parse the User-Agent into its structured component parts, such as Browser, Browser Version, Browser Engine, Operating System, and importantly, Robot identification.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void userAgentParseTest() throws ApiException {
+    public void userAgentParseTest() throws Exception {
         UserAgentValidateRequest request = null;
         UserAgentValidateResponse response = api.userAgentParse(request);
 

@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import com.cloudmersive.client.model.HtmlGetLanguageResult;
 import com.cloudmersive.client.model.HtmlGetLinksResponse;
@@ -21,6 +20,7 @@ import com.cloudmersive.client.model.HtmlGetRelCanonicalUrlResult;
 import com.cloudmersive.client.model.HtmlGetSitemapUrlResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,11 +41,11 @@ public class EditHtmlApiTest {
      *
      * Appends an HTML tag to the HEAD section of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlAppendHeaderTagTest() throws ApiException {
+    public void editHtmlHtmlAppendHeaderTagTest() throws Exception {
         String htmlTag = null;
         File inputFile = null;
         String inputFileUrl = null;
@@ -59,11 +59,11 @@ public class EditHtmlApiTest {
      *
      * Appends a heading to the end of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlAppendHeadingTest() throws ApiException {
+    public void editHtmlHtmlAppendHeadingTest() throws Exception {
         String headingText = null;
         File inputFile = null;
         String inputFileUrl = null;
@@ -79,11 +79,11 @@ public class EditHtmlApiTest {
      *
      * Appends an image to the end of an HTML document using a URL.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlAppendImageFromUrlTest() throws ApiException {
+    public void editHtmlHtmlAppendImageFromUrlTest() throws Exception {
         String imageUrl = null;
         File inputFile = null;
         String inputFileUrl = null;
@@ -98,11 +98,11 @@ public class EditHtmlApiTest {
      *
      * Appends a base64 inline image to the end of an HTML document from an input file or URL.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlAppendImageInlineTest() throws ApiException {
+    public void editHtmlHtmlAppendImageInlineTest() throws Exception {
         File inputFile = null;
         String inputFileUrl = null;
         File imageFile = null;
@@ -119,11 +119,11 @@ public class EditHtmlApiTest {
      *
      * Appends a paragraph to the end of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlAppendParagraphTest() throws ApiException {
+    public void editHtmlHtmlAppendParagraphTest() throws Exception {
         String paragraphText = null;
         File inputFile = null;
         String inputFileUrl = null;
@@ -138,11 +138,11 @@ public class EditHtmlApiTest {
      *
      * Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlCreateBlankDocumentTest() throws ApiException {
+    public void editHtmlHtmlCreateBlankDocumentTest() throws Exception {
         String title = null;
         String cssUrl = null;
         String cssInline = null;
@@ -158,11 +158,11 @@ public class EditHtmlApiTest {
      *
      * Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlGetLanguageTest() throws ApiException {
+    public void editHtmlHtmlGetLanguageTest() throws Exception {
         File inputFile = null;
         String inputFileUrl = null;
         HtmlGetLanguageResult response = api.editHtmlHtmlGetLanguage(inputFile, inputFileUrl);
@@ -175,11 +175,11 @@ public class EditHtmlApiTest {
      *
      * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlGetLinksTest() throws ApiException {
+    public void editHtmlHtmlGetLinksTest() throws Exception {
         File inputFile = null;
         String inputFileUrl = null;
         String baseUrl = null;
@@ -193,11 +193,11 @@ public class EditHtmlApiTest {
      *
      * Gets the rel canonical URL of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlGetRelCanonicalTest() throws ApiException {
+    public void editHtmlHtmlGetRelCanonicalTest() throws Exception {
         File inputFile = null;
         String inputFileUrl = null;
         HtmlGetRelCanonicalUrlResult response = api.editHtmlHtmlGetRelCanonical(inputFile, inputFileUrl);
@@ -210,11 +210,11 @@ public class EditHtmlApiTest {
      *
      * Gets the sitemap link URL of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlGetSitemapTest() throws ApiException {
+    public void editHtmlHtmlGetSitemapTest() throws Exception {
         File inputFile = null;
         String inputFileUrl = null;
         HtmlGetSitemapUrlResult response = api.editHtmlHtmlGetSitemap(inputFile, inputFileUrl);
@@ -227,11 +227,11 @@ public class EditHtmlApiTest {
      *
      * Sets the language code of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlSetLanguageTest() throws ApiException {
+    public void editHtmlHtmlSetLanguageTest() throws Exception {
         String languageCode = null;
         File inputFile = null;
         String inputFileUrl = null;
@@ -245,11 +245,11 @@ public class EditHtmlApiTest {
      *
      * Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlSetRelCanonicalTest() throws ApiException {
+    public void editHtmlHtmlSetRelCanonicalTest() throws Exception {
         String canonicalUrl = null;
         File inputFile = null;
         String inputFileUrl = null;
@@ -263,11 +263,11 @@ public class EditHtmlApiTest {
      *
      * Sets the sitemap URL of an HTML document.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void editHtmlHtmlSetSitemapUrlTest() throws ApiException {
+    public void editHtmlHtmlSetSitemapUrlTest() throws Exception {
         String sitemapUrl = null;
         File inputFile = null;
         String inputFileUrl = null;

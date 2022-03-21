@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DateTimeNaturalLanguageParseRequest;
 import com.cloudmersive.client.model.DateTimeNowResult;
 import com.cloudmersive.client.model.DateTimeStandardizedParseRequest;
@@ -22,6 +21,7 @@ import com.cloudmersive.client.model.GetPublicHolidaysRequest;
 import com.cloudmersive.client.model.PublicHolidaysResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +42,11 @@ public class DateTimeApiTest {
      *
      * Gets the current date and time.  Response time is syncronized with atomic clocks, and represents a monotonic, centrally available, consistent clock.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void dateTimeGetNowSimpleTest() throws ApiException {
+    public void dateTimeGetNowSimpleTest() throws Exception {
         DateTimeNowResult response = api.dateTimeGetNowSimple();
 
         // TODO: test validations
@@ -57,11 +57,11 @@ public class DateTimeApiTest {
      *
      * Enumerates all public holidays in a given country for a given year.  Supports over 100 countries.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void dateTimeGetPublicHolidaysTest() throws ApiException {
+    public void dateTimeGetPublicHolidaysTest() throws Exception {
         GetPublicHolidaysRequest input = null;
         PublicHolidaysResponse response = api.dateTimeGetPublicHolidays(input);
 
@@ -73,11 +73,11 @@ public class DateTimeApiTest {
      *
      * Parses an unstructured, free-form, natural language date and time string into a date time object.  This is intended for lightweight human-entered input, such as \&quot;tomorrow at 3pm\&quot; or \&quot;tuesday\&quot;.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void dateTimeParseNaturalLanguageDateTimeTest() throws ApiException {
+    public void dateTimeParseNaturalLanguageDateTimeTest() throws Exception {
         DateTimeNaturalLanguageParseRequest input = null;
         DateTimeStandardizedParseResponse response = api.dateTimeParseNaturalLanguageDateTime(input);
 
@@ -89,11 +89,11 @@ public class DateTimeApiTest {
      *
      * Parses a structured date and time string into a date time object.  This is intended for standardized date strings that adhere to formatting conventions, rather than natural language input.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void dateTimeParseStandardDateTimeTest() throws ApiException {
+    public void dateTimeParseStandardDateTimeTest() throws Exception {
         DateTimeStandardizedParseRequest input = null;
         DateTimeStandardizedParseResponse response = api.dateTimeParseStandardDateTime(input);
 

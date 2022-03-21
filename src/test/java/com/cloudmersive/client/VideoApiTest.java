@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.math.BigDecimal;
 import java.io.File;
 import com.cloudmersive.client.model.MediaInformation;
@@ -23,6 +22,7 @@ import com.cloudmersive.client.model.SplitVideoResult;
 import com.cloudmersive.client.model.StillFramesResult;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,11 +43,11 @@ public class VideoApiTest {
      *
      * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video&#39;s aspect ratio.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoConvertToGifTest() throws ApiException {
+    public void videoConvertToGifTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -66,11 +66,11 @@ public class VideoApiTest {
      *
      * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoConvertToMovTest() throws ApiException {
+    public void videoConvertToMovTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -88,11 +88,11 @@ public class VideoApiTest {
      *
      * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoConvertToMp4Test() throws ApiException {
+    public void videoConvertToMp4Test() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -110,11 +110,11 @@ public class VideoApiTest {
      *
      * Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoConvertToStillFramesTest() throws ApiException {
+    public void videoConvertToStillFramesTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -130,11 +130,11 @@ public class VideoApiTest {
      *
      * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoConvertToWebmTest() throws ApiException {
+    public void videoConvertToWebmTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -152,11 +152,11 @@ public class VideoApiTest {
      *
      * Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoCutVideoTest() throws ApiException {
+    public void videoCutVideoTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         OffsetDateTime startTime = null;
@@ -171,11 +171,11 @@ public class VideoApiTest {
      *
      * Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoGetInfoTest() throws ApiException {
+    public void videoGetInfoTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         MediaInformation response = api.videoGetInfo(inputFile, fileUrl);
@@ -188,11 +188,11 @@ public class VideoApiTest {
      *
      * Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoResizeVideoTest() throws ApiException {
+    public void videoResizeVideoTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -210,11 +210,11 @@ public class VideoApiTest {
      *
      * Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoResizeVideoSimpleTest() throws ApiException {
+    public void videoResizeVideoSimpleTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         Integer maxWidth = null;
@@ -232,11 +232,11 @@ public class VideoApiTest {
      *
      * Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoScanForNsfwTest() throws ApiException {
+    public void videoScanForNsfwTest() throws Exception {
         File inputFile = null;
         String fileUrl = null;
         BigDecimal framesPerSecond = null;
@@ -250,11 +250,11 @@ public class VideoApiTest {
      *
      * Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void videoSplitVideoTest() throws ApiException {
+    public void videoSplitVideoTest() throws Exception {
         OffsetDateTime splitTime = null;
         File inputFile = null;
         String fileUrl = null;

@@ -13,10 +13,10 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class FilterApiTest {
      *
      * Remove color from the image by converting to a grayscale, black-and-white image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterBlackAndWhiteTest() throws ApiException {
+    public void filterBlackAndWhiteTest() throws Exception {
         File imageFile = null;
         byte[] response = api.filterBlackAndWhite(imageFile);
 
@@ -53,11 +53,11 @@ public class FilterApiTest {
      *
      * Remove point noise / despeckle the input image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterDespeckleTest() throws ApiException {
+    public void filterDespeckleTest() throws Exception {
         File imageFile = null;
         byte[] response = api.filterDespeckle(imageFile);
 
@@ -69,11 +69,11 @@ public class FilterApiTest {
      *
      * Perform an edge detection operation on the input image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterEdgeDetectTest() throws ApiException {
+    public void filterEdgeDetectTest() throws Exception {
         Integer radius = null;
         File imageFile = null;
         byte[] response = api.filterEdgeDetect(radius, imageFile);
@@ -86,11 +86,11 @@ public class FilterApiTest {
      *
      * Perform an emboss operation on the input image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterEmbossTest() throws ApiException {
+    public void filterEmbossTest() throws Exception {
         Integer radius = null;
         Integer sigma = null;
         File imageFile = null;
@@ -104,11 +104,11 @@ public class FilterApiTest {
      *
      * Perform a gaussian blur on the input image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterGaussianBlurTest() throws ApiException {
+    public void filterGaussianBlurTest() throws Exception {
         Integer radius = null;
         Integer sigma = null;
         File imageFile = null;
@@ -122,11 +122,11 @@ public class FilterApiTest {
      *
      * Perform a motion blur on the input image at a specific angle
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterMotionBlurTest() throws ApiException {
+    public void filterMotionBlurTest() throws Exception {
         Integer radius = null;
         Integer sigma = null;
         Integer angle = null;
@@ -141,11 +141,11 @@ public class FilterApiTest {
      *
      * Reduce the unique number of colors in the image to the specified level
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterPosterizeTest() throws ApiException {
+    public void filterPosterizeTest() throws Exception {
         Integer levels = null;
         File imageFile = null;
         byte[] response = api.filterPosterize(levels, imageFile);
@@ -158,11 +158,11 @@ public class FilterApiTest {
      *
      * Swirl distort the image by the specified number of degrees
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filterSwirlTest() throws ApiException {
+    public void filterSwirlTest() throws Exception {
         Integer degrees = null;
         File imageFile = null;
         byte[] response = api.filterSwirl(degrees, imageFile);

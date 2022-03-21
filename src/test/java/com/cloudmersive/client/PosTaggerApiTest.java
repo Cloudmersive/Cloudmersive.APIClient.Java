@@ -13,11 +13,11 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.PosRequest;
 import com.cloudmersive.client.model.PosResponse;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class PosTaggerApiTest {
      *
      * Part-of-speech (POS) tag a string, find the adjectives, and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void posTaggerTagAdjectivesTest() throws ApiException {
+    public void posTaggerTagAdjectivesTest() throws Exception {
         PosRequest request = null;
         PosResponse response = api.posTaggerTagAdjectives(request);
 
@@ -54,11 +54,11 @@ public class PosTaggerApiTest {
      *
      * Part-of-speech (POS) tag a string, find the adverbs, and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void posTaggerTagAdverbsTest() throws ApiException {
+    public void posTaggerTagAdverbsTest() throws Exception {
         PosRequest request = null;
         PosResponse response = api.posTaggerTagAdverbs(request);
 
@@ -70,11 +70,11 @@ public class PosTaggerApiTest {
      *
      * Part-of-speech (POS) tag a string, find the nouns, and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void posTaggerTagNounsTest() throws ApiException {
+    public void posTaggerTagNounsTest() throws Exception {
         PosRequest request = null;
         PosResponse response = api.posTaggerTagNouns(request);
 
@@ -86,11 +86,11 @@ public class PosTaggerApiTest {
      *
      * Part-of-speech (POS) tag a string, find the pronouns, and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void posTaggerTagPronounsTest() throws ApiException {
+    public void posTaggerTagPronounsTest() throws Exception {
         PosRequest request = null;
         PosResponse response = api.posTaggerTagPronouns(request);
 
@@ -102,11 +102,11 @@ public class PosTaggerApiTest {
      *
      * Part-of-speech (POS) tag a string and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void posTaggerTagSentenceTest() throws ApiException {
+    public void posTaggerTagSentenceTest() throws Exception {
         PosRequest request = null;
         PosResponse response = api.posTaggerTagSentence(request);
 
@@ -118,11 +118,11 @@ public class PosTaggerApiTest {
      *
      * Part-of-speech (POS) tag a string, find the verbs, and return result as JSON
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void posTaggerTagVerbsTest() throws ApiException {
+    public void posTaggerTagVerbsTest() throws Exception {
         PosRequest request = null;
         PosResponse response = api.posTaggerTagVerbs(request);
 

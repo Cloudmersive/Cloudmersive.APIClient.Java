@@ -13,13 +13,13 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.DocumentTransformEditSession;
 import com.cloudmersive.client.model.DocxTableTableFillMultiRequest;
 import com.cloudmersive.client.model.DocxTableTableFillRequest;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class TransformDocumentApiTest {
      *
      * Replace all instances of a string in an Office Word Document (docx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void transformDocumentDocxReplaceTest() throws ApiException {
+    public void transformDocumentDocxReplaceTest() throws Exception {
         String matchString = null;
         String replaceString = null;
         File inputFile = null;
@@ -60,11 +60,11 @@ public class TransformDocumentApiTest {
      *
      * Replace all instances of a string in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void transformDocumentDocxReplaceEditSessionTest() throws ApiException {
+    public void transformDocumentDocxReplaceEditSessionTest() throws Exception {
         String matchString = null;
         String replaceString = null;
         File inputFile = null;
@@ -80,11 +80,11 @@ public class TransformDocumentApiTest {
      *
      * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void transformDocumentDocxTableFillInTest() throws ApiException {
+    public void transformDocumentDocxTableFillInTest() throws Exception {
         DocxTableTableFillRequest request = null;
         byte[] response = api.transformDocumentDocxTableFillIn(request);
 
@@ -96,11 +96,11 @@ public class TransformDocumentApiTest {
      *
      * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates.  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void transformDocumentDocxTableFillInEditSessionTest() throws ApiException {
+    public void transformDocumentDocxTableFillInEditSessionTest() throws Exception {
         DocxTableTableFillRequest request = null;
         DocumentTransformEditSession response = api.transformDocumentDocxTableFillInEditSession(request);
 
@@ -112,11 +112,11 @@ public class TransformDocumentApiTest {
      *
      * Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void transformDocumentDocxTableFillInMultiTest() throws ApiException {
+    public void transformDocumentDocxTableFillInMultiTest() throws Exception {
         DocxTableTableFillMultiRequest request = null;
         byte[] response = api.transformDocumentDocxTableFillInMulti(request);
 
@@ -128,11 +128,11 @@ public class TransformDocumentApiTest {
      *
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void transformDocumentPptxReplaceTest() throws ApiException {
+    public void transformDocumentPptxReplaceTest() throws Exception {
         String matchString = null;
         String replaceString = null;
         File inputFile = null;

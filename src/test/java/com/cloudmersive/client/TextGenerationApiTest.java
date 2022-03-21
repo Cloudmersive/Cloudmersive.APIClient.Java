@@ -13,10 +13,10 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.invoker.ApiException;
 import com.cloudmersive.client.model.CreateHandwritingRequest;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class TextGenerationApiTest {
      *
      * Uses Deep Learning to generate realistic handwriting and returns the result as a PNG image
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void textGenerationCreateHandwritingPngTest() throws ApiException {
+    public void textGenerationCreateHandwritingPngTest() throws Exception {
         CreateHandwritingRequest request = null;
         Object response = api.textGenerationCreateHandwritingPng(request);
 
