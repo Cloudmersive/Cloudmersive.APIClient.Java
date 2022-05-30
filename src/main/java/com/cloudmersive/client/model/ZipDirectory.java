@@ -32,7 +32,7 @@ import java.util.List;
  * Representation of a directory in a zip file
  */
 @ApiModel(description = "Representation of a directory in a zip file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:29.931-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:19:02.501-07:00")
 public class ZipDirectory {
   @SerializedName("DirectoryName")
   private String directoryName = null;

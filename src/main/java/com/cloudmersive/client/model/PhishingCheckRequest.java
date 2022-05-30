@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to determine if a URL is a Phishing threat
  */
 @ApiModel(description = "Request to determine if a URL is a Phishing threat")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:19.408-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:18:24.393-07:00")
 public class PhishingCheckRequest {
   @SerializedName("URL")
   private String URL = null;

@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.model.EmailLead;
 import com.cloudmersive.client.model.LeadEnrichmentRequest;
 import com.cloudmersive.client.model.LeadEnrichmentResponse;
 import org.junit.Test;
@@ -45,6 +46,22 @@ public class LeadEnrichmentApiTest {
     public void leadEnrichmentEnrichLeadTest() throws Exception {
         LeadEnrichmentRequest request = null;
         LeadEnrichmentResponse response = api.leadEnrichmentEnrichLead(request);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get company information from email address
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void leadEnrichmentGetCompanyInformationTest() throws Exception {
+        EmailLead request = null;
+        LeadEnrichmentResponse response = api.leadEnrichmentGetCompanyInformation(request);
 
         // TODO: test validations
     }

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a virus scan on cloud storage
  */
 @ApiModel(description = "Result of running a virus scan on cloud storage")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:33.170-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:19:16.601-07:00")
 public class CloudStorageVirusScanResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -47,6 +47,9 @@ public class CloudStorageVirusScanResult {
 
   @SerializedName("FileSize")
   private Long fileSize = null;
+
+  @SerializedName("ContainsContentModerationRejection")
+  private Boolean containsContentModerationRejection = null;
 
   public CloudStorageVirusScanResult successful(Boolean successful) {
     this.successful = successful;
@@ -146,6 +149,24 @@ public class CloudStorageVirusScanResult {
     this.fileSize = fileSize;
   }
 
+  public CloudStorageVirusScanResult containsContentModerationRejection(Boolean containsContentModerationRejection) {
+    this.containsContentModerationRejection = containsContentModerationRejection;
+    return this;
+  }
+
+   /**
+   * Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default)
+   * @return containsContentModerationRejection
+  **/
+  @ApiModelProperty(value = "Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default)")
+  public Boolean isContainsContentModerationRejection() {
+    return containsContentModerationRejection;
+  }
+
+  public void setContainsContentModerationRejection(Boolean containsContentModerationRejection) {
+    this.containsContentModerationRejection = containsContentModerationRejection;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +181,13 @@ public class CloudStorageVirusScanResult {
         Objects.equals(this.cleanResult, cloudStorageVirusScanResult.cleanResult) &&
         Objects.equals(this.foundViruses, cloudStorageVirusScanResult.foundViruses) &&
         Objects.equals(this.errorDetailedDescription, cloudStorageVirusScanResult.errorDetailedDescription) &&
-        Objects.equals(this.fileSize, cloudStorageVirusScanResult.fileSize);
+        Objects.equals(this.fileSize, cloudStorageVirusScanResult.fileSize) &&
+        Objects.equals(this.containsContentModerationRejection, cloudStorageVirusScanResult.containsContentModerationRejection);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, cleanResult, foundViruses, errorDetailedDescription, fileSize);
+    return Objects.hash(successful, cleanResult, foundViruses, errorDetailedDescription, fileSize, containsContentModerationRejection);
   }
 
 
@@ -179,6 +201,7 @@ public class CloudStorageVirusScanResult {
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("    errorDetailedDescription: ").append(toIndentedString(errorDetailedDescription)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    containsContentModerationRejection: ").append(toIndentedString(containsContentModerationRejection)).append("\n");
     sb.append("}");
     return sb.toString();
   }

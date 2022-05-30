@@ -31,7 +31,7 @@ import java.util.List;
  * Request to update data in a table in a Word DOCX Document
  */
 @ApiModel(description = "Request to update data in a table in a Word DOCX Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:29.931-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:19:02.501-07:00")
 public class DocxTableTableFillMultiRequest {
   @SerializedName("InputFileUrl")
   private String inputFileUrl = null;

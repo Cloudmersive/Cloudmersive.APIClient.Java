@@ -15,6 +15,7 @@ package com.cloudmersive.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudmersive.client.model.AdditionalAdvancedScanInformation;
 import com.cloudmersive.client.model.CloudStorageVirusFound;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +32,7 @@ import java.util.List;
  * Result of running an advanced virus scan on cloud storage
  */
 @ApiModel(description = "Result of running an advanced virus scan on cloud storage")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-20T11:07:33.170-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:19:16.601-07:00")
 public class CloudStorageAdvancedVirusScanResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -68,6 +69,9 @@ public class CloudStorageAdvancedVirusScanResult {
 
   @SerializedName("FileSize")
   private Long fileSize = null;
+
+  @SerializedName("ContentInformation")
+  private AdditionalAdvancedScanInformation contentInformation = null;
 
   public CloudStorageAdvancedVirusScanResult successful(Boolean successful) {
     this.successful = successful;
@@ -293,6 +297,24 @@ public class CloudStorageAdvancedVirusScanResult {
     this.fileSize = fileSize;
   }
 
+  public CloudStorageAdvancedVirusScanResult contentInformation(AdditionalAdvancedScanInformation contentInformation) {
+    this.contentInformation = contentInformation;
+    return this;
+  }
+
+   /**
+   * Contains additional non-threat content verification information
+   * @return contentInformation
+  **/
+  @ApiModelProperty(value = "Contains additional non-threat content verification information")
+  public AdditionalAdvancedScanInformation getContentInformation() {
+    return contentInformation;
+  }
+
+  public void setContentInformation(AdditionalAdvancedScanInformation contentInformation) {
+    this.contentInformation = contentInformation;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -314,12 +336,13 @@ public class CloudStorageAdvancedVirusScanResult {
         Objects.equals(this.verifiedFileFormat, cloudStorageAdvancedVirusScanResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, cloudStorageAdvancedVirusScanResult.foundViruses) &&
         Objects.equals(this.errorDetailedDescription, cloudStorageAdvancedVirusScanResult.errorDetailedDescription) &&
-        Objects.equals(this.fileSize, cloudStorageAdvancedVirusScanResult.fileSize);
+        Objects.equals(this.fileSize, cloudStorageAdvancedVirusScanResult.fileSize) &&
+        Objects.equals(this.contentInformation, cloudStorageAdvancedVirusScanResult.contentInformation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses, errorDetailedDescription, fileSize);
+    return Objects.hash(successful, cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses, errorDetailedDescription, fileSize, contentInformation);
   }
 
 
@@ -340,6 +363,7 @@ public class CloudStorageAdvancedVirusScanResult {
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("    errorDetailedDescription: ").append(toIndentedString(errorDetailedDescription)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    contentInformation: ").append(toIndentedString(contentInformation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
