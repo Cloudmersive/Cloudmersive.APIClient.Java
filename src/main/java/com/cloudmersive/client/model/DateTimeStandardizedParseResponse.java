@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Result of performing a date time parsing
  */
 @ApiModel(description = "Result of performing a date time parsing")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:18:24.393-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:37:14.407-07:00")
 public class DateTimeStandardizedParseResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

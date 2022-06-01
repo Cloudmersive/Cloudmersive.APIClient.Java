@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a get public holidays request operation
  */
 @ApiModel(description = "Result of performing a get public holidays request operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:18:24.393-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:37:14.407-07:00")
 public class PublicHolidaysResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

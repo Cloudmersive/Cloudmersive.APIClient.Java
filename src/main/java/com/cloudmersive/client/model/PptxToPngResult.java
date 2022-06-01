@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a PPTX input to a PNG array
  */
 @ApiModel(description = "Result of converting a PPTX input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-05-29T18:19:02.501-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:38:04.235-07:00")
 public class PptxToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;
