@@ -620,7 +620,7 @@ public class ValidateDocumentApi {
     }
 
     /**
-     * Validate if an EML file is executable
+     * Validate if input file is a valid EML file
      * Validate if an input file is an EML email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @return DocumentValidationResult
@@ -632,7 +632,7 @@ public class ValidateDocumentApi {
     }
 
     /**
-     * Validate if an EML file is executable
+     * Validate if input file is a valid EML file
      * Validate if an input file is an EML email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;DocumentValidationResult&gt;
@@ -645,7 +645,7 @@ public class ValidateDocumentApi {
     }
 
     /**
-     * Validate if an EML file is executable (asynchronously)
+     * Validate if input file is a valid EML file (asynchronously)
      * Validate if an input file is an EML email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1612,7 +1612,7 @@ public class ValidateDocumentApi {
     }
 
     /**
-     * Validate if an MSG file is executable
+     * Validate if input file is a valid MSG file
      * Validate if an input file is an MSG email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @return DocumentValidationResult
@@ -1624,7 +1624,7 @@ public class ValidateDocumentApi {
     }
 
     /**
-     * Validate if an MSG file is executable
+     * Validate if input file is a valid MSG file
      * Validate if an input file is an MSG email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;DocumentValidationResult&gt;
@@ -1637,7 +1637,7 @@ public class ValidateDocumentApi {
     }
 
     /**
-     * Validate if an MSG file is executable (asynchronously)
+     * Validate if input file is a valid MSG file (asynchronously)
      * Validate if an input file is an MSG email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes

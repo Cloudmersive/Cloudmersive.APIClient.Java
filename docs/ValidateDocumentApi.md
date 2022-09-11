@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**validateDocumentCsvValidation**](ValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 [**validateDocumentDocValidation**](ValidateDocumentApi.md#validateDocumentDocValidation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
 [**validateDocumentDocxValidation**](ValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
-[**validateDocumentEmlValidation**](ValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
+[**validateDocumentEmlValidation**](ValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if input file is a valid EML file
 [**validateDocumentExecutableValidation**](ValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
 [**validateDocumentGZipValidation**](ValidateDocumentApi.md#validateDocumentGZipValidation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
 [**validateDocumentHtmlSsrfValidation**](ValidateDocumentApi.md#validateDocumentHtmlSsrfValidation) | **POST** /convert/validate/html/ssrf-threat-check | Validate an HTML file and checks for SSRF threats
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**validateDocumentImageValidation**](ValidateDocumentApi.md#validateDocumentImageValidation) | **POST** /convert/validate/image | Validate an Image File
 [**validateDocumentJpgValidation**](ValidateDocumentApi.md#validateDocumentJpgValidation) | **POST** /convert/validate/jpg | Validate a JPG File
 [**validateDocumentJsonValidation**](ValidateDocumentApi.md#validateDocumentJsonValidation) | **POST** /convert/validate/json | Validate a JSON file
-[**validateDocumentMsgValidation**](ValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
+[**validateDocumentMsgValidation**](ValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if input file is a valid MSG file
 [**validateDocumentPdfValidation**](ValidateDocumentApi.md#validateDocumentPdfValidation) | **POST** /convert/validate/pdf | Validate a PDF document file
 [**validateDocumentPngValidation**](ValidateDocumentApi.md#validateDocumentPngValidation) | **POST** /convert/validate/png | Validate a PNG File
 [**validateDocumentPptValidation**](ValidateDocumentApi.md#validateDocumentPptValidation) | **POST** /convert/validate/ppt | Validate a PowerPoint 97-2003 Legacy presentation (PPT)
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **validateDocumentEmlValidation**
 > DocumentValidationResult validateDocumentEmlValidation(inputFile)
 
-Validate if an EML file is executable
+Validate if input file is a valid EML file
 
 Validate if an input file is an EML email file; if the document is not valid
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 # **validateDocumentMsgValidation**
 > DocumentValidationResult validateDocumentMsgValidation(inputFile)
 
-Validate if an MSG file is executable
+Validate if input file is a valid MSG file
 
 Validate if an input file is an MSG email file; if the document is not valid
 

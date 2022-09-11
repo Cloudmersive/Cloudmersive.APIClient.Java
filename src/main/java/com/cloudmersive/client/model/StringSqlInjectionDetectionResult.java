@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an SQL Injection protection operation
  */
 @ApiModel(description = "Result of performing an SQL Injection protection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:39:07.487-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:20:48.600-07:00")
 public class StringSqlInjectionDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

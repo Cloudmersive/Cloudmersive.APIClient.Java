@@ -31,7 +31,7 @@ import java.util.List;
  * Result of an photo to words-with-location OCR operation
  */
 @ApiModel(description = "Result of an photo to words-with-location OCR operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:37:36.766-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:19:14.825-07:00")
 public class PhotoToWordsWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;

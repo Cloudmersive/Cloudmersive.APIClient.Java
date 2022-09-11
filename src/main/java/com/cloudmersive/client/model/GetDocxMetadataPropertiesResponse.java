@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a DocxGetMetadataProperties command
  */
 @ApiModel(description = "Result of running a DocxGetMetadataProperties command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:38:04.235-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:19:39.601-07:00")
 public class GetDocxMetadataPropertiesResponse {
   @SerializedName("Company")
   private String company = null;

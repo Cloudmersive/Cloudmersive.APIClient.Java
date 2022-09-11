@@ -75,8 +75,10 @@ public class ScanCloudStorageApiTest {
         Boolean allowPasswordProtectedFiles = null;
         Boolean allowMacros = null;
         Boolean allowXmlExternalEntities = null;
+        Boolean allowInsecureDeserialization = null;
+        Boolean allowHtml = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
 
         // TODO: test validations
     }
@@ -118,8 +120,10 @@ public class ScanCloudStorageApiTest {
         Boolean allowPasswordProtectedFiles = null;
         Boolean allowMacros = null;
         Boolean allowXmlExternalEntities = null;
+        Boolean allowInsecureDeserialization = null;
+        Boolean allowHtml = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
 
         // TODO: test validations
     }
@@ -161,8 +165,10 @@ public class ScanCloudStorageApiTest {
         Boolean allowPasswordProtectedFiles = null;
         Boolean allowMacros = null;
         Boolean allowXmlExternalEntities = null;
+        Boolean allowInsecureDeserialization = null;
+        Boolean allowHtml = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
 
         // TODO: test validations
     }
@@ -212,8 +218,10 @@ public class ScanCloudStorageApiTest {
         Boolean allowPasswordProtectedFiles = null;
         Boolean allowMacros = null;
         Boolean allowXmlExternalEntities = null;
+        Boolean allowInsecureDeserialization = null;
+        Boolean allowHtml = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
 
         // TODO: test validations
     }

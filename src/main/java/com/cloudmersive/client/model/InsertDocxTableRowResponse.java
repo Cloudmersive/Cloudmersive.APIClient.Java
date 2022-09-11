@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running an Insert-Table Row command
  */
 @ApiModel(description = "Result of running an Insert-Table Row command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-06-01T10:38:04.235-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:19:39.601-07:00")
 public class InsertDocxTableRowResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
