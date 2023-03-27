@@ -13,6 +13,8 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.model.LanguageHtmlTranslationRequest;
+import com.cloudmersive.client.model.LanguageHtmlTranslationResponse;
 import com.cloudmersive.client.model.LanguageTranslationRequest;
 import com.cloudmersive.client.model.LanguageTranslationResponse;
 import org.junit.Test;
@@ -32,6 +34,22 @@ public class LanguageTranslationApiTest {
 
     private final LanguageTranslationApi api = new LanguageTranslationApi();
 
+    
+    /**
+     * Translate HTML with Deep Learning AI
+     *
+     * Automatically translates input text in German to output text in English using advanced Deep Learning and Neural NLP.  Consumes 1-2 API calls per input sentence.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void languageTranslationHtmlTranslateTest() throws Exception {
+        LanguageHtmlTranslationRequest input = null;
+        LanguageHtmlTranslationResponse response = api.languageTranslationHtmlTranslate(input);
+
+        // TODO: test validations
+    }
     
     /**
      * Translate German to English text with Deep Learning AI

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Output of a subjectivity analysis operation
  */
 @ApiModel(description = "Output of a subjectivity analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:19:02.388-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:42:02.455-07:00")
 public class SubjectivityAnalysisResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

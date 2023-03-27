@@ -51,6 +51,7 @@ import com.cloudmersive.client.model.OdsToPngResult;
 import com.cloudmersive.client.model.OdtToJpgResult;
 import com.cloudmersive.client.model.OdtToPngResult;
 import com.cloudmersive.client.model.PdfToJpgResult;
+import com.cloudmersive.client.model.PdfToPngDirectResult;
 import com.cloudmersive.client.model.PdfToPngResult;
 import com.cloudmersive.client.model.PptxToPngResult;
 import com.cloudmersive.client.model.RtfToJpgResult;
@@ -404,7 +405,7 @@ public class ConvertDocumentApi {
 
     /**
      * Convert Document to PDF
-     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -416,7 +417,7 @@ public class ConvertDocumentApi {
 
     /**
      * Convert Document to PDF
-     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -429,7 +430,7 @@ public class ConvertDocumentApi {
 
     /**
      * Convert Document to PDF (asynchronously)
-     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6955,7 +6956,7 @@ public class ConvertDocumentApi {
 
     /**
      * Convert PDF to PNG Image Array
-     * Convert PDF document to PNG array, one image per page.
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
      * @return PdfToPngResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6967,7 +6968,7 @@ public class ConvertDocumentApi {
 
     /**
      * Convert PDF to PNG Image Array
-     * Convert PDF document to PNG array, one image per page.
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
      * @return ApiResponse&lt;PdfToPngResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6980,7 +6981,7 @@ public class ConvertDocumentApi {
 
     /**
      * Convert PDF to PNG Image Array (asynchronously)
-     * Convert PDF document to PNG array, one image per page.
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7009,6 +7010,130 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PdfToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentPdfToPngArrayDirect
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/pdf/to/png/direct";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentPdfToPngArrayDirect(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert PDF to PNG Image Array (Direct)
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return PdfToPngDirectResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PdfToPngDirectResult convertDocumentPdfToPngArrayDirect(File inputFile) throws ApiException {
+        ApiResponse<PdfToPngDirectResult> resp = convertDocumentPdfToPngArrayDirectWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert PDF to PNG Image Array (Direct)
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;PdfToPngDirectResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PdfToPngDirectResult> convertDocumentPdfToPngArrayDirectWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<PdfToPngDirectResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert PDF to PNG Image Array (Direct) (asynchronously)
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectAsync(File inputFile, final ApiCallback<PdfToPngDirectResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PdfToPngDirectResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8929,6 +9054,136 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentRtfToPngValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RtfToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentTxtToPdf
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param scaleFactor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentTxtToPdfCall(File inputFile, Integer scaleFactor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/txt/to/pdf";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (scaleFactor != null)
+        localVarHeaderParams.put("scaleFactor", apiClient.parameterToString(scaleFactor));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentTxtToPdfValidateBeforeCall(File inputFile, Integer scaleFactor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentTxtToPdf(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentTxtToPdfCall(inputFile, scaleFactor, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert TXT text file to PDF Document
+     * Convert simple text files to PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param scaleFactor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] convertDocumentTxtToPdf(File inputFile, Integer scaleFactor) throws ApiException {
+        ApiResponse<byte[]> resp = convertDocumentTxtToPdfWithHttpInfo(inputFile, scaleFactor);
+        return resp.getData();
+    }
+
+    /**
+     * Convert TXT text file to PDF Document
+     * Convert simple text files to PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param scaleFactor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> convertDocumentTxtToPdfWithHttpInfo(File inputFile, Integer scaleFactor) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentTxtToPdfValidateBeforeCall(inputFile, scaleFactor, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert TXT text file to PDF Document (asynchronously)
+     * Convert simple text files to PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param scaleFactor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentTxtToPdfAsync(File inputFile, Integer scaleFactor, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentTxtToPdfValidateBeforeCall(inputFile, scaleFactor, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

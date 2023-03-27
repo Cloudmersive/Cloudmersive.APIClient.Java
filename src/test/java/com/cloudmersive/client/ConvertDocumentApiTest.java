@@ -37,6 +37,7 @@ import com.cloudmersive.client.model.OdsToPngResult;
 import com.cloudmersive.client.model.OdtToJpgResult;
 import com.cloudmersive.client.model.OdtToPngResult;
 import com.cloudmersive.client.model.PdfToJpgResult;
+import com.cloudmersive.client.model.PdfToPngDirectResult;
 import com.cloudmersive.client.model.PdfToPngResult;
 import com.cloudmersive.client.model.PptxToPngResult;
 import com.cloudmersive.client.model.RtfToJpgResult;
@@ -97,7 +98,7 @@ public class ConvertDocumentApiTest {
     /**
      * Convert Document to PDF
      *
-     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
      *
      * @throws Exception
      *          if the Api call fails
@@ -950,7 +951,7 @@ public class ConvertDocumentApiTest {
     /**
      * Convert PDF to PNG Image Array
      *
-     * Convert PDF document to PNG array, one image per page.
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      *
      * @throws Exception
      *          if the Api call fails
@@ -959,6 +960,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPdfToPngArrayTest() throws Exception {
         File inputFile = null;
         PdfToPngResult response = api.convertDocumentPdfToPngArray(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert PDF to PNG Image Array (Direct)
+     *
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToPngArrayDirectTest() throws Exception {
+        File inputFile = null;
+        PdfToPngDirectResult response = api.convertDocumentPdfToPngArrayDirect(inputFile);
 
         // TODO: test validations
     }
@@ -1209,6 +1226,23 @@ public class ConvertDocumentApiTest {
     public void convertDocumentRtfToPngTest() throws Exception {
         File inputFile = null;
         RtfToPngResult response = api.convertDocumentRtfToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert TXT text file to PDF Document
+     *
+     * Convert simple text files to PDF.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentTxtToPdfTest() throws Exception {
+        File inputFile = null;
+        Integer scaleFactor = null;
+        byte[] response = api.convertDocumentTxtToPdf(inputFile, scaleFactor);
 
         // TODO: test validations
     }

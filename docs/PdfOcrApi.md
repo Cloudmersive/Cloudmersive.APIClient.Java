@@ -4,10 +4,64 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**pdfOcrGetAsyncJobStatus**](PdfOcrApi.md#pdfOcrGetAsyncJobStatus) | **GET** /ocr/pdf/get-job-status | Returns the result of the Async Job - possible states can be STARTED or COMPLETED
 [**pdfOcrPdfToLinesWithLocation**](PdfOcrApi.md#pdfOcrPdfToLinesWithLocation) | **POST** /ocr/pdf/to/lines-with-location | Convert a PDF into text lines with location
 [**pdfOcrPdfToWordsWithLocation**](PdfOcrApi.md#pdfOcrPdfToWordsWithLocation) | **POST** /ocr/pdf/to/words-with-location | Convert a PDF into words with location
 [**pdfOcrPost**](PdfOcrApi.md#pdfOcrPost) | **POST** /ocr/pdf/toText | Converts an uploaded PDF file into text via Optical Character Recognition.
 
+
+<a name="pdfOcrGetAsyncJobStatus"></a>
+# **pdfOcrGetAsyncJobStatus**
+> PdfToTextResponse pdfOcrGetAsyncJobStatus(asyncJobID)
+
+Returns the result of the Async Job - possible states can be STARTED or COMPLETED
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.PdfOcrApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+PdfOcrApi apiInstance = new PdfOcrApi();
+String asyncJobID = "asyncJobID_example"; // String | 
+try {
+    PdfToTextResponse result = apiInstance.pdfOcrGetAsyncJobStatus(asyncJobID);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfOcrApi#pdfOcrGetAsyncJobStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asyncJobID** | **String**|  |
+
+### Return type
+
+[**PdfToTextResponse**](PdfToTextResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="pdfOcrPdfToLinesWithLocation"></a>
 # **pdfOcrPdfToLinesWithLocation**

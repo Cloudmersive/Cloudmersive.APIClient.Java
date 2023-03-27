@@ -31,13 +31,19 @@ import java.util.List;
  * Response from an OCR to text operation.  Includes the confidence rating and converted text result.
  */
 @ApiModel(description = "Response from an OCR to text operation.  Includes the confidence rating and converted text result.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:19:14.825-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:42:25.748-07:00")
 public class PdfToTextResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
 
   @SerializedName("OcrPages")
   private List<OcrPageResult> ocrPages = null;
+
+  @SerializedName("AsyncJobID")
+  private String asyncJobID = null;
+
+  @SerializedName("AsyncJobStatus")
+  private String asyncJobStatus = null;
 
   public PdfToTextResponse successful(Boolean successful) {
     this.successful = successful;
@@ -83,6 +89,42 @@ public class PdfToTextResponse {
     this.ocrPages = ocrPages;
   }
 
+  public PdfToTextResponse asyncJobID(String asyncJobID) {
+    this.asyncJobID = asyncJobID;
+    return this;
+  }
+
+   /**
+   * When the job exceeds 25 pages, an Async Job ID is returned.  Use the CheckPdfOcrJobStatus API to check on the status of this job using the AsyncJobID and get the result when it finishes
+   * @return asyncJobID
+  **/
+  @ApiModelProperty(value = "When the job exceeds 25 pages, an Async Job ID is returned.  Use the CheckPdfOcrJobStatus API to check on the status of this job using the AsyncJobID and get the result when it finishes")
+  public String getAsyncJobID() {
+    return asyncJobID;
+  }
+
+  public void setAsyncJobID(String asyncJobID) {
+    this.asyncJobID = asyncJobID;
+  }
+
+  public PdfToTextResponse asyncJobStatus(String asyncJobStatus) {
+    this.asyncJobStatus = asyncJobStatus;
+    return this;
+  }
+
+   /**
+   * Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED
+   * @return asyncJobStatus
+  **/
+  @ApiModelProperty(value = "Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED")
+  public String getAsyncJobStatus() {
+    return asyncJobStatus;
+  }
+
+  public void setAsyncJobStatus(String asyncJobStatus) {
+    this.asyncJobStatus = asyncJobStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,12 +136,14 @@ public class PdfToTextResponse {
     }
     PdfToTextResponse pdfToTextResponse = (PdfToTextResponse) o;
     return Objects.equals(this.successful, pdfToTextResponse.successful) &&
-        Objects.equals(this.ocrPages, pdfToTextResponse.ocrPages);
+        Objects.equals(this.ocrPages, pdfToTextResponse.ocrPages) &&
+        Objects.equals(this.asyncJobID, pdfToTextResponse.asyncJobID) &&
+        Objects.equals(this.asyncJobStatus, pdfToTextResponse.asyncJobStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, ocrPages);
+    return Objects.hash(successful, ocrPages, asyncJobID, asyncJobStatus);
   }
 
 
@@ -110,6 +154,8 @@ public class PdfToTextResponse {
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    ocrPages: ").append(toIndentedString(ocrPages)).append("\n");
+    sb.append("    asyncJobID: ").append(toIndentedString(asyncJobID)).append("\n");
+    sb.append("    asyncJobStatus: ").append(toIndentedString(asyncJobStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

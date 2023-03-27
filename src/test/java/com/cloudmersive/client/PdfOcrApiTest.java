@@ -36,6 +36,22 @@ public class PdfOcrApiTest {
 
     
     /**
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void pdfOcrGetAsyncJobStatusTest() throws Exception {
+        String asyncJobID = null;
+        PdfToTextResponse response = api.pdfOcrGetAsyncJobStatus(asyncJobID);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert a PDF into text lines with location
      *
      * Converts a PDF into lines/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.

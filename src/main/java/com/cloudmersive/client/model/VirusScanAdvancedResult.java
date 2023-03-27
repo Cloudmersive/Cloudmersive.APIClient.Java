@@ -32,7 +32,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:20:02.554-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:44:17.038-07:00")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -63,6 +63,12 @@ public class VirusScanAdvancedResult {
 
   @SerializedName("ContainsHtml")
   private Boolean containsHtml = null;
+
+  @SerializedName("ContainsUnsafeArchive")
+  private Boolean containsUnsafeArchive = null;
+
+  @SerializedName("ContainsOleEmbeddedObject")
+  private Boolean containsOleEmbeddedObject = null;
 
   @SerializedName("VerifiedFileFormat")
   private String verifiedFileFormat = null;
@@ -253,6 +259,42 @@ public class VirusScanAdvancedResult {
     this.containsHtml = containsHtml;
   }
 
+  public VirusScanAdvancedResult containsUnsafeArchive(Boolean containsUnsafeArchive) {
+    this.containsUnsafeArchive = containsUnsafeArchive;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction
+   * @return containsUnsafeArchive
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction")
+  public Boolean isContainsUnsafeArchive() {
+    return containsUnsafeArchive;
+  }
+
+  public void setContainsUnsafeArchive(Boolean containsUnsafeArchive) {
+    this.containsUnsafeArchive = containsUnsafeArchive;
+  }
+
+  public VirusScanAdvancedResult containsOleEmbeddedObject(Boolean containsOleEmbeddedObject) {
+    this.containsOleEmbeddedObject = containsOleEmbeddedObject;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains an OLE embedded object, which can be a significant risk factor
+   * @return containsOleEmbeddedObject
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains an OLE embedded object, which can be a significant risk factor")
+  public Boolean isContainsOleEmbeddedObject() {
+    return containsOleEmbeddedObject;
+  }
+
+  public void setContainsOleEmbeddedObject(Boolean containsOleEmbeddedObject) {
+    this.containsOleEmbeddedObject = containsOleEmbeddedObject;
+  }
+
   public VirusScanAdvancedResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
@@ -335,6 +377,8 @@ public class VirusScanAdvancedResult {
         Objects.equals(this.containsXmlExternalEntities, virusScanAdvancedResult.containsXmlExternalEntities) &&
         Objects.equals(this.containsInsecureDeserialization, virusScanAdvancedResult.containsInsecureDeserialization) &&
         Objects.equals(this.containsHtml, virusScanAdvancedResult.containsHtml) &&
+        Objects.equals(this.containsUnsafeArchive, virusScanAdvancedResult.containsUnsafeArchive) &&
+        Objects.equals(this.containsOleEmbeddedObject, virusScanAdvancedResult.containsOleEmbeddedObject) &&
         Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses) &&
         Objects.equals(this.contentInformation, virusScanAdvancedResult.contentInformation);
@@ -342,7 +386,7 @@ public class VirusScanAdvancedResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, containsInsecureDeserialization, containsHtml, verifiedFileFormat, foundViruses, contentInformation);
+    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, containsInsecureDeserialization, containsHtml, containsUnsafeArchive, containsOleEmbeddedObject, verifiedFileFormat, foundViruses, contentInformation);
   }
 
 
@@ -361,6 +405,8 @@ public class VirusScanAdvancedResult {
     sb.append("    containsXmlExternalEntities: ").append(toIndentedString(containsXmlExternalEntities)).append("\n");
     sb.append("    containsInsecureDeserialization: ").append(toIndentedString(containsInsecureDeserialization)).append("\n");
     sb.append("    containsHtml: ").append(toIndentedString(containsHtml)).append("\n");
+    sb.append("    containsUnsafeArchive: ").append(toIndentedString(containsUnsafeArchive)).append("\n");
+    sb.append("    containsOleEmbeddedObject: ").append(toIndentedString(containsOleEmbeddedObject)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("    contentInformation: ").append(toIndentedString(contentInformation)).append("\n");

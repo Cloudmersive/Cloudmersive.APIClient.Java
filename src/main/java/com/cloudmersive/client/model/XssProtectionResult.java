@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an XSS protection operation
  */
 @ApiModel(description = "Result of performing an XSS protection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-09-11T01:18:43.585-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:41:32.056-07:00")
 public class XssProtectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

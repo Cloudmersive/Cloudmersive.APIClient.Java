@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **containsXmlExternalEntities** | **Boolean** | True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor |  [optional]
 **containsInsecureDeserialization** | **Boolean** | True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor |  [optional]
 **containsHtml** | **Boolean** | True if the uploaded file contains HTML, which can be a significant risk factor |  [optional]
+**containsUnsafeArchive** | **Boolean** | True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction |  [optional]
+**containsOleEmbeddedObject** | **Boolean** | True if the uploaded file contains an OLE embedded object, which can be a significant risk factor |  [optional]
 **verifiedFileFormat** | **String** | For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null. |  [optional]
 **foundViruses** | [**List&lt;VirusFound&gt;**](VirusFound.md) | Array of viruses found, if any |  [optional]
 **contentInformation** | [**AdditionalAdvancedScanInformation**](AdditionalAdvancedScanInformation.md) | Contains additional non-threat content verification information |  [optional]
