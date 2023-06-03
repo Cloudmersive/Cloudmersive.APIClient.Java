@@ -13,6 +13,7 @@
 
 package com.cloudmersive.client;
 
+import com.cloudmersive.client.model.DocumentArrayInput;
 import java.io.File;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -75,6 +76,22 @@ public class MergeDocumentApiTest {
     }
     
     /**
+     * Merge Multple Word DOCX Together from an array
+     *
+     * Combine multiple Office Word Documents (docx), stored in an array, into one single Office Word document
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentDocxMultiArrayTest() throws Exception {
+        DocumentArrayInput input = null;
+        Object response = api.mergeDocumentDocxMultiArray(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Merge Two HTML (HTM) Files Together
      *
      * Combine two HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
@@ -112,6 +129,22 @@ public class MergeDocumentApiTest {
         File inputFile9 = null;
         File inputFile10 = null;
         byte[] response = api.mergeDocumentHtmlMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple HTML (HTM) Files Together from an array
+     *
+     * Combine multiple HTML (.HTM) files, from an array, into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentHtmlMultiArrayTest() throws Exception {
+        DocumentArrayInput input = null;
+        Object response = api.mergeDocumentHtmlMultiArray(input);
 
         // TODO: test validations
     }
@@ -159,6 +192,22 @@ public class MergeDocumentApiTest {
     }
     
     /**
+     * Merge Multple PDF Files Together from an array
+     *
+     * Combine multiple PDF files (pdf), as an array, into a single PDF document, preserving the order of the input documents in the combined document
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPdfMultiArrayTest() throws Exception {
+        DocumentArrayInput input = null;
+        Object response = api.mergeDocumentPdfMultiArray(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Merge Two PNG Files Together
      *
      * Combine two PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
@@ -201,6 +250,22 @@ public class MergeDocumentApiTest {
     }
     
     /**
+     * Merge Multple PNG Files Together from an array
+     *
+     * Combine multiple PNG files, from an array, into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPngMultiArrayTest() throws Exception {
+        DocumentArrayInput input = null;
+        Object response = api.mergeDocumentPngMultiArray(input);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Merge Two PowerPoint PPTX Together
      *
      * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
@@ -238,6 +303,22 @@ public class MergeDocumentApiTest {
         File inputFile9 = null;
         File inputFile10 = null;
         byte[] response = api.mergeDocumentPptxMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple PowerPoint PPTX Together from an array
+     *
+     * Combine multiple Office PowerPoint presentations (pptx), from an array, into one single Office PowerPoint presentation
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentPptxMultiArrayTest() throws Exception {
+        DocumentArrayInput input = null;
+        Object response = api.mergeDocumentPptxMultiArray(input);
 
         // TODO: test validations
     }
@@ -322,6 +403,22 @@ public class MergeDocumentApiTest {
         File inputFile9 = null;
         File inputFile10 = null;
         byte[] response = api.mergeDocumentXlsxMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Merge Multple Excel XLSX Together from an Array
+     *
+     * Combine multiple Office Excel spreadsheets (xlsx), as an array, into a single Office Excel spreadsheet
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentXlsxMultiArrayTest() throws Exception {
+        DocumentArrayInput input = null;
+        Object response = api.mergeDocumentXlsxMultiArray(input);
 
         // TODO: test validations
     }

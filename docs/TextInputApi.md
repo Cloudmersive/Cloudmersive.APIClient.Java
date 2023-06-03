@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="textInputCheckHtmlSsrf"></a>
 # **textInputCheckHtmlSsrf**
-> HtmlSsrfDetectionResult textInputCheckHtmlSsrf(value)
+> HtmlSsrfDetectionResult textInputCheckHtmlSsrf(value, allowCidScheme)
 
 Protect html input from Server-side Request Forgery (SSRF) attacks
 
@@ -41,8 +41,9 @@ Apikey.setApiKey("YOUR API KEY");
 
 TextInputApi apiInstance = new TextInputApi();
 String value = "value_example"; // String | User-facing HTML input.
+Boolean allowCidScheme = true; // Boolean | Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false.
 try {
-    HtmlSsrfDetectionResult result = apiInstance.textInputCheckHtmlSsrf(value);
+    HtmlSsrfDetectionResult result = apiInstance.textInputCheckHtmlSsrf(value, allowCidScheme);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TextInputApi#textInputCheckHtmlSsrf");
@@ -55,6 +56,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **value** | **String**| User-facing HTML input. |
+ **allowCidScheme** | **Boolean**| Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. | [optional]
 
 ### Return type
 

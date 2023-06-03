@@ -52,7 +52,8 @@ public class TextInputApiTest {
     @Test
     public void textInputCheckHtmlSsrfTest() throws Exception {
         String value = null;
-        HtmlSsrfDetectionResult response = api.textInputCheckHtmlSsrf(value);
+        Boolean allowCidScheme = null;
+        HtmlSsrfDetectionResult response = api.textInputCheckHtmlSsrf(value, allowCidScheme);
 
         // TODO: test validations
     }

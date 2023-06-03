@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an image hash operation
  */
 @ApiModel(description = "Result of performing an image hash operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:42:54.982-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-03T15:49:25.837-07:00")
 public class ImageSimilarityHashResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

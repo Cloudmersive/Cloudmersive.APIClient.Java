@@ -28,7 +28,7 @@ import java.io.IOException;
  * Additional non-threat content verification information
  */
 @ApiModel(description = "Additional non-threat content verification information")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:44:17.038-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-03T15:50:05.106-07:00")
 public class AdditionalAdvancedScanInformation {
   @SerializedName("ContainsJSON")
   private Boolean containsJSON = null;
@@ -38,6 +38,9 @@ public class AdditionalAdvancedScanInformation {
 
   @SerializedName("ContainsImage")
   private Boolean containsImage = null;
+
+  @SerializedName("RelevantSubfileName")
+  private String relevantSubfileName = null;
 
   public AdditionalAdvancedScanInformation containsJSON(Boolean containsJSON) {
     this.containsJSON = containsJSON;
@@ -93,6 +96,24 @@ public class AdditionalAdvancedScanInformation {
     this.containsImage = containsImage;
   }
 
+  public AdditionalAdvancedScanInformation relevantSubfileName(String relevantSubfileName) {
+    this.relevantSubfileName = relevantSubfileName;
+    return this;
+  }
+
+   /**
+   * Relevant subfile name in an archive format for identified threats, if any
+   * @return relevantSubfileName
+  **/
+  @ApiModelProperty(value = "Relevant subfile name in an archive format for identified threats, if any")
+  public String getRelevantSubfileName() {
+    return relevantSubfileName;
+  }
+
+  public void setRelevantSubfileName(String relevantSubfileName) {
+    this.relevantSubfileName = relevantSubfileName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class AdditionalAdvancedScanInformation {
     AdditionalAdvancedScanInformation additionalAdvancedScanInformation = (AdditionalAdvancedScanInformation) o;
     return Objects.equals(this.containsJSON, additionalAdvancedScanInformation.containsJSON) &&
         Objects.equals(this.containsXML, additionalAdvancedScanInformation.containsXML) &&
-        Objects.equals(this.containsImage, additionalAdvancedScanInformation.containsImage);
+        Objects.equals(this.containsImage, additionalAdvancedScanInformation.containsImage) &&
+        Objects.equals(this.relevantSubfileName, additionalAdvancedScanInformation.relevantSubfileName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containsJSON, containsXML, containsImage);
+    return Objects.hash(containsJSON, containsXML, containsImage, relevantSubfileName);
   }
 
 
@@ -122,6 +144,7 @@ public class AdditionalAdvancedScanInformation {
     sb.append("    containsJSON: ").append(toIndentedString(containsJSON)).append("\n");
     sb.append("    containsXML: ").append(toIndentedString(containsXML)).append("\n");
     sb.append("    containsImage: ").append(toIndentedString(containsImage)).append("\n");
+    sb.append("    relevantSubfileName: ").append(toIndentedString(relevantSubfileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

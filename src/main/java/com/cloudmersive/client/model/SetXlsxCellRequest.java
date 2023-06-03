@@ -30,7 +30,7 @@ import java.io.IOException;
  * Input to a Set Cell in XLSX Worksheets request
  */
 @ApiModel(description = "Input to a Set Cell in XLSX Worksheets request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-03-26T22:43:16.441-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-03T15:49:38.314-07:00")
 public class SetXlsxCellRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

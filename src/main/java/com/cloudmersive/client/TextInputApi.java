@@ -66,12 +66,13 @@ public class TextInputApi {
     /**
      * Build call for textInputCheckHtmlSsrf
      * @param value User-facing HTML input. (required)
+     * @param allowCidScheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call textInputCheckHtmlSsrfCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call textInputCheckHtmlSsrfCall(String value, Boolean allowCidScheme, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
@@ -81,6 +82,8 @@ public class TextInputApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (allowCidScheme != null)
+        localVarHeaderParams.put("allowCidScheme", apiClient.parameterToString(allowCidScheme));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -113,7 +116,7 @@ public class TextInputApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call textInputCheckHtmlSsrfValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call textInputCheckHtmlSsrfValidateBeforeCall(String value, Boolean allowCidScheme, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
@@ -121,7 +124,7 @@ public class TextInputApi {
         }
         
 
-        com.squareup.okhttp.Call call = textInputCheckHtmlSsrfCall(value, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = textInputCheckHtmlSsrfCall(value, allowCidScheme, progressListener, progressRequestListener);
         return call;
 
     }
@@ -130,11 +133,12 @@ public class TextInputApi {
      * Protect html input from Server-side Request Forgery (SSRF) attacks
      * Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
      * @param value User-facing HTML input. (required)
+     * @param allowCidScheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. (optional)
      * @return HtmlSsrfDetectionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HtmlSsrfDetectionResult textInputCheckHtmlSsrf(String value) throws ApiException {
-        ApiResponse<HtmlSsrfDetectionResult> resp = textInputCheckHtmlSsrfWithHttpInfo(value);
+    public HtmlSsrfDetectionResult textInputCheckHtmlSsrf(String value, Boolean allowCidScheme) throws ApiException {
+        ApiResponse<HtmlSsrfDetectionResult> resp = textInputCheckHtmlSsrfWithHttpInfo(value, allowCidScheme);
         return resp.getData();
     }
 
@@ -142,11 +146,12 @@ public class TextInputApi {
      * Protect html input from Server-side Request Forgery (SSRF) attacks
      * Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
      * @param value User-facing HTML input. (required)
+     * @param allowCidScheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. (optional)
      * @return ApiResponse&lt;HtmlSsrfDetectionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<HtmlSsrfDetectionResult> textInputCheckHtmlSsrfWithHttpInfo(String value) throws ApiException {
-        com.squareup.okhttp.Call call = textInputCheckHtmlSsrfValidateBeforeCall(value, null, null);
+    public ApiResponse<HtmlSsrfDetectionResult> textInputCheckHtmlSsrfWithHttpInfo(String value, Boolean allowCidScheme) throws ApiException {
+        com.squareup.okhttp.Call call = textInputCheckHtmlSsrfValidateBeforeCall(value, allowCidScheme, null, null);
         Type localVarReturnType = new TypeToken<HtmlSsrfDetectionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -155,11 +160,12 @@ public class TextInputApi {
      * Protect html input from Server-side Request Forgery (SSRF) attacks (asynchronously)
      * Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
      * @param value User-facing HTML input. (required)
+     * @param allowCidScheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call textInputCheckHtmlSsrfAsync(String value, final ApiCallback<HtmlSsrfDetectionResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call textInputCheckHtmlSsrfAsync(String value, Boolean allowCidScheme, final ApiCallback<HtmlSsrfDetectionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,7 +186,7 @@ public class TextInputApi {
             };
         }
 
-        com.squareup.okhttp.Call call = textInputCheckHtmlSsrfValidateBeforeCall(value, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = textInputCheckHtmlSsrfValidateBeforeCall(value, allowCidScheme, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<HtmlSsrfDetectionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
