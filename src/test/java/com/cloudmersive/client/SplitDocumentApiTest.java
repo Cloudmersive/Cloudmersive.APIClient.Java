@@ -14,6 +14,10 @@
 package com.cloudmersive.client;
 
 import java.io.File;
+import com.cloudmersive.client.model.JobStatusResult;
+import com.cloudmersive.client.model.PptxSplitAdvancedRequest;
+import com.cloudmersive.client.model.PptxSplitAdvancedResponse;
+import com.cloudmersive.client.model.SplitBatchJobCreateResult;
 import com.cloudmersive.client.model.SplitDocxDocumentResult;
 import com.cloudmersive.client.model.SplitPdfResult;
 import com.cloudmersive.client.model.SplitPptxPresentationResult;
@@ -39,6 +43,23 @@ public class SplitDocumentApiTest {
 
     
     /**
+     * Split a single Document into Separate Documents by Page as a Batch Job
+     *
+     * Split a Document (PPTX supported), comprised of multiple pages into separate files, with each containing exactly one page.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentBatchJobCreateTest() throws Exception {
+        File inputFile = null;
+        Boolean returnDocumentContents = null;
+        SplitBatchJobCreateResult response = api.splitDocumentBatchJobCreate(inputFile, returnDocumentContents);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Split a single Word Document DOCX into Separate Documents by Page
      *
      * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
@@ -51,6 +72,22 @@ public class SplitDocumentApiTest {
         File inputFile = null;
         Boolean returnDocumentContents = null;
         SplitDocxDocumentResult response = api.splitDocumentDocx(inputFile, returnDocumentContents);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the status and result of a Split Document Batch Job
+     *
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentGetAsyncJobStatusTest() throws Exception {
+        String asyncJobID = null;
+        JobStatusResult response = api.splitDocumentGetAsyncJobStatus(asyncJobID);
 
         // TODO: test validations
     }
@@ -85,6 +122,22 @@ public class SplitDocumentApiTest {
         File inputFile = null;
         Boolean returnDocumentContents = null;
         SplitPptxPresentationResult response = api.splitDocumentPptx(inputFile, returnDocumentContents);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Split a single PowerPoint Presentation PPTX into Separate Presentations
+     *
+     * Split a PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentations of customizeable size.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void splitDocumentPptxAdvancedTest() throws Exception {
+        PptxSplitAdvancedRequest request = null;
+        PptxSplitAdvancedResponse response = api.splitDocumentPptxAdvanced(request);
 
         // TODO: test validations
     }

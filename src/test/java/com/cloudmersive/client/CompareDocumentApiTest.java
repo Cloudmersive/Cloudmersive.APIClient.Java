@@ -44,7 +44,8 @@ public class CompareDocumentApiTest {
     public void compareDocumentDocxTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
-        byte[] response = api.compareDocumentDocx(inputFile1, inputFile2);
+        Boolean autorepair = null;
+        byte[] response = api.compareDocumentDocx(inputFile1, inputFile2, autorepair);
 
         // TODO: test validations
     }

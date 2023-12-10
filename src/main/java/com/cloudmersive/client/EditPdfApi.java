@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.AddPdfAnnotationRequest;
 import java.math.BigDecimal;
+import com.cloudmersive.client.model.EditPdfBatchJobCreateResult;
+import com.cloudmersive.client.model.EditPdfJobStatusResult;
 import java.io.File;
 import com.cloudmersive.client.model.GetPdfAnnotationsResult;
 import com.cloudmersive.client.model.PdfFormFields;
@@ -596,6 +598,152 @@ public class EditPdfApi {
         return call;
     }
     /**
+     * Build call for editPdfDeletePagesBatchJob
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfDeletePagesBatchJobCall(File inputFile, Integer pageStart, Integer pageEnd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/pages/delete/batch-job";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (pageStart != null)
+        localVarHeaderParams.put("pageStart", apiClient.parameterToString(pageStart));
+        if (pageEnd != null)
+        localVarHeaderParams.put("pageEnd", apiClient.parameterToString(pageEnd));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfDeletePagesBatchJobValidateBeforeCall(File inputFile, Integer pageStart, Integer pageEnd, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfDeletePagesBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'pageStart' is set
+        if (pageStart == null) {
+            throw new ApiException("Missing the required parameter 'pageStart' when calling editPdfDeletePagesBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'pageEnd' is set
+        if (pageEnd == null) {
+            throw new ApiException("Missing the required parameter 'pageEnd' when calling editPdfDeletePagesBatchJob(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfDeletePagesBatchJobCall(inputFile, pageStart, pageEnd, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove, delete pages from a PDF document as Batch Job
+     * Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @return EditPdfBatchJobCreateResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EditPdfBatchJobCreateResult editPdfDeletePagesBatchJob(File inputFile, Integer pageStart, Integer pageEnd) throws ApiException {
+        ApiResponse<EditPdfBatchJobCreateResult> resp = editPdfDeletePagesBatchJobWithHttpInfo(inputFile, pageStart, pageEnd);
+        return resp.getData();
+    }
+
+    /**
+     * Remove, delete pages from a PDF document as Batch Job
+     * Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @return ApiResponse&lt;EditPdfBatchJobCreateResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EditPdfBatchJobCreateResult> editPdfDeletePagesBatchJobWithHttpInfo(File inputFile, Integer pageStart, Integer pageEnd) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfDeletePagesBatchJobValidateBeforeCall(inputFile, pageStart, pageEnd, null, null);
+        Type localVarReturnType = new TypeToken<EditPdfBatchJobCreateResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove, delete pages from a PDF document as Batch Job (asynchronously)
+     * Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfDeletePagesBatchJobAsync(File inputFile, Integer pageStart, Integer pageEnd, final ApiCallback<EditPdfBatchJobCreateResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfDeletePagesBatchJobValidateBeforeCall(inputFile, pageStart, pageEnd, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EditPdfBatchJobCreateResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfEncrypt
      * @param inputFile Input file to perform the operation on. (required)
      * @param userPassword Password of a user (reader) of the PDF file (optional)
@@ -858,6 +1006,130 @@ public class EditPdfApi {
 
         com.squareup.okhttp.Call call = editPdfGetAnnotationsValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetPdfAnnotationsResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfGetAsyncJobStatus
+     * @param asyncJobID  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfGetAsyncJobStatusCall(String asyncJobID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/batch-job/status";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (asyncJobID != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("AsyncJobID", asyncJobID));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfGetAsyncJobStatusValidateBeforeCall(String asyncJobID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'asyncJobID' is set
+        if (asyncJobID == null) {
+            throw new ApiException("Missing the required parameter 'asyncJobID' when calling editPdfGetAsyncJobStatus(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfGetAsyncJobStatusCall(asyncJobID, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the status and result of a PDF Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return EditPdfJobStatusResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EditPdfJobStatusResult editPdfGetAsyncJobStatus(String asyncJobID) throws ApiException {
+        ApiResponse<EditPdfJobStatusResult> resp = editPdfGetAsyncJobStatusWithHttpInfo(asyncJobID);
+        return resp.getData();
+    }
+
+    /**
+     * Get the status and result of a PDF Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return ApiResponse&lt;EditPdfJobStatusResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EditPdfJobStatusResult> editPdfGetAsyncJobStatusWithHttpInfo(String asyncJobID) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfGetAsyncJobStatusValidateBeforeCall(asyncJobID, null, null);
+        Type localVarReturnType = new TypeToken<EditPdfJobStatusResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the status and result of a PDF Batch Job (asynchronously)
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfGetAsyncJobStatusAsync(String asyncJobID, final ApiCallback<EditPdfJobStatusResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfGetAsyncJobStatusValidateBeforeCall(asyncJobID, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EditPdfJobStatusResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1408,6 +1680,174 @@ public class EditPdfApi {
         return call;
     }
     /**
+     * Build call for editPdfInsertPagesBatchJob
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfInsertPagesBatchJobCall(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/pages/insert/batch-job";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (pageStartSource != null)
+        localVarHeaderParams.put("pageStartSource", apiClient.parameterToString(pageStartSource));
+        if (pageEndSource != null)
+        localVarHeaderParams.put("pageEndSource", apiClient.parameterToString(pageEndSource));
+        if (pageInsertBeforeDesitnation != null)
+        localVarHeaderParams.put("pageInsertBeforeDesitnation", apiClient.parameterToString(pageInsertBeforeDesitnation));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (sourceFile != null)
+        localVarFormParams.put("sourceFile", sourceFile);
+        if (destinationFile != null)
+        localVarFormParams.put("destinationFile", destinationFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfInsertPagesBatchJobValidateBeforeCall(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'sourceFile' is set
+        if (sourceFile == null) {
+            throw new ApiException("Missing the required parameter 'sourceFile' when calling editPdfInsertPagesBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'destinationFile' is set
+        if (destinationFile == null) {
+            throw new ApiException("Missing the required parameter 'destinationFile' when calling editPdfInsertPagesBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'pageStartSource' is set
+        if (pageStartSource == null) {
+            throw new ApiException("Missing the required parameter 'pageStartSource' when calling editPdfInsertPagesBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'pageEndSource' is set
+        if (pageEndSource == null) {
+            throw new ApiException("Missing the required parameter 'pageEndSource' when calling editPdfInsertPagesBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'pageInsertBeforeDesitnation' is set
+        if (pageInsertBeforeDesitnation == null) {
+            throw new ApiException("Missing the required parameter 'pageInsertBeforeDesitnation' when calling editPdfInsertPagesBatchJob(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfInsertPagesBatchJobCall(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert, copy pages from one PDF document into another as a batch job
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @return EditPdfBatchJobCreateResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EditPdfBatchJobCreateResult editPdfInsertPagesBatchJob(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation) throws ApiException {
+        ApiResponse<EditPdfBatchJobCreateResult> resp = editPdfInsertPagesBatchJobWithHttpInfo(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation);
+        return resp.getData();
+    }
+
+    /**
+     * Insert, copy pages from one PDF document into another as a batch job
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @return ApiResponse&lt;EditPdfBatchJobCreateResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EditPdfBatchJobCreateResult> editPdfInsertPagesBatchJobWithHttpInfo(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfInsertPagesBatchJobValidateBeforeCall(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation, null, null);
+        Type localVarReturnType = new TypeToken<EditPdfBatchJobCreateResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert, copy pages from one PDF document into another as a batch job (asynchronously)
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfInsertPagesBatchJobAsync(File sourceFile, File destinationFile, Integer pageStartSource, Integer pageEndSource, Integer pageInsertBeforeDesitnation, final ApiCallback<EditPdfBatchJobCreateResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfInsertPagesBatchJobValidateBeforeCall(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EditPdfBatchJobCreateResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editPdfLinearize
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -1534,16 +1974,146 @@ public class EditPdfApi {
     /**
      * Build call for editPdfRasterize
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editPdfRasterizeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editPdfRasterizeCall(File inputFile, Integer dpi, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/convert/edit/pdf/rasterize";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (dpi != null)
+        localVarHeaderParams.put("dpi", apiClient.parameterToString(dpi));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editPdfRasterizeValidateBeforeCall(File inputFile, Integer dpi, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRasterize(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editPdfRasterizeCall(inputFile, dpi, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Rasterize a PDF to an image-based PDF
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] editPdfRasterize(File inputFile, Integer dpi) throws ApiException {
+        ApiResponse<byte[]> resp = editPdfRasterizeWithHttpInfo(inputFile, dpi);
+        return resp.getData();
+    }
+
+    /**
+     * Rasterize a PDF to an image-based PDF
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> editPdfRasterizeWithHttpInfo(File inputFile, Integer dpi) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfRasterizeValidateBeforeCall(inputFile, dpi, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Rasterize a PDF to an image-based PDF (asynchronously)
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRasterizeAsync(File inputFile, Integer dpi, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editPdfRasterizeValidateBeforeCall(inputFile, dpi, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for editPdfRasterizeBatchJob
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editPdfRasterizeBatchJobCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/pdf/rasterize/batch-job";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1583,53 +2153,53 @@ public class EditPdfApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editPdfRasterizeValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editPdfRasterizeBatchJobValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRasterize(Async)");
+            throw new ApiException("Missing the required parameter 'inputFile' when calling editPdfRasterizeBatchJob(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = editPdfRasterizeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editPdfRasterizeBatchJobCall(inputFile, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Rasterize a PDF to an image-based PDF
+     * Rasterize a PDF to an image-based PDF as Batch Job
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return byte[]
+     * @return EditPdfBatchJobCreateResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editPdfRasterize(File inputFile) throws ApiException {
-        ApiResponse<byte[]> resp = editPdfRasterizeWithHttpInfo(inputFile);
+    public EditPdfBatchJobCreateResult editPdfRasterizeBatchJob(File inputFile) throws ApiException {
+        ApiResponse<EditPdfBatchJobCreateResult> resp = editPdfRasterizeBatchJobWithHttpInfo(inputFile);
         return resp.getData();
     }
 
     /**
-     * Rasterize a PDF to an image-based PDF
+     * Rasterize a PDF to an image-based PDF as Batch Job
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
      * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;byte[]&gt;
+     * @return ApiResponse&lt;EditPdfBatchJobCreateResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editPdfRasterizeWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = editPdfRasterizeValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+    public ApiResponse<EditPdfBatchJobCreateResult> editPdfRasterizeBatchJobWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = editPdfRasterizeBatchJobValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<EditPdfBatchJobCreateResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Rasterize a PDF to an image-based PDF (asynchronously)
+     * Rasterize a PDF to an image-based PDF as Batch Job (asynchronously)
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
      * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editPdfRasterizeAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editPdfRasterizeBatchJobAsync(File inputFile, final ApiCallback<EditPdfBatchJobCreateResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1650,8 +2220,8 @@ public class EditPdfApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editPdfRasterizeValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        com.squareup.okhttp.Call call = editPdfRasterizeBatchJobValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EditPdfBatchJobCreateResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

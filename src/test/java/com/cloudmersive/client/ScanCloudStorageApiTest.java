@@ -49,7 +49,8 @@ public class ScanCloudStorageApiTest {
         String bucketRegion = null;
         String bucketName = null;
         String keyName = null;
-        CloudStorageVirusScanResult response = api.scanCloudStorageScanAwsS3File(accessKey, secretKey, bucketRegion, bucketName, keyName);
+        String roleArn = null;
+        CloudStorageVirusScanResult response = api.scanCloudStorageScanAwsS3File(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn);
 
         // TODO: test validations
     }
@@ -69,6 +70,7 @@ public class ScanCloudStorageApiTest {
         String bucketRegion = null;
         String bucketName = null;
         String keyName = null;
+        String roleArn = null;
         Boolean allowExecutables = null;
         Boolean allowInvalidFiles = null;
         Boolean allowScripts = null;
@@ -78,7 +80,7 @@ public class ScanCloudStorageApiTest {
         Boolean allowInsecureDeserialization = null;
         Boolean allowHtml = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
 
         // TODO: test validations
     }

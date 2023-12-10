@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to Validate a Street Address
  */
 @ApiModel(description = "Request to Validate a Street Address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-03T15:48:41.446-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T13:59:36.223-08:00")
 public class ValidateAddressRequest {
   @SerializedName("StreetAddress")
   private String streetAddress = null;

@@ -15,6 +15,8 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.model.DocumentArrayInput;
 import java.io.File;
+import com.cloudmersive.client.model.MergeBatchJobCreateResult;
+import com.cloudmersive.client.model.MergeJobStatusResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,6 +34,22 @@ public class MergeDocumentApiTest {
 
     private final MergeDocumentApi api = new MergeDocumentApi();
 
+    
+    /**
+     * Merge an array of Documents into a Single Document by Page as a Batch Job
+     *
+     * Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentBatchJobCreateTest() throws Exception {
+        DocumentArrayInput input = null;
+        MergeBatchJobCreateResult response = api.mergeDocumentBatchJobCreate(input);
+
+        // TODO: test validations
+    }
     
     /**
      * Merge Two Word DOCX Together
@@ -87,6 +105,22 @@ public class MergeDocumentApiTest {
     public void mergeDocumentDocxMultiArrayTest() throws Exception {
         DocumentArrayInput input = null;
         Object response = api.mergeDocumentDocxMultiArray(input);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the status and result of a Merge Document Batch Job
+     *
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void mergeDocumentGetAsyncJobStatusTest() throws Exception {
+        String asyncJobID = null;
+        MergeJobStatusResult response = api.mergeDocumentGetAsyncJobStatus(asyncJobID);
 
         // TODO: test validations
     }

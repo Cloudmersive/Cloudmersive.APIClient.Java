@@ -15,6 +15,8 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.model.AddPdfAnnotationRequest;
 import java.math.BigDecimal;
+import com.cloudmersive.client.model.EditPdfBatchJobCreateResult;
+import com.cloudmersive.client.model.EditPdfJobStatusResult;
 import java.io.File;
 import com.cloudmersive.client.model.GetPdfAnnotationsResult;
 import com.cloudmersive.client.model.PdfFormFields;
@@ -109,6 +111,24 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Remove, delete pages from a PDF document as Batch Job
+     *
+     * Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfDeletePagesBatchJobTest() throws Exception {
+        File inputFile = null;
+        Integer pageStart = null;
+        Integer pageEnd = null;
+        EditPdfBatchJobCreateResult response = api.editPdfDeletePagesBatchJob(inputFile, pageStart, pageEnd);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Encrypt and password-protect a PDF
      *
      * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
@@ -139,6 +159,22 @@ public class EditPdfApiTest {
     public void editPdfGetAnnotationsTest() throws Exception {
         File inputFile = null;
         GetPdfAnnotationsResult response = api.editPdfGetAnnotations(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the status and result of a PDF Batch Job
+     *
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfGetAsyncJobStatusTest() throws Exception {
+        String asyncJobID = null;
+        EditPdfJobStatusResult response = api.editPdfGetAsyncJobStatus(asyncJobID);
 
         // TODO: test validations
     }
@@ -213,6 +249,26 @@ public class EditPdfApiTest {
     }
     
     /**
+     * Insert, copy pages from one PDF document into another as a batch job
+     *
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfInsertPagesBatchJobTest() throws Exception {
+        File sourceFile = null;
+        File destinationFile = null;
+        Integer pageStartSource = null;
+        Integer pageEndSource = null;
+        Integer pageInsertBeforeDesitnation = null;
+        EditPdfBatchJobCreateResult response = api.editPdfInsertPagesBatchJob(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Linearize and optimize a PDF for streaming download
      *
      * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
@@ -239,7 +295,24 @@ public class EditPdfApiTest {
     @Test
     public void editPdfRasterizeTest() throws Exception {
         File inputFile = null;
-        byte[] response = api.editPdfRasterize(inputFile);
+        Integer dpi = null;
+        byte[] response = api.editPdfRasterize(inputFile, dpi);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Rasterize a PDF to an image-based PDF as Batch Job
+     *
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void editPdfRasterizeBatchJobTest() throws Exception {
+        File inputFile = null;
+        EditPdfBatchJobCreateResult response = api.editPdfRasterizeBatchJob(inputFile);
 
         // TODO: test validations
     }

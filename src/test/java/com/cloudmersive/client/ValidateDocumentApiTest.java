@@ -85,6 +85,23 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Repair a Word document (DOCX) that contains errors
+     *
+     * Repair a Word document (DOCX) that contains errors or corruption, if possible.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentDocxRepairTest() throws Exception {
+        File inputFile = null;
+        String repairMode = null;
+        byte[] response = api.validateDocumentDocxRepair(inputFile, repairMode);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Word document (DOCX)
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
@@ -293,6 +310,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Repair a PowerPoint presentation (PPTX) that contains errors
+     *
+     * Repair a PowerPoint presentation document (PPTX) that contains errors or corruption, if possible.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentPptxRepairTest() throws Exception {
+        File inputFile = null;
+        byte[] response = api.validateDocumentPptxRepair(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a PowerPoint presentation (PPTX)
      *
      * Validate a PowerPoint presentation (PPTX); if the document is not valid, identifies the errors in the document
@@ -384,6 +417,22 @@ public class ValidateDocumentApiTest {
     public void validateDocumentXlsValidationTest() throws Exception {
         File inputFile = null;
         DocumentValidationResult response = api.validateDocumentXlsValidation(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Repair an Excel spreadsheet (XLSX) that contains errors
+     *
+     * Repair an Excel spreadsheet document (XLSX) that contains errors or corruption, if possible.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentXlsxRepairTest() throws Exception {
+        File inputFile = null;
+        byte[] response = api.validateDocumentXlsxRepair(inputFile);
 
         // TODO: test validations
     }

@@ -98,7 +98,8 @@ public class ConvertImageApiTest {
         String format1 = null;
         String format2 = null;
         File inputFile = null;
-        MultipageImageFormatConversionResult response = api.convertImageMultipageImageFormatConvert(format1, format2, inputFile);
+        Integer dpi = null;
+        MultipageImageFormatConversionResult response = api.convertImageMultipageImageFormatConvert(format1, format2, inputFile, dpi);
 
         // TODO: test validations
     }

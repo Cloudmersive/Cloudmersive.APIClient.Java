@@ -17,6 +17,8 @@ import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToJpgResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
 import com.cloudmersive.client.model.AutodetectToThumbnailsResult;
+import com.cloudmersive.client.model.ConvertDocumentBatchJobCreateResult;
+import com.cloudmersive.client.model.ConvertDocumentJobStatusResult;
 import com.cloudmersive.client.model.CsvCollection;
 import com.cloudmersive.client.model.DocxToJpgResult;
 import com.cloudmersive.client.model.DocxToPngResult;
@@ -107,6 +109,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentAutodetectToPdfTest() throws Exception {
         File inputFile = null;
         byte[] response = api.convertDocumentAutodetectToPdf(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert Document to PDF as Batch Job
+     *
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentAutodetectToPdfBatchJobTest() throws Exception {
+        File inputFile = null;
+        ConvertDocumentBatchJobCreateResult response = api.convertDocumentAutodetectToPdfBatchJob(inputFile);
 
         // TODO: test validations
     }
@@ -483,6 +501,22 @@ public class ConvertDocumentApiTest {
     public void convertDocumentEmlToPngTest() throws Exception {
         File inputFile = null;
         EmlToPngResult response = api.convertDocumentEmlToPng(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the status and result of a Convert Document Batch Job
+     *
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentGetAsyncJobStatusTest() throws Exception {
+        String asyncJobID = null;
+        ConvertDocumentJobStatusResult response = api.convertDocumentGetAsyncJobStatus(asyncJobID);
 
         // TODO: test validations
     }
@@ -959,7 +993,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentPdfToPngArrayTest() throws Exception {
         File inputFile = null;
-        PdfToPngResult response = api.convertDocumentPdfToPngArray(inputFile);
+        Integer dpi = null;
+        PdfToPngResult response = api.convertDocumentPdfToPngArray(inputFile, dpi);
 
         // TODO: test validations
     }
@@ -975,7 +1010,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentPdfToPngArrayDirectTest() throws Exception {
         File inputFile = null;
-        PdfToPngDirectResult response = api.convertDocumentPdfToPngArrayDirect(inputFile);
+        Integer dpi = null;
+        PdfToPngDirectResult response = api.convertDocumentPdfToPngArrayDirect(inputFile, dpi);
 
         // TODO: test validations
     }
@@ -1008,6 +1044,24 @@ public class ConvertDocumentApiTest {
     public void convertDocumentPdfToPptxTest() throws Exception {
         File inputFile = null;
         byte[] response = api.convertDocumentPdfToPptx(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert PDF to TIFF image
+     *
+     * Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPdfToTiffTest() throws Exception {
+        File inputFile = null;
+        Integer dpi = null;
+        Boolean lzwCompression = null;
+        byte[] response = api.convertDocumentPdfToTiff(inputFile, dpi, lzwCompression);
 
         // TODO: test validations
     }
@@ -1050,6 +1104,21 @@ public class ConvertDocumentApiTest {
         File inputFile9 = null;
         File inputFile10 = null;
         byte[] response = api.convertDocumentPngArrayToPdf(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Convert PNG Array to PDF and remove transparency
+     *
+     * Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentPngArrayToPdfFlattenTransparencyTest() throws Exception {
+        Object response = api.convertDocumentPngArrayToPdfFlattenTransparency();
 
         // TODO: test validations
     }
@@ -1128,7 +1197,8 @@ public class ConvertDocumentApiTest {
      */
     @Test
     public void convertDocumentPptxToPptTest() throws Exception {
-        Object response = api.convertDocumentPptxToPpt();
+        File inputFile = null;
+        byte[] response = api.convertDocumentPptxToPpt(inputFile);
 
         // TODO: test validations
     }

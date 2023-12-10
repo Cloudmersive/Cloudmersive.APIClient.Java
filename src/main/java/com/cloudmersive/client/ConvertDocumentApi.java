@@ -31,6 +31,8 @@ import com.cloudmersive.client.model.AutodetectGetInfoResult;
 import com.cloudmersive.client.model.AutodetectToJpgResult;
 import com.cloudmersive.client.model.AutodetectToPngResult;
 import com.cloudmersive.client.model.AutodetectToThumbnailsResult;
+import com.cloudmersive.client.model.ConvertDocumentBatchJobCreateResult;
+import com.cloudmersive.client.model.ConvertDocumentJobStatusResult;
 import com.cloudmersive.client.model.CsvCollection;
 import com.cloudmersive.client.model.DocxToJpgResult;
 import com.cloudmersive.client.model.DocxToPngResult;
@@ -459,6 +461,130 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentAutodetectToPdfValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentAutodetectToPdfBatchJob
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAutodetectToPdfBatchJobCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/autodetect/to/pdf/batch-job";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentAutodetectToPdfBatchJobValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentAutodetectToPdfBatchJob(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToPdfBatchJobCall(inputFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert Document to PDF as Batch Job
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ConvertDocumentBatchJobCreateResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConvertDocumentBatchJobCreateResult convertDocumentAutodetectToPdfBatchJob(File inputFile) throws ApiException {
+        ApiResponse<ConvertDocumentBatchJobCreateResult> resp = convertDocumentAutodetectToPdfBatchJobWithHttpInfo(inputFile);
+        return resp.getData();
+    }
+
+    /**
+     * Convert Document to PDF as Batch Job
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;ConvertDocumentBatchJobCreateResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConvertDocumentBatchJobCreateResult> convertDocumentAutodetectToPdfBatchJobWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToPdfBatchJobValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<ConvertDocumentBatchJobCreateResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert Document to PDF as Batch Job (asynchronously)
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAutodetectToPdfBatchJobAsync(File inputFile, final ApiCallback<ConvertDocumentBatchJobCreateResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentAutodetectToPdfBatchJobValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConvertDocumentBatchJobCreateResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3336,6 +3462,130 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentEmlToPngValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EmlToPngResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentGetAsyncJobStatus
+     * @param asyncJobID  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentGetAsyncJobStatusCall(String asyncJobID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/batch-job/status";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (asyncJobID != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("AsyncJobID", asyncJobID));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentGetAsyncJobStatusValidateBeforeCall(String asyncJobID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'asyncJobID' is set
+        if (asyncJobID == null) {
+            throw new ApiException("Missing the required parameter 'asyncJobID' when calling convertDocumentGetAsyncJobStatus(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentGetAsyncJobStatusCall(asyncJobID, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the status and result of a Convert Document Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return ConvertDocumentJobStatusResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConvertDocumentJobStatusResult convertDocumentGetAsyncJobStatus(String asyncJobID) throws ApiException {
+        ApiResponse<ConvertDocumentJobStatusResult> resp = convertDocumentGetAsyncJobStatusWithHttpInfo(asyncJobID);
+        return resp.getData();
+    }
+
+    /**
+     * Get the status and result of a Convert Document Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return ApiResponse&lt;ConvertDocumentJobStatusResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConvertDocumentJobStatusResult> convertDocumentGetAsyncJobStatusWithHttpInfo(String asyncJobID) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentGetAsyncJobStatusValidateBeforeCall(asyncJobID, null, null);
+        Type localVarReturnType = new TypeToken<ConvertDocumentJobStatusResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the status and result of a Convert Document Batch Job (asynchronously)
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentGetAsyncJobStatusAsync(String asyncJobID, final ApiCallback<ConvertDocumentJobStatusResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentGetAsyncJobStatusValidateBeforeCall(asyncJobID, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConvertDocumentJobStatusResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6892,12 +7142,13 @@ public class ConvertDocumentApi {
     /**
      * Build call for convertDocumentPdfToPngArray
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayCall(File inputFile, Integer dpi, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6907,6 +7158,8 @@ public class ConvertDocumentApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (dpi != null)
+        localVarHeaderParams.put("dpi", apiClient.parameterToString(dpi));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -6941,7 +7194,7 @@ public class ConvertDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentPdfToPngArrayValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentPdfToPngArrayValidateBeforeCall(File inputFile, Integer dpi, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -6949,7 +7202,7 @@ public class ConvertDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayCall(inputFile, dpi, progressListener, progressRequestListener);
         return call;
 
     }
@@ -6958,11 +7211,12 @@ public class ConvertDocumentApi {
      * Convert PDF to PNG Image Array
      * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @return PdfToPngResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PdfToPngResult convertDocumentPdfToPngArray(File inputFile) throws ApiException {
-        ApiResponse<PdfToPngResult> resp = convertDocumentPdfToPngArrayWithHttpInfo(inputFile);
+    public PdfToPngResult convertDocumentPdfToPngArray(File inputFile, Integer dpi) throws ApiException {
+        ApiResponse<PdfToPngResult> resp = convertDocumentPdfToPngArrayWithHttpInfo(inputFile, dpi);
         return resp.getData();
     }
 
@@ -6970,11 +7224,12 @@ public class ConvertDocumentApi {
      * Convert PDF to PNG Image Array
      * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @return ApiResponse&lt;PdfToPngResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PdfToPngResult> convertDocumentPdfToPngArrayWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<PdfToPngResult> convertDocumentPdfToPngArrayWithHttpInfo(File inputFile, Integer dpi) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayValidateBeforeCall(inputFile, dpi, null, null);
         Type localVarReturnType = new TypeToken<PdfToPngResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -6983,11 +7238,12 @@ public class ConvertDocumentApi {
      * Convert PDF to PNG Image Array (asynchronously)
      * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayAsync(File inputFile, final ApiCallback<PdfToPngResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayAsync(File inputFile, Integer dpi, final ApiCallback<PdfToPngResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7008,7 +7264,7 @@ public class ConvertDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayValidateBeforeCall(inputFile, dpi, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PdfToPngResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -7016,12 +7272,13 @@ public class ConvertDocumentApi {
     /**
      * Build call for convertDocumentPdfToPngArrayDirect
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectCall(File inputFile, Integer dpi, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7031,6 +7288,8 @@ public class ConvertDocumentApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (dpi != null)
+        localVarHeaderParams.put("dpi", apiClient.parameterToString(dpi));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -7065,7 +7324,7 @@ public class ConvertDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectValidateBeforeCall(File inputFile, Integer dpi, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -7073,7 +7332,7 @@ public class ConvertDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectCall(inputFile, dpi, progressListener, progressRequestListener);
         return call;
 
     }
@@ -7082,11 +7341,12 @@ public class ConvertDocumentApi {
      * Convert PDF to PNG Image Array (Direct)
      * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @return PdfToPngDirectResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PdfToPngDirectResult convertDocumentPdfToPngArrayDirect(File inputFile) throws ApiException {
-        ApiResponse<PdfToPngDirectResult> resp = convertDocumentPdfToPngArrayDirectWithHttpInfo(inputFile);
+    public PdfToPngDirectResult convertDocumentPdfToPngArrayDirect(File inputFile, Integer dpi) throws ApiException {
+        ApiResponse<PdfToPngDirectResult> resp = convertDocumentPdfToPngArrayDirectWithHttpInfo(inputFile, dpi);
         return resp.getData();
     }
 
@@ -7094,11 +7354,12 @@ public class ConvertDocumentApi {
      * Convert PDF to PNG Image Array (Direct)
      * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @return ApiResponse&lt;PdfToPngDirectResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PdfToPngDirectResult> convertDocumentPdfToPngArrayDirectWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectValidateBeforeCall(inputFile, null, null);
+    public ApiResponse<PdfToPngDirectResult> convertDocumentPdfToPngArrayDirectWithHttpInfo(File inputFile, Integer dpi) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectValidateBeforeCall(inputFile, dpi, null, null);
         Type localVarReturnType = new TypeToken<PdfToPngDirectResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -7107,11 +7368,12 @@ public class ConvertDocumentApi {
      * Convert PDF to PNG Image Array (Direct) (asynchronously)
      * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectAsync(File inputFile, final ApiCallback<PdfToPngDirectResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPdfToPngArrayDirectAsync(File inputFile, Integer dpi, final ApiCallback<PdfToPngDirectResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7132,7 +7394,7 @@ public class ConvertDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPdfToPngArrayDirectValidateBeforeCall(inputFile, dpi, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PdfToPngDirectResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -7381,6 +7643,142 @@ public class ConvertDocumentApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentPdfToPptxValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentPdfToTiff
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @param lzwCompression Optional; Enables LZW compression to reduce the size of the output image. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPdfToTiffCall(File inputFile, Integer dpi, Boolean lzwCompression, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/pdf/to/tiff";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (dpi != null)
+        localVarHeaderParams.put("dpi", apiClient.parameterToString(dpi));
+        if (lzwCompression != null)
+        localVarHeaderParams.put("lzwCompression", apiClient.parameterToString(lzwCompression));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentPdfToTiffValidateBeforeCall(File inputFile, Integer dpi, Boolean lzwCompression, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentPdfToTiff(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentPdfToTiffCall(inputFile, dpi, lzwCompression, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert PDF to TIFF image
+     * Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @param lzwCompression Optional; Enables LZW compression to reduce the size of the output image. (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] convertDocumentPdfToTiff(File inputFile, Integer dpi, Boolean lzwCompression) throws ApiException {
+        ApiResponse<byte[]> resp = convertDocumentPdfToTiffWithHttpInfo(inputFile, dpi, lzwCompression);
+        return resp.getData();
+    }
+
+    /**
+     * Convert PDF to TIFF image
+     * Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @param lzwCompression Optional; Enables LZW compression to reduce the size of the output image. (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> convertDocumentPdfToTiffWithHttpInfo(File inputFile, Integer dpi, Boolean lzwCompression) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPdfToTiffValidateBeforeCall(inputFile, dpi, lzwCompression, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert PDF to TIFF image (asynchronously)
+     * Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @param lzwCompression Optional; Enables LZW compression to reduce the size of the output image. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPdfToTiffAsync(File inputFile, Integer dpi, Boolean lzwCompression, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentPdfToTiffValidateBeforeCall(inputFile, dpi, lzwCompression, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -7695,6 +8093,119 @@ public class ConvertDocumentApi {
 
         com.squareup.okhttp.Call call = convertDocumentPngArrayToPdfValidateBeforeCall(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocumentPngArrayToPdfFlattenTransparency
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPngArrayToPdfFlattenTransparencyCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/png/to/pdf/remove-transparency";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentPngArrayToPdfFlattenTransparencyValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = convertDocumentPngArrayToPdfFlattenTransparencyCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Convert PNG Array to PDF and remove transparency
+     * Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object convertDocumentPngArrayToPdfFlattenTransparency() throws ApiException {
+        ApiResponse<Object> resp = convertDocumentPngArrayToPdfFlattenTransparencyWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Convert PNG Array to PDF and remove transparency
+     * Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> convertDocumentPngArrayToPdfFlattenTransparencyWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPngArrayToPdfFlattenTransparencyValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Convert PNG Array to PDF and remove transparency (asynchronously)
+     * Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentPngArrayToPdfFlattenTransparencyAsync(final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentPngArrayToPdfFlattenTransparencyValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8196,12 +8707,13 @@ public class ConvertDocumentApi {
     }
     /**
      * Build call for convertDocumentPptxToPpt
+     * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPptxToPptCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPptxToPptCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8213,6 +8725,8 @@ public class ConvertDocumentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile != null)
+        localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
             "application/octet-stream"
@@ -8221,7 +8735,7 @@ public class ConvertDocumentApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8243,10 +8757,15 @@ public class ConvertDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentPptxToPptValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentPptxToPptValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile' is set
+        if (inputFile == null) {
+            throw new ApiException("Missing the required parameter 'inputFile' when calling convertDocumentPptxToPpt(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = convertDocumentPptxToPptCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = convertDocumentPptxToPptCall(inputFile, progressListener, progressRequestListener);
         return call;
 
     }
@@ -8254,34 +8773,37 @@ public class ConvertDocumentApi {
     /**
      * Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
      * Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
-     * @return Object
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object convertDocumentPptxToPpt() throws ApiException {
-        ApiResponse<Object> resp = convertDocumentPptxToPptWithHttpInfo();
+    public byte[] convertDocumentPptxToPpt(File inputFile) throws ApiException {
+        ApiResponse<byte[]> resp = convertDocumentPptxToPptWithHttpInfo(inputFile);
         return resp.getData();
     }
 
     /**
      * Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
      * Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
-     * @return ApiResponse&lt;Object&gt;
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> convertDocumentPptxToPptWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = convertDocumentPptxToPptValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+    public ApiResponse<byte[]> convertDocumentPptxToPptWithHttpInfo(File inputFile) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentPptxToPptValidateBeforeCall(inputFile, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03) (asynchronously)
      * Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+     * @param inputFile Input file to perform the operation on. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentPptxToPptAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentPptxToPptAsync(File inputFile, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8302,8 +8824,8 @@ public class ConvertDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = convertDocumentPptxToPptValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        com.squareup.okhttp.Call call = convertDocumentPptxToPptValidateBeforeCall(inputFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -9586,7 +10108,7 @@ public class ConvertDocumentApi {
         localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
-            "application/octet-stream"
+            "application/json", "text/json", "application/xml", "text/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);

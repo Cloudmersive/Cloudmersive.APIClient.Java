@@ -29,10 +29,13 @@ import org.threeten.bp.OffsetDateTime;
  * Result of an autodetect/get-info operation
  */
 @ApiModel(description = "Result of an autodetect/get-info operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-03T15:49:38.314-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:38.370-08:00")
 public class PdfMetadata {
   @SerializedName("Successful")
   private Boolean successful = null;
+
+  @SerializedName("ErrorDetails")
+  private String errorDetails = null;
 
   @SerializedName("Title")
   private String title = null;
@@ -58,6 +61,9 @@ public class PdfMetadata {
   @SerializedName("PageCount")
   private Integer pageCount = null;
 
+  @SerializedName("Encrypted")
+  private Boolean encrypted = null;
+
   public PdfMetadata successful(Boolean successful) {
     this.successful = successful;
     return this;
@@ -74,6 +80,24 @@ public class PdfMetadata {
 
   public void setSuccessful(Boolean successful) {
     this.successful = successful;
+  }
+
+  public PdfMetadata errorDetails(String errorDetails) {
+    this.errorDetails = errorDetails;
+    return this;
+  }
+
+   /**
+   * Details of any errors if the operation was unsucessful
+   * @return errorDetails
+  **/
+  @ApiModelProperty(value = "Details of any errors if the operation was unsucessful")
+  public String getErrorDetails() {
+    return errorDetails;
+  }
+
+  public void setErrorDetails(String errorDetails) {
+    this.errorDetails = errorDetails;
   }
 
   public PdfMetadata title(String title) {
@@ -220,6 +244,24 @@ public class PdfMetadata {
     this.pageCount = pageCount;
   }
 
+  public PdfMetadata encrypted(Boolean encrypted) {
+    this.encrypted = encrypted;
+    return this;
+  }
+
+   /**
+   * True if the PDF document is encrypted, false otherwise
+   * @return encrypted
+  **/
+  @ApiModelProperty(value = "True if the PDF document is encrypted, false otherwise")
+  public Boolean isEncrypted() {
+    return encrypted;
+  }
+
+  public void setEncrypted(Boolean encrypted) {
+    this.encrypted = encrypted;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -231,6 +273,7 @@ public class PdfMetadata {
     }
     PdfMetadata pdfMetadata = (PdfMetadata) o;
     return Objects.equals(this.successful, pdfMetadata.successful) &&
+        Objects.equals(this.errorDetails, pdfMetadata.errorDetails) &&
         Objects.equals(this.title, pdfMetadata.title) &&
         Objects.equals(this.keywords, pdfMetadata.keywords) &&
         Objects.equals(this.subject, pdfMetadata.subject) &&
@@ -238,12 +281,13 @@ public class PdfMetadata {
         Objects.equals(this.creator, pdfMetadata.creator) &&
         Objects.equals(this.dateModified, pdfMetadata.dateModified) &&
         Objects.equals(this.dateCreated, pdfMetadata.dateCreated) &&
-        Objects.equals(this.pageCount, pdfMetadata.pageCount);
+        Objects.equals(this.pageCount, pdfMetadata.pageCount) &&
+        Objects.equals(this.encrypted, pdfMetadata.encrypted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, title, keywords, subject, author, creator, dateModified, dateCreated, pageCount);
+    return Objects.hash(successful, errorDetails, title, keywords, subject, author, creator, dateModified, dateCreated, pageCount, encrypted);
   }
 
 
@@ -253,6 +297,7 @@ public class PdfMetadata {
     sb.append("class PdfMetadata {\n");
     
     sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
+    sb.append("    errorDetails: ").append(toIndentedString(errorDetails)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
@@ -261,6 +306,7 @@ public class PdfMetadata {
     sb.append("    dateModified: ").append(toIndentedString(dateModified)).append("\n");
     sb.append("    dateCreated: ").append(toIndentedString(dateCreated)).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
+    sb.append("    encrypted: ").append(toIndentedString(encrypted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

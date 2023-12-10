@@ -58,12 +58,13 @@ public class CompareDocumentApi {
      * Build call for compareDocumentDocx
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentDocxCall(File inputFile1, File inputFile2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call compareDocumentDocxCall(File inputFile1, File inputFile2, Boolean autorepair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -73,6 +74,8 @@ public class CompareDocumentApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (autorepair != null)
+        localVarHeaderParams.put("autorepair", apiClient.parameterToString(autorepair));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile1 != null)
@@ -109,7 +112,7 @@ public class CompareDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call compareDocumentDocxValidateBeforeCall(File inputFile1, File inputFile2, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call compareDocumentDocxValidateBeforeCall(File inputFile1, File inputFile2, Boolean autorepair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile1' is set
         if (inputFile1 == null) {
@@ -122,7 +125,7 @@ public class CompareDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = compareDocumentDocxCall(inputFile1, inputFile2, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = compareDocumentDocxCall(inputFile1, inputFile2, autorepair, progressListener, progressRequestListener);
         return call;
 
     }
@@ -132,11 +135,12 @@ public class CompareDocumentApi {
      * Compare two Office Word Documents (docx) files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] compareDocumentDocx(File inputFile1, File inputFile2) throws ApiException {
-        ApiResponse<byte[]> resp = compareDocumentDocxWithHttpInfo(inputFile1, inputFile2);
+    public byte[] compareDocumentDocx(File inputFile1, File inputFile2, Boolean autorepair) throws ApiException {
+        ApiResponse<byte[]> resp = compareDocumentDocxWithHttpInfo(inputFile1, inputFile2, autorepair);
         return resp.getData();
     }
 
@@ -145,11 +149,12 @@ public class CompareDocumentApi {
      * Compare two Office Word Documents (docx) files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> compareDocumentDocxWithHttpInfo(File inputFile1, File inputFile2) throws ApiException {
-        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, null, null);
+    public ApiResponse<byte[]> compareDocumentDocxWithHttpInfo(File inputFile1, File inputFile2, Boolean autorepair) throws ApiException {
+        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, autorepair, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -159,11 +164,12 @@ public class CompareDocumentApi {
      * Compare two Office Word Documents (docx) files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentDocxAsync(File inputFile1, File inputFile2, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call compareDocumentDocxAsync(File inputFile1, File inputFile2, Boolean autorepair, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -184,7 +190,7 @@ public class CompareDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, autorepair, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

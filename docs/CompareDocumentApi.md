@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="compareDocumentDocx"></a>
 # **compareDocumentDocx**
-> byte[] compareDocumentDocx(inputFile1, inputFile2)
+> byte[] compareDocumentDocx(inputFile1, inputFile2, autorepair)
 
 Compare Two Word DOCX
 
@@ -35,8 +35,9 @@ Apikey.setApiKey("YOUR API KEY");
 CompareDocumentApi apiInstance = new CompareDocumentApi();
 File inputFile1 = new File("/path/to/file.txt"); // File | First input file to perform the operation on.
 File inputFile2 = new File("/path/to/file.txt"); // File | Second input file to perform the operation on (more than 2 can be supplied).
+Boolean autorepair = true; // Boolean | Optional; automatically repair input documents that have errors (default is true)
 try {
-    byte[] result = apiInstance.compareDocumentDocx(inputFile1, inputFile2);
+    byte[] result = apiInstance.compareDocumentDocx(inputFile1, inputFile2, autorepair);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CompareDocumentApi#compareDocumentDocx");
@@ -50,6 +51,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile1** | **File**| First input file to perform the operation on. |
  **inputFile2** | **File**| Second input file to perform the operation on (more than 2 can be supplied). |
+ **autorepair** | **Boolean**| Optional; automatically repair input documents that have errors (default is true) | [optional]
 
 ### Return type
 
