@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing an extract entities operation
  */
 @ApiModel(description = "Result of performing an extract entities operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:00:09.565-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:15.733Z")
 public class ExtractEntitiesResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

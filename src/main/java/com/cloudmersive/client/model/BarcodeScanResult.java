@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of the barcode scan
  */
 @ApiModel(description = "Result of the barcode scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:03.298-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:25.415Z")
 public class BarcodeScanResult {
   @SerializedName("Successful")
   private Boolean successful = null;

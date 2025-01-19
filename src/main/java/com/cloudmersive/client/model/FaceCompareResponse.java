@@ -31,7 +31,7 @@ import java.util.List;
  * Results of comparing/matching faces in an image
  */
 @ApiModel(description = "Results of comparing/matching faces in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:18.136-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:30.907Z")
 public class FaceCompareResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

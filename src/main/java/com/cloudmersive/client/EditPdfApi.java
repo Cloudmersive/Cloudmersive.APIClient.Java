@@ -2617,7 +2617,7 @@ public class EditPdfApi {
     /**
      * Build call for editPdfResize
      * @param inputFile Input file to perform the operation on. (required)
-     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest), and Letter, Legal, Tabloid, Ledger and B5. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2691,7 +2691,7 @@ public class EditPdfApi {
      * Change PDF Document&#39;s Paper Size
      * Resizes a PDF document&#39;s paper size.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest), and Letter, Legal, Tabloid, Ledger and B5. (required)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2704,7 +2704,7 @@ public class EditPdfApi {
      * Change PDF Document&#39;s Paper Size
      * Resizes a PDF document&#39;s paper size.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest), and Letter, Legal, Tabloid, Ledger and B5. (required)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2718,7 +2718,7 @@ public class EditPdfApi {
      * Change PDF Document&#39;s Paper Size (asynchronously)
      * Resizes a PDF document&#39;s paper size.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest), and Letter, Legal, Tabloid, Ledger and B5. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

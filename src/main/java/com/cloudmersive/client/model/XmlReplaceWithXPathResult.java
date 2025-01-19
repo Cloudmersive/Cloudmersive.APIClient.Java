@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a replace node operation on XML input using XPath
  */
 @ApiModel(description = "Result of performing a replace node operation on XML input using XPath")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:38.370-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
 public class XmlReplaceWithXPathResult {
   @SerializedName("Successful")
   private Boolean successful = null;

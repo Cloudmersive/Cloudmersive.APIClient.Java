@@ -15,6 +15,8 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.model.AppendXlsxRowRequest;
 import com.cloudmersive.client.model.AppendXlsxRowResponse;
+import com.cloudmersive.client.model.BeginEditingChunkRequest;
+import com.cloudmersive.client.model.BeginEditingChunkResponse;
 import com.cloudmersive.client.model.ClearXlsxCellRequest;
 import com.cloudmersive.client.model.ClearXlsxCellResponse;
 import com.cloudmersive.client.model.ClearXlsxRowRequest;
@@ -151,6 +153,22 @@ public class EditDocumentApiTest {
     public void editDocumentBeginEditingTest() throws Exception {
         File inputFile = null;
         String response = api.editDocumentBeginEditing(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Begin editing a document that is broken up until multiple chunks
+     *
+     * Requires Cloudmersive Private Cloud or Managed Instance.  When working with systems that have small file size limits, enables processing of large files above this limit.  Uploads a chunk of a document in Base64; once all chunks are received a document URL is returned.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void editDocumentBeginEditingChunkTest() throws Exception {
+        BeginEditingChunkRequest input = null;
+        BeginEditingChunkResponse response = api.editDocumentBeginEditingChunk(input);
 
         // TODO: test validations
     }

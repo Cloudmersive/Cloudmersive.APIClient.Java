@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editDocumentBeginEditing**](EditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
+[**editDocumentBeginEditingChunk**](EditDocumentApi.md#editDocumentBeginEditingChunk) | **POST** /convert/edit/begin-editing/chunk | Begin editing a document that is broken up until multiple chunks
 [**editDocumentDocxAcceptAllTrackChanges**](EditDocumentApi.md#editDocumentDocxAcceptAllTrackChanges) | **POST** /convert/edit/docx/track-changes/accept-all | Accept all tracked changes, revisions in a Word DOCX document
 [**editDocumentDocxBody**](EditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
 [**editDocumentDocxCreateBlankDocument**](EditDocumentApi.md#editDocumentDocxCreateBlankDocument) | **POST** /convert/edit/docx/create/blank | Create a blank Word DOCX document
@@ -131,6 +132,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
+<a name="editDocumentBeginEditingChunk"></a>
+# **editDocumentBeginEditingChunk**
+> BeginEditingChunkResponse editDocumentBeginEditingChunk(input)
+
+Begin editing a document that is broken up until multiple chunks
+
+Requires Cloudmersive Private Cloud or Managed Instance.  When working with systems that have small file size limits, enables processing of large files above this limit.  Uploads a chunk of a document in Base64; once all chunks are received a document URL is returned.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+BeginEditingChunkRequest input = new BeginEditingChunkRequest(); // BeginEditingChunkRequest | 
+try {
+    BeginEditingChunkResponse result = apiInstance.editDocumentBeginEditingChunk(input);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentBeginEditingChunk");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**BeginEditingChunkRequest**](BeginEditingChunkRequest.md)|  |
+
+### Return type
+
+[**BeginEditingChunkResponse**](BeginEditingChunkResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 <a name="editDocumentDocxAcceptAllTrackChanges"></a>
 # **editDocumentDocxAcceptAllTrackChanges**
 > byte[] editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair)
@@ -158,7 +214,7 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditDocumentApi apiInstance = new EditDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
-Boolean autorepair = true; // Boolean | Optional; automatically repair input documents that have errors (default is true)
+Boolean autorepair = true; // Boolean | Optional; automatically repair input documents that have errors (default is false)
 try {
     byte[] result = apiInstance.editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair);
     System.out.println(result);
@@ -173,7 +229,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
- **autorepair** | **Boolean**| Optional; automatically repair input documents that have errors (default is true) | [optional]
+ **autorepair** | **Boolean**| Optional; automatically repair input documents that have errors (default is false) | [optional]
 
 ### Return type
 

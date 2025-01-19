@@ -31,7 +31,7 @@ import java.util.List;
  * The result of splitting a presentation into individual PowerPoint PPTX slides
  */
 @ApiModel(description = "The result of splitting a presentation into individual PowerPoint PPTX slides")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:38.370-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
 public class SplitPptxPresentationResult {
   @SerializedName("ResultPresentations")
   private List<PresentationResult> resultPresentations = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Location of one face in an image, along with match results
  */
 @ApiModel(description = "Location of one face in an image, along with match results")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:18.136-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:30.907Z")
 public class FaceMatch {
   @SerializedName("LeftX")
   private Integer leftX = null;

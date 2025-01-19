@@ -31,7 +31,7 @@ import java.util.List;
  * One row of data in the resulting table
  */
 @ApiModel(description = "One row of data in the resulting table")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:00:46.521-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:20.150Z")
 public class TableRowResult {
   @SerializedName("TableRowCellsResult")
   private List<TableCellResult> tableRowCellsResult = null;

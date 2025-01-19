@@ -28,7 +28,7 @@ import java.io.IOException;
  * Syntactic validity of email address
  */
 @ApiModel(description = "Syntactic validity of email address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T13:59:36.223-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:08.556Z")
 public class AddressVerifySyntaxOnlyResponse {
   @SerializedName("ValidAddress")
   private Boolean validAddress = null;

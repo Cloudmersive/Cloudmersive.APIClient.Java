@@ -28,7 +28,7 @@ import java.io.IOException;
  * Additional non-threat content verification information
  */
 @ApiModel(description = "Additional non-threat content verification information")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:02:30.049-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:45.978Z")
 public class AdditionalAdvancedScanInformation {
   @SerializedName("ContainsJSON")
   private Boolean containsJSON = null;
@@ -39,8 +39,17 @@ public class AdditionalAdvancedScanInformation {
   @SerializedName("ContainsImage")
   private Boolean containsImage = null;
 
+  @SerializedName("Hash_SHA1")
+  private String hashSHA1 = null;
+
   @SerializedName("RelevantSubfileName")
   private String relevantSubfileName = null;
+
+  @SerializedName("RelevantSubfileHash_SHA1")
+  private String relevantSubfileHashSHA1 = null;
+
+  @SerializedName("IsAuthenticodeSigned")
+  private Boolean isAuthenticodeSigned = null;
 
   public AdditionalAdvancedScanInformation containsJSON(Boolean containsJSON) {
     this.containsJSON = containsJSON;
@@ -96,6 +105,24 @@ public class AdditionalAdvancedScanInformation {
     this.containsImage = containsImage;
   }
 
+  public AdditionalAdvancedScanInformation hashSHA1(String hashSHA1) {
+    this.hashSHA1 = hashSHA1;
+    return this;
+  }
+
+   /**
+   * SHA1 hash of input file
+   * @return hashSHA1
+  **/
+  @ApiModelProperty(value = "SHA1 hash of input file")
+  public String getHashSHA1() {
+    return hashSHA1;
+  }
+
+  public void setHashSHA1(String hashSHA1) {
+    this.hashSHA1 = hashSHA1;
+  }
+
   public AdditionalAdvancedScanInformation relevantSubfileName(String relevantSubfileName) {
     this.relevantSubfileName = relevantSubfileName;
     return this;
@@ -114,6 +141,42 @@ public class AdditionalAdvancedScanInformation {
     this.relevantSubfileName = relevantSubfileName;
   }
 
+  public AdditionalAdvancedScanInformation relevantSubfileHashSHA1(String relevantSubfileHashSHA1) {
+    this.relevantSubfileHashSHA1 = relevantSubfileHashSHA1;
+    return this;
+  }
+
+   /**
+   * SHA1 hash of relevant subfile name in an archive format for identified threats, if any
+   * @return relevantSubfileHashSHA1
+  **/
+  @ApiModelProperty(value = "SHA1 hash of relevant subfile name in an archive format for identified threats, if any")
+  public String getRelevantSubfileHashSHA1() {
+    return relevantSubfileHashSHA1;
+  }
+
+  public void setRelevantSubfileHashSHA1(String relevantSubfileHashSHA1) {
+    this.relevantSubfileHashSHA1 = relevantSubfileHashSHA1;
+  }
+
+  public AdditionalAdvancedScanInformation isAuthenticodeSigned(Boolean isAuthenticodeSigned) {
+    this.isAuthenticodeSigned = isAuthenticodeSigned;
+    return this;
+  }
+
+   /**
+   * True if there is a valid Authenticode signature, False otherwise
+   * @return isAuthenticodeSigned
+  **/
+  @ApiModelProperty(value = "True if there is a valid Authenticode signature, False otherwise")
+  public Boolean isIsAuthenticodeSigned() {
+    return isAuthenticodeSigned;
+  }
+
+  public void setIsAuthenticodeSigned(Boolean isAuthenticodeSigned) {
+    this.isAuthenticodeSigned = isAuthenticodeSigned;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +190,15 @@ public class AdditionalAdvancedScanInformation {
     return Objects.equals(this.containsJSON, additionalAdvancedScanInformation.containsJSON) &&
         Objects.equals(this.containsXML, additionalAdvancedScanInformation.containsXML) &&
         Objects.equals(this.containsImage, additionalAdvancedScanInformation.containsImage) &&
-        Objects.equals(this.relevantSubfileName, additionalAdvancedScanInformation.relevantSubfileName);
+        Objects.equals(this.hashSHA1, additionalAdvancedScanInformation.hashSHA1) &&
+        Objects.equals(this.relevantSubfileName, additionalAdvancedScanInformation.relevantSubfileName) &&
+        Objects.equals(this.relevantSubfileHashSHA1, additionalAdvancedScanInformation.relevantSubfileHashSHA1) &&
+        Objects.equals(this.isAuthenticodeSigned, additionalAdvancedScanInformation.isAuthenticodeSigned);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containsJSON, containsXML, containsImage, relevantSubfileName);
+    return Objects.hash(containsJSON, containsXML, containsImage, hashSHA1, relevantSubfileName, relevantSubfileHashSHA1, isAuthenticodeSigned);
   }
 
 
@@ -144,7 +210,10 @@ public class AdditionalAdvancedScanInformation {
     sb.append("    containsJSON: ").append(toIndentedString(containsJSON)).append("\n");
     sb.append("    containsXML: ").append(toIndentedString(containsXML)).append("\n");
     sb.append("    containsImage: ").append(toIndentedString(containsImage)).append("\n");
+    sb.append("    hashSHA1: ").append(toIndentedString(hashSHA1)).append("\n");
     sb.append("    relevantSubfileName: ").append(toIndentedString(relevantSubfileName)).append("\n");
+    sb.append("    relevantSubfileHashSHA1: ").append(toIndentedString(relevantSubfileHashSHA1)).append("\n");
+    sb.append("    isAuthenticodeSigned: ").append(toIndentedString(isAuthenticodeSigned)).append("\n");
     sb.append("}");
     return sb.toString();
   }

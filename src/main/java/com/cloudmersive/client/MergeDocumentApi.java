@@ -122,7 +122,7 @@ public class MergeDocumentApi {
 
     /**
      * Merge an array of Documents into a Single Document by Page as a Batch Job
-     * Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * Merge an array of Documents (PDF, PPTX, DOCX, XLSX supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
      * @param input  (required)
      * @return MergeBatchJobCreateResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -134,7 +134,7 @@ public class MergeDocumentApi {
 
     /**
      * Merge an array of Documents into a Single Document by Page as a Batch Job
-     * Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * Merge an array of Documents (PDF, PPTX, DOCX, XLSX supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
      * @param input  (required)
      * @return ApiResponse&lt;MergeBatchJobCreateResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -147,7 +147,7 @@ public class MergeDocumentApi {
 
     /**
      * Merge an array of Documents into a Single Document by Page as a Batch Job (asynchronously)
-     * Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * Merge an array of Documents (PDF, PPTX, DOCX, XLSX supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
      * @param input  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

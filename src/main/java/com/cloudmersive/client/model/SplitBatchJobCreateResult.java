@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a split document batch job
  */
 @ApiModel(description = "Result of performing a split document batch job")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:01:38.370-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
 public class SplitBatchJobCreateResult {
   @SerializedName("Successful")
   private Boolean successful = null;

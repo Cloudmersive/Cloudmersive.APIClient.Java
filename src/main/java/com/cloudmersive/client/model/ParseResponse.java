@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of linguistic parse operation
  */
 @ApiModel(description = "Result of linguistic parse operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-12-10T14:00:09.565-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:15.733Z")
 public class ParseResponse {
   @SerializedName("ParseTree")
   private String parseTree = null;
