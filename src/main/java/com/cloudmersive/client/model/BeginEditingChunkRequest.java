@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to edit a document comprised of chunks
  */
 @ApiModel(description = "Request to edit a document comprised of chunks")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class BeginEditingChunkRequest {
   @SerializedName("DocumentID")
   private String documentID = null;

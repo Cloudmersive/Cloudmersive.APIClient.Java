@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a Tor node check on an IP address
  */
 @ApiModel(description = "Result of performing a Tor node check on an IP address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:08.556Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:57:58.746Z")
 public class TorNodeResponse {
   @SerializedName("IsTorNode")
   private Boolean isTorNode = null;

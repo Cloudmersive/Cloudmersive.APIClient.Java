@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of getting a file type icon from a file extension
  */
 @ApiModel(description = "Result of getting a file type icon from a file extension")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class GetFileTypeIconResult {
   @SerializedName("Successful")
   private Boolean successful = null;

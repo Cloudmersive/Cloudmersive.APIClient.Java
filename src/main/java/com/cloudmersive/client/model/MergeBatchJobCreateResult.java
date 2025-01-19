@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a merge document batch job
  */
 @ApiModel(description = "Result of performing a merge document batch job")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class MergeBatchJobCreateResult {
   @SerializedName("Successful")
   private Boolean successful = null;

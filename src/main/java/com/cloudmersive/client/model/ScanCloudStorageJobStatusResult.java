@@ -29,7 +29,7 @@ import java.io.IOException;
  * Status of the scan cloud storage job
  */
 @ApiModel(description = "Status of the scan cloud storage job")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:45.978Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:49.286Z")
 public class ScanCloudStorageJobStatusResult {
   @SerializedName("Successful")
   private Boolean successful = null;

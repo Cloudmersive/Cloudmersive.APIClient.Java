@@ -28,7 +28,7 @@ import java.io.IOException;
  * Active document editing session result.  To retrieve the document, use the Finish Editing API.
  */
 @ApiModel(description = "Active document editing session result.  To retrieve the document, use the Finish Editing API.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class DocumentEditingEditSession {
   @SerializedName("Successful")
   private Boolean successful = null;

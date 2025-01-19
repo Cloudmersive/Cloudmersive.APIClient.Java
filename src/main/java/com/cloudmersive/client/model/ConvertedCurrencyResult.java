@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a Convert Currency operation
  */
 @ApiModel(description = "Result of performing a Convert Currency operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:59.479Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:59:06.699Z")
 public class ConvertedCurrencyResult {
   @SerializedName("ConvertedPrice")
   private Double convertedPrice = null;

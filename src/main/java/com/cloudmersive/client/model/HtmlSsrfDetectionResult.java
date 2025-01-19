@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an XXE threat detection operation
  */
 @ApiModel(description = "Result of performing an XXE threat detection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:08.556Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:57:58.746Z")
 public class HtmlSsrfDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;

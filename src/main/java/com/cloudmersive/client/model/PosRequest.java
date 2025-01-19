@@ -28,7 +28,7 @@ import java.io.IOException;
  * Part of speech tagging request
  */
 @ApiModel(description = "Part of speech tagging request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:15.733Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:18.105Z")
 public class PosRequest {
   @SerializedName("InputText")
   private String inputText = null;

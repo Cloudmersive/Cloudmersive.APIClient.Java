@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an ODS input to a PNG array
  */
 @ApiModel(description = "Result of converting an ODS input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class OdsToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

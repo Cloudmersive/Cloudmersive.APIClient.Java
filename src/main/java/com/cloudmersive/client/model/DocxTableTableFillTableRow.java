@@ -31,7 +31,7 @@ import java.util.List;
  * Row data to fill in to the DOCX Table
  */
 @ApiModel(description = "Row data to fill in to the DOCX Table")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class DocxTableTableFillTableRow {
   @SerializedName("Cells")
   private List<DocxTableTableFillTableCell> cells = null;

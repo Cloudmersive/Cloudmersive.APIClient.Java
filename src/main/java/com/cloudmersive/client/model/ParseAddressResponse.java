@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of parsing an address into its component parts
  */
 @ApiModel(description = "Result of parsing an address into its component parts")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:08.556Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:57:58.746Z")
 public class ParseAddressResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

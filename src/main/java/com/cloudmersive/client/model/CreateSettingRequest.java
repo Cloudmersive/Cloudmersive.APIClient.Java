@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to create a setting
  */
 @ApiModel(description = "Request to create a setting")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:49.371Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:52.789Z")
 public class CreateSettingRequest {
   @SerializedName("BucketID")
   private String bucketID = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an MSG file to HTML string
  */
 @ApiModel(description = "Result of converting an MSG file to HTML string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class MsgToHtmlResult {
   @SerializedName("Successful")
   private Boolean successful = null;

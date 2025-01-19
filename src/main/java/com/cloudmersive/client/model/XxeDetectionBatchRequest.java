@@ -31,7 +31,7 @@ import java.util.List;
  * Input to a batch XXE detection operation
  */
 @ApiModel(description = "Input to a batch XXE detection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:08.556Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:57:58.746Z")
 public class XxeDetectionBatchRequest {
   @SerializedName("RequestItems")
   private List<XxeDetectionRequestItem> requestItems = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a language translation operation
  */
 @ApiModel(description = "Input to a language translation operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:15.733Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:18.105Z")
 public class LanguageTranslationRequest {
   @SerializedName("TextToTranslate")
   private String textToTranslate = null;

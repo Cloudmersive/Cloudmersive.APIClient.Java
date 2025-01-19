@@ -28,7 +28,7 @@ import java.io.IOException;
  * Rectangle instance to draw on an image
  */
 @ApiModel(description = "Rectangle instance to draw on an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:30.907Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:33.459Z")
 public class DrawRectangleInstance {
   @SerializedName("BorderColor")
   private String borderColor = null;

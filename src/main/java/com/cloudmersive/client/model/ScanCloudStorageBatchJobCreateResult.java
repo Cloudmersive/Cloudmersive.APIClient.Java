@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a convert documentbatch job operation
  */
 @ApiModel(description = "Result of performing a convert documentbatch job operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:45.978Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:49.286Z")
 public class ScanCloudStorageBatchJobCreateResult {
   @SerializedName("Successful")
   private Boolean successful = null;

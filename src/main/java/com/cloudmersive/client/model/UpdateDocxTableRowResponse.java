@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running an Update Table Row command
  */
 @ApiModel(description = "Result of running an Update Table Row command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class UpdateDocxTableRowResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Finish Editing request
  */
 @ApiModel(description = "Input to a Finish Editing request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class FinishEditingRequest {
   @SerializedName("InputFileUrl")
   private String inputFileUrl = null;

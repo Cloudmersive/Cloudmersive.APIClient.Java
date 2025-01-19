@@ -31,7 +31,7 @@ import java.util.List;
  * Request for DocxSetFormFields operation
  */
 @ApiModel(description = "Request for DocxSetFormFields operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:36.330Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
 public class DocxSetFormFieldsRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

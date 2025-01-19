@@ -31,7 +31,7 @@ import java.util.List;
  * Result of enumeerating Tables in a SQL Server Backup (.BAK) file
  */
 @ApiModel(description = "Result of enumeerating Tables in a SQL Server Backup (.BAK) file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T07:33:56.868Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:59:03.966Z")
 public class MssqlBakEnumerateTablesResult {
   @SerializedName("successful")
   private Boolean successful = null;
