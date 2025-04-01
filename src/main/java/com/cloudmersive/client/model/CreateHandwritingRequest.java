@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to create a PNG of handwriting
  */
 @ApiModel(description = "Request to create a PNG of handwriting")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:52.679-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:43.028-07:00")
 public class CreateHandwritingRequest {
   @SerializedName("TextInput")
   private String textInput = null;

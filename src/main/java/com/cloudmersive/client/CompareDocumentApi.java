@@ -60,27 +60,36 @@ public class CompareDocumentApi {
     }
 
     /**
-     * Build call for compareDocumentDocx
+     * Build call for compareDocumentDoc
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentDocxCall(File inputFile1, File inputFile2, Boolean autorepair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call compareDocumentDocCall(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/convert/compare/docx";
+        String localVarPath = "/convert/compare/doc";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (comparisonMode != null)
+        localVarHeaderParams.put("comparisonMode", apiClient.parameterToString(comparisonMode));
         if (autorepair != null)
         localVarHeaderParams.put("autorepair", apiClient.parameterToString(autorepair));
+        if (changeOutlines != null)
+        localVarHeaderParams.put("changeOutlines", apiClient.parameterToString(changeOutlines));
+        if (headersAndFooters != null)
+        localVarHeaderParams.put("headersAndFooters", apiClient.parameterToString(headersAndFooters));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile1 != null)
@@ -120,64 +129,73 @@ public class CompareDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call compareDocumentDocxValidateBeforeCall(File inputFile1, File inputFile2, Boolean autorepair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call compareDocumentDocValidateBeforeCall(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile1' is set
         if (inputFile1 == null) {
-            throw new ApiException("Missing the required parameter 'inputFile1' when calling compareDocumentDocx(Async)");
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling compareDocumentDoc(Async)");
         }
         
         // verify the required parameter 'inputFile2' is set
         if (inputFile2 == null) {
-            throw new ApiException("Missing the required parameter 'inputFile2' when calling compareDocumentDocx(Async)");
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling compareDocumentDoc(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = compareDocumentDocxCall(inputFile1, inputFile2, autorepair, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = compareDocumentDocCall(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Compare Two Word DOCX
-     * Compare two Office Word Documents (docx) files and highlight the differences
+     * Compare Two Word DOC (Legacy 97-2003 Format)
+     * Compare two Office Word Documents (doc) legacy 97-2003 format files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] compareDocumentDocx(File inputFile1, File inputFile2, Boolean autorepair) throws ApiException {
-        ApiResponse<byte[]> resp = compareDocumentDocxWithHttpInfo(inputFile1, inputFile2, autorepair);
+    public byte[] compareDocumentDoc(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters) throws ApiException {
+        ApiResponse<byte[]> resp = compareDocumentDocWithHttpInfo(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters);
         return resp.getData();
     }
 
     /**
-     * Compare Two Word DOCX
-     * Compare two Office Word Documents (docx) files and highlight the differences
+     * Compare Two Word DOC (Legacy 97-2003 Format)
+     * Compare two Office Word Documents (doc) legacy 97-2003 format files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> compareDocumentDocxWithHttpInfo(File inputFile1, File inputFile2, Boolean autorepair) throws ApiException {
-        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, autorepair, null, null);
+    public ApiResponse<byte[]> compareDocumentDocWithHttpInfo(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters) throws ApiException {
+        com.squareup.okhttp.Call call = compareDocumentDocValidateBeforeCall(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Compare Two Word DOCX (asynchronously)
-     * Compare two Office Word Documents (docx) files and highlight the differences
+     * Compare Two Word DOC (Legacy 97-2003 Format) (asynchronously)
+     * Compare two Office Word Documents (doc) legacy 97-2003 format files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentDocxAsync(File inputFile1, File inputFile2, Boolean autorepair, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call compareDocumentDocAsync(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -198,7 +216,169 @@ public class CompareDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, autorepair, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = compareDocumentDocValidateBeforeCall(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for compareDocumentDocx
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call compareDocumentDocxCall(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/convert/compare/docx";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (comparisonMode != null)
+        localVarHeaderParams.put("comparisonMode", apiClient.parameterToString(comparisonMode));
+        if (autorepair != null)
+        localVarHeaderParams.put("autorepair", apiClient.parameterToString(autorepair));
+        if (changeOutlines != null)
+        localVarHeaderParams.put("changeOutlines", apiClient.parameterToString(changeOutlines));
+        if (headersAndFooters != null)
+        localVarHeaderParams.put("headersAndFooters", apiClient.parameterToString(headersAndFooters));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (inputFile1 != null)
+        localVarFormParams.put("inputFile1", inputFile1);
+        if (inputFile2 != null)
+        localVarFormParams.put("inputFile2", inputFile2);
+
+        final String[] localVarAccepts = {
+            "application/octet-stream"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call compareDocumentDocxValidateBeforeCall(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'inputFile1' is set
+        if (inputFile1 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile1' when calling compareDocumentDocx(Async)");
+        }
+        
+        // verify the required parameter 'inputFile2' is set
+        if (inputFile2 == null) {
+            throw new ApiException("Missing the required parameter 'inputFile2' when calling compareDocumentDocx(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = compareDocumentDocxCall(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Compare Two Word DOCX
+     * Compare two Office Word Documents (docx) files and highlight the differences
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] compareDocumentDocx(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters) throws ApiException {
+        ApiResponse<byte[]> resp = compareDocumentDocxWithHttpInfo(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters);
+        return resp.getData();
+    }
+
+    /**
+     * Compare Two Word DOCX
+     * Compare two Office Word Documents (docx) files and highlight the differences
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> compareDocumentDocxWithHttpInfo(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters) throws ApiException {
+        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Compare Two Word DOCX (asynchronously)
+     * Compare two Office Word Documents (docx) files and highlight the differences
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param comparisonMode Optional; set to basic for a basic comparison, and advanced for advanced comparison mode.  Advanced comparison mode requires Managed Instance or Private Cloud deployment. (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
+     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call compareDocumentDocxAsync(File inputFile1, File inputFile2, String comparisonMode, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = compareDocumentDocxValidateBeforeCall(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Public holiday occurrence
  */
 @ApiModel(description = "Public holiday occurrence")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:45.929-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:36.089-07:00")
 public class PublicHolidayOccurrence {
   @SerializedName("EnglishName")
   private String englishName = null;
@@ -43,8 +43,8 @@ public class PublicHolidayOccurrence {
   @SerializedName("HolidayType")
   private String holidayType = null;
 
-  @SerializedName("Nationwaide")
-  private Boolean nationwaide = null;
+  @SerializedName("Nationwide")
+  private Boolean nationwide = null;
 
   public PublicHolidayOccurrence englishName(String englishName) {
     this.englishName = englishName;
@@ -106,10 +106,10 @@ public class PublicHolidayOccurrence {
   }
 
    /**
-   * Type of the holiday; possible values are: Public, Bank, School, Authorities, Optional, Observance
+   * Type of the holiday; possible values are: Public, Optional
    * @return holidayType
   **/
-  @ApiModelProperty(value = "Type of the holiday; possible values are: Public, Bank, School, Authorities, Optional, Observance")
+  @ApiModelProperty(value = "Type of the holiday; possible values are: Public, Optional")
   public String getHolidayType() {
     return holidayType;
   }
@@ -118,22 +118,22 @@ public class PublicHolidayOccurrence {
     this.holidayType = holidayType;
   }
 
-  public PublicHolidayOccurrence nationwaide(Boolean nationwaide) {
-    this.nationwaide = nationwaide;
+  public PublicHolidayOccurrence nationwide(Boolean nationwide) {
+    this.nationwide = nationwide;
     return this;
   }
 
    /**
    * True if the holiday is celebrated in all locales in the country, false otherwise
-   * @return nationwaide
+   * @return nationwide
   **/
   @ApiModelProperty(value = "True if the holiday is celebrated in all locales in the country, false otherwise")
-  public Boolean isNationwaide() {
-    return nationwaide;
+  public Boolean isNationwide() {
+    return nationwide;
   }
 
-  public void setNationwaide(Boolean nationwaide) {
-    this.nationwaide = nationwaide;
+  public void setNationwide(Boolean nationwide) {
+    this.nationwide = nationwide;
   }
 
 
@@ -150,12 +150,12 @@ public class PublicHolidayOccurrence {
         Objects.equals(this.localName, publicHolidayOccurrence.localName) &&
         Objects.equals(this.occurrenceDate, publicHolidayOccurrence.occurrenceDate) &&
         Objects.equals(this.holidayType, publicHolidayOccurrence.holidayType) &&
-        Objects.equals(this.nationwaide, publicHolidayOccurrence.nationwaide);
+        Objects.equals(this.nationwide, publicHolidayOccurrence.nationwide);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(englishName, localName, occurrenceDate, holidayType, nationwaide);
+    return Objects.hash(englishName, localName, occurrenceDate, holidayType, nationwide);
   }
 
 
@@ -168,7 +168,7 @@ public class PublicHolidayOccurrence {
     sb.append("    localName: ").append(toIndentedString(localName)).append("\n");
     sb.append("    occurrenceDate: ").append(toIndentedString(occurrenceDate)).append("\n");
     sb.append("    holidayType: ").append(toIndentedString(holidayType)).append("\n");
-    sb.append("    nationwaide: ").append(toIndentedString(nationwaide)).append("\n");
+    sb.append("    nationwide: ").append(toIndentedString(nationwide)).append("\n");
     sb.append("}");
     return sb.toString();
   }

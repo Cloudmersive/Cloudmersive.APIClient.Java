@@ -218,31 +218,31 @@ public class ScanApi {
         // Create path and map variables
         String localVarPath = "/virus/scan/file";
         
-        // We'll use form params only, not a custom request body
+        // Use null for post body, will handle with form parameters
         Object localVarPostBody = null;
         
-        // Convert stream to byte array
-        byte[] fileBytes = convertInputStreamToByteArray(inputFile);
-        
-        // Put the file in form params - using byte array directly
+        // Put file InputStream directly in form params - ApiClient will handle it
         Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("inputFile", fileBytes);
+        localVarFormParams.put("inputFile", inputFile);
         
-        // Set headers - including multipart/form-data content type
+        // Setup headers, query params, etc.
         Map<String, String> localVarHeaderParams = new HashMap<>();
         localVarHeaderParams.put("Content-Type", "multipart/form-data");
         
-        // Call the API with the file in form params
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        
+        // Call the API
         Type localVarReturnType = new TypeToken<VirusScanResult>() {}.getType();
         ApiResponse<VirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(), // Query params
-                new ArrayList<Pair>(), // Collection query params
-                localVarPostBody, // Post body - null
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
                 localVarHeaderParams,
-                localVarFormParams, // File is here
+                localVarFormParams,
                 new String[] { "Apikey" },
                 null
             ),
@@ -255,37 +255,9 @@ public class ScanApi {
      * Overload for file parameter as InputStream (chunked transfer).
      */
     public VirusScanResult scanFileChunkedTransfer(InputStream inputFile) throws ApiException {
-        // Create path and map variables
-        String localVarPath = "/virus/scan/file";
-        
-        // Pass the InputStream directly in form params
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("inputFile", inputFile);
-        
-        // No custom request body, let ApiClient handle the form params
-        Object localVarPostBody = null;
-        
-        // Set headers
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
-        
-        // Call the API
-        Type localVarReturnType = new TypeToken<VirusScanResult>() {}.getType();
-        ApiResponse<VirusScanResult> response = apiClient.execute(
-            apiClient.buildCall(
-                localVarPath,
-                "POST",
-                new ArrayList<Pair>(),
-                new ArrayList<Pair>(),
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                new String[] { "Apikey" },
-                null
-            ),
-            localVarReturnType
-        );
-        return response.getData();
+        // Same implementation as the non-chunked version 
+        // since the updated ApiClient will handle the stream efficiently
+        return scanFile(inputFile);
     }
     /**
      * Build call for scanFileAdvanced
@@ -301,7 +273,7 @@ public class ScanApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -409,7 +381,7 @@ public class ScanApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return VirusScanAdvancedResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -434,7 +406,7 @@ public class ScanApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return ApiResponse&lt;VirusScanAdvancedResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -460,7 +432,7 @@ public class ScanApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -500,31 +472,31 @@ public class ScanApi {
         // Create path and map variables
         String localVarPath = "/virus/scan/file/advanced";
         
-        // We'll use form params only, not a custom request body
+        // Use null for post body, will handle with form parameters
         Object localVarPostBody = null;
         
-        // Convert stream to byte array
-        byte[] fileBytes = convertInputStreamToByteArray(inputFile);
-        
-        // Put the file in form params - using byte array directly
+        // Put file InputStream directly in form params - ApiClient will handle it
         Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("inputFile", fileBytes);
+        localVarFormParams.put("inputFile", inputFile);
         
-        // Set headers - including multipart/form-data content type
+        // Setup headers, query params, etc.
         Map<String, String> localVarHeaderParams = new HashMap<>();
         localVarHeaderParams.put("Content-Type", "multipart/form-data");
         
-        // Call the API with the file in form params
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        
+        // Call the API
         Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>() {}.getType();
         ApiResponse<VirusScanAdvancedResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(), // Query params
-                new ArrayList<Pair>(), // Collection query params
-                localVarPostBody, // Post body - null
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
                 localVarHeaderParams,
-                localVarFormParams, // File is here
+                localVarFormParams,
                 new String[] { "Apikey" },
                 null
             ),
@@ -537,37 +509,9 @@ public class ScanApi {
      * Overload for file parameter as InputStream (chunked transfer).
      */
     public VirusScanAdvancedResult scanFileAdvancedChunkedTransfer(InputStream inputFile) throws ApiException {
-        // Create path and map variables
-        String localVarPath = "/virus/scan/file/advanced";
-        
-        // Pass the InputStream directly in form params
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("inputFile", inputFile);
-        
-        // No custom request body, let ApiClient handle the form params
-        Object localVarPostBody = null;
-        
-        // Set headers
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
-        
-        // Call the API
-        Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>() {}.getType();
-        ApiResponse<VirusScanAdvancedResult> response = apiClient.execute(
-            apiClient.buildCall(
-                localVarPath,
-                "POST",
-                new ArrayList<Pair>(),
-                new ArrayList<Pair>(),
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                new String[] { "Apikey" },
-                null
-            ),
-            localVarReturnType
-        );
-        return response.getData();
+        // Same implementation as the non-chunked version 
+        // since the updated ApiClient will handle the stream efficiently
+        return scanFileAdvanced(inputFile);
     }
     /**
      * Build call for scanWebsite
