@@ -28,7 +28,7 @@ import java.io.IOException;
  * Specific recognition outcome
  */
 @ApiModel(description = "Specific recognition outcome")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:09:46.531-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:28.897-07:00")
 public class RecognitionOutcome {
   @SerializedName("ConfidenceScore")
   private Double confidenceScore = null;

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailLead
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:09:39.397-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:22.351-07:00")
 public class EmailLead {
   @SerializedName("EmailAddress")
   private String emailAddress = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Cell data to fill in to the DOCX Table
  */
 @ApiModel(description = "Cell data to fill in to the DOCX Table")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:09:49.757-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:31.070-07:00")
 public class DocxTableTableFillTableCell {
   @SerializedName("TargetTag")
   private String targetTag = null;
