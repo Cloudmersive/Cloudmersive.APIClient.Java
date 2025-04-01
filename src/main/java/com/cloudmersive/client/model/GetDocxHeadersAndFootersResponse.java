@@ -32,7 +32,7 @@ import java.util.List;
  * Result of running a Get-Tables command
  */
 @ApiModel(description = "Result of running a Get-Tables command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:59:52.360-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:09:49.757-07:00")
 public class GetDocxHeadersAndFootersResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
