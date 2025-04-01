@@ -31,7 +31,7 @@ import java.util.List;
  * Document validation result
  */
 @ApiModel(description = "Document validation result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:31.070-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:34:02.603-07:00")
 public class AutodetectDocumentValidationResult {
   @SerializedName("FileFormatExtension")
   private String fileFormatExtension = null;

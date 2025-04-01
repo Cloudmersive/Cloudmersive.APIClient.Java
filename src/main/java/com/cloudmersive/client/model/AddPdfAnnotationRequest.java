@@ -31,7 +31,7 @@ import java.util.List;
  * Request to add annotations to a PDF
  */
 @ApiModel(description = "Request to add annotations to a PDF")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:31.070-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:34:02.603-07:00")
 public class AddPdfAnnotationRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;

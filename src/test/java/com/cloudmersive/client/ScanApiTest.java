@@ -63,6 +63,7 @@ public class ScanApiTest {
     @Test
     public void scanFileAdvancedTest() throws Exception {
         File inputFile = null;
+        String fileName = null;
         Boolean allowExecutables = null;
         Boolean allowInvalidFiles = null;
         Boolean allowScripts = null;
@@ -75,7 +76,7 @@ public class ScanApiTest {
         Boolean allowOleEmbeddedObject = null;
         String options = null;
         String restrictFileTypes = null;
-        VirusScanAdvancedResult response = api.scanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+        VirusScanAdvancedResult response = api.scanFileAdvanced(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
 
         // TODO: test validations
     }

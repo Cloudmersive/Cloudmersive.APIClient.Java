@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of creating a blank Word document
  */
 @ApiModel(description = "Result of creating a blank Word document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:31.070-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:34:02.603-07:00")
 public class CreateBlankDocxResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
