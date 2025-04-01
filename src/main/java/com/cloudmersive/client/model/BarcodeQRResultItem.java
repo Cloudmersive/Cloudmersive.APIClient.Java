@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * BarcodeQRResultItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:33:58.706-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:51.092-07:00")
 public class BarcodeQRResultItem {
   @SerializedName("RawText")
   private String rawText = null;
