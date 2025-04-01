@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single string replacement request
  */
 @ApiModel(description = "A single string replacement request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:55.050-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:45.646-07:00")
 public class SingleReplaceString {
   @SerializedName("MatchString")
   private String matchString = null;

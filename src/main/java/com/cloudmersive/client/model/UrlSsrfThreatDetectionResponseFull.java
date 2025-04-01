@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of checking a URL for SSRF threats
  */
 @ApiModel(description = "Result of checking a URL for SSRF threats")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:59:12.054-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:56.783-07:00")
 public class UrlSsrfThreatDetectionResponseFull {
   @SerializedName("CleanURL")
   private Boolean cleanURL = null;

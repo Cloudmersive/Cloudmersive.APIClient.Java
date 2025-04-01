@@ -1038,31 +1038,31 @@ public class ScanCloudStorageApi {
         // Create path and map variables
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
         
-        // We'll use form params only, not a custom request body
+        // Use null for post body, will handle with form parameters
         Object localVarPostBody = null;
         
-        // Convert stream to byte array
-        byte[] fileBytes = convertInputStreamToByteArray(jsonCredentialFile);
-        
-        // Put the file in form params - using byte array directly
+        // Put file InputStream directly in form params - ApiClient will handle it
         Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("jsonCredentialFile", fileBytes);
+        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
         
-        // Set headers - including multipart/form-data content type
+        // Setup headers, query params, etc.
         Map<String, String> localVarHeaderParams = new HashMap<>();
         localVarHeaderParams.put("Content-Type", "multipart/form-data");
         
-        // Call the API with the file in form params
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        
+        // Call the API
         Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>() {}.getType();
         ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(), // Query params
-                new ArrayList<Pair>(), // Collection query params
-                localVarPostBody, // Post body - null
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
                 localVarHeaderParams,
-                localVarFormParams, // File is here
+                localVarFormParams,
                 new String[] { "Apikey" },
                 null
             ),
@@ -1075,37 +1075,9 @@ public class ScanCloudStorageApi {
      * Overload for file parameter as InputStream (chunked transfer).
      */
     public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFileChunkedTransfer(InputStream jsonCredentialFile) throws ApiException {
-        // Create path and map variables
-        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
-        
-        // Pass the InputStream directly in form params
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
-        
-        // No custom request body, let ApiClient handle the form params
-        Object localVarPostBody = null;
-        
-        // Set headers
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
-        
-        // Call the API
-        Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>() {}.getType();
-        ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(
-            apiClient.buildCall(
-                localVarPath,
-                "POST",
-                new ArrayList<Pair>(),
-                new ArrayList<Pair>(),
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                new String[] { "Apikey" },
-                null
-            ),
-            localVarReturnType
-        );
-        return response.getData();
+        // Same implementation as the non-chunked version 
+        // since the updated ApiClient will handle the stream efficiently
+        return scanCloudStorageScanGcpStorageFile(jsonCredentialFile);
     }
     /**
      * Build call for scanCloudStorageScanGcpStorageFileAdvanced
@@ -1336,31 +1308,31 @@ public class ScanCloudStorageApi {
         // Create path and map variables
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
         
-        // We'll use form params only, not a custom request body
+        // Use null for post body, will handle with form parameters
         Object localVarPostBody = null;
         
-        // Convert stream to byte array
-        byte[] fileBytes = convertInputStreamToByteArray(jsonCredentialFile);
-        
-        // Put the file in form params - using byte array directly
+        // Put file InputStream directly in form params - ApiClient will handle it
         Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("jsonCredentialFile", fileBytes);
+        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
         
-        // Set headers - including multipart/form-data content type
+        // Setup headers, query params, etc.
         Map<String, String> localVarHeaderParams = new HashMap<>();
         localVarHeaderParams.put("Content-Type", "multipart/form-data");
         
-        // Call the API with the file in form params
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        
+        // Call the API
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>() {}.getType();
         ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(), // Query params
-                new ArrayList<Pair>(), // Collection query params
-                localVarPostBody, // Post body - null
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
                 localVarHeaderParams,
-                localVarFormParams, // File is here
+                localVarFormParams,
                 new String[] { "Apikey" },
                 null
             ),
@@ -1373,37 +1345,9 @@ public class ScanCloudStorageApi {
      * Overload for file parameter as InputStream (chunked transfer).
      */
     public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvancedChunkedTransfer(InputStream jsonCredentialFile) throws ApiException {
-        // Create path and map variables
-        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
-        
-        // Pass the InputStream directly in form params
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
-        
-        // No custom request body, let ApiClient handle the form params
-        Object localVarPostBody = null;
-        
-        // Set headers
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
-        
-        // Call the API
-        Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>() {}.getType();
-        ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(
-            apiClient.buildCall(
-                localVarPath,
-                "POST",
-                new ArrayList<Pair>(),
-                new ArrayList<Pair>(),
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                new String[] { "Apikey" },
-                null
-            ),
-            localVarReturnType
-        );
-        return response.getData();
+        // Same implementation as the non-chunked version 
+        // since the updated ApiClient will handle the stream efficiently
+        return scanCloudStorageScanGcpStorageFileAdvanced(jsonCredentialFile);
     }
     /**
      * Build call for scanCloudStorageScanSharePointOnlineFile
