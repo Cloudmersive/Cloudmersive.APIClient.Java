@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single still frame from a video
  */
 @ApiModel(description = "A single still frame from a video")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:51.427-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:52.848-07:00")
 public class StillFrame {
   @SerializedName("FrameNumber")
   private Integer frameNumber = null;

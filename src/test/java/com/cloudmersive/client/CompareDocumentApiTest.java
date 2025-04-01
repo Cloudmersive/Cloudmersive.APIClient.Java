@@ -33,27 +33,6 @@ public class CompareDocumentApiTest {
 
     
     /**
-     * Compare Two Word DOC (Legacy 97-2003 Format)
-     *
-     * Compare two Office Word Documents (doc) legacy 97-2003 format files and highlight the differences
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void compareDocumentDocTest() throws Exception {
-        File inputFile1 = null;
-        File inputFile2 = null;
-        String comparisonMode = null;
-        Boolean autorepair = null;
-        Boolean changeOutlines = null;
-        Boolean headersAndFooters = null;
-        byte[] response = api.compareDocumentDoc(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Compare Two Word DOCX
      *
      * Compare two Office Word Documents (docx) files and highlight the differences
@@ -65,11 +44,8 @@ public class CompareDocumentApiTest {
     public void compareDocumentDocxTest() throws Exception {
         File inputFile1 = null;
         File inputFile2 = null;
-        String comparisonMode = null;
         Boolean autorepair = null;
-        Boolean changeOutlines = null;
-        Boolean headersAndFooters = null;
-        byte[] response = api.compareDocumentDocx(inputFile1, inputFile2, comparisonMode, autorepair, changeOutlines, headersAndFooters);
+        byte[] response = api.compareDocumentDocx(inputFile1, inputFile2, autorepair);
 
         // TODO: test validations
     }

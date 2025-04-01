@@ -1034,49 +1034,70 @@ public class ScanCloudStorageApi {
     /**
      * Overload for file parameter as InputStream.
      */
-    public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFile(InputStream jsonCredentialFile) throws ApiException {
+    public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFile(final InputStream jsonCredentialFile) throws ApiException {
         // Create path and map variables
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
         
-        // Use null for post body, will handle with form parameters
-        Object localVarPostBody = null;
+        // Create a custom RequestBody directly - don't use form params at all
+        MultipartBuilder multipartBuilder = new MultipartBuilder()
+            .type(MultipartBuilder.FORM);
         
-        // Put file InputStream directly in form params - ApiClient will handle it
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
+        // Create a custom RequestBody for the file that properly reads from the stream
+        RequestBody fileRequestBody = new RequestBody() {
+            @Override
+            public MediaType contentType() {
+                return MediaType.parse("application/octet-stream");
+            }
+            
+            @Override
+            public void writeTo(BufferedSink sink) throws IOException {
+                byte[] buffer = new byte[8192];
+                int bytesRead;
+                try {
+                    while ((bytesRead = jsonCredentialFile.read(buffer)) != -1) {
+                        sink.write(buffer, 0, bytesRead);
+                    }
+                } catch (IOException e) {
+                    throw new IOException("Error reading from input stream", e);
+                }
+            }
+        };
         
-        // Setup headers, query params, etc.
+        // Add the file part with proper headers
+        multipartBuilder.addFormDataPart("jsonCredentialFile", "file", fileRequestBody);
+        RequestBody requestBody = multipartBuilder.build();
+        
+        // Setup headers and other params
         Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
         
+        // Let OkHttp set the content type header from the multipart body
         List<Pair> localVarQueryParams = new ArrayList<>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<>();
         
-        // Call the API
-        Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>() {}.getType();
-        ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(
-            apiClient.buildCall(
-                localVarPath,
-                "POST",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                new String[] { "Apikey" },
-                null
-            ),
-            localVarReturnType
+        // Build a custom call that uses our multipart RequestBody directly
+        com.squareup.okhttp.Call call = apiClient.buildCall(
+            localVarPath,
+            "POST",
+            localVarQueryParams,
+            localVarCollectionQueryParams,
+            requestBody, // Use our RequestBody directly
+            localVarHeaderParams,
+            new HashMap<String, Object>(), // Empty form params since we're using the RequestBody directly
+            new String[] { "Apikey" },
+            null
         );
+        
+        // Execute the call
+        Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>(){}.getType();
+        ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(call, localVarReturnType);
         return response.getData();
     }
 
     /**
      * Overload for file parameter as InputStream (chunked transfer).
      */
-    public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFileChunkedTransfer(InputStream jsonCredentialFile) throws ApiException {
-        // Same implementation as the non-chunked version 
-        // since the updated ApiClient will handle the stream efficiently
+    public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFileChunkedTransfer(final InputStream jsonCredentialFile) throws ApiException {
+        // Delegate to the standard method - it now uses a proper streaming approach
         return scanCloudStorageScanGcpStorageFile(jsonCredentialFile);
     }
     /**
@@ -1304,49 +1325,70 @@ public class ScanCloudStorageApi {
     /**
      * Overload for file parameter as InputStream.
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvanced(InputStream jsonCredentialFile) throws ApiException {
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvanced(final InputStream jsonCredentialFile) throws ApiException {
         // Create path and map variables
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
         
-        // Use null for post body, will handle with form parameters
-        Object localVarPostBody = null;
+        // Create a custom RequestBody directly - don't use form params at all
+        MultipartBuilder multipartBuilder = new MultipartBuilder()
+            .type(MultipartBuilder.FORM);
         
-        // Put file InputStream directly in form params - ApiClient will handle it
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
+        // Create a custom RequestBody for the file that properly reads from the stream
+        RequestBody fileRequestBody = new RequestBody() {
+            @Override
+            public MediaType contentType() {
+                return MediaType.parse("application/octet-stream");
+            }
+            
+            @Override
+            public void writeTo(BufferedSink sink) throws IOException {
+                byte[] buffer = new byte[8192];
+                int bytesRead;
+                try {
+                    while ((bytesRead = jsonCredentialFile.read(buffer)) != -1) {
+                        sink.write(buffer, 0, bytesRead);
+                    }
+                } catch (IOException e) {
+                    throw new IOException("Error reading from input stream", e);
+                }
+            }
+        };
         
-        // Setup headers, query params, etc.
+        // Add the file part with proper headers
+        multipartBuilder.addFormDataPart("jsonCredentialFile", "file", fileRequestBody);
+        RequestBody requestBody = multipartBuilder.build();
+        
+        // Setup headers and other params
         Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
         
+        // Let OkHttp set the content type header from the multipart body
         List<Pair> localVarQueryParams = new ArrayList<>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<>();
         
-        // Call the API
-        Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>() {}.getType();
-        ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(
-            apiClient.buildCall(
-                localVarPath,
-                "POST",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                new String[] { "Apikey" },
-                null
-            ),
-            localVarReturnType
+        // Build a custom call that uses our multipart RequestBody directly
+        com.squareup.okhttp.Call call = apiClient.buildCall(
+            localVarPath,
+            "POST",
+            localVarQueryParams,
+            localVarCollectionQueryParams,
+            requestBody, // Use our RequestBody directly
+            localVarHeaderParams,
+            new HashMap<String, Object>(), // Empty form params since we're using the RequestBody directly
+            new String[] { "Apikey" },
+            null
         );
+        
+        // Execute the call
+        Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
+        ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(call, localVarReturnType);
         return response.getData();
     }
 
     /**
      * Overload for file parameter as InputStream (chunked transfer).
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvancedChunkedTransfer(InputStream jsonCredentialFile) throws ApiException {
-        // Same implementation as the non-chunked version 
-        // since the updated ApiClient will handle the stream efficiently
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvancedChunkedTransfer(final InputStream jsonCredentialFile) throws ApiException {
+        // Delegate to the standard method - it now uses a proper streaming approach
         return scanCloudStorageScanGcpStorageFileAdvanced(jsonCredentialFile);
     }
     /**

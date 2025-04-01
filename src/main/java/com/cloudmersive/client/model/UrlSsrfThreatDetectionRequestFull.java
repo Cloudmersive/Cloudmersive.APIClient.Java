@@ -30,7 +30,7 @@ import java.util.List;
  * Request to determine if a URL is an SSRF threat check
  */
 @ApiModel(description = "Request to determine if a URL is an SSRF threat check")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:56.783-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:58.931-07:00")
 public class UrlSsrfThreatDetectionRequestFull {
   @SerializedName("URL")
   private String URL = null;
