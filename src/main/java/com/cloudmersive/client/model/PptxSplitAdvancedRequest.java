@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to split a PowerPoint presentation
  */
 @ApiModel(description = "Request to split a PowerPoint presentation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:09:49.757-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:31.070-07:00")
 public class PptxSplitAdvancedRequest {
   @SerializedName("InputFile")
   private byte[] inputFile = null;
