@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting a Keynote input to a JPG array
  */
 @ApiModel(description = "Result of converting a Keynote input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:45.391-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:58.249-07:00")
 public class KeynoteToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;

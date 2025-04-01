@@ -31,7 +31,7 @@ import java.util.List;
  * Result of the advanced QR barcode scan
  */
 @ApiModel(description = "Result of the advanced QR barcode scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:41.736-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:54.523-07:00")
 public class BarcodeScanQRAdvancedResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a language detection operation
  */
 @ApiModel(description = "Input to a language detection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:38.599-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:51.446-07:00")
 public class LanguageDetectionRequest {
   @SerializedName("textToDetect")
   private String textToDetect = null;
