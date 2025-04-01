@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an ODP input to a JPG array
  */
 @ApiModel(description = "Result of converting an ODP input to a JPG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:06.181-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:54.448-07:00")
 public class OdpToJpgResult {
   @SerializedName("Successful")
   private Boolean successful = null;

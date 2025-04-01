@@ -32,7 +32,7 @@ import java.util.List;
  * Result of running an advanced virus scan on cloud storage
  */
 @ApiModel(description = "Result of running an advanced virus scan on cloud storage")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:08.599-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:56.897-07:00")
 public class CloudStorageAdvancedVirusScanResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -57,21 +57,6 @@ public class CloudStorageAdvancedVirusScanResult {
 
   @SerializedName("ContainsMacros")
   private Boolean containsMacros = null;
-
-  @SerializedName("ContainsXmlExternalEntities")
-  private Boolean containsXmlExternalEntities = null;
-
-  @SerializedName("ContainsInsecureDeserialization")
-  private Boolean containsInsecureDeserialization = null;
-
-  @SerializedName("ContainsHtml")
-  private Boolean containsHtml = null;
-
-  @SerializedName("ContainsUnsafeArchive")
-  private Boolean containsUnsafeArchive = null;
-
-  @SerializedName("ContainsOleEmbeddedObject")
-  private Boolean containsOleEmbeddedObject = null;
 
   @SerializedName("VerifiedFileFormat")
   private String verifiedFileFormat = null;
@@ -232,96 +217,6 @@ public class CloudStorageAdvancedVirusScanResult {
     this.containsMacros = containsMacros;
   }
 
-  public CloudStorageAdvancedVirusScanResult containsXmlExternalEntities(Boolean containsXmlExternalEntities) {
-    this.containsXmlExternalEntities = containsXmlExternalEntities;
-    return this;
-  }
-
-   /**
-   * True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor
-   * @return containsXmlExternalEntities
-  **/
-  @ApiModelProperty(value = "True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor")
-  public Boolean isContainsXmlExternalEntities() {
-    return containsXmlExternalEntities;
-  }
-
-  public void setContainsXmlExternalEntities(Boolean containsXmlExternalEntities) {
-    this.containsXmlExternalEntities = containsXmlExternalEntities;
-  }
-
-  public CloudStorageAdvancedVirusScanResult containsInsecureDeserialization(Boolean containsInsecureDeserialization) {
-    this.containsInsecureDeserialization = containsInsecureDeserialization;
-    return this;
-  }
-
-   /**
-   * True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor
-   * @return containsInsecureDeserialization
-  **/
-  @ApiModelProperty(value = "True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor")
-  public Boolean isContainsInsecureDeserialization() {
-    return containsInsecureDeserialization;
-  }
-
-  public void setContainsInsecureDeserialization(Boolean containsInsecureDeserialization) {
-    this.containsInsecureDeserialization = containsInsecureDeserialization;
-  }
-
-  public CloudStorageAdvancedVirusScanResult containsHtml(Boolean containsHtml) {
-    this.containsHtml = containsHtml;
-    return this;
-  }
-
-   /**
-   * True if the uploaded file contains HTML, which can be a significant risk factor
-   * @return containsHtml
-  **/
-  @ApiModelProperty(value = "True if the uploaded file contains HTML, which can be a significant risk factor")
-  public Boolean isContainsHtml() {
-    return containsHtml;
-  }
-
-  public void setContainsHtml(Boolean containsHtml) {
-    this.containsHtml = containsHtml;
-  }
-
-  public CloudStorageAdvancedVirusScanResult containsUnsafeArchive(Boolean containsUnsafeArchive) {
-    this.containsUnsafeArchive = containsUnsafeArchive;
-    return this;
-  }
-
-   /**
-   * True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction
-   * @return containsUnsafeArchive
-  **/
-  @ApiModelProperty(value = "True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction")
-  public Boolean isContainsUnsafeArchive() {
-    return containsUnsafeArchive;
-  }
-
-  public void setContainsUnsafeArchive(Boolean containsUnsafeArchive) {
-    this.containsUnsafeArchive = containsUnsafeArchive;
-  }
-
-  public CloudStorageAdvancedVirusScanResult containsOleEmbeddedObject(Boolean containsOleEmbeddedObject) {
-    this.containsOleEmbeddedObject = containsOleEmbeddedObject;
-    return this;
-  }
-
-   /**
-   * True if the uploaded file contains an OLE embedded object, which can be a significant risk factor
-   * @return containsOleEmbeddedObject
-  **/
-  @ApiModelProperty(value = "True if the uploaded file contains an OLE embedded object, which can be a significant risk factor")
-  public Boolean isContainsOleEmbeddedObject() {
-    return containsOleEmbeddedObject;
-  }
-
-  public void setContainsOleEmbeddedObject(Boolean containsOleEmbeddedObject) {
-    this.containsOleEmbeddedObject = containsOleEmbeddedObject;
-  }
-
   public CloudStorageAdvancedVirusScanResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
@@ -438,11 +333,6 @@ public class CloudStorageAdvancedVirusScanResult {
         Objects.equals(this.containsPasswordProtectedFile, cloudStorageAdvancedVirusScanResult.containsPasswordProtectedFile) &&
         Objects.equals(this.containsRestrictedFileFormat, cloudStorageAdvancedVirusScanResult.containsRestrictedFileFormat) &&
         Objects.equals(this.containsMacros, cloudStorageAdvancedVirusScanResult.containsMacros) &&
-        Objects.equals(this.containsXmlExternalEntities, cloudStorageAdvancedVirusScanResult.containsXmlExternalEntities) &&
-        Objects.equals(this.containsInsecureDeserialization, cloudStorageAdvancedVirusScanResult.containsInsecureDeserialization) &&
-        Objects.equals(this.containsHtml, cloudStorageAdvancedVirusScanResult.containsHtml) &&
-        Objects.equals(this.containsUnsafeArchive, cloudStorageAdvancedVirusScanResult.containsUnsafeArchive) &&
-        Objects.equals(this.containsOleEmbeddedObject, cloudStorageAdvancedVirusScanResult.containsOleEmbeddedObject) &&
         Objects.equals(this.verifiedFileFormat, cloudStorageAdvancedVirusScanResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, cloudStorageAdvancedVirusScanResult.foundViruses) &&
         Objects.equals(this.errorDetailedDescription, cloudStorageAdvancedVirusScanResult.errorDetailedDescription) &&
@@ -452,7 +342,7 @@ public class CloudStorageAdvancedVirusScanResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(successful, cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, containsInsecureDeserialization, containsHtml, containsUnsafeArchive, containsOleEmbeddedObject, verifiedFileFormat, foundViruses, errorDetailedDescription, fileSize, contentInformation);
+    return Objects.hash(successful, cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, verifiedFileFormat, foundViruses, errorDetailedDescription, fileSize, contentInformation);
   }
 
 
@@ -469,11 +359,6 @@ public class CloudStorageAdvancedVirusScanResult {
     sb.append("    containsPasswordProtectedFile: ").append(toIndentedString(containsPasswordProtectedFile)).append("\n");
     sb.append("    containsRestrictedFileFormat: ").append(toIndentedString(containsRestrictedFileFormat)).append("\n");
     sb.append("    containsMacros: ").append(toIndentedString(containsMacros)).append("\n");
-    sb.append("    containsXmlExternalEntities: ").append(toIndentedString(containsXmlExternalEntities)).append("\n");
-    sb.append("    containsInsecureDeserialization: ").append(toIndentedString(containsInsecureDeserialization)).append("\n");
-    sb.append("    containsHtml: ").append(toIndentedString(containsHtml)).append("\n");
-    sb.append("    containsUnsafeArchive: ").append(toIndentedString(containsUnsafeArchive)).append("\n");
-    sb.append("    containsOleEmbeddedObject: ").append(toIndentedString(containsOleEmbeddedObject)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("    errorDetailedDescription: ").append(toIndentedString(errorDetailedDescription)).append("\n");

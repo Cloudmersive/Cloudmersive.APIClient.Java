@@ -31,7 +31,7 @@ import java.util.List;
  * Result of an image to lines-with-location OCR operation
  */
 @ApiModel(description = "Result of an image to lines-with-location OCR operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:00.983-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:49.400-07:00")
 public class ImageToLinesWithLocationResult {
   @SerializedName("Successful")
   private Boolean successful = null;
