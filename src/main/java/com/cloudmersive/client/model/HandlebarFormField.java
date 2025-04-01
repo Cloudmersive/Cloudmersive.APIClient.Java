@@ -28,7 +28,7 @@ import java.io.IOException;
  * Instance of a form field that is handlebar style, such as \&quot;{{FieldName}}\&quot;
  */
 @ApiModel(description = "Instance of a form field that is handlebar style, such as \"{{FieldName}}\"")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:59.996-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:43:18.332-07:00")
 public class HandlebarFormField {
   @SerializedName("FormFieldTitle")
   private String formFieldTitle = null;
