@@ -31,7 +31,7 @@ import java.util.List;
  * OCR results of a page, including lines of text and their location
  */
 @ApiModel(description = "OCR results of a page, including lines of text and their location")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:43:12.369-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:59:46.808-07:00")
 public class OcrPageResultWithLinesWithLocation {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
