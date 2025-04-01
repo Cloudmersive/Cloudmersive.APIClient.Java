@@ -28,7 +28,7 @@ import java.io.IOException;
  * Matching product for the input barcode
  */
 @ApiModel(description = "Matching product for the input barcode")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:02.388-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:50.771-07:00")
 public class ProductMatch {
   @SerializedName("EAN")
   private String EAN = null;

@@ -18,7 +18,7 @@ import com.cloudmersive.client.invoker.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:17.935-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:54:05.487-07:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a website scan
  */
 @ApiModel(description = "Result of running a website scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:08.599-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:56.897-07:00")
 public class WebsiteScanResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;

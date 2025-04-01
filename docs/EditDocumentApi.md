@@ -49,7 +49,9 @@ Method | HTTP request | Description
 [**editDocumentDocxUpdateTableRow**](EditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
 [**editDocumentFinishEditing**](EditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Finish editing document, and download result from document editing
 [**editDocumentPptxDeleteSlides**](EditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
+[**editDocumentPptxEditSizeAndOrientation**](EditDocumentApi.md#editDocumentPptxEditSizeAndOrientation) | **POST** /convert/edit/pptx/set-size-and-orientation | Set the size and/or orientation of a PowerPoint PPTX presentation document
 [**editDocumentPptxGetMacroInformation**](EditDocumentApi.md#editDocumentPptxGetMacroInformation) | **POST** /convert/edit/pptx/get-macros | Get macro information from a PowerPoint PPTX/PPTM presentation document
+[**editDocumentPptxGetSizeAndOrientation**](EditDocumentApi.md#editDocumentPptxGetSizeAndOrientation) | **POST** /convert/edit/pptx/get-size-and-orientation | Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
 [**editDocumentPptxReplace**](EditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 [**editDocumentXlsxAppendRow**](EditDocumentApi.md#editDocumentXlsxAppendRow) | **POST** /convert/edit/xlsx/append-row | Append row to a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxClearCellByIndex**](EditDocumentApi.md#editDocumentXlsxClearCellByIndex) | **POST** /convert/edit/xlsx/clear-cell/by-index | Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
@@ -131,7 +133,7 @@ Name | Type | Description  | Notes
 
 <a name="editDocumentDocxAcceptAllTrackChanges"></a>
 # **editDocumentDocxAcceptAllTrackChanges**
-> byte[] editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair)
+> byte[] editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair, changeOutlines, headersAndFooters)
 
 Accept all tracked changes, revisions in a Word DOCX document
 
@@ -157,8 +159,10 @@ Apikey.setApiKey("YOUR API KEY");
 EditDocumentApi apiInstance = new EditDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
 Boolean autorepair = true; // Boolean | Optional; automatically repair input documents that have errors (default is true)
+Boolean changeOutlines = true; // Boolean | Optional; highlight changes with a blue outline (default is true)
+Boolean headersAndFooters = true; // Boolean | Optional; include headers and footers (default is false)
 try {
-    byte[] result = apiInstance.editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair);
+    byte[] result = apiInstance.editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair, changeOutlines, headersAndFooters);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EditDocumentApi#editDocumentDocxAcceptAllTrackChanges");
@@ -172,6 +176,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
  **autorepair** | **Boolean**| Optional; automatically repair input documents that have errors (default is true) | [optional]
+ **changeOutlines** | **Boolean**| Optional; highlight changes with a blue outline (default is true) | [optional]
+ **headersAndFooters** | **Boolean**| Optional; include headers and footers (default is false) | [optional]
 
 ### Return type
 
@@ -2551,6 +2557,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/octet-stream
 
+<a name="editDocumentPptxEditSizeAndOrientation"></a>
+# **editDocumentPptxEditSizeAndOrientation**
+> byte[] editDocumentPptxEditSizeAndOrientation(inputFile, orientation, width, height)
+
+Set the size and/or orientation of a PowerPoint PPTX presentation document
+
+Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+String orientation = "orientation_example"; // String | Optional: The desired slide orientation; can be landscape or portrait.
+Integer width = 56; // Integer | Optional: The desired slide width in Emu, where 1 inch equals 914400 emu.
+Integer height = 56; // Integer | Optional: The desired slide height in Emu, where 1 inch equals 914400 emu
+try {
+    byte[] result = apiInstance.editDocumentPptxEditSizeAndOrientation(inputFile, orientation, width, height);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentPptxEditSizeAndOrientation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+ **orientation** | **String**| Optional: The desired slide orientation; can be landscape or portrait. | [optional]
+ **width** | **Integer**| Optional: The desired slide width in Emu, where 1 inch equals 914400 emu. | [optional]
+ **height** | **Integer**| Optional: The desired slide height in Emu, where 1 inch equals 914400 emu | [optional]
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 <a name="editDocumentPptxGetMacroInformation"></a>
 # **editDocumentPptxGetMacroInformation**
 > GetMacrosResponse editDocumentPptxGetMacroInformation(inputFile)
@@ -2596,6 +2663,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetMacrosResponse**](GetMacrosResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+<a name="editDocumentPptxGetSizeAndOrientation"></a>
+# **editDocumentPptxGetSizeAndOrientation**
+> PptxPageLayoutInformation editDocumentPptxGetSizeAndOrientation(inputFile)
+
+Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
+
+Gets size and orientation of an input PowerPoint PPTX presentation
+
+### Example
+```java
+// Import classes:
+//import com.cloudmersive.client.invoker.ApiClient;
+//import com.cloudmersive.client.invoker.ApiException;
+//import com.cloudmersive.client.invoker.Configuration;
+//import com.cloudmersive.client.invoker.auth.*;
+//import com.cloudmersive.client.EditDocumentApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
+Apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.setApiKeyPrefix("Token");
+
+EditDocumentApi apiInstance = new EditDocumentApi();
+File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
+try {
+    PptxPageLayoutInformation result = apiInstance.editDocumentPptxGetSizeAndOrientation(inputFile);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EditDocumentApi#editDocumentPptxGetSizeAndOrientation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **File**| Input file to perform the operation on. |
+
+### Return type
+
+[**PptxPageLayoutInformation**](PptxPageLayoutInformation.md)
 
 ### Authorization
 

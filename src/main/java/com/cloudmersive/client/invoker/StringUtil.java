@@ -13,7 +13,7 @@
 
 package com.cloudmersive.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:17.935-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:54:05.487-07:00")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
