@@ -215,42 +215,34 @@ public class ScanApi {
      * Overload for file parameter as InputStream.
      */
     public VirusScanResult scanFile(InputStream inputFile) throws ApiException {
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        
-        // Convert input stream to byte array
-        byte[] fileBytes = convertInputStreamToByteArray(inputFile);
-        
-        // Create a RequestBody directly with the bytes
-        RequestBody fileRequestBody = RequestBody.create(
-            MediaType.parse("application/octet-stream"), 
-            fileBytes
-        );
-        
-        // Create multipart body with the file
-        MultipartBuilder multipartBuilder = new MultipartBuilder()
-            .type(MultipartBuilder.FORM)
-            .addFormDataPart("inputFile", "filename", fileRequestBody);
-        
-        Object localVarPostBody = multipartBuilder.build();
-        
-        // Set content type to multipart/form-data
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
-        
         // Create path and map variables
         String localVarPath = "/virus/scan/file";
         
-        // Call the API and return the result
+        // We'll use form params only, not a custom request body
+        Object localVarPostBody = null;
+        
+        // Convert stream to byte array
+        byte[] fileBytes = convertInputStreamToByteArray(inputFile);
+        
+        // Put the file in form params - using byte array directly
+        Map<String, Object> localVarFormParams = new HashMap<>();
+        localVarFormParams.put("inputFile", fileBytes);
+        
+        // Set headers - including multipart/form-data content type
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        localVarHeaderParams.put("Content-Type", "multipart/form-data");
+        
+        // Call the API with the file in form params
         Type localVarReturnType = new TypeToken<VirusScanResult>() {}.getType();
         ApiResponse<VirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(),
-                new ArrayList<Pair>(),
-                localVarPostBody,
+                new ArrayList<Pair>(), // Query params
+                new ArrayList<Pair>(), // Collection query params
+                localVarPostBody, // Post body - null
                 localVarHeaderParams,
-                localVarFormParams,
+                localVarFormParams, // File is here
                 new String[] { "Apikey" },
                 null
             ),
@@ -263,46 +255,33 @@ public class ScanApi {
      * Overload for file parameter as InputStream (chunked transfer).
      */
     public VirusScanResult scanFileChunkedTransfer(InputStream inputFile) throws ApiException {
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("inputFile", inputFile);
-
-        final MediaType localVarMediaType = MediaType.parse("application/octet-stream");
-        final InputStream finalInputFile = inputFile;
-        RequestBody chunkedRequestBody = new RequestBody() {
-            @Override
-            public MediaType contentType() { return localVarMediaType; }
-            @Override
-            public void writeTo(BufferedSink sink) throws IOException {
-                byte[] buffer = new byte[8192];
-                int bytesRead;
-                while ((bytesRead = finalInputFile.read(buffer)) != -1) {
-                    sink.write(buffer, 0, bytesRead);
-                }
-            }
-        };
-        MultipartBuilder multipartBuilder = new MultipartBuilder().type(MultipartBuilder.FORM)
-            .addFormDataPart("inputFile", "filename", chunkedRequestBody);
-        Object localVarPostBody = multipartBuilder.build();
-
-        // Force content type to multipart/form-data
-        String[] localVarContentTypes = { "multipart/form-data" };
-
         // Create path and map variables
         String localVarPath = "/virus/scan/file";
-
-        // Call the API and return the result
+        
+        // Pass the InputStream directly in form params
+        Map<String, Object> localVarFormParams = new HashMap<>();
+        localVarFormParams.put("inputFile", inputFile);
+        
+        // No custom request body, let ApiClient handle the form params
+        Object localVarPostBody = null;
+        
+        // Set headers
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        localVarHeaderParams.put("Content-Type", "multipart/form-data");
+        
+        // Call the API
         Type localVarReturnType = new TypeToken<VirusScanResult>() {}.getType();
         ApiResponse<VirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(), // Explicitly specify List<Pair>
-                new ArrayList<Pair>(), // Explicitly specify List<Pair>
+                new ArrayList<Pair>(),
+                new ArrayList<Pair>(),
                 localVarPostBody,
-                new HashMap<String, String>(), // Explicitly specify Map<String, String>
+                localVarHeaderParams,
                 localVarFormParams,
                 new String[] { "Apikey" },
-                null // Add ProgressRequestListener as null
+                null
             ),
             localVarReturnType
         );
@@ -518,42 +497,34 @@ public class ScanApi {
      * Overload for file parameter as InputStream.
      */
     public VirusScanAdvancedResult scanFileAdvanced(InputStream inputFile) throws ApiException {
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        
-        // Convert input stream to byte array
-        byte[] fileBytes = convertInputStreamToByteArray(inputFile);
-        
-        // Create a RequestBody directly with the bytes
-        RequestBody fileRequestBody = RequestBody.create(
-            MediaType.parse("application/octet-stream"), 
-            fileBytes
-        );
-        
-        // Create multipart body with the file
-        MultipartBuilder multipartBuilder = new MultipartBuilder()
-            .type(MultipartBuilder.FORM)
-            .addFormDataPart("inputFile", "filename", fileRequestBody);
-        
-        Object localVarPostBody = multipartBuilder.build();
-        
-        // Set content type to multipart/form-data
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        localVarHeaderParams.put("Content-Type", "multipart/form-data");
-        
         // Create path and map variables
         String localVarPath = "/virus/scan/file/advanced";
         
-        // Call the API and return the result
+        // We'll use form params only, not a custom request body
+        Object localVarPostBody = null;
+        
+        // Convert stream to byte array
+        byte[] fileBytes = convertInputStreamToByteArray(inputFile);
+        
+        // Put the file in form params - using byte array directly
+        Map<String, Object> localVarFormParams = new HashMap<>();
+        localVarFormParams.put("inputFile", fileBytes);
+        
+        // Set headers - including multipart/form-data content type
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        localVarHeaderParams.put("Content-Type", "multipart/form-data");
+        
+        // Call the API with the file in form params
         Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>() {}.getType();
         ApiResponse<VirusScanAdvancedResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(),
-                new ArrayList<Pair>(),
-                localVarPostBody,
+                new ArrayList<Pair>(), // Query params
+                new ArrayList<Pair>(), // Collection query params
+                localVarPostBody, // Post body - null
                 localVarHeaderParams,
-                localVarFormParams,
+                localVarFormParams, // File is here
                 new String[] { "Apikey" },
                 null
             ),
@@ -566,46 +537,33 @@ public class ScanApi {
      * Overload for file parameter as InputStream (chunked transfer).
      */
     public VirusScanAdvancedResult scanFileAdvancedChunkedTransfer(InputStream inputFile) throws ApiException {
-        Map<String, Object> localVarFormParams = new HashMap<>();
-        localVarFormParams.put("inputFile", inputFile);
-
-        final MediaType localVarMediaType = MediaType.parse("application/octet-stream");
-        final InputStream finalInputFile = inputFile;
-        RequestBody chunkedRequestBody = new RequestBody() {
-            @Override
-            public MediaType contentType() { return localVarMediaType; }
-            @Override
-            public void writeTo(BufferedSink sink) throws IOException {
-                byte[] buffer = new byte[8192];
-                int bytesRead;
-                while ((bytesRead = finalInputFile.read(buffer)) != -1) {
-                    sink.write(buffer, 0, bytesRead);
-                }
-            }
-        };
-        MultipartBuilder multipartBuilder = new MultipartBuilder().type(MultipartBuilder.FORM)
-            .addFormDataPart("inputFile", "filename", chunkedRequestBody);
-        Object localVarPostBody = multipartBuilder.build();
-
-        // Force content type to multipart/form-data
-        String[] localVarContentTypes = { "multipart/form-data" };
-
         // Create path and map variables
         String localVarPath = "/virus/scan/file/advanced";
-
-        // Call the API and return the result
+        
+        // Pass the InputStream directly in form params
+        Map<String, Object> localVarFormParams = new HashMap<>();
+        localVarFormParams.put("inputFile", inputFile);
+        
+        // No custom request body, let ApiClient handle the form params
+        Object localVarPostBody = null;
+        
+        // Set headers
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        localVarHeaderParams.put("Content-Type", "multipart/form-data");
+        
+        // Call the API
         Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>() {}.getType();
         ApiResponse<VirusScanAdvancedResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
                 "POST",
-                new ArrayList<Pair>(), // Explicitly specify List<Pair>
-                new ArrayList<Pair>(), // Explicitly specify List<Pair>
+                new ArrayList<Pair>(),
+                new ArrayList<Pair>(),
                 localVarPostBody,
-                new HashMap<String, String>(), // Explicitly specify Map<String, String>
+                localVarHeaderParams,
                 localVarFormParams,
                 new String[] { "Apikey" },
-                null // Add ProgressRequestListener as null
+                null
             ),
             localVarReturnType
         );

@@ -32,7 +32,7 @@ import java.util.List;
  * Result of running a DocxGetFormFields command
  */
 @ApiModel(description = "Result of running a DocxGetFormFields command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:34:02.603-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:55.050-07:00")
 public class GetDocxGetFormFieldsResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

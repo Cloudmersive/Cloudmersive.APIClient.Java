@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Current date and time response
  */
 @ApiModel(description = "Current date and time response")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:33:53.164-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:45.929-07:00")
 public class DateTimeNowResult {
   @SerializedName("Successful")
   private Boolean successful = null;

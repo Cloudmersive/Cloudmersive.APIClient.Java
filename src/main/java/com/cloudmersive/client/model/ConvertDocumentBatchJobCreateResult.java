@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a convert documentbatch job operation
  */
 @ApiModel(description = "Result of performing a convert documentbatch job operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:34:02.603-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:55.050-07:00")
 public class ConvertDocumentBatchJobCreateResult {
   @SerializedName("Successful")
   private Boolean successful = null;

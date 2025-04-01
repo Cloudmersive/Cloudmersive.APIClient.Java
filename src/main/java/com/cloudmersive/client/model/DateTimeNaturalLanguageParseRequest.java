@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input parameter to a date time parsing request
  */
 @ApiModel(description = "Input parameter to a date time parsing request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:33:53.164-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T13:58:45.929-07:00")
 public class DateTimeNaturalLanguageParseRequest {
   @SerializedName("RawDateTimeInput")
   private String rawDateTimeInput = null;
