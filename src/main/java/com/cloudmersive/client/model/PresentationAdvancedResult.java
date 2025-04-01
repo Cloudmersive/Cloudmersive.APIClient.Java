@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single PowerPoint PPTX file corresponding to one worksheet (tab) in the original spreadsheet
  */
 @ApiModel(description = "A single PowerPoint PPTX file corresponding to one worksheet (tab) in the original spreadsheet")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:21:31.070-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T11:34:02.603-07:00")
 public class PresentationAdvancedResult {
   @SerializedName("SlideNumber")
   private Integer slideNumber = null;

@@ -10,6 +10,18 @@ Name | Type | Description | Notes
 **errorDetailedDescription** | **String** | Detailed error message if the operation was not successful |  [optional]
 **fileSize** | **Long** | Size in bytes of the file that was retrieved and scanned |  [optional]
 **containsContentModerationRejection** | **Boolean** | Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default) |  [optional]
+**containsExecutable** | **Boolean** | True if the scan contained an executable (application code), which can be a significant risk factor |  [optional]
+**containsInvalidFile** | **Boolean** | True if the scan contained an invalid file (such as a PDF that is not a valid PDF, Word Document that is not a valid Word Document, etc.), which can be a significant risk factor |  [optional]
+**containsScript** | **Boolean** | True if the scan contained a script (such as a PHP script, Python script, etc.) which can be a significant risk factor |  [optional]
+**containsPasswordProtectedFile** | **Boolean** | True if the scan contained a password protected or encrypted file, which can be a significant risk factor |  [optional]
+**containsRestrictedFileFormat** | **Boolean** | True if the uploaded file is of a type that is not allowed based on the optional restrictFileTypes parameter, false otherwise; if restrictFileTypes is not set, this will always be false |  [optional]
+**containsMacros** | **Boolean** | True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor |  [optional]
+**containsXmlExternalEntities** | **Boolean** | True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor |  [optional]
+**containsInsecureDeserialization** | **Boolean** | True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor |  [optional]
+**containsHtml** | **Boolean** | True if the uploaded file contains HTML, which can be a significant risk factor |  [optional]
+**containsUnsafeArchive** | **Boolean** | True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction |  [optional]
+**containsOleEmbeddedObject** | **Boolean** | True if the uploaded file contains an OLE embedded object, which can be a significant risk factor |  [optional]
+**verifiedFileFormat** | **String** | For file format verification-supported file formats, the contents-verified file format of the file.  Null indicates that the file format is not supported for contents verification.  If a Virus or Malware is found, this field will always be set to Null. |  [optional]
 
 
 
