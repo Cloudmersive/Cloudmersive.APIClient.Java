@@ -102,7 +102,6 @@ import com.cloudmersive.client.model.InsertDocxTablesResponse;
 import com.cloudmersive.client.model.InsertXlsxWorksheetRequest;
 import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.MultiReplaceStringRequest;
-import com.cloudmersive.client.model.PptxPageLayoutInformation;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
@@ -167,9 +166,7 @@ public class EditDocumentApiTest {
     public void editDocumentDocxAcceptAllTrackChangesTest() throws Exception {
         File inputFile = null;
         Boolean autorepair = null;
-        Boolean changeOutlines = null;
-        Boolean headersAndFooters = null;
-        byte[] response = api.editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair, changeOutlines, headersAndFooters);
+        byte[] response = api.editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair);
 
         // TODO: test validations
     }
@@ -863,25 +860,6 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Set the size and/or orientation of a PowerPoint PPTX presentation document
-     *
-     * Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void editDocumentPptxEditSizeAndOrientationTest() throws Exception {
-        File inputFile = null;
-        String orientation = null;
-        Integer width = null;
-        Integer height = null;
-        byte[] response = api.editDocumentPptxEditSizeAndOrientation(inputFile, orientation, width, height);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get macro information from a PowerPoint PPTX/PPTM presentation document
      *
      * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
@@ -893,22 +871,6 @@ public class EditDocumentApiTest {
     public void editDocumentPptxGetMacroInformationTest() throws Exception {
         File inputFile = null;
         GetMacrosResponse response = api.editDocumentPptxGetMacroInformation(inputFile);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
-     *
-     * Gets size and orientation of an input PowerPoint PPTX presentation
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void editDocumentPptxGetSizeAndOrientationTest() throws Exception {
-        File inputFile = null;
-        PptxPageLayoutInformation response = api.editDocumentPptxGetSizeAndOrientation(inputFile);
 
         // TODO: test validations
     }

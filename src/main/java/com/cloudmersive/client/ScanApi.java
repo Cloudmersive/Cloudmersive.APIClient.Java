@@ -208,7 +208,7 @@ public class ScanApi {
         String localVarPath = "/virus/scan/file";
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<VirusScanResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<VirusScanResult>() {}.getType();
         ApiResponse<VirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -224,7 +224,7 @@ public class ScanApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
 
     /**
      * Overload for file parameter as InputStream (chunked transfer).
@@ -254,7 +254,7 @@ public class ScanApi {
         };
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<VirusScanResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<VirusScanResult>() {}.getType();
         ApiResponse<VirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -270,7 +270,7 @@ public class ScanApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
     /**
      * Build call for scanFileAdvanced
      * @param inputFile Input file to perform the operation on. (required)
@@ -483,7 +483,7 @@ public class ScanApi {
         String localVarPath = "/virus/scan/file/advanced";
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<VirusScanAdvancedResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>() {}.getType();
         ApiResponse<VirusScanAdvancedResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -499,7 +499,7 @@ public class ScanApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
 
     /**
      * Overload for file parameter as InputStream (chunked transfer).
@@ -529,7 +529,7 @@ public class ScanApi {
         };
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<VirusScanAdvancedResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>() {}.getType();
         ApiResponse<VirusScanAdvancedResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -545,7 +545,7 @@ public class ScanApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
     /**
      * Build call for scanWebsite
      * @param input  (required)

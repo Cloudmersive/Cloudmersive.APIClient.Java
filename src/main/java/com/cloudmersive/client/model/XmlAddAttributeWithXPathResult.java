@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a add attribute node operation on XML input using XPath
  */
 @ApiModel(description = "Result of performing a add attribute node operation on XML input using XPath")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:54.448-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:59.996-07:00")
 public class XmlAddAttributeWithXPathResult {
   @SerializedName("Successful")
   private Boolean successful = null;

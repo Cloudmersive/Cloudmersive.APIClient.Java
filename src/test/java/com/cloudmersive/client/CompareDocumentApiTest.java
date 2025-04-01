@@ -45,9 +45,7 @@ public class CompareDocumentApiTest {
         File inputFile1 = null;
         File inputFile2 = null;
         Boolean autorepair = null;
-        Boolean changeOutlines = null;
-        Boolean headersAndFooters = null;
-        byte[] response = api.compareDocumentDocx(inputFile1, inputFile2, autorepair, changeOutlines, headersAndFooters);
+        byte[] response = api.compareDocumentDocx(inputFile1, inputFile2, autorepair);
 
         // TODO: test validations
     }

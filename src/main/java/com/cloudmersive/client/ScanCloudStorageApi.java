@@ -992,7 +992,7 @@ public class ScanCloudStorageApi {
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<CloudStorageVirusScanResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>() {}.getType();
         ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -1008,7 +1008,7 @@ public class ScanCloudStorageApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
 
     /**
      * Overload for file parameter as InputStream (chunked transfer).
@@ -1038,7 +1038,7 @@ public class ScanCloudStorageApi {
         };
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<CloudStorageVirusScanResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>() {}.getType();
         ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -1054,7 +1054,7 @@ public class ScanCloudStorageApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
     /**
      * Build call for scanCloudStorageScanGcpStorageFileAdvanced
      * @param bucketName Name of the bucket in Google Cloud Storage (required)
@@ -1271,7 +1271,7 @@ public class ScanCloudStorageApi {
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<CloudStorageAdvancedVirusScanResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>() {}.getType();
         ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -1287,7 +1287,7 @@ public class ScanCloudStorageApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
 
     /**
      * Overload for file parameter as InputStream (chunked transfer).
@@ -1317,7 +1317,7 @@ public class ScanCloudStorageApi {
         };
 
         // Call the API and return the result
-        Type localVarReturnType = new TypeToken<ApiResponse<CloudStorageAdvancedVirusScanResult>>() {}.getType();
+        Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>() {}.getType();
         ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(
             apiClient.buildCall(
                 localVarPath,
@@ -1333,7 +1333,7 @@ public class ScanCloudStorageApi {
             localVarReturnType
         );
         return response.getData();
-            }
+    }
     /**
      * Build call for scanCloudStorageScanSharePointOnlineFile
      * @param clientID Client ID access credentials; see description above for instructions on how to get the Client ID from the Azure Active Directory portal. (required)

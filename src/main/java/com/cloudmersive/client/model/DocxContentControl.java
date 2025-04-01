@@ -28,7 +28,7 @@ import java.io.IOException;
  * Content Control instance
  */
 @ApiModel(description = "Content Control instance")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:54.448-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:59.996-07:00")
 public class DocxContentControl {
   @SerializedName("Value")
   private String value = null;
