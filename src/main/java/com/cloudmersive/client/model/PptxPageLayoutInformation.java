@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of getting the page layout information of a PowerPoint PPTX presentation
  */
 @ApiModel(description = "Result of getting the page layout information of a PowerPoint PPTX presentation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:45.391-07:00")
 public class PptxPageLayoutInformation {
   @SerializedName("Successful")
   private Boolean successful = null;
