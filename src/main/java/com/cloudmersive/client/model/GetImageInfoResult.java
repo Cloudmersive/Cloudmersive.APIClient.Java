@@ -31,7 +31,7 @@ import java.util.List;
  * Result of running a get-info operation on an image
  */
 @ApiModel(description = "Result of running a get-info operation on an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:45.391-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:58.249-07:00")
 public class GetImageInfoResult {
   @SerializedName("Successful")
   private Boolean successful = null;
