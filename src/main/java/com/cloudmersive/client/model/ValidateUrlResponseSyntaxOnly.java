@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of validating a URL with syntax only
  */
 @ApiModel(description = "Result of validating a URL with syntax only")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:45.686-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:51.472-07:00")
 public class ValidateUrlResponseSyntaxOnly {
   @SerializedName("ValidURL")
   private Boolean validURL = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to decode content from Base 64 into binary
  */
 @ApiModel(description = "Request to decode content from Base 64 into binary")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:54.448-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:59.996-07:00")
 public class Base64DecodeRequest {
   @SerializedName("Base64ContentToDecode")
   private String base64ContentToDecode = null;

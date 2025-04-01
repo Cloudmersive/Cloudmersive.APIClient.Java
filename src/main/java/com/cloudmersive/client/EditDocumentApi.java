@@ -116,7 +116,6 @@ import com.cloudmersive.client.model.InsertDocxTablesResponse;
 import com.cloudmersive.client.model.InsertXlsxWorksheetRequest;
 import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.MultiReplaceStringRequest;
-import com.cloudmersive.client.model.PptxPageLayoutInformation;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
@@ -297,14 +296,12 @@ public class EditDocumentApi {
      * Build call for editDocumentDocxAcceptAllTrackChanges
      * @param inputFile Input file to perform the operation on. (required)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
-     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
-     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesCall(File inputFile, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesCall(File inputFile, Boolean autorepair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -316,10 +313,6 @@ public class EditDocumentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (autorepair != null)
         localVarHeaderParams.put("autorepair", apiClient.parameterToString(autorepair));
-        if (changeOutlines != null)
-        localVarHeaderParams.put("changeOutlines", apiClient.parameterToString(changeOutlines));
-        if (headersAndFooters != null)
-        localVarHeaderParams.put("headersAndFooters", apiClient.parameterToString(headersAndFooters));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (inputFile != null)
@@ -357,7 +350,7 @@ public class EditDocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(File inputFile, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(File inputFile, Boolean autorepair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -365,7 +358,7 @@ public class EditDocumentApi {
         }
         
 
-        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesCall(inputFile, autorepair, changeOutlines, headersAndFooters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesCall(inputFile, autorepair, progressListener, progressRequestListener);
         return call;
 
     }
@@ -375,13 +368,11 @@ public class EditDocumentApi {
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
-     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
-     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] editDocumentDocxAcceptAllTrackChanges(File inputFile, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters) throws ApiException {
-        ApiResponse<byte[]> resp = editDocumentDocxAcceptAllTrackChangesWithHttpInfo(inputFile, autorepair, changeOutlines, headersAndFooters);
+    public byte[] editDocumentDocxAcceptAllTrackChanges(File inputFile, Boolean autorepair) throws ApiException {
+        ApiResponse<byte[]> resp = editDocumentDocxAcceptAllTrackChangesWithHttpInfo(inputFile, autorepair);
         return resp.getData();
     }
 
@@ -390,13 +381,11 @@ public class EditDocumentApi {
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
-     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
-     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> editDocumentDocxAcceptAllTrackChangesWithHttpInfo(File inputFile, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters) throws ApiException {
-        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(inputFile, autorepair, changeOutlines, headersAndFooters, null, null);
+    public ApiResponse<byte[]> editDocumentDocxAcceptAllTrackChangesWithHttpInfo(File inputFile, Boolean autorepair) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(inputFile, autorepair, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -406,13 +395,11 @@ public class EditDocumentApi {
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
      * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
-     * @param changeOutlines Optional; highlight changes with a blue outline (default is true) (optional)
-     * @param headersAndFooters Optional; include headers and footers (default is false) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesAsync(File inputFile, Boolean autorepair, Boolean changeOutlines, Boolean headersAndFooters, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call editDocumentDocxAcceptAllTrackChangesAsync(File inputFile, Boolean autorepair, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -433,7 +420,7 @@ public class EditDocumentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(inputFile, autorepair, changeOutlines, headersAndFooters, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editDocumentDocxAcceptAllTrackChangesValidateBeforeCall(inputFile, autorepair, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5828,151 +5815,6 @@ public class EditDocumentApi {
         return call;
     }
     /**
-     * Build call for editDocumentPptxEditSizeAndOrientation
-     * @param inputFile Input file to perform the operation on. (required)
-     * @param orientation Optional: The desired slide orientation; can be landscape or portrait. (optional)
-     * @param width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu. (optional)
-     * @param height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call editDocumentPptxEditSizeAndOrientationCall(File inputFile, String orientation, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/convert/edit/pptx/set-size-and-orientation";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (orientation != null)
-        localVarHeaderParams.put("orientation", apiClient.parameterToString(orientation));
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (inputFile != null)
-        localVarFormParams.put("inputFile", inputFile);
-
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        if (headers != null) {
-            localVarHeaderParams.putAll(headers);
-        }
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editDocumentPptxEditSizeAndOrientationValidateBeforeCall(File inputFile, String orientation, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentPptxEditSizeAndOrientation(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = editDocumentPptxEditSizeAndOrientationCall(inputFile, orientation, width, height, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Set the size and/or orientation of a PowerPoint PPTX presentation document
-     * Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
-     * @param inputFile Input file to perform the operation on. (required)
-     * @param orientation Optional: The desired slide orientation; can be landscape or portrait. (optional)
-     * @param width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu. (optional)
-     * @param height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu (optional)
-     * @return byte[]
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public byte[] editDocumentPptxEditSizeAndOrientation(File inputFile, String orientation, Integer width, Integer height) throws ApiException {
-        ApiResponse<byte[]> resp = editDocumentPptxEditSizeAndOrientationWithHttpInfo(inputFile, orientation, width, height);
-        return resp.getData();
-    }
-
-    /**
-     * Set the size and/or orientation of a PowerPoint PPTX presentation document
-     * Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
-     * @param inputFile Input file to perform the operation on. (required)
-     * @param orientation Optional: The desired slide orientation; can be landscape or portrait. (optional)
-     * @param width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu. (optional)
-     * @param height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu (optional)
-     * @return ApiResponse&lt;byte[]&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<byte[]> editDocumentPptxEditSizeAndOrientationWithHttpInfo(File inputFile, String orientation, Integer width, Integer height) throws ApiException {
-        com.squareup.okhttp.Call call = editDocumentPptxEditSizeAndOrientationValidateBeforeCall(inputFile, orientation, width, height, null, null);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Set the size and/or orientation of a PowerPoint PPTX presentation document (asynchronously)
-     * Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
-     * @param inputFile Input file to perform the operation on. (required)
-     * @param orientation Optional: The desired slide orientation; can be landscape or portrait. (optional)
-     * @param width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu. (optional)
-     * @param height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call editDocumentPptxEditSizeAndOrientationAsync(File inputFile, String orientation, Integer width, Integer height, final ApiCallback<byte[]> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = editDocumentPptxEditSizeAndOrientationValidateBeforeCall(inputFile, orientation, width, height, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for editDocumentPptxGetMacroInformation
      * @param inputFile Input file to perform the operation on. (required)
      * @param progressListener Progress listener
@@ -6096,133 +5938,6 @@ public class EditDocumentApi {
 
         com.squareup.okhttp.Call call = editDocumentPptxGetMacroInformationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetMacrosResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for editDocumentPptxGetSizeAndOrientation
-     * @param inputFile Input file to perform the operation on. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call editDocumentPptxGetSizeAndOrientationCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/convert/edit/pptx/get-size-and-orientation";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (inputFile != null)
-        localVarFormParams.put("inputFile", inputFile);
-
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        if (headers != null) {
-            localVarHeaderParams.putAll(headers);
-        }
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call editDocumentPptxGetSizeAndOrientationValidateBeforeCall(File inputFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'inputFile' is set
-        if (inputFile == null) {
-            throw new ApiException("Missing the required parameter 'inputFile' when calling editDocumentPptxGetSizeAndOrientation(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = editDocumentPptxGetSizeAndOrientationCall(inputFile, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
-     * Gets size and orientation of an input PowerPoint PPTX presentation
-     * @param inputFile Input file to perform the operation on. (required)
-     * @return PptxPageLayoutInformation
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PptxPageLayoutInformation editDocumentPptxGetSizeAndOrientation(File inputFile) throws ApiException {
-        ApiResponse<PptxPageLayoutInformation> resp = editDocumentPptxGetSizeAndOrientationWithHttpInfo(inputFile);
-        return resp.getData();
-    }
-
-    /**
-     * Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
-     * Gets size and orientation of an input PowerPoint PPTX presentation
-     * @param inputFile Input file to perform the operation on. (required)
-     * @return ApiResponse&lt;PptxPageLayoutInformation&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PptxPageLayoutInformation> editDocumentPptxGetSizeAndOrientationWithHttpInfo(File inputFile) throws ApiException {
-        com.squareup.okhttp.Call call = editDocumentPptxGetSizeAndOrientationValidateBeforeCall(inputFile, null, null);
-        Type localVarReturnType = new TypeToken<PptxPageLayoutInformation>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document (asynchronously)
-     * Gets size and orientation of an input PowerPoint PPTX presentation
-     * @param inputFile Input file to perform the operation on. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call editDocumentPptxGetSizeAndOrientationAsync(File inputFile, final ApiCallback<PptxPageLayoutInformation> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = editDocumentPptxGetSizeAndOrientationValidateBeforeCall(inputFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PptxPageLayoutInformation>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

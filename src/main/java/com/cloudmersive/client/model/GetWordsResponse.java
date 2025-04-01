@@ -31,7 +31,7 @@ import java.util.List;
  * Words in input string
  */
 @ApiModel(description = "Words in input string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:47.801-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:53.251-07:00")
 public class GetWordsResponse {
   @SerializedName("Words")
   private List<WordPosition> words = null;

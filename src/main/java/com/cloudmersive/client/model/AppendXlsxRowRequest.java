@@ -30,7 +30,7 @@ import java.io.IOException;
  * Input to a Append-Row request
  */
 @ApiModel(description = "Input to a Append-Row request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T00:53:54.448-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:59.996-07:00")
 public class AppendXlsxRowRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
