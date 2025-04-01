@@ -28,7 +28,7 @@ import java.io.IOException;
  * Additional non-threat content verification information
  */
 @ApiModel(description = "Additional non-threat content verification information")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:49.519-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:47.904-07:00")
 public class AdditionalAdvancedScanInformation {
   @SerializedName("ContainsJSON")
   private Boolean containsJSON = null;
@@ -41,6 +41,9 @@ public class AdditionalAdvancedScanInformation {
 
   @SerializedName("RelevantSubfileName")
   private String relevantSubfileName = null;
+
+  @SerializedName("IsAuthenticodeSigned")
+  private Boolean isAuthenticodeSigned = null;
 
   public AdditionalAdvancedScanInformation containsJSON(Boolean containsJSON) {
     this.containsJSON = containsJSON;
@@ -114,6 +117,24 @@ public class AdditionalAdvancedScanInformation {
     this.relevantSubfileName = relevantSubfileName;
   }
 
+  public AdditionalAdvancedScanInformation isAuthenticodeSigned(Boolean isAuthenticodeSigned) {
+    this.isAuthenticodeSigned = isAuthenticodeSigned;
+    return this;
+  }
+
+   /**
+   * True if there is a valid Authenticode signature, False otherwise
+   * @return isAuthenticodeSigned
+  **/
+  @ApiModelProperty(value = "True if there is a valid Authenticode signature, False otherwise")
+  public Boolean isIsAuthenticodeSigned() {
+    return isAuthenticodeSigned;
+  }
+
+  public void setIsAuthenticodeSigned(Boolean isAuthenticodeSigned) {
+    this.isAuthenticodeSigned = isAuthenticodeSigned;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class AdditionalAdvancedScanInformation {
     return Objects.equals(this.containsJSON, additionalAdvancedScanInformation.containsJSON) &&
         Objects.equals(this.containsXML, additionalAdvancedScanInformation.containsXML) &&
         Objects.equals(this.containsImage, additionalAdvancedScanInformation.containsImage) &&
-        Objects.equals(this.relevantSubfileName, additionalAdvancedScanInformation.relevantSubfileName);
+        Objects.equals(this.relevantSubfileName, additionalAdvancedScanInformation.relevantSubfileName) &&
+        Objects.equals(this.isAuthenticodeSigned, additionalAdvancedScanInformation.isAuthenticodeSigned);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containsJSON, containsXML, containsImage, relevantSubfileName);
+    return Objects.hash(containsJSON, containsXML, containsImage, relevantSubfileName, isAuthenticodeSigned);
   }
 
 
@@ -145,6 +167,7 @@ public class AdditionalAdvancedScanInformation {
     sb.append("    containsXML: ").append(toIndentedString(containsXML)).append("\n");
     sb.append("    containsImage: ").append(toIndentedString(containsImage)).append("\n");
     sb.append("    relevantSubfileName: ").append(toIndentedString(relevantSubfileName)).append("\n");
+    sb.append("    isAuthenticodeSigned: ").append(toIndentedString(isAuthenticodeSigned)).append("\n");
     sb.append("}");
     return sb.toString();
   }

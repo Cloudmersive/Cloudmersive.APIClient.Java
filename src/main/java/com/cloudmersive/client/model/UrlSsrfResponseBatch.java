@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing SSRF threat checks on multiple URLs
  */
 @ApiModel(description = "Result of performing SSRF threat checks on multiple URLs")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:37.982-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:36.747-07:00")
 public class UrlSsrfResponseBatch {
   @SerializedName("OutputItems")
   private List<UrlSsrfResponseFull> outputItems = null;

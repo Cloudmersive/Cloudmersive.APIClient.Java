@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to convert a URL to a PDF file
  */
 @ApiModel(description = "Request to convert a URL to a PDF file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:45.391-07:00")
 public class UrlToPdfRequest {
   @SerializedName("Url")
   private String url = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of retrieving PDF form fields
  */
 @ApiModel(description = "Result of retrieving PDF form fields")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:45.391-07:00")
 public class PdfFormFields {
   @SerializedName("Successful")
   private Boolean successful = null;

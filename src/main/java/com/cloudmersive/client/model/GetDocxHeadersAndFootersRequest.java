@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a Get Tables request
  */
 @ApiModel(description = "Input to a Get Tables request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:26:45.391-07:00")
 public class GetDocxHeadersAndFootersRequest {
   @SerializedName("InputFileBytes")
   private byte[] inputFileBytes = null;
