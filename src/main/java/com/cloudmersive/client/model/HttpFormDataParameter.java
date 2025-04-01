@@ -29,7 +29,7 @@ import java.io.IOException;
  * Defines a parameter of type FormData (multipart/form-data)
  */
 @ApiModel(description = "Defines a parameter of type FormData (multipart/form-data)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:52.789Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:10.196-07:00")
 public class HttpFormDataParameter {
   @SerializedName("ParameterName")
   private String parameterName = null;

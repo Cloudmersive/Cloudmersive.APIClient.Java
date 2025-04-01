@@ -40,6 +40,7 @@ import java.util.Map;
 
 public class PdfOcrApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public PdfOcrApi() {
         this(Configuration.getDefaultApiClient());
@@ -55,6 +56,10 @@ public class PdfOcrApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -105,6 +110,9 @@ public class PdfOcrApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -235,6 +243,9 @@ public class PdfOcrApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -371,6 +382,9 @@ public class PdfOcrApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -510,6 +524,9 @@ public class PdfOcrApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

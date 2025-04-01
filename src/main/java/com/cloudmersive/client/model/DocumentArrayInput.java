@@ -31,7 +31,7 @@ import java.util.List;
  * Input array of documents to be processed for a merge operation
  */
 @ApiModel(description = "Input array of documents to be processed for a merge operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:06.181-07:00")
 public class DocumentArrayInput {
   @SerializedName("Documents")
   private List<DocumentItem> documents = null;

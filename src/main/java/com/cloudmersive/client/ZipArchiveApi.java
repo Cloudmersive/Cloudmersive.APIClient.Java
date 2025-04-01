@@ -40,6 +40,7 @@ import java.util.Map;
 
 public class ZipArchiveApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public ZipArchiveApi() {
         this(Configuration.getDefaultApiClient());
@@ -55,6 +56,10 @@ public class ZipArchiveApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -132,6 +137,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -281,6 +289,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -438,6 +449,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -606,6 +620,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -744,6 +761,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -874,6 +894,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -998,6 +1021,9 @@ public class ZipArchiveApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

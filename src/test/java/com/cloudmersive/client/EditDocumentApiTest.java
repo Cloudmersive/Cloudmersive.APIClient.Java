@@ -15,8 +15,6 @@ package com.cloudmersive.client;
 
 import com.cloudmersive.client.model.AppendXlsxRowRequest;
 import com.cloudmersive.client.model.AppendXlsxRowResponse;
-import com.cloudmersive.client.model.BeginEditingChunkRequest;
-import com.cloudmersive.client.model.BeginEditingChunkResponse;
 import com.cloudmersive.client.model.ClearXlsxCellRequest;
 import com.cloudmersive.client.model.ClearXlsxCellResponse;
 import com.cloudmersive.client.model.ClearXlsxRowRequest;
@@ -104,7 +102,6 @@ import com.cloudmersive.client.model.InsertDocxTablesResponse;
 import com.cloudmersive.client.model.InsertXlsxWorksheetRequest;
 import com.cloudmersive.client.model.InsertXlsxWorksheetResponse;
 import com.cloudmersive.client.model.MultiReplaceStringRequest;
-import com.cloudmersive.client.model.PptxPageLayoutInformation;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersRequest;
 import com.cloudmersive.client.model.RemoveDocxHeadersAndFootersResponse;
 import com.cloudmersive.client.model.RemoveDocxPagesRequest;
@@ -153,22 +150,6 @@ public class EditDocumentApiTest {
     public void editDocumentBeginEditingTest() throws Exception {
         File inputFile = null;
         String response = api.editDocumentBeginEditing(inputFile);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Begin editing a document that is broken up until multiple chunks
-     *
-     * Requires Cloudmersive Private Cloud or Managed Instance.  When working with systems that have small file size limits, enables processing of large files above this limit.  Uploads a chunk of a document in Base64; once all chunks are received a document URL is returned.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void editDocumentBeginEditingChunkTest() throws Exception {
-        BeginEditingChunkRequest input = null;
-        BeginEditingChunkResponse response = api.editDocumentBeginEditingChunk(input);
 
         // TODO: test validations
     }
@@ -879,25 +860,6 @@ public class EditDocumentApiTest {
     }
     
     /**
-     * Set the size and/or orientation of a PowerPoint PPTX presentation document
-     *
-     * Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void editDocumentPptxEditSizeAndOrientationTest() throws Exception {
-        File inputFile = null;
-        String orientation = null;
-        Integer width = null;
-        Integer height = null;
-        byte[] response = api.editDocumentPptxEditSizeAndOrientation(inputFile, orientation, width, height);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get macro information from a PowerPoint PPTX/PPTM presentation document
      *
      * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
@@ -909,22 +871,6 @@ public class EditDocumentApiTest {
     public void editDocumentPptxGetMacroInformationTest() throws Exception {
         File inputFile = null;
         GetMacrosResponse response = api.editDocumentPptxGetMacroInformation(inputFile);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
-     *
-     * Gets size and orientation of an input PowerPoint PPTX presentation
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void editDocumentPptxGetSizeAndOrientationTest() throws Exception {
-        File inputFile = null;
-        PptxPageLayoutInformation response = api.editDocumentPptxGetSizeAndOrientation(inputFile);
 
         // TODO: test validations
     }

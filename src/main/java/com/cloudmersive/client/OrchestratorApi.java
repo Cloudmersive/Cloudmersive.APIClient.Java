@@ -38,6 +38,7 @@ import java.util.Map;
 
 public class OrchestratorApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public OrchestratorApi() {
         this(Configuration.getDefaultApiClient());
@@ -53,6 +54,10 @@ public class OrchestratorApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -101,6 +106,9 @@ public class OrchestratorApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

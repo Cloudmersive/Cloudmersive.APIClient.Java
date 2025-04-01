@@ -28,7 +28,7 @@ import java.io.IOException;
  * Geolocation result of performing an IP address geolocation operation.  This product includes GeoLite2 data created by MaxMind, available from www.maxmind.com.
  */
 @ApiModel(description = "Geolocation result of performing an IP address geolocation operation.  This product includes GeoLite2 data created by MaxMind, available from www.maxmind.com.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:57:58.746Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:40:55.913-07:00")
 public class GeolocateResponse {
   @SerializedName("CountryCode")
   private String countryCode = null;

@@ -36,6 +36,7 @@ import java.util.Map;
 
 public class GenerateBarcodeApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public GenerateBarcodeApi() {
         this(Configuration.getDefaultApiClient());
@@ -53,158 +54,19 @@ public class GenerateBarcodeApi {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for generateBarcodeCode128
-     * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call generateBarcodeCode128Call(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = value;
-
-        // create path and map variables
-        String localVarPath = "/barcode/generate/code-128";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
-        if (includeLabel != null)
-        localVarHeaderParams.put("includeLabel", apiClient.parameterToString(includeLabel));
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/octet-stream"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call generateBarcodeCode128ValidateBeforeCall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'value' is set
-        if (value == null) {
-            throw new ApiException("Missing the required parameter 'value' when calling generateBarcodeCode128(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = generateBarcodeCode128Call(value, width, height, includeLabel, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Generate a EAN-13 code barcode as PNG file
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
-     * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
-     * @return byte[]
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public byte[] generateBarcodeCode128(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        ApiResponse<byte[]> resp = generateBarcodeCode128WithHttpInfo(value, width, height, includeLabel);
-        return resp.getData();
-    }
-
-    /**
-     * Generate a EAN-13 code barcode as PNG file
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
-     * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
-     * @return ApiResponse&lt;byte[]&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<byte[]> generateBarcodeCode128WithHttpInfo(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        com.squareup.okhttp.Call call = generateBarcodeCode128ValidateBeforeCall(value, width, height, includeLabel, null, null);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Generate a EAN-13 code barcode as PNG file (asynchronously)
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
-     * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call generateBarcodeCode128Async(String value, Integer width, Integer height, Boolean includeLabel, final ApiCallback<byte[]> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = generateBarcodeCode128ValidateBeforeCall(value, width, height, includeLabel, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /**
      * Build call for generateBarcodeEAN13
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeEAN13Call(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeEAN13Call(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
@@ -214,12 +76,6 @@ public class GenerateBarcodeApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
-        if (includeLabel != null)
-        localVarHeaderParams.put("includeLabel", apiClient.parameterToString(includeLabel));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -248,11 +104,14 @@ public class GenerateBarcodeApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call generateBarcodeEAN13ValidateBeforeCall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call generateBarcodeEAN13ValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
@@ -260,7 +119,7 @@ public class GenerateBarcodeApi {
         }
         
 
-        com.squareup.okhttp.Call call = generateBarcodeEAN13Call(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeEAN13Call(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -269,14 +128,11 @@ public class GenerateBarcodeApi {
      * Generate a EAN-13 code barcode as PNG file
      * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] generateBarcodeEAN13(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        ApiResponse<byte[]> resp = generateBarcodeEAN13WithHttpInfo(value, width, height, includeLabel);
+    public byte[] generateBarcodeEAN13(String value) throws ApiException {
+        ApiResponse<byte[]> resp = generateBarcodeEAN13WithHttpInfo(value);
         return resp.getData();
     }
 
@@ -284,14 +140,11 @@ public class GenerateBarcodeApi {
      * Generate a EAN-13 code barcode as PNG file
      * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> generateBarcodeEAN13WithHttpInfo(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        com.squareup.okhttp.Call call = generateBarcodeEAN13ValidateBeforeCall(value, width, height, includeLabel, null, null);
+    public ApiResponse<byte[]> generateBarcodeEAN13WithHttpInfo(String value) throws ApiException {
+        com.squareup.okhttp.Call call = generateBarcodeEAN13ValidateBeforeCall(value, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -300,14 +153,11 @@ public class GenerateBarcodeApi {
      * Generate a EAN-13 code barcode as PNG file (asynchronously)
      * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeEAN13Async(String value, Integer width, Integer height, Boolean includeLabel, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeEAN13Async(String value, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -328,7 +178,7 @@ public class GenerateBarcodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = generateBarcodeEAN13ValidateBeforeCall(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeEAN13ValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -336,15 +186,12 @@ public class GenerateBarcodeApi {
     /**
      * Build call for generateBarcodeEAN8
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeEAN8Call(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeEAN8Call(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
@@ -354,12 +201,6 @@ public class GenerateBarcodeApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
-        if (includeLabel != null)
-        localVarHeaderParams.put("includeLabel", apiClient.parameterToString(includeLabel));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -388,11 +229,14 @@ public class GenerateBarcodeApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call generateBarcodeEAN8ValidateBeforeCall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call generateBarcodeEAN8ValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
@@ -400,7 +244,7 @@ public class GenerateBarcodeApi {
         }
         
 
-        com.squareup.okhttp.Call call = generateBarcodeEAN8Call(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeEAN8Call(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -409,14 +253,11 @@ public class GenerateBarcodeApi {
      * Generate a EAN-8 code barcode as PNG file
      * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] generateBarcodeEAN8(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        ApiResponse<byte[]> resp = generateBarcodeEAN8WithHttpInfo(value, width, height, includeLabel);
+    public byte[] generateBarcodeEAN8(String value) throws ApiException {
+        ApiResponse<byte[]> resp = generateBarcodeEAN8WithHttpInfo(value);
         return resp.getData();
     }
 
@@ -424,14 +265,11 @@ public class GenerateBarcodeApi {
      * Generate a EAN-8 code barcode as PNG file
      * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> generateBarcodeEAN8WithHttpInfo(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        com.squareup.okhttp.Call call = generateBarcodeEAN8ValidateBeforeCall(value, width, height, includeLabel, null, null);
+    public ApiResponse<byte[]> generateBarcodeEAN8WithHttpInfo(String value) throws ApiException {
+        com.squareup.okhttp.Call call = generateBarcodeEAN8ValidateBeforeCall(value, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -440,14 +278,11 @@ public class GenerateBarcodeApi {
      * Generate a EAN-8 code barcode as PNG file (asynchronously)
      * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
      * @param value Barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeEAN8Async(String value, Integer width, Integer height, Boolean includeLabel, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeEAN8Async(String value, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -468,7 +303,7 @@ public class GenerateBarcodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = generateBarcodeEAN8ValidateBeforeCall(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeEAN8ValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -476,14 +311,12 @@ public class GenerateBarcodeApi {
     /**
      * Build call for generateBarcodeQRCode
      * @param value QR code text to convert into the QR code barcode (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeQRCodeCall(String value, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeQRCodeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
@@ -493,10 +326,6 @@ public class GenerateBarcodeApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -525,11 +354,14 @@ public class GenerateBarcodeApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call generateBarcodeQRCodeValidateBeforeCall(String value, Integer width, Integer height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call generateBarcodeQRCodeValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
@@ -537,7 +369,7 @@ public class GenerateBarcodeApi {
         }
         
 
-        com.squareup.okhttp.Call call = generateBarcodeQRCodeCall(value, width, height, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeQRCodeCall(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -546,13 +378,11 @@ public class GenerateBarcodeApi {
      * Generate a QR code barcode as PNG file
      * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
      * @param value QR code text to convert into the QR code barcode (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] generateBarcodeQRCode(String value, Integer width, Integer height) throws ApiException {
-        ApiResponse<byte[]> resp = generateBarcodeQRCodeWithHttpInfo(value, width, height);
+    public byte[] generateBarcodeQRCode(String value) throws ApiException {
+        ApiResponse<byte[]> resp = generateBarcodeQRCodeWithHttpInfo(value);
         return resp.getData();
     }
 
@@ -560,13 +390,11 @@ public class GenerateBarcodeApi {
      * Generate a QR code barcode as PNG file
      * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
      * @param value QR code text to convert into the QR code barcode (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> generateBarcodeQRCodeWithHttpInfo(String value, Integer width, Integer height) throws ApiException {
-        com.squareup.okhttp.Call call = generateBarcodeQRCodeValidateBeforeCall(value, width, height, null, null);
+    public ApiResponse<byte[]> generateBarcodeQRCodeWithHttpInfo(String value) throws ApiException {
+        com.squareup.okhttp.Call call = generateBarcodeQRCodeValidateBeforeCall(value, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -575,13 +403,11 @@ public class GenerateBarcodeApi {
      * Generate a QR code barcode as PNG file (asynchronously)
      * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
      * @param value QR code text to convert into the QR code barcode (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeQRCodeAsync(String value, Integer width, Integer height, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeQRCodeAsync(String value, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -602,7 +428,7 @@ public class GenerateBarcodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = generateBarcodeQRCodeValidateBeforeCall(value, width, height, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeQRCodeValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -610,15 +436,12 @@ public class GenerateBarcodeApi {
     /**
      * Build call for generateBarcodeUPCA
      * @param value UPC-A barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeUPCACall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeUPCACall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
@@ -628,12 +451,6 @@ public class GenerateBarcodeApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
-        if (includeLabel != null)
-        localVarHeaderParams.put("includeLabel", apiClient.parameterToString(includeLabel));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -662,11 +479,14 @@ public class GenerateBarcodeApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call generateBarcodeUPCAValidateBeforeCall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call generateBarcodeUPCAValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
@@ -674,7 +494,7 @@ public class GenerateBarcodeApi {
         }
         
 
-        com.squareup.okhttp.Call call = generateBarcodeUPCACall(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeUPCACall(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -683,14 +503,11 @@ public class GenerateBarcodeApi {
      * Generate a UPC-A code barcode as PNG file
      * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
      * @param value UPC-A barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] generateBarcodeUPCA(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        ApiResponse<byte[]> resp = generateBarcodeUPCAWithHttpInfo(value, width, height, includeLabel);
+    public byte[] generateBarcodeUPCA(String value) throws ApiException {
+        ApiResponse<byte[]> resp = generateBarcodeUPCAWithHttpInfo(value);
         return resp.getData();
     }
 
@@ -698,14 +515,11 @@ public class GenerateBarcodeApi {
      * Generate a UPC-A code barcode as PNG file
      * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
      * @param value UPC-A barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> generateBarcodeUPCAWithHttpInfo(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        com.squareup.okhttp.Call call = generateBarcodeUPCAValidateBeforeCall(value, width, height, includeLabel, null, null);
+    public ApiResponse<byte[]> generateBarcodeUPCAWithHttpInfo(String value) throws ApiException {
+        com.squareup.okhttp.Call call = generateBarcodeUPCAValidateBeforeCall(value, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -714,14 +528,11 @@ public class GenerateBarcodeApi {
      * Generate a UPC-A code barcode as PNG file (asynchronously)
      * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
      * @param value UPC-A barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeUPCAAsync(String value, Integer width, Integer height, Boolean includeLabel, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeUPCAAsync(String value, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -742,7 +553,7 @@ public class GenerateBarcodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = generateBarcodeUPCAValidateBeforeCall(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeUPCAValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -750,15 +561,12 @@ public class GenerateBarcodeApi {
     /**
      * Build call for generateBarcodeUPCE
      * @param value UPC-E barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeUPCECall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeUPCECall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = value;
 
         // create path and map variables
@@ -768,12 +576,6 @@ public class GenerateBarcodeApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (width != null)
-        localVarHeaderParams.put("width", apiClient.parameterToString(width));
-        if (height != null)
-        localVarHeaderParams.put("height", apiClient.parameterToString(height));
-        if (includeLabel != null)
-        localVarHeaderParams.put("includeLabel", apiClient.parameterToString(includeLabel));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -802,11 +604,14 @@ public class GenerateBarcodeApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call generateBarcodeUPCEValidateBeforeCall(String value, Integer width, Integer height, Boolean includeLabel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call generateBarcodeUPCEValidateBeforeCall(String value, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'value' is set
         if (value == null) {
@@ -814,7 +619,7 @@ public class GenerateBarcodeApi {
         }
         
 
-        com.squareup.okhttp.Call call = generateBarcodeUPCECall(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeUPCECall(value, progressListener, progressRequestListener);
         return call;
 
     }
@@ -823,14 +628,11 @@ public class GenerateBarcodeApi {
      * Generate a UPC-E code barcode as PNG file
      * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
      * @param value UPC-E barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public byte[] generateBarcodeUPCE(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        ApiResponse<byte[]> resp = generateBarcodeUPCEWithHttpInfo(value, width, height, includeLabel);
+    public byte[] generateBarcodeUPCE(String value) throws ApiException {
+        ApiResponse<byte[]> resp = generateBarcodeUPCEWithHttpInfo(value);
         return resp.getData();
     }
 
@@ -838,14 +640,11 @@ public class GenerateBarcodeApi {
      * Generate a UPC-E code barcode as PNG file
      * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
      * @param value UPC-E barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<byte[]> generateBarcodeUPCEWithHttpInfo(String value, Integer width, Integer height, Boolean includeLabel) throws ApiException {
-        com.squareup.okhttp.Call call = generateBarcodeUPCEValidateBeforeCall(value, width, height, includeLabel, null, null);
+    public ApiResponse<byte[]> generateBarcodeUPCEWithHttpInfo(String value) throws ApiException {
+        com.squareup.okhttp.Call call = generateBarcodeUPCEValidateBeforeCall(value, null, null);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -854,14 +653,11 @@ public class GenerateBarcodeApi {
      * Generate a UPC-E code barcode as PNG file (asynchronously)
      * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
      * @param value UPC-E barcode value to generate from (required)
-     * @param width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
-     * @param includeLabel Optional: show text label on the image of the barcode value, default is true. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call generateBarcodeUPCEAsync(String value, Integer width, Integer height, Boolean includeLabel, final ApiCallback<byte[]> callback) throws ApiException {
+    public com.squareup.okhttp.Call generateBarcodeUPCEAsync(String value, final ApiCallback<byte[]> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -882,7 +678,7 @@ public class GenerateBarcodeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = generateBarcodeUPCEValidateBeforeCall(value, width, height, includeLabel, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = generateBarcodeUPCEValidateBeforeCall(value, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
