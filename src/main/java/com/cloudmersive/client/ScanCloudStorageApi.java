@@ -41,6 +41,7 @@ import java.util.Map;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.MediaType;
 import okio.BufferedSink;
+import com.squareup.okhttp.MultipartBuilder;
 
 public class ScanCloudStorageApi {
     private ApiClient apiClient;
@@ -64,6 +65,20 @@ public class ScanCloudStorageApi {
 
     public void setHeadersOverrides(Map<String, String> headers) {
         this.headers = headers;
+    }
+
+    private byte[] convertInputStreamToByteArray(InputStream input) throws ApiException {
+        try {
+            java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
+            int nRead;
+            byte[] data = new byte[8192];
+            while ((nRead = input.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+            return buffer.toByteArray();
+        } catch (java.io.IOException e) {
+            throw new ApiException(e);
+        }
     }
 
     /**
@@ -988,6 +1003,14 @@ public class ScanCloudStorageApi {
         Map<String, Object> localVarFormParams = new HashMap<>();
         localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
 
+        final MediaType localVarMediaType = MediaType.parse("application/octet-stream");
+        RequestBody fileBody = RequestBody.create(localVarMediaType, convertInputStreamToByteArray(jsonCredentialFile));
+        MultipartBuilder multipartBuilder = new MultipartBuilder().type(MultipartBuilder.FORM)
+            .addFormDataPart("jsonCredentialFile", "filename", fileBody);
+        localVarPostBody = multipartBuilder.build();
+
+        String[] localVarContentTypes = { "multipart/form-data" };
+
         // Create path and map variables
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
 
@@ -1018,15 +1041,11 @@ public class ScanCloudStorageApi {
         Map<String, Object> localVarFormParams = new HashMap<>();
         localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
 
-        // Create path and map variables
-        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
-
+        final MediaType localVarMediaType = MediaType.parse("application/octet-stream");
         final InputStream finalInputFile = jsonCredentialFile;
         RequestBody chunkedRequestBody = new RequestBody() {
             @Override
-            public MediaType contentType() {
-                return MediaType.parse("application/octet-stream");
-            }
+            public MediaType contentType() { return localVarMediaType; }
             @Override
             public void writeTo(BufferedSink sink) throws IOException {
                 byte[] buffer = new byte[8192];
@@ -1036,6 +1055,14 @@ public class ScanCloudStorageApi {
                 }
             }
         };
+        MultipartBuilder multipartBuilder = new MultipartBuilder().type(MultipartBuilder.FORM)
+            .addFormDataPart("jsonCredentialFile", "filename", chunkedRequestBody);
+        localVarPostBody = multipartBuilder.build();
+
+        String[] localVarContentTypes = { "multipart/form-data" };
+
+        // Create path and map variables
+        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
 
         // Call the API and return the result
         Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>() {}.getType();
@@ -1045,7 +1072,7 @@ public class ScanCloudStorageApi {
                 "POST",
                 new ArrayList<Pair>(), // Explicitly specify List<Pair>
                 new ArrayList<Pair>(), // Explicitly specify List<Pair>
-                chunkedRequestBody,
+                localVarPostBody,
                 new HashMap<String, String>(), // Explicitly specify Map<String, String>
                 localVarFormParams,
                 new String[] { "Apikey" },
@@ -1267,6 +1294,14 @@ public class ScanCloudStorageApi {
         Map<String, Object> localVarFormParams = new HashMap<>();
         localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
 
+        final MediaType localVarMediaType = MediaType.parse("application/octet-stream");
+        RequestBody fileBody = RequestBody.create(localVarMediaType, convertInputStreamToByteArray(jsonCredentialFile));
+        MultipartBuilder multipartBuilder = new MultipartBuilder().type(MultipartBuilder.FORM)
+            .addFormDataPart("jsonCredentialFile", "filename", fileBody);
+        localVarPostBody = multipartBuilder.build();
+
+        String[] localVarContentTypes = { "multipart/form-data" };
+
         // Create path and map variables
         String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
 
@@ -1297,15 +1332,11 @@ public class ScanCloudStorageApi {
         Map<String, Object> localVarFormParams = new HashMap<>();
         localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
 
-        // Create path and map variables
-        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
-
+        final MediaType localVarMediaType = MediaType.parse("application/octet-stream");
         final InputStream finalInputFile = jsonCredentialFile;
         RequestBody chunkedRequestBody = new RequestBody() {
             @Override
-            public MediaType contentType() {
-                return MediaType.parse("application/octet-stream");
-            }
+            public MediaType contentType() { return localVarMediaType; }
             @Override
             public void writeTo(BufferedSink sink) throws IOException {
                 byte[] buffer = new byte[8192];
@@ -1315,6 +1346,14 @@ public class ScanCloudStorageApi {
                 }
             }
         };
+        MultipartBuilder multipartBuilder = new MultipartBuilder().type(MultipartBuilder.FORM)
+            .addFormDataPart("jsonCredentialFile", "filename", chunkedRequestBody);
+        localVarPostBody = multipartBuilder.build();
+
+        String[] localVarContentTypes = { "multipart/form-data" };
+
+        // Create path and map variables
+        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
 
         // Call the API and return the result
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>() {}.getType();
@@ -1324,7 +1363,7 @@ public class ScanCloudStorageApi {
                 "POST",
                 new ArrayList<Pair>(), // Explicitly specify List<Pair>
                 new ArrayList<Pair>(), // Explicitly specify List<Pair>
-                chunkedRequestBody,
+                localVarPostBody,
                 new HashMap<String, String>(), // Explicitly specify Map<String, String>
                 localVarFormParams,
                 new String[] { "Apikey" },

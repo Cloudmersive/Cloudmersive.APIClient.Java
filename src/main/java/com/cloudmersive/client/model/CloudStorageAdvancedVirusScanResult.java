@@ -32,7 +32,7 @@ import java.util.List;
  * Result of running an advanced virus scan on cloud storage
  */
 @ApiModel(description = "Result of running an advanced virus scan on cloud storage")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:25:02.430-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:43:21.421-07:00")
 public class CloudStorageAdvancedVirusScanResult {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OcrPageResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:24:54.868-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:43:12.369-07:00")
 public class OcrPageResult {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
