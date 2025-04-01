@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of getting the language of the input HTML document
  */
 @ApiModel(description = "Result of getting the language of the input HTML document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:45.646-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
 public class HtmlGetLanguageResult {
   @SerializedName("Successful")
   private Boolean successful = null;

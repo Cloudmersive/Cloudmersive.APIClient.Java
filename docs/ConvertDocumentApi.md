@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentDocxToPdf"></a>
 # **convertDocumentDocxToPdf**
-> byte[] convertDocumentDocxToPdf(inputFile, compatabilityMode)
+> byte[] convertDocumentDocxToPdf(inputFile)
 
 Convert Word DOCX Document to PDF
 
@@ -1148,9 +1148,8 @@ Apikey.setApiKey("YOUR API KEY");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
-String compatabilityMode = "compatabilityMode_example"; // String | Set to 'maximum' to maximize compatability, or leave blank for default behavior
 try {
-    byte[] result = apiInstance.convertDocumentDocxToPdf(inputFile, compatabilityMode);
+    byte[] result = apiInstance.convertDocumentDocxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToPdf");
@@ -1163,7 +1162,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
- **compatabilityMode** | **String**| Set to &#39;maximum&#39; to maximize compatability, or leave blank for default behavior | [optional]
 
 ### Return type
 
@@ -1176,7 +1174,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentDocxToPng"></a>
 # **convertDocumentDocxToPng**

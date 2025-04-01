@@ -28,7 +28,7 @@ import java.io.IOException;
  * Object representing one document
  */
 @ApiModel(description = "Object representing one document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:45.646-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
 public class DocumentItem {
   @SerializedName("DocumentFileName")
   private String documentFileName = null;

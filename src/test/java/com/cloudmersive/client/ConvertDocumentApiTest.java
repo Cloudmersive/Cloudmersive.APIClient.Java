@@ -383,8 +383,7 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentDocxToPdfTest() throws Exception {
         File inputFile = null;
-        String compatabilityMode = null;
-        byte[] response = api.convertDocumentDocxToPdf(inputFile, compatabilityMode);
+        byte[] response = api.convertDocumentDocxToPdf(inputFile);
 
         // TODO: test validations
     }

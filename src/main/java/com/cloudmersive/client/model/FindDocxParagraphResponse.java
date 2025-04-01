@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a find matching paragraphs operation on a Word Document
  */
 @ApiModel(description = "Result of performing a find matching paragraphs operation on a Word Document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:07:45.646-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:14:46.914-07:00")
 public class FindDocxParagraphResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
