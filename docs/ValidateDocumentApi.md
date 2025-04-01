@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**validateDocumentCsvValidation**](ValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 [**validateDocumentDocValidation**](ValidateDocumentApi.md#validateDocumentDocValidation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
 [**validateDocumentDocxRepair**](ValidateDocumentApi.md#validateDocumentDocxRepair) | **POST** /convert/validate/docx/repair | Repair a Word document (DOCX) that contains errors
-[**validateDocumentDocxUpgrade**](ValidateDocumentApi.md#validateDocumentDocxUpgrade) | **POST** /convert/validate/docx/upgrade | Upgrade a Word document (DOCX) to Office 2010 Format
 [**validateDocumentDocxValidation**](ValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
 [**validateDocumentEmlValidation**](ValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if input file is a valid EML file
 [**validateDocumentExecutableValidation**](ValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
@@ -244,61 +243,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
  **repairMode** | **String**| Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced. | [optional]
-
-### Return type
-
-**byte[]**
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
-
-<a name="validateDocumentDocxUpgrade"></a>
-# **validateDocumentDocxUpgrade**
-> byte[] validateDocumentDocxUpgrade(inputFile)
-
-Upgrade a Word document (DOCX) to Office 2010 Format
-
-Upgrade a Word document (DOCX) to Office 2010 Format that contains errors or corruption, if possible.
-
-### Example
-```java
-// Import classes:
-//import com.cloudmersive.client.invoker.ApiClient;
-//import com.cloudmersive.client.invoker.ApiException;
-//import com.cloudmersive.client.invoker.Configuration;
-//import com.cloudmersive.client.invoker.auth.*;
-//import com.cloudmersive.client.ValidateDocumentApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: Apikey
-ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
-Apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Apikey.setApiKeyPrefix("Token");
-
-ValidateDocumentApi apiInstance = new ValidateDocumentApi();
-File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
-try {
-    byte[] result = apiInstance.validateDocumentDocxUpgrade(inputFile);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ValidateDocumentApi#validateDocumentDocxUpgrade");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **inputFile** | **File**| Input file to perform the operation on. |
 
 ### Return type
 

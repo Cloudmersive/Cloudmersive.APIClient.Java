@@ -22,7 +22,6 @@ Method | HTTP request | Description
 [**convertDocumentDocxToDoc**](ConvertDocumentApi.md#convertDocumentDocxToDoc) | **POST** /convert/docx/to/doc | Convert Word DOCX Document to Legacy Word DOC (97-03)
 [**convertDocumentDocxToHtml**](ConvertDocumentApi.md#convertDocumentDocxToHtml) | **POST** /convert/docx/to/html | Convert Word DOCX Document to HTML Document
 [**convertDocumentDocxToJpg**](ConvertDocumentApi.md#convertDocumentDocxToJpg) | **POST** /convert/docx/to/jpg | Convert Word DOCX Document to JPG/JPEG image array
-[**convertDocumentDocxToOdt**](ConvertDocumentApi.md#convertDocumentDocxToOdt) | **POST** /convert/docx/to/odt | Convert Word DOCX Document to ODT
 [**convertDocumentDocxToPdf**](ConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
 [**convertDocumentDocxToPng**](ConvertDocumentApi.md#convertDocumentDocxToPng) | **POST** /convert/docx/to/png | Convert Word DOCX Document to PNG image array
 [**convertDocumentDocxToRtf**](ConvertDocumentApi.md#convertDocumentDocxToRtf) | **POST** /convert/docx/to/rtf | Convert Word DOCX Document to RTF
@@ -1122,64 +1121,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
-<a name="convertDocumentDocxToOdt"></a>
-# **convertDocumentDocxToOdt**
-> byte[] convertDocumentDocxToOdt(inputFile)
-
-Convert Word DOCX Document to ODT
-
-Convert Office Word Documents (docx) to ODT format
-
-### Example
-```java
-// Import classes:
-//import com.cloudmersive.client.invoker.ApiClient;
-//import com.cloudmersive.client.invoker.ApiException;
-//import com.cloudmersive.client.invoker.Configuration;
-//import com.cloudmersive.client.invoker.auth.*;
-//import com.cloudmersive.client.ConvertDocumentApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: Apikey
-ApiKeyAuth Apikey = (ApiKeyAuth) defaultClient.getAuthentication("Apikey");
-Apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Apikey.setApiKeyPrefix("Token");
-
-ConvertDocumentApi apiInstance = new ConvertDocumentApi();
-File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
-try {
-    byte[] result = apiInstance.convertDocumentDocxToOdt(inputFile);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToOdt");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **inputFile** | **File**| Input file to perform the operation on. |
-
-### Return type
-
-**byte[]**
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
-
 <a name="convertDocumentDocxToPdf"></a>
 # **convertDocumentDocxToPdf**
-> byte[] convertDocumentDocxToPdf(inputFile, compatabilityMode)
+> byte[] convertDocumentDocxToPdf(inputFile)
 
 Convert Word DOCX Document to PDF
 
@@ -1204,9 +1148,8 @@ Apikey.setApiKey("YOUR API KEY");
 
 ConvertDocumentApi apiInstance = new ConvertDocumentApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
-String compatabilityMode = "compatabilityMode_example"; // String | Set to 'maximum' to maximize compatability, or leave blank for default behavior
 try {
-    byte[] result = apiInstance.convertDocumentDocxToPdf(inputFile, compatabilityMode);
+    byte[] result = apiInstance.convertDocumentDocxToPdf(inputFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConvertDocumentApi#convertDocumentDocxToPdf");
@@ -1219,7 +1162,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
- **compatabilityMode** | **String**| Set to &#39;maximum&#39; to maximize compatability, or leave blank for default behavior | [optional]
 
 ### Return type
 
@@ -1232,7 +1174,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/pdf
+ - **Accept**: application/octet-stream
 
 <a name="convertDocumentDocxToPng"></a>
 # **convertDocumentDocxToPng**

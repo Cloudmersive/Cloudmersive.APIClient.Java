@@ -31,7 +31,7 @@ import java.util.List;
  * Single table fill request in a multi-table fill operation
  */
 @ApiModel(description = "Single table fill request in a multi-table fill operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:58:38.824Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:06.181-07:00")
 public class DocxTableSingleTableFill {
   @SerializedName("TableStartTag")
   private String tableStartTag = null;

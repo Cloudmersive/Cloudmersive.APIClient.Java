@@ -39,6 +39,7 @@ import java.util.Map;
 
 public class BarcodeScanApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public BarcodeScanApi() {
         this(Configuration.getDefaultApiClient());
@@ -54,6 +55,10 @@ public class BarcodeScanApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -104,6 +109,9 @@ public class BarcodeScanApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -231,6 +239,9 @@ public class BarcodeScanApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -250,7 +261,7 @@ public class BarcodeScanApi {
 
     /**
      * Advanced AI scan and recognition of an image of one or more QR barcodes
-     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
+     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
      * @return BarcodeScanQRAdvancedResult
@@ -263,7 +274,7 @@ public class BarcodeScanApi {
 
     /**
      * Advanced AI scan and recognition of an image of one or more QR barcodes
-     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
+     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
      * @return ApiResponse&lt;BarcodeScanQRAdvancedResult&gt;
@@ -277,7 +288,7 @@ public class BarcodeScanApi {
 
     /**
      * Advanced AI scan and recognition of an image of one or more QR barcodes (asynchronously)
-     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
+     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement. (optional)
      * @param callback The callback to be executed when the API call finishes

@@ -31,7 +31,7 @@ import java.util.List;
  * The result of scanning a video file for NSFW content
  */
 @ApiModel(description = "The result of scanning a video file for NSFW content")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-01-19T19:59:00.217Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-03-31T23:41:12.585-07:00")
 public class NsfwResult {
   @SerializedName("Successful")
   private Boolean successful = null;

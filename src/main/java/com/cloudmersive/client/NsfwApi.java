@@ -38,6 +38,7 @@ import java.util.Map;
 
 public class NsfwApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public NsfwApi() {
         this(Configuration.getDefaultApiClient());
@@ -53,6 +54,10 @@ public class NsfwApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -103,6 +108,9 @@ public class NsfwApi {
         }
 
         String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

@@ -1146,7 +1146,7 @@ Apikey.setApiKey("YOUR API KEY");
 
 EditPdfApi apiInstance = new EditPdfApi();
 File inputFile = new File("/path/to/file.txt"); // File | Input file to perform the operation on.
-String paperSize = "paperSize_example"; // String | The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest), and Letter, Legal, Tabloid, Ledger and B5.
+String paperSize = "paperSize_example"; // String | The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest).
 try {
     byte[] result = apiInstance.editPdfResize(inputFile, paperSize);
     System.out.println(result);
@@ -1161,7 +1161,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **File**| Input file to perform the operation on. |
- **paperSize** | **String**| The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest), and Letter, Legal, Tabloid, Ledger and B5. |
+ **paperSize** | **String**| The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). |
 
 ### Return type
 

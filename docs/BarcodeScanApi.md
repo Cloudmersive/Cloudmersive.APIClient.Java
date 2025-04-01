@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 Advanced AI scan and recognition of an image of one or more QR barcodes
 
-Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
+Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
 
 ### Example
 ```java
