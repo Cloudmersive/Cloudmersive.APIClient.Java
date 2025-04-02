@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Name and value pair for a custom-defined DOCX metadata property
  */
 @ApiModel(description = "Name and value pair for a custom-defined DOCX metadata property")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:10.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:43:26.726-07:00")
 public class DocxMetadataCustomProperty {
   @SerializedName("PropertyName")
   private String propertyName = null;
