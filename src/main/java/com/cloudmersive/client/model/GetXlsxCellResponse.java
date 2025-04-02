@@ -29,7 +29,7 @@ import java.io.IOException;
  * Result of running a Get-Cell command
  */
 @ApiModel(description = "Result of running a Get-Cell command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:10.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:43:26.726-07:00")
 public class GetXlsxCellResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

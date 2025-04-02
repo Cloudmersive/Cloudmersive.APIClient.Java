@@ -28,7 +28,7 @@ import java.io.IOException;
  * A single line of a Text document
  */
 @ApiModel(description = "A single line of a Text document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:10.331-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:43:26.726-07:00")
 public class TextDocumentLine {
   @SerializedName("LineNumber")
   private Integer lineNumber = null;
