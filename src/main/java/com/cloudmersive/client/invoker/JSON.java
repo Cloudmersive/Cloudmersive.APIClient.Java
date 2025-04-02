@@ -1,6 +1,6 @@
 /*
- * securityapi
- * The security APIs help you detect and block security threats.
+ * virusapi
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -27,7 +27,6 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
-import com.cloudmersive.client.model.*;
 import com.cloudmersive.client.model.*;
 import com.cloudmersive.client.model.*;
 import com.cloudmersive.client.model.*;

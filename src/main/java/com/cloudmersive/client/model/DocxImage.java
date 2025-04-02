@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DocxImage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:58.249-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:10.331-07:00")
 public class DocxImage {
   @SerializedName("Path")
   private String path = null;

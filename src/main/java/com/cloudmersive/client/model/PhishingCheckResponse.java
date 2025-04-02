@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of checking a URL for Phishing threats
  */
 @ApiModel(description = "Result of checking a URL for Phishing threats")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:49.297-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:01.598-07:00")
 public class PhishingCheckResponse {
   @SerializedName("CleanURL")
   private Boolean cleanURL = null;

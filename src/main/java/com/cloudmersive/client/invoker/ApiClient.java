@@ -1,6 +1,6 @@
 /*
- * securityapi
- * The security APIs help you detect and block security threats.
+ * virusapi
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -87,7 +87,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/6.1.4/java");
+        setUserAgent("Swagger-Codegen/6.1.5/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -382,12 +382,15 @@ public class ApiClient {
     public ApiClient setDebugging(boolean debugging) {
         if (debugging != this.debugging) {
             if (debugging) {
-                loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(Level.BODY);
+                if (this.loggingInterceptor == null) {
+                    this.loggingInterceptor = new HttpLoggingInterceptor();
+                    this.loggingInterceptor.setLevel(Level.BODY);
+                }
                 httpClient.interceptors().add(loggingInterceptor);
             } else {
-                httpClient.interceptors().remove(loggingInterceptor);
-                loggingInterceptor = null;
+                if (this.loggingInterceptor != null) {
+                    httpClient.interceptors().remove(loggingInterceptor);
+                }
             }
         }
         this.debugging = debugging;
@@ -740,6 +743,9 @@ public class ApiClient {
         } else if (obj instanceof File) {
             // File body parameter support.
             return RequestBody.create(MediaType.parse(contentType), (File) obj);
+        } else if (obj instanceof RequestBody) {
+            // If the object is already a RequestBody, just return it
+            return (RequestBody) obj;
         } else if (isJsonMime(contentType)) {
             String content;
             if (obj != null) {
@@ -748,6 +754,32 @@ public class ApiClient {
                 content = null;
             }
             return RequestBody.create(MediaType.parse(contentType), content);
+        } else if (contentType != null && contentType.toLowerCase(Locale.ROOT).startsWith("multipart/form-data")) {
+            if (obj instanceof RequestBody) {
+                return (RequestBody) obj;
+            } else if (obj instanceof File) {
+                // Ensure File is correctly converted to RequestBody
+                return RequestBody.create(MediaType.parse("application/octet-stream"), (File) obj);
+            } else if (obj instanceof byte[]) {
+                return RequestBody.create(MediaType.parse("application/octet-stream"), (byte[]) obj);
+            } else if (obj instanceof Map) {
+                // Build multipart from the map
+                MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
+                for (Entry<String, Object> param : ((Map<String, Object>) obj).entrySet()) {
+                    if (param.getValue() instanceof File) {
+                        File file = (File) param.getValue();
+                        Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
+                        MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
+                        mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
+                    } else {
+                        Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
+                        mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
+                    }
+                }
+                return mpBuilder.build();
+            } else {
+                throw new ApiException("Unsupported multipart payload type.");
+            }
         } else {
             throw new ApiException("Content type \"" + contentType + "\" is not supported");
         }
@@ -933,7 +965,7 @@ public class ApiClient {
      * Build HTTP call with the given options.
      *
      * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
+     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"
      * @param queryParams The query parameters
      * @param collectionQueryParams The collection query parameters
      * @param body The request body object
@@ -954,7 +986,7 @@ public class ApiClient {
      * Build an HTTP request with the given options.
      *
      * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
+     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"
      * @param queryParams The query parameters
      * @param collectionQueryParams The collection query parameters
      * @param body The request body object
@@ -966,6 +998,13 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      */
     public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        System.out.println("buildRequest called with path: " + path);
+        System.out.println("Method: " + method);
+
+        if (formParams == null) {
+            formParams = new HashMap<String, Object>();
+        }
+
         updateParamsForAuth(authNames, queryParams, headerParams);
 
         final String url = buildUrl(path, queryParams, collectionQueryParams);
@@ -973,6 +1012,8 @@ public class ApiClient {
         processHeaderParams(headerParams, reqBuilder);
 
         String contentType = (String) headerParams.get("Content-Type");
+        System.out.println("Content-Type header before override: " + contentType);
+
         // ensuring a default content type
         if (contentType == null) {
             contentType = "application/json";
@@ -983,8 +1024,14 @@ public class ApiClient {
             reqBody = null;
         } else if ("application/x-www-form-urlencoded".equals(contentType)) {
             reqBody = buildRequestBodyFormEncoding(formParams);
-        } else if ("multipart/form-data".equals(contentType)) {
-            reqBody = buildRequestBodyMultipart(formParams);
+        } else if (contentType.toLowerCase(Locale.ROOT).startsWith("multipart/form-data")) {
+            if (body instanceof RequestBody) {
+                // If a pre-built multipart RequestBody is provided, use it directly
+                reqBody = (RequestBody) body;
+            } else {
+                // Otherwise build the multipart from form parameters
+                reqBody = buildRequestBodyMultipart(formParams);
+            }
         } else if (body == null) {
             if ("DELETE".equals(method)) {
                 // allow calling DELETE without sending a request body
@@ -997,7 +1044,7 @@ public class ApiClient {
             reqBody = serialize(body, contentType);
         }
 
-        Request request = null;
+        Request request;
 
         if(progressRequestListener != null && reqBody != null) {
             ProgressRequestBody progressRequestBody = new ProgressRequestBody(reqBody, progressRequestListener);
@@ -1005,6 +1052,8 @@ public class ApiClient {
         } else {
             request = reqBuilder.method(method, reqBody).build();
         }
+
+        System.out.println("Request built: " + request);
 
         return request;
     }
@@ -1119,6 +1168,41 @@ public class ApiClient {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
                 MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
                 mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
+            } else if (param.getValue() instanceof byte[]) {
+                // Handle byte array (for file data passed as byte array)
+                byte[] bytes = (byte[]) param.getValue();
+                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"file\"");
+                MediaType mediaType = MediaType.parse("application/octet-stream");
+                mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, bytes));
+            } else if (param.getValue() instanceof InputStream) {
+                // Handle InputStream by converting to byte array first
+                try {
+                    InputStream inputStream = (InputStream) param.getValue();
+                    // Read the stream into a byte array
+                    byte[] bytes;
+                    try {
+                        java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
+                        int nRead;
+                        byte[] data = new byte[16384]; // Use larger buffer for better performance
+                        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+                            buffer.write(data, 0, nRead);
+                        }
+                        bytes = buffer.toByteArray();
+                        
+                        // Don't close the stream as it might be managed elsewhere
+                        if (inputStream.markSupported()) {
+                            inputStream.reset();
+                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException("Failed to read input stream", e);
+                    }
+                    
+                    Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"file\"");
+                    MediaType mediaType = MediaType.parse("application/octet-stream");
+                    mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, bytes));
+                } catch (Exception e) {
+                    throw new RuntimeException("Error processing input stream", e);
+                }
             } else {
                 Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                 mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));

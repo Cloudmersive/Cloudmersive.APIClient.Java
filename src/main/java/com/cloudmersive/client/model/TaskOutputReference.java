@@ -28,7 +28,7 @@ import java.io.IOException;
  * Re-use the output from a previously-completed task
  */
 @ApiModel(description = "Re-use the output from a previously-completed task")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:44:02.606-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:13.162-07:00")
 public class TaskOutputReference {
   @SerializedName("TaskName")
   private String taskName = null;
