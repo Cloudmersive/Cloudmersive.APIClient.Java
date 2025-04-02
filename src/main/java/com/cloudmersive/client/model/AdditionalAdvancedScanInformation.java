@@ -28,7 +28,7 @@ import java.io.IOException;
  * Additional non-threat content verification information
  */
 @ApiModel(description = "Additional non-threat content verification information")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:44:00.812-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:21.321-07:00")
 public class AdditionalAdvancedScanInformation {
   @SerializedName("ContainsJSON")
   private Boolean containsJSON = null;

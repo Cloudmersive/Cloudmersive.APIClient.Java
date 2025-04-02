@@ -1,6 +1,6 @@
 /*
- * securityapi
- * The security APIs help you detect and block security threats.
+ * virusapi
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -16,7 +16,7 @@ package com.cloudmersive.client.invoker;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:44:10.591-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:21.321-07:00")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;

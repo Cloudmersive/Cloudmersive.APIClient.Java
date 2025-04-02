@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to find a string in a string
  */
 @ApiModel(description = "Request to find a string in a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T14:43:58.249-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:30:10.331-07:00")
 public class FindStringSimpleRequest {
   @SerializedName("TextContent")
   private String textContent = null;
