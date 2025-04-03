@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input to a hate speech analysis operation
  */
 @ApiModel(description = "Input to a hate speech analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:43:19.848-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:57:35.494-07:00")
 public class HateSpeechAnalysisRequest {
   @SerializedName("TextToAnalyze")
   private String textToAnalyze = null;

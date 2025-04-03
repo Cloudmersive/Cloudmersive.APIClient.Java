@@ -1,11 +1,11 @@
-arguments=--init-script C\:\\Users\\braga\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.41.0\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\braga\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.41.0\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\protobuf\\init.gradle
+arguments=--init-script C\:\\Users\\braga\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.41.1\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\braga\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.41.1\\config_win\\org.eclipse.osgi\\58\\0\\.cp\\gradle\\protobuf\\init.gradle
 auto.sync=false
 build.scans.enabled=false
-connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
+connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(8.9))
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=C\:/Program Files/Java/jdk1.8.0_211
+java.home=C\:/Program Files/Java/jdk-11
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true
