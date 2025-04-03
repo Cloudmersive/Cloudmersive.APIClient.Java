@@ -28,7 +28,7 @@ import java.io.IOException;
  * Details of the HTML to PNG request
  */
 @ApiModel(description = "Details of the HTML to PNG request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-01T18:43:26.726-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:57:43.426-07:00")
 public class HtmlToPngRequest {
   @SerializedName("Html")
   private String html = null;

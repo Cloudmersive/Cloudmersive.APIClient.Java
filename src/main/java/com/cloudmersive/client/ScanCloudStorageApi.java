@@ -25,7 +25,6 @@ import com.cloudmersive.client.invoker.ProgressResponseBody;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 
 import com.cloudmersive.client.model.CloudStorageAdvancedVirusScanResult;
@@ -37,11 +36,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.MediaType;
-import okio.BufferedSink;
-import com.squareup.okhttp.MultipartBuilder;
 
 public class ScanCloudStorageApi {
     private ApiClient apiClient;
@@ -65,20 +59,6 @@ public class ScanCloudStorageApi {
 
     public void setHeadersOverrides(Map<String, String> headers) {
         this.headers = headers;
-    }
-
-    private byte[] convertInputStreamToByteArray(InputStream input) throws ApiException {
-        try {
-            java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
-            int nRead;
-            byte[] data = new byte[8192];
-            while ((nRead = input.read(data, 0, data.length)) != -1) {
-                buffer.write(data, 0, nRead);
-            }
-            return buffer.toByteArray();
-        } catch (java.io.IOException e) {
-            throw new ApiException(e);
-        }
     }
 
     /**
@@ -258,7 +238,6 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
     /**
      * Build call for scanCloudStorageScanAwsS3FileAdvanced
      * @param accessKey AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
@@ -508,7 +487,6 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
     /**
      * Build call for scanCloudStorageScanAzureBlob
      * @param connectionString Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
@@ -658,7 +636,6 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
     /**
      * Build call for scanCloudStorageScanAzureBlobAdvanced
      * @param connectionString Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
@@ -880,7 +857,6 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
     /**
      * Build call for scanCloudStorageScanGcpStorageFile
      * @param bucketName Name of the bucket in Google Cloud Storage (required)
@@ -907,6 +883,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("objectName", apiClient.parameterToString(objectName));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (jsonCredentialFile != null)
+        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
 
         final String[] localVarAccepts = {
             "application/json", "text/json", "application/xml", "text/xml"
@@ -1028,80 +1006,6 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
-    /**
-     * Overload for file parameter as InputStream.
-     */
-    public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFile(final InputStream jsonCredentialFile) throws ApiException {
-        // Create path and map variables
-        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single";
-        
-        // Read the inputstream into a byte array
-        byte[] fileBytes;
-        try {
-            java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
-            int nRead;
-            byte[] data = new byte[16384];
-            while ((nRead = jsonCredentialFile.read(data, 0, data.length)) != -1) {
-                buffer.write(data, 0, nRead);
-            }
-            fileBytes = buffer.toByteArray();
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-        
-        // Create the multipart form manually
-        MultipartBuilder multipartBuilder = new MultipartBuilder()
-            .type(MultipartBuilder.FORM);
-        
-        // Add the file as a part with proper Content-Disposition header
-        MediaType mediaType = MediaType.parse("application/octet-stream");
-        RequestBody fileBody = RequestBody.create(mediaType, fileBytes);
-        multipartBuilder.addFormDataPart("inputFile", "filename", fileBody);
-        
-        RequestBody requestBody = multipartBuilder.build();
-        
-        // Set up standard headers
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        
-        // Set up accepts headers
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-        
-        // The content type is set from the request body
-        localVarHeaderParams.put("Content-Type", requestBody.contentType().toString());
-        
-        // Build the final call
-        com.squareup.okhttp.Call call = apiClient.buildCall(
-            localVarPath,
-            "POST", // Always POST for file uploads
-            localVarQueryParams,
-            localVarCollectionQueryParams,
-            requestBody,
-            localVarHeaderParams,
-            null, // No form params - we're using the multipart body directly
-            new String[] { "Apikey" },
-            null
-        );
-        
-        // Execute the call
-        Type localVarReturnType = new TypeToken<CloudStorageVirusScanResult>(){}.getType();
-        ApiResponse<CloudStorageVirusScanResult> response = apiClient.execute(call, localVarReturnType);
-        return response.getData();
-    }
-
-    /**
-     * Overload for file parameter as InputStream (chunked transfer).
-     */
-    public CloudStorageVirusScanResult scanCloudStorageScanGcpStorageFileChunkedTransfer(final InputStream jsonCredentialFile) throws ApiException {
-        // Reuse the regular method as we've improved it to read and buffer efficiently
-        return scanCloudStorageScanGcpStorageFile(jsonCredentialFile);
-    }
     /**
      * Build call for scanCloudStorageScanGcpStorageFileAdvanced
      * @param bucketName Name of the bucket in Google Cloud Storage (required)
@@ -1164,6 +1068,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("restrictFileTypes", apiClient.parameterToString(restrictFileTypes));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (jsonCredentialFile != null)
+        localVarFormParams.put("jsonCredentialFile", jsonCredentialFile);
 
         final String[] localVarAccepts = {
             "application/json", "text/json", "application/xml", "text/xml"
@@ -1320,80 +1226,6 @@ public class ScanCloudStorageApi {
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
-    }
-
-    /**
-     * Overload for file parameter as InputStream.
-     */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvanced(final InputStream jsonCredentialFile) throws ApiException {
-        // Create path and map variables
-        String localVarPath = "/virus/scan/cloud-storage/gcp-storage/single/advanced";
-        
-        // Read the inputstream into a byte array
-        byte[] fileBytes;
-        try {
-            java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
-            int nRead;
-            byte[] data = new byte[16384];
-            while ((nRead = jsonCredentialFile.read(data, 0, data.length)) != -1) {
-                buffer.write(data, 0, nRead);
-            }
-            fileBytes = buffer.toByteArray();
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-        
-        // Create the multipart form manually
-        MultipartBuilder multipartBuilder = new MultipartBuilder()
-            .type(MultipartBuilder.FORM);
-        
-        // Add the file as a part with proper Content-Disposition header
-        MediaType mediaType = MediaType.parse("application/octet-stream");
-        RequestBody fileBody = RequestBody.create(mediaType, fileBytes);
-        multipartBuilder.addFormDataPart("inputFile", "filename", fileBody);
-        
-        RequestBody requestBody = multipartBuilder.build();
-        
-        // Set up standard headers
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        
-        // Set up accepts headers
-        final String[] localVarAccepts = {
-            "application/json", "text/json", "application/xml", "text/xml"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-        
-        // The content type is set from the request body
-        localVarHeaderParams.put("Content-Type", requestBody.contentType().toString());
-        
-        // Build the final call
-        com.squareup.okhttp.Call call = apiClient.buildCall(
-            localVarPath,
-            "POST", // Always POST for file uploads
-            localVarQueryParams,
-            localVarCollectionQueryParams,
-            requestBody,
-            localVarHeaderParams,
-            null, // No form params - we're using the multipart body directly
-            new String[] { "Apikey" },
-            null
-        );
-        
-        // Execute the call
-        Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
-        ApiResponse<CloudStorageAdvancedVirusScanResult> response = apiClient.execute(call, localVarReturnType);
-        return response.getData();
-    }
-
-    /**
-     * Overload for file parameter as InputStream (chunked transfer).
-     */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvancedChunkedTransfer(final InputStream jsonCredentialFile) throws ApiException {
-        // Reuse the regular method as we've improved it to read and buffer efficiently
-        return scanCloudStorageScanGcpStorageFileAdvanced(jsonCredentialFile);
     }
     /**
      * Build call for scanCloudStorageScanSharePointOnlineFile
@@ -1578,7 +1410,6 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
     /**
      * Build call for scanCloudStorageScanSharePointOnlineFileAdvanced
      * @param clientID Client ID access credentials; see description above for instructions on how to get the Client ID from the Azure Active Directory portal. (required)
@@ -1811,5 +1642,4 @@ public class ScanCloudStorageApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-
 }
