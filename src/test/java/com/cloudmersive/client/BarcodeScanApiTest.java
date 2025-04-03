@@ -13,7 +13,6 @@
 
 package com.cloudmersive.client;
 
-import com.cloudmersive.client.model.BarcodeScanQRAdvancedResult;
 import com.cloudmersive.client.model.BarcodeScanResult;
 import java.io.File;
 import org.junit.Test;
@@ -46,23 +45,6 @@ public class BarcodeScanApiTest {
     public void barcodeScanImageTest() throws Exception {
         File imageFile = null;
         BarcodeScanResult response = api.barcodeScanImage(imageFile);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Advanced AI scan and recognition of an image of one or more QR barcodes
-     *
-     * Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void barcodeScanImageAdvancedQRTest() throws Exception {
-        File imageFile = null;
-        String preprocessing = null;
-        BarcodeScanQRAdvancedResult response = api.barcodeScanImageAdvancedQR(imageFile, preprocessing);
 
         // TODO: test validations
     }

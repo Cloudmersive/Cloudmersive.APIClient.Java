@@ -2,7 +2,7 @@
 Remove-Item –path ./gradle –recurse
 Remove-Item –path ./scripts –recurse
 Remove-Item –path ./src –recurse
-$artifact_version = "6.2.0"
+$artifact_version = "6.2.1"
 
 Write-Host "Building version $artifact_version"
 

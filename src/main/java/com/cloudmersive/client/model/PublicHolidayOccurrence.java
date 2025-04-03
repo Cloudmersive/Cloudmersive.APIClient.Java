@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
  * Public holiday occurrence
  */
 @ApiModel(description = "Public holiday occurrence")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T12:57:33.621-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:18:49.253-07:00")
 public class PublicHolidayOccurrence {
   @SerializedName("EnglishName")
   private String englishName = null;
