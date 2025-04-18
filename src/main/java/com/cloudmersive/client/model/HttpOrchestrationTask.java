@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * HttpOrchestrationTask
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:19:00.701-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:01.496-07:00")
 public class HttpOrchestrationTask {
   @SerializedName("TaskName")
   private String taskName = null;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Input lead contact; fill in known fields to extend them with matched field values
  */
 @ApiModel(description = "Input lead contact; fill in known fields to extend them with matched field values")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:18:49.253-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:49.551-07:00")
 public class LeadEnrichmentRequest {
   @SerializedName("ContactBusinessEmail")
   private String contactBusinessEmail = null;

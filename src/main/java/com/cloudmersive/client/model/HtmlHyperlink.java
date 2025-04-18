@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual hyperlink in an HTML File
  */
 @ApiModel(description = "Individual hyperlink in an HTML File")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:18:58.216-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:58.406-07:00")
 public class HtmlHyperlink {
   @SerializedName("Anchortext")
   private String anchortext = null;

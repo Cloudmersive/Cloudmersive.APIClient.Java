@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of running a Get Macro Information command
  */
 @ApiModel(description = "Result of running a Get Macro Information command")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:18:58.216-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:58.406-07:00")
 public class GetMacrosResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

@@ -31,7 +31,7 @@ import java.util.List;
  * Result of enumerating settings
  */
 @ApiModel(description = "Result of enumerating settings")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:19:00.701-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:01.496-07:00")
 public class ListSettingsResponse {
   @SerializedName("Settings")
   private List<SettingValue> settings = null;

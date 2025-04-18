@@ -28,7 +28,7 @@ import java.io.IOException;
  * Output of a hate speech analysis operation
  */
 @ApiModel(description = "Output of a hate speech analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:18:51.094-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:51.502-07:00")
 public class HateSpeechAnalysisResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

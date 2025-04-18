@@ -32,7 +32,7 @@ import java.util.List;
  * The result of reading a table via OCR from a form
  */
 @ApiModel(description = "The result of reading a table via OCR from a form")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-03T13:18:52.890-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:53.223-07:00")
 public class TableResult {
   @SerializedName("TableDefinition")
   private FormTableDefinition tableDefinition = null;
