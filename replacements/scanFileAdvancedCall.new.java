@@ -87,7 +87,7 @@ private ApiClient apiClient;
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call scanFileAdvancedCall(java.io.InputStream inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        Object localVarPostBody = inputFile;
 
         // create path and map variables
         String localVarPath = "/virus/scan/file/advanced";
@@ -124,8 +124,6 @@ private ApiClient apiClient;
         localVarHeaderParams.put("restrictFileTypes", apiClient.parameterToString(restrictFileTypes));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (inputFile != null)
-        localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
             "application/json", "text/json", "application/xml", "text/xml"
@@ -134,7 +132,7 @@ private ApiClient apiClient;
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            "application/octet-stream"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

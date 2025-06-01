@@ -62,6 +62,7 @@ function WhitespaceAgnosticReplace (
 
 
 WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/invoker/ApiClient.java' './replacements/buildRequestBodyMultipart.old.java' './replacements/buildRequestBodyMultipart.new.java'
+WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/invoker/ApiClient.java' './replacements/serialize.old.java' './replacements/serialize.new.java'
 
 WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/ScanApi.java' './replacements/scanFileAdvancedCall.old.java' './replacements/scanFileAdvancedCall.new.java'
 
