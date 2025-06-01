@@ -69,6 +69,8 @@ WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/ScanApi.java'
 
 Write-Host "Performing replacements... Done."
 
+$env:JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_211"
+
 #& pushd cloudmersive-java-api-client
 & gradle clean
 #& mvn install -U
