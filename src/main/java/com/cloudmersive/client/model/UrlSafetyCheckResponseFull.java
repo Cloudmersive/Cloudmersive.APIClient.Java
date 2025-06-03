@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of checking a URL for safety threats
  */
 @ApiModel(description = "Result of checking a URL for safety threats")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:49.551-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:01.118Z")
 public class UrlSafetyCheckResponseFull {
   @SerializedName("CleanURL")
   private Boolean cleanURL = null;

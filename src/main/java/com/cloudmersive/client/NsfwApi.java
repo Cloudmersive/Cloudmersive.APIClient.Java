@@ -129,8 +129,8 @@ public class NsfwApi {
     }
 
     /**
-     * Not safe for work NSFW racy content classification
-     * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+     * Not safe for work (NSFW) content classification for Images
+     * Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return NsfwResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -141,8 +141,8 @@ public class NsfwApi {
     }
 
     /**
-     * Not safe for work NSFW racy content classification
-     * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+     * Not safe for work (NSFW) content classification for Images
+     * Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;NsfwResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -154,8 +154,8 @@ public class NsfwApi {
     }
 
     /**
-     * Not safe for work NSFW racy content classification (asynchronously)
-     * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+     * Not safe for work (NSFW) content classification for Images (asynchronously)
+     * Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -183,6 +183,260 @@ public class NsfwApi {
         }
 
         com.squareup.okhttp.Call call = nsfwClassifyValidateBeforeCall(imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for nsfwClassifyDocument
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call nsfwClassifyDocumentCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/nsfw/classify/document";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (imageFile != null)
+        localVarFormParams.put("imageFile", imageFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call nsfwClassifyDocumentValidateBeforeCall(File imageFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'imageFile' is set
+        if (imageFile == null) {
+            throw new ApiException("Missing the required parameter 'imageFile' when calling nsfwClassifyDocument(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = nsfwClassifyDocumentCall(imageFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Not safe for work (NSFW) content classification for Documents
+     * Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return NsfwResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NsfwResult nsfwClassifyDocument(File imageFile) throws ApiException {
+        ApiResponse<NsfwResult> resp = nsfwClassifyDocumentWithHttpInfo(imageFile);
+        return resp.getData();
+    }
+
+    /**
+     * Not safe for work (NSFW) content classification for Documents
+     * Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @return ApiResponse&lt;NsfwResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NsfwResult> nsfwClassifyDocumentWithHttpInfo(File imageFile) throws ApiException {
+        com.squareup.okhttp.Call call = nsfwClassifyDocumentValidateBeforeCall(imageFile, null, null);
+        Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Not safe for work (NSFW) content classification for Documents (asynchronously)
+     * Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+     * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call nsfwClassifyDocumentAsync(File imageFile, final ApiCallback<NsfwResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = nsfwClassifyDocumentValidateBeforeCall(imageFile, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for nsfwClassifyVideo
+     * @param videoFile Video file to perform the operation on.  Common file formats such as MP4, MPG are supported. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call nsfwClassifyVideoCall(File videoFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/image/nsfw/classify/video";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (videoFile != null)
+        localVarFormParams.put("videoFile", videoFile);
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call nsfwClassifyVideoValidateBeforeCall(File videoFile, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'videoFile' is set
+        if (videoFile == null) {
+            throw new ApiException("Missing the required parameter 'videoFile' when calling nsfwClassifyVideo(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = nsfwClassifyVideoCall(videoFile, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Not safe for work (NSFW) content classification for Video
+     * Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+     * @param videoFile Video file to perform the operation on.  Common file formats such as MP4, MPG are supported. (required)
+     * @return NsfwResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NsfwResult nsfwClassifyVideo(File videoFile) throws ApiException {
+        ApiResponse<NsfwResult> resp = nsfwClassifyVideoWithHttpInfo(videoFile);
+        return resp.getData();
+    }
+
+    /**
+     * Not safe for work (NSFW) content classification for Video
+     * Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+     * @param videoFile Video file to perform the operation on.  Common file formats such as MP4, MPG are supported. (required)
+     * @return ApiResponse&lt;NsfwResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NsfwResult> nsfwClassifyVideoWithHttpInfo(File videoFile) throws ApiException {
+        com.squareup.okhttp.Call call = nsfwClassifyVideoValidateBeforeCall(videoFile, null, null);
+        Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Not safe for work (NSFW) content classification for Video (asynchronously)
+     * Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+     * @param videoFile Video file to perform the operation on.  Common file formats such as MP4, MPG are supported. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call nsfwClassifyVideoAsync(File videoFile, final ApiCallback<NsfwResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = nsfwClassifyVideoValidateBeforeCall(videoFile, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<NsfwResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

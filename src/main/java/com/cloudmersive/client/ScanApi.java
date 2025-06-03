@@ -129,7 +129,9 @@ private ApiClient apiClient;
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call scanFileAdvancedCall(java.io.InputStream inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        Object localVarPostBody = inputFile;
+
+        System.out.println("Reached scanFileAdvancedCall");
 
         // create path and map variables
         String localVarPath = "/virus/scan/file/advanced";
@@ -166,8 +168,6 @@ private ApiClient apiClient;
         localVarHeaderParams.put("restrictFileTypes", apiClient.parameterToString(restrictFileTypes));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (inputFile != null)
-        localVarFormParams.put("inputFile", inputFile);
 
         final String[] localVarAccepts = {
             "application/json", "text/json", "application/xml", "text/xml"
@@ -176,7 +176,7 @@ private ApiClient apiClient;
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            "application/octet-stream"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -362,14 +362,15 @@ private ApiClient apiClient;
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include permitJavascriptInHtml to allow JavaScript in HTML files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Include scanMultipartFile to scan multi-part files such as split zip files.  Include ignoreRestrictFileTypesForAttachments to ignore restrictFileTypes setting for file attachments.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanFileAdvancedCall(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanFileAdvancedCall(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -401,6 +402,8 @@ private ApiClient apiClient;
         localVarHeaderParams.put("allowUnsafeArchives", apiClient.parameterToString(allowUnsafeArchives));
         if (allowOleEmbeddedObject != null)
         localVarHeaderParams.put("allowOleEmbeddedObject", apiClient.parameterToString(allowOleEmbeddedObject));
+        if (allowUnwantedAction != null)
+        localVarHeaderParams.put("allowUnwantedAction", apiClient.parameterToString(allowUnwantedAction));
         if (options != null)
         localVarHeaderParams.put("options", apiClient.parameterToString(options));
         if (restrictFileTypes != null)
@@ -442,7 +445,7 @@ private ApiClient apiClient;
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanFileAdvancedValidateBeforeCall(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanFileAdvancedValidateBeforeCall(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'inputFile' is set
         if (inputFile == null) {
@@ -450,7 +453,7 @@ private ApiClient apiClient;
         }
         
 
-        com.squareup.okhttp.Call call = scanFileAdvancedCall(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanFileAdvancedCall(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -470,13 +473,14 @@ private ApiClient apiClient;
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include permitJavascriptInHtml to allow JavaScript in HTML files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Include scanMultipartFile to scan multi-part files such as split zip files.  Include ignoreRestrictFileTypesForAttachments to ignore restrictFileTypes setting for file attachments.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return VirusScanAdvancedResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VirusScanAdvancedResult scanFileAdvanced(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        ApiResponse<VirusScanAdvancedResult> resp = scanFileAdvancedWithHttpInfo(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+    public VirusScanAdvancedResult scanFileAdvanced(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        ApiResponse<VirusScanAdvancedResult> resp = scanFileAdvancedWithHttpInfo(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
         return resp.getData();
     }
 
@@ -495,13 +499,14 @@ private ApiClient apiClient;
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include permitJavascriptInHtml to allow JavaScript in HTML files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Include scanMultipartFile to scan multi-part files such as split zip files.  Include ignoreRestrictFileTypesForAttachments to ignore restrictFileTypes setting for file attachments.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return ApiResponse&lt;VirusScanAdvancedResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VirusScanAdvancedResult> scanFileAdvancedWithHttpInfo(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        com.squareup.okhttp.Call call = scanFileAdvancedValidateBeforeCall(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, null, null);
+    public ApiResponse<VirusScanAdvancedResult> scanFileAdvancedWithHttpInfo(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanFileAdvancedValidateBeforeCall(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, null, null);
         Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -521,13 +526,14 @@ private ApiClient apiClient;
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include permitJavascriptInHtml to allow JavaScript in HTML files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include blockInvalidUris to block invalid URIs in Office documents.  Include permitAuthenticodeSignedExecutables to allow executables if they have a valid Authenticode signature.  Include scanMultipartFile to scan multi-part files such as split zip files.  Include ignoreRestrictFileTypesForAttachments to ignore restrictFileTypes setting for file attachments.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanFileAdvancedAsync(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ApiCallback<VirusScanAdvancedResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanFileAdvancedAsync(File inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ApiCallback<VirusScanAdvancedResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -548,7 +554,7 @@ private ApiClient apiClient;
             };
         }
 
-        com.squareup.okhttp.Call call = scanFileAdvancedValidateBeforeCall(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanFileAdvancedValidateBeforeCall(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VirusScanAdvancedResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

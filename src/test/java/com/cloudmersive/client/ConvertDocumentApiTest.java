@@ -373,6 +373,22 @@ public class ConvertDocumentApiTest {
     }
     
     /**
+     * Convert Word DOCX Document to ODT
+     *
+     * Convert Office Word Documents (docx) to ODT format
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void convertDocumentDocxToOdtTest() throws Exception {
+        File inputFile = null;
+        byte[] response = api.convertDocumentDocxToOdt(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Convert Word DOCX Document to PDF
      *
      * Convert Office Word Documents (docx) to standard PDF
@@ -383,7 +399,8 @@ public class ConvertDocumentApiTest {
     @Test
     public void convertDocumentDocxToPdfTest() throws Exception {
         File inputFile = null;
-        byte[] response = api.convertDocumentDocxToPdf(inputFile);
+        String compatabilityMode = null;
+        byte[] response = api.convertDocumentDocxToPdf(inputFile, compatabilityMode);
 
         // TODO: test validations
     }

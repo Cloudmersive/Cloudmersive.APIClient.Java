@@ -32,7 +32,6 @@ import com.cloudmersive.client.model.FaceCompareResponse;
 import com.cloudmersive.client.model.FaceLocateResponse;
 import com.cloudmersive.client.model.FaceLocateWithLandmarksResponse;
 import java.io.File;
-import com.cloudmersive.client.model.GenderDetectionResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -526,7 +525,7 @@ public class FaceApi {
 
     /**
      * Detect the age of people in an image
-     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return AgeDetectionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -538,7 +537,7 @@ public class FaceApi {
 
     /**
      * Detect the age of people in an image
-     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @return ApiResponse&lt;AgeDetectionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -551,7 +550,7 @@ public class FaceApi {
 
     /**
      * Detect the age of people in an image (asynchronously)
-     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -653,38 +652,38 @@ public class FaceApi {
 
     /**
      * Detect the gender of people in an image
-     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return GenderDetectionResult
+     * @return AgeDetectionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GenderDetectionResult faceDetectGender(File imageFile) throws ApiException {
-        ApiResponse<GenderDetectionResult> resp = faceDetectGenderWithHttpInfo(imageFile);
+    public AgeDetectionResult faceDetectGender(File imageFile) throws ApiException {
+        ApiResponse<AgeDetectionResult> resp = faceDetectGenderWithHttpInfo(imageFile);
         return resp.getData();
     }
 
     /**
      * Detect the gender of people in an image
-     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @return ApiResponse&lt;GenderDetectionResult&gt;
+     * @return ApiResponse&lt;AgeDetectionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GenderDetectionResult> faceDetectGenderWithHttpInfo(File imageFile) throws ApiException {
+    public ApiResponse<AgeDetectionResult> faceDetectGenderWithHttpInfo(File imageFile) throws ApiException {
         com.squareup.okhttp.Call call = faceDetectGenderValidateBeforeCall(imageFile, null, null);
-        Type localVarReturnType = new TypeToken<GenderDetectionResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<AgeDetectionResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Detect the gender of people in an image (asynchronously)
-     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
      * @param imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call faceDetectGenderAsync(File imageFile, final ApiCallback<GenderDetectionResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call faceDetectGenderAsync(File imageFile, final ApiCallback<AgeDetectionResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -706,7 +705,7 @@ public class FaceApi {
         }
 
         com.squareup.okhttp.Call call = faceDetectGenderValidateBeforeCall(imageFile, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GenderDetectionResult>(){}.getType();
+        Type localVarReturnType = new TypeToken<AgeDetectionResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

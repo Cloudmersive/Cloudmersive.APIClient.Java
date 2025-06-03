@@ -102,6 +102,22 @@ public class ValidateDocumentApiTest {
     }
     
     /**
+     * Upgrade a Word document (DOCX) to Office 2010 Format
+     *
+     * Upgrade a Word document (DOCX) to Office 2010 Format that contains errors or corruption, if possible.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void validateDocumentDocxUpgradeTest() throws Exception {
+        File inputFile = null;
+        byte[] response = api.validateDocumentDocxUpgrade(inputFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate a Word document (DOCX)
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document

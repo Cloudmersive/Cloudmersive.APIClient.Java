@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of getting the sitemap URL of the input HTML document
  */
 @ApiModel(description = "Result of getting the sitemap URL of the input HTML document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:58.406-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:55.394Z")
 public class HtmlGetSitemapUrlResult {
   @SerializedName("Successful")
   private Boolean successful = null;

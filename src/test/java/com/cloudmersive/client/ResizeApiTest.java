@@ -51,6 +51,22 @@ public class ResizeApiTest {
     }
     
     /**
+     * Resize an image with AI super sampling
+     *
+     * Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void resizeResizeAISuperSamplingTest() throws Exception {
+        File imageFile = null;
+        byte[] response = api.resizeResizeAISuperSampling(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Resize an image
      *
      * Resize an image to a specific width and specific height.  Resize is EXIF-aware.

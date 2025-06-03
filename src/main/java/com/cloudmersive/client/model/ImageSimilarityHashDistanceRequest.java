@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to compute the similarity between two image hashes
  */
 @ApiModel(description = "Request to compute the similarity between two image hashes")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:56.230-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:44.792Z")
 public class ImageSimilarityHashDistanceRequest {
   @SerializedName("ImageHash1")
   private String imageHash1 = null;

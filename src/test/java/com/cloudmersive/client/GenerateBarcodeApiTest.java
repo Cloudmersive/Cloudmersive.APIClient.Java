@@ -40,9 +40,31 @@ public class GenerateBarcodeApiTest {
      *          if the Api call fails
      */
     @Test
+    public void generateBarcodeCode128Test() throws Exception {
+        String value = null;
+        Integer width = null;
+        Integer height = null;
+        Boolean includeLabel = null;
+        byte[] response = api.generateBarcodeCode128(value, width, height, includeLabel);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Generate a EAN-13 code barcode as PNG file
+     *
+     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
     public void generateBarcodeEAN13Test() throws Exception {
         String value = null;
-        byte[] response = api.generateBarcodeEAN13(value);
+        Integer width = null;
+        Integer height = null;
+        Boolean includeLabel = null;
+        byte[] response = api.generateBarcodeEAN13(value, width, height, includeLabel);
 
         // TODO: test validations
     }
@@ -58,7 +80,10 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeEAN8Test() throws Exception {
         String value = null;
-        byte[] response = api.generateBarcodeEAN8(value);
+        Integer width = null;
+        Integer height = null;
+        Boolean includeLabel = null;
+        byte[] response = api.generateBarcodeEAN8(value, width, height, includeLabel);
 
         // TODO: test validations
     }
@@ -74,7 +99,9 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeQRCodeTest() throws Exception {
         String value = null;
-        byte[] response = api.generateBarcodeQRCode(value);
+        Integer width = null;
+        Integer height = null;
+        byte[] response = api.generateBarcodeQRCode(value, width, height);
 
         // TODO: test validations
     }
@@ -90,7 +117,10 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeUPCATest() throws Exception {
         String value = null;
-        byte[] response = api.generateBarcodeUPCA(value);
+        Integer width = null;
+        Integer height = null;
+        Boolean includeLabel = null;
+        byte[] response = api.generateBarcodeUPCA(value, width, height, includeLabel);
 
         // TODO: test validations
     }
@@ -106,7 +136,10 @@ public class GenerateBarcodeApiTest {
     @Test
     public void generateBarcodeUPCETest() throws Exception {
         String value = null;
-        byte[] response = api.generateBarcodeUPCE(value);
+        Integer width = null;
+        Integer height = null;
+        Boolean includeLabel = null;
+        byte[] response = api.generateBarcodeUPCE(value, width, height, includeLabel);
 
         // TODO: test validations
     }

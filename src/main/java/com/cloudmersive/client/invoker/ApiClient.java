@@ -54,7 +54,7 @@ import com.cloudmersive.client.invoker.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://api.cloudmersive.com";
+    private String basePath = "http://localhost";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -87,7 +87,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/6.2.2/java");
+        setUserAgent("Swagger-Codegen/6.2.3/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -108,7 +108,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.cloudmersive.com
+     * @param basePath Base path of the URL (e.g http://localhost
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
@@ -734,7 +734,10 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the given object
      */
     public RequestBody serialize(Object obj, String contentType) throws ApiException {
-        if (obj instanceof byte[]) {
+        if (obj instanceof java.io.InputStream) {
+            // Stream body parameter support with chunked transfer encoding
+            return createRequestBodyFromInputStream(MediaType.parse(contentType), (java.io.InputStream) obj);
+        } else if (obj instanceof byte[]) {
             // Binary (byte array) body parameter support.
             return RequestBody.create(MediaType.parse(contentType), (byte[]) obj);
         } else if (obj instanceof File) {
@@ -752,6 +755,7 @@ public class ApiClient {
             throw new ApiException("Content type \"" + contentType + "\" is not supported");
         }
     }
+
 
     /**
      * Download file from the given response.
@@ -1248,4 +1252,5 @@ public class ApiClient {
         }
     }
 }
+
 

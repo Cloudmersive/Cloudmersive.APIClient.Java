@@ -28,7 +28,7 @@ import java.io.IOException;
  * Individual item to protect for SQL Injection
  */
 @ApiModel(description = "Individual item to protect for SQL Injection")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:49.551-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:01.118Z")
 public class SqlInjectionCheckRequestItem {
   @SerializedName("InputText")
   private String inputText = null;

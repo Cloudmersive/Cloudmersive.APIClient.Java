@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing a Bot check on an IP address
  */
 @ApiModel(description = "Result of performing a Bot check on an IP address")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:09.338-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:34.363Z")
 public class ThreatDetectionBotCheckResponse {
   @SerializedName("IsBot")
   private Boolean isBot = null;

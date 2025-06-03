@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing a get dominant color operation
  */
 @ApiModel(description = "Result of performing a get dominant color operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:56.230-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:44.792Z")
 public class DominantColorResult {
   @SerializedName("Successful")
   private Boolean successful = null;

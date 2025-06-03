@@ -29,7 +29,7 @@ import java.io.IOException;
  * A person identified in an image age classification operation
  */
 @ApiModel(description = "A person identified in an image age classification operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:56.230-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:44.792Z")
 public class PersonWithAge {
   @SerializedName("FaceLocation")
   private Face faceLocation = null;
@@ -42,6 +42,15 @@ public class PersonWithAge {
 
   @SerializedName("Age")
   private Double age = null;
+
+  @SerializedName("GenderClassification")
+  private String genderClassification = null;
+
+  @SerializedName("GenderFemaleConfidence")
+  private Double genderFemaleConfidence = null;
+
+  @SerializedName("GenderMaleConfidence")
+  private Double genderMaleConfidence = null;
 
   public PersonWithAge faceLocation(Face faceLocation) {
     this.faceLocation = faceLocation;
@@ -103,16 +112,70 @@ public class PersonWithAge {
   }
 
    /**
-   * Get age
+   * The specific estimated age of the person
    * @return age
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The specific estimated age of the person")
   public Double getAge() {
     return age;
   }
 
   public void setAge(Double age) {
     this.age = age;
+  }
+
+  public PersonWithAge genderClassification(String genderClassification) {
+    this.genderClassification = genderClassification;
+    return this;
+  }
+
+   /**
+   * Gender estimation classification as Female or Male
+   * @return genderClassification
+  **/
+  @ApiModelProperty(value = "Gender estimation classification as Female or Male")
+  public String getGenderClassification() {
+    return genderClassification;
+  }
+
+  public void setGenderClassification(String genderClassification) {
+    this.genderClassification = genderClassification;
+  }
+
+  public PersonWithAge genderFemaleConfidence(Double genderFemaleConfidence) {
+    this.genderFemaleConfidence = genderFemaleConfidence;
+    return this;
+  }
+
+   /**
+   * Confidence level of classification as female; possible values are between 0.0 and 1.0
+   * @return genderFemaleConfidence
+  **/
+  @ApiModelProperty(value = "Confidence level of classification as female; possible values are between 0.0 and 1.0")
+  public Double getGenderFemaleConfidence() {
+    return genderFemaleConfidence;
+  }
+
+  public void setGenderFemaleConfidence(Double genderFemaleConfidence) {
+    this.genderFemaleConfidence = genderFemaleConfidence;
+  }
+
+  public PersonWithAge genderMaleConfidence(Double genderMaleConfidence) {
+    this.genderMaleConfidence = genderMaleConfidence;
+    return this;
+  }
+
+   /**
+   * Confidence level of classification as male; possible values are between 0.0 and 1.0
+   * @return genderMaleConfidence
+  **/
+  @ApiModelProperty(value = "Confidence level of classification as male; possible values are between 0.0 and 1.0")
+  public Double getGenderMaleConfidence() {
+    return genderMaleConfidence;
+  }
+
+  public void setGenderMaleConfidence(Double genderMaleConfidence) {
+    this.genderMaleConfidence = genderMaleConfidence;
   }
 
 
@@ -128,12 +191,15 @@ public class PersonWithAge {
     return Objects.equals(this.faceLocation, personWithAge.faceLocation) &&
         Objects.equals(this.ageClassificationConfidence, personWithAge.ageClassificationConfidence) &&
         Objects.equals(this.ageClass, personWithAge.ageClass) &&
-        Objects.equals(this.age, personWithAge.age);
+        Objects.equals(this.age, personWithAge.age) &&
+        Objects.equals(this.genderClassification, personWithAge.genderClassification) &&
+        Objects.equals(this.genderFemaleConfidence, personWithAge.genderFemaleConfidence) &&
+        Objects.equals(this.genderMaleConfidence, personWithAge.genderMaleConfidence);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(faceLocation, ageClassificationConfidence, ageClass, age);
+    return Objects.hash(faceLocation, ageClassificationConfidence, ageClass, age, genderClassification, genderFemaleConfidence, genderMaleConfidence);
   }
 
 
@@ -146,6 +212,9 @@ public class PersonWithAge {
     sb.append("    ageClassificationConfidence: ").append(toIndentedString(ageClassificationConfidence)).append("\n");
     sb.append("    ageClass: ").append(toIndentedString(ageClass)).append("\n");
     sb.append("    age: ").append(toIndentedString(age)).append("\n");
+    sb.append("    genderClassification: ").append(toIndentedString(genderClassification)).append("\n");
+    sb.append("    genderFemaleConfidence: ").append(toIndentedString(genderFemaleConfidence)).append("\n");
+    sb.append("    genderMaleConfidence: ").append(toIndentedString(genderMaleConfidence)).append("\n");
     sb.append("}");
     return sb.toString();
   }

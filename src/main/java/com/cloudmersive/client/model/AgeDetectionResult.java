@@ -28,10 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Result from classifying the Age of people in an image
+ * Result from classifying the Age and Gender of people in an image
  */
-@ApiModel(description = "Result from classifying the Age of people in an image")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:56.230-07:00")
+@ApiModel(description = "Result from classifying the Age and Gender of people in an image")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:44.792Z")
 public class AgeDetectionResult {
   @SerializedName("Successful")
   private Boolean successful = null;
@@ -74,10 +74,10 @@ public class AgeDetectionResult {
   }
 
    /**
-   * People in the image annotated with age information
+   * People in the image annotated with age and gender information
    * @return peopleWithAge
   **/
-  @ApiModelProperty(value = "People in the image annotated with age information")
+  @ApiModelProperty(value = "People in the image annotated with age and gender information")
   public List<PersonWithAge> getPeopleWithAge() {
     return peopleWithAge;
   }

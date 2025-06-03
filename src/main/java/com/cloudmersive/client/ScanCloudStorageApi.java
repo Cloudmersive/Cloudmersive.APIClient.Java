@@ -30,6 +30,8 @@ import java.io.IOException;
 import com.cloudmersive.client.model.CloudStorageAdvancedVirusScanResult;
 import com.cloudmersive.client.model.CloudStorageVirusScanResult;
 import java.io.File;
+import com.cloudmersive.client.model.ScanCloudStorageBatchJobCreateResult;
+import com.cloudmersive.client.model.ScanCloudStorageJobStatusResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -61,6 +63,133 @@ public class ScanCloudStorageApi {
         this.headers = headers;
     }
 
+    /**
+     * Build call for scanCloudStorageGetAsyncJobStatus
+     * @param asyncJobID  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call scanCloudStorageGetAsyncJobStatusCall(String asyncJobID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/virus/scan/cloud-storage/batch-job/status";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (asyncJobID != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("AsyncJobID", asyncJobID));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call scanCloudStorageGetAsyncJobStatusValidateBeforeCall(String asyncJobID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'asyncJobID' is set
+        if (asyncJobID == null) {
+            throw new ApiException("Missing the required parameter 'asyncJobID' when calling scanCloudStorageGetAsyncJobStatus(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = scanCloudStorageGetAsyncJobStatusCall(asyncJobID, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the status and result of a Scan Cloud Storage Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return ScanCloudStorageJobStatusResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ScanCloudStorageJobStatusResult scanCloudStorageGetAsyncJobStatus(String asyncJobID) throws ApiException {
+        ApiResponse<ScanCloudStorageJobStatusResult> resp = scanCloudStorageGetAsyncJobStatusWithHttpInfo(asyncJobID);
+        return resp.getData();
+    }
+
+    /**
+     * Get the status and result of a Scan Cloud Storage Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return ApiResponse&lt;ScanCloudStorageJobStatusResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ScanCloudStorageJobStatusResult> scanCloudStorageGetAsyncJobStatusWithHttpInfo(String asyncJobID) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageGetAsyncJobStatusValidateBeforeCall(asyncJobID, null, null);
+        Type localVarReturnType = new TypeToken<ScanCloudStorageJobStatusResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the status and result of a Scan Cloud Storage Batch Job (asynchronously)
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call scanCloudStorageGetAsyncJobStatusAsync(String asyncJobID, final ApiCallback<ScanCloudStorageJobStatusResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = scanCloudStorageGetAsyncJobStatusValidateBeforeCall(asyncJobID, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ScanCloudStorageJobStatusResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for scanCloudStorageScanAwsS3File
      * @param accessKey AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
@@ -256,6 +385,7 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param progressListener Progress listener
@@ -263,7 +393,7 @@ public class ScanCloudStorageApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanAwsS3FileAdvancedCall(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanAwsS3FileAdvancedCall(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -305,6 +435,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("allowUnsafeArchives", apiClient.parameterToString(allowUnsafeArchives));
         if (allowOleEmbeddedObject != null)
         localVarHeaderParams.put("allowOleEmbeddedObject", apiClient.parameterToString(allowOleEmbeddedObject));
+        if (allowUnwantedAction != null)
+        localVarHeaderParams.put("allowUnwantedAction", apiClient.parameterToString(allowUnwantedAction));
         if (options != null)
         localVarHeaderParams.put("options", apiClient.parameterToString(options));
         if (restrictFileTypes != null)
@@ -344,7 +476,7 @@ public class ScanCloudStorageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanCloudStorageScanAwsS3FileAdvancedValidateBeforeCall(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanCloudStorageScanAwsS3FileAdvancedValidateBeforeCall(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'accessKey' is set
         if (accessKey == null) {
@@ -372,7 +504,7 @@ public class ScanCloudStorageApi {
         }
         
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanAwsS3FileAdvancedCall(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanAwsS3FileAdvancedCall(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -396,13 +528,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return CloudStorageAdvancedVirusScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanAwsS3FileAdvanced(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanAwsS3FileAdvanced(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
         return resp.getData();
     }
 
@@ -425,13 +558,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return ApiResponse&lt;CloudStorageAdvancedVirusScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        com.squareup.okhttp.Call call = scanCloudStorageScanAwsS3FileAdvancedValidateBeforeCall(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, null, null);
+    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanAwsS3FileAdvancedWithHttpInfo(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanAwsS3FileAdvancedValidateBeforeCall(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, null, null);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -455,13 +589,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanAwsS3FileAdvancedAsync(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanAwsS3FileAdvancedAsync(String accessKey, String secretKey, String bucketRegion, String bucketName, String keyName, String roleArn, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -482,7 +617,7 @@ public class ScanCloudStorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanAwsS3FileAdvancedValidateBeforeCall(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanAwsS3FileAdvancedValidateBeforeCall(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -651,14 +786,15 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedCall(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedCall(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -694,6 +830,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("allowUnsafeArchives", apiClient.parameterToString(allowUnsafeArchives));
         if (allowOleEmbeddedObject != null)
         localVarHeaderParams.put("allowOleEmbeddedObject", apiClient.parameterToString(allowOleEmbeddedObject));
+        if (allowUnwantedAction != null)
+        localVarHeaderParams.put("allowUnwantedAction", apiClient.parameterToString(allowUnwantedAction));
         if (options != null)
         localVarHeaderParams.put("options", apiClient.parameterToString(options));
         if (restrictFileTypes != null)
@@ -733,7 +871,7 @@ public class ScanCloudStorageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedValidateBeforeCall(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedValidateBeforeCall(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'connectionString' is set
         if (connectionString == null) {
@@ -751,7 +889,7 @@ public class ScanCloudStorageApi {
         }
         
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -772,13 +910,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return CloudStorageAdvancedVirusScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanAzureBlobAdvanced(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanAzureBlobAdvancedWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanAzureBlobAdvanced(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanAzureBlobAdvancedWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
         return resp.getData();
     }
 
@@ -798,13 +937,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return ApiResponse&lt;CloudStorageAdvancedVirusScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanAzureBlobAdvancedWithHttpInfo(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedValidateBeforeCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, null, null);
+    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanAzureBlobAdvancedWithHttpInfo(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedValidateBeforeCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, null, null);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -825,13 +965,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
-     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedAsync(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedAsync(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -852,8 +993,235 @@ public class ScanCloudStorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedValidateBeforeCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedValidateBeforeCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for scanCloudStorageScanAzureBlobAdvancedBatchJob
+     * @param connectionString Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
+     * @param containerName Name of the Blob container within the Azure Blob Storage account (required)
+     * @param blobPath Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (required)
+     * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
+     * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
+     * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowPasswordProtectedFiles Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowMacros Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
+     * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
+     * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedBatchJobCall(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/virus/scan/cloud-storage/azure-blob/single/advanced/batch-job";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (connectionString != null)
+        localVarHeaderParams.put("connectionString", apiClient.parameterToString(connectionString));
+        if (containerName != null)
+        localVarHeaderParams.put("containerName", apiClient.parameterToString(containerName));
+        if (blobPath != null)
+        localVarHeaderParams.put("blobPath", apiClient.parameterToString(blobPath));
+        if (allowExecutables != null)
+        localVarHeaderParams.put("allowExecutables", apiClient.parameterToString(allowExecutables));
+        if (allowInvalidFiles != null)
+        localVarHeaderParams.put("allowInvalidFiles", apiClient.parameterToString(allowInvalidFiles));
+        if (allowScripts != null)
+        localVarHeaderParams.put("allowScripts", apiClient.parameterToString(allowScripts));
+        if (allowPasswordProtectedFiles != null)
+        localVarHeaderParams.put("allowPasswordProtectedFiles", apiClient.parameterToString(allowPasswordProtectedFiles));
+        if (allowMacros != null)
+        localVarHeaderParams.put("allowMacros", apiClient.parameterToString(allowMacros));
+        if (allowXmlExternalEntities != null)
+        localVarHeaderParams.put("allowXmlExternalEntities", apiClient.parameterToString(allowXmlExternalEntities));
+        if (allowInsecureDeserialization != null)
+        localVarHeaderParams.put("allowInsecureDeserialization", apiClient.parameterToString(allowInsecureDeserialization));
+        if (allowHtml != null)
+        localVarHeaderParams.put("allowHtml", apiClient.parameterToString(allowHtml));
+        if (allowUnsafeArchives != null)
+        localVarHeaderParams.put("allowUnsafeArchives", apiClient.parameterToString(allowUnsafeArchives));
+        if (allowOleEmbeddedObject != null)
+        localVarHeaderParams.put("allowOleEmbeddedObject", apiClient.parameterToString(allowOleEmbeddedObject));
+        if (allowUnwantedAction != null)
+        localVarHeaderParams.put("allowUnwantedAction", apiClient.parameterToString(allowUnwantedAction));
+        if (options != null)
+        localVarHeaderParams.put("options", apiClient.parameterToString(options));
+        if (restrictFileTypes != null)
+        localVarHeaderParams.put("restrictFileTypes", apiClient.parameterToString(restrictFileTypes));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedBatchJobValidateBeforeCall(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'connectionString' is set
+        if (connectionString == null) {
+            throw new ApiException("Missing the required parameter 'connectionString' when calling scanCloudStorageScanAzureBlobAdvancedBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'containerName' is set
+        if (containerName == null) {
+            throw new ApiException("Missing the required parameter 'containerName' when calling scanCloudStorageScanAzureBlobAdvancedBatchJob(Async)");
+        }
+        
+        // verify the required parameter 'blobPath' is set
+        if (blobPath == null) {
+            throw new ApiException("Missing the required parameter 'blobPath' when calling scanCloudStorageScanAzureBlobAdvancedBatchJob(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedBatchJobCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Advanced Scan an Azure Blob for viruses via a batch job
+     * Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+     * @param connectionString Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
+     * @param containerName Name of the Blob container within the Azure Blob Storage account (required)
+     * @param blobPath Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (required)
+     * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
+     * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
+     * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowPasswordProtectedFiles Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowMacros Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
+     * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
+     * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
+     * @return ScanCloudStorageBatchJobCreateResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ScanCloudStorageBatchJobCreateResult scanCloudStorageScanAzureBlobAdvancedBatchJob(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        ApiResponse<ScanCloudStorageBatchJobCreateResult> resp = scanCloudStorageScanAzureBlobAdvancedBatchJobWithHttpInfo(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
+        return resp.getData();
+    }
+
+    /**
+     * Advanced Scan an Azure Blob for viruses via a batch job
+     * Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+     * @param connectionString Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
+     * @param containerName Name of the Blob container within the Azure Blob Storage account (required)
+     * @param blobPath Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (required)
+     * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
+     * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
+     * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowPasswordProtectedFiles Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowMacros Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
+     * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
+     * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
+     * @return ApiResponse&lt;ScanCloudStorageBatchJobCreateResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ScanCloudStorageBatchJobCreateResult> scanCloudStorageScanAzureBlobAdvancedBatchJobWithHttpInfo(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedBatchJobValidateBeforeCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, null, null);
+        Type localVarReturnType = new TypeToken<ScanCloudStorageBatchJobCreateResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Advanced Scan an Azure Blob for viruses via a batch job (asynchronously)
+     * Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+     * @param connectionString Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
+     * @param containerName Name of the Blob container within the Azure Blob Storage account (required)
+     * @param blobPath Path to the blob within the container, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39;.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with &#39;base64:&#39;, such as: &#39;base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV&#39;. (required)
+     * @param allowExecutables Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
+     * @param allowInvalidFiles Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
+     * @param allowScripts Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowPasswordProtectedFiles Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowMacros Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
+     * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
+     * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
+     * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Include scanMultipartFile to scan multi-part files such as split zip files.  Default is no options. (optional)
+     * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call scanCloudStorageScanAzureBlobAdvancedBatchJobAsync(String connectionString, String containerName, String blobPath, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ApiCallback<ScanCloudStorageBatchJobCreateResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = scanCloudStorageScanAzureBlobAdvancedBatchJobValidateBeforeCall(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ScanCloudStorageBatchJobCreateResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1021,6 +1389,7 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param progressListener Progress listener
@@ -1028,7 +1397,7 @@ public class ScanCloudStorageApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanGcpStorageFileAdvancedCall(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanGcpStorageFileAdvancedCall(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1062,6 +1431,8 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("allowUnsafeArchives", apiClient.parameterToString(allowUnsafeArchives));
         if (allowOleEmbeddedObject != null)
         localVarHeaderParams.put("allowOleEmbeddedObject", apiClient.parameterToString(allowOleEmbeddedObject));
+        if (allowUnwantedAction != null)
+        localVarHeaderParams.put("allowUnwantedAction", apiClient.parameterToString(allowUnwantedAction));
         if (options != null)
         localVarHeaderParams.put("options", apiClient.parameterToString(options));
         if (restrictFileTypes != null)
@@ -1103,7 +1474,7 @@ public class ScanCloudStorageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanCloudStorageScanGcpStorageFileAdvancedValidateBeforeCall(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanCloudStorageScanGcpStorageFileAdvancedValidateBeforeCall(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'bucketName' is set
         if (bucketName == null) {
@@ -1121,7 +1492,7 @@ public class ScanCloudStorageApi {
         }
         
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanGcpStorageFileAdvancedCall(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanGcpStorageFileAdvancedCall(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1142,13 +1513,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return CloudStorageAdvancedVirusScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvanced(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanGcpStorageFileAdvanced(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
         return resp.getData();
     }
 
@@ -1168,13 +1540,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return ApiResponse&lt;CloudStorageAdvancedVirusScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes) throws ApiException {
-        com.squareup.okhttp.Call call = scanCloudStorageScanGcpStorageFileAdvancedValidateBeforeCall(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, null, null);
+    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanGcpStorageFileAdvancedWithHttpInfo(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanGcpStorageFileAdvancedValidateBeforeCall(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, null, null);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1195,13 +1568,14 @@ public class ScanCloudStorageApi {
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
      * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
      * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param options Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Include blockOfficeXmlOleEmbeddedFile to block embedded OLE files in Office Documents using the modern file format.  Default is no options. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanGcpStorageFileAdvancedAsync(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanGcpStorageFileAdvancedAsync(String bucketName, String objectName, File jsonCredentialFile, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String options, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1222,7 +1596,7 @@ public class ScanCloudStorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanGcpStorageFileAdvancedValidateBeforeCall(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanGcpStorageFileAdvancedValidateBeforeCall(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1427,13 +1801,16 @@ public class ScanCloudStorageApi {
      * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
      * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1473,6 +1850,12 @@ public class ScanCloudStorageApi {
         localVarHeaderParams.put("allowInsecureDeserialization", apiClient.parameterToString(allowInsecureDeserialization));
         if (allowHtml != null)
         localVarHeaderParams.put("allowHtml", apiClient.parameterToString(allowHtml));
+        if (allowUnsafeArchives != null)
+        localVarHeaderParams.put("allowUnsafeArchives", apiClient.parameterToString(allowUnsafeArchives));
+        if (allowOleEmbeddedObject != null)
+        localVarHeaderParams.put("allowOleEmbeddedObject", apiClient.parameterToString(allowOleEmbeddedObject));
+        if (allowUnwantedAction != null)
+        localVarHeaderParams.put("allowUnwantedAction", apiClient.parameterToString(allowUnwantedAction));
         if (restrictFileTypes != null)
         localVarHeaderParams.put("restrictFileTypes", apiClient.parameterToString(restrictFileTypes));
 
@@ -1510,7 +1893,7 @@ public class ScanCloudStorageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'clientID' is set
         if (clientID == null) {
@@ -1533,7 +1916,7 @@ public class ScanCloudStorageApi {
         }
         
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, restrictFileTypes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1556,12 +1939,15 @@ public class ScanCloudStorageApi {
      * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
      * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return CloudStorageAdvancedVirusScanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanSharePointOnlineFileAdvanced(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, String restrictFileTypes) throws ApiException {
-        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+    public CloudStorageAdvancedVirusScanResult scanCloudStorageScanSharePointOnlineFileAdvanced(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String restrictFileTypes) throws ApiException {
+        ApiResponse<CloudStorageAdvancedVirusScanResult> resp = scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, restrictFileTypes);
         return resp.getData();
     }
 
@@ -1583,12 +1969,15 @@ public class ScanCloudStorageApi {
      * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
      * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @return ApiResponse&lt;CloudStorageAdvancedVirusScanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, String restrictFileTypes) throws ApiException {
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes, null, null);
+    public ApiResponse<CloudStorageAdvancedVirusScanResult> scanCloudStorageScanSharePointOnlineFileAdvancedWithHttpInfo(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String restrictFileTypes) throws ApiException {
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, restrictFileTypes, null, null);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1611,12 +2000,15 @@ public class ScanCloudStorageApi {
      * @param allowXmlExternalEntities Set to false to block XML External Entities and other threats embedded in XML files, and other files that contain embedded content threats. Set to true to allow these file types. Default is false (recommended). (optional)
      * @param allowInsecureDeserialization Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended). (optional)
      * @param allowHtml Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability]. (optional)
+     * @param allowUnsafeArchives Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed. (optional)
+     * @param allowOleEmbeddedObject Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed. (optional)
+     * @param allowUnwantedAction Set to false to block unwanted or undesired actions, which can contain execute or open links or content when the file is viewed.  Default is false (recommended).  If set to true, unwanted actions will be allowed. (optional)
      * @param restrictFileTypes Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult&#x3D;false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedAsync(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call scanCloudStorageScanSharePointOnlineFileAdvancedAsync(String clientID, String clientSecret, String sharepointDomainName, String siteID, String tenantID, String filePath, String itemID, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, Boolean allowUnwantedAction, String restrictFileTypes, final ApiCallback<CloudStorageAdvancedVirusScanResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1637,7 +2029,7 @@ public class ScanCloudStorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = scanCloudStorageScanSharePointOnlineFileAdvancedValidateBeforeCall(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, restrictFileTypes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CloudStorageAdvancedVirusScanResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

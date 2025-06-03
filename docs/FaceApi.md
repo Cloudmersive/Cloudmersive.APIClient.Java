@@ -1,6 +1,6 @@
 # FaceApi
 
-All URIs are relative to *https://api.cloudmersive.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 Detect the age of people in an image
 
-Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
 
 ### Example
 ```java
@@ -237,11 +237,11 @@ Name | Type | Description  | Notes
 
 <a name="faceDetectGender"></a>
 # **faceDetectGender**
-> GenderDetectionResult faceDetectGender(imageFile)
+> AgeDetectionResult faceDetectGender(imageFile)
 
 Detect the gender of people in an image
 
-Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
 
 ### Example
 ```java
@@ -263,7 +263,7 @@ Apikey.setApiKey("YOUR API KEY");
 FaceApi apiInstance = new FaceApi();
 File imageFile = new File("/path/to/file.txt"); // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 try {
-    GenderDetectionResult result = apiInstance.faceDetectGender(imageFile);
+    AgeDetectionResult result = apiInstance.faceDetectGender(imageFile);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FaceApi#faceDetectGender");
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenderDetectionResult**](GenderDetectionResult.md)
+[**AgeDetectionResult**](AgeDetectionResult.md)
 
 ### Authorization
 
