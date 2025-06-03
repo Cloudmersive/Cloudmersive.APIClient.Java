@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of validating a state
  */
 @ApiModel(description = "Result of validating a state")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:49.551-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:01.118Z")
 public class ValidateStateResponse {
   @SerializedName("ValidState")
   private Boolean validState = null;

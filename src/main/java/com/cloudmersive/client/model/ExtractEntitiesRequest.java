@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to extract named entities
  */
 @ApiModel(description = "Request to extract named entities")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:51.502-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:10.724Z")
 public class ExtractEntitiesRequest {
   @SerializedName("InputString")
   private String inputString = null;

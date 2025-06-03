@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.cloudmersive.client.model.AppendXlsxRowRequest;
 import com.cloudmersive.client.model.AppendXlsxRowResponse;
+import com.cloudmersive.client.model.BeginEditingChunkRequest;
+import com.cloudmersive.client.model.BeginEditingChunkResponse;
 import com.cloudmersive.client.model.ClearXlsxCellRequest;
 import com.cloudmersive.client.model.ClearXlsxCellResponse;
 import com.cloudmersive.client.model.ClearXlsxRowRequest;
@@ -294,9 +296,134 @@ public class EditDocumentApi {
         return call;
     }
     /**
+     * Build call for editDocumentBeginEditingChunk
+     * @param input  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentBeginEditingChunkCall(BeginEditingChunkRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = input;
+
+        // create path and map variables
+        String localVarPath = "/convert/edit/begin-editing/chunk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json", "application/xml", "text/xml"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Apikey" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editDocumentBeginEditingChunkValidateBeforeCall(BeginEditingChunkRequest input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'input' is set
+        if (input == null) {
+            throw new ApiException("Missing the required parameter 'input' when calling editDocumentBeginEditingChunk(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = editDocumentBeginEditingChunkCall(input, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Begin editing a document that is broken up until multiple chunks
+     * Requires Cloudmersive Private Cloud or Managed Instance.  When working with systems that have small file size limits, enables processing of large files above this limit.  Uploads a chunk of a document in Base64; once all chunks are received a document URL is returned.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
+     * @param input  (required)
+     * @return BeginEditingChunkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BeginEditingChunkResponse editDocumentBeginEditingChunk(BeginEditingChunkRequest input) throws ApiException {
+        ApiResponse<BeginEditingChunkResponse> resp = editDocumentBeginEditingChunkWithHttpInfo(input);
+        return resp.getData();
+    }
+
+    /**
+     * Begin editing a document that is broken up until multiple chunks
+     * Requires Cloudmersive Private Cloud or Managed Instance.  When working with systems that have small file size limits, enables processing of large files above this limit.  Uploads a chunk of a document in Base64; once all chunks are received a document URL is returned.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
+     * @param input  (required)
+     * @return ApiResponse&lt;BeginEditingChunkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BeginEditingChunkResponse> editDocumentBeginEditingChunkWithHttpInfo(BeginEditingChunkRequest input) throws ApiException {
+        com.squareup.okhttp.Call call = editDocumentBeginEditingChunkValidateBeforeCall(input, null, null);
+        Type localVarReturnType = new TypeToken<BeginEditingChunkResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Begin editing a document that is broken up until multiple chunks (asynchronously)
+     * Requires Cloudmersive Private Cloud or Managed Instance.  When working with systems that have small file size limits, enables processing of large files above this limit.  Uploads a chunk of a document in Base64; once all chunks are received a document URL is returned.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
+     * @param input  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call editDocumentBeginEditingChunkAsync(BeginEditingChunkRequest input, final ApiCallback<BeginEditingChunkResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = editDocumentBeginEditingChunkValidateBeforeCall(input, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BeginEditingChunkResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for editDocumentDocxAcceptAllTrackChanges
      * @param inputFile Input file to perform the operation on. (required)
-     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is false) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -368,7 +495,7 @@ public class EditDocumentApi {
      * Accept all tracked changes, revisions in a Word DOCX document
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is false) (optional)
      * @return byte[]
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -381,7 +508,7 @@ public class EditDocumentApi {
      * Accept all tracked changes, revisions in a Word DOCX document
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is false) (optional)
      * @return ApiResponse&lt;byte[]&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -395,7 +522,7 @@ public class EditDocumentApi {
      * Accept all tracked changes, revisions in a Word DOCX document (asynchronously)
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is false) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

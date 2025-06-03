@@ -28,7 +28,7 @@ import java.io.IOException;
  * An individual frame scanned for NSFW content
  */
 @ApiModel(description = "An individual frame scanned for NSFW content")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:03.844-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:18.010Z")
 public class NsfwScannedFrame {
   @SerializedName("FrameNumber")
   private Integer frameNumber = null;

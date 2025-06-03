@@ -16,6 +16,8 @@ package com.cloudmersive.client;
 import com.cloudmersive.client.model.CloudStorageAdvancedVirusScanResult;
 import com.cloudmersive.client.model.CloudStorageVirusScanResult;
 import java.io.File;
+import com.cloudmersive.client.model.ScanCloudStorageBatchJobCreateResult;
+import com.cloudmersive.client.model.ScanCloudStorageJobStatusResult;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -33,6 +35,22 @@ public class ScanCloudStorageApiTest {
 
     private final ScanCloudStorageApi api = new ScanCloudStorageApi();
 
+    
+    /**
+     * Get the status and result of a Scan Cloud Storage Batch Job
+     *
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void scanCloudStorageGetAsyncJobStatusTest() throws Exception {
+        String asyncJobID = null;
+        ScanCloudStorageJobStatusResult response = api.scanCloudStorageGetAsyncJobStatus(asyncJobID);
+
+        // TODO: test validations
+    }
     
     /**
      * Scan an AWS S3 file for viruses
@@ -81,9 +99,10 @@ public class ScanCloudStorageApiTest {
         Boolean allowHtml = null;
         Boolean allowUnsafeArchives = null;
         Boolean allowOleEmbeddedObject = null;
+        Boolean allowUnwantedAction = null;
         String options = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
 
         // TODO: test validations
     }
@@ -129,9 +148,41 @@ public class ScanCloudStorageApiTest {
         Boolean allowHtml = null;
         Boolean allowUnsafeArchives = null;
         Boolean allowOleEmbeddedObject = null;
+        Boolean allowUnwantedAction = null;
         String options = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Advanced Scan an Azure Blob for viruses via a batch job
+     *
+     * Via a batch job, advanced Scan the contents of a single Azure Blob and its content for viruses and threats, great for larger/longer processing jobs.  Requires Managed Instance or Private Cloud.  Returns a job ID which you can then use the Get Job Status API to get the status and output of the job.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void scanCloudStorageScanAzureBlobAdvancedBatchJobTest() throws Exception {
+        String connectionString = null;
+        String containerName = null;
+        String blobPath = null;
+        Boolean allowExecutables = null;
+        Boolean allowInvalidFiles = null;
+        Boolean allowScripts = null;
+        Boolean allowPasswordProtectedFiles = null;
+        Boolean allowMacros = null;
+        Boolean allowXmlExternalEntities = null;
+        Boolean allowInsecureDeserialization = null;
+        Boolean allowHtml = null;
+        Boolean allowUnsafeArchives = null;
+        Boolean allowOleEmbeddedObject = null;
+        Boolean allowUnwantedAction = null;
+        String options = null;
+        String restrictFileTypes = null;
+        ScanCloudStorageBatchJobCreateResult response = api.scanCloudStorageScanAzureBlobAdvancedBatchJob(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
 
         // TODO: test validations
     }
@@ -177,9 +228,10 @@ public class ScanCloudStorageApiTest {
         Boolean allowHtml = null;
         Boolean allowUnsafeArchives = null;
         Boolean allowOleEmbeddedObject = null;
+        Boolean allowUnwantedAction = null;
         String options = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
 
         // TODO: test validations
     }
@@ -231,8 +283,11 @@ public class ScanCloudStorageApiTest {
         Boolean allowXmlExternalEntities = null;
         Boolean allowInsecureDeserialization = null;
         Boolean allowHtml = null;
+        Boolean allowUnsafeArchives = null;
+        Boolean allowOleEmbeddedObject = null;
+        Boolean allowUnwantedAction = null;
         String restrictFileTypes = null;
-        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+        CloudStorageAdvancedVirusScanResult response = api.scanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, restrictFileTypes);
 
         // TODO: test validations
     }

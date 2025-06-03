@@ -1,6 +1,6 @@
 # MergeDocumentApi
 
-All URIs are relative to *https://api.cloudmersive.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ Method | HTTP request | Description
 
 Merge an array of Documents into a Single Document by Page as a Batch Job
 
-Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+Merge an array of Documents (PDF, PPTX, DOCX, XLSX supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
 
 ### Example
 ```java
@@ -1248,7 +1248,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="mergeDocumentXlsxMulti"></a>
 # **mergeDocumentXlsxMulti**

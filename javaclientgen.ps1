@@ -2,7 +2,7 @@
 Remove-Item –path ./gradle –recurse
 Remove-Item –path ./scripts –recurse
 Remove-Item –path ./src –recurse
-$artifact_version = "6.2.2"
+$artifact_version = "6.2.3"
 
 Write-Host "Building version $artifact_version"
 
@@ -14,9 +14,9 @@ Write-Host "Building version $artifact_version"
 & "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/convert/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
 & "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/config/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
 & "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/video/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
-& "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/swagger/api/dataintegration -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
-& "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/swagger/api/currency -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
-& "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/swagger/api/security -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
+& "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/dataintegration/v1/swagger.json -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
+& "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/currency/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
+& "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/security/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
 & "C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" -jar swagger-codegen-cli-2.4.44.jar generate    -i https://api.cloudmersive.com/virus/docs/v1/swagger -l java  --api-package com.cloudmersive.client   --model-package com.cloudmersive.client.model   --invoker-package com.cloudmersive.client.invoker   --group-id com.cloudmersive   --artifact-id cloudmersive-java-api-client   --artifact-version $artifact_version         -o .
 
 
@@ -62,11 +62,14 @@ function WhitespaceAgnosticReplace (
 
 
 WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/invoker/ApiClient.java' './replacements/buildRequestBodyMultipart.old.java' './replacements/buildRequestBodyMultipart.new.java'
+WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/invoker/ApiClient.java' './replacements/serialize.old.java' './replacements/serialize.new.java'
 
 WhitespaceAgnosticReplace './src/main/java/com/cloudmersive/client/ScanApi.java' './replacements/scanFileAdvancedCall.old.java' './replacements/scanFileAdvancedCall.new.java'
 
 
 Write-Host "Performing replacements... Done."
+
+$env:JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_211"
 
 #& pushd cloudmersive-java-api-client
 & gradle clean

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of performing an Insecure Deserialization JSON protection operation
  */
 @ApiModel(description = "Result of performing an Insecure Deserialization JSON protection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:09.338-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:34.363Z")
 public class StringAutomaticThreatDetection {
   @SerializedName("Successful")
   private Boolean successful = null;

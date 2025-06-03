@@ -28,7 +28,7 @@ import java.io.IOException;
  * Result of the GetGender operation
  */
 @ApiModel(description = "Result of the GetGender operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:49.551-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:01.118Z")
 public class GetGenderResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

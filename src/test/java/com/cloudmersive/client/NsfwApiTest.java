@@ -34,9 +34,9 @@ public class NsfwApiTest {
 
     
     /**
-     * Not safe for work NSFW racy content classification
+     * Not safe for work (NSFW) content classification for Images
      *
-     * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+     * Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
      *
      * @throws Exception
      *          if the Api call fails
@@ -45,6 +45,38 @@ public class NsfwApiTest {
     public void nsfwClassifyTest() throws Exception {
         File imageFile = null;
         NsfwResult response = api.nsfwClassify(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Not safe for work (NSFW) content classification for Documents
+     *
+     * Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void nsfwClassifyDocumentTest() throws Exception {
+        File imageFile = null;
+        NsfwResult response = api.nsfwClassifyDocument(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Not safe for work (NSFW) content classification for Video
+     *
+     * Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void nsfwClassifyVideoTest() throws Exception {
+        File videoFile = null;
+        NsfwResult response = api.nsfwClassifyVideo(videoFile);
 
         // TODO: test validations
     }

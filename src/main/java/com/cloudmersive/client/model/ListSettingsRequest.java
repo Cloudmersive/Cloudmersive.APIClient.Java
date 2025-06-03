@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request to enumerate settings
  */
 @ApiModel(description = "Request to enumerate settings")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:01.496-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:11.347Z")
 public class ListSettingsRequest {
   @SerializedName("BucketID")
   private String bucketID = null;

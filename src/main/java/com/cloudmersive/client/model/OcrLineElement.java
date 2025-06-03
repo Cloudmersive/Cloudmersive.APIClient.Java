@@ -31,7 +31,7 @@ import java.util.List;
  * A contiguous line of text in an OCR document
  */
 @ApiModel(description = "A contiguous line of text in an OCR document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:53.223-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:20.241Z")
 public class OcrLineElement {
   @SerializedName("LineText")
   private String lineText = null;

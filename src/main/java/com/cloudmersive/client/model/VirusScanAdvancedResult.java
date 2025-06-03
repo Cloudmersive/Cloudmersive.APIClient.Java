@@ -32,7 +32,7 @@ import java.util.List;
  * Result of running an advanced virus scan
  */
 @ApiModel(description = "Result of running an advanced virus scan")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:10.876-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:40.837Z")
 public class VirusScanAdvancedResult {
   @SerializedName("CleanResult")
   private Boolean cleanResult = null;
@@ -69,6 +69,9 @@ public class VirusScanAdvancedResult {
 
   @SerializedName("ContainsOleEmbeddedObject")
   private Boolean containsOleEmbeddedObject = null;
+
+  @SerializedName("ContainsUnwantedAction")
+  private Boolean containsUnwantedAction = null;
 
   @SerializedName("VerifiedFileFormat")
   private String verifiedFileFormat = null;
@@ -295,6 +298,24 @@ public class VirusScanAdvancedResult {
     this.containsOleEmbeddedObject = containsOleEmbeddedObject;
   }
 
+  public VirusScanAdvancedResult containsUnwantedAction(Boolean containsUnwantedAction) {
+    this.containsUnwantedAction = containsUnwantedAction;
+    return this;
+  }
+
+   /**
+   * True if the uploaded file contains an unwanted automatic action, which can be a significant risk factor
+   * @return containsUnwantedAction
+  **/
+  @ApiModelProperty(value = "True if the uploaded file contains an unwanted automatic action, which can be a significant risk factor")
+  public Boolean isContainsUnwantedAction() {
+    return containsUnwantedAction;
+  }
+
+  public void setContainsUnwantedAction(Boolean containsUnwantedAction) {
+    this.containsUnwantedAction = containsUnwantedAction;
+  }
+
   public VirusScanAdvancedResult verifiedFileFormat(String verifiedFileFormat) {
     this.verifiedFileFormat = verifiedFileFormat;
     return this;
@@ -379,6 +400,7 @@ public class VirusScanAdvancedResult {
         Objects.equals(this.containsHtml, virusScanAdvancedResult.containsHtml) &&
         Objects.equals(this.containsUnsafeArchive, virusScanAdvancedResult.containsUnsafeArchive) &&
         Objects.equals(this.containsOleEmbeddedObject, virusScanAdvancedResult.containsOleEmbeddedObject) &&
+        Objects.equals(this.containsUnwantedAction, virusScanAdvancedResult.containsUnwantedAction) &&
         Objects.equals(this.verifiedFileFormat, virusScanAdvancedResult.verifiedFileFormat) &&
         Objects.equals(this.foundViruses, virusScanAdvancedResult.foundViruses) &&
         Objects.equals(this.contentInformation, virusScanAdvancedResult.contentInformation);
@@ -386,7 +408,7 @@ public class VirusScanAdvancedResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, containsInsecureDeserialization, containsHtml, containsUnsafeArchive, containsOleEmbeddedObject, verifiedFileFormat, foundViruses, contentInformation);
+    return Objects.hash(cleanResult, containsExecutable, containsInvalidFile, containsScript, containsPasswordProtectedFile, containsRestrictedFileFormat, containsMacros, containsXmlExternalEntities, containsInsecureDeserialization, containsHtml, containsUnsafeArchive, containsOleEmbeddedObject, containsUnwantedAction, verifiedFileFormat, foundViruses, contentInformation);
   }
 
 
@@ -407,6 +429,7 @@ public class VirusScanAdvancedResult {
     sb.append("    containsHtml: ").append(toIndentedString(containsHtml)).append("\n");
     sb.append("    containsUnsafeArchive: ").append(toIndentedString(containsUnsafeArchive)).append("\n");
     sb.append("    containsOleEmbeddedObject: ").append(toIndentedString(containsOleEmbeddedObject)).append("\n");
+    sb.append("    containsUnwantedAction: ").append(toIndentedString(containsUnwantedAction)).append("\n");
     sb.append("    verifiedFileFormat: ").append(toIndentedString(verifiedFileFormat)).append("\n");
     sb.append("    foundViruses: ").append(toIndentedString(foundViruses)).append("\n");
     sb.append("    contentInformation: ").append(toIndentedString(contentInformation)).append("\n");

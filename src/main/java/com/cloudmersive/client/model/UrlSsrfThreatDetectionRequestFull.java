@@ -30,13 +30,16 @@ import java.util.List;
  * Request to determine if a URL is an SSRF threat check
  */
 @ApiModel(description = "Request to determine if a URL is an SSRF threat check")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:16:09.338-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:34.363Z")
 public class UrlSsrfThreatDetectionRequestFull {
   @SerializedName("URL")
   private String URL = null;
 
   @SerializedName("BlockedDomains")
   private List<String> blockedDomains = null;
+
+  @SerializedName("AllowCidScheme")
+  private Boolean allowCidScheme = null;
 
   public UrlSsrfThreatDetectionRequestFull URL(String URL) {
     this.URL = URL;
@@ -82,6 +85,24 @@ public class UrlSsrfThreatDetectionRequestFull {
     this.blockedDomains = blockedDomains;
   }
 
+  public UrlSsrfThreatDetectionRequestFull allowCidScheme(Boolean allowCidScheme) {
+    this.allowCidScheme = allowCidScheme;
+    return this;
+  }
+
+   /**
+   * Set to true to allow CID: schemes for inline content in emails; set to false otherwise.  Default is false.
+   * @return allowCidScheme
+  **/
+  @ApiModelProperty(value = "Set to true to allow CID: schemes for inline content in emails; set to false otherwise.  Default is false.")
+  public Boolean isAllowCidScheme() {
+    return allowCidScheme;
+  }
+
+  public void setAllowCidScheme(Boolean allowCidScheme) {
+    this.allowCidScheme = allowCidScheme;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,12 +114,13 @@ public class UrlSsrfThreatDetectionRequestFull {
     }
     UrlSsrfThreatDetectionRequestFull urlSsrfThreatDetectionRequestFull = (UrlSsrfThreatDetectionRequestFull) o;
     return Objects.equals(this.URL, urlSsrfThreatDetectionRequestFull.URL) &&
-        Objects.equals(this.blockedDomains, urlSsrfThreatDetectionRequestFull.blockedDomains);
+        Objects.equals(this.blockedDomains, urlSsrfThreatDetectionRequestFull.blockedDomains) &&
+        Objects.equals(this.allowCidScheme, urlSsrfThreatDetectionRequestFull.allowCidScheme);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(URL, blockedDomains);
+    return Objects.hash(URL, blockedDomains, allowCidScheme);
   }
 
 
@@ -109,6 +131,7 @@ public class UrlSsrfThreatDetectionRequestFull {
     
     sb.append("    URL: ").append(toIndentedString(URL)).append("\n");
     sb.append("    blockedDomains: ").append(toIndentedString(blockedDomains)).append("\n");
+    sb.append("    allowCidScheme: ").append(toIndentedString(allowCidScheme)).append("\n");
     sb.append("}");
     return sb.toString();
   }

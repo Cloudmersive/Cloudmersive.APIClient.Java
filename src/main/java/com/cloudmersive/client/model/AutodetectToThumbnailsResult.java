@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an entire document to an array of PNG thumbnails
  */
 @ApiModel(description = "Result of converting an entire document to an array of PNG thumbnails")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-16T23:15:58.406-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:55.394Z")
 public class AutodetectToThumbnailsResult {
   @SerializedName("Successful")
   private Boolean successful = null;
