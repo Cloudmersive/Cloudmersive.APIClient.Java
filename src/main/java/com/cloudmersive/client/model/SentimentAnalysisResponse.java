@@ -28,7 +28,7 @@ import java.io.IOException;
  * Output of a sentiment analysis operation
  */
 @ApiModel(description = "Output of a sentiment analysis operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:10.724Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:43:26.603Z")
 public class SentimentAnalysisResponse {
   @SerializedName("Successful")
   private Boolean successful = null;

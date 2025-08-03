@@ -14,6 +14,7 @@
 package com.cloudmersive.client;
 
 import java.io.File;
+import com.cloudmersive.client.model.NsfwAdvancedResult;
 import com.cloudmersive.client.model.NsfwResult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -45,6 +46,22 @@ public class NsfwApiTest {
     public void nsfwClassifyTest() throws Exception {
         File imageFile = null;
         NsfwResult response = api.nsfwClassify(imageFile);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Advanced content moderation and not safe for work (NSFW) content classification for Images
+     *
+     * Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void nsfwClassifyAdvancedTest() throws Exception {
+        File imageFile = null;
+        NsfwAdvancedResult response = api.nsfwClassifyAdvanced(imageFile);
 
         // TODO: test validations
     }

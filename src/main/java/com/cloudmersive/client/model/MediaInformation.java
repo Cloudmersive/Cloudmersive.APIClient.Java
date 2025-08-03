@@ -30,7 +30,7 @@ import java.util.List;
  * Result of retrieving information about a video or audio file
  */
 @ApiModel(description = "Result of retrieving information about a video or audio file")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:18.010Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:44:19.958Z")
 public class MediaInformation {
   @SerializedName("Successful")
   private Boolean successful = null;

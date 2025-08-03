@@ -31,7 +31,7 @@ import java.util.List;
  * Result of performing an enumerate currencies operation
  */
 @ApiModel(description = "Result of performing an enumerate currencies operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:20:28.611Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:44:31.104Z")
 public class AvailableCurrencyResponse {
   @SerializedName("Currencies")
   private List<AvailableCurrency> currencies = null;

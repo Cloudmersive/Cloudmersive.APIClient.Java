@@ -31,7 +31,7 @@ import java.util.List;
  * Input to a batch SQL Injection detection operation
  */
 @ApiModel(description = "Input to a batch SQL Injection detection operation")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:01.118Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:43:15.231Z")
 public class SqlInjectionCheckBatchRequest {
   @SerializedName("RequestItems")
   private List<SqlInjectionCheckRequestItem> requestItems = null;

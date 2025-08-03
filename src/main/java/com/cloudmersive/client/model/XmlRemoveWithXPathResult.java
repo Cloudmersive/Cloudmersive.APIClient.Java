@@ -30,7 +30,7 @@ import java.util.List;
  * Result of performing a filter operation on XML input using XPath
  */
 @ApiModel(description = "Result of performing a filter operation on XML input using XPath")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:55.394Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:43:58.761Z")
 public class XmlRemoveWithXPathResult {
   @SerializedName("Successful")
   private Boolean successful = null;

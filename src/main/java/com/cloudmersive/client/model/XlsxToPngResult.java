@@ -31,7 +31,7 @@ import java.util.List;
  * Result of converting an XLSX input to a PNG array
  */
 @ApiModel(description = "Result of converting an XLSX input to a PNG array")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:55.394Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:43:58.761Z")
 public class XlsxToPngResult {
   @SerializedName("Successful")
   private Boolean successful = null;

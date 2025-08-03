@@ -28,7 +28,7 @@ import java.io.IOException;
  * User-Agent parse and validation request
  */
 @ApiModel(description = "User-Agent parse and validation request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:01.118Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:43:15.231Z")
 public class UserAgentValidateRequest {
   @SerializedName("UserAgentString")
   private String userAgentString = null;

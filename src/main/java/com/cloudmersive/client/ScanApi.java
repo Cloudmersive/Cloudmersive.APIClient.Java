@@ -131,8 +131,6 @@ private ApiClient apiClient;
     public com.squareup.okhttp.Call scanFileAdvancedCall(java.io.InputStream inputFile, String fileName, Boolean allowExecutables, Boolean allowInvalidFiles, Boolean allowScripts, Boolean allowPasswordProtectedFiles, Boolean allowMacros, Boolean allowXmlExternalEntities, Boolean allowInsecureDeserialization, Boolean allowHtml, Boolean allowUnsafeArchives, Boolean allowOleEmbeddedObject, String options, String restrictFileTypes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = inputFile;
 
-        System.out.println("Reached scanFileAdvancedCall");
-
         // create path and map variables
         String localVarPath = "/virus/scan/file/advanced";
 

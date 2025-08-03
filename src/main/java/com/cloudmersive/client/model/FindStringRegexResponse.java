@@ -31,7 +31,7 @@ import java.util.List;
  * Result of finding a string
  */
 @ApiModel(description = "Result of finding a string")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-06-01T04:19:55.394Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2025-08-03T08:43:58.761Z")
 public class FindStringRegexResponse {
   @SerializedName("Successful")
   private Boolean successful = null;
